@@ -38,8 +38,11 @@ def main(out):
     page = "\n".join([title, '<meta name="claude:viewport-fit-sides" content="cover">', fonts,
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])
     (out / "geography-game.html").write_text(page, encoding="utf8")
-    for f in ("world-50m.json", "world-110m.json", "countries.json"):
+    for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg"):
         shutil.copy(ROOT / "data" / f, out / "data" / f)
+    if (out / "data" / "relief").exists():
+        shutil.rmtree(out / "data" / "relief")
+    shutil.copytree(ROOT / "data" / "relief", out / "data" / "relief")
     print("preview written to", out)
 
 

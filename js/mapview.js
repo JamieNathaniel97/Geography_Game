@@ -59,7 +59,9 @@
       this.w = Math.max(50, r.width); this.h = Math.max(50, r.height);
       this.dpr = Math.min(window.devicePixelRatio || 1, 2.5);
       this.canvas.width = Math.round(this.w * this.dpr); this.canvas.height = Math.round(this.h * this.dpr);
-      this.buildFlat();
+      // the flat map's size depends only on the width, so height-only changes (a phone's address bar
+      // sliding in and out) keep the prepared paths and terrain
+      if (this.w !== this.builtW) { this.buildFlat(); this.builtW = this.w; }
       this.R0 = Math.min(this.w, this.h) * 0.44;
       this.globe = d3.geoOrthographic().clipAngle(90).precision(0.3);
       this.zoom.extent([[0, 0], [this.w, this.h]]);
@@ -84,6 +86,151 @@
         this.BW = b[1][0]; this.BH = b[1][1];
       }
       this.flatPaths = null; // rebuilt lazily
+      this.flatRelief = null;
+      this.tileCache = null;
+    }
+
+    // ----- terrain -----
+    setTerrain(on) {
+      this.terrain = on;
+      if (on && !this.relief) {
+        GG.loadRelief().then(r => { this.relief = r; this.requestDraw(); }).catch(() => { this.terrain = false; });
+      }
+      this.requestDraw();
+    }
+    // the relief re-drawn into the flat map's own shape once, row by row (Patterson is cylindrical:
+    // each map row is one latitude, and longitude runs evenly across)
+    buildFlatRelief() {
+      const r = this.relief, TW = Math.min(4096, Math.round(this.BW * 6)), TH = Math.round(TW * this.BH / this.BW);
+      const cv = document.createElement("canvas"); cv.width = TW; cv.height = TH;
+      const cx = cv.getContext("2d");
+      for (let y = 0; y < TH; y++) {
+        const ll = this.flat.invert([this.BW / 2, (y + 0.5) * this.BH / TH]);
+        const sy = Math.max(0, Math.min(r.h - 1, Math.floor((90 - ll[1]) / 180 * r.h)));
+        cx.drawImage(r.img, 0, sy, r.w, 1, 0, y, TW, 1);
+      }
+      this.flatRelief = cv;
+    }
+    // Terrain on one copy of the flat map. Zoomed out it uses the whole-world image; zoomed in it adds
+    // sharper 512 px tiles for just the area on screen (loaded as needed). Both are stacked on a
+    // screen-sized layer first, then multiplied onto the map once, so the shading never doubles up.
+    drawFlatRelief(dx) {
+      if (!this.flatRelief) this.buildFlatRelief();
+      const ctx = this.ctx, t = this.t, dpr = this.dpr, ox = t.x + dx;
+      const toMap = c => c.setTransform(dpr * t.k, 0, 0, dpr * t.k, dpr * ox, dpr * t.y);
+      const lvl = this.tileLevel();
+      ctx.globalCompositeOperation = "multiply";
+      if (!lvl) {
+        toMap(ctx); ctx.drawImage(this.flatRelief, 0, 0, this.BW, this.BH);
+        ctx.globalCompositeOperation = "source-over";
+        return;
+      }
+      const W = this.canvas.width, H = this.canvas.height;
+      if (!this.reliefLayer || this.reliefLayer.width !== W || this.reliefLayer.height !== H) {
+        this.reliefLayer = document.createElement("canvas"); this.reliefLayer.width = W; this.reliefLayer.height = H;
+      }
+      const rc = this.reliefLayer.getContext("2d");
+      rc.setTransform(1, 0, 0, 1, 0, 0); rc.fillStyle = "#fff"; rc.fillRect(0, 0, W, H);
+      toMap(rc);
+      rc.save(); rc.beginPath(); rc.rect(0, 0, this.BW, this.BH); rc.clip();
+      rc.drawImage(this.flatRelief, 0, 0, this.BW, this.BH);
+      // which tiles are on screen
+      const k = t.k, BW = this.BW, BH = this.BH, tileDeg = this.relief.tiles.size * 360 / lvl.w;
+      const bx0 = Math.max(0, -ox / k), bx1 = Math.min(BW, (this.w - ox) / k);
+      const by0 = Math.max(0, -t.y / k), by1 = Math.min(BH, (this.h - t.y) / k);
+      if (bx1 > bx0 && by1 > by0) {
+        const lon0 = bx0 / BW * 360 - 180, lon1 = bx1 / BW * 360 - 180;
+        const latT = this.flat.invert([BW / 2, by0])[1], latB = this.flat.invert([BW / 2, by1])[1];
+        const nx = lvl.w / this.relief.tiles.size;
+        for (let ty = Math.floor((90 - latT) / tileDeg); ty <= Math.floor((90 - latB) / tileDeg); ty++) {
+          for (let tx = Math.floor((lon0 + 180) / tileDeg); tx <= Math.min(nx - 1, Math.floor((lon1 + 180) / tileDeg)); tx++) {
+            if (!lvl.set.has(tx + "_" + ty)) continue; // all flat or sea: nothing to add
+            const tile = this.getTile(lvl, tx, ty, tileDeg);
+            if (!tile) continue;
+            rc.drawImage(tile.cv, tx * tileDeg / 360 * BW, tile.yT, tileDeg / 360 * BW, tile.yB - tile.yT);
+          }
+        }
+      }
+      rc.restore();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.drawImage(this.reliefLayer, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+    }
+    // sharpest tile level needed at this zoom, or null when the whole-world image is sharp enough
+    tileLevel() {
+      const tiles = this.relief.tiles;
+      if (!tiles) return null;
+      const need = this.BW * this.t.k * this.dpr; // screen pixels across the whole world
+      if (need <= this.flatRelief.width * 1.3) return null;
+      return tiles.levels.find(l => l.w >= need * 0.8) || tiles.levels[tiles.levels.length - 1];
+    }
+    // a tile, re-drawn into the flat map's row spacing; null while it's still loading
+    getTile(lvl, tx, ty, tileDeg) {
+      const cache = (this.tileCache = this.tileCache || new Map()), key = lvl.w + "/" + tx + "_" + ty;
+      let e = cache.get(key);
+      if (e) { cache.delete(key); cache.set(key, e); return e.cv ? e : null; } // keep recently used at the end
+      e = {}; cache.set(key, e);
+      while (cache.size > 64) cache.delete(cache.keys().next().value);
+      const img = new Image();
+      img.onload = () => {
+        const S = this.relief.tiles.size, latT = 90 - ty * tileDeg, latB = latT - tileDeg;
+        const yT = this.flat([0, latT])[1], yB = this.flat([0, latB])[1];
+        const Hpx = Math.max(1, Math.round(S * (yB - yT) / (tileDeg / 360 * this.BW)));
+        const cv = document.createElement("canvas"); cv.width = S; cv.height = Hpx;
+        const cx = cv.getContext("2d");
+        for (let r = 0; r < Hpx; r++) {
+          const lat = this.flat.invert([this.BW / 2, yT + (r + 0.5) / Hpx * (yB - yT)])[1];
+          const sr = Math.max(0, Math.min(S - 1, Math.floor((latT - lat) / tileDeg * S)));
+          cx.drawImage(img, 0, sr, S, 1, 0, r, S, 1);
+        }
+        e.cv = cv; e.yT = yT; e.yB = yB; // in this map size's coordinates (the cache is cleared on resize)
+        this.requestDraw();
+      };
+      img.onerror = () => cache.delete(key);
+      img.src = "data/relief/" + lvl.w + "/" + tx + "_" + ty + ".jpg";
+      return null;
+    }
+
+    // the relief on the globe: each screen pixel is turned back into lon/lat (inverse orthographic)
+    // and looked up in the relief. `step` > 1 works at lower resolution while the globe is moving.
+    globeRelief(step) {
+      const r = this.relief, g = this.globeState(), R = g.scale;
+      const cw = Math.ceil(this.w / step), ch = Math.ceil(this.h / step);
+      if (!this.reliefCv || this.reliefCv.width !== cw || this.reliefCv.height !== ch) {
+        this.reliefCv = document.createElement("canvas"); this.reliefCv.width = cw; this.reliefCv.height = ch;
+        this.reliefImg = this.reliefCv.getContext("2d").createImageData(cw, ch);
+      }
+      // pick the mip level whose detail matches how far apart the samples are, so fine ridges
+      // don't flicker as the globe turns; then blend the 4 nearest texels (bilinear)
+      const samplesPerDeg = R * RAD / step;
+      let L = Math.ceil(Math.log2((r.w / 360) / samplesPerDeg));
+      L = Math.max(0, Math.min(r.levels.length - 1, L));
+      const lev = r.levels[L], grey = lev.grey, rw = lev.w, rh = lev.h;
+      const d = this.reliefImg.data;
+      const lon0 = -g.rotate[0], phi0 = -g.rotate[1] * RAD, sp = Math.sin(phi0), cp = Math.cos(phi0);
+      const cxs = this.w / 2, cys = this.h / 2;
+      for (let j = 0, i = 0; j < ch; j++) {
+        const y = (cys - (j + 0.5) * step) / R;
+        for (let k = 0; k < cw; k++, i += 4) {
+          const x = ((k + 0.5) * step - cxs) / R, rho2 = x * x + y * y;
+          let v = 255;
+          if (rho2 < 1) {
+            const cc = Math.sqrt(1 - rho2);
+            const lat = Math.asin(cc * sp + y * cp) * DEG;
+            let lon = lon0 + Math.atan2(x, cc * cp - y * sp) * DEG;
+            lon = ((lon + 180) % 360 + 360) % 360;
+            const fu = lon / 360 * rw - 0.5, fv = Math.max(0, Math.min(rh - 1.001, (90 - lat) / 180 * rh - 0.5));
+            const u0 = Math.floor(fu), v0 = fv | 0, du = fu - u0, dv = fv - v0;
+            const ua = (u0 + rw) % rw, ub = (u0 + 1) % rw, ra = v0 * rw, rb = ra + rw;
+            const top = grey[ra + ua] + (grey[ra + ub] - grey[ra + ua]) * du;
+            const bot = grey[rb + ua] + (grey[rb + ub] - grey[rb + ua]) * du;
+            v = top + (bot - top) * dv;
+          }
+          d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255;
+        }
+      }
+      this.reliefCv.getContext("2d").putImageData(this.reliefImg, 0, 0);
+      return this.reliefCv;
     }
     setFlatStyle(key) {
       if (key === this.styleKey) return;
@@ -239,6 +386,10 @@
         ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
         ctx.fillStyle = col.sea; ctx.fill(P.sphere);
         groups.forEach((ps, c) => { ctx.fillStyle = c; ps.forEach(p => ctx.fill(p)); });
+        if (this.terrain && this.relief && this.wrap) {
+          this.drawFlatRelief(dx);
+          ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
+        }
         ctx.lineJoin = "round";
         ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(P.coast);
         if (this.borders) { ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k; ctx.stroke(P.borders); }
@@ -260,6 +411,12 @@
         const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push(f);
       });
       groups.forEach((fs, c) => { ctx.beginPath(); fs.forEach(f => path(f)); ctx.fillStyle = c; ctx.fill(); });
+      if (this.terrain && this.relief) {
+        ctx.globalCompositeOperation = "multiply";
+        ctx.imageSmoothingEnabled = true;
+        ctx.drawImage(this.globeRelief(this.moving ? 2.5 : 1), 0, 0, this.w, this.h); // 0.4 resolution while spinning
+        ctx.globalCompositeOperation = "source-over";
+      }
       ctx.lineJoin = "round";
       ctx.beginPath(); path(light ? this.geo.coast110 : this.geo.coast50); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6; ctx.stroke();
       if (this.borders) { ctx.beginPath(); path(light ? this.geo.borders110 : this.geo.borders50); ctx.strokeStyle = col.border; ctx.lineWidth = 0.7; ctx.stroke(); }

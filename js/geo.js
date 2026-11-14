@@ -123,6 +123,40 @@
     return { ring, center: plane.from(cPlane) };
   }
 
+  // Terrain: data/relief.jpg is a 4096x2048 whole-world shaded relief (plate carree) where white = flat.
+  // Returns the image plus its grey values for the globe, which re-projects it pixel by pixel.
+  let reliefPromise = null;
+  GG.loadRelief = function () {
+    if (!reliefPromise) reliefPromise = new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const w = img.naturalWidth, h = img.naturalHeight, cv = document.createElement("canvas");
+        cv.width = w; cv.height = h;
+        const cx = cv.getContext("2d"); cx.drawImage(img, 0, 0);
+        const rgba = cx.getImageData(0, 0, w, h).data, grey = new Uint8Array(w * h);
+        for (let i = 0, j = 0; i < grey.length; i++, j += 4) grey[i] = rgba[j];
+        // smaller, averaged copies (mip levels) so the globe can read the one that suits the zoom
+        const levels = [{ w, h, grey }];
+        while (levels[levels.length - 1].w > 256) {
+          const p = levels[levels.length - 1], nw = p.w >> 1, nh = p.h >> 1, g = new Uint8Array(nw * nh);
+          for (let y = 0; y < nh; y++) for (let x = 0; x < nw; x++) {
+            const i = 2 * y * p.w + 2 * x;
+            g[y * nw + x] = (p.grey[i] + p.grey[i + 1] + p.grey[i + p.w] + p.grey[i + p.w + 1] + 2) >> 2;
+          }
+          levels.push({ w: nw, h: nh, grey: g });
+        }
+        // sharper tiles for the zoomed-in flat map (optional: terrain still works without them)
+        fetch("data/relief/index.json").then(r => r.ok ? r.json() : null).catch(() => null).then(ix => {
+          const tiles = ix && { size: ix.tile, levels: ix.levels.map(l => ({ w: l.w, h: l.h, set: new Set(l.tiles) })) };
+          resolve({ img, w, h, grey, levels, tiles });
+        });
+      };
+      img.onerror = () => { reliefPromise = null; reject(new Error("Could not load terrain")); };
+      img.src = "data/relief.jpg";
+    });
+    return reliefPromise;
+  };
+
   GG.loadGeo = async function () {
     const [t50, t110, countries] = await Promise.all([
       getJSON("data/world-50m.json"), getJSON("data/world-110m.json"), getJSON("data/countries.json")]);

@@ -114,6 +114,11 @@
     if (inset) inset.borders = main.borders;
     redraw();
   };
+  $("terrainBtn").onclick = () => {
+    const on = !main.terrain;
+    main.setTerrain(on); if (inset) inset.setTerrain(on);
+    $("terrainBtn").classList.toggle("on", on); $("terrainBtn").setAttribute("aria-pressed", on);
+  };
   function setMag(on) {
     S.magnify = on;
     $("magBtn").classList.toggle("on", on); $("magBtn").setAttribute("aria-pressed", on);
@@ -139,6 +144,7 @@
   function openInset(ll, span) {
     $("inset").hidden = false;
     inset = new GG.MapView($("insetMap"), { geo, mode: "flat", flatStyle: main.styleKey, getState, onTap: tap, isTarget: c => c === target, borders: main.borders });
+    if (main.terrain) inset.setTerrain(true);
     inset.lookAt(ll[0], ll[1], span, false);
   }
   function closeInset() { $("inset").hidden = true; inset = null; }
@@ -189,6 +195,7 @@
     // testing hook: ?view=flat&at=lon,lat,span opens a given view
     const q = new URLSearchParams(location.search);
     if (q.get("view") === "flat") main.setMode("flat");
+    if (q.get("terrain")) $("terrainBtn").click();
     if (q.get("at")) { const [lo, la, sp] = q.get("at").split(",").map(Number); main.lookAt(lo, la, sp, false); }
     if (JUMPS[q.get("jump")]) { const [lo, la, sp] = JUMPS[q.get("jump")][main.mode]; main.lookAt(lo, la, sp, false); }
     GG.debug = { main, geo };

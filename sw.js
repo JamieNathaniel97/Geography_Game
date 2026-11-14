@@ -1,16 +1,25 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "geography-game-v1";
+const CACHE = "geography-game-v4";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/geo.js", "js/mapview.js", "js/app.js",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
-  "data/world-50m.json", "data/world-110m.json", "data/countries.json",
+  "data/world-50m.json", "data/world-110m.json", "data/countries.json", "data/relief.jpg",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",
 ];
 
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));
+  event.waitUntil(caches.open(CACHE).then(async cache => {
+    await cache.addAll(SHELL);
+    // the sharper terrain tiles (about 9 MB), listed in their index, so terrain works offline when zoomed in
+    try {
+      const ix = await (await fetch("data/relief/index.json")).json();
+      await cache.add("data/relief/index.json");
+      const urls = ix.levels.flatMap(l => l.tiles.map(n => `data/relief/${l.w}/${n}.jpg`));
+      for (let i = 0; i < urls.length; i += 40) await cache.addAll(urls.slice(i, i + 40));
+    } catch (e) { /* tiles are optional; they'll be cached as they're viewed */ }
+  }));
   self.skipWaiting();
 });
 
