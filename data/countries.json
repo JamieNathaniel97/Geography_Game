@@ -1,0 +1,3158 @@
+[
+{
+"iso": "AFG",
+"id": "004",
+"name": "Afghanistan",
+"capitals": [
+"Kabul"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+33,
+65
+]
+},
+{
+"iso": "ALB",
+"id": "008",
+"name": "Albania",
+"capitals": [
+"Tirana"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+41,
+20
+]
+},
+{
+"iso": "DZA",
+"id": "012",
+"name": "Algeria",
+"capitals": [
+"Algiers"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+28,
+3
+]
+},
+{
+"iso": "AND",
+"id": "020",
+"name": "Andorra",
+"capitals": [
+"Andorra la Vella"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+42.5,
+1.5
+]
+},
+{
+"iso": "AGO",
+"id": "024",
+"name": "Angola",
+"capitals": [
+"Luanda"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-12.5,
+18.5
+]
+},
+{
+"iso": "ATG",
+"id": "028",
+"name": "Antigua and Barbuda",
+"capitals": [
+"Saint John's"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+17.05,
+-61.8
+]
+},
+{
+"iso": "ARG",
+"id": "032",
+"name": "Argentina",
+"capitals": [
+"Buenos Aires"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-34,
+-64
+]
+},
+{
+"iso": "ARM",
+"id": "051",
+"name": "Armenia",
+"capitals": [
+"Yerevan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+40,
+45
+]
+},
+{
+"iso": "AUS",
+"id": "036",
+"name": "Australia",
+"capitals": [
+"Canberra"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-27,
+133
+]
+},
+{
+"iso": "AUT",
+"id": "040",
+"name": "Austria",
+"capitals": [
+"Vienna"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+47.33333333,
+13.33333333
+]
+},
+{
+"iso": "AZE",
+"id": "031",
+"name": "Azerbaijan",
+"capitals": [
+"Baku"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+40.5,
+47.5
+]
+},
+{
+"iso": "BHS",
+"id": "044",
+"name": "Bahamas",
+"capitals": [
+"Nassau"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+24.25,
+-76
+]
+},
+{
+"iso": "BHR",
+"id": "048",
+"name": "Bahrain",
+"capitals": [
+"Manama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+26,
+50.55
+]
+},
+{
+"iso": "BGD",
+"id": "050",
+"name": "Bangladesh",
+"capitals": [
+"Dhaka"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+24,
+90
+]
+},
+{
+"iso": "BRB",
+"id": "052",
+"name": "Barbados",
+"capitals": [
+"Bridgetown"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+13.16666666,
+-59.53333333
+]
+},
+{
+"iso": "BLR",
+"id": "112",
+"name": "Belarus",
+"capitals": [
+"Minsk"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+53,
+28
+]
+},
+{
+"iso": "BEL",
+"id": "056",
+"name": "Belgium",
+"capitals": [
+"Brussels"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+50.83333333,
+4
+]
+},
+{
+"iso": "BLZ",
+"id": "084",
+"name": "Belize",
+"capitals": [
+"Belmopan"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+17.25,
+-88.75
+]
+},
+{
+"iso": "BEN",
+"id": "204",
+"name": "Benin",
+"capitals": [
+"Porto-Novo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+9.5,
+2.25
+]
+},
+{
+"iso": "BTN",
+"id": "064",
+"name": "Bhutan",
+"capitals": [
+"Thimphu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+27.5,
+90.5
+]
+},
+{
+"iso": "BOL",
+"id": "068",
+"name": "Bolivia",
+"capitals": [
+"Sucre"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-17,
+-65
+]
+},
+{
+"iso": "BIH",
+"id": "070",
+"name": "Bosnia and Herzegovina",
+"capitals": [
+"Sarajevo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+44,
+18
+]
+},
+{
+"iso": "BWA",
+"id": "072",
+"name": "Botswana",
+"capitals": [
+"Gaborone"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-22,
+24
+]
+},
+{
+"iso": "BRA",
+"id": "076",
+"name": "Brazil",
+"capitals": [
+"Brasília"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-10,
+-55
+]
+},
+{
+"iso": "BRN",
+"id": "096",
+"name": "Brunei",
+"capitals": [
+"Bandar Seri Begawan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+4.5,
+114.66666666
+]
+},
+{
+"iso": "BGR",
+"id": "100",
+"name": "Bulgaria",
+"capitals": [
+"Sofia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+43,
+25
+]
+},
+{
+"iso": "BFA",
+"id": "854",
+"name": "Burkina Faso",
+"capitals": [
+"Ouagadougou"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+13,
+-2
+]
+},
+{
+"iso": "BDI",
+"id": "108",
+"name": "Burundi",
+"capitals": [
+"Gitega"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-3.5,
+30
+]
+},
+{
+"iso": "KHM",
+"id": "116",
+"name": "Cambodia",
+"capitals": [
+"Phnom Penh"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+13,
+105
+]
+},
+{
+"iso": "CMR",
+"id": "120",
+"name": "Cameroon",
+"capitals": [
+"Yaoundé"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+6,
+12
+]
+},
+{
+"iso": "CAN",
+"id": "124",
+"name": "Canada",
+"capitals": [
+"Ottawa"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+60,
+-95
+]
+},
+{
+"iso": "CPV",
+"id": "132",
+"name": "Cape Verde",
+"capitals": [
+"Praia"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+16,
+-24
+]
+},
+{
+"iso": "CAF",
+"id": "140",
+"name": "Central African Republic",
+"capitals": [
+"Bangui"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+7,
+21
+]
+},
+{
+"iso": "TCD",
+"id": "148",
+"name": "Chad",
+"capitals": [
+"N'Djamena"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+15,
+19
+]
+},
+{
+"iso": "CHL",
+"id": "152",
+"name": "Chile",
+"capitals": [
+"Santiago"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-30,
+-71
+]
+},
+{
+"iso": "CHN",
+"id": "156",
+"name": "China",
+"capitals": [
+"Beijing"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+35,
+105
+]
+},
+{
+"iso": "COL",
+"id": "170",
+"name": "Colombia",
+"capitals": [
+"Bogotá"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+4,
+-72
+]
+},
+{
+"iso": "COM",
+"id": "174",
+"name": "Comoros",
+"capitals": [
+"Moroni"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-12.16666666,
+44.25
+]
+},
+{
+"iso": "CRI",
+"id": "188",
+"name": "Costa Rica",
+"capitals": [
+"San José"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+10,
+-84
+]
+},
+{
+"iso": "HRV",
+"id": "191",
+"name": "Croatia",
+"capitals": [
+"Zagreb"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+45.16666666,
+15.5
+]
+},
+{
+"iso": "CUB",
+"id": "192",
+"name": "Cuba",
+"capitals": [
+"Havana"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+21.5,
+-80
+]
+},
+{
+"iso": "CYP",
+"id": "196",
+"name": "Cyprus",
+"capitals": [
+"Nicosia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+35,
+33
+]
+},
+{
+"iso": "CZE",
+"id": "203",
+"name": "Czechia",
+"capitals": [
+"Prague"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+49.75,
+15.5
+]
+},
+{
+"iso": "COD",
+"id": "180",
+"name": "DR Congo",
+"capitals": [
+"Kinshasa"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+0,
+25
+]
+},
+{
+"iso": "DNK",
+"id": "208",
+"name": "Denmark",
+"capitals": [
+"Copenhagen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+56,
+10
+]
+},
+{
+"iso": "DJI",
+"id": "262",
+"name": "Djibouti",
+"capitals": [
+"Djibouti"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+11.5,
+43
+]
+},
+{
+"iso": "DMA",
+"id": "212",
+"name": "Dominica",
+"capitals": [
+"Roseau"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+15.41666666,
+-61.33333333
+]
+},
+{
+"iso": "DOM",
+"id": "214",
+"name": "Dominican Republic",
+"capitals": [
+"Santo Domingo"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+19,
+-70.66666666
+]
+},
+{
+"iso": "ECU",
+"id": "218",
+"name": "Ecuador",
+"capitals": [
+"Quito"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-2,
+-77.5
+]
+},
+{
+"iso": "EGY",
+"id": "818",
+"name": "Egypt",
+"capitals": [
+"Cairo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+27,
+30
+]
+},
+{
+"iso": "SLV",
+"id": "222",
+"name": "El Salvador",
+"capitals": [
+"San Salvador"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+13.83333333,
+-88.91666666
+]
+},
+{
+"iso": "GNQ",
+"id": "226",
+"name": "Equatorial Guinea",
+"capitals": [
+"Malabo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+2,
+10
+]
+},
+{
+"iso": "ERI",
+"id": "232",
+"name": "Eritrea",
+"capitals": [
+"Asmara"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+15,
+39
+]
+},
+{
+"iso": "EST",
+"id": "233",
+"name": "Estonia",
+"capitals": [
+"Tallinn"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+59,
+26
+]
+},
+{
+"iso": "SWZ",
+"id": "748",
+"name": "Eswatini",
+"capitals": [
+"Lobamba"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-26.5,
+31.5
+]
+},
+{
+"iso": "ETH",
+"id": "231",
+"name": "Ethiopia",
+"capitals": [
+"Addis Ababa"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+8,
+38
+]
+},
+{
+"iso": "FJI",
+"id": "242",
+"name": "Fiji",
+"capitals": [
+"Suva"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-18,
+175
+]
+},
+{
+"iso": "FIN",
+"id": "246",
+"name": "Finland",
+"capitals": [
+"Helsinki"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+64,
+26
+]
+},
+{
+"iso": "FRA",
+"id": "250",
+"name": "France",
+"capitals": [
+"Paris"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+46,
+2
+]
+},
+{
+"iso": "GAB",
+"id": "266",
+"name": "Gabon",
+"capitals": [
+"Libreville"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-1,
+11.75
+]
+},
+{
+"iso": "GMB",
+"id": "270",
+"name": "Gambia",
+"capitals": [
+"Banjul"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+13.46666666,
+-16.56666666
+]
+},
+{
+"iso": "GEO",
+"id": "268",
+"name": "Georgia",
+"capitals": [
+"Tbilisi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+42,
+43.5
+]
+},
+{
+"iso": "DEU",
+"id": "276",
+"name": "Germany",
+"capitals": [
+"Berlin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+51,
+9
+]
+},
+{
+"iso": "GHA",
+"id": "288",
+"name": "Ghana",
+"capitals": [
+"Accra"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+8,
+-2
+]
+},
+{
+"iso": "GRC",
+"id": "300",
+"name": "Greece",
+"capitals": [
+"Athens"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+39,
+22
+]
+},
+{
+"iso": "GRD",
+"id": "308",
+"name": "Grenada",
+"capitals": [
+"St. George's"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+12.11666666,
+-61.66666666
+]
+},
+{
+"iso": "GTM",
+"id": "320",
+"name": "Guatemala",
+"capitals": [
+"Guatemala City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+15.5,
+-90.25
+]
+},
+{
+"iso": "GIN",
+"id": "324",
+"name": "Guinea",
+"capitals": [
+"Conakry"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+11,
+-10
+]
+},
+{
+"iso": "GNB",
+"id": "624",
+"name": "Guinea-Bissau",
+"capitals": [
+"Bissau"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+12,
+-15
+]
+},
+{
+"iso": "GUY",
+"id": "328",
+"name": "Guyana",
+"capitals": [
+"Georgetown"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+5,
+-59
+]
+},
+{
+"iso": "HTI",
+"id": "332",
+"name": "Haiti",
+"capitals": [
+"Port-au-Prince"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+19,
+-72.41666666
+]
+},
+{
+"iso": "HND",
+"id": "340",
+"name": "Honduras",
+"capitals": [
+"Tegucigalpa"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+15,
+-86.5
+]
+},
+{
+"iso": "HUN",
+"id": "348",
+"name": "Hungary",
+"capitals": [
+"Budapest"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+47,
+20
+]
+},
+{
+"iso": "ISL",
+"id": "352",
+"name": "Iceland",
+"capitals": [
+"Reykjavik"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+65,
+-18
+]
+},
+{
+"iso": "IND",
+"id": "356",
+"name": "India",
+"capitals": [
+"New Delhi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+20,
+77
+]
+},
+{
+"iso": "IDN",
+"id": "360",
+"name": "Indonesia",
+"capitals": [
+"Jakarta"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+-5,
+120
+]
+},
+{
+"iso": "IRN",
+"id": "364",
+"name": "Iran",
+"capitals": [
+"Tehran"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+32,
+53
+]
+},
+{
+"iso": "IRQ",
+"id": "368",
+"name": "Iraq",
+"capitals": [
+"Baghdad"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+33,
+44
+]
+},
+{
+"iso": "IRL",
+"id": "372",
+"name": "Ireland",
+"capitals": [
+"Dublin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+53,
+-8
+]
+},
+{
+"iso": "ISR",
+"id": "376",
+"name": "Israel",
+"capitals": [
+"Jerusalem"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+31.47,
+35.13
+]
+},
+{
+"iso": "ITA",
+"id": "380",
+"name": "Italy",
+"capitals": [
+"Rome"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+42.83333333,
+12.83333333
+]
+},
+{
+"iso": "CIV",
+"id": "384",
+"name": "Ivory Coast",
+"capitals": [
+"Yamoussoukro"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+8,
+-5
+]
+},
+{
+"iso": "JAM",
+"id": "388",
+"name": "Jamaica",
+"capitals": [
+"Kingston"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+18.25,
+-77.5
+]
+},
+{
+"iso": "JPN",
+"id": "392",
+"name": "Japan",
+"capitals": [
+"Tokyo"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+36,
+138
+]
+},
+{
+"iso": "JOR",
+"id": "400",
+"name": "Jordan",
+"capitals": [
+"Amman"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+31,
+36
+]
+},
+{
+"iso": "KAZ",
+"id": "398",
+"name": "Kazakhstan",
+"capitals": [
+"Astana"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+48,
+68
+]
+},
+{
+"iso": "KEN",
+"id": "404",
+"name": "Kenya",
+"capitals": [
+"Nairobi"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+1,
+38
+]
+},
+{
+"iso": "KIR",
+"id": "296",
+"name": "Kiribati",
+"capitals": [
+"South Tarawa"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+1.41666666,
+173
+]
+},
+{
+"iso": "XKX",
+"id": "XKX",
+"name": "Kosovo",
+"capitals": [
+"Pristina"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+42.666667,
+21.166667
+]
+},
+{
+"iso": "KWT",
+"id": "414",
+"name": "Kuwait",
+"capitals": [
+"Kuwait City"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+29.5,
+45.75
+]
+},
+{
+"iso": "KGZ",
+"id": "417",
+"name": "Kyrgyzstan",
+"capitals": [
+"Bishkek"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+41,
+75
+]
+},
+{
+"iso": "LAO",
+"id": "418",
+"name": "Laos",
+"capitals": [
+"Vientiane"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+18,
+105
+]
+},
+{
+"iso": "LVA",
+"id": "428",
+"name": "Latvia",
+"capitals": [
+"Riga"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+57,
+25
+]
+},
+{
+"iso": "LBN",
+"id": "422",
+"name": "Lebanon",
+"capitals": [
+"Beirut"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+33.83333333,
+35.83333333
+]
+},
+{
+"iso": "LSO",
+"id": "426",
+"name": "Lesotho",
+"capitals": [
+"Maseru"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-29.5,
+28.5
+]
+},
+{
+"iso": "LBR",
+"id": "430",
+"name": "Liberia",
+"capitals": [
+"Monrovia"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+6.5,
+-9.5
+]
+},
+{
+"iso": "LBY",
+"id": "434",
+"name": "Libya",
+"capitals": [
+"Tripoli"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+25,
+17
+]
+},
+{
+"iso": "LIE",
+"id": "438",
+"name": "Liechtenstein",
+"capitals": [
+"Vaduz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+47.26666666,
+9.53333333
+]
+},
+{
+"iso": "LTU",
+"id": "440",
+"name": "Lithuania",
+"capitals": [
+"Vilnius"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+56,
+24
+]
+},
+{
+"iso": "LUX",
+"id": "442",
+"name": "Luxembourg",
+"capitals": [
+"Luxembourg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+49.75,
+6.16666666
+]
+},
+{
+"iso": "MDG",
+"id": "450",
+"name": "Madagascar",
+"capitals": [
+"Antananarivo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-20,
+47
+]
+},
+{
+"iso": "MWI",
+"id": "454",
+"name": "Malawi",
+"capitals": [
+"Lilongwe"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-13.5,
+34
+]
+},
+{
+"iso": "MYS",
+"id": "458",
+"name": "Malaysia",
+"capitals": [
+"Kuala Lumpur"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+2.5,
+112.5
+]
+},
+{
+"iso": "MDV",
+"id": "462",
+"name": "Maldives",
+"capitals": [
+"Malé"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+3.25,
+73
+]
+},
+{
+"iso": "MLI",
+"id": "466",
+"name": "Mali",
+"capitals": [
+"Bamako"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+17,
+-4
+]
+},
+{
+"iso": "MLT",
+"id": "470",
+"name": "Malta",
+"capitals": [
+"Valletta"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+35.83333333,
+14.58333333
+]
+},
+{
+"iso": "MHL",
+"id": "584",
+"name": "Marshall Islands",
+"capitals": [
+"Majuro"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+9,
+168
+]
+},
+{
+"iso": "MRT",
+"id": "478",
+"name": "Mauritania",
+"capitals": [
+"Nouakchott"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+20,
+-12
+]
+},
+{
+"iso": "MUS",
+"id": "480",
+"name": "Mauritius",
+"capitals": [
+"Port Louis"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-20.28333333,
+57.55
+]
+},
+{
+"iso": "MEX",
+"id": "484",
+"name": "Mexico",
+"capitals": [
+"Mexico City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+23,
+-102
+]
+},
+{
+"iso": "FSM",
+"id": "583",
+"name": "Micronesia",
+"capitals": [
+"Palikir"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+6.91666666,
+158.25
+]
+},
+{
+"iso": "MDA",
+"id": "498",
+"name": "Moldova",
+"capitals": [
+"Chișinău"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+47,
+29
+]
+},
+{
+"iso": "MCO",
+"id": "492",
+"name": "Monaco",
+"capitals": [
+"Monaco"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+43.73333333,
+7.4
+]
+},
+{
+"iso": "MNG",
+"id": "496",
+"name": "Mongolia",
+"capitals": [
+"Ulan Bator"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+46,
+105
+]
+},
+{
+"iso": "MNE",
+"id": "499",
+"name": "Montenegro",
+"capitals": [
+"Podgorica"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+42.5,
+19.3
+]
+},
+{
+"iso": "MAR",
+"id": "504",
+"name": "Morocco",
+"capitals": [
+"Rabat"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+32,
+-5
+]
+},
+{
+"iso": "MOZ",
+"id": "508",
+"name": "Mozambique",
+"capitals": [
+"Maputo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-18.25,
+35
+]
+},
+{
+"iso": "MMR",
+"id": "104",
+"name": "Myanmar",
+"capitals": [
+"Naypyidaw"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+22,
+98
+]
+},
+{
+"iso": "NAM",
+"id": "516",
+"name": "Namibia",
+"capitals": [
+"Windhoek"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-22,
+17
+]
+},
+{
+"iso": "NRU",
+"id": "520",
+"name": "Nauru",
+"capitals": [
+"Yaren"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-0.53333333,
+166.91666666
+]
+},
+{
+"iso": "NPL",
+"id": "524",
+"name": "Nepal",
+"capitals": [
+"Kathmandu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+28,
+84
+]
+},
+{
+"iso": "NLD",
+"id": "528",
+"name": "Netherlands",
+"capitals": [
+"Amsterdam"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+52.5,
+5.75
+]
+},
+{
+"iso": "NZL",
+"id": "554",
+"name": "New Zealand",
+"capitals": [
+"Wellington"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-41,
+174
+]
+},
+{
+"iso": "NIC",
+"id": "558",
+"name": "Nicaragua",
+"capitals": [
+"Managua"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+13,
+-85
+]
+},
+{
+"iso": "NER",
+"id": "562",
+"name": "Niger",
+"capitals": [
+"Niamey"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+16,
+8
+]
+},
+{
+"iso": "NGA",
+"id": "566",
+"name": "Nigeria",
+"capitals": [
+"Abuja"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+10,
+8
+]
+},
+{
+"iso": "PRK",
+"id": "408",
+"name": "North Korea",
+"capitals": [
+"Pyongyang"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+40,
+127
+]
+},
+{
+"iso": "MKD",
+"id": "807",
+"name": "North Macedonia",
+"capitals": [
+"Skopje"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+41.83333333,
+22
+]
+},
+{
+"iso": "NOR",
+"id": "578",
+"name": "Norway",
+"capitals": [
+"Oslo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+62,
+10
+]
+},
+{
+"iso": "OMN",
+"id": "512",
+"name": "Oman",
+"capitals": [
+"Muscat"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+21,
+57
+]
+},
+{
+"iso": "PAK",
+"id": "586",
+"name": "Pakistan",
+"capitals": [
+"Islamabad"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+30,
+70
+]
+},
+{
+"iso": "PLW",
+"id": "585",
+"name": "Palau",
+"capitals": [
+"Ngerulmud"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+7.5,
+134.5
+]
+},
+{
+"iso": "PSE",
+"id": "275",
+"name": "Palestine",
+"capitals": [
+"Ramallah"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+31.9,
+35.2
+]
+},
+{
+"iso": "PAN",
+"id": "591",
+"name": "Panama",
+"capitals": [
+"Panama City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+9,
+-80
+]
+},
+{
+"iso": "PNG",
+"id": "598",
+"name": "Papua New Guinea",
+"capitals": [
+"Port Moresby"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-6,
+147
+]
+},
+{
+"iso": "PRY",
+"id": "600",
+"name": "Paraguay",
+"capitals": [
+"Asunción"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-23,
+-58
+]
+},
+{
+"iso": "PER",
+"id": "604",
+"name": "Peru",
+"capitals": [
+"Lima"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-10,
+-76
+]
+},
+{
+"iso": "PHL",
+"id": "608",
+"name": "Philippines",
+"capitals": [
+"Manila"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+13,
+122
+]
+},
+{
+"iso": "POL",
+"id": "616",
+"name": "Poland",
+"capitals": [
+"Warsaw"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+52,
+20
+]
+},
+{
+"iso": "PRT",
+"id": "620",
+"name": "Portugal",
+"capitals": [
+"Lisbon"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+39.5,
+-8
+]
+},
+{
+"iso": "QAT",
+"id": "634",
+"name": "Qatar",
+"capitals": [
+"Doha"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+25.5,
+51.25
+]
+},
+{
+"iso": "COG",
+"id": "178",
+"name": "Republic of the Congo",
+"capitals": [
+"Brazzaville"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-1,
+15
+]
+},
+{
+"iso": "ROU",
+"id": "642",
+"name": "Romania",
+"capitals": [
+"Bucharest"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+46,
+25
+]
+},
+{
+"iso": "RUS",
+"id": "643",
+"name": "Russia",
+"capitals": [
+"Moscow"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"ll": [
+60,
+100
+]
+},
+{
+"iso": "RWA",
+"id": "646",
+"name": "Rwanda",
+"capitals": [
+"Kigali"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-2,
+30
+]
+},
+{
+"iso": "KNA",
+"id": "659",
+"name": "Saint Kitts and Nevis",
+"capitals": [
+"Basseterre"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+17.33333333,
+-62.75
+]
+},
+{
+"iso": "LCA",
+"id": "662",
+"name": "Saint Lucia",
+"capitals": [
+"Castries"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+13.88333333,
+-60.96666666
+]
+},
+{
+"iso": "VCT",
+"id": "670",
+"name": "Saint Vincent and the Grenadines",
+"capitals": [
+"Kingstown"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+13.25,
+-61.2
+]
+},
+{
+"iso": "WSM",
+"id": "882",
+"name": "Samoa",
+"capitals": [
+"Apia"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-13.58333333,
+-172.33333333
+]
+},
+{
+"iso": "SMR",
+"id": "674",
+"name": "San Marino",
+"capitals": [
+"City of San Marino"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+43.76666666,
+12.41666666
+]
+},
+{
+"iso": "SAU",
+"id": "682",
+"name": "Saudi Arabia",
+"capitals": [
+"Riyadh"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+25,
+45
+]
+},
+{
+"iso": "SEN",
+"id": "686",
+"name": "Senegal",
+"capitals": [
+"Dakar"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+14,
+-14
+]
+},
+{
+"iso": "SRB",
+"id": "688",
+"name": "Serbia",
+"capitals": [
+"Belgrade"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+44,
+21
+]
+},
+{
+"iso": "SYC",
+"id": "690",
+"name": "Seychelles",
+"capitals": [
+"Victoria"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-4.58333333,
+55.66666666
+]
+},
+{
+"iso": "SLE",
+"id": "694",
+"name": "Sierra Leone",
+"capitals": [
+"Freetown"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+8.5,
+-11.5
+]
+},
+{
+"iso": "SGP",
+"id": "702",
+"name": "Singapore",
+"capitals": [
+"Singapore"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+1.36666666,
+103.8
+]
+},
+{
+"iso": "SVK",
+"id": "703",
+"name": "Slovakia",
+"capitals": [
+"Bratislava"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+48.66666666,
+19.5
+]
+},
+{
+"iso": "SVN",
+"id": "705",
+"name": "Slovenia",
+"capitals": [
+"Ljubljana"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+46.11666666,
+14.81666666
+]
+},
+{
+"iso": "SLB",
+"id": "090",
+"name": "Solomon Islands",
+"capitals": [
+"Honiara"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-8,
+159
+]
+},
+{
+"iso": "SOM",
+"id": "706",
+"name": "Somalia",
+"capitals": [
+"Mogadishu"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+10,
+49
+]
+},
+{
+"iso": "ZAF",
+"id": "710",
+"name": "South Africa",
+"capitals": [
+"Pretoria",
+"Bloemfontein",
+"Cape Town"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-29,
+24
+]
+},
+{
+"iso": "KOR",
+"id": "410",
+"name": "South Korea",
+"capitals": [
+"Seoul"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+37,
+127.5
+]
+},
+{
+"iso": "SSD",
+"id": "728",
+"name": "South Sudan",
+"capitals": [
+"Juba"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+7,
+30
+]
+},
+{
+"iso": "ESP",
+"id": "724",
+"name": "Spain",
+"capitals": [
+"Madrid"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+40,
+-4
+]
+},
+{
+"iso": "LKA",
+"id": "144",
+"name": "Sri Lanka",
+"capitals": [
+"Colombo"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+7,
+81
+]
+},
+{
+"iso": "SDN",
+"id": "729",
+"name": "Sudan",
+"capitals": [
+"Khartoum"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+15,
+30
+]
+},
+{
+"iso": "SUR",
+"id": "740",
+"name": "Suriname",
+"capitals": [
+"Paramaribo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+4,
+-56
+]
+},
+{
+"iso": "SWE",
+"id": "752",
+"name": "Sweden",
+"capitals": [
+"Stockholm"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+62,
+15
+]
+},
+{
+"iso": "CHE",
+"id": "756",
+"name": "Switzerland",
+"capitals": [
+"Bern"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+47,
+8
+]
+},
+{
+"iso": "SYR",
+"id": "760",
+"name": "Syria",
+"capitals": [
+"Damascus"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+35,
+38
+]
+},
+{
+"iso": "STP",
+"id": "678",
+"name": "São Tomé and Príncipe",
+"capitals": [
+"São Tomé"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+1,
+7
+]
+},
+{
+"iso": "TWN",
+"id": "158",
+"name": "Taiwan",
+"capitals": [
+"Taipei"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+23.5,
+121
+]
+},
+{
+"iso": "TJK",
+"id": "762",
+"name": "Tajikistan",
+"capitals": [
+"Dushanbe"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+39,
+71
+]
+},
+{
+"iso": "TZA",
+"id": "834",
+"name": "Tanzania",
+"capitals": [
+"Dodoma"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-6,
+35
+]
+},
+{
+"iso": "THA",
+"id": "764",
+"name": "Thailand",
+"capitals": [
+"Bangkok"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+15,
+100
+]
+},
+{
+"iso": "TLS",
+"id": "626",
+"name": "Timor-Leste",
+"capitals": [
+"Dili"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+-8.83333333,
+125.91666666
+]
+},
+{
+"iso": "TGO",
+"id": "768",
+"name": "Togo",
+"capitals": [
+"Lomé"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+8,
+1.16666666
+]
+},
+{
+"iso": "TON",
+"id": "776",
+"name": "Tonga",
+"capitals": [
+"Nuku'alofa"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-20,
+-175
+]
+},
+{
+"iso": "TTO",
+"id": "780",
+"name": "Trinidad and Tobago",
+"capitals": [
+"Port of Spain"
+],
+"cont": [
+"North America"
+],
+"car": true,
+"ll": [
+11,
+-61
+]
+},
+{
+"iso": "TUN",
+"id": "788",
+"name": "Tunisia",
+"capitals": [
+"Tunis"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+34,
+9
+]
+},
+{
+"iso": "TKM",
+"id": "795",
+"name": "Turkmenistan",
+"capitals": [
+"Ashgabat"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+40,
+60
+]
+},
+{
+"iso": "TUV",
+"id": "798",
+"name": "Tuvalu",
+"capitals": [
+"Funafuti"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-8,
+178
+]
+},
+{
+"iso": "TUR",
+"id": "792",
+"name": "Türkiye",
+"capitals": [
+"Ankara"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"ll": [
+39,
+35
+]
+},
+{
+"iso": "UGA",
+"id": "800",
+"name": "Uganda",
+"capitals": [
+"Kampala"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+1,
+32
+]
+},
+{
+"iso": "UKR",
+"id": "804",
+"name": "Ukraine",
+"capitals": [
+"Kyiv"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+49,
+32
+]
+},
+{
+"iso": "ARE",
+"id": "784",
+"name": "United Arab Emirates",
+"capitals": [
+"Abu Dhabi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+24,
+54
+]
+},
+{
+"iso": "GBR",
+"id": "826",
+"name": "United Kingdom",
+"capitals": [
+"London"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+54,
+-2
+]
+},
+{
+"iso": "USA",
+"id": "840",
+"name": "United States",
+"capitals": [
+"Washington D.C."
+],
+"cont": [
+"North America"
+],
+"car": false,
+"ll": [
+38,
+-97
+]
+},
+{
+"iso": "URY",
+"id": "858",
+"name": "Uruguay",
+"capitals": [
+"Montevideo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+-33,
+-56
+]
+},
+{
+"iso": "UZB",
+"id": "860",
+"name": "Uzbekistan",
+"capitals": [
+"Tashkent"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+41,
+64
+]
+},
+{
+"iso": "VUT",
+"id": "548",
+"name": "Vanuatu",
+"capitals": [
+"Port Vila"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"ll": [
+-16,
+167
+]
+},
+{
+"iso": "VAT",
+"id": "336",
+"name": "Vatican City",
+"capitals": [
+"Vatican City"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"ll": [
+41.9,
+12.45
+]
+},
+{
+"iso": "VEN",
+"id": "862",
+"name": "Venezuela",
+"capitals": [
+"Caracas"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"ll": [
+8,
+-66
+]
+},
+{
+"iso": "VNM",
+"id": "704",
+"name": "Vietnam",
+"capitals": [
+"Hanoi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+16.16666666,
+107.83333333
+]
+},
+{
+"iso": "YEM",
+"id": "887",
+"name": "Yemen",
+"capitals": [
+"Sana'a"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"ll": [
+15,
+48
+]
+},
+{
+"iso": "ZMB",
+"id": "894",
+"name": "Zambia",
+"capitals": [
+"Lusaka"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-15,
+30
+]
+},
+{
+"iso": "ZWE",
+"id": "716",
+"name": "Zimbabwe",
+"capitals": [
+"Harare"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+-20,
+30
+]
+}
+]
