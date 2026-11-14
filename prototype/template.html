@@ -37,6 +37,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px
 button{font:inherit;color:inherit;cursor:pointer}
 .btn{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:7px 12px;font-weight:500}
 .btn:focus-visible,.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.arrow{font-size:22px;line-height:1;padding:4px 14px}
 .btn.on{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 #mapwrap{flex:1;position:relative;min-height:0;background:var(--sea)}
 svg.map{width:100%;height:100%;display:block;touch-action:none;user-select:none;-webkit-user-select:none}
@@ -94,7 +95,8 @@ svg.map{width:100%;height:100%;display:block;touch-action:none;user-select:none;
       <div class="target" id="target">…</div>
     </div>
     <div class="score" id="score"></div>
-    <button class="btn" id="skip" type="button">Skip</button>
+    <button class="btn arrow" id="prev" type="button" aria-label="Previous country">‹</button>
+    <button class="btn arrow" id="fwd" type="button" aria-label="Next country">›</button>
   </div>
   <div id="mapwrap">
     <svg class="map" id="mainsvg"></svg>
@@ -105,8 +107,6 @@ svg.map{width:100%;height:100%;display:block;touch-action:none;user-select:none;
     <div class="rows">
       <div class="row"><label>Mode</label>
         <div class="seg" id="segMode"><button data-v="find" class="on" type="button">Find the country</button><button data-v="explore" type="button">Free tap</button></div></div>
-      <div class="row"><label>Questions</label>
-        <div class="seg" id="segPool"><button data-v="all" class="on" type="button">All 197</button><button data-v="tiny" type="button">Small ones only</button></div></div>
       <div class="row"><label>Borders</label>
         <div class="seg" id="segBorders"><button data-v="1" class="on" type="button">On</button><button data-v="0" type="button">Off</button></div>
         <button class="btn" id="magBtn" type="button">Magnifier</button></div>
@@ -390,23 +390,36 @@ function setMag(on){ S.magnify = on; document.getElementById('magBtn').classList
 document.getElementById('magBtn').onclick = () => setMag(!S.magnify);
 
 // ---------- game ----------
-let queue = [], target = null, busy = false, nGood = 0, nBad = 0;
+// `order` holds the countries still to answer; the arrows move through it instantly with no penalty
+let order = [], idx = 0, target = null, busy = false, nGood = 0, nBad = 0;
 const $ = id => document.getElementById(id);
 function newGame(){
   Object.keys(state).forEach(k => delete state[k]);
-  queue = d3.shuffle(COUNTRIES.filter(c => S.pool === 'all' || c.tiny)); nGood = nBad = 0; busy = false;
-  next();
+  order = d3.shuffle(COUNTRIES.slice()); idx = 0; nGood = nBad = 0; busy = false;
+  show();
 }
+// after an answer: drop the current country and show the one that slid into its place
 function next(){
+  order.splice(idx, 1);
+  if (idx >= order.length) idx = 0;
+  show();
+}
+function step(d){
+  if (busy || S.mode !== 'find' || order.length < 2) return;
+  idx = (idx + d + order.length) % order.length;
+  show();
+}
+function show(){
   busy = false;
-  target = queue.pop() || null;
+  target = S.mode === 'find' ? (order[idx] || null) : null;
   const t = $('target'); t.className = 'target';
-  if (S.mode === 'explore'){ $('eyebrow').textContent = 'Free tap'; t.textContent = 'Tap any country'; $('score').textContent=''; $('skip').hidden = true; }
+  const explore = S.mode === 'explore';
+  $('prev').hidden = $('fwd').hidden = explore;
+  if (explore){ $('eyebrow').textContent = 'Free tap'; t.textContent = 'Tap any country'; $('score').textContent=''; }
   else {
-    $('skip').hidden = false;
     $('eyebrow').textContent = target ? 'Find' : 'Finished';
     t.textContent = target ? target.name : `${nGood} of ${nGood+nBad} correct`;
-    $('score').innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed<br>${queue.length + (target?1:0)} to go`;
+    $('score').innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed<br>${order.length} to go`;
   }
   redraw();
 }
@@ -430,7 +443,8 @@ function tap(c, view){
   redraw();
   setTimeout(() => { if (inset && view === inset) closeInset(); next(); }, c === target ? 650 : 1400);
 }
-$('skip').onclick = () => { if (!target || busy) return; busy = true; state[target.iso]='bad'; nBad++; $('target').classList.add('bad'); redraw(); setTimeout(next, 1200); };
+$('prev').onclick = () => step(-1);
+$('fwd').onclick = () => step(1);
 
 // ---------- controls ----------
 function seg(id, fn){
@@ -441,8 +455,7 @@ function seg(id, fn){
     fn(b.dataset.v);
   });
 }
-seg('segMode', v => { S.mode = v; Object.keys(state).forEach(k => delete state[k]); v === 'find' ? newGame() : next(); });
-seg('segPool', v => { S.pool = v; newGame(); });
+seg('segMode', v => { S.mode = v; Object.keys(state).forEach(k => delete state[k]); v === 'find' ? newGame() : show(); });
 seg('segBorders', v => { S.borders = v === '1'; document.body.classList.toggle('noborders', !S.borders); });
 const JUMPS = { europe:[[-12,35],[42,71]], asia:[[26,-11],[150,56]], africa:[[-19,-36],[53,38]], namerica:[[-169,7],[-52,72]],
   carib:[[-86,9],[-59,27]], samerica:[[-82,-56],[-34,13]], oceania:[[112,-48],[189.5,15]] };

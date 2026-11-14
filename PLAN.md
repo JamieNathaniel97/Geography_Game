@@ -40,10 +40,15 @@ The app shows a country name and the user taps where it is on the map.
 - Wrong: the correct country is highlighted in red, and the country the user tapped flashes yellow once to confirm the tap registered. Then move on.
 - Tapping the sea, or a country already answered correctly, does nothing.
 
-**Tiny countries**
+**Tiny countries** (settled with the prototype in `prototype/`)
 
-- **Clusters** (for example the Caribbean islands, small Pacific nations): a box or circle marks the crowded area; tapping it opens a zoomed-in inset on an empty part of the map (such as open ocean) where those countries can be tapped individually.
-- **Lone tiny countries** (for example Singapore, Vatican City, Maldives): an arrow points to the country, and tapping the arrow counts the same as tapping the country.
+- **Deep zoom** is the main tool: the map zooms far enough to tap even Vatican City directly.
+- **Island nations** get one dashed oval around all their islands, including the sea between them, squashed and tilted to follow island chains. Tapping anywhere inside counts as tapping the country, and the whole oval turns green or red. Kiribati is one sideways figure-8 shape (Gilbert Islands to the west, a larger lobe for the Phoenix and Line Islands to the east) that stays clear of Tuvalu and Nauru. The list: Fiji, Kiribati, Marshall Islands, Micronesia, Nauru, Palau, Samoa, Solomon Islands, Tonga, Tuvalu, Vanuatu, Antigua and Barbuda, Bahamas, Barbados, Dominica, Grenada, St Kitts and Nevis, St Lucia, St Vincent and the Grenadines, Trinidad and Tobago, Cape Verde, São Tomé and Príncipe, Comoros, Mauritius, Seychelles, Maldives, Malta, Singapore, Bahrain.
+- **Minimum shape size** on screen is 8 px, except Samoa, Nauru, Cape Verde, Comoros, Mauritius and Seychelles (16 px), São Tomé and Príncipe (22 px) and the Maldives (14 px).
+- **Small land countries** get a small 8 px ring that only shows the country is there. It can't be tapped and disappears once the country's own shape is visible. The list: Vatican City, San Marino, Monaco, Liechtenstein, Andorra, Qatar, Brunei, Timor-Leste.
+- **Lesser Antilles** (Antigua and Barbuda, St Kitts and Nevis, Dominica, St Lucia, St Vincent and the Grenadines, Grenada, Barbados, Trinidad and Tobago) show as one numbered bubble when zoomed out. Tapping it zooms in, and it splits into the individual ovals early in the zoom.
+- **Magnifier:** a button, then a tap anywhere, opens a zoomed-in inset there to tap a country in.
+- The overseas parts of France and the Netherlands (Guadeloupe, Martinique, French Guiana, Réunion, Mayotte, Bonaire and so on), plus Tokelau and Ashmore Reef, are territories: grey and untappable.
 
 ### 2. Name the countries (fill in the map)
 
@@ -174,7 +179,8 @@ Build 4 recreates the build 3 games for the counties of Great Britain and the wh
 - Length: always every country in the chosen scope (the whole world means all 197). There are no fixed-length quizzes.
 - Order: random each time.
 - Optional countdown timer, Sporcle-style, or untimed practice mode.
-- Give up / skip button that shows the answer.
+- Back and forward arrows next to the prompt move instantly through the countries still to answer, with no penalty, so the user can answer in any order. There is no skip or pass button.
+- Give up button that ends the quiz and shows the answers.
 
 ## Progress and learning
 
