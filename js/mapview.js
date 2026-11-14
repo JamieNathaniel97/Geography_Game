@@ -1,28 +1,45 @@
 // One map on a <canvas>: either a spinnable 3D globe or a flat world map, with pinch zoom,
 // tap detection, and the tiny-country overlays (island ovals, rings, the Lesser Antilles bubble).
+// Rectangular flat maps wrap around east-west, so there is no edge to get stuck at (Oceania).
 (function () {
   const GG = (window.GG = window.GG || {});
   const RAD = Math.PI / 180, DEG = 180 / Math.PI;
-  const FLAT_CENTRE_LON = 10;
   const MAX_K = 800;
   const smoothLine = d3.line().curve(d3.curveCatmullRomClosed);
 
+  // Flat map styles. Rectangular ones wrap around and are cropped to 85N-60S (Antarctica isn't in the quiz).
+  GG.FLAT_STYLES = {
+    patterson: { name: "Patterson", factory: () => d3.geoPatterson(), raw: d3.geoPattersonRaw, wrap: true },
+    miller: { name: "Miller", factory: () => d3.geoMiller(), raw: d3.geoMillerRaw, wrap: true },
+    mercator: { name: "Mercator", factory: () => d3.geoMercator(), raw: d3.geoMercatorRaw, wrap: true },
+    equirect: { name: "Plain grid", factory: () => d3.geoEquirectangular(), raw: d3.geoEquirectangularRaw, wrap: true },
+    natural: { name: "Curved (old)", factory: () => d3.geoNaturalEarth1(), raw: d3.geoNaturalEarth1Raw, wrap: false },
+  };
+  const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
+
   GG.MapView = class MapView {
-    // opts: { geo, mode: 'globe'|'flat', getState(c) -> 'good'|'bad'|'flash'|null, onTap(c), borders }
+    // opts: { geo, mode: 'globe'|'flat', flatStyle, getState(c), onTap(c, view), onPoint(view,x,y), isTarget(c), borders }
     constructor(canvas, opts) {
       this.canvas = canvas;
       this.ctx = canvas.getContext("2d");
       this.geo = opts.geo;
       this.opts = opts;
       this.mode = opts.mode || "globe";
+      this.styleKey = opts.flatStyle || "patterson";
       this.borders = opts.borders !== false;
       this.moving = false;
       this.t = d3.zoomIdentity;
       this.hits = { islands: [], bubbles: [] };
       this.readColours();
       this.zoom = d3.zoom().scaleExtent([1, MAX_K]).clickDistance(8)
-        .on("start", () => { this.moving = true; clearTimeout(this.settle); })
-        .on("zoom", e => { this.t = e.transform; this.requestDraw(); })
+        // only switch to the lighter outlines once the view really moves, so a plain tap
+        // (which also starts a zoom gesture) never drops the detail
+        .on("start", () => { clearTimeout(this.settle); })
+        .on("zoom", e => {
+          const a = this.t, b = e.transform;
+          if (a.x !== b.x || a.y !== b.y || a.k !== b.k) this.moving = true;
+          this.t = b; this.requestDraw();
+        })
         .on("end", () => { clearTimeout(this.settle); this.settle = setTimeout(() => { this.moving = false; this.requestDraw(); }, 140); });
       this.sel = d3.select(canvas).call(this.zoom).on("dblclick.zoom", null);
       canvas.addEventListener("click", e => this.handleClick(e));
@@ -42,22 +59,47 @@
       this.w = Math.max(50, r.width); this.h = Math.max(50, r.height);
       this.dpr = Math.min(window.devicePixelRatio || 1, 2.5);
       this.canvas.width = Math.round(this.w * this.dpr); this.canvas.height = Math.round(this.h * this.dpr);
-      // flat base projection, fitted to the width
-      this.flat = d3.geoNaturalEarth1().rotate([-FLAT_CENTRE_LON, 0]).fitWidth(this.w, { type: "Sphere" });
-      const b = d3.geoPath(this.flat).bounds({ type: "Sphere" });
-      this.BW = b[1][0]; this.BH = b[1][1];
-      this.flatPaths = null; // rebuilt lazily for the new size
-      // globe base radius
+      this.buildFlat();
       this.R0 = Math.min(this.w, this.h) * 0.44;
       this.globe = d3.geoOrthographic().clipAngle(90).precision(0.3);
       this.zoom.extent([[0, 0], [this.w, this.h]]);
       this.applyMode();
     }
 
+    // flat base projection at zoom 1: the whole world is exactly the screen width
+    buildFlat() {
+      const st = (this.style = GG.FLAT_STYLES[this.styleKey] || GG.FLAT_STYLES.patterson);
+      this.wrap = st.wrap;
+      this.flatCentre = st.wrap ? 0 : CURVED_CENTRE;
+      if (st.wrap) {
+        const unit = st.factory().scale(1).translate([0, 0]).precision(0.2);
+        const s = this.w / (2 * unit([179.999999, 0])[0]);
+        const p = st.factory().scale(s).translate([this.w / 2, 0]).precision(0.2);
+        const top = p([0, NORTH])[1], bottom = p([0, SOUTH])[1];
+        p.translate([this.w / 2, -top]).clipExtent([[-1, 0], [this.w + 1, bottom - top]]);
+        this.flat = p; this.BW = this.w; this.BH = bottom - top;
+      } else {
+        this.flat = st.factory().rotate([-CURVED_CENTRE, 0]).fitWidth(this.w, { type: "Sphere" });
+        const b = d3.geoPath(this.flat).bounds({ type: "Sphere" });
+        this.BW = b[1][0]; this.BH = b[1][1];
+      }
+      this.flatPaths = null; // rebuilt lazily
+    }
+    setFlatStyle(key) {
+      if (key === this.styleKey) return;
+      const c = this.centre(), ppd = this.pxPerDeg();
+      this.styleKey = key;
+      this.buildFlat();
+      this.applyMode();
+      if (this.mode === "flat") this.lookAt(c[0], c[1], Math.min(this.w, this.h) * 0.9 / ppd, false);
+      this.requestDraw();
+    }
+
     applyMode() {
       if (this.mode === "flat") {
-        this.zoom.scaleExtent([Math.min(1, this.h / this.BH), MAX_K])
-          .translateExtent([[-this.BW * 0.08, -this.BH * 0.1], [this.BW * 1.08, this.BH * 1.1]]);
+        const minK = this.wrap ? 1 : Math.min(1, this.h / this.BH);
+        const xr = this.wrap ? [-Infinity, Infinity] : [-this.BW * 0.08, this.BW * 1.08];
+        this.zoom.scaleExtent([minK, MAX_K]).translateExtent([[xr[0], -this.BH * 0.06], [xr[1], this.BH * 1.06]]);
       } else {
         this.zoom.scaleExtent([0.9, MAX_K]).translateExtent([[-Infinity, -Infinity], [Infinity, Infinity]]);
       }
@@ -76,9 +118,10 @@
     }
     projection() {
       if (this.mode === "flat") {
-        const t = this.t;
-        return this.flat.copy().scale(this.flat.scale() * t.k)
-          .translate([this.flat.translate()[0] * t.k + t.x, this.flat.translate()[1] * t.k + t.y]);
+        const t = this.t, tr = this.flat.translate();
+        const p = this.style.factory().scale(this.flat.scale() * t.k).translate([tr[0] * t.k + t.x, tr[1] * t.k + t.y]);
+        if (!this.wrap) p.rotate(this.flat.rotate());
+        return p;
       }
       const g = this.globeState();
       return this.globe.rotate([g.rotate[0], g.rotate[1], 0]).scale(g.scale).translate([this.w / 2, this.h / 2]);
@@ -86,8 +129,15 @@
     pxPerDeg() {
       return this.mode === "flat" ? this.t.k * this.BW / 360 : this.R0 * this.t.k * RAD;
     }
+    // base (zoom 1) x of the screen centre, unwrapped
+    baseCentreX() { return this.t.invert([this.w / 2, this.h / 2])[0]; }
     centre() {
-      if (this.mode === "flat") return this.flat.invert(this.t.invert([this.w / 2, this.h / 2]));
+      if (this.mode === "flat") {
+        const p = this.t.invert([this.w / 2, this.h / 2]);
+        if (this.wrap) p[0] = mod(p[0], this.BW);
+        p[1] = Math.max(0.5, Math.min(this.BH - 0.5, p[1]));
+        return this.flat.invert(p) || [0, 0];
+      }
       const r = this.globeState().rotate;
       return [-r[0], -r[1]];
     }
@@ -105,11 +155,12 @@
       const side = Math.min(this.w, this.h) * 0.9;
       if (this.mode === "flat") {
         const k = Math.max(this.zoom.scaleExtent()[0], Math.min(MAX_K, side / (spanDeg * this.BW / 360)));
-        const p = this.flat([lon, lat]);
-        this.setTransform(d3.zoomIdentity.translate(this.w / 2 - k * p[0], this.h / 2 - k * p[1]).scale(k), animate);
+        const p = this.flat([lon, Math.max(SOUTH + 1, Math.min(NORTH - 1, lat))]);
+        let x = p[0];
+        if (this.wrap) { const cx = this.baseCentreX(); while (x - cx > this.BW / 2) x -= this.BW; while (cx - x > this.BW / 2) x += this.BW; }
+        this.setTransform(d3.zoomIdentity.translate(this.w / 2 - k * x, this.h / 2 - k * p[1]).scale(k), animate);
       } else {
         const k = Math.max(0.9, Math.min(MAX_K, side / (spanDeg * this.R0 * RAD)));
-        // keep the turn short: pick the longitude nearest the current one
         const cur = this.centre()[0];
         let L = lon; while (L - cur > 180) L -= 360; while (cur - L > 180) L += 360;
         this.setTransform(this.globeTransform(L, lat, k), animate);
@@ -125,11 +176,10 @@
     }
     world(animate = true) {
       if (this.mode === "flat") {
-        const k = this.zoom.scaleExtent()[0] > 1 ? this.zoom.scaleExtent()[0] : 1;
-        this.setTransform(d3.zoomIdentity.translate((this.w - this.BW * k) / 2, (this.h - this.BH * k) / 2).scale(k), animate);
+        const x = this.wrap ? this.baseCentreX() : this.BW / 2;
+        this.setTransform(d3.zoomIdentity.translate(this.w / 2 - x, (this.h - this.BH) / 2).scale(1), animate);
       } else {
-        const c = this.centre();
-        this.setTransform(this.globeTransform(c[0], 15, 1), animate);
+        this.setTransform(this.globeTransform(this.centre()[0], 15, 1), animate);
       }
     }
     // switch globe <-> flat, keeping the same place and roughly the same zoom
@@ -138,9 +188,17 @@
       const c = this.centre(), ppd = this.pxPerDeg();
       this.mode = mode;
       this.applyMode();
-      const span = Math.min(this.w, this.h) * 0.9 / ppd;
-      this.lookAt(c[0], c[1], span, false);
+      this.lookAt(c[0], c[1], Math.min(this.w, this.h) * 0.9 / ppd, false);
       this.requestDraw();
+    }
+
+    // which copies of a wrapping flat map are on screen: list of screen x offsets
+    copies() {
+      if (this.mode !== "flat" || !this.wrap) return [0];
+      const Wk = this.BW * this.t.k, out = [];
+      const i0 = Math.floor((-this.t.x) / Wk) - 1, i1 = Math.floor((this.w - this.t.x) / Wk) + 1;
+      for (let i = i0; i <= i1; i++) out.push(i * Wk);
+      return out;
     }
 
     // ----- drawing -----
@@ -154,9 +212,9 @@
       return s ? this.col[s] : this.col.land;
     }
     draw() {
-      const ctx = this.ctx, dpr = this.dpr, col = this.col;
+      const ctx = this.ctx, dpr = this.dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.fillStyle = col.bg; ctx.fillRect(0, 0, this.w, this.h);
+      ctx.fillStyle = this.col.bg; ctx.fillRect(0, 0, this.w, this.h);
       if (this.mode === "flat") this.drawFlat(); else this.drawGlobe();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       this.drawOverlays();
@@ -165,30 +223,34 @@
       const ctx = this.ctx, t = this.t, col = this.col;
       if (!this.flatPaths) {
         const path = d3.geoPath(this.flat);
+        const sphere = new Path2D();
+        if (this.wrap) sphere.rect(0, 0, this.BW, this.BH); else sphere.addPath(new Path2D(path({ type: "Sphere" })));
         this.flatPaths = {
-          sphere: new Path2D(path({ type: "Sphere" })),
+          sphere,
           features: this.geo.f50.map(f => ({ f, p: new Path2D(path(f) || "") })),
           borders: new Path2D(path(this.geo.borders50) || ""),
           coast: new Path2D(path(this.geo.coast50) || ""),
         };
       }
       const P = this.flatPaths;
-      ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * t.x, this.dpr * t.y);
-      ctx.fillStyle = col.sea; ctx.fill(P.sphere);
       const groups = new Map();
       P.features.forEach(({ f, p }) => { const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push(p); });
-      groups.forEach((ps, c) => { ctx.fillStyle = c; ps.forEach(p => ctx.fill(p)); });
-      ctx.lineJoin = "round";
-      ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(P.coast);
-      if (this.borders) { ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k; ctx.stroke(P.borders); }
+      this.copies().forEach(dx => {
+        ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
+        ctx.fillStyle = col.sea; ctx.fill(P.sphere);
+        groups.forEach((ps, c) => { ctx.fillStyle = c; ps.forEach(p => ctx.fill(p)); });
+        ctx.lineJoin = "round";
+        ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(P.coast);
+        if (this.borders) { ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k; ctx.stroke(P.borders); }
+      });
     }
     drawGlobe() {
       const ctx = this.ctx, col = this.col, proj = this.projection();
       const path = d3.geoPath(proj, ctx);
+      // full detail is too slow to redraw every frame on a phone, so spin with the lighter outlines
       const light = this.moving && this.t.k < 4;
       const feats = light ? this.geo.f110 : this.geo.f50;
       const centre = this.centre();
-      // what part of the globe is on screen (for skipping countries out of view)
       const R = proj.scale(), half = Math.hypot(this.w, this.h) / 2;
       const view = half >= R ? Math.PI / 2 : Math.asin(half / R);
       ctx.beginPath(); path({ type: "Sphere" }); ctx.fillStyle = col.sea; ctx.fill();
@@ -201,7 +263,6 @@
       ctx.lineJoin = "round";
       ctx.beginPath(); path(light ? this.geo.coast110 : this.geo.coast50); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6; ctx.stroke();
       if (this.borders) { ctx.beginPath(); path(light ? this.geo.borders110 : this.geo.borders50); ctx.strokeStyle = col.border; ctx.lineWidth = 0.7; ctx.stroke(); }
-      // soft rim so the globe reads as a ball
       ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.stroke();
     }
 
@@ -209,17 +270,18 @@
     drawOverlays() {
       const ctx = this.ctx, col = this.col, proj = this.projection(), ppd = this.pxPerDeg(), geo = this.geo;
       const W = this.w, H = this.h, m = 40;
-      const islands = [], rings = [], bubbles = [], hidden = new Set();
+      const flat = this.mode === "flat", s0 = proj.scale(), tr = proj.translate(), raw = this.style.raw;
+      const norm = lon => { const l = lon - (flat ? this.flatCentre : 0); return ((l + 540) % 360) - 180; };
       // on the flat map, project a shape's points without splitting it at the map edge (Kiribati)
-      const flat = this.mode === "flat", s0 = proj.scale(), tr = proj.translate();
-      const norm = lon => { const l = lon - FLAT_CENTRE_LON; return ((l + 540) % 360) - 180; };
       const flatPt = (ll, ref) => {
         let l = norm(ll[0]);
         while (l - ref > 180) l -= 360;
         while (ref - l > 180) l += 360;
-        const q = d3.geoNaturalEarth1Raw(l * RAD, ll[1] * RAD);
+        const q = raw(l * RAD, ll[1] * RAD);
         return [tr[0] + s0 * q[0], tr[1] - s0 * q[1]];
       };
+      const offsets = this.copies();
+      const onScreen = (x, y, r) => x + r > -m && x - r < W + m && y + r > -m && y - r < H + m;
       const shapeOf = c => {
         if (!this.visible(c.shape.center)) return null;
         const ref = norm(c.shape.center[0]);
@@ -233,6 +295,8 @@
         const r = d3.max(pts, p => Math.hypot(p[0] - x, p[1] - y));
         return { c, x, y, r, f, pts };
       };
+      const shift = (s, dx) => dx === 0 ? s : Object.assign({}, s, { x: s.x + dx, pts: s.pts.map(p => [p[0] + dx, p[1]]) });
+      const islands = [], rings = [], bubbles = [], hidden = new Set();
       geo.clusters.forEach(cl => {
         const ms = cl.members.map(shapeOf).filter(Boolean);
         if (ms.length < 2) return;
@@ -241,17 +305,17 @@
           if ((ms[i].f > 1 || ms[j].f > 1) && Math.hypot(ms[i].x - ms[j].x, ms[i].y - ms[j].y) < (ms[i].r + ms[j].r) / 2) { overlap = true; break; }
         if (!overlap) return;
         cl.members.forEach(c => hidden.add(c));
-        bubbles.push({ cl, x: d3.mean(ms, s => s.x), y: d3.mean(ms, s => s.y), r: 13 });
+        const bx = d3.mean(ms, s => s.x), by = d3.mean(ms, s => s.y);
+        offsets.forEach(dx => { if (onScreen(bx + dx, by, 13)) bubbles.push({ cl, x: bx + dx, y: by, r: 13 }); });
       });
       geo.countries.forEach(c => {
         if (hidden.has(c)) return;
         if (c.shape) {
-          const s = shapeOf(c);
-          if (!s || s.x + s.r < -m || s.x - s.r > W + m || s.y + s.r < -m || s.y - s.r > H + m) return;
-          islands.push(s);
+          const s = shapeOf(c); if (!s) return;
+          offsets.forEach(dx => { if (onScreen(s.x + dx, s.y, s.r)) islands.push(shift(s, dx)); });
         } else if (c.ring && c.sizeDeg * ppd < geo.ringPx && this.visible(c.anchor)) {
           const [x, y] = proj(c.anchor);
-          if (x > -m && x < W + m && y > -m && y < H + m) rings.push({ c, x, y });
+          offsets.forEach(dx => { if (onScreen(x + dx, y, 4)) rings.push({ c, x: x + dx, y }); });
         }
       });
       islands.sort((a, b) => b.r - a.r); // bigger first, so smaller ones draw on top
@@ -271,7 +335,8 @@
       });
       bubbles.forEach(b => {
         const sts = b.cl.members.map(c => this.opts.getState(c));
-        const allGood = sts.every(s => s === "good"), anyBad = b.cl.members.some(c => this.opts.getState(c) === "bad" && this.opts.isTarget && this.opts.isTarget(c));
+        const allGood = sts.every(s => s === "good");
+        const anyBad = b.cl.members.some(c => this.opts.getState(c) === "bad" && this.opts.isTarget && this.opts.isTarget(c));
         ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, 2 * Math.PI);
         ctx.globalAlpha = anyBad ? 0.35 : 0.9; ctx.fillStyle = anyBad ? col.bad : col.panel; ctx.fill(); ctx.globalAlpha = 1;
         ctx.setLineDash(allGood || anyBad ? [] : [4, 3]);
@@ -306,10 +371,17 @@
     }
     lonLatAt(x, y) {
       if (this.mode === "flat") {
-        const p = this.t.invert([x, y]), ll = this.flat.invert(p);
-        if (!ll || !isFinite(ll[0])) return null;
-        // reject points outside the map outline
-        return Math.abs(ll[1]) <= 90 && this.flat(ll) && Math.hypot(this.flat(ll)[0] - p[0], this.flat(ll)[1] - p[1]) < 1 ? ll : null;
+        const p = this.t.invert([x, y]);
+        if (this.wrap) {
+          p[0] = mod(p[0], this.BW);
+          if (p[1] < 0 || p[1] > this.BH) return null;
+          const ll = this.flat.invert(p);
+          return ll && isFinite(ll[0]) ? ll : null;
+        }
+        const ll = this.flat.invert(p);
+        if (!ll || !isFinite(ll[0]) || Math.abs(ll[1]) > 90) return null;
+        const back = this.flat(ll); // reject points outside the curved outline
+        return back && Math.hypot(back[0] - p[0], back[1] - p[1]) < 1 ? ll : null;
       }
       const proj = this.projection();
       if (Math.hypot(x - this.w / 2, y - this.h / 2) > proj.scale()) return null;
@@ -317,14 +389,14 @@
       return ll && isFinite(ll[0]) ? ll : null;
     }
     zoomToCountries(cs) {
-      const pts = cs.flatMap(c => c.shape ? c.shape.ring : [c.bounds[0], c.bounds[1]]);
-      const lls = pts.map(p => p.slice());
+      const lls = cs.flatMap(c => c.shape ? c.shape.ring : [c.bounds[0], c.bounds[1]]).map(p => p.slice());
       if (lls.some(p => p[0] > 90) && lls.some(p => p[0] < -90)) lls.forEach(p => { if (p[0] < 0) p[0] += 360; });
       const w = d3.min(lls, p => p[0]), e = d3.max(lls, p => p[0]), s = d3.min(lls, p => p[1]), n = d3.max(lls, p => p[1]);
       this.fitBox([[w - 0.3, s - 0.3], [e + 0.3, n + 0.3]]);
     }
   };
 
+  function mod(a, n) { return ((a % n) + n) % n; }
   function inBounds(b, [lon, lat]) {
     if (lat < b[0][1] - 0.01 || lat > b[1][1] + 0.01) return false;
     if (b[0][0] <= b[1][0]) return lon >= b[0][0] - 0.01 && lon <= b[1][0] + 0.01;

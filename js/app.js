@@ -9,11 +9,16 @@
   const flashing = {};  // iso -> true while a wrong tap flashes yellow
   let geo, main, inset = null;
 
-  // regions for the jump bar: [[west, south], [east, north]]
+  // jump bar views, tuned separately for the globe and the flat map:
+  // [centre longitude, centre latitude, degrees across the screen's shorter side]
   const JUMPS = {
-    europe: [[-12, 35], [42, 71]], asia: [[26, -11], [150, 56]], africa: [[-19, -36], [53, 38]],
-    namerica: [[-169, 7], [-52, 72]], carib: [[-86, 9], [-59, 27]], samerica: [[-82, -56], [-34, 13]],
-    oceania: [[112, -48], [189.5, 15]],
+    europe:   { globe: [13, 53, 38],      flat: [15, 53, 50] },
+    asia:     { globe: [88, 22.5, 88],    flat: [88, 22.5, 114.6] },
+    africa:   { globe: [17, 1, 72],       flat: [17, 1, 86] },
+    namerica: { globe: [-90, 25, 69],     flat: [-104, 39.5, 90.3] },  // globe centred on the Gulf of Mexico
+    carib:    { globe: [-72.5, 18, 25.7], flat: [-72.5, 18, 25.7] },
+    samerica: { globe: [-58, -21.5, 44.7], flat: [-58, -24, 56] },
+    oceania:  { globe: [167, -16, 74.3],  flat: [167, -16, 74.3] },    // centred on Vanuatu
   };
 
   const getState = c => (flashing[c.iso] ? "flash" : state[c.iso] || null);
@@ -70,17 +75,17 @@
       state[c.iso] = "flash"; $("target").textContent = c.name; redraw();
       return;
     }
-    if (!target || busy || state[c.iso] === "good") return; // already-correct countries do nothing
-    busy = true;
-    const t = $("target");
-    if (c === target) { state[c.iso] = "good"; nGood++; t.classList.add("good"); }
+    if (!target || state[c.iso] === "good") return; // already-correct countries do nothing
+    // the next country appears instantly; the map keeps the green/red result
+    if (c === target) { state[c.iso] = "good"; nGood++; }
     else {
-      state[target.iso] = "bad"; nBad++; t.classList.add("bad");
+      state[target.iso] = "bad"; nBad++;
       flashing[c.iso] = true; // the tapped country flashes yellow once
       setTimeout(() => { delete flashing[c.iso]; redraw(); }, 450);
+      toast("Missed: " + target.name, 1800);
     }
-    redraw();
-    setTimeout(() => { if (inset && view === inset) closeInset(); next(); }, c === target ? 650 : 1400);
+    if (inset && view === inset) closeInset();
+    next();
   }
 
   // Give up: tap once to arm, again to confirm; the rest are shown in red
@@ -117,7 +122,9 @@
   $("magBtn").onclick = () => setMag(!S.magnify);
   $("jumps").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.v === "world") main.world(); else main.fitBox(JUMPS[b.dataset.v]);
+    if (b.dataset.v === "world") { main.world(); return; }
+    const [lon, lat, span] = JUMPS[b.dataset.v][main.mode];
+    main.lookAt(lon, lat, span);
   });
 
   let toastTimer;
@@ -131,7 +138,7 @@
   // ---------- magnifier inset ----------
   function openInset(ll, span) {
     $("inset").hidden = false;
-    inset = new GG.MapView($("insetMap"), { geo, mode: "flat", getState, onTap: tap, isTarget: c => c === target, borders: main.borders });
+    inset = new GG.MapView($("insetMap"), { geo, mode: "flat", flatStyle: main.styleKey, getState, onTap: tap, isTarget: c => c === target, borders: main.borders });
     inset.lookAt(ll[0], ll[1], span, false);
   }
   function closeInset() { $("inset").hidden = true; inset = null; }
@@ -174,8 +181,17 @@
       $("target").textContent = "The map data didn't load. Check your connection and reload.";
       return;
     }
-    main = new GG.MapView($("map"), { geo, mode: "globe", getState, onTap: tap, onPoint, isTarget: c => c === target });
+    // flat map is Patterson (chosen 2026-11-14); ?proj= still picks another style for testing
+    const q0 = new URLSearchParams(location.search);
+    const style = GG.FLAT_STYLES[q0.get("proj")] ? q0.get("proj") : "patterson";
+    main = new GG.MapView($("map"), { geo, mode: "globe", flatStyle: style, getState, onTap: tap, onPoint, isTarget: c => c === target });
     main.lookAt(15, 25, 120, false);
+    // testing hook: ?view=flat&at=lon,lat,span opens a given view
+    const q = new URLSearchParams(location.search);
+    if (q.get("view") === "flat") main.setMode("flat");
+    if (q.get("at")) { const [lo, la, sp] = q.get("at").split(",").map(Number); main.lookAt(lo, la, sp, false); }
+    if (JUMPS[q.get("jump")]) { const [lo, la, sp] = JUMPS[q.get("jump")][main.mode]; main.lookAt(lo, la, sp, false); }
+    GG.debug = { main, geo };
     setViewButton();
     newGame();
     let lastW = main.w;
