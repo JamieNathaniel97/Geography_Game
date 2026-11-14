@@ -8,7 +8,9 @@
   const ISLANDS = new Set(("FJI KIR MHL FSM NRU PLW WSM SLB TON TUV VUT " +
     "ATG BHS BRB DMA GRD KNA LCA VCT TTO CPV STP COM MUS SYC MDV MLT SGP BHR").split(" "));
   const RINGS = new Set("VAT SMR MCO LIE AND QAT BRN TLS".split(" "));
-  const MIN_PX = { WSM: 16, NRU: 16, CPV: 16, COM: 16, MUS: 16, SYC: 16, STP: 22, MDV: 14 };
+  // rings that start at 8 px fully zoomed out and grow smoothly with zoom (2026-11-14)
+  const ADAPTIVE_RINGS = new Set("VAT SMR MCO LIE AND BRN TLS QAT".split(" "));
+  const MIN_PX = { WSM: 16, NRU: 16, CPV: 16, COM: 16, MUS: 16, SYC: 16, STP: 22, MDV: 30 };
   const DEFAULT_MIN_PX = 8;
   const CLUSTERS = [{ name: "Lesser Antilles", members: "ATG KNA DMA LCA VCT GRD BRB TTO".split(" ") }];
   const PAD = 0.25; // degrees of sea around island shapes
@@ -200,6 +202,7 @@
     countries.forEach(c => {
       c.minPx = MIN_PX[c.iso] || DEFAULT_MIN_PX;
       c.ring = RINGS.has(c.iso);
+      c.ringAdaptive = ADAPTIVE_RINGS.has(c.iso);
     });
     return {
       countries, byIso, f50, f110, borders50, borders110, coast50, coast110,

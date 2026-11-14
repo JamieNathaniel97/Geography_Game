@@ -16,6 +16,16 @@
     natural: { name: "Curved (old)", factory: () => d3.geoNaturalEarth1(), raw: d3.geoNaturalEarth1Raw, wrap: false },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
+  const RING_MAX = 36;                                              // px
+  // ring diameter: 22 px when the country is a dot, growing to 36 px; the whole ring is the tap area
+  const ringSize = px => Math.min(RING_MAX, Math.max(22, px * 1.5 + 18));
+  // d3-zoom's own rule for keeping the view inside translateExtent
+  function defaultConstrain(t, extent, te) {
+    const dx0 = t.invertX(extent[0][0]) - te[0][0], dx1 = t.invertX(extent[1][0]) - te[1][0];
+    const dy0 = t.invertY(extent[0][1]) - te[0][1], dy1 = t.invertY(extent[1][1]) - te[1][1];
+    return t.translate(dx1 > dx0 ? (dx0 + dx1) / 2 : Math.min(0, dx0) || Math.max(0, dx1),
+      dy1 > dy0 ? (dy0 + dy1) / 2 : Math.min(0, dy0) || Math.max(0, dy1));
+  }
 
   GG.MapView = class MapView {
     // opts: { geo, mode: 'globe'|'flat', flatStyle, getState(c), onTap(c, view), onPoint(view,x,y), isTarget(c), borders }
@@ -31,7 +41,9 @@
       this.t = d3.zoomIdentity;
       this.hits = { islands: [], bubbles: [] };
       this.readColours();
+      this.crop = null;
       this.zoom = d3.zoom().scaleExtent([1, MAX_K]).clickDistance(8)
+        .constrain((t, extent, te) => this.constrain(t, extent, te))
         // only switch to the lighter outlines once the view really moves, so a plain tap
         // (which also starts a zoom gesture) never drops the detail
         .on("start", () => { clearTimeout(this.settle); })
@@ -50,7 +62,7 @@
       const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
       this.col = { bg: v("--bg"), sea: v("--sea"), land: v("--land"), border: v("--border"), coast: v("--coast"),
         terr: v("--terr"), good: v("--good"), bad: v("--bad"), flash: v("--flash"), marker: v("--marker"),
-        panel: v("--panel"), fg: v("--fg"), halo: v("--halo") };
+        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off") };
     }
 
     // ----- size and projections -----
@@ -242,7 +254,51 @@
       this.requestDraw();
     }
 
+    // ----- cropped region maps -----
+    // box: [[west, south], [east, north]] (east may be > 180). The view can't leave the box or zoom out past it,
+    // and everything outside it is faded out.
+    setCrop(box) {
+      if (!box) { this.crop = null; this.applyMode(); this.requestDraw(); return; }
+      const [[w, s], [e, n]] = box, ring = [];
+      const N = 24;
+      for (let i = 0; i <= N; i++) ring.push([w, s + (n - s) * i / N]);
+      for (let i = 1; i <= N; i++) ring.push([w + (e - w) * i / N, n]);
+      for (let i = 1; i <= N; i++) ring.push([e, n - (n - s) * i / N]);
+      for (let i = 1; i < N; i++) ring.push([e - (e - w) * i / N, s]);
+      ring.push(ring[0]);
+      this.crop = { box, polygon: { type: "Polygon", coordinates: [ring.map(([lo, la]) => [lo > 180 ? lo - 360 : lo, la])] } };
+      this.applyMode();
+      this.requestDraw();
+    }
+    cropRect() { // the box on the flat map, in zoom-1 map coordinates (x unwrapped)
+      const [[w, s], [e, n]] = this.crop.box, x0 = this.flat([w, 0])[0];
+      return [x0, this.flat([0, Math.min(n, NORTH)])[1], x0 + (e - w) / 360 * this.BW, this.flat([0, Math.max(s, SOUTH)])[1]];
+    }
+    constrain(t, extent, te) {
+      if (!(this.crop && this.mode === "globe")) return defaultConstrain(t, extent, te);
+      // globe: keep the centre of the view inside the box
+      const [[w, s], [e, n]] = this.crop.box;
+      let lon = -((t.x - this.w / 2) / t.k / this.R0 * DEG), lat = (t.y - this.h / 2) / t.k / this.R0 * DEG;
+      const mid = (w + e) / 2;
+      while (lon - mid > 180) lon -= 360;
+      while (mid - lon > 180) lon += 360;
+      lon = Math.max(w, Math.min(e, lon)); lat = Math.max(s, Math.min(n, lat));
+      return this.globeTransform(lon, lat, t.k);
+    }
     applyMode() {
+      if (this.crop) {
+        const [[w, s], [e, n]] = this.crop.box;
+        if (this.mode === "flat") {
+          const [x0, y0, x1, y1] = this.cropRect();
+          const minK = Math.min(this.w / (x1 - x0), this.h / (y1 - y0));
+          this.zoom.scaleExtent([minK, MAX_K]).translateExtent([[x0, y0], [x1, y1]]);
+        } else {
+          const span = Math.max((e - w) * Math.cos((s + n) / 2 * RAD), n - s);
+          const minK = Math.min(this.w, this.h) / (span * this.R0 * RAD);
+          this.zoom.scaleExtent([Math.max(0.9, minK * 0.95), MAX_K]).translateExtent([[-Infinity, -Infinity], [Infinity, Infinity]]);
+        }
+        return;
+      }
       if (this.mode === "flat") {
         const minK = this.wrap ? 1 : Math.min(1, this.h / this.BH);
         const xr = this.wrap ? [-Infinity, Infinity] : [-this.BW * 0.08, this.BW * 1.08];
@@ -304,7 +360,8 @@
         const k = Math.max(this.zoom.scaleExtent()[0], Math.min(MAX_K, side / (spanDeg * this.BW / 360)));
         const p = this.flat([lon, Math.max(SOUTH + 1, Math.min(NORTH - 1, lat))]);
         let x = p[0];
-        if (this.wrap) { const cx = this.baseCentreX(); while (x - cx > this.BW / 2) x -= this.BW; while (cx - x > this.BW / 2) x += this.BW; }
+        if (this.crop) { const [x0, , x1] = this.cropRect(); while (x < x0) x += this.BW; while (x > x1) x -= this.BW; }
+        else if (this.wrap) { const cx = this.baseCentreX(); while (x - cx > this.BW / 2) x -= this.BW; while (cx - x > this.BW / 2) x += this.BW; }
         this.setTransform(d3.zoomIdentity.translate(this.w / 2 - k * x, this.h / 2 - k * p[1]).scale(k), animate);
       } else {
         const k = Math.max(0.9, Math.min(MAX_K, side / (spanDeg * this.R0 * RAD)));
@@ -353,8 +410,10 @@
       if (this.frame) return;
       this.frame = requestAnimationFrame(() => { this.frame = null; this.draw(); });
     }
+    active(c) { return !this.opts.isActive || this.opts.isActive(c); }
     fillFor(f) {
       if (!f.c) return this.col.terr;
+      if (!this.active(f.c)) return this.col.off; // outside the quiz region
       const s = this.opts.getState(f.c);
       return s ? this.col[s] : this.col.land;
     }
@@ -363,6 +422,7 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = this.col.bg; ctx.fillRect(0, 0, this.w, this.h);
       if (this.mode === "flat") this.drawFlat(); else this.drawGlobe();
+      if (this.crop) this.drawCropMask();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       this.drawOverlays();
     }
@@ -423,9 +483,28 @@
       ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.stroke();
     }
 
+    // fade out everything outside the region's box
+    drawCropMask() {
+      const ctx = this.ctx, dpr = this.dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.beginPath();
+      if (this.mode === "flat") {
+        const [x0, y0, x1, y1] = this.cropRect(), t = this.t;
+        ctx.rect(0, 0, this.w, this.h);
+        ctx.rect(t.applyX(x0), t.applyY(y0), (x1 - x0) * t.k, (y1 - y0) * t.k);
+      } else {
+        const path = d3.geoPath(this.projection(), ctx);
+        ctx.rect(0, 0, this.w, this.h);
+        path(this.crop.polygon);
+      }
+      ctx.fillStyle = this.col.bg; ctx.globalAlpha = 0.88; ctx.fill("evenodd"); ctx.globalAlpha = 1;
+    }
+
     // island ovals, rings and the cluster bubble, all in screen pixels
     drawOverlays() {
       const ctx = this.ctx, col = this.col, proj = this.projection(), ppd = this.pxPerDeg(), geo = this.geo;
+      // pixels per degree when fully zoomed out on the world map (the baseline for growing rings)
+      const ppd0 = this.mode === "flat" ? this.BW / 360 : this.R0 * RAD * 0.9;
       const W = this.w, H = this.h, m = 40;
       const flat = this.mode === "flat", s0 = proj.scale(), tr = proj.translate(), raw = this.style.raw;
       const norm = lon => { const l = lon - (flat ? this.flatCentre : 0); return ((l + 540) % 360) - 180; };
@@ -455,6 +534,7 @@
       const shift = (s, dx) => dx === 0 ? s : Object.assign({}, s, { x: s.x + dx, pts: s.pts.map(p => [p[0] + dx, p[1]]) });
       const islands = [], rings = [], bubbles = [], hidden = new Set();
       geo.clusters.forEach(cl => {
+        if (!cl.members.every(c => this.active(c))) return;
         const ms = cl.members.map(shapeOf).filter(Boolean);
         if (ms.length < 2) return;
         let overlap = false;
@@ -466,13 +546,25 @@
         offsets.forEach(dx => { if (onScreen(bx + dx, by, 13)) bubbles.push({ cl, x: bx + dx, y: by, r: 13 }); });
       });
       geo.countries.forEach(c => {
-        if (hidden.has(c)) return;
+        if (hidden.has(c) || !this.active(c)) return;
         if (c.shape) {
           const s = shapeOf(c); if (!s) return;
           offsets.forEach(dx => { if (onScreen(s.x + dx, s.y, s.r)) islands.push(shift(s, dx)); });
-        } else if (c.ring && c.sizeDeg * ppd < geo.ringPx && this.visible(c.anchor)) {
+        } else if (c.ring && this.visible(c.anchor)) {
+          const px = c.sizeDeg * ppd;
+          let d;
+          if (c.ringAdaptive) {
+            // 8 px fully zoomed out, growing more slowly than the map (zoom^0.45), up to 90 px;
+            // it goes once the country itself is 40 px across and easy to tap
+            if (px >= 40) return;
+            d = Math.min(90, 8 * Math.pow(Math.max(1, ppd / ppd0), 0.45));
+          } else {
+            // the ring grows as you zoom in (22 px up to 36 px) and goes once the country is that big
+            if (px >= RING_MAX) return;
+            d = ringSize(px);
+          }
           const [x, y] = proj(c.anchor);
-          offsets.forEach(dx => { if (onScreen(x + dx, y, 4)) rings.push({ c, x: x + dx, y }); });
+          offsets.forEach(dx => { if (onScreen(x + dx, y, d)) rings.push({ c, x: x + dx, y, d }); });
         }
       });
       islands.sort((a, b) => b.r - a.r); // bigger first, so smaller ones draw on top
@@ -487,7 +579,7 @@
       ctx.setLineDash([]);
       rings.forEach(d => {
         const st = this.opts.getState(d.c);
-        ctx.beginPath(); ctx.arc(d.x, d.y, geo.ringPx / 2, 0, 2 * Math.PI);
+        ctx.beginPath(); ctx.arc(d.x, d.y, d.d / 2, 0, 2 * Math.PI);
         ctx.lineWidth = st ? 2.5 : 1.5; ctx.strokeStyle = st ? col[st] : col.marker; ctx.stroke();
       });
       bubbles.forEach(b => {
@@ -502,7 +594,7 @@
         ctx.fillStyle = col.fg; ctx.font = "600 12px Barlow, system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
         ctx.fillText(String(b.cl.members.length), b.x, b.y);
       });
-      this.hits = { islands: islands.slice().reverse(), bubbles };
+      this.hits = { islands: islands.slice().reverse(), bubbles, rings };
     }
 
     // ----- tapping -----
@@ -512,8 +604,41 @@
       if (this.opts.onPoint && this.opts.onPoint(this, x, y)) return; // e.g. the magnifier
       const b = this.hits.bubbles.find(b => Math.hypot(b.x - x, b.y - y) <= b.r + 4);
       if (b) { this.zoomToCountries(b.cl.members); return; }
-      const c = this.countryAt(x, y);
+      const c = this.resolveTap(x, y);
       if (c) this.opts.onTap(c, this);
+    }
+    // A tap on an open (not yet answered) country counts as that country. A tap anywhere else (sea, an
+    // answered or greyed-out country) goes to the nearest open small country within reach, so tiny
+    // countries are easy to hit once their neighbours are done.
+    resolveTap(x, y) {
+      const open = this.opts.isOpen || (() => true);
+      // 1. inside the ring of a small country: always that country (even over land, e.g. Vatican in Italy)
+      const ring = this.hits.rings.filter(r => open(r.c) && Math.hypot(r.x - x, r.y - y) <= r.d / 2 + 3)
+        .sort((a, b) => Math.hypot(a.x - x, a.y - y) - Math.hypot(b.x - x, b.y - y))[0];
+      if (ring) return ring.c;
+      // 2. inside an island oval, or on the country itself
+      const direct = this.countryAt(x, y);
+      if (direct && open(direct)) return direct;
+      // 3. near a small open country or island oval: snap to the nearest one within reach
+      const proj = this.projection(), ppd = this.pxPerDeg(), offsets = this.copies();
+      let best = null, bd = Infinity;
+      this.hits.islands.forEach(s => {
+        if (!open(s.c)) return;
+        const gap = d3.polygonContains(s.pts, [x, y]) ? 0 : edgeDistance(s.pts, x, y);
+        if (gap < 20 && gap < bd) { bd = gap; best = s.c; }
+      });
+      for (const c of this.geo.countries) {
+        if (c.shape || !c.anchor || !open(c)) continue;
+        const size = c.sizeDeg * ppd;
+        if (size >= 44 || !this.visible(c.anchor)) continue;
+        const reach = Math.max(22, size / 2 + 14);
+        const p = proj(c.anchor);
+        for (const dx of offsets) {
+          const d = Math.hypot(p[0] + dx - x, p[1] - y);
+          if (d < reach && d < bd) { bd = d; best = c; }
+        }
+      }
+      return best || direct;
     }
     countryAt(x, y) {
       const isl = this.hits.islands.find(s => d3.polygonContains(s.pts, [x, y]));
@@ -554,6 +679,16 @@
   };
 
   function mod(a, n) { return ((a % n) + n) % n; }
+  // shortest distance from a point to a closed outline
+  function edgeDistance(pts, x, y) {
+    let best = Infinity;
+    for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+      const [ax, ay] = pts[j], [bx, by] = pts[i], dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy;
+      const u = L ? Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / L)) : 0;
+      best = Math.min(best, Math.hypot(ax + u * dx - x, ay + u * dy - y));
+    }
+    return best;
+  }
   function inBounds(b, [lon, lat]) {
     if (lat < b[0][1] - 0.01 || lat > b[1][1] + 0.01) return false;
     if (b[0][0] <= b[1][0]) return lon >= b[0][0] - 0.01 && lon <= b[1][0] + 0.01;

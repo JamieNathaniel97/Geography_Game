@@ -16,7 +16,7 @@
 <body>
 <div id="app">
   <header class="bar">
-    <button class="iconbtn" id="menuBtn" type="button" aria-label="Menu" aria-haspopup="dialog">
+    <button class="iconbtn" id="menuBtn" type="button" aria-label="New game" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
     <div class="prompt">
@@ -36,27 +36,34 @@
     <canvas id="map" aria-label="World map. Tap a country."></canvas>
     <div class="mapctl">
       <button class="chip" id="viewBtn" type="button">Flat map</button>
+      <button class="chip" id="regionBtn" type="button" hidden>Whole region</button>
       <button class="chip on" id="bordersBtn" type="button" aria-pressed="true">Borders</button>
       <button class="chip" id="terrainBtn" type="button" aria-pressed="false">Terrain</button>
       <button class="chip" id="magBtn" type="button" aria-pressed="false">Magnifier</button>
     </div>
     <div class="toast" id="toast" hidden></div>
   </main>
-  <nav class="jumpbar" aria-label="Jump to">
+  <nav class="jumpbar" id="jumpbar" aria-label="Jump to">
     <div class="jumps" id="jumps">
       <button data-v="world" type="button">World</button><button data-v="europe" type="button">Europe</button><button data-v="asia" type="button">Asia</button><button data-v="africa" type="button">Africa</button><button data-v="namerica" type="button">N. America</button><button data-v="carib" type="button">Caribbean</button><button data-v="samerica" type="button">S. America</button><button data-v="oceania" type="button">Oceania</button>
     </div>
   </nav>
 </div>
 
-<div class="overlay" id="menu" hidden>
-  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
-    <div class="sheethead"><h2 id="menuTitle">Menu</h2><button class="btn" id="menuClose" type="button">Close</button></div>
+<div class="overlay" id="setup" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
+    <div class="sheethead"><h2 id="setupTitle">New game</h2><button class="btn" id="setupClose" type="button">Close</button></div>
     <div class="field"><span class="label">Game</span>
-      <div class="seg" id="segMode"><button data-v="find" class="on" type="button">Find the country</button><button data-v="explore" type="button">Free tap</button></div>
+      <div class="seg" id="segGame"><button data-v="find" class="on" type="button">Find the country</button><button data-v="explore" type="button">Free tap</button></div>
     </div>
-    <button class="btn wide" id="newGame" type="button">New game</button>
-    <p class="note">Build 1 foundation. Continent games, naming games, capitals and Learning mode are still to come.</p>
+    <div class="field"><span class="label">Region</span>
+      <div class="regions" id="regions"></div>
+    </div>
+    <div class="field" id="viewField"><span class="label">Map</span>
+      <div class="seg" id="segView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
+    </div>
+    <button class="btn primary wide" id="startBtn" type="button">Start</button>
+    <p class="note">Still to come: naming games, capitals, Learning mode and the results screen.</p>
   </div>
 </div>
 
