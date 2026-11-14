@@ -31,11 +31,14 @@ The app shows a country name and the user taps where it is on the map.
 - **Terrain:** shaded relief showing mountains and other physical features, on or off.
 - **Satellite view:** shelved for now and may come back later. It can't be fully offline, because sharp imagery for tiny countries would take gigabytes. If it returns, it will be online-only. Wherever later sections say "satellite toggle", read it as shelved.
 
+**Jump to:** quick buttons that move the map to Europe, Asia, Africa, North America, the Caribbean, South America or Oceania (plus back to the whole world). They are always visible in a bar at the very bottom of the quiz screen, in two rows of four, not hidden in settings.
+
 **Answering**
 
 - One tap per country.
 - Correct: the country fills green (or another clear colour, to be tested).
-- Wrong: only the correct country is highlighted in red; the country the user tapped by mistake is not highlighted. Then move on.
+- Wrong: the correct country is highlighted in red, and the country the user tapped flashes yellow once to confirm the tap registered. Then move on.
+- Tapping the sea, or a country already answered correctly, does nothing.
 
 **Tiny countries**
 
@@ -59,6 +62,14 @@ The goal is to fill in the whole map by naming every country, in any order the u
 - Same as game 1: whole world on a spinnable 3D globe (with a flat-map toggle), or a single continent such as Europe or Asia on a zoomed flat map, with the counter covering only that continent.
 - Same borders, terrain and satellite toggles as game 1.
 - Same tiny-country handling as game 1: insets for clusters, arrows for lone tiny countries; tapping either opens the text box.
+
+### Learning mode
+
+A separate practice mode with no scoring. Free tapping is only available here, never inside the quizzes.
+
+- The user taps any country (or its island shape) on the map, the country highlights yellow, and a card shows its name, capital (all capitals where there are several), flag and continent.
+- Same map as the quizzes: whole world on the globe or flat map, or a single continent or the Caribbean, with the same zoom, borders and terrain toggles, and the same tiny-country handling.
+- Flag images are bundled for this mode in build 1 (an open-licence SVG set keyed by ISO code), and build 2's flag games reuse them.
 
 ### 3 and 4. Capitals
 
@@ -223,6 +234,7 @@ Build 4 recreates the build 3 games for the counties of Great Britain and the wh
 6. Game 2, Name the countries, with forgiving name matching and the progress counter.
 7. Games 3 and 4, the capitals versions.
 8. Results screen and local progress tracking.
+8b. Learning mode (name, capital, flag and continent card).
 9. Weak spots mode, timer, and polish.
 
 After build 1 is approved: build 2 (games 5 and 6, flags), then build 3 (games 7 to 12, US states), then build 4 (games 13 to 18, British and Irish counties).

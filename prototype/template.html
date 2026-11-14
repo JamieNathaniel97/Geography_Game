@@ -1,0 +1,472 @@
+<title>Tiny Country Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: one-screen app. Prompt bar on top, the map fills the middle, test options in a collapsible tray below. */
+:root{
+  --bg:#eef2f3; --panel:#ffffff; --fg:#17262b; --muted:#5b6d73; --line:#cfd9dc;
+  --sea:#cfe3ea; --land:#f6f3ea; --border:#8d9a96; --terr:#d5d8d6;
+  --accent:#1f6f8b; --accent-fg:#ffffff;
+  --good:#2f9e55; --bad:#d64541; --flash:#e3a21a;
+  --marker:#1f6f8b;
+  --display:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1a1e; --panel:#16252a; --fg:#e4ecee; --muted:#93a6ab; --line:#2a3c42;
+  --sea:#14303a; --land:#2b3a36; --border:#6f817c; --terr:#25302f;
+  --accent:#4fb3d4; --accent-fg:#06222c; --good:#3fbf6a; --bad:#ef5e5a; --flash:#f0b43a; --marker:#7fd0ea;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1a1e; --panel:#16252a; --fg:#e4ecee; --muted:#93a6ab; --line:#2a3c42;
+  --sea:#14303a; --land:#2b3a36; --border:#6f817c; --terr:#25302f;
+  --accent:#4fb3d4; --accent-fg:#06222c; --good:#3fbf6a; --bad:#ef5e5a; --flash:#f0b43a; --marker:#7fd0ea;
+  color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;overflow:hidden}
+#app{height:100%;display:flex;flex-direction:column}
+.bar{background:var(--panel);border-bottom:1px solid var(--line);padding-block:10px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;align-items:center;gap:12px;min-height:58px}
+.prompt{flex:1;min-width:0}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.target{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.target.good{color:var(--good)} .target.bad{color:var(--bad)}
+.score{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted);text-align:right;white-space:nowrap}
+.score b{color:var(--fg);font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:7px 12px;font-weight:500}
+.btn:focus-visible,.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.on{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+#mapwrap{flex:1;position:relative;min-height:0;background:var(--sea)}
+svg.map{width:100%;height:100%;display:block;touch-action:none;user-select:none;-webkit-user-select:none}
+.sphere{fill:var(--sea)}
+.c{fill:var(--land);stroke:var(--border);stroke-width:.6px;vector-effect:non-scaling-stroke;cursor:pointer}
+.c.t{fill:var(--terr);pointer-events:none;cursor:default}
+.c.st-good{fill:var(--good)} .c.st-bad{fill:var(--bad)} .c.st-flash{fill:var(--flash)}
+.noborders .c{stroke:none}
+/* island-nation shapes: tappable sea halo around all of a country's islands */
+.isl{fill:var(--marker);fill-opacity:.10;stroke:var(--marker);stroke-width:1.3px;stroke-dasharray:4 3;cursor:pointer}
+.isl.st-good{fill:var(--good);stroke:var(--good);fill-opacity:.45;stroke-dasharray:none}
+.isl.st-bad{fill:var(--bad);stroke:var(--bad);fill-opacity:.45;stroke-dasharray:none}
+.isl.st-flash{fill:var(--flash);stroke:var(--flash);fill-opacity:.5}
+/* indicator rings: show a country exists, not tappable */
+.dot{fill:none;stroke:var(--marker);stroke-width:1.5px;pointer-events:none}
+.dot.st-good{stroke:var(--good);stroke-width:2.5px} .dot.st-bad{stroke:var(--bad);stroke-width:2.5px} .dot.st-flash{stroke:var(--flash);stroke-width:2.5px}
+.bub{cursor:pointer}
+.bub circle{fill:var(--panel);fill-opacity:.9;stroke:var(--marker);stroke-width:1.6px;stroke-dasharray:4 3}
+.bub text{fill:var(--fg);font:600 12px var(--body);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.bub.alldone circle{stroke:var(--good);stroke-dasharray:none;stroke-width:2.5px}
+.bub.hasbad circle{stroke:var(--bad);stroke-dasharray:none;stroke-width:3px;fill:var(--bad);fill-opacity:.35}
+.hint{position:absolute;left:max(12px,env(safe-area-inset-left,0px));bottom:10px;background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:6px 10px;font-size:13px;color:var(--muted);pointer-events:none;max-width:calc(100% - 24px)}
+.tray{background:var(--panel);border-top:1px solid var(--line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px}
+.tray summary{font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding-block:4px}
+.rows{display:grid;gap:10px;padding-block:8px 4px;max-height:40vh;overflow:auto}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.row>label{font-size:13px;color:var(--muted);min-width:96px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:6px 11px;font-weight:500;font-variant-numeric:tabular-nums}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--accent);color:var(--accent-fg)}
+#inset{position:fixed;inset:0;background:rgba(5,15,20,.45);display:flex;align-items:center;justify-content:center;z-index:20;
+  padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
+.inbox{background:var(--panel);border-radius:12px;overflow:hidden;width:min(560px,100%);height:min(68vh,560px);display:flex;flex-direction:column;
+  box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.inhead{display:flex;align-items:center;gap:10px;padding:8px 10px 8px 14px;border-bottom:1px solid var(--line)}
+.inhead span{flex:1;font-size:13px;color:var(--muted)}
+.inmap{flex:1;min-height:0;background:var(--sea)}
+/* jump bar: always visible at the very bottom, 4 per line, 2 lines */
+.jumpbar{background:var(--panel);border-top:1px solid var(--line);padding-block:6px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;justify-content:center}
+#segJump{display:grid;grid-template-columns:repeat(4,1fr);width:100%;max-width:520px}
+#segJump button{border-left:1px solid var(--line);padding:6px 4px;white-space:nowrap;font-size:14px}
+#segJump button:nth-child(4n+1){border-left:0}
+#segJump button:nth-child(n+5){border-top:1px solid var(--line)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div id="app">
+  <div class="bar">
+    <div class="prompt">
+      <div class="eyebrow" id="eyebrow">Find</div>
+      <div class="target" id="target">…</div>
+    </div>
+    <div class="score" id="score"></div>
+    <button class="btn" id="skip" type="button">Skip</button>
+  </div>
+  <div id="mapwrap">
+    <svg class="map" id="mainsvg"></svg>
+    <div class="hint" id="hint">Pinch to zoom. Dashed shapes mark small island nations; tap inside one to pick it.</div>
+  </div>
+  <details class="tray" id="tray">
+    <summary>Test options</summary>
+    <div class="rows">
+      <div class="row"><label>Mode</label>
+        <div class="seg" id="segMode"><button data-v="find" class="on" type="button">Find the country</button><button data-v="explore" type="button">Free tap</button></div></div>
+      <div class="row"><label>Questions</label>
+        <div class="seg" id="segPool"><button data-v="all" class="on" type="button">All 197</button><button data-v="tiny" type="button">Small ones only</button></div></div>
+      <div class="row"><label>Borders</label>
+        <div class="seg" id="segBorders"><button data-v="1" class="on" type="button">On</button><button data-v="0" type="button">Off</button></div>
+        <button class="btn" id="magBtn" type="button">Magnifier</button></div>
+    </div>
+  </details>
+  <nav class="jumpbar" aria-label="Jump to"><div class="seg" id="segJump"><button data-v="world" type="button">World</button><button data-v="europe" type="button">Europe</button><button data-v="asia" type="button">Asia</button><button data-v="africa" type="button">Africa</button><button data-v="namerica" type="button">N. America</button><button data-v="carib" type="button">Caribbean</button><button data-v="samerica" type="button">S. America</button><button data-v="oceania" type="button">Oceania</button></div></nav>
+</div>
+
+<div id="inset" hidden>
+  <div class="inbox">
+    <div class="inhead"><span id="inlabel">Close-up. Pinch to zoom further.</span><button class="btn" id="inclose" type="button">Close</button></div>
+    <div class="inmap"><svg class="map" id="insvg"></svg></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+const TOPO = /*TOPO*/;
+const COUNTRIES = /*COUNTRIES*/;
+</script>
+<script>
+(() => {
+// ---------- settings & state ----------
+const S = { mode:'find', pool:'all', borders:true, magnify:false };
+const DOT = 8;                                                     // standard minimum size (px)
+// countries kept bigger than the standard minimum (px, measured along the oval's long side)
+const MINS = { WSM:16, NRU:16, CPV:16, COM:16, MUS:16, SYC:16, STP:22, MDV:14 };
+const minOf = c => MINS[c.iso] || DOT;
+const state = {};          // iso -> 'good' | 'bad' | 'flash'
+// Small island nations: one tappable shape around all their islands
+const ISLANDS = new Set(('FJI KIR MHL FSM NRU PLW WSM SLB TON TUV VUT ' +   // Pacific
+  'ATG BHS BRB DMA GRD KNA LCA VCT TTO ' +                                // Caribbean
+  'CPV STP COM MUS SYC MDV ' +                                            // Atlantic & Indian Ocean
+  'MLT SGP BHR').split(' '));
+// Indicator rings (not tappable). Placeholder list until we pick the real one.
+const DOTS = new Set('VAT SMR MCO LIE AND QAT BRN TLS'.split(' '));
+// Groups shown as one numbered bubble while their shapes overlap
+const CLUSTERS = [{ name:'Lesser Antilles', members:'ATG KNA DMA LCA VCT GRD BRB TTO'.split(' ') }];
+const flashing = {};       // iso -> true while a wrong tap flashes yellow
+const ROT = 10;  // map centre longitude
+const byId = {}, byIso = {};
+COUNTRIES.forEach(c => { byId[c.id] = c; byIso[c.iso] = c; });
+
+const groups = {};
+TOPO.objects.countries.geometries.forEach(g => (groups[g.id] ||= []).push(g));
+const features = Object.entries(groups).map(([id, gs]) => {
+  const geom = gs.length > 1 ? topojson.merge(TOPO, gs) : topojson.feature(TOPO, gs[0]).geometry;
+  return { type:'Feature', id, geometry:geom, c: byId[id] || null };
+});
+
+const mainSvg = document.getElementById('mainsvg');
+let proj, path, BW, BH;
+
+// project lon/lat points, unwrapping across the map edge so a country split by it stays in one piece
+function projectUnwrapped(lonlats){
+  const raw = d3.geoNaturalEarth1Raw, k = proj.scale(), [tx, ty] = proj.translate(), rad = Math.PI/180;
+  let ls = lonlats.map(([lo, la]) => { let l = lo - ROT; l = ((l + 540) % 360) - 180; return [l, la]; });
+  if (ls.some(p => p[0] > 90) && ls.some(p => p[0] < -90)) ls = ls.map(([l, la]) => [l < 0 ? l + 360 : l, la]);
+  return ls.map(([l, la]) => { const r = raw(l*rad, la*rad); return [tx + k*r[0], ty - k*r[1]]; });
+}
+
+// oval along the islands' main direction (PCA), so chains get a squashed, tilted ellipse
+function ellipseFor(pts, pad){
+  const mx = d3.mean(pts, p=>p[0]), my = d3.mean(pts, p=>p[1]);
+  let sxx=0, syy=0, sxy=0;
+  pts.forEach(([x,y]) => { const dx=x-mx, dy=y-my; sxx+=dx*dx; syy+=dy*dy; sxy+=dx*dy; });
+  const th = 0.5*Math.atan2(2*sxy, sxx-syy), cs = Math.cos(th), sn = Math.sin(th);
+  const uv = pts.map(([x,y]) => [(x-mx)*cs + (y-my)*sn, -(x-mx)*sn + (y-my)*cs]);
+  const u0 = d3.min(uv,p=>p[0]), u1 = d3.max(uv,p=>p[0]), v0 = d3.min(uv,p=>p[1]), v1 = d3.max(uv,p=>p[1]);
+  const cu = (u0+u1)/2, cv = (v0+v1)/2;
+  let a = (u1-u0)/2 + pad, b = (v1-v0)/2 + pad;
+  b = Math.max(b, a*0.3);
+  let s = 1; uv.forEach(([u,v]) => { s = Math.max(s, ((u-cu)/a)**2 + ((v-cv)/b)**2); });
+  a *= Math.sqrt(s); b *= Math.sqrt(s);
+  return { cx: mx + cu*cs - cv*sn, cy: my + cu*sn + cv*cs, a, b, th };
+}
+function ellipsePts(e, n = 72){
+  const cs = Math.cos(e.th), sn = Math.sin(e.th), out = [];
+  for (let i = 0; i < n; i++){ const t = i/n*2*Math.PI, u = e.a*Math.cos(t), v = e.b*Math.sin(t); out.push([e.cx + u*cs - v*sn, e.cy + u*sn + v*cs]); }
+  return out;
+}
+function outline(pts){
+  const c = d3.polygonCentroid(pts), xs = pts.map(p=>p[0]), ys = pts.map(p=>p[1]);
+  return { pts, cx:c[0], cy:c[1], size:Math.max(d3.max(xs)-d3.min(xs), d3.max(ys)-d3.min(ys)),
+           r:d3.max(pts, p => Math.hypot(p[0]-c[0], p[1]-c[1])) };
+}
+// Kiribati: a sideways figure 8. West lobe = Gilbert Islands, larger east lobe = Phoenix + Line Islands,
+// joined by a waist that narrows but doesn't pinch shut, smoothed into one outline
+function blobFor(polyPts, pad, splitX){
+  const west = [], east = [];
+  polyPts.forEach(pts => (d3.mean(pts, p=>p[0]) < splitX ? west : east).push(...pts));
+  const w = ellipseFor(west, pad*1.3); w.a *= 0.94; w.b *= 0.9;   // west lobe pulled in slightly to clear Tuvalu
+  // pull the west end in towards Banaba (away from Nauru): move the lobe east and shorten it,
+  // stopping before any Kiribati island would fall outside (keeps at least half the padding)
+  {
+    const ux = Math.cos(w.th) * (Math.cos(w.th) >= 0 ? 1 : -1), uy = Math.sin(w.th) * (Math.cos(w.th) >= 0 ? 1 : -1);
+    const inside = e => west.every(([x, y]) => { const cs = Math.cos(e.th), sn = Math.sin(e.th);
+      const u = (x-e.cx)*cs + (y-e.cy)*sn, v = -(x-e.cx)*sn + (y-e.cy)*cs;
+      return (u/(e.a - pad*0.5))**2 + (v/(e.b - pad*0.5))**2 <= 1; });
+    for (let step = 0.035; step > 0.004; step -= 0.005){
+      const d = w.a*step, e = { ...w, cx:w.cx + ux*d, cy:w.cy + uy*d, a:w.a - d };
+      if (inside(e)){ Object.assign(w, e); break; }
+    }
+  }
+  const ells = [w, ellipseFor(east, pad*2)];
+  const parts = ells.slice();
+  const p = ells[0], q = ells[1], dx = q.cx-p.cx, dy = q.cy-p.cy;
+  parts.push({ cx:(p.cx+q.cx)/2, cy:(p.cy+q.cy)/2, a:Math.hypot(dx,dy)/2, b:Math.min(p.b/0.9, q.b)*0.9, th:Math.atan2(dy,dx) });
+  const ext = d3.max(parts, e => Math.max(e.a, e.b));
+  const x0 = d3.min(parts, e=>e.cx) - ext*1.3, x1 = d3.max(parts, e=>e.cx) + ext*1.3;
+  const y0 = d3.min(parts, e=>e.cy) - ext*1.3, y1 = d3.max(parts, e=>e.cy) + ext*1.3;
+  const n = 240, m = Math.max(40, Math.round(n*(y1-y0)/(x1-x0))), K = 1.8, vals = new Float64Array(n*m);
+  for (let j = 0; j < m; j++) for (let i = 0; i < n; i++){
+    const x = x0 + (i+0.5)*(x1-x0)/n, y = y0 + (j+0.5)*(y1-y0)/m;
+    let s = 0;
+    parts.forEach(e => { const cs = Math.cos(e.th), sn = Math.sin(e.th), u = (x-e.cx)*cs + (y-e.cy)*sn, v = -(x-e.cx)*sn + (y-e.cy)*cs;
+      s += Math.exp(-K*(Math.hypot(u/e.a, v/e.b) - 1)); });
+    vals[j*n+i] = Math.log(s)/K;   // smooth union: > 0 inside
+  }
+  const cont = d3.contours().size([n, m]).thresholds([0])(Array.from(vals))[0];
+  let ring = cont.coordinates.map(p => p[0]).sort((p, q) => q.length - p.length)[0];
+  ring = ring.slice(0, -1).filter((_, i) => i % 2 === 0).map(([gx, gy]) => [x0 + gx*(x1-x0)/n, y0 + gy*(y1-y0)/m]);
+  return outline(ring);
+}
+
+function setupProjection(){
+  const w = mainSvg.clientWidth || 400;
+  proj = d3.geoNaturalEarth1().rotate([-ROT,0]).fitWidth(w, {type:'Sphere'});
+  path = d3.geoPath(proj);
+  const b = path.bounds({type:'Sphere'}); BW = b[1][0]; BH = b[1][1];
+  const pad = BW/360*0.25;   // about 0.25 degrees of sea around the islands
+  features.forEach(f => {
+    f.d = path(f) || '';
+    const c = f.c; if (!c) return;
+    const polys = f.geometry.type === 'MultiPolygon' ? f.geometry.coordinates : [f.geometry.coordinates];
+    let best = null, bestA = -1;
+    polys.forEach(p => { const a = path.area({type:'Polygon', coordinates:p}); if (a > bestA){ bestA = a; best = p; } });
+    const bb = path.bounds({type:'Polygon', coordinates:best});
+    c.base = Math.max(bb[1][0]-bb[0][0], bb[1][1]-bb[0][1]);
+    c.anchor = path.centroid({type:'Polygon', coordinates:best});
+    if (!ISLANDS.has(c.iso)) return;
+    const all = projectUnwrapped(polys.flatMap(p => p[0]));
+    if (c.iso === 'KIR'){
+      let i = 0; const per = polys.map(p => { const s = all.slice(i, i + p[0].length); i += p[0].length; return s; });
+      try { c.shape = blobFor(per, pad, projectUnwrapped([[180, 0]])[0][0]); } catch (err) { console.error(err); c.shape = outline(ellipsePts(ellipseFor(all, pad))); }
+    } else c.shape = outline(ellipsePts(ellipseFor(all, pad)));
+  });
+  // Tuvalu is missing from the 1:50m data: use its atolls' real positions
+  const tuv = byIso.TUV;
+  tuv.shape = outline(ellipsePts(ellipseFor(projectUnwrapped([[176.12,-5.68],[176.31,-6.29],[177.15,-7.48],[178.69,-7.47],[177.33,-7.21],[178.42,-8.0],[179.2,-8.52],[179.47,-10.78],[179.8,-9.4]]), pad)));
+  tuv.base = 0; tuv.anchor = [tuv.shape.cx, tuv.shape.cy];
+  COUNTRIES.forEach(c => c.tiny = ISLANDS.has(c.iso) || DOTS.has(c.iso) || c.base < 12);
+}
+
+const smooth = d3.line().curve(d3.curveCatmullRomClosed);
+const stCls = c => flashing[c.iso] ? ' st-flash' : (state[c.iso] ? ' st-' + state[c.iso] : '');
+
+// ---------- map view (used for main map and inset) ----------
+class MapView {
+  constructor(svgEl, opts){
+    this.svgEl = svgEl; this.opts = opts;
+    this.svg = d3.select(svgEl);
+    this.svg.selectAll('*').remove();
+    this.g = this.svg.append('g');
+    this.g.append('path').attr('class','sphere').attr('d', path({type:'Sphere'}));
+    this.paths = this.g.selectAll('path.c').data(features).join('path')
+      .attr('class', f => 'c' + (f.c ? '' : ' t')).attr('d', f => f.d)
+      .on('click', (e, f) => { if (f.c) tap(f.c, this); });
+    this.over = this.svg.append('g');
+    this.gIsl = this.over.append('g'); this.gDot = this.over.append('g'); this.gBub = this.over.append('g');
+    this.t = d3.zoomIdentity;
+    this.zoom = d3.zoom().scaleExtent([opts.minK || 1, 800]).clickDistance(8)
+      .on('zoom', e => { this.t = e.transform; this.g.attr('transform', this.t); this.update(); });
+    this.svg.call(this.zoom).on('dblclick.zoom', null);
+    this.resize();
+  }
+  resize(){
+    this.w = this.svgEl.clientWidth; this.h = this.svgEl.clientHeight;
+    this.zoom.extent([[0,0],[this.w,this.h]]).translateExtent([[-BW*0.08,-BH*0.1],[BW*1.08,BH*1.1]]);
+  }
+  fit(x0,y0,x1,y1, animate=true, padFrac=0.85){
+    const bw = Math.max(x1-x0, 0.4), bh = Math.max(y1-y0, 0.4);
+    const k = Math.min(800, padFrac*Math.min(this.w/bw, this.h/bh));
+    const t = d3.zoomIdentity.translate(this.w/2 - k*(x0+x1)/2, this.h/2 - k*(y0+y1)/2).scale(k);
+    (animate ? this.svg.transition().duration(550) : this.svg).call(this.zoom.transform, t);
+  }
+  update(){
+    const t = this.t, R = DOT/2, W = this.w, H = this.h, m = 40;
+    const isl = [], dots = [], bubs = [], hidden = new Set();
+    // island shapes in screen space, grown to the country's minimum size when tiny
+    const shapeOf = c => {
+      const s = c.shape, [x, y] = t.apply([s.cx, s.cy]), f = Math.max(1, minOf(c)/(s.size*t.k));
+      return { c, x, y, f, r:s.r*t.k*f, pts:s.pts.map(p => { const q = t.apply(p); return [x + (q[0]-x)*f, y + (q[1]-y)*f]; }) };
+    };
+    // clusters: one numbered bubble while shapes still being held at minimum size overlap each other
+    CLUSTERS.forEach(cl => {
+      const ms = cl.members.map(i => shapeOf(byIso[i]));
+      let overlap = false;
+      for (let i = 0; i < ms.length && !overlap; i++) for (let j = i+1; j < ms.length; j++)
+        if ((ms[i].f > 1 || ms[j].f > 1) && Math.hypot(ms[i].x-ms[j].x, ms[i].y-ms[j].y) < (ms[i].r + ms[j].r)/2){ overlap = true; break; }   // splits at 2x less zoom than full separation
+      if (!overlap) return;
+      const cs = cl.members.map(i => byIso[i]);
+      cs.forEach(c => hidden.add(c));
+      bubs.push({ key:cl.name, cs, x:d3.mean(ms, s=>s.x), y:d3.mean(ms, s=>s.y), r:13 });
+    });
+    COUNTRIES.forEach(c => {
+      if (hidden.has(c)) return;
+      if (c.shape){
+        const s = shapeOf(c);
+        if (s.x+s.r < -m || s.x-s.r > W+m || s.y+s.r < -m || s.y-s.r > H+m) return;
+        isl.push(s);
+      } else if (DOTS.has(c.iso) && c.base*t.k < DOT){
+        const [x, y] = t.apply(c.anchor);
+        if (x < -m || x > W+m || y < -m || y > H+m) return;
+        dots.push({ c, x, y });
+      }
+    });
+    isl.sort((a, b) => b.r - a.r);   // smaller shapes on top
+    const st = d => stCls(d.c);
+    this.gIsl.selectAll('path').data(isl, d => d.c.iso).join('path')
+      .attr('d', d => smooth(d.pts))
+      .attr('class', d => 'isl' + st(d))
+      .on('click', (e, d) => { e.stopPropagation(); tap(d.c, this); })
+      .order();
+    this.gDot.selectAll('circle').data(dots, d => d.c.iso).join('circle')
+      .attr('cx', d=>d.x).attr('cy', d=>d.y).attr('r', R).attr('class', d => 'dot' + st(d));
+    const bs = this.gBub.selectAll('g.bub').data(bubs, d => d.key).join(enter => {
+        const g = enter.append('g'); g.append('circle'); g.append('text'); return g; })
+      .attr('class', d => 'bub' + (d.cs.every(c => state[c.iso]==='good') ? ' alldone' : '')
+        + (d.cs.some(c => c === target && state[c.iso]==='bad') ? ' hasbad' : ''))
+      .attr('transform', d => `translate(${d.x},${d.y})`)
+      .on('click', (e, d) => { e.stopPropagation(); if (!S.magnify) this.zoomTo(d.cs); });
+    bs.select('circle').attr('r', d => d.r);
+    bs.select('text').text(d => d.cs.length);
+  }
+  zoomTo(cs){
+    let x0=Infinity, y0=Infinity, x1=-Infinity, y1=-Infinity;
+    cs.forEach(c => c.shape.pts.forEach(([x,y]) => { x0=Math.min(x0,x); y0=Math.min(y0,y); x1=Math.max(x1,x); y1=Math.max(y1,y); }));
+    this.fit(x0, y0, x1, y1, true, 0.9);
+  }
+  refresh(){
+    this.paths.attr('class', f => 'c' + (f.c ? stCls(f.c) : ' t'));
+    this.update();
+  }
+}
+
+// ---------- inset (magnifier) ----------
+const insetEl = document.getElementById('inset');
+let inset = null;
+function openInset(bounds, label){
+  insetEl.hidden = false;
+  document.getElementById('inlabel').textContent = label;
+  inset = new MapView(document.getElementById('insvg'), { minK:0.5 });
+  inset.fit(...bounds, false, 0.8);
+  inset.refresh();
+}
+function closeInset(){ insetEl.hidden = true; inset = null; }
+document.getElementById('inclose').onclick = closeInset;
+insetEl.addEventListener('click', e => { if (e.target === insetEl) closeInset(); });
+
+// ---------- main view ----------
+let main;
+function buildMain(){
+  setupProjection();
+  main = new MapView(mainSvg, { minK: Math.min(1, mainSvg.clientHeight / BH) });
+  main.fit(0, 0, BW, BH, false, 1);
+  main.refresh();
+}
+mainSvg.addEventListener('click', e => {
+  if (!S.magnify) return;
+  e.stopPropagation(); e.preventDefault();
+  const r = mainSvg.getBoundingClientRect();
+  const [bx, by] = main.t.invert([e.clientX - r.left, e.clientY - r.top]);
+  const span = main.w / (main.t.k * 6) / 2;
+  setMag(false);
+  openInset([bx-span, by-span, bx+span, by+span], 'Magnified. Tap a country.');
+}, true);
+function setMag(on){ S.magnify = on; document.getElementById('magBtn').classList.toggle('on', on);
+  hint(on ? 'Tap where you want to magnify.' : null); }
+document.getElementById('magBtn').onclick = () => setMag(!S.magnify);
+
+// ---------- game ----------
+let queue = [], target = null, busy = false, nGood = 0, nBad = 0;
+const $ = id => document.getElementById(id);
+function newGame(){
+  Object.keys(state).forEach(k => delete state[k]);
+  queue = d3.shuffle(COUNTRIES.filter(c => S.pool === 'all' || c.tiny)); nGood = nBad = 0; busy = false;
+  next();
+}
+function next(){
+  busy = false;
+  target = queue.pop() || null;
+  const t = $('target'); t.className = 'target';
+  if (S.mode === 'explore'){ $('eyebrow').textContent = 'Free tap'; t.textContent = 'Tap any country'; $('score').textContent=''; $('skip').hidden = true; }
+  else {
+    $('skip').hidden = false;
+    $('eyebrow').textContent = target ? 'Find' : 'Finished';
+    t.textContent = target ? target.name : `${nGood} of ${nGood+nBad} correct`;
+    $('score').innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed<br>${queue.length + (target?1:0)} to go`;
+  }
+  redraw();
+}
+function redraw(){ main.refresh(); if (inset) inset.refresh(); }
+function tap(c, view){
+  if (S.magnify) return;
+  if (S.mode === 'explore'){
+    Object.keys(state).forEach(k => { if (state[k]==='flash') delete state[k]; });
+    state[c.iso] = 'flash'; $('target').textContent = c.name; redraw();
+    return;
+  }
+  if (!target || busy || state[c.iso] === 'good') return;   // already-correct countries do nothing
+  busy = true;
+  const t = $('target');
+  if (c === target){ state[c.iso] = 'good'; nGood++; t.classList.add('good'); }
+  else {
+    state[target.iso] = 'bad'; nBad++; t.classList.add('bad');
+    flashing[c.iso] = true;                                   // the tapped country flashes yellow once
+    setTimeout(() => { delete flashing[c.iso]; redraw(); }, 450);
+  }
+  redraw();
+  setTimeout(() => { if (inset && view === inset) closeInset(); next(); }, c === target ? 650 : 1400);
+}
+$('skip').onclick = () => { if (!target || busy) return; busy = true; state[target.iso]='bad'; nBad++; $('target').classList.add('bad'); redraw(); setTimeout(next, 1200); };
+
+// ---------- controls ----------
+function seg(id, fn){
+  const el = $(id);
+  el.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (id !== 'segJump'){ el.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); }
+    fn(b.dataset.v);
+  });
+}
+seg('segMode', v => { S.mode = v; Object.keys(state).forEach(k => delete state[k]); v === 'find' ? newGame() : next(); });
+seg('segPool', v => { S.pool = v; newGame(); });
+seg('segBorders', v => { S.borders = v === '1'; document.body.classList.toggle('noborders', !S.borders); });
+const JUMPS = { europe:[[-12,35],[42,71]], asia:[[26,-11],[150,56]], africa:[[-19,-36],[53,38]], namerica:[[-169,7],[-52,72]],
+  carib:[[-86,9],[-59,27]], samerica:[[-82,-56],[-34,13]], oceania:[[112,-48],[189.5,15]] };
+seg('segJump', v => {
+  if (v === 'world') return main.fit(0, 0, BW, BH, true, 1);
+  const [[a,b],[c,d]] = JUMPS[v], pts = [];
+  for (let i = 0; i <= 10; i++){ pts.push(proj([a+(c-a)*i/10, b]), proj([a+(c-a)*i/10, d]), proj([a, b+(d-b)*i/10]), proj([c, b+(d-b)*i/10])); }
+  main.fit(d3.min(pts,p=>p[0]), d3.min(pts,p=>p[1]), d3.max(pts,p=>p[0]), d3.max(pts,p=>p[1]), true, 1);
+});
+
+let hintTimer;
+function hint(text){
+  const h = $('hint'); clearTimeout(hintTimer);
+  if (text){ h.textContent = text; h.hidden = false; } else { h.hidden = true; }
+}
+hintTimer = setTimeout(() => hint(null), 7000);
+
+buildMain();
+newGame();
+let lastW = mainSvg.clientWidth;
+window.addEventListener('resize', () => {
+  if (Math.abs(mainSvg.clientWidth - lastW) > 40){ lastW = mainSvg.clientWidth; buildMain(); redraw(); }
+  else { main.resize(); main.update(); }
+});
+$('tray').addEventListener('toggle', () => { main.resize(); main.update(); });
+})();
+</script>
