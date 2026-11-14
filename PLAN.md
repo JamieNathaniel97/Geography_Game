@@ -9,7 +9,7 @@ Help the user learn all ~197 countries (UN members plus commonly included states
 ## Platform and tech
 
 - Target: Android (phone-first, portrait and landscape).
-- Suggested stack: React Native with Expo, or Flutter. Either is fine; pick whichever gives the smoothest interactive map rendering.
+- Stack (decided): a web app using d3-geo for the 3D globe (orthographic projection) and the flat maps. It is installed as an offline PWA from GitHub Pages, the same way as the OOW oral trainer. It can be wrapped as an APK with Capacitor later if needed.
 - Map: render country shapes from an open GeoJSON/TopoJSON world dataset (for example Natural Earth, 1:50m or 1:110m) as tappable SVG paths, so no network or map API key is needed.
 - Fully offline. All data bundled with the app.
 - Pinch-to-zoom and pan are essential, since many countries are tiny.
@@ -29,7 +29,7 @@ The app shows a country name and the user taps where it is on the map.
 
 - **Borders:** clear country borders, on or off.
 - **Terrain:** shaded relief showing mountains and other physical features, on or off.
-- **Satellite view:** switch to satellite imagery, like Google Maps, on or off. Note: this likely needs an internet connection or a larger download of bundled imagery; terrain and borders should still work offline.
+- **Satellite view:** shelved for now and may come back later. It can't be fully offline, because sharp imagery for tiny countries would take gigabytes. If it returns, it will be online-only. Wherever later sections say "satellite toggle", read it as shelved.
 
 **Answering**
 
@@ -159,8 +159,8 @@ Build 4 recreates the build 3 games for the counties of Great Britain and the wh
 
 ## Quiz options
 
-- Scope filter: whole world, or one continent or region (Africa, Asia, Europe, North America, South America, Oceania, plus sub-regions such as Caribbean or Middle East).
-- Length: all countries in scope, or a fixed number (10, 25, 50).
+- Scope filter: whole world, or one of six continents: Europe, Asia, Africa, Oceania, North America, South America. There is also one sub-region scope, the Caribbean. It covers countries only, and they also stay in the North America quiz (see Data).
+- Length: always every country in the chosen scope (the whole world means all 197). There are no fixed-length quizzes.
 - Order: random each time.
 - Optional countdown timer, Sporcle-style, or untimed practice mode.
 - Give up / skip button that shows the answer.
@@ -176,17 +176,34 @@ Build 4 recreates the build 3 games for the counties of Great Britain and the wh
 ## Screens
 
 1. Home: choose mode.
-2. Setup: choose region, length and timer.
+2. Setup: choose region and timer.
 3. Quiz: map plus prompt or text input, score and timer at the top.
 4. Results: summary map and stats, with buttons to retry or practise missed countries.
 5. Progress: overall mastery per region and list of weakest countries.
-6. Settings: autocomplete, number of attempts, dark mode.
+6. Settings: dark mode, plus default map toggles (borders, terrain). There's no autocomplete, because it would give answers away, and no "number of attempts" setting, because the find games are one tap per country.
 
 ## Data
 
-- One bundled JSON file of countries: name, alternative names, ISO code, capital, alternative capital spellings, continent, sub-region.
+- One bundled JSON file of countries: name, alternative names, ISO code, capital, alternative capital spellings, continent(s), and an optional sub-region (currently only "caribbean").
 - Note countries with multiple capitals (for example South Africa, Bolivia) and accept any of them.
 - Map shapes keyed by ISO code to join with the country data.
+- **Non-country territories** (Greenland, Western Sahara, French Guiana and so on) are drawn in grey and can't be tapped. A separate territories quiz may come later, so the data should store territories as their own records (type: territory, with a sovereign state), not discard them.
+- A country can belong to more than one continent, so continent is a list, not a single value.
+
+### Continent assignments for borderline countries
+
+- **Russia, Turkey:** both Europe and Asia.
+- **Egypt:** Africa.
+- **Cyprus:** Europe.
+- **Georgia, Armenia, Azerbaijan:** Asia.
+- **Kazakhstan:** Asia.
+- **Panama, Central America and the Caribbean islands (including Trinidad and Tobago):** North America.
+- **Caribbean sub-region:** the only sub-region. Caribbean countries and territories (Puerto Rico, Aruba, Curaçao, the Cayman Islands, Martinique and so on) are tagged `caribbean` in the data. Build 1 includes a Caribbean quiz scope with the 13 Caribbean countries only, no territories. These countries are also still part of North America. A later version will add the Caribbean territories to the Caribbean quiz.
+- **Middle East** (Israel, Palestine, Lebanon, Syria, Jordan, Iraq, Iran, the Gulf states, Yemen): Asia.
+- **Guyana, Suriname:** South America.
+- **Indonesia, Timor-Leste:** Asia. **Papua New Guinea:** Oceania.
+- **African island nations** (Cape Verde, São Tomé and Príncipe, Comoros, Madagascar, Mauritius, Seychelles): Africa.
+- **Iceland, Malta:** Europe. **Maldives, Sri Lanka:** Asia.
 
 ## Nice-to-haves for later
 
