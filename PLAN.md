@@ -200,6 +200,9 @@ Decided 2026-11-15:
 - **Sub-regions:** every country has one main sub-region (from the UN scheme, e.g. Southern Europe, Southeast Asia, Polynesia) plus any well-known areas it belongs to (Iberian Peninsula, Balkans, Scandinavia, Caucasus, Himalayas, Horn of Africa, Sahel, Maghreb, Levant, Greater/Lesser Antilles, Guianas, Andes and more). **Later:** make these playable as quiz regions, like the Caribbean.
 - **Later idea for Learning mode:** a time slider to go back in time and watch country names and borders change, including empires.
 - **Stats page:** opened from its own button in the top bar, not from the games list. It has Countries and Capitals tabs. It shows how well you know each region ("known" means right at least 3 times in 4), your 15 weakest countries, personal bests per game and region, and recent games, plus a reset button. Answers are recorded per country: Find counts right first time; Name counts each country once when the game ends. The end-of-game pop-up says "New personal best!" when a record is beaten.
+- **New game screen layout:** two tabs. **Game** holds the game groups, a collapsible Region section (its header shows the choice, e.g. "Region: Europe · 47") and Map (World games only). **Options** holds Game mode and Timer; its tab label shows how many options are on.
+- **Knowledge gaps** (called "weak spots" earlier; built 2026-11-15): an option for the Find games ("Game mode: Whole region / Knowledge gaps (20)"). It picks the 20 countries in the region most worth practising. Each country's score is its smoothed wrong rate, raised the longer since it was last seen (simple spaced repetition). Never-asked countries rank above well-known ones. These games count towards stats but not personal bests.
+- **Timer** (built 2026-11-15): an optional countdown for all scored games. You choose the seconds per country (3, 5, 10, 15 or 20; defaults 5 for Find and 10 for Name, kept separately), and the total for the chosen region is shown. When it runs out the game ends with "Time's up!" and the rest are shown in red. Without the countdown, the clock shows elapsed time.
 - **End of a game:** a pop-up shows the score (for example "38 / 47 right first time" or "named"), the percentage, the number missed and the time taken. It has three buttons: **Review** (close the pop-up and tap any country on the map to see its answer), **Play again** and **Games list**.
 
 1. Home: choose mode.
@@ -231,6 +234,15 @@ Decided 2026-11-15:
 - **Indonesia, Timor-Leste:** Asia. **Papua New Guinea:** Oceania.
 - **African island nations** (Cape Verde, São Tomé and Príncipe, Comoros, Madagascar, Mauritius, Seychelles): Africa.
 - **Iceland, Malta:** Europe. **Maldives, Sri Lanka:** Asia.
+
+## Polish for later (interest scored 1–5 by the user, 2026-11-15)
+
+- 5: Remember the last game settings and map toggles between visits.
+- 5: A proper app name and splash screen.
+- 3: Light/dark theme switch (the app currently follows the phone's setting).
+- 2: A "How to play" page.
+- 2: Improve the stats page.
+- 1: Haptic feedback on right and wrong answers.
 
 ## Nice-to-haves for later
 

@@ -36,6 +36,7 @@
   </header>
   <div class="subbar">
     <span class="score" id="score"></span>
+    <span class="clock" id="clock" hidden>0:00</span>
     <button class="linkbtn" id="giveup" type="button">Give up</button>
   </div>
   <main id="mapwrap">
@@ -72,6 +73,8 @@
 <div class="overlay" id="setup" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
     <div class="sheethead"><h2 id="setupTitle">New game</h2><button class="btn" id="setupClose" type="button">Close</button></div>
+    <div class="seg tabs" id="setupTabs" role="tablist"><button data-v="game" class="on" type="button" role="tab">Game</button><button data-v="options" type="button" role="tab">Options</button></div>
+    <div class="tabpanel" id="tabGame">
     <div class="field"><span class="label">Game</span>
       <div class="gamegroups" id="segGame">
         <details open><summary>Find <small>tap the country on the map</small></summary>
@@ -85,11 +88,28 @@
         </details>
       </div>
     </div>
-    <div class="field"><span class="label">Region</span>
+    <details class="regiongroup" id="regionGroup">
+      <summary><span class="label">Region</span> <span id="regionSummary">World · 197</span></summary>
       <div class="regions" id="regions"></div>
-    </div>
+    </details>
     <div class="field" id="viewField"><span class="label">Map</span>
       <div class="seg" id="segView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
+    </div>
+    </div>
+    <div class="tabpanel" id="tabOptions" hidden>
+      <div class="field" id="questionsField"><span class="label">Game mode</span>
+        <div class="seg" id="segQuestions"><button data-v="all" class="on" type="button">Whole region</button><button data-v="weak" type="button">Knowledge gaps (20)</button></div>
+        <p class="hint2">Knowledge gaps asks the 20 countries you most need to practise. Find games only.</p>
+      </div>
+      <p class="hint2" id="questionsNA" hidden>Knowledge gaps is only for the Find games.</p>
+      <div class="field" id="timerField"><span class="label">Timer</span>
+        <div class="seg" id="segTimer"><button data-v="off" class="on" type="button">Off</button><button data-v="on" type="button">On</button></div>
+        <div id="paceBox" hidden>
+          <span class="label">Seconds per country</span>
+          <div class="seg" id="segPace"><button data-v="3" type="button">3</button><button data-v="5" type="button">5</button><button data-v="10" type="button">10</button><button data-v="15" type="button">15</button><button data-v="20" type="button">20</button></div>
+          <p class="hint2" id="paceTotal"></p>
+        </div>
+      </div>
     </div>
     <button class="btn primary wide" id="startBtn" type="button">Start</button>
     

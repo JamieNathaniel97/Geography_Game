@@ -46,12 +46,54 @@
 
   function newGame() {
     Object.keys(state).forEach(k => delete state[k]);
-    const list = regionCountries();
+    let list = regionCountries();
+    if (S.weak && isFind()) list = weakest(list, WEAK_COUNT);
     total = list.length;
     order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null;
     startTime = Date.now();
+    startClock();
     closeResults();
     show();
+  }
+
+  // ---------- knowledge gaps ("weak spots" in PLAN.md): the countries most worth practising ----------
+  // Each country gets a score: how often it's been wrong (smoothed, so one miss isn't everything), raised the
+  // longer it's been since you last saw it (simple spaced repetition). Never-asked countries sit in the middle,
+  // above ones you already know well.
+  const WEAK_COUNT = 20;
+  function weakness(c) {
+    const e = GG.Stats.entry(GG.Stats.skillOf(S.mode), c.iso);
+    if (!e || !e.a) return 0.45;
+    const wrong = (e.a - e.c + 1) / (e.a + 2);
+    const days = (Date.now() - e.t) / 864e5;
+    return wrong * (1 + Math.min(days / 7, 2));
+  }
+  function weakest(list, n) {
+    return list.map(c => ({ c, w: weakness(c) + Math.random() * 0.02 })).sort((a, b) => b.w - a.w).slice(0, n).map(x => x.c);
+  }
+
+  // ---------- timer: elapsed time, or an optional countdown ----------
+  let clockTimer = null, timeLimit = 0;
+  function startClock() {
+    clearInterval(clockTimer);
+    timeLimit = S.timer && S.mode !== "explore" ? total * (isName() ? S.paceName || 10 : S.paceFind || 5) : 0;
+    tickClock();
+    clockTimer = setInterval(tickClock, 250);
+  }
+  function tickClock() {
+    const el = $("clock");
+    if (S.mode === "explore" || !startTime) { el.hidden = true; return; }
+    const secs = Math.floor(((finished ? endTime : Date.now()) - startTime) / 1000);
+    const shown = timeLimit ? Math.max(0, timeLimit - secs) : secs;
+    el.hidden = false;
+    el.textContent = `${Math.floor(shown / 60)}:${String(shown % 60).padStart(2, "0")}`;
+    el.classList.toggle("low", !!timeLimit && shown <= 10 && !finished);
+    if (timeLimit && !finished && shown <= 0) timeUp();
+  }
+  function timeUp() {
+    order.forEach(c => { if (!state[c.iso]) { state[c.iso] = "bad"; nBad++; } });
+    order = []; gaveUp = "time"; selected = null; $("nameInput").blur();
+    finish();
   }
   function next() {
     order.splice(idx, 1);
@@ -95,7 +137,7 @@
       $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed · tap any country to see it`;
       $("giveup").textContent = "Play again";
     } else {
-      $("eyebrow").textContent = (caps() ? "Find by capital" : "Find") + where;
+      $("eyebrow").textContent = (caps() ? "Find by capital" : "Find") + where + (S.weak ? " · knowledge gaps" : "");
       t.textContent = caps() ? capital(target) : target.name;
       $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed · ${order.length} to go`;
     }
@@ -271,7 +313,7 @@
     const games = St.games().filter(g => modes.includes(g.mode)).slice(0, 8);
     $("statsGames").innerHTML = games.length ? games.map(g => {
       const d = new Date(g.date), day = d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
-      return `<li><span>${MODE_NAMES[g.mode]} · ${REGIONS[g.region] ? REGIONS[g.region].name : g.region}${g.gaveUp ? " <small>gave up</small>" : ""}</span>` +
+      return `<li><span>${MODE_NAMES[g.mode]} · ${REGIONS[g.region] ? REGIONS[g.region].name : g.region}${g.weak ? " <small>knowledge gaps</small>" : ""}${g.gaveUp ? " <small>gave up</small>" : ""}</span>` +
         `<span class="snum">${g.score}/${g.total} · ${day}</span></li>`;
     }).join("") : `<li class="empty">No games yet.</li>`;
   }
@@ -296,7 +338,8 @@
     finished = true; endTime = Date.now();
     // naming games: record every country in the region once, named or not
     if (isName()) regionCountries().forEach(c => GG.Stats.answer(S.mode, c.iso, state[c.iso] === "good"));
-    newBest = GG.Stats.game(S.mode, S.region, nGood, total, Math.round((endTime - startTime) / 1000), gaveUp);
+    newBest = GG.Stats.game(S.mode, S.region, nGood, total, Math.round((endTime - startTime) / 1000), gaveUp, S.weak && isFind());
+    tickClock();
     show();
     openResults();
   }
@@ -304,7 +347,7 @@
     const secs = Math.round((endTime - startTime) / 1000), time = `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
     const pct = Math.round(100 * nGood / Math.max(1, total));
     const named = isName();
-    $("resultsTitle").textContent = gaveUp ? "Game over" : pct === 100 ? "Perfect!" : "Finished!";
+    $("resultsTitle").textContent = gaveUp === "time" ? "Time's up!" : gaveUp ? "Game over" : pct === 100 ? "Perfect!" : "Finished!";
     $("resultsScore").textContent = `${nGood} / ${total}`;
     $("resultsWhat").textContent = named ? (caps() ? "capitals named" : "countries named") : "right first time";
     const missed = total - nGood;
@@ -377,7 +420,8 @@
   }
 
   // ---------- setup screen (New game) ----------
-  const pick = { mode: "find", region: "world", view: "globe" };
+  const pick = { mode: "find", region: "world", view: "globe", weak: false, timer: false, paceFind: 5, paceName: 10 };
+  const isNameMode = m => m === "name" || m === "namecap";
   function segSelect(el, v) { el.querySelectorAll("button").forEach(b => b.classList.toggle("on", b.dataset.v === v)); }
   function buildRegionButtons() {
     $("regions").innerHTML = "";
@@ -401,21 +445,59 @@
     segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); segSelect($("segView"), pick.view);
     showGameGroup(pick.mode);
     $("viewField").hidden = pick.region !== "world";
+    pick.weak = !!S.weak; pick.timer = !!S.timer;
+    pick.paceFind = S.paceFind || 5; pick.paceName = S.paceName || 10;
+    segSelect($("segQuestions"), pick.weak ? "weak" : "all"); segSelect($("segTimer"), pick.timer ? "on" : "off");
+    $("regionGroup").open = false;
+    showTab("game");
+    showOptions();
     $("setup").hidden = false;
   }
   function closeSetup() { $("setup").hidden = true; }
   $("menuBtn").onclick = openSetup;
   $("setupClose").onclick = closeSetup;
   $("setup").addEventListener("click", e => { if (e.target === $("setup")) closeSetup(); });
-  $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); } });
+  $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); showOptions(); } });
+  // Options tab: knowledge gaps only for the Find games; the timer for every scored game
+  function showOptions() {
+    const find = pick.mode === "find" || pick.mode === "findcap";
+    $("questionsField").hidden = !find;
+    $("questionsNA").hidden = find;
+    $("timerField").hidden = pick.mode === "explore";
+    $("paceBox").hidden = !pick.timer;
+    const pace = isNameMode(pick.mode) ? pick.paceName : pick.paceFind;
+    segSelect($("segPace"), String(pace));
+    const r = REGIONS[pick.region], all = pick.region === "world" ? geo.countries.length : geo.countries.filter(r.test).length;
+    const n = find && pick.weak ? Math.min(20, all) : all, secs = n * pace;
+    $("paceTotal").textContent = `${r.name}: ${n} × ${pace} s = ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+    $("regionSummary").textContent = `${r.name} · ${all}`;
+    const parts = [find && pick.weak ? "Knowledge gaps" : "", pick.timer && pick.mode !== "explore" ? `Timer ${pace} s` : ""].filter(Boolean);
+    $("setupTabs").querySelector('[data-v="options"]').textContent = parts.length ? `Options · ${parts.length}` : "Options";
+  }
+  function showTab(tab) {
+    segSelect($("setupTabs"), tab);
+    $("tabGame").hidden = tab !== "game";
+    $("tabOptions").hidden = tab !== "options";
+  }
+  $("setupTabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) showTab(b.dataset.v); });
+  $("segQuestions").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.weak = b.dataset.v === "weak"; segSelect($("segQuestions"), b.dataset.v); showOptions(); } });
+  $("segTimer").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.timer = b.dataset.v === "on"; segSelect($("segTimer"), b.dataset.v); showOptions(); } });
+  $("segPace").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (isNameMode(pick.mode)) pick.paceName = +b.dataset.v; else pick.paceFind = +b.dataset.v;
+    showOptions();
+  });
   $("regions").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     pick.region = b.dataset.v; segSelect($("regions"), pick.region);
     $("viewField").hidden = pick.region !== "world"; // region games are always flat (chosen 2026-11-14)
+    $("regionGroup").open = false;
+    showOptions();
   });
   $("segView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); } });
   $("startBtn").onclick = () => {
     closeSetup(); closeInset();
+    S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName;
     startGame(pick.mode, pick.region, pick.region === "world" ? pick.view : "flat");
   };
   function startGame(mode, region, view) {
@@ -428,7 +510,7 @@
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
     hideLearnCard();
-    if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; show(); } else newGame();
+    if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; startTime = 0; clearInterval(clockTimer); tickClock(); show(); } else newGame();
   }
 
   document.addEventListener("keydown", e => {

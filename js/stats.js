@@ -23,11 +23,12 @@
       save();
     },
     // a finished game; returns true if it's a new personal best for this game and region
-    game(mode, region, score, total, secs, gaveUp) {
+    game(mode, region, score, total, secs, gaveUp, weak) {
       const pct = Math.round(100 * score / Math.max(1, total)), key = mode + "|" + region, best = data.bests[key];
-      const isBest = !best || pct > best.pct || (pct === best.pct && secs < best.secs);
+      // knowledge gaps games are a different set of questions, so they don't count for personal bests
+      const isBest = !weak && (!best || pct > best.pct || (pct === best.pct && secs < best.secs));
       if (isBest) data.bests[key] = { pct, secs, date: Date.now() };
-      data.games.unshift({ mode, region, score, total, secs, date: Date.now(), gaveUp: !!gaveUp });
+      data.games.unshift({ mode, region, score, total, secs, date: Date.now(), gaveUp: !!gaveUp, weak: !!weak });
       data.games.length = Math.min(data.games.length, 100);
       save();
       return isBest && !!best; // "new best" only when there was one to beat
