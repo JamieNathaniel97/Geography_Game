@@ -26,39 +26,51 @@
   const inRegion = c => S.region === "world" || REGIONS[S.region].test(c);
   const regionCountries = () => geo.countries.filter(inRegion);
 
-  let selected = null;   // Name the countries: the country whose name is being typed
+  // Games: find = Find the country, name = Name the countries, findcap = Find the country by its capital,
+  // namecap = Name the capitals, explore = Free tap
+  const isFind = () => S.mode === "find" || S.mode === "findcap";
+  const isName = () => S.mode === "name" || S.mode === "namecap";
+  const caps = () => S.mode === "findcap" || S.mode === "namecap";
+  const capital = c => c.capitals[0] || "";
+  const label = c => (caps() ? `${c.name}: ${capital(c)}` : c.name);
+  let selected = null;   // naming games: the country whose name or capital is being typed
   const getState = c => (flashing[c.iso] ? "flash" : c === selected ? "sel" : state[c.iso] || null);
   // still to answer (Free tap, or a finished naming game: any country in the region); taps near small
   // open countries snap to them
-  const isOpen = c => inRegion(c) && (S.mode === "explore" || (S.mode === "name" && finished) || !state[c.iso]);
+  // once a game is finished every country in the region is open again, for reviewing the answers
+  const isOpen = c => inRegion(c) && (S.mode === "explore" || finished || !state[c.iso]);
 
   // `order` holds the countries still to answer. Find the country: the arrows move through it with no penalty.
   let order = [], idx = 0, target = null, nGood = 0, nBad = 0, finished = false, gaveUp = false, total = 0;
+  let startTime = 0, endTime = 0;
 
   function newGame() {
     Object.keys(state).forEach(k => delete state[k]);
     const list = regionCountries();
     total = list.length;
     order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null;
+    startTime = Date.now();
+    closeResults();
     show();
   }
   function next() {
     order.splice(idx, 1);
     if (idx >= order.length) idx = 0;
-    if (!order.length) finished = true;
+    if (!order.length) { finish(); return; }
     show();
   }
   function step(d) {
-    if (S.mode !== "find" || order.length < 2) return;
+    if (!isFind() || order.length < 2) return;
     idx = (idx + d + order.length) % order.length;
     show();
   }
   function show() {
     const mode = S.mode, where = S.region === "world" ? "" : " · " + REGIONS[S.region].name;
-    target = mode === "find" && !finished ? order[idx] || null : null;
+    target = isFind() && !finished ? order[idx] || null : null;
     const t = $("target"); t.className = "target";
-    const typing = mode === "name" && selected && !finished;
-    $("prev").hidden = $("fwd").hidden = mode !== "find" || finished;
+    const typing = isName() && selected && !finished;
+    $("prev").hidden = $("fwd").hidden = !isFind() || finished;
+    $("nameInput").placeholder = caps() ? `Capital of ${selected ? selected.name : ""}` : "Type the name";
     $("giveup").hidden = mode === "explore";
     $("nameInput").hidden = $("nameClose").hidden = !typing;
     t.hidden = typing;
@@ -67,11 +79,11 @@
       $("eyebrow").textContent = "Free tap" + where;
       t.textContent = "Tap any country";
       $("score").textContent = "Shows the name of whatever you tap.";
-    } else if (mode === "name") {
-      $("eyebrow").textContent = (finished ? "Finished" : "Name the countries") + where;
+    } else if (isName()) {
+      $("eyebrow").textContent = (finished ? "Finished" : caps() ? "Name the capitals" : "Name the countries") + where;
       if (finished) {
         t.textContent = `${nGood} of ${total} named`;
-        $("score").textContent = gaveUp ? "Tap a red country to see its name." : "All named!";
+        $("score").textContent = `Tap any country to see its ${caps() ? "capital" : "name"}.`;
         $("giveup").textContent = "Play again";
       } else {
         if (!typing) t.textContent = "Tap a country";
@@ -80,11 +92,11 @@
     } else if (finished) {
       $("eyebrow").textContent = "Finished" + where;
       t.textContent = `${nGood} of ${total} right`;
-      $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed`;
+      $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed · tap any country to see it`;
       $("giveup").textContent = "Play again";
     } else {
-      $("eyebrow").textContent = "Find" + where;
-      t.textContent = target.name;
+      $("eyebrow").textContent = (caps() ? "Find by capital" : "Find") + where;
+      t.textContent = caps() ? capital(target) : target.name;
       $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed · ${order.length} to go`;
     }
     redraw();
@@ -92,13 +104,14 @@
   function redraw() { main.requestDraw(); if (inset) inset.requestDraw(); }
   function flashName(c) {
     Object.keys(state).forEach(k => { if (state[k] === "flash") delete state[k]; });
-    $("target").hidden = false; $("target").textContent = c.name;
+    $("target").hidden = false; $("target").textContent = label(c);
   }
 
   function tap(c, view) {
     if (!inRegion(c)) return; // countries outside the region are greyed out and do nothing
     if (S.mode === "explore") { flashName(c); state[c.iso] = "flash"; redraw(); return; }
-    if (S.mode === "name") { tapName(c, view); return; }
+    if (finished) { flashName(c); return; } // reviewing: tap any country to see its name (or capital)
+    if (isName()) { tapName(c, view); return; }
     if (!target || state[c.iso] === "good") return; // already-correct countries do nothing
     // the next country appears instantly; the map keeps the green/red result
     if (c === target) { state[c.iso] = "good"; nGood++; }
@@ -106,7 +119,7 @@
       state[target.iso] = "bad"; nBad++;
       flashing[c.iso] = true; // the tapped country flashes yellow once
       setTimeout(() => { delete flashing[c.iso]; redraw(); }, 450);
-      toast("Missed: " + target.name, 1800);
+      toast(caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name, caps() ? 2400 : 1800);
     }
     if (inset && view === inset) closeInset();
     next();
@@ -115,7 +128,6 @@
   // ---------- game 2: Name the countries ----------
   // Tap any country, type its name; it goes green as soon as the name is right. No submit, no wrong answers.
   function tapName(c, view) {
-    if (finished) { flashName(c); return; }     // after giving up: tap a red country to see its name
     if (state[c.iso] === "good") return;          // already named
     selected = c;                                 // switching countries clears what was typed
     $("nameInput").value = "";
@@ -132,7 +144,7 @@
     }
   }
   $("nameInput").addEventListener("input", () => {
-    const typed = $("nameInput").value, match = selected && GG.nameMatches(selected, typed);
+    const typed = $("nameInput").value, match = selected && GG.nameMatches(selected, typed, caps() ? "capitals" : "names");
     if (!match) return; // no reaction until it's right
     // accepted with a typo: show how it was typed and how it's spelled
     if (!match.exact) toast(`You typed “${typed.trim()}” — it's spelled “${match.name}”`, 4000);
@@ -140,7 +152,7 @@
     order = order.filter(c => c !== selected);
     selected = null;
     $("nameInput").value = ""; $("nameInput").blur();
-    if (!order.length) finished = true;
+    if (!order.length) { finish(); return; }
     show();
   });
   $("nameInput").addEventListener("keydown", e => { if (e.key === "Escape") closeName(); });
@@ -160,8 +172,31 @@
       return;
     }
     order.forEach(c => { if (!state[c.iso]) { state[c.iso] = "bad"; nBad++; } });
-    order = []; finished = gaveUp = true; selected = null; $("nameInput").blur(); show();
+    order = []; gaveUp = true; selected = null; $("nameInput").blur();
+    finish();
   };
+
+  // ---------- end of a game: results pop-up ----------
+  function finish() {
+    finished = true; endTime = Date.now();
+    show();
+    openResults();
+  }
+  function openResults() {
+    const secs = Math.round((endTime - startTime) / 1000), time = `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+    const pct = Math.round(100 * nGood / Math.max(1, total));
+    const named = isName();
+    $("resultsTitle").textContent = gaveUp ? "Game over" : pct === 100 ? "Perfect!" : "Finished!";
+    $("resultsScore").textContent = `${nGood} / ${total}`;
+    $("resultsWhat").textContent = named ? (caps() ? "capitals named" : "countries named") : "right first time";
+    const missed = total - nGood;
+    $("resultsDetail").textContent = `${pct}% · ${missed} ${named ? "not named" : "missed"} · ${time}`;
+    $("results").hidden = false;
+  }
+  function closeResults() { $("results").hidden = true; }
+  $("reviewBtn").onclick = () => { closeResults(); toast("Tap any country to see its answer.", 2500); };
+  $("replayBtn").onclick = () => { closeResults(); newGame(); };
+  $("listBtn").onclick = () => { closeResults(); openSetup(); };
   $("prev").onclick = () => step(-1);
   $("fwd").onclick = () => step(1);
 
@@ -235,9 +270,17 @@
       $("regions").appendChild(b);
     });
   }
+  // open the game group that holds the chosen game, close the others
+  function showGameGroup(mode) {
+    document.querySelectorAll("#segGame details").forEach(d => { d.open = !!d.querySelector(`button[data-v="${mode}"]`); });
+  }
+  document.querySelectorAll("#segGame details").forEach(d => d.addEventListener("toggle", () => {
+    if (d.open) document.querySelectorAll("#segGame details").forEach(o => { if (o !== d) o.open = false; });
+  }));
   function openSetup() {
     pick.mode = S.mode; pick.region = S.region; pick.view = S.region === "world" ? main.mode : "globe";
     segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); segSelect($("segView"), pick.view);
+    showGameGroup(pick.mode);
     $("viewField").hidden = pick.region !== "world";
     $("setup").hidden = false;
   }
@@ -245,7 +288,7 @@
   $("menuBtn").onclick = openSetup;
   $("setupClose").onclick = closeSetup;
   $("setup").addEventListener("click", e => { if (e.target === $("setup")) closeSetup(); });
-  $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); } });
+  $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); } });
   $("regions").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     pick.region = b.dataset.v; segSelect($("regions"), pick.region);
@@ -269,7 +312,7 @@
   }
 
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") { closeSetup(); closeInset(); }
+    if (e.key === "Escape") { closeSetup(); closeInset(); closeResults(); }
     if (e.key === "ArrowLeft") step(-1);
     if (e.key === "ArrowRight") step(1);
   });

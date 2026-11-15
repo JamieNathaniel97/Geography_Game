@@ -1,6 +1,6 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "geography-game-v5";
+const CACHE = "geography-game-v7";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/names.js", "js/geo.js", "js/mapview.js", "js/app.js",

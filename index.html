@@ -57,7 +57,17 @@
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
     <div class="sheethead"><h2 id="setupTitle">New game</h2><button class="btn" id="setupClose" type="button">Close</button></div>
     <div class="field"><span class="label">Game</span>
-      <div class="seg" id="segGame"><button data-v="find" class="on" type="button">Find countries</button><button data-v="name" type="button">Name countries</button><button data-v="explore" type="button">Free tap</button></div>
+      <div class="gamegroups" id="segGame">
+        <details open><summary>Find <small>tap the country on the map</small></summary>
+          <div class="games"><button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button type="button" disabled>By flag <small>soon</small></button></div>
+        </details>
+        <details><summary>Name <small>type the answer</small></summary>
+          <div class="games"><button data-v="name" type="button">Countries</button><button data-v="namecap" type="button">Capitals</button><button type="button" disabled>Flags <small>soon</small></button></div>
+        </details>
+        <details><summary>Learn <small>no score</small></summary>
+          <div class="games"><button data-v="explore" type="button">Free tap</button><button type="button" disabled>Learning mode <small>soon</small></button></div>
+        </details>
+      </div>
     </div>
     <div class="field"><span class="label">Region</span>
       <div class="regions" id="regions"></div>
@@ -66,7 +76,20 @@
       <div class="seg" id="segView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
     </div>
     <button class="btn primary wide" id="startBtn" type="button">Start</button>
-    <p class="note">Still to come: capitals games, Learning mode and the results screen.</p>
+    
+  </div>
+</div>
+
+<div class="overlay" id="results" hidden>
+  <div class="sheet results" role="dialog" aria-modal="true" aria-labelledby="resultsTitle">
+    <h2 id="resultsTitle">Finished!</h2>
+    <div class="bigscore"><span id="resultsScore">0 / 0</span><small id="resultsWhat"></small></div>
+    <p class="detail" id="resultsDetail"></p>
+    <div class="resultbtns">
+      <button class="btn" id="reviewBtn" type="button">Review</button>
+      <button class="btn primary" id="replayBtn" type="button">Play again</button>
+      <button class="btn" id="listBtn" type="button">Games list</button>
+    </div>
   </div>
 </div>
 

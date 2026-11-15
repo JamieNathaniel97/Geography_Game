@@ -85,6 +85,7 @@ Games 3 and 4 mirror games 1 and 2, using capital cities instead of country name
 - **Game 4, Name the capitals (fill in the map):** the user taps any country, a text box pops up, and the box reacts only once the correct capital is typed, turning the country green. No wrong answers; a counter tracks progress towards naming every capital.
 - Same forgiving matching as game 2, with alternative spellings (for example "Kiev" / "Kyiv").
 - Countries with more than one capital (for example South Africa, Bolivia) accept any of them.
+- Built 2026-11-15. Game 3 shows the first listed capital and a miss says "Missed: Bamako is in Mali". Game 4 uses the same matching, spelling note and give-up behaviour as game 2. Capitals come from the country data, with corrections and accepted alternatives in `tools/build_data.py` (CAPITALS): for example Mbabane/Lobamba, Sucre/La Paz, Colombo/Sri Jayawardenepura Kotte, Kuala Lumpur/Putrajaya, Kyiv/Kiev, Bern/Berne, Washington/Washington DC.
 
 ## Build 2: future games (do not build yet)
 
@@ -192,6 +193,10 @@ Build 4 recreates the build 3 games for the counties of Great Britain and the wh
 - All progress stored locally on the device.
 
 ## Screens
+
+Decided 2026-11-15:
+- **Games list:** the New game screen groups the games into three expandable groups. **Find** (tap the country): Countries, By capital, By flag. **Name** (type the answer): Countries, Capitals, Flags. **Learn** (no score): Free tap, Learning mode. Games not built yet show as "soon". Builds 3 and 4 (US states, counties) will add their own sets.
+- **End of a game:** a pop-up shows the score (for example "38 / 47 right first time" or "named"), the percentage, the number missed and the time taken. It has three buttons: **Review** (close the pop-up and tap any country on the map to see its answer), **Play again** and **Games list**.
 
 1. Home: choose mode.
 2. Setup: choose region and timer.

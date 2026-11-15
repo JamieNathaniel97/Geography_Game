@@ -367,7 +367,8 @@
 "Republic of Benin"
 ],
 "capitals": [
-"Porto-Novo"
+"Porto-Novo",
+"Cotonou"
 ],
 "cont": [
 "Africa"
@@ -407,7 +408,8 @@
 "Plurinational State of Bolivia"
 ],
 "capitals": [
-"Sucre"
+"Sucre",
+"La Paz"
 ],
 "cont": [
 "South America"
@@ -1089,6 +1091,7 @@
 "Kingdom of Eswatini"
 ],
 "capitals": [
+"Mbabane",
 "Lobamba"
 ],
 "cont": [
@@ -1328,7 +1331,8 @@
 "Republic of Guatemala"
 ],
 "capitals": [
-"Guatemala City"
+"Guatemala City",
+"Guatemala"
 ],
 "cont": [
 "North America"
@@ -1629,7 +1633,8 @@
 "Côte d'Ivoire"
 ],
 "capitals": [
-"Yamoussoukro"
+"Yamoussoukro",
+"Abidjan"
 ],
 "cont": [
 "Africa"
@@ -1747,7 +1752,8 @@
 "Independent and Sovereign Republic of Kiribati"
 ],
 "capitals": [
-"South Tarawa"
+"South Tarawa",
+"Tarawa"
 ],
 "cont": [
 "Oceania"
@@ -1768,7 +1774,8 @@
 "Kosova"
 ],
 "capitals": [
-"Pristina"
+"Pristina",
+"Prishtina"
 ],
 "cont": [
 "Europe"
@@ -1788,7 +1795,8 @@
 "State of Kuwait"
 ],
 "capitals": [
-"Kuwait City"
+"Kuwait City",
+"Kuwait"
 ],
 "cont": [
 "Asia"
@@ -2048,7 +2056,8 @@
 "Malaysia"
 ],
 "capitals": [
-"Kuala Lumpur"
+"Kuala Lumpur",
+"Putrajaya"
 ],
 "cont": [
 "Asia"
@@ -2268,6 +2277,7 @@
 "Mongolia"
 ],
 "capitals": [
+"Ulaanbaatar",
 "Ulan Bator"
 ],
 "cont": [
@@ -2629,7 +2639,8 @@
 "Republic of Palau"
 ],
 "capitals": [
-"Ngerulmud"
+"Ngerulmud",
+"Melekeok"
 ],
 "cont": [
 "Oceania"
@@ -2649,7 +2660,9 @@
 "State of Palestine"
 ],
 "capitals": [
-"Ramallah"
+"Ramallah",
+"East Jerusalem",
+"Jerusalem"
 ],
 "cont": [
 "Asia"
@@ -2996,7 +3009,8 @@
 "Most Serene Republic of San Marino"
 ],
 "capitals": [
-"City of San Marino"
+"City of San Marino",
+"San Marino"
 ],
 "cont": [
 "Europe"
@@ -3300,6 +3314,8 @@
 "Democratic Socialist Republic of Sri Lanka"
 ],
 "capitals": [
+"Sri Jayawardenepura Kotte",
+"Kotte",
 "Colombo"
 ],
 "cont": [
@@ -3380,7 +3396,8 @@
 "Swiss Confederation"
 ],
 "capitals": [
-"Bern"
+"Bern",
+"Berne"
 ],
 "cont": [
 "Europe"
@@ -3703,7 +3720,8 @@
 "Ukraine"
 ],
 "capitals": [
-"Kyiv"
+"Kyiv",
+"Kiev"
 ],
 "cont": [
 "Europe"
@@ -3770,7 +3788,9 @@
 "America"
 ],
 "capitals": [
-"Washington D.C."
+"Washington, D.C.",
+"Washington",
+"Washington DC"
 ],
 "cont": [
 "North America"
@@ -3852,7 +3872,8 @@
 "Holy See"
 ],
 "capitals": [
-"Vatican City"
+"Vatican City",
+"Vatican"
 ],
 "cont": [
 "Europe"

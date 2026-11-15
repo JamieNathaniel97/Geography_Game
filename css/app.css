@@ -78,12 +78,28 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button.on { background: var(--accent); color: var(--accent-fg); }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; padding-block: 10px; }
-.regions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.regions, .games { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.games button { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 8px 10px; font-weight: 500; }
+.games button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .regions button { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; border: 1px solid var(--line);
   background: var(--panel); border-radius: 8px; padding: 8px 10px; font-weight: 500; text-align: left; }
 .regions button small { color: var(--muted); font-variant-numeric: tabular-nums; }
 .regions button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .regions button.on small { color: inherit; opacity: .8; }
+.gamegroups { display: grid; gap: 6px; }
+.gamegroups details { border: 1px solid var(--line); border-radius: 8px; padding: 0 10px; }
+.gamegroups details[open] { padding-bottom: 10px; }
+.gamegroups summary { cursor: pointer; padding: 9px 0; font-weight: 600; list-style-position: inside; }
+.gamegroups summary small { color: var(--muted); font-weight: 400; margin-left: 6px; }
+.games button:disabled { opacity: .5; cursor: default; }
+.games button small { font-size: 11px; color: var(--muted); }
+.results { text-align: center; gap: 10px; }
+.results h2 { margin: 0; font: 700 26px var(--display); }
+.bigscore { display: grid; gap: 2px; }
+.bigscore span { font: 700 46px/1 var(--display); font-variant-numeric: tabular-nums; }
+.bigscore small { color: var(--muted); font-size: 13px; }
+.results .detail { margin: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.resultbtns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 6px; }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
 .inbox { background: var(--panel); border-radius: 12px; overflow: hidden; width: min(560px, 100%); height: min(70vh, 560px);
   display: flex; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,.35); }

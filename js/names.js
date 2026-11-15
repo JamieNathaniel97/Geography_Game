@@ -40,17 +40,19 @@
     return prev[b.length];
   }
 
-  // Does `typed` name country c? Returns null, or { exact, name } where `name` is the accepted spelling it
-  // matched (so a misspelling can be shown with the right spelling).
-  GG.nameMatches = function (c, typed) {
+  // Does `typed` match country c's names (field "names") or capitals (field "capitals")? Returns null, or
+  // { exact, name } where `name` is the accepted spelling it matched (so a misspelling can be shown).
+  GG.nameMatches = function (c, typed, field = "names") {
     const t = GG.normName(typed);
     if (!t) return null;
-    const names = c.names || [c.name];
-    if (!c._norm) c._norm = names.map(GG.normName);
-    const exact = c._norm.indexOf(t);
+    const names = field === "capitals" ? c.capitals : (c.names || [c.name]);
+    const key = "_norm_" + field;
+    if (!c[key]) c[key] = names.map(GG.normName);
+    const norm = c[key];
+    const exact = norm.indexOf(t);
     if (exact >= 0) return { exact: true, name: names[exact] };
     // one typo; a name you're still typing (the start of the right name) isn't counted early
-    const i = c._norm.findIndex(n => n.length >= 6 && !n.startsWith(t) && distance(t, n, 1) <= 1);
+    const i = norm.findIndex(n => n.length >= 6 && !n.startsWith(t) && distance(t, n, 1) <= 1);
     return i >= 0 ? { exact: false, name: names[i] } : null;
   };
 })();

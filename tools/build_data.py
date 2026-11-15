@@ -69,6 +69,32 @@ ALT = {
 # display names where the source's common name isn't the usual English one
 DISPLAY = {"TUR": "Turkey"}
 
+# Capitals. The first is the one shown in "Find the country by its capital"; every listed one is accepted when
+# typing. Countries with several official capitals accept any of them (PLAN.md), and common English
+# spellings are accepted (e.g. Kiev, per PLAN.md).
+CAPITALS = {
+    "SWZ": ["Mbabane", "Lobamba"],
+    "BOL": ["Sucre", "La Paz"],
+    "BEN": ["Porto-Novo", "Cotonou"],
+    "CIV": ["Yamoussoukro", "Abidjan"],
+    "LKA": ["Sri Jayawardenepura Kotte", "Kotte", "Colombo"],
+    "MYS": ["Kuala Lumpur", "Putrajaya"],
+    "MNG": ["Ulaanbaatar", "Ulan Bator"],
+    "KIR": ["South Tarawa", "Tarawa"],
+    "PSE": ["Ramallah", "East Jerusalem", "Jerusalem"],
+    "PLW": ["Ngerulmud", "Melekeok"],
+    "SMR": ["City of San Marino", "San Marino"],
+    "VAT": ["Vatican City", "Vatican"],
+    "KWT": ["Kuwait City", "Kuwait"],
+    "GTM": ["Guatemala City", "Guatemala"],
+    "MEX": ["Mexico City"],
+    "PAN": ["Panama City"],
+    "USA": ["Washington, D.C.", "Washington", "Washington DC"],
+    "UKR": ["Kyiv", "Kiev"],
+    "XKX": ["Pristina", "Prishtina"],
+    "CHE": ["Bern", "Berne"],
+}
+
 
 def fetch(name):
     DL.mkdir(parents=True, exist_ok=True)
@@ -145,7 +171,7 @@ def build_countries():
             "id": "XKX" if iso == "UNK" else c["ccn3"],
             "name": name,
             "names": list(dict.fromkeys(names)),
-            "capitals": c.get("capital", []),
+            "capitals": CAPITALS.get(code, c.get("capital", [])),
             "cont": cont,
             "car": iso in CARIBBEAN,
             "ll": c["latlng"],
