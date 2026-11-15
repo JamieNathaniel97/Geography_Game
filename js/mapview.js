@@ -55,6 +55,14 @@
         .on("end", () => { clearTimeout(this.settle); this.settle = setTimeout(() => { this.moving = false; this.requestDraw(); }, 140); });
       this.sel = d3.select(canvas).call(this.zoom).on("dblclick.zoom", null);
       canvas.addEventListener("click", e => this.handleClick(e));
+      // redraw at the right size whenever the canvas changes size (e.g. the jump bar is hidden in region
+      // games): otherwise the picture is stretched and taps land in the wrong place
+      if (window.ResizeObserver) {
+        new ResizeObserver(() => {
+          const r = canvas.getBoundingClientRect();
+          if (Math.abs(r.width - this.w) > 0.5 || Math.abs(r.height - this.h) > 0.5) { this.resize(); this.requestDraw(); }
+        }).observe(canvas);
+      }
       this.resize();
     }
 
@@ -607,42 +615,48 @@
       const c = this.resolveTap(x, y);
       if (c) this.opts.onTap(c, this);
     }
-    // A tap on an open (not yet answered) country counts as that country. A tap anywhere else (sea, an
-    // answered or greyed-out country) goes to the nearest open small country within reach, so tiny
-    // countries are easy to hit once their neighbours are done.
+    // Which country a tap means. The rules, in order:
+    //  1. Land comes first: a tap on a country that's still open counts as that country. The one exception is
+    //     the inner part of a small country's circle (e.g. San Marino inside Italy), which counts as the small country.
+    //  2. Otherwise (sea, or a country already answered or greyed out): a circle or island oval under the
+    //     finger counts as its country; where they overlap, the one whose centre is nearest wins.
+    //  3. Otherwise: snap to the nearest open small country or oval close to the tap.
     resolveTap(x, y) {
       const open = this.opts.isOpen || (() => true);
-      // 1. inside the ring of a small country: always that country (even over land, e.g. Vatican in Italy)
-      const ring = this.hits.rings.filter(r => open(r.c) && Math.hypot(r.x - x, r.y - y) <= r.d / 2 + 3)
-        .sort((a, b) => Math.hypot(a.x - x, a.y - y) - Math.hypot(b.x - x, b.y - y))[0];
-      if (ring) return ring.c;
-      // 2. inside an island oval, or on the country itself
-      const direct = this.countryAt(x, y);
-      if (direct && open(direct)) return direct;
-      // 3. near a small open country or island oval: snap to the nearest one within reach
+      const near = (a, b) => Math.hypot(a.x - x, a.y - y) - Math.hypot(b.x - x, b.y - y);
+      const rings = this.hits.rings.filter(r => open(r.c) && Math.hypot(r.x - x, r.y - y) <= r.d / 2 + 3).sort(near);
+      const ovals = this.hits.islands.filter(s => open(s.c) && d3.polygonContains(s.pts, [x, y])).sort(near);
+      const land = this.landAt(x, y);
+      if (land && open(land)) {
+        const inner = rings.find(r => Math.hypot(r.x - x, r.y - y) <= r.d * 0.3);
+        return inner && inner.c !== land ? inner.c : land;
+      }
+      // circles and ovals under the finger: the one whose centre is nearest wins
+      const under = rings.concat(ovals).sort(near)[0];
+      if (under) return under.c;
+      // snap: nearest open small country (by its centre) or oval (by its outline) within reach
       const proj = this.projection(), ppd = this.pxPerDeg(), offsets = this.copies();
       let best = null, bd = Infinity;
       this.hits.islands.forEach(s => {
         if (!open(s.c)) return;
-        const gap = d3.polygonContains(s.pts, [x, y]) ? 0 : edgeDistance(s.pts, x, y);
-        if (gap < 20 && gap < bd) { bd = gap; best = s.c; }
+        const gap = edgeDistance(s.pts, x, y);
+        if (gap < 16 && gap < bd) { bd = gap; best = s.c; }
       });
       for (const c of this.geo.countries) {
         if (c.shape || !c.anchor || !open(c)) continue;
         const size = c.sizeDeg * ppd;
         if (size >= 44 || !this.visible(c.anchor)) continue;
-        const reach = Math.max(22, size / 2 + 14);
+        const reach = Math.max(20, size / 2 + 12);
         const p = proj(c.anchor);
         for (const dx of offsets) {
           const d = Math.hypot(p[0] + dx - x, p[1] - y);
           if (d < reach && d < bd) { bd = d; best = c; }
         }
       }
-      return best || direct;
+      return best || land;
     }
-    countryAt(x, y) {
-      const isl = this.hits.islands.find(s => d3.polygonContains(s.pts, [x, y]));
-      if (isl) return isl.c;
+    // the country whose land is under the point (true borders only, no circles or ovals)
+    landAt(x, y) {
       const ll = this.lonLatAt(x, y);
       if (!ll) return null;
       for (const c of this.geo.countries) {
