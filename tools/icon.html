@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- The app icon: the splash globe (Europe and Africa, every country lit green) on dark teal.
+     Rendered to PNGs by tools/make_icons.py; open it in a browser to see it. -->
+<html><head><meta charset="utf-8"><title>Gaia Quest icon</title>
+<style>html,body{margin:0;background:#17262b}canvas{display:block}</style></head>
+<body><canvas id="c" width="1024" height="1024"></canvas>
+<script src="../vendor/d3.min.js"></script>
+<script src="../vendor/topojson-client.min.js"></script>
+<script>
+fetch("../data/world-110m.json").then(r => r.json()).then(t => {
+  const S = 1024, ctx = document.getElementById("c").getContext("2d");
+  const feats = topojson.feature(t, t.objects.countries).features;
+  ctx.fillStyle = "#17262b"; ctx.fillRect(0, 0, S, S);
+  // ?maskable: the globe sits inside the central 80% circle Android keeps when it crops icons into shapes;
+  // otherwise (icons shown uncropped) it can fill more of the square
+  const R = S * (location.search.includes("maskable") ? 0.33 : 0.43), cx = S / 2, cy = S / 2;
+  const proj = d3.geoOrthographic().rotate([-12, -22]).scale(R).translate([cx, cy]);
+  const path = d3.geoPath(proj, ctx);
+  const glow = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.28);
+  glow.addColorStop(0, "rgba(79,179,212,.32)"); glow.addColorStop(1, "rgba(79,179,212,0)");
+  ctx.fillStyle = glow; ctx.fillRect(0, 0, S, S);
+  ctx.beginPath(); path({ type: "Sphere" }); ctx.fillStyle = "#1c3c47"; ctx.fill();
+  ctx.beginPath(); path(d3.geoGraticule10()); ctx.strokeStyle = "rgba(127,208,234,.16)"; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); feats.forEach(f => path(f)); ctx.fillStyle = "#3fbf6a"; ctx.fill();
+  ctx.strokeStyle = "#1c3c47"; ctx.lineWidth = 1.6; ctx.stroke();
+  ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = "rgba(127,208,234,.5)"; ctx.lineWidth = 4; ctx.stroke();
+  document.title = "ready";
+});
+</script>
+</body></html>

@@ -1,33 +1,59 @@
-"""Draws the app icons (a globe with a green "found it" pin) into icons/. Run: python tools/make_icons.py"""
-import math, pathlib
-from PIL import Image, ImageDraw
+"""Makes the app icons in icons/ from tools/icon.html (the splash globe, every country lit green).
 
-OUT = pathlib.Path(__file__).resolve().parent.parent / "icons"
-BG, SEA, LINE, PIN = (23, 38, 43), (207, 227, 234), (31, 111, 139), (47, 158, 85)
+It serves the repo locally, takes a 1024 px screenshot of icon.html with Chrome or Edge in headless mode,
+then scales it down. Run from anywhere:  python tools/make_icons.py
+"""
+import functools
+import http.server
+import pathlib
+import shutil
+import subprocess
+import tempfile
+import threading
 
-def icon(size):
-    s = 4  # draw big, then shrink for smooth edges
-    W = size * s
-    im = Image.new("RGB", (W, W), BG)
-    d = ImageDraw.Draw(im)
-    c, r = W / 2, W * 0.32  # keeps the globe inside the maskable safe zone
-    d.ellipse([c - r, c - r, c + r, c + r], fill=SEA)
-    lw = max(2, int(W * 0.012))
-    for k in (-0.6, 0, 0.6):  # parallels
-        y = c + r * k
-        half = math.sqrt(max(0, r * r - (y - c) ** 2))
-        d.line([c - half, y, c + half, y], fill=LINE, width=lw)
-    for k in (0.45, 1.0):  # meridians
-        rx = r * k
-        d.ellipse([c - rx, c - r, c + rx, c + r], outline=LINE, width=lw)
-    d.ellipse([c - r, c - r, c + r, c + r], outline=LINE, width=lw)
-    pr = W * 0.075  # pin
-    px, py = c + r * 0.38, c - r * 0.3
-    d.ellipse([px - pr, py - pr, px + pr, py + pr], fill=PIN, outline=BG, width=int(W * 0.015))
-    return im.resize((size, size), Image.LANCZOS)
+from PIL import Image
 
-OUT.mkdir(exist_ok=True)
-icon(192).save(OUT / "icon-192.png")
-icon(512).save(OUT / "icon-512.png")
-icon(180).save(OUT / "apple-touch-icon.png")
-print("icons written")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+BROWSERS = [
+    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    "google-chrome", "chromium", "msedge",
+]
+
+
+def browser():
+    for b in BROWSERS:
+        if pathlib.Path(b).exists() or shutil.which(b):
+            return b
+    raise SystemExit("Chrome or Edge is needed to draw the icon")
+
+
+def main():
+    class Quiet(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, *args):
+            pass
+    handler = functools.partial(Quiet, directory=str(ROOT))
+    server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    def render(query):
+        with tempfile.TemporaryDirectory() as tmp:
+            shot = pathlib.Path(tmp) / "icon.png"
+            url = f"http://127.0.0.1:{server.server_port}/tools/icon.html{query}"
+            subprocess.run([browser(), "--headless=new", "--disable-gpu", "--hide-scrollbars", "--window-size=1024,1024",
+                            "--virtual-time-budget=5000", f"--screenshot={shot}", url],
+                           check=True, capture_output=True, timeout=120)
+            return Image.open(shot).convert("RGB").crop((0, 0, 1024, 1024))
+    try:
+        full, maskable = render(""), render("?maskable")
+    finally:
+        server.shutdown()
+    out = ROOT / "icons"
+    out.mkdir(exist_ok=True)
+    for img, size, name in ((full, 512, "icon-512.png"), (full, 192, "icon-192.png"), (full, 180, "apple-touch-icon.png"),
+                            (maskable, 512, "icon-maskable-512.png"), (maskable, 192, "icon-maskable-192.png")):
+        img.resize((size, size), Image.LANCZOS).save(out / name)
+    print("icons written")
+
+
+if __name__ == "__main__":
+    main()
