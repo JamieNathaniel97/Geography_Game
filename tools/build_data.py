@@ -28,6 +28,47 @@ SOURCES = {
 CARIBBEAN = set("ATG BHS BRB CUB DMA DOM GRD HTI JAM KNA LCA VCT TTO".split())
 EXTRA = ("VAT", "PSE", "UNK", "TWN")  # non-UN-members included in the quiz (UNK = Kosovo)
 
+# Extra names accepted in the naming games: current names, short forms and nicknames only (no former names
+# such as Swaziland, Burma or Macedonia; decided 2026-11-15). Each country's common and official names
+# from the source data are accepted as well.
+ALT = {
+    "USA": ["USA", "US", "America", "United States of America"],
+    "GBR": ["UK", "Britain", "Great Britain"],
+    "ARE": ["UAE", "Emirates"],
+    "COD": ["DRC", "DR Congo", "Congo-Kinshasa", "Congo Kinshasa"],
+    "COG": ["Congo", "Congo-Brazzaville", "Congo Brazzaville"],
+    "CAF": ["CAR"],
+    "CIV": ["Cote d'Ivoire", "Côte d'Ivoire"],
+    "CZE": ["Czech Republic"],
+    "TLS": ["East Timor"],
+    "PNG": ["PNG"],
+    "NZL": ["NZ"],
+    "SAU": ["KSA", "Saudi"],
+    "BIH": ["Bosnia", "BiH"],
+    "VAT": ["Vatican", "Holy See"],
+    "NLD": ["Holland"],
+    "KNA": ["St Kitts", "Saint Kitts", "St Kitts and Nevis"],
+    "VCT": ["St Vincent", "Saint Vincent"],
+    "LCA": ["St Lucia"],
+    "STP": ["Sao Tome"],
+    "TTO": ["Trinidad"],
+    "ATG": ["Antigua"],
+    "CPV": ["Cabo Verde"],
+    "TUR": ["Turkey", "Turkiye"],
+    "GMB": ["The Gambia"],
+    "BHS": ["The Bahamas"],
+    "LAO": ["Lao"],
+    "VNM": ["Viet Nam"],
+    "KOR": ["Korea"],
+    "PRK": ["DPRK"],
+    "FSM": ["FSM"],
+    "XKX": ["Kosova"],
+    "PSE": ["State of Palestine"],
+    "GNB": ["Guinea Bissau"],
+}
+# display names where the source's common name isn't the usual English one
+DISPLAY = {"TUR": "Turkey"}
+
 
 def fetch(name):
     DL.mkdir(parents=True, exist_ok=True)
@@ -97,10 +138,13 @@ def build_countries():
         if iso == "EGY":
             cont = ["Africa"]
         code = "XKX" if iso == "UNK" else iso
+        name = DISPLAY.get(code, c["name"]["common"])
+        names = [name, c["name"]["common"], c["name"]["official"]] + ALT.get(code, [])
         out.append({
             "iso": code,
             "id": "XKX" if iso == "UNK" else c["ccn3"],
-            "name": c["name"]["common"],
+            "name": name,
+            "names": list(dict.fromkeys(names)),
             "capitals": c.get("capital", []),
             "cont": cont,
             "car": iso in CARIBBEAN,

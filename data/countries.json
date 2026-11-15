@@ -3,6 +3,10 @@
 "iso": "AFG",
 "id": "004",
 "name": "Afghanistan",
+"names": [
+"Afghanistan",
+"Islamic Republic of Afghanistan"
+],
 "capitals": [
 "Kabul"
 ],
@@ -19,6 +23,10 @@
 "iso": "ALB",
 "id": "008",
 "name": "Albania",
+"names": [
+"Albania",
+"Republic of Albania"
+],
 "capitals": [
 "Tirana"
 ],
@@ -35,6 +43,10 @@
 "iso": "DZA",
 "id": "012",
 "name": "Algeria",
+"names": [
+"Algeria",
+"People's Democratic Republic of Algeria"
+],
 "capitals": [
 "Algiers"
 ],
@@ -51,6 +63,10 @@
 "iso": "AND",
 "id": "020",
 "name": "Andorra",
+"names": [
+"Andorra",
+"Principality of Andorra"
+],
 "capitals": [
 "Andorra la Vella"
 ],
@@ -67,6 +83,10 @@
 "iso": "AGO",
 "id": "024",
 "name": "Angola",
+"names": [
+"Angola",
+"Republic of Angola"
+],
 "capitals": [
 "Luanda"
 ],
@@ -83,6 +103,10 @@
 "iso": "ATG",
 "id": "028",
 "name": "Antigua and Barbuda",
+"names": [
+"Antigua and Barbuda",
+"Antigua"
+],
 "capitals": [
 "Saint John's"
 ],
@@ -99,6 +123,10 @@
 "iso": "ARG",
 "id": "032",
 "name": "Argentina",
+"names": [
+"Argentina",
+"Argentine Republic"
+],
 "capitals": [
 "Buenos Aires"
 ],
@@ -115,6 +143,10 @@
 "iso": "ARM",
 "id": "051",
 "name": "Armenia",
+"names": [
+"Armenia",
+"Republic of Armenia"
+],
 "capitals": [
 "Yerevan"
 ],
@@ -131,6 +163,10 @@
 "iso": "AUS",
 "id": "036",
 "name": "Australia",
+"names": [
+"Australia",
+"Commonwealth of Australia"
+],
 "capitals": [
 "Canberra"
 ],
@@ -147,6 +183,10 @@
 "iso": "AUT",
 "id": "040",
 "name": "Austria",
+"names": [
+"Austria",
+"Republic of Austria"
+],
 "capitals": [
 "Vienna"
 ],
@@ -163,6 +203,10 @@
 "iso": "AZE",
 "id": "031",
 "name": "Azerbaijan",
+"names": [
+"Azerbaijan",
+"Republic of Azerbaijan"
+],
 "capitals": [
 "Baku"
 ],
@@ -179,6 +223,11 @@
 "iso": "BHS",
 "id": "044",
 "name": "Bahamas",
+"names": [
+"Bahamas",
+"Commonwealth of the Bahamas",
+"The Bahamas"
+],
 "capitals": [
 "Nassau"
 ],
@@ -195,6 +244,10 @@
 "iso": "BHR",
 "id": "048",
 "name": "Bahrain",
+"names": [
+"Bahrain",
+"Kingdom of Bahrain"
+],
 "capitals": [
 "Manama"
 ],
@@ -211,6 +264,10 @@
 "iso": "BGD",
 "id": "050",
 "name": "Bangladesh",
+"names": [
+"Bangladesh",
+"People's Republic of Bangladesh"
+],
 "capitals": [
 "Dhaka"
 ],
@@ -227,6 +284,9 @@
 "iso": "BRB",
 "id": "052",
 "name": "Barbados",
+"names": [
+"Barbados"
+],
 "capitals": [
 "Bridgetown"
 ],
@@ -243,6 +303,10 @@
 "iso": "BLR",
 "id": "112",
 "name": "Belarus",
+"names": [
+"Belarus",
+"Republic of Belarus"
+],
 "capitals": [
 "Minsk"
 ],
@@ -259,6 +323,10 @@
 "iso": "BEL",
 "id": "056",
 "name": "Belgium",
+"names": [
+"Belgium",
+"Kingdom of Belgium"
+],
 "capitals": [
 "Brussels"
 ],
@@ -275,6 +343,9 @@
 "iso": "BLZ",
 "id": "084",
 "name": "Belize",
+"names": [
+"Belize"
+],
 "capitals": [
 "Belmopan"
 ],
@@ -291,6 +362,10 @@
 "iso": "BEN",
 "id": "204",
 "name": "Benin",
+"names": [
+"Benin",
+"Republic of Benin"
+],
 "capitals": [
 "Porto-Novo"
 ],
@@ -307,6 +382,10 @@
 "iso": "BTN",
 "id": "064",
 "name": "Bhutan",
+"names": [
+"Bhutan",
+"Kingdom of Bhutan"
+],
 "capitals": [
 "Thimphu"
 ],
@@ -323,6 +402,10 @@
 "iso": "BOL",
 "id": "068",
 "name": "Bolivia",
+"names": [
+"Bolivia",
+"Plurinational State of Bolivia"
+],
 "capitals": [
 "Sucre"
 ],
@@ -339,6 +422,11 @@
 "iso": "BIH",
 "id": "070",
 "name": "Bosnia and Herzegovina",
+"names": [
+"Bosnia and Herzegovina",
+"Bosnia",
+"BiH"
+],
 "capitals": [
 "Sarajevo"
 ],
@@ -355,6 +443,10 @@
 "iso": "BWA",
 "id": "072",
 "name": "Botswana",
+"names": [
+"Botswana",
+"Republic of Botswana"
+],
 "capitals": [
 "Gaborone"
 ],
@@ -371,6 +463,10 @@
 "iso": "BRA",
 "id": "076",
 "name": "Brazil",
+"names": [
+"Brazil",
+"Federative Republic of Brazil"
+],
 "capitals": [
 "Brasília"
 ],
@@ -387,6 +483,10 @@
 "iso": "BRN",
 "id": "096",
 "name": "Brunei",
+"names": [
+"Brunei",
+"Nation of Brunei, Abode of Peace"
+],
 "capitals": [
 "Bandar Seri Begawan"
 ],
@@ -403,6 +503,10 @@
 "iso": "BGR",
 "id": "100",
 "name": "Bulgaria",
+"names": [
+"Bulgaria",
+"Republic of Bulgaria"
+],
 "capitals": [
 "Sofia"
 ],
@@ -419,6 +523,9 @@
 "iso": "BFA",
 "id": "854",
 "name": "Burkina Faso",
+"names": [
+"Burkina Faso"
+],
 "capitals": [
 "Ouagadougou"
 ],
@@ -435,6 +542,10 @@
 "iso": "BDI",
 "id": "108",
 "name": "Burundi",
+"names": [
+"Burundi",
+"Republic of Burundi"
+],
 "capitals": [
 "Gitega"
 ],
@@ -451,6 +562,10 @@
 "iso": "KHM",
 "id": "116",
 "name": "Cambodia",
+"names": [
+"Cambodia",
+"Kingdom of Cambodia"
+],
 "capitals": [
 "Phnom Penh"
 ],
@@ -467,6 +582,10 @@
 "iso": "CMR",
 "id": "120",
 "name": "Cameroon",
+"names": [
+"Cameroon",
+"Republic of Cameroon"
+],
 "capitals": [
 "Yaoundé"
 ],
@@ -483,6 +602,9 @@
 "iso": "CAN",
 "id": "124",
 "name": "Canada",
+"names": [
+"Canada"
+],
 "capitals": [
 "Ottawa"
 ],
@@ -499,6 +621,11 @@
 "iso": "CPV",
 "id": "132",
 "name": "Cape Verde",
+"names": [
+"Cape Verde",
+"Republic of Cabo Verde",
+"Cabo Verde"
+],
 "capitals": [
 "Praia"
 ],
@@ -515,6 +642,10 @@
 "iso": "CAF",
 "id": "140",
 "name": "Central African Republic",
+"names": [
+"Central African Republic",
+"CAR"
+],
 "capitals": [
 "Bangui"
 ],
@@ -531,6 +662,10 @@
 "iso": "TCD",
 "id": "148",
 "name": "Chad",
+"names": [
+"Chad",
+"Republic of Chad"
+],
 "capitals": [
 "N'Djamena"
 ],
@@ -547,6 +682,10 @@
 "iso": "CHL",
 "id": "152",
 "name": "Chile",
+"names": [
+"Chile",
+"Republic of Chile"
+],
 "capitals": [
 "Santiago"
 ],
@@ -563,6 +702,10 @@
 "iso": "CHN",
 "id": "156",
 "name": "China",
+"names": [
+"China",
+"People's Republic of China"
+],
 "capitals": [
 "Beijing"
 ],
@@ -579,6 +722,10 @@
 "iso": "COL",
 "id": "170",
 "name": "Colombia",
+"names": [
+"Colombia",
+"Republic of Colombia"
+],
 "capitals": [
 "Bogotá"
 ],
@@ -595,6 +742,10 @@
 "iso": "COM",
 "id": "174",
 "name": "Comoros",
+"names": [
+"Comoros",
+"Union of the Comoros"
+],
 "capitals": [
 "Moroni"
 ],
@@ -611,6 +762,10 @@
 "iso": "CRI",
 "id": "188",
 "name": "Costa Rica",
+"names": [
+"Costa Rica",
+"Republic of Costa Rica"
+],
 "capitals": [
 "San José"
 ],
@@ -627,6 +782,10 @@
 "iso": "HRV",
 "id": "191",
 "name": "Croatia",
+"names": [
+"Croatia",
+"Republic of Croatia"
+],
 "capitals": [
 "Zagreb"
 ],
@@ -643,6 +802,10 @@
 "iso": "CUB",
 "id": "192",
 "name": "Cuba",
+"names": [
+"Cuba",
+"Republic of Cuba"
+],
 "capitals": [
 "Havana"
 ],
@@ -659,6 +822,10 @@
 "iso": "CYP",
 "id": "196",
 "name": "Cyprus",
+"names": [
+"Cyprus",
+"Republic of Cyprus"
+],
 "capitals": [
 "Nicosia"
 ],
@@ -675,6 +842,10 @@
 "iso": "CZE",
 "id": "203",
 "name": "Czechia",
+"names": [
+"Czechia",
+"Czech Republic"
+],
 "capitals": [
 "Prague"
 ],
@@ -691,6 +862,13 @@
 "iso": "COD",
 "id": "180",
 "name": "DR Congo",
+"names": [
+"DR Congo",
+"Democratic Republic of the Congo",
+"DRC",
+"Congo-Kinshasa",
+"Congo Kinshasa"
+],
 "capitals": [
 "Kinshasa"
 ],
@@ -707,6 +885,10 @@
 "iso": "DNK",
 "id": "208",
 "name": "Denmark",
+"names": [
+"Denmark",
+"Kingdom of Denmark"
+],
 "capitals": [
 "Copenhagen"
 ],
@@ -723,6 +905,10 @@
 "iso": "DJI",
 "id": "262",
 "name": "Djibouti",
+"names": [
+"Djibouti",
+"Republic of Djibouti"
+],
 "capitals": [
 "Djibouti"
 ],
@@ -739,6 +925,10 @@
 "iso": "DMA",
 "id": "212",
 "name": "Dominica",
+"names": [
+"Dominica",
+"Commonwealth of Dominica"
+],
 "capitals": [
 "Roseau"
 ],
@@ -755,6 +945,9 @@
 "iso": "DOM",
 "id": "214",
 "name": "Dominican Republic",
+"names": [
+"Dominican Republic"
+],
 "capitals": [
 "Santo Domingo"
 ],
@@ -771,6 +964,10 @@
 "iso": "ECU",
 "id": "218",
 "name": "Ecuador",
+"names": [
+"Ecuador",
+"Republic of Ecuador"
+],
 "capitals": [
 "Quito"
 ],
@@ -787,6 +984,10 @@
 "iso": "EGY",
 "id": "818",
 "name": "Egypt",
+"names": [
+"Egypt",
+"Arab Republic of Egypt"
+],
 "capitals": [
 "Cairo"
 ],
@@ -803,6 +1004,10 @@
 "iso": "SLV",
 "id": "222",
 "name": "El Salvador",
+"names": [
+"El Salvador",
+"Republic of El Salvador"
+],
 "capitals": [
 "San Salvador"
 ],
@@ -819,6 +1024,10 @@
 "iso": "GNQ",
 "id": "226",
 "name": "Equatorial Guinea",
+"names": [
+"Equatorial Guinea",
+"Republic of Equatorial Guinea"
+],
 "capitals": [
 "Malabo"
 ],
@@ -835,6 +1044,10 @@
 "iso": "ERI",
 "id": "232",
 "name": "Eritrea",
+"names": [
+"Eritrea",
+"State of Eritrea"
+],
 "capitals": [
 "Asmara"
 ],
@@ -851,6 +1064,10 @@
 "iso": "EST",
 "id": "233",
 "name": "Estonia",
+"names": [
+"Estonia",
+"Republic of Estonia"
+],
 "capitals": [
 "Tallinn"
 ],
@@ -867,6 +1084,10 @@
 "iso": "SWZ",
 "id": "748",
 "name": "Eswatini",
+"names": [
+"Eswatini",
+"Kingdom of Eswatini"
+],
 "capitals": [
 "Lobamba"
 ],
@@ -883,6 +1104,10 @@
 "iso": "ETH",
 "id": "231",
 "name": "Ethiopia",
+"names": [
+"Ethiopia",
+"Federal Democratic Republic of Ethiopia"
+],
 "capitals": [
 "Addis Ababa"
 ],
@@ -899,6 +1124,10 @@
 "iso": "FJI",
 "id": "242",
 "name": "Fiji",
+"names": [
+"Fiji",
+"Republic of Fiji"
+],
 "capitals": [
 "Suva"
 ],
@@ -915,6 +1144,10 @@
 "iso": "FIN",
 "id": "246",
 "name": "Finland",
+"names": [
+"Finland",
+"Republic of Finland"
+],
 "capitals": [
 "Helsinki"
 ],
@@ -931,6 +1164,10 @@
 "iso": "FRA",
 "id": "250",
 "name": "France",
+"names": [
+"France",
+"French Republic"
+],
 "capitals": [
 "Paris"
 ],
@@ -947,6 +1184,10 @@
 "iso": "GAB",
 "id": "266",
 "name": "Gabon",
+"names": [
+"Gabon",
+"Gabonese Republic"
+],
 "capitals": [
 "Libreville"
 ],
@@ -963,6 +1204,11 @@
 "iso": "GMB",
 "id": "270",
 "name": "Gambia",
+"names": [
+"Gambia",
+"Republic of the Gambia",
+"The Gambia"
+],
 "capitals": [
 "Banjul"
 ],
@@ -979,6 +1225,9 @@
 "iso": "GEO",
 "id": "268",
 "name": "Georgia",
+"names": [
+"Georgia"
+],
 "capitals": [
 "Tbilisi"
 ],
@@ -995,6 +1244,10 @@
 "iso": "DEU",
 "id": "276",
 "name": "Germany",
+"names": [
+"Germany",
+"Federal Republic of Germany"
+],
 "capitals": [
 "Berlin"
 ],
@@ -1011,6 +1264,10 @@
 "iso": "GHA",
 "id": "288",
 "name": "Ghana",
+"names": [
+"Ghana",
+"Republic of Ghana"
+],
 "capitals": [
 "Accra"
 ],
@@ -1027,6 +1284,10 @@
 "iso": "GRC",
 "id": "300",
 "name": "Greece",
+"names": [
+"Greece",
+"Hellenic Republic"
+],
 "capitals": [
 "Athens"
 ],
@@ -1043,6 +1304,9 @@
 "iso": "GRD",
 "id": "308",
 "name": "Grenada",
+"names": [
+"Grenada"
+],
 "capitals": [
 "St. George's"
 ],
@@ -1059,6 +1323,10 @@
 "iso": "GTM",
 "id": "320",
 "name": "Guatemala",
+"names": [
+"Guatemala",
+"Republic of Guatemala"
+],
 "capitals": [
 "Guatemala City"
 ],
@@ -1075,6 +1343,10 @@
 "iso": "GIN",
 "id": "324",
 "name": "Guinea",
+"names": [
+"Guinea",
+"Republic of Guinea"
+],
 "capitals": [
 "Conakry"
 ],
@@ -1091,6 +1363,11 @@
 "iso": "GNB",
 "id": "624",
 "name": "Guinea-Bissau",
+"names": [
+"Guinea-Bissau",
+"Republic of Guinea-Bissau",
+"Guinea Bissau"
+],
 "capitals": [
 "Bissau"
 ],
@@ -1107,6 +1384,10 @@
 "iso": "GUY",
 "id": "328",
 "name": "Guyana",
+"names": [
+"Guyana",
+"Co-operative Republic of Guyana"
+],
 "capitals": [
 "Georgetown"
 ],
@@ -1123,6 +1404,10 @@
 "iso": "HTI",
 "id": "332",
 "name": "Haiti",
+"names": [
+"Haiti",
+"Republic of Haiti"
+],
 "capitals": [
 "Port-au-Prince"
 ],
@@ -1139,6 +1424,10 @@
 "iso": "HND",
 "id": "340",
 "name": "Honduras",
+"names": [
+"Honduras",
+"Republic of Honduras"
+],
 "capitals": [
 "Tegucigalpa"
 ],
@@ -1155,6 +1444,9 @@
 "iso": "HUN",
 "id": "348",
 "name": "Hungary",
+"names": [
+"Hungary"
+],
 "capitals": [
 "Budapest"
 ],
@@ -1171,6 +1463,9 @@
 "iso": "ISL",
 "id": "352",
 "name": "Iceland",
+"names": [
+"Iceland"
+],
 "capitals": [
 "Reykjavik"
 ],
@@ -1187,6 +1482,10 @@
 "iso": "IND",
 "id": "356",
 "name": "India",
+"names": [
+"India",
+"Republic of India"
+],
 "capitals": [
 "New Delhi"
 ],
@@ -1203,6 +1502,10 @@
 "iso": "IDN",
 "id": "360",
 "name": "Indonesia",
+"names": [
+"Indonesia",
+"Republic of Indonesia"
+],
 "capitals": [
 "Jakarta"
 ],
@@ -1219,6 +1522,10 @@
 "iso": "IRN",
 "id": "364",
 "name": "Iran",
+"names": [
+"Iran",
+"Islamic Republic of Iran"
+],
 "capitals": [
 "Tehran"
 ],
@@ -1235,6 +1542,10 @@
 "iso": "IRQ",
 "id": "368",
 "name": "Iraq",
+"names": [
+"Iraq",
+"Republic of Iraq"
+],
 "capitals": [
 "Baghdad"
 ],
@@ -1251,6 +1562,10 @@
 "iso": "IRL",
 "id": "372",
 "name": "Ireland",
+"names": [
+"Ireland",
+"Republic of Ireland"
+],
 "capitals": [
 "Dublin"
 ],
@@ -1267,6 +1582,10 @@
 "iso": "ISR",
 "id": "376",
 "name": "Israel",
+"names": [
+"Israel",
+"State of Israel"
+],
 "capitals": [
 "Jerusalem"
 ],
@@ -1283,6 +1602,10 @@
 "iso": "ITA",
 "id": "380",
 "name": "Italy",
+"names": [
+"Italy",
+"Italian Republic"
+],
 "capitals": [
 "Rome"
 ],
@@ -1299,6 +1622,12 @@
 "iso": "CIV",
 "id": "384",
 "name": "Ivory Coast",
+"names": [
+"Ivory Coast",
+"Republic of Côte d'Ivoire",
+"Cote d'Ivoire",
+"Côte d'Ivoire"
+],
 "capitals": [
 "Yamoussoukro"
 ],
@@ -1315,6 +1644,9 @@
 "iso": "JAM",
 "id": "388",
 "name": "Jamaica",
+"names": [
+"Jamaica"
+],
 "capitals": [
 "Kingston"
 ],
@@ -1331,6 +1663,9 @@
 "iso": "JPN",
 "id": "392",
 "name": "Japan",
+"names": [
+"Japan"
+],
 "capitals": [
 "Tokyo"
 ],
@@ -1347,6 +1682,10 @@
 "iso": "JOR",
 "id": "400",
 "name": "Jordan",
+"names": [
+"Jordan",
+"Hashemite Kingdom of Jordan"
+],
 "capitals": [
 "Amman"
 ],
@@ -1363,6 +1702,10 @@
 "iso": "KAZ",
 "id": "398",
 "name": "Kazakhstan",
+"names": [
+"Kazakhstan",
+"Republic of Kazakhstan"
+],
 "capitals": [
 "Astana"
 ],
@@ -1379,6 +1722,10 @@
 "iso": "KEN",
 "id": "404",
 "name": "Kenya",
+"names": [
+"Kenya",
+"Republic of Kenya"
+],
 "capitals": [
 "Nairobi"
 ],
@@ -1395,6 +1742,10 @@
 "iso": "KIR",
 "id": "296",
 "name": "Kiribati",
+"names": [
+"Kiribati",
+"Independent and Sovereign Republic of Kiribati"
+],
 "capitals": [
 "South Tarawa"
 ],
@@ -1411,6 +1762,11 @@
 "iso": "XKX",
 "id": "XKX",
 "name": "Kosovo",
+"names": [
+"Kosovo",
+"Republic of Kosovo",
+"Kosova"
+],
 "capitals": [
 "Pristina"
 ],
@@ -1427,6 +1783,10 @@
 "iso": "KWT",
 "id": "414",
 "name": "Kuwait",
+"names": [
+"Kuwait",
+"State of Kuwait"
+],
 "capitals": [
 "Kuwait City"
 ],
@@ -1443,6 +1803,10 @@
 "iso": "KGZ",
 "id": "417",
 "name": "Kyrgyzstan",
+"names": [
+"Kyrgyzstan",
+"Kyrgyz Republic"
+],
 "capitals": [
 "Bishkek"
 ],
@@ -1459,6 +1823,11 @@
 "iso": "LAO",
 "id": "418",
 "name": "Laos",
+"names": [
+"Laos",
+"Lao People's Democratic Republic",
+"Lao"
+],
 "capitals": [
 "Vientiane"
 ],
@@ -1475,6 +1844,10 @@
 "iso": "LVA",
 "id": "428",
 "name": "Latvia",
+"names": [
+"Latvia",
+"Republic of Latvia"
+],
 "capitals": [
 "Riga"
 ],
@@ -1491,6 +1864,10 @@
 "iso": "LBN",
 "id": "422",
 "name": "Lebanon",
+"names": [
+"Lebanon",
+"Lebanese Republic"
+],
 "capitals": [
 "Beirut"
 ],
@@ -1507,6 +1884,10 @@
 "iso": "LSO",
 "id": "426",
 "name": "Lesotho",
+"names": [
+"Lesotho",
+"Kingdom of Lesotho"
+],
 "capitals": [
 "Maseru"
 ],
@@ -1523,6 +1904,10 @@
 "iso": "LBR",
 "id": "430",
 "name": "Liberia",
+"names": [
+"Liberia",
+"Republic of Liberia"
+],
 "capitals": [
 "Monrovia"
 ],
@@ -1539,6 +1924,10 @@
 "iso": "LBY",
 "id": "434",
 "name": "Libya",
+"names": [
+"Libya",
+"State of Libya"
+],
 "capitals": [
 "Tripoli"
 ],
@@ -1555,6 +1944,10 @@
 "iso": "LIE",
 "id": "438",
 "name": "Liechtenstein",
+"names": [
+"Liechtenstein",
+"Principality of Liechtenstein"
+],
 "capitals": [
 "Vaduz"
 ],
@@ -1571,6 +1964,10 @@
 "iso": "LTU",
 "id": "440",
 "name": "Lithuania",
+"names": [
+"Lithuania",
+"Republic of Lithuania"
+],
 "capitals": [
 "Vilnius"
 ],
@@ -1587,6 +1984,10 @@
 "iso": "LUX",
 "id": "442",
 "name": "Luxembourg",
+"names": [
+"Luxembourg",
+"Grand Duchy of Luxembourg"
+],
 "capitals": [
 "Luxembourg"
 ],
@@ -1603,6 +2004,10 @@
 "iso": "MDG",
 "id": "450",
 "name": "Madagascar",
+"names": [
+"Madagascar",
+"Republic of Madagascar"
+],
 "capitals": [
 "Antananarivo"
 ],
@@ -1619,6 +2024,10 @@
 "iso": "MWI",
 "id": "454",
 "name": "Malawi",
+"names": [
+"Malawi",
+"Republic of Malawi"
+],
 "capitals": [
 "Lilongwe"
 ],
@@ -1635,6 +2044,9 @@
 "iso": "MYS",
 "id": "458",
 "name": "Malaysia",
+"names": [
+"Malaysia"
+],
 "capitals": [
 "Kuala Lumpur"
 ],
@@ -1651,6 +2063,10 @@
 "iso": "MDV",
 "id": "462",
 "name": "Maldives",
+"names": [
+"Maldives",
+"Republic of the Maldives"
+],
 "capitals": [
 "Malé"
 ],
@@ -1667,6 +2083,10 @@
 "iso": "MLI",
 "id": "466",
 "name": "Mali",
+"names": [
+"Mali",
+"Republic of Mali"
+],
 "capitals": [
 "Bamako"
 ],
@@ -1683,6 +2103,10 @@
 "iso": "MLT",
 "id": "470",
 "name": "Malta",
+"names": [
+"Malta",
+"Republic of Malta"
+],
 "capitals": [
 "Valletta"
 ],
@@ -1699,6 +2123,10 @@
 "iso": "MHL",
 "id": "584",
 "name": "Marshall Islands",
+"names": [
+"Marshall Islands",
+"Republic of the Marshall Islands"
+],
 "capitals": [
 "Majuro"
 ],
@@ -1715,6 +2143,10 @@
 "iso": "MRT",
 "id": "478",
 "name": "Mauritania",
+"names": [
+"Mauritania",
+"Islamic Republic of Mauritania"
+],
 "capitals": [
 "Nouakchott"
 ],
@@ -1731,6 +2163,10 @@
 "iso": "MUS",
 "id": "480",
 "name": "Mauritius",
+"names": [
+"Mauritius",
+"Republic of Mauritius"
+],
 "capitals": [
 "Port Louis"
 ],
@@ -1747,6 +2183,10 @@
 "iso": "MEX",
 "id": "484",
 "name": "Mexico",
+"names": [
+"Mexico",
+"United Mexican States"
+],
 "capitals": [
 "Mexico City"
 ],
@@ -1763,6 +2203,11 @@
 "iso": "FSM",
 "id": "583",
 "name": "Micronesia",
+"names": [
+"Micronesia",
+"Federated States of Micronesia",
+"FSM"
+],
 "capitals": [
 "Palikir"
 ],
@@ -1779,6 +2224,10 @@
 "iso": "MDA",
 "id": "498",
 "name": "Moldova",
+"names": [
+"Moldova",
+"Republic of Moldova"
+],
 "capitals": [
 "Chișinău"
 ],
@@ -1795,6 +2244,10 @@
 "iso": "MCO",
 "id": "492",
 "name": "Monaco",
+"names": [
+"Monaco",
+"Principality of Monaco"
+],
 "capitals": [
 "Monaco"
 ],
@@ -1811,6 +2264,9 @@
 "iso": "MNG",
 "id": "496",
 "name": "Mongolia",
+"names": [
+"Mongolia"
+],
 "capitals": [
 "Ulan Bator"
 ],
@@ -1827,6 +2283,9 @@
 "iso": "MNE",
 "id": "499",
 "name": "Montenegro",
+"names": [
+"Montenegro"
+],
 "capitals": [
 "Podgorica"
 ],
@@ -1843,6 +2302,10 @@
 "iso": "MAR",
 "id": "504",
 "name": "Morocco",
+"names": [
+"Morocco",
+"Kingdom of Morocco"
+],
 "capitals": [
 "Rabat"
 ],
@@ -1859,6 +2322,10 @@
 "iso": "MOZ",
 "id": "508",
 "name": "Mozambique",
+"names": [
+"Mozambique",
+"Republic of Mozambique"
+],
 "capitals": [
 "Maputo"
 ],
@@ -1875,6 +2342,10 @@
 "iso": "MMR",
 "id": "104",
 "name": "Myanmar",
+"names": [
+"Myanmar",
+"Republic of the Union of Myanmar"
+],
 "capitals": [
 "Naypyidaw"
 ],
@@ -1891,6 +2362,10 @@
 "iso": "NAM",
 "id": "516",
 "name": "Namibia",
+"names": [
+"Namibia",
+"Republic of Namibia"
+],
 "capitals": [
 "Windhoek"
 ],
@@ -1907,6 +2382,10 @@
 "iso": "NRU",
 "id": "520",
 "name": "Nauru",
+"names": [
+"Nauru",
+"Republic of Nauru"
+],
 "capitals": [
 "Yaren"
 ],
@@ -1923,6 +2402,10 @@
 "iso": "NPL",
 "id": "524",
 "name": "Nepal",
+"names": [
+"Nepal",
+"Federal Democratic Republic of Nepal"
+],
 "capitals": [
 "Kathmandu"
 ],
@@ -1939,6 +2422,11 @@
 "iso": "NLD",
 "id": "528",
 "name": "Netherlands",
+"names": [
+"Netherlands",
+"Kingdom of the Netherlands",
+"Holland"
+],
 "capitals": [
 "Amsterdam"
 ],
@@ -1955,6 +2443,10 @@
 "iso": "NZL",
 "id": "554",
 "name": "New Zealand",
+"names": [
+"New Zealand",
+"NZ"
+],
 "capitals": [
 "Wellington"
 ],
@@ -1971,6 +2463,10 @@
 "iso": "NIC",
 "id": "558",
 "name": "Nicaragua",
+"names": [
+"Nicaragua",
+"Republic of Nicaragua"
+],
 "capitals": [
 "Managua"
 ],
@@ -1987,6 +2483,10 @@
 "iso": "NER",
 "id": "562",
 "name": "Niger",
+"names": [
+"Niger",
+"Republic of Niger"
+],
 "capitals": [
 "Niamey"
 ],
@@ -2003,6 +2503,10 @@
 "iso": "NGA",
 "id": "566",
 "name": "Nigeria",
+"names": [
+"Nigeria",
+"Federal Republic of Nigeria"
+],
 "capitals": [
 "Abuja"
 ],
@@ -2019,6 +2523,11 @@
 "iso": "PRK",
 "id": "408",
 "name": "North Korea",
+"names": [
+"North Korea",
+"Democratic People's Republic of Korea",
+"DPRK"
+],
 "capitals": [
 "Pyongyang"
 ],
@@ -2035,6 +2544,10 @@
 "iso": "MKD",
 "id": "807",
 "name": "North Macedonia",
+"names": [
+"North Macedonia",
+"Republic of North Macedonia"
+],
 "capitals": [
 "Skopje"
 ],
@@ -2051,6 +2564,10 @@
 "iso": "NOR",
 "id": "578",
 "name": "Norway",
+"names": [
+"Norway",
+"Kingdom of Norway"
+],
 "capitals": [
 "Oslo"
 ],
@@ -2067,6 +2584,10 @@
 "iso": "OMN",
 "id": "512",
 "name": "Oman",
+"names": [
+"Oman",
+"Sultanate of Oman"
+],
 "capitals": [
 "Muscat"
 ],
@@ -2083,6 +2604,10 @@
 "iso": "PAK",
 "id": "586",
 "name": "Pakistan",
+"names": [
+"Pakistan",
+"Islamic Republic of Pakistan"
+],
 "capitals": [
 "Islamabad"
 ],
@@ -2099,6 +2624,10 @@
 "iso": "PLW",
 "id": "585",
 "name": "Palau",
+"names": [
+"Palau",
+"Republic of Palau"
+],
 "capitals": [
 "Ngerulmud"
 ],
@@ -2115,6 +2644,10 @@
 "iso": "PSE",
 "id": "275",
 "name": "Palestine",
+"names": [
+"Palestine",
+"State of Palestine"
+],
 "capitals": [
 "Ramallah"
 ],
@@ -2131,6 +2664,10 @@
 "iso": "PAN",
 "id": "591",
 "name": "Panama",
+"names": [
+"Panama",
+"Republic of Panama"
+],
 "capitals": [
 "Panama City"
 ],
@@ -2147,6 +2684,11 @@
 "iso": "PNG",
 "id": "598",
 "name": "Papua New Guinea",
+"names": [
+"Papua New Guinea",
+"Independent State of Papua New Guinea",
+"PNG"
+],
 "capitals": [
 "Port Moresby"
 ],
@@ -2163,6 +2705,10 @@
 "iso": "PRY",
 "id": "600",
 "name": "Paraguay",
+"names": [
+"Paraguay",
+"Republic of Paraguay"
+],
 "capitals": [
 "Asunción"
 ],
@@ -2179,6 +2725,10 @@
 "iso": "PER",
 "id": "604",
 "name": "Peru",
+"names": [
+"Peru",
+"Republic of Peru"
+],
 "capitals": [
 "Lima"
 ],
@@ -2195,6 +2745,10 @@
 "iso": "PHL",
 "id": "608",
 "name": "Philippines",
+"names": [
+"Philippines",
+"Republic of the Philippines"
+],
 "capitals": [
 "Manila"
 ],
@@ -2211,6 +2765,10 @@
 "iso": "POL",
 "id": "616",
 "name": "Poland",
+"names": [
+"Poland",
+"Republic of Poland"
+],
 "capitals": [
 "Warsaw"
 ],
@@ -2227,6 +2785,10 @@
 "iso": "PRT",
 "id": "620",
 "name": "Portugal",
+"names": [
+"Portugal",
+"Portuguese Republic"
+],
 "capitals": [
 "Lisbon"
 ],
@@ -2243,6 +2805,10 @@
 "iso": "QAT",
 "id": "634",
 "name": "Qatar",
+"names": [
+"Qatar",
+"State of Qatar"
+],
 "capitals": [
 "Doha"
 ],
@@ -2259,6 +2825,12 @@
 "iso": "COG",
 "id": "178",
 "name": "Republic of the Congo",
+"names": [
+"Republic of the Congo",
+"Congo",
+"Congo-Brazzaville",
+"Congo Brazzaville"
+],
 "capitals": [
 "Brazzaville"
 ],
@@ -2275,6 +2847,9 @@
 "iso": "ROU",
 "id": "642",
 "name": "Romania",
+"names": [
+"Romania"
+],
 "capitals": [
 "Bucharest"
 ],
@@ -2291,6 +2866,10 @@
 "iso": "RUS",
 "id": "643",
 "name": "Russia",
+"names": [
+"Russia",
+"Russian Federation"
+],
 "capitals": [
 "Moscow"
 ],
@@ -2308,6 +2887,10 @@
 "iso": "RWA",
 "id": "646",
 "name": "Rwanda",
+"names": [
+"Rwanda",
+"Republic of Rwanda"
+],
 "capitals": [
 "Kigali"
 ],
@@ -2324,6 +2907,13 @@
 "iso": "KNA",
 "id": "659",
 "name": "Saint Kitts and Nevis",
+"names": [
+"Saint Kitts and Nevis",
+"Federation of Saint Christopher and Nevis",
+"St Kitts",
+"Saint Kitts",
+"St Kitts and Nevis"
+],
 "capitals": [
 "Basseterre"
 ],
@@ -2340,6 +2930,10 @@
 "iso": "LCA",
 "id": "662",
 "name": "Saint Lucia",
+"names": [
+"Saint Lucia",
+"St Lucia"
+],
 "capitals": [
 "Castries"
 ],
@@ -2356,6 +2950,11 @@
 "iso": "VCT",
 "id": "670",
 "name": "Saint Vincent and the Grenadines",
+"names": [
+"Saint Vincent and the Grenadines",
+"St Vincent",
+"Saint Vincent"
+],
 "capitals": [
 "Kingstown"
 ],
@@ -2372,6 +2971,10 @@
 "iso": "WSM",
 "id": "882",
 "name": "Samoa",
+"names": [
+"Samoa",
+"Independent State of Samoa"
+],
 "capitals": [
 "Apia"
 ],
@@ -2388,6 +2991,10 @@
 "iso": "SMR",
 "id": "674",
 "name": "San Marino",
+"names": [
+"San Marino",
+"Most Serene Republic of San Marino"
+],
 "capitals": [
 "City of San Marino"
 ],
@@ -2404,6 +3011,12 @@
 "iso": "SAU",
 "id": "682",
 "name": "Saudi Arabia",
+"names": [
+"Saudi Arabia",
+"Kingdom of Saudi Arabia",
+"KSA",
+"Saudi"
+],
 "capitals": [
 "Riyadh"
 ],
@@ -2420,6 +3033,10 @@
 "iso": "SEN",
 "id": "686",
 "name": "Senegal",
+"names": [
+"Senegal",
+"Republic of Senegal"
+],
 "capitals": [
 "Dakar"
 ],
@@ -2436,6 +3053,10 @@
 "iso": "SRB",
 "id": "688",
 "name": "Serbia",
+"names": [
+"Serbia",
+"Republic of Serbia"
+],
 "capitals": [
 "Belgrade"
 ],
@@ -2452,6 +3073,10 @@
 "iso": "SYC",
 "id": "690",
 "name": "Seychelles",
+"names": [
+"Seychelles",
+"Republic of Seychelles"
+],
 "capitals": [
 "Victoria"
 ],
@@ -2468,6 +3093,10 @@
 "iso": "SLE",
 "id": "694",
 "name": "Sierra Leone",
+"names": [
+"Sierra Leone",
+"Republic of Sierra Leone"
+],
 "capitals": [
 "Freetown"
 ],
@@ -2484,6 +3113,10 @@
 "iso": "SGP",
 "id": "702",
 "name": "Singapore",
+"names": [
+"Singapore",
+"Republic of Singapore"
+],
 "capitals": [
 "Singapore"
 ],
@@ -2500,6 +3133,10 @@
 "iso": "SVK",
 "id": "703",
 "name": "Slovakia",
+"names": [
+"Slovakia",
+"Slovak Republic"
+],
 "capitals": [
 "Bratislava"
 ],
@@ -2516,6 +3153,10 @@
 "iso": "SVN",
 "id": "705",
 "name": "Slovenia",
+"names": [
+"Slovenia",
+"Republic of Slovenia"
+],
 "capitals": [
 "Ljubljana"
 ],
@@ -2532,6 +3173,9 @@
 "iso": "SLB",
 "id": "090",
 "name": "Solomon Islands",
+"names": [
+"Solomon Islands"
+],
 "capitals": [
 "Honiara"
 ],
@@ -2548,6 +3192,10 @@
 "iso": "SOM",
 "id": "706",
 "name": "Somalia",
+"names": [
+"Somalia",
+"Federal Republic of Somalia"
+],
 "capitals": [
 "Mogadishu"
 ],
@@ -2564,6 +3212,10 @@
 "iso": "ZAF",
 "id": "710",
 "name": "South Africa",
+"names": [
+"South Africa",
+"Republic of South Africa"
+],
 "capitals": [
 "Pretoria",
 "Bloemfontein",
@@ -2582,6 +3234,11 @@
 "iso": "KOR",
 "id": "410",
 "name": "South Korea",
+"names": [
+"South Korea",
+"Republic of Korea",
+"Korea"
+],
 "capitals": [
 "Seoul"
 ],
@@ -2598,6 +3255,10 @@
 "iso": "SSD",
 "id": "728",
 "name": "South Sudan",
+"names": [
+"South Sudan",
+"Republic of South Sudan"
+],
 "capitals": [
 "Juba"
 ],
@@ -2614,6 +3275,10 @@
 "iso": "ESP",
 "id": "724",
 "name": "Spain",
+"names": [
+"Spain",
+"Kingdom of Spain"
+],
 "capitals": [
 "Madrid"
 ],
@@ -2630,6 +3295,10 @@
 "iso": "LKA",
 "id": "144",
 "name": "Sri Lanka",
+"names": [
+"Sri Lanka",
+"Democratic Socialist Republic of Sri Lanka"
+],
 "capitals": [
 "Colombo"
 ],
@@ -2646,6 +3315,10 @@
 "iso": "SDN",
 "id": "729",
 "name": "Sudan",
+"names": [
+"Sudan",
+"Republic of the Sudan"
+],
 "capitals": [
 "Khartoum"
 ],
@@ -2662,6 +3335,10 @@
 "iso": "SUR",
 "id": "740",
 "name": "Suriname",
+"names": [
+"Suriname",
+"Republic of Suriname"
+],
 "capitals": [
 "Paramaribo"
 ],
@@ -2678,6 +3355,10 @@
 "iso": "SWE",
 "id": "752",
 "name": "Sweden",
+"names": [
+"Sweden",
+"Kingdom of Sweden"
+],
 "capitals": [
 "Stockholm"
 ],
@@ -2694,6 +3375,10 @@
 "iso": "CHE",
 "id": "756",
 "name": "Switzerland",
+"names": [
+"Switzerland",
+"Swiss Confederation"
+],
 "capitals": [
 "Bern"
 ],
@@ -2710,6 +3395,10 @@
 "iso": "SYR",
 "id": "760",
 "name": "Syria",
+"names": [
+"Syria",
+"Syrian Arab Republic"
+],
 "capitals": [
 "Damascus"
 ],
@@ -2726,6 +3415,11 @@
 "iso": "STP",
 "id": "678",
 "name": "São Tomé and Príncipe",
+"names": [
+"São Tomé and Príncipe",
+"Democratic Republic of São Tomé and Príncipe",
+"Sao Tome"
+],
 "capitals": [
 "São Tomé"
 ],
@@ -2742,6 +3436,10 @@
 "iso": "TWN",
 "id": "158",
 "name": "Taiwan",
+"names": [
+"Taiwan",
+"Republic of China (Taiwan)"
+],
 "capitals": [
 "Taipei"
 ],
@@ -2758,6 +3456,10 @@
 "iso": "TJK",
 "id": "762",
 "name": "Tajikistan",
+"names": [
+"Tajikistan",
+"Republic of Tajikistan"
+],
 "capitals": [
 "Dushanbe"
 ],
@@ -2774,6 +3476,10 @@
 "iso": "TZA",
 "id": "834",
 "name": "Tanzania",
+"names": [
+"Tanzania",
+"United Republic of Tanzania"
+],
 "capitals": [
 "Dodoma"
 ],
@@ -2790,6 +3496,10 @@
 "iso": "THA",
 "id": "764",
 "name": "Thailand",
+"names": [
+"Thailand",
+"Kingdom of Thailand"
+],
 "capitals": [
 "Bangkok"
 ],
@@ -2806,6 +3516,11 @@
 "iso": "TLS",
 "id": "626",
 "name": "Timor-Leste",
+"names": [
+"Timor-Leste",
+"Democratic Republic of Timor-Leste",
+"East Timor"
+],
 "capitals": [
 "Dili"
 ],
@@ -2822,6 +3537,10 @@
 "iso": "TGO",
 "id": "768",
 "name": "Togo",
+"names": [
+"Togo",
+"Togolese Republic"
+],
 "capitals": [
 "Lomé"
 ],
@@ -2838,6 +3557,10 @@
 "iso": "TON",
 "id": "776",
 "name": "Tonga",
+"names": [
+"Tonga",
+"Kingdom of Tonga"
+],
 "capitals": [
 "Nuku'alofa"
 ],
@@ -2854,6 +3577,11 @@
 "iso": "TTO",
 "id": "780",
 "name": "Trinidad and Tobago",
+"names": [
+"Trinidad and Tobago",
+"Republic of Trinidad and Tobago",
+"Trinidad"
+],
 "capitals": [
 "Port of Spain"
 ],
@@ -2870,6 +3598,10 @@
 "iso": "TUN",
 "id": "788",
 "name": "Tunisia",
+"names": [
+"Tunisia",
+"Tunisian Republic"
+],
 "capitals": [
 "Tunis"
 ],
@@ -2883,9 +3615,35 @@
 ]
 },
 {
+"iso": "TUR",
+"id": "792",
+"name": "Turkey",
+"names": [
+"Turkey",
+"Türkiye",
+"Republic of Türkiye",
+"Turkiye"
+],
+"capitals": [
+"Ankara"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"ll": [
+39,
+35
+]
+},
+{
 "iso": "TKM",
 "id": "795",
 "name": "Turkmenistan",
+"names": [
+"Turkmenistan"
+],
 "capitals": [
 "Ashgabat"
 ],
@@ -2902,6 +3660,9 @@
 "iso": "TUV",
 "id": "798",
 "name": "Tuvalu",
+"names": [
+"Tuvalu"
+],
 "capitals": [
 "Funafuti"
 ],
@@ -2915,26 +3676,13 @@
 ]
 },
 {
-"iso": "TUR",
-"id": "792",
-"name": "Türkiye",
-"capitals": [
-"Ankara"
-],
-"cont": [
-"Europe",
-"Asia"
-],
-"car": false,
-"ll": [
-39,
-35
-]
-},
-{
 "iso": "UGA",
 "id": "800",
 "name": "Uganda",
+"names": [
+"Uganda",
+"Republic of Uganda"
+],
 "capitals": [
 "Kampala"
 ],
@@ -2951,6 +3699,9 @@
 "iso": "UKR",
 "id": "804",
 "name": "Ukraine",
+"names": [
+"Ukraine"
+],
 "capitals": [
 "Kyiv"
 ],
@@ -2967,6 +3718,11 @@
 "iso": "ARE",
 "id": "784",
 "name": "United Arab Emirates",
+"names": [
+"United Arab Emirates",
+"UAE",
+"Emirates"
+],
 "capitals": [
 "Abu Dhabi"
 ],
@@ -2983,6 +3739,13 @@
 "iso": "GBR",
 "id": "826",
 "name": "United Kingdom",
+"names": [
+"United Kingdom",
+"United Kingdom of Great Britain and Northern Ireland",
+"UK",
+"Britain",
+"Great Britain"
+],
 "capitals": [
 "London"
 ],
@@ -2999,6 +3762,13 @@
 "iso": "USA",
 "id": "840",
 "name": "United States",
+"names": [
+"United States",
+"United States of America",
+"USA",
+"US",
+"America"
+],
 "capitals": [
 "Washington D.C."
 ],
@@ -3015,6 +3785,10 @@
 "iso": "URY",
 "id": "858",
 "name": "Uruguay",
+"names": [
+"Uruguay",
+"Oriental Republic of Uruguay"
+],
 "capitals": [
 "Montevideo"
 ],
@@ -3031,6 +3805,10 @@
 "iso": "UZB",
 "id": "860",
 "name": "Uzbekistan",
+"names": [
+"Uzbekistan",
+"Republic of Uzbekistan"
+],
 "capitals": [
 "Tashkent"
 ],
@@ -3047,6 +3825,10 @@
 "iso": "VUT",
 "id": "548",
 "name": "Vanuatu",
+"names": [
+"Vanuatu",
+"Republic of Vanuatu"
+],
 "capitals": [
 "Port Vila"
 ],
@@ -3063,6 +3845,12 @@
 "iso": "VAT",
 "id": "336",
 "name": "Vatican City",
+"names": [
+"Vatican City",
+"Vatican City State",
+"Vatican",
+"Holy See"
+],
 "capitals": [
 "Vatican City"
 ],
@@ -3079,6 +3867,10 @@
 "iso": "VEN",
 "id": "862",
 "name": "Venezuela",
+"names": [
+"Venezuela",
+"Bolivarian Republic of Venezuela"
+],
 "capitals": [
 "Caracas"
 ],
@@ -3095,6 +3887,11 @@
 "iso": "VNM",
 "id": "704",
 "name": "Vietnam",
+"names": [
+"Vietnam",
+"Socialist Republic of Vietnam",
+"Viet Nam"
+],
 "capitals": [
 "Hanoi"
 ],
@@ -3111,6 +3908,10 @@
 "iso": "YEM",
 "id": "887",
 "name": "Yemen",
+"names": [
+"Yemen",
+"Republic of Yemen"
+],
 "capitals": [
 "Sana'a"
 ],
@@ -3127,6 +3928,10 @@
 "iso": "ZMB",
 "id": "894",
 "name": "Zambia",
+"names": [
+"Zambia",
+"Republic of Zambia"
+],
 "capitals": [
 "Lusaka"
 ],
@@ -3143,6 +3948,10 @@
 "iso": "ZWE",
 "id": "716",
 "name": "Zimbabwe",
+"names": [
+"Zimbabwe",
+"Republic of Zimbabwe"
+],
 "capitals": [
 "Harare"
 ],

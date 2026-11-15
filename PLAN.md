@@ -61,6 +61,7 @@ The goal is to fill in the whole map by naming every country, in any order the u
 - As soon as the correct name (or a close enough match) is typed, the country turns green and the box closes, Sporcle-style.
 - Matching is forgiving of case, accents, minor typos and common alternative names (for example "Ivory Coast" / "Côte d'Ivoire", "Czechia" / "Czech Republic", "USA" / "United States").
 - A counter shows progress, for example "45 / 197".
+- Decided 2026-11-15: the text box sits in the top bar, and the tapped country is highlighted on the map. Tapping a different country switches to it and clears the text. Already-named countries do nothing. Giving up turns the unnamed countries red, and tapping a red country shows its name. Accepted names are current names plus short forms and nicknames (UK, USA, UAE, DRC, Holland and so on), but not former names (Swaziland, Burma, Macedonia). Matching ignores capitals, accents, punctuation and a leading "the", treats "St" as "Saint" and "&" as "and", and allows one typo in names of six or more letters, but not just for a name that is still being typed.
 
 **Scope and display**
 

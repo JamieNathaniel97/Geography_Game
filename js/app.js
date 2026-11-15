@@ -26,19 +26,20 @@
   const inRegion = c => S.region === "world" || REGIONS[S.region].test(c);
   const regionCountries = () => geo.countries.filter(inRegion);
 
-  const getState = c => (flashing[c.iso] ? "flash" : state[c.iso] || null);
-  // still to answer (Free tap: any country in the region); taps near small open countries snap to them
-  const isOpen = c => inRegion(c) && (S.mode === "explore" || !state[c.iso]);
+  let selected = null;   // Name the countries: the country whose name is being typed
+  const getState = c => (flashing[c.iso] ? "flash" : c === selected ? "sel" : state[c.iso] || null);
+  // still to answer (Free tap, or a finished naming game: any country in the region); taps near small
+  // open countries snap to them
+  const isOpen = c => inRegion(c) && (S.mode === "explore" || (S.mode === "name" && finished) || !state[c.iso]);
 
-  // ---------- game: Find the country ----------
-  // `order` holds the countries still to answer; the arrows move through it with no penalty
-  let order = [], idx = 0, target = null, nGood = 0, nBad = 0, finished = false, total = 0;
+  // `order` holds the countries still to answer. Find the country: the arrows move through it with no penalty.
+  let order = [], idx = 0, target = null, nGood = 0, nBad = 0, finished = false, gaveUp = false, total = 0;
 
   function newGame() {
     Object.keys(state).forEach(k => delete state[k]);
     const list = regionCountries();
     total = list.length;
-    order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = false;
+    order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null;
     show();
   }
   function next() {
@@ -53,17 +54,29 @@
     show();
   }
   function show() {
-    const explore = S.mode === "explore";
-    const where = S.region === "world" ? "" : " · " + REGIONS[S.region].name;
-    target = !explore && !finished ? order[idx] || null : null;
+    const mode = S.mode, where = S.region === "world" ? "" : " · " + REGIONS[S.region].name;
+    target = mode === "find" && !finished ? order[idx] || null : null;
     const t = $("target"); t.className = "target";
-    $("prev").hidden = $("fwd").hidden = explore || finished;
-    $("giveup").hidden = explore;
+    const typing = mode === "name" && selected && !finished;
+    $("prev").hidden = $("fwd").hidden = mode !== "find" || finished;
+    $("giveup").hidden = mode === "explore";
+    $("nameInput").hidden = $("nameClose").hidden = !typing;
+    t.hidden = typing;
     resetGiveUp();
-    if (explore) {
+    if (mode === "explore") {
       $("eyebrow").textContent = "Free tap" + where;
       t.textContent = "Tap any country";
       $("score").textContent = "Shows the name of whatever you tap.";
+    } else if (mode === "name") {
+      $("eyebrow").textContent = (finished ? "Finished" : "Name the countries") + where;
+      if (finished) {
+        t.textContent = `${nGood} of ${total} named`;
+        $("score").textContent = gaveUp ? "Tap a red country to see its name." : "All named!";
+        $("giveup").textContent = "Play again";
+      } else {
+        if (!typing) t.textContent = "Tap a country";
+        $("score").innerHTML = `<b>${nGood}</b> / ${total} named`;
+      }
     } else if (finished) {
       $("eyebrow").textContent = "Finished" + where;
       t.textContent = `${nGood} of ${total} right`;
@@ -77,14 +90,15 @@
     redraw();
   }
   function redraw() { main.requestDraw(); if (inset) inset.requestDraw(); }
+  function flashName(c) {
+    Object.keys(state).forEach(k => { if (state[k] === "flash") delete state[k]; });
+    $("target").hidden = false; $("target").textContent = c.name;
+  }
 
   function tap(c, view) {
     if (!inRegion(c)) return; // countries outside the region are greyed out and do nothing
-    if (S.mode === "explore") {
-      Object.keys(state).forEach(k => { if (state[k] === "flash") delete state[k]; });
-      state[c.iso] = "flash"; $("target").textContent = c.name; redraw();
-      return;
-    }
+    if (S.mode === "explore") { flashName(c); state[c.iso] = "flash"; redraw(); return; }
+    if (S.mode === "name") { tapName(c, view); return; }
     if (!target || state[c.iso] === "good") return; // already-correct countries do nothing
     // the next country appears instantly; the map keeps the green/red result
     if (c === target) { state[c.iso] = "good"; nGood++; }
@@ -98,6 +112,42 @@
     next();
   }
 
+  // ---------- game 2: Name the countries ----------
+  // Tap any country, type its name; it goes green as soon as the name is right. No submit, no wrong answers.
+  function tapName(c, view) {
+    if (finished) { flashName(c); return; }     // after giving up: tap a red country to see its name
+    if (state[c.iso] === "good") return;          // already named
+    selected = c;                                 // switching countries clears what was typed
+    $("nameInput").value = "";
+    if (inset && view === inset) closeInset();
+    show();
+    $("nameInput").focus();
+    setTimeout(keepSelectedInView, 400);          // after the keyboard has opened and the map has resized
+  }
+  function keepSelectedInView() {
+    if (!selected || !main.visible(selected.anchor)) return;
+    const p = main.projection()(selected.anchor);
+    if (p[0] < 20 || p[0] > main.w - 20 || p[1] < 20 || p[1] > main.h - 20) {
+      main.lookAt(selected.anchor[0], selected.anchor[1], Math.min(main.w, main.h) * 0.9 / main.pxPerDeg());
+    }
+  }
+  $("nameInput").addEventListener("input", () => {
+    const typed = $("nameInput").value, match = selected && GG.nameMatches(selected, typed);
+    if (!match) return; // no reaction until it's right
+    // accepted with a typo: show how it was typed and how it's spelled
+    if (!match.exact) toast(`You typed “${typed.trim()}” — it's spelled “${match.name}”`, 4000);
+    state[selected.iso] = "good"; nGood++;
+    order = order.filter(c => c !== selected);
+    selected = null;
+    $("nameInput").value = ""; $("nameInput").blur();
+    if (!order.length) finished = true;
+    show();
+  });
+  $("nameInput").addEventListener("keydown", e => { if (e.key === "Escape") closeName(); });
+  function closeName() { selected = null; $("nameInput").blur(); show(); }
+  $("nameClose").onclick = closeName;
+  window.addEventListener("resize", () => setTimeout(keepSelectedInView, 50));
+
   // Give up: tap once to arm, again to confirm; the rest are shown in red
   let giveUpTimer;
   function resetGiveUp() { clearTimeout(giveUpTimer); const b = $("giveup"); b.classList.remove("confirm"); b.textContent = "Give up"; }
@@ -110,7 +160,7 @@
       return;
     }
     order.forEach(c => { if (!state[c.iso]) { state[c.iso] = "bad"; nBad++; } });
-    order = []; finished = true; show();
+    order = []; finished = gaveUp = true; selected = null; $("nameInput").blur(); show();
   };
   $("prev").onclick = () => step(-1);
   $("fwd").onclick = () => step(1);
@@ -215,7 +265,7 @@
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
-    if (mode === "find") newGame(); else { Object.keys(state).forEach(k => delete state[k]); show(); }
+    if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; show(); } else newGame();
   }
 
   document.addEventListener("keydown", e => {
