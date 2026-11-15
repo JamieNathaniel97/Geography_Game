@@ -1,9 +1,9 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "geography-game-v7";
+const CACHE = "geography-game-v9";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
-  "js/names.js", "js/geo.js", "js/mapview.js", "js/app.js",
+  "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
   "data/world-50m.json", "data/world-110m.json", "data/countries.json", "data/relief.jpg",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",
@@ -12,6 +12,11 @@ const SHELL = [
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(async cache => {
     await cache.addAll(SHELL);
+    // the flags (Learning mode), one per country in the country list
+    try {
+      const cs = await (await fetch("data/countries.json")).json();
+      await cache.addAll(cs.map(c => `data/flags/${c.iso}.svg`));
+    } catch (e) { /* they'll be cached as they're viewed */ }
     // the sharper terrain tiles (about 9 MB), listed in their index, so terrain works offline when zoomed in
     try {
       const ix = await (await fetch("data/relief/index.json")).json();

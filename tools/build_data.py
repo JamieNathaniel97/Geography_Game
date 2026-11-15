@@ -94,6 +94,17 @@ CAPITALS = {
     "XKX": ["Pristina", "Prishtina"],
     "CHE": ["Bern", "Berne"],
 }
+# what each capital is for, shown in Learning mode where a country has more than one
+CAPITAL_NOTES = {
+    "ZAF": "Pretoria (executive), Cape Town (legislative), Bloemfontein (judicial)",
+    "BOL": "Sucre (constitutional), La Paz (seat of government)",
+    "SWZ": "Mbabane (executive), Lobamba (royal and legislative)",
+    "BEN": "Porto-Novo (official), Cotonou (seat of government)",
+    "CIV": "Yamoussoukro (official), Abidjan (economic centre)",
+    "LKA": "Sri Jayawardenepura Kotte (official), Colombo (commercial centre)",
+    "MYS": "Kuala Lumpur (official), Putrajaya (seat of government)",
+    "PSE": "Ramallah (administrative), East Jerusalem (proclaimed)",
+}
 
 
 def fetch(name):
@@ -172,6 +183,8 @@ def build_countries():
             "name": name,
             "names": list(dict.fromkeys(names)),
             "capitals": CAPITALS.get(code, c.get("capital", [])),
+            "capitalNote": CAPITAL_NOTES.get(code, ""),
+            "a2": "XK" if iso == "UNK" else c["cca2"],
             "cont": cont,
             "car": iso in CARIBBEAN,
             "ll": c["latlng"],
@@ -180,9 +193,69 @@ def build_countries():
     return sorted(out, key=lambda c: c["name"])
 
 
+WB = {
+    "wb_countries.json": "https://api.worldbank.org/v2/country?format=json&per_page=400",
+    "wb_pop.json": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&mrnev=1&per_page=400",
+    "wb_gdppc.json": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?format=json&mrnev=1&per_page=400",
+}
+
+
+def add_learning_info(countries):
+    """Learning mode facts: from the country data, the World Bank, and tools/facts.py."""
+    import facts
+    for name, url in WB.items():
+        SOURCES[name] = url
+    inc = {x["id"]: x["incomeLevel"]["value"] for x in fetch("wb_countries.json")[1]}
+    pop = {x["countryiso3code"]: (x["value"], x["date"]) for x in fetch("wb_pop.json")[1] if x["value"]}
+    gdp = {x["countryiso3code"]: (x["value"], x["date"]) for x in fetch("wb_gdppc.json")[1] if x["value"]}
+    src = {("XKX" if c["cca3"] == "UNK" else c["cca3"]): c for c in fetch("world-countries.json")}
+    areas = {}
+    for area, isos in facts.AREAS.items():
+        for i in isos.split():
+            areas.setdefault(i, []).append(area)
+    by_area = sorted(countries, key=lambda c: -src[c["iso"]]["area"])
+    rank = {c["iso"]: n + 1 for n, c in enumerate(by_area)}
+    missing = [c["iso"] for c in countries if c["iso"] not in facts.FACTS]
+    assert not missing, f"no facts for {missing}"
+    for c in countries:
+        i, s = c["iso"], src[c["iso"]]
+        tz, ind, gov, high, city, coast = facts.FACTS[i]
+        extra = facts.EXTRA_FIGURES.get(i, {})
+        p = pop.get(i)
+        g = gdp.get(i)
+        income = extra.get("income", inc.get(i) or "")
+        cur = "; ".join(f"{v['name']} ({k})" for k, v in s.get("currencies", {}).items())
+        c["info"] = {
+            "sub": facts.SUBREGION_NAMES.get(s.get("subregion", ""), s.get("subregion", "")),
+            "areas": areas.get(i, []),
+            "former": facts.FORMER.get(i, ""),
+            "langs": list(s.get("languages", {}).values()),
+            "pop": extra.get("pop", p[0] if p else None),
+            "popYear": extra.get("popYear", p[1] if p else ""),
+            "area": s["area"],
+            "areaRank": rank[i],
+            "currency": cur,
+            "demonym": s.get("demonyms", {}).get("eng", {}).get("m", ""),
+            "city": city,
+            "coast": coast,
+            "high": high,
+            "tz": tz,
+            "drive": "Left" if i in facts.DRIVE_LEFT else "Right",
+            "ind": ind,
+            "gov": gov,
+            "rec": facts.RECOGNITION.get(i, ""),
+            "income": "" if income in ("Not classified", "Aggregates") else income,
+            "gdppc": extra.get("gdppc", round(g[0]) if g else None),
+            "gdpYear": extra.get("gdpYear", g[1] if g else ""),
+        }
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     countries = build_countries()
+    import sys
+    sys.path.insert(0, str(ROOT / "tools"))
+    add_learning_info(countries)
     ids = {c["id"] for c in countries}
     for res in ("50m", "110m"):
         topo = fix_topology(fetch(f"countries-{res}.json"), ids)

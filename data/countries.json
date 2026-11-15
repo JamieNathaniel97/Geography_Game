@@ -10,6 +10,8 @@
 "capitals": [
 "Kabul"
 ],
+"capitalNote": "",
+"a2": "AF",
 "cont": [
 "Asia"
 ],
@@ -17,7 +19,34 @@
 "ll": [
 33,
 65
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [],
+"former": "",
+"langs": [
+"Dari",
+"Pashto",
+"Turkmen"
+],
+"pop": 43844111,
+"popYear": "2025",
+"area": 652230,
+"areaRank": 40,
+"currency": "Afghan afghani (AFN)",
+"demonym": "Afghan",
+"city": "",
+"coast": "",
+"high": "Noshaq, 7,492 m",
+"tz": "UTC+4:30",
+"drive": "Right",
+"ind": "1919 from the UK (foreign affairs)",
+"gov": "Islamic emirate (Taliban)",
+"rec": "",
+"income": "Low income",
+"gdppc": 417,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "ALB",
@@ -30,6 +59,8 @@
 "capitals": [
 "Tirana"
 ],
+"capitalNote": "",
+"a2": "AL",
 "cont": [
 "Europe"
 ],
@@ -37,7 +68,35 @@
 "ll": [
 41,
 20
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans",
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"Albanian"
+],
+"pop": 2349580,
+"popYear": "2025",
+"area": 28748,
+"areaRank": 141,
+"currency": "Albanian lek (ALL)",
+"demonym": "Albanian",
+"city": "",
+"coast": "Adriatic Sea, Ionian Sea",
+"high": "Korab, 2,764 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1912 from the Ottoman Empire",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 12998,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "DZA",
@@ -50,6 +109,8 @@
 "capitals": [
 "Algiers"
 ],
+"capitalNote": "",
+"a2": "DZ",
 "cont": [
 "Africa"
 ],
@@ -57,7 +118,35 @@
 "ll": [
 28,
 3
-]
+],
+"info": {
+"sub": "North Africa",
+"areas": [
+"Mediterranean",
+"Maghreb"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 47435312,
+"popYear": "2025",
+"area": 2381741,
+"areaRank": 10,
+"currency": "Algerian dinar (DZD)",
+"demonym": "Algerian",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Mount Tahat, 2,908 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1962 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6051,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "AND",
@@ -70,6 +159,8 @@
 "capitals": [
 "Andorra la Vella"
 ],
+"capitalNote": "",
+"a2": "AD",
 "cont": [
 "Europe"
 ],
@@ -77,7 +168,34 @@
 "ll": [
 42.5,
 1.5
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Iberian Peninsula"
+],
+"former": "",
+"langs": [
+"Catalan"
+],
+"pop": 82904,
+"popYear": "2025",
+"area": 468,
+"areaRank": 181,
+"currency": "Euro (EUR)",
+"demonym": "Andorran",
+"city": "",
+"coast": "",
+"high": "Coma Pedrosa, 2,942 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Co-principality since 1278",
+"gov": "Parliamentary co-principality",
+"rec": "",
+"income": "High income",
+"gdppc": 54292,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "AGO",
@@ -90,6 +208,8 @@
 "capitals": [
 "Luanda"
 ],
+"capitalNote": "",
+"a2": "AO",
 "cont": [
 "Africa"
 ],
@@ -97,7 +217,32 @@
 "ll": [
 -12.5,
 18.5
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "Portuguese West Africa (until 1975)",
+"langs": [
+"Portuguese"
+],
+"pop": 39040039,
+"popYear": "2025",
+"area": 1246700,
+"areaRank": 22,
+"currency": "Angolan kwanza (AOA)",
+"demonym": "Angolan",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Moco, 2,620 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1975 from Portugal",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3129,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ATG",
@@ -110,6 +255,8 @@
 "capitals": [
 "Saint John's"
 ],
+"capitalNote": "",
+"a2": "AG",
 "cont": [
 "North America"
 ],
@@ -117,7 +264,34 @@
 "ll": [
 17.05,
 -61.8
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 94209,
+"popYear": "2025",
+"area": 442,
+"areaRank": 184,
+"currency": "Eastern Caribbean dollar (XCD)",
+"demonym": "Antiguan, Barbudan",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Mount Obama, 402 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1981 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "High income",
+"gdppc": 24819,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ARG",
@@ -130,6 +304,8 @@
 "capitals": [
 "Buenos Aires"
 ],
+"capitalNote": "",
+"a2": "AR",
 "cont": [
 "South America"
 ],
@@ -137,7 +313,36 @@
 "ll": [
 -34,
 -64
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes",
+"Southern Cone"
+],
+"former": "",
+"langs": [
+"Guaraní",
+"Spanish"
+],
+"pop": 45851378,
+"popYear": "2025",
+"area": 2780400,
+"areaRank": 8,
+"currency": "Argentine peso (ARS)",
+"demonym": "Argentine",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Aconcagua, 6,961 m",
+"tz": "UTC−3",
+"drive": "Right",
+"ind": "1816 from Spain",
+"gov": "Federal presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 14898,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ARM",
@@ -150,6 +355,8 @@
 "capitals": [
 "Yerevan"
 ],
+"capitalNote": "",
+"a2": "AM",
 "cont": [
 "Asia"
 ],
@@ -157,7 +364,34 @@
 "ll": [
 40,
 45
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Caucasus"
+],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Armenian"
+],
+"pop": 3086700,
+"popYear": "2025",
+"area": 29743,
+"areaRank": 139,
+"currency": "Armenian dram (AMD)",
+"demonym": "Armenian",
+"city": "",
+"coast": "",
+"high": "Mount Aragats, 4,090 m",
+"tz": "UTC+4",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Parliamentary republic",
+"rec": "A UN member, not recognised by Pakistan.",
+"income": "Upper middle income",
+"gdppc": 9474,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "AUS",
@@ -170,6 +404,8 @@
 "capitals": [
 "Canberra"
 ],
+"capitalNote": "",
+"a2": "AU",
 "cont": [
 "Oceania"
 ],
@@ -177,7 +413,32 @@
 "ll": [
 -27,
 133
-]
+],
+"info": {
+"sub": "Australasia",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 27614411,
+"popYear": "2025",
+"area": 7692024,
+"areaRank": 6,
+"currency": "Australian dollar (AUD)",
+"demonym": "Australian",
+"city": "Sydney",
+"coast": "Indian, Pacific and Southern oceans",
+"high": "Mount Kosciuszko, 2,228 m",
+"tz": "UTC+8 to UTC+10:30",
+"drive": "Left",
+"ind": "1901 federation, from the UK",
+"gov": "Federal parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 65130,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "AUT",
@@ -190,6 +451,8 @@
 "capitals": [
 "Vienna"
 ],
+"capitalNote": "",
+"a2": "AT",
 "cont": [
 "Europe"
 ],
@@ -197,7 +460,34 @@
 "ll": [
 47.33333333,
 13.33333333
-]
+],
+"info": {
+"sub": "Central Europe",
+"areas": [
+"Alps"
+],
+"former": "Austria-Hungary (until 1918)",
+"langs": [
+"Austro-Bavarian German"
+],
+"pop": 9208163,
+"popYear": "2025",
+"area": 83871,
+"areaRank": 113,
+"currency": "Euro (EUR)",
+"demonym": "Austrian",
+"city": "",
+"coast": "",
+"high": "Grossglockner, 3,798 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Republic since 1918 (end of Austria-Hungary)",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 62930,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "AZE",
@@ -210,6 +500,8 @@
 "capitals": [
 "Baku"
 ],
+"capitalNote": "",
+"a2": "AZ",
 "cont": [
 "Asia"
 ],
@@ -217,7 +509,35 @@
 "ll": [
 40.5,
 47.5
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Caucasus"
+],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Azerbaijani",
+"Russian"
+],
+"pop": 10246996,
+"popYear": "2025",
+"area": 86600,
+"areaRank": 112,
+"currency": "Azerbaijani manat (AZN)",
+"demonym": "Azerbaijani",
+"city": "",
+"coast": "Caspian Sea (no ocean coast)",
+"high": "Bazardüzü, 4,466 m",
+"tz": "UTC+4",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7411,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BHS",
@@ -231,6 +551,8 @@
 "capitals": [
 "Nassau"
 ],
+"capitalNote": "",
+"a2": "BS",
 "cont": [
 "North America"
 ],
@@ -238,7 +560,32 @@
 "ll": [
 24.25,
 -76
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 403033,
+"popYear": "2025",
+"area": 13943,
+"areaRank": 156,
+"currency": "Bahamian dollar (BSD); United States dollar (USD)",
+"demonym": "Bahamian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Alvernia, 63 m",
+"tz": "UTC−5",
+"drive": "Left",
+"ind": "1973 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "High income",
+"gdppc": 39455,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "BHR",
@@ -251,6 +598,8 @@
 "capitals": [
 "Manama"
 ],
+"capitalNote": "",
+"a2": "BH",
 "cont": [
 "Asia"
 ],
@@ -258,7 +607,35 @@
 "ll": [
 26,
 50.55
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula",
+"Gulf states"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 1600366,
+"popYear": "2025",
+"area": 765,
+"areaRank": 175,
+"currency": "Bahraini dinar (BHD)",
+"demonym": "Bahraini",
+"city": "",
+"coast": "Persian Gulf",
+"high": "Jabal ad Dukhan, 134 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1971 from the UK",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 30597,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BGD",
@@ -271,6 +648,8 @@
 "capitals": [
 "Dhaka"
 ],
+"capitalNote": "",
+"a2": "BD",
 "cont": [
 "Asia"
 ],
@@ -278,7 +657,34 @@
 "ll": [
 24,
 90
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Indian subcontinent"
+],
+"former": "East Pakistan (until 1971)",
+"langs": [
+"Bengali"
+],
+"pop": 175686899,
+"popYear": "2025",
+"area": 147570,
+"areaRank": 92,
+"currency": "Bangladeshi taka (BDT)",
+"demonym": "Bangladeshi",
+"city": "",
+"coast": "Bay of Bengal",
+"high": "Saka Haphong, 1,052 m",
+"tz": "UTC+6",
+"drive": "Left",
+"ind": "1971 from Pakistan",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2597,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BRB",
@@ -290,6 +696,8 @@
 "capitals": [
 "Bridgetown"
 ],
+"capitalNote": "",
+"a2": "BB",
 "cont": [
 "North America"
 ],
@@ -297,7 +705,34 @@
 "ll": [
 13.16666666,
 -59.53333333
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 282623,
+"popYear": "2025",
+"area": 430,
+"areaRank": 185,
+"currency": "Barbadian dollar (BBD)",
+"demonym": "Barbadian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Hillaby, 336 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1966 from the UK",
+"gov": "Parliamentary republic (since 2021)",
+"rec": "",
+"income": "High income",
+"gdppc": 28365,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BLR",
@@ -310,6 +745,8 @@
 "capitals": [
 "Minsk"
 ],
+"capitalNote": "",
+"a2": "BY",
 "cont": [
 "Europe"
 ],
@@ -317,7 +754,33 @@
 "ll": [
 53,
 28
-]
+],
+"info": {
+"sub": "Eastern Europe",
+"areas": [],
+"former": "Byelorussia, part of the Soviet Union (until 1991)",
+"langs": [
+"Belarusian",
+"Russian"
+],
+"pop": 9085991,
+"popYear": "2025",
+"area": 207600,
+"areaRank": 84,
+"currency": "Belarusian ruble (BYN)",
+"demonym": "Belarusian",
+"city": "",
+"coast": "",
+"high": "Dzyarzhynskaya Hara, 345 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 10279,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BEL",
@@ -330,6 +793,8 @@
 "capitals": [
 "Brussels"
 ],
+"capitalNote": "",
+"a2": "BE",
 "cont": [
 "Europe"
 ],
@@ -337,7 +802,36 @@
 "ll": [
 50.83333333,
 4
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Benelux"
+],
+"former": "",
+"langs": [
+"German",
+"French",
+"Dutch"
+],
+"pop": 11941781,
+"popYear": "2025",
+"area": 30528,
+"areaRank": 137,
+"currency": "Euro (EUR)",
+"demonym": "Belgian",
+"city": "",
+"coast": "North Sea",
+"high": "Signal de Botrange, 694 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1830 from the Netherlands",
+"gov": "Federal parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 60750,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BLZ",
@@ -349,6 +843,8 @@
 "capitals": [
 "Belmopan"
 ],
+"capitalNote": "",
+"a2": "BZ",
 "cont": [
 "North America"
 ],
@@ -356,7 +852,34 @@
 "ll": [
 17.25,
 -88.75
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "British Honduras (until 1973)",
+"langs": [
+"Belizean Creole",
+"English",
+"Spanish"
+],
+"pop": 422924,
+"popYear": "2025",
+"area": 22966,
+"areaRank": 148,
+"currency": "Belize dollar (BZD)",
+"demonym": "Belizean",
+"city": "Belize City",
+"coast": "Caribbean Sea",
+"high": "Doyle's Delight, 1,124 m",
+"tz": "UTC−6",
+"drive": "Right",
+"ind": "1981 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7865,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BEN",
@@ -370,6 +893,8 @@
 "Porto-Novo",
 "Cotonou"
 ],
+"capitalNote": "Porto-Novo (official), Cotonou (seat of government)",
+"a2": "BJ",
 "cont": [
 "Africa"
 ],
@@ -377,7 +902,32 @@
 "ll": [
 9.5,
 2.25
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "Dahomey (until 1975)",
+"langs": [
+"French"
+],
+"pop": 14814460,
+"popYear": "2025",
+"area": 112622,
+"areaRank": 100,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Beninese",
+"city": "Cotonou",
+"coast": "Atlantic Ocean (Bight of Benin)",
+"high": "Mont Sokbaro, 658 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1658,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BTN",
@@ -390,6 +940,8 @@
 "capitals": [
 "Thimphu"
 ],
+"capitalNote": "",
+"a2": "BT",
 "cont": [
 "Asia"
 ],
@@ -397,7 +949,35 @@
 "ll": [
 27.5,
 90.5
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Himalayas",
+"Indian subcontinent"
+],
+"former": "",
+"langs": [
+"Dzongkha"
+],
+"pop": 796682,
+"popYear": "2025",
+"area": 38394,
+"areaRank": 133,
+"currency": "Bhutanese ngultrum (BTN); Indian rupee (INR)",
+"demonym": "Bhutanese",
+"city": "",
+"coast": "",
+"high": "Gangkhar Puensum, 7,570 m",
+"tz": "UTC+6",
+"drive": "Left",
+"ind": "Never colonised (monarchy since 1907)",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4493,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BOL",
@@ -411,6 +991,8 @@
 "Sucre",
 "La Paz"
 ],
+"capitalNote": "Sucre (constitutional), La Paz (seat of government)",
+"a2": "BO",
 "cont": [
 "South America"
 ],
@@ -418,7 +1000,37 @@
 "ll": [
 -17,
 -65
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes"
+],
+"former": "Upper Peru (until 1825)",
+"langs": [
+"Aymara",
+"Guaraní",
+"Quechua",
+"Spanish"
+],
+"pop": 12581843,
+"popYear": "2025",
+"area": 1098581,
+"areaRank": 27,
+"currency": "Bolivian boliviano (BOB)",
+"demonym": "Bolivian",
+"city": "Santa Cruz de la Sierra",
+"coast": "",
+"high": "Nevado Sajama, 6,542 m",
+"tz": "UTC−4",
+"drive": "Right",
+"ind": "1825 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 5148,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BIH",
@@ -432,6 +1044,8 @@
 "capitals": [
 "Sarajevo"
 ],
+"capitalNote": "",
+"a2": "BA",
 "cont": [
 "Europe"
 ],
@@ -439,7 +1053,37 @@
 "ll": [
 44,
 18
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans",
+"Mediterranean"
+],
+"former": "Part of Yugoslavia (until 1992)",
+"langs": [
+"Bosnian",
+"Croatian",
+"Serbian"
+],
+"pop": 3140095,
+"popYear": "2025",
+"area": 51209,
+"areaRank": 125,
+"currency": "Bosnia and Herzegovina convertible mark (BAM)",
+"demonym": "Bosnian, Herzegovinian",
+"city": "",
+"coast": "Adriatic Sea (20 km at Neum)",
+"high": "Maglić, 2,386 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1992 from Yugoslavia",
+"gov": "Federal parliamentary republic (three-member presidency)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 10382,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BWA",
@@ -452,6 +1096,8 @@
 "capitals": [
 "Gaborone"
 ],
+"capitalNote": "",
+"a2": "BW",
 "cont": [
 "Africa"
 ],
@@ -459,7 +1105,33 @@
 "ll": [
 -22,
 24
-]
+],
+"info": {
+"sub": "Southern Africa",
+"areas": [],
+"former": "Bechuanaland (until 1966)",
+"langs": [
+"English",
+"Tswana"
+],
+"pop": 2562122,
+"popYear": "2025",
+"area": 582000,
+"areaRank": 46,
+"currency": "Botswana pula (BWP)",
+"demonym": "Motswana",
+"city": "",
+"coast": "",
+"high": "Otse Hill, 1,491 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1966 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7778,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BRA",
@@ -472,6 +1144,8 @@
 "capitals": [
 "Brasília"
 ],
+"capitalNote": "",
+"a2": "BR",
 "cont": [
 "South America"
 ],
@@ -479,7 +1153,32 @@
 "ll": [
 -10,
 -55
-]
+],
+"info": {
+"sub": "South America",
+"areas": [],
+"former": "",
+"langs": [
+"Portuguese"
+],
+"pop": 212812405,
+"popYear": "2025",
+"area": 8515767,
+"areaRank": 5,
+"currency": "Brazilian real (BRL)",
+"demonym": "Brazilian",
+"city": "São Paulo",
+"coast": "Atlantic Ocean",
+"high": "Pico da Neblina, 2,995 m",
+"tz": "UTC−2 to UTC−5",
+"drive": "Right",
+"ind": "1822 from Portugal",
+"gov": "Federal presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 10713,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BRN",
@@ -492,6 +1191,8 @@
 "capitals": [
 "Bandar Seri Begawan"
 ],
+"capitalNote": "",
+"a2": "BN",
 "cont": [
 "Asia"
 ],
@@ -499,7 +1200,34 @@
 "ll": [
 4.5,
 114.66666666
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Malay Archipelago"
+],
+"former": "",
+"langs": [
+"Malay"
+],
+"pop": 466330,
+"popYear": "2025",
+"area": 5765,
+"areaRank": 166,
+"currency": "Brunei dollar (BND); Singapore dollar (SGD)",
+"demonym": "Bruneian",
+"city": "",
+"coast": "South China Sea",
+"high": "Bukit Pagon, 1,850 m",
+"tz": "UTC+8",
+"drive": "Left",
+"ind": "1984 from the UK",
+"gov": "Absolute monarchy (sultanate)",
+"rec": "",
+"income": "High income",
+"gdppc": 32235,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BGR",
@@ -512,6 +1240,8 @@
 "capitals": [
 "Sofia"
 ],
+"capitalNote": "",
+"a2": "BG",
 "cont": [
 "Europe"
 ],
@@ -519,7 +1249,34 @@
 "ll": [
 43,
 25
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans"
+],
+"former": "",
+"langs": [
+"Bulgarian"
+],
+"pop": 6433302,
+"popYear": "2025",
+"area": 110879,
+"areaRank": 103,
+"currency": "Bulgarian lev (BGN)",
+"demonym": "Bulgarian",
+"city": "",
+"coast": "Black Sea",
+"high": "Musala, 2,925 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1908 from the Ottoman Empire",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 20328,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BFA",
@@ -531,6 +1288,8 @@
 "capitals": [
 "Ouagadougou"
 ],
+"capitalNote": "",
+"a2": "BF",
 "cont": [
 "Africa"
 ],
@@ -538,7 +1297,34 @@
 "ll": [
 13,
 -2
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [
+"Sahel"
+],
+"former": "Upper Volta (until 1984)",
+"langs": [
+"French"
+],
+"pop": 24074580,
+"popYear": "2025",
+"area": 272967,
+"areaRank": 74,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Burkinabe",
+"city": "",
+"coast": "",
+"high": "Ténakourou, 749 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Military junta",
+"rec": "",
+"income": "Low income",
+"gdppc": 1148,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "BDI",
@@ -551,6 +1337,8 @@
 "capitals": [
 "Gitega"
 ],
+"capitalNote": "",
+"a2": "BI",
 "cont": [
 "Africa"
 ],
@@ -558,7 +1346,35 @@
 "ll": [
 -3.5,
 30
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"African Great Lakes"
+],
+"former": "Urundi, part of Ruanda-Urundi (until 1962)",
+"langs": [
+"French",
+"Kirundi"
+],
+"pop": 14390003,
+"popYear": "2025",
+"area": 27834,
+"areaRank": 143,
+"currency": "Burundian franc (BIF)",
+"demonym": "Burundian",
+"city": "Bujumbura",
+"coast": "",
+"high": "Mount Heha, 2,684 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1962 from Belgium",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 234,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KHM",
@@ -571,6 +1387,8 @@
 "capitals": [
 "Phnom Penh"
 ],
+"capitalNote": "",
+"a2": "KH",
 "cont": [
 "Asia"
 ],
@@ -578,7 +1396,34 @@
 "ll": [
 13,
 105
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Indochina"
+],
+"former": "Kampuchea (1975–89)",
+"langs": [
+"Khmer"
+],
+"pop": 17847982,
+"popYear": "2025",
+"area": 181035,
+"areaRank": 88,
+"currency": "Cambodian riel (KHR); United States dollar (USD)",
+"demonym": "Cambodian",
+"city": "",
+"coast": "Gulf of Thailand",
+"high": "Phnom Aural, 1,813 m",
+"tz": "UTC+7",
+"drive": "Right",
+"ind": "1953 from France",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2872,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CMR",
@@ -591,6 +1436,8 @@
 "capitals": [
 "Yaoundé"
 ],
+"capitalNote": "",
+"a2": "CM",
 "cont": [
 "Africa"
 ],
@@ -598,7 +1445,33 @@
 "ll": [
 6,
 12
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "Kamerun (German); French Cameroun (until 1960)",
+"langs": [
+"English",
+"French"
+],
+"pop": 29879337,
+"popYear": "2025",
+"area": 475442,
+"areaRank": 53,
+"currency": "Central African CFA franc (XAF)",
+"demonym": "Cameroonian",
+"city": "Douala",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Mount Cameroon, 4,040 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France (and the UK, 1961)",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1972,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CAN",
@@ -610,6 +1483,8 @@
 "capitals": [
 "Ottawa"
 ],
+"capitalNote": "",
+"a2": "CA",
 "cont": [
 "North America"
 ],
@@ -617,7 +1492,33 @@
 "ll": [
 60,
 -95
-]
+],
+"info": {
+"sub": "North America",
+"areas": [],
+"former": "",
+"langs": [
+"English",
+"French"
+],
+"pop": 41651653,
+"popYear": "2025",
+"area": 9984670,
+"areaRank": 2,
+"currency": "Canadian dollar (CAD)",
+"demonym": "Canadian",
+"city": "Toronto",
+"coast": "Atlantic, Arctic and Pacific oceans",
+"high": "Mount Logan, 5,959 m",
+"tz": "UTC−3:30 to UTC−8",
+"drive": "Right",
+"ind": "1867 confederation, from the UK (full sovereignty 1982)",
+"gov": "Federal parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 55698,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CPV",
@@ -631,6 +1532,8 @@
 "capitals": [
 "Praia"
 ],
+"capitalNote": "",
+"a2": "CV",
 "cont": [
 "Africa"
 ],
@@ -638,7 +1541,32 @@
 "ll": [
 16,
 -24
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "Cape Verde (official English name until 2013)",
+"langs": [
+"Portuguese"
+],
+"pop": 527326,
+"popYear": "2025",
+"area": 4033,
+"areaRank": 168,
+"currency": "Cape Verdean escudo (CVE)",
+"demonym": "Cape Verdian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Fogo, 2,829 m",
+"tz": "UTC−1",
+"drive": "Right",
+"ind": "1975 from Portugal",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5796,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CAF",
@@ -651,6 +1579,8 @@
 "capitals": [
 "Bangui"
 ],
+"capitalNote": "",
+"a2": "CF",
 "cont": [
 "Africa"
 ],
@@ -658,7 +1588,33 @@
 "ll": [
 7,
 21
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "Ubangi-Shari; Central African Empire (1976–79)",
+"langs": [
+"French",
+"Sango"
+],
+"pop": 5513282,
+"popYear": "2025",
+"area": 622984,
+"areaRank": 42,
+"currency": "Central African CFA franc (XAF)",
+"demonym": "Central African",
+"city": "",
+"coast": "",
+"high": "Mont Ngaoui, 1,410 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 556,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TCD",
@@ -671,6 +1627,8 @@
 "capitals": [
 "N'Djamena"
 ],
+"capitalNote": "",
+"a2": "TD",
 "cont": [
 "Africa"
 ],
@@ -678,7 +1636,35 @@
 "ll": [
 15,
 19
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [
+"Sahel"
+],
+"former": "",
+"langs": [
+"Arabic",
+"French"
+],
+"pop": 21003705,
+"popYear": "2025",
+"area": 1284000,
+"areaRank": 20,
+"currency": "Central African CFA franc (XAF)",
+"demonym": "Chadian",
+"city": "",
+"coast": "",
+"high": "Emi Koussi, 3,415 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 1022,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CHL",
@@ -691,6 +1677,8 @@
 "capitals": [
 "Santiago"
 ],
+"capitalNote": "",
+"a2": "CL",
 "cont": [
 "South America"
 ],
@@ -698,7 +1686,35 @@
 "ll": [
 -30,
 -71
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes",
+"Southern Cone"
+],
+"former": "",
+"langs": [
+"Spanish"
+],
+"pop": 19859921,
+"popYear": "2025",
+"area": 756102,
+"areaRank": 37,
+"currency": "Chilean peso (CLP)",
+"demonym": "Chilean",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Ojos del Salado, 6,893 m",
+"tz": "UTC−3 to UTC−6",
+"drive": "Right",
+"ind": "1818 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 17995,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CHN",
@@ -711,6 +1727,8 @@
 "capitals": [
 "Beijing"
 ],
+"capitalNote": "",
+"a2": "CN",
 "cont": [
 "Asia"
 ],
@@ -718,7 +1736,34 @@
 "ll": [
 35,
 105
-]
+],
+"info": {
+"sub": "East Asia",
+"areas": [
+"Himalayas"
+],
+"former": "",
+"langs": [
+"Chinese"
+],
+"pop": 1406585000,
+"popYear": "2025",
+"area": 9706961,
+"areaRank": 3,
+"currency": "Chinese yuan (CNY)",
+"demonym": "Chinese",
+"city": "Shanghai",
+"coast": "Yellow, East China and South China seas",
+"high": "Mount Everest, 8,849 m",
+"tz": "UTC+8",
+"drive": "Right",
+"ind": "People's Republic founded 1949",
+"gov": "One-party socialist republic",
+"rec": "A UN member. A few UN members recognise the Republic of China (Taiwan) instead.",
+"income": "Upper middle income",
+"gdppc": 13862,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "COL",
@@ -731,6 +1776,8 @@
 "capitals": [
 "Bogotá"
 ],
+"capitalNote": "",
+"a2": "CO",
 "cont": [
 "South America"
 ],
@@ -738,7 +1785,34 @@
 "ll": [
 4,
 -72
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes"
+],
+"former": "New Granada; part of Gran Colombia (1819–31)",
+"langs": [
+"Spanish"
+],
+"pop": 53425635,
+"popYear": "2025",
+"area": 1141748,
+"areaRank": 25,
+"currency": "Colombian peso (COP)",
+"demonym": "Colombian",
+"city": "",
+"coast": "Caribbean Sea, Pacific Ocean",
+"high": "Pico Cristóbal Colón, 5,730 m",
+"tz": "UTC−5",
+"drive": "Right",
+"ind": "1810 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 8562,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "COM",
@@ -751,6 +1825,8 @@
 "capitals": [
 "Moroni"
 ],
+"capitalNote": "",
+"a2": "KM",
 "cont": [
 "Africa"
 ],
@@ -758,7 +1834,34 @@
 "ll": [
 -12.16666666,
 44.25
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "",
+"langs": [
+"Arabic",
+"French",
+"Comorian"
+],
+"pop": 882847,
+"popYear": "2025",
+"area": 1862,
+"areaRank": 172,
+"currency": "Comorian franc (KMF)",
+"demonym": "Comoran",
+"city": "",
+"coast": "Indian Ocean (Mozambique Channel)",
+"high": "Mount Karthala, 2,361 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1975 from France",
+"gov": "Federal presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2056,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CRI",
@@ -771,6 +1874,8 @@
 "capitals": [
 "San José"
 ],
+"capitalNote": "",
+"a2": "CR",
 "cont": [
 "North America"
 ],
@@ -778,7 +1883,32 @@
 "ll": [
 10,
 -84
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "Federal Republic of Central America (1823–41)",
+"langs": [
+"Spanish"
+],
+"pop": 5152950,
+"popYear": "2025",
+"area": 51100,
+"areaRank": 126,
+"currency": "Costa Rican colón (CRC)",
+"demonym": "Costa Rican",
+"city": "",
+"coast": "Caribbean Sea, Pacific Ocean",
+"high": "Cerro Chirripó, 3,820 m",
+"tz": "UTC−6",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 19970,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "HRV",
@@ -791,6 +1921,8 @@
 "capitals": [
 "Zagreb"
 ],
+"capitalNote": "",
+"a2": "HR",
 "cont": [
 "Europe"
 ],
@@ -798,7 +1930,35 @@
 "ll": [
 45.16666666,
 15.5
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans",
+"Mediterranean"
+],
+"former": "Part of Yugoslavia (until 1991)",
+"langs": [
+"Croatian"
+],
+"pop": 3876200,
+"popYear": "2025",
+"area": 56594,
+"areaRank": 124,
+"currency": "Euro (EUR)",
+"demonym": "Croatian",
+"city": "",
+"coast": "Adriatic Sea",
+"high": "Dinara, 1,831 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1991 from Yugoslavia",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 27104,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CUB",
@@ -811,6 +1971,8 @@
 "capitals": [
 "Havana"
 ],
+"capitalNote": "",
+"a2": "CU",
 "cont": [
 "North America"
 ],
@@ -818,7 +1980,34 @@
 "ll": [
 21.5,
 -80
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Greater Antilles"
+],
+"former": "",
+"langs": [
+"Spanish"
+],
+"pop": 10937203,
+"popYear": "2025",
+"area": 109884,
+"areaRank": 104,
+"currency": "Cuban convertible peso (CUC); Cuban peso (CUP)",
+"demonym": "Cuban",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean, Gulf of Mexico",
+"high": "Pico Turquino, 1,974 m",
+"tz": "UTC−5",
+"drive": "Right",
+"ind": "1902 from the USA (1898 from Spain)",
+"gov": "One-party socialist republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 9605,
+"gdpYear": "2020"
+}
 },
 {
 "iso": "CYP",
@@ -831,6 +2020,8 @@
 "capitals": [
 "Nicosia"
 ],
+"capitalNote": "",
+"a2": "CY",
 "cont": [
 "Europe"
 ],
@@ -838,7 +2029,35 @@
 "ll": [
 35,
 33
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"Greek",
+"Turkish"
+],
+"pop": 1370754,
+"popYear": "2025",
+"area": 9251,
+"areaRank": 164,
+"currency": "Euro (EUR)",
+"demonym": "Cypriot",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Mount Olympus, 1,952 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1960 from the UK",
+"gov": "Presidential republic",
+"rec": "A UN member, not recognised by Turkey. The north is run by the self-declared Turkish Republic of Northern Cyprus.",
+"income": "High income",
+"gdppc": 41783,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CZE",
@@ -851,6 +2070,8 @@
 "capitals": [
 "Prague"
 ],
+"capitalNote": "",
+"a2": "CZ",
 "cont": [
 "Europe"
 ],
@@ -858,7 +2079,33 @@
 "ll": [
 49.75,
 15.5
-]
+],
+"info": {
+"sub": "Central Europe",
+"areas": [],
+"former": "Part of Czechoslovakia (until 1993)",
+"langs": [
+"Czech",
+"Slovak"
+],
+"pop": 10886878,
+"popYear": "2025",
+"area": 78865,
+"areaRank": 115,
+"currency": "Czech koruna (CZK)",
+"demonym": "Czech",
+"city": "",
+"coast": "",
+"high": "Sněžka, 1,603 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1993, split of Czechoslovakia (1918 from Austria-Hungary)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 35917,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "COD",
@@ -874,6 +2121,8 @@
 "capitals": [
 "Kinshasa"
 ],
+"capitalNote": "",
+"a2": "CD",
 "cont": [
 "Africa"
 ],
@@ -881,7 +2130,38 @@
 "ll": [
 0,
 25
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [
+"African Great Lakes"
+],
+"former": "Belgian Congo; Zaire (1971–97)",
+"langs": [
+"French",
+"Kikongo",
+"Lingala",
+"Tshiluba",
+"Swahili"
+],
+"pop": 112832473,
+"popYear": "2025",
+"area": 2344858,
+"areaRank": 11,
+"currency": "Congolese franc (CDF)",
+"demonym": "Congolese",
+"city": "",
+"coast": "Atlantic Ocean (about 40 km)",
+"high": "Margherita Peak, 5,109 m",
+"tz": "UTC+1 to UTC+2",
+"drive": "Right",
+"ind": "1960 from Belgium",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 807,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "DNK",
@@ -894,6 +2174,8 @@
 "capitals": [
 "Copenhagen"
 ],
+"capitalNote": "",
+"a2": "DK",
 "cont": [
 "Europe"
 ],
@@ -901,7 +2183,35 @@
 "ll": [
 56,
 10
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Scandinavia",
+"Nordic countries"
+],
+"former": "",
+"langs": [
+"Danish"
+],
+"pop": 6009169,
+"popYear": "2025",
+"area": 43094,
+"areaRank": 130,
+"currency": "Danish krone (DKK)",
+"demonym": "Danish",
+"city": "",
+"coast": "North Sea, Baltic Sea",
+"high": "Møllehøj, 171 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Kingdom since the 10th century",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 76970,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "DJI",
@@ -914,6 +2224,8 @@
 "capitals": [
 "Djibouti"
 ],
+"capitalNote": "",
+"a2": "DJ",
 "cont": [
 "Africa"
 ],
@@ -921,7 +2233,35 @@
 "ll": [
 11.5,
 43
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"Horn of Africa"
+],
+"former": "French Somaliland; French Territory of the Afars and the Issas (until 1977)",
+"langs": [
+"Arabic",
+"French"
+],
+"pop": 1184076,
+"popYear": "2025",
+"area": 23200,
+"areaRank": 147,
+"currency": "Djiboutian franc (DJF)",
+"demonym": "Djibouti",
+"city": "",
+"coast": "Gulf of Aden, Red Sea",
+"high": "Moussa Ali, 2,028 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1977 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3906,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "DMA",
@@ -934,6 +2274,8 @@
 "capitals": [
 "Roseau"
 ],
+"capitalNote": "",
+"a2": "DM",
 "cont": [
 "North America"
 ],
@@ -941,7 +2283,34 @@
 "ll": [
 15.41666666,
 -61.33333333
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 65871,
+"popYear": "2025",
+"area": 751,
+"areaRank": 176,
+"currency": "Eastern Caribbean dollar (XCD)",
+"demonym": "Dominican",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Morne Diablotins, 1,447 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1978 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 10989,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "DOM",
@@ -953,6 +2322,8 @@
 "capitals": [
 "Santo Domingo"
 ],
+"capitalNote": "",
+"a2": "DO",
 "cont": [
 "North America"
 ],
@@ -960,7 +2331,34 @@
 "ll": [
 19,
 -70.66666666
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Greater Antilles"
+],
+"former": "",
+"langs": [
+"Spanish"
+],
+"pop": 11520487,
+"popYear": "2025",
+"area": 48671,
+"areaRank": 128,
+"currency": "Dominican peso (DOP)",
+"demonym": "Dominican",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Pico Duarte, 3,098 m",
+"tz": "UTC−4",
+"drive": "Right",
+"ind": "1844 from Haiti",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 11059,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ECU",
@@ -973,6 +2371,8 @@
 "capitals": [
 "Quito"
 ],
+"capitalNote": "",
+"a2": "EC",
 "cont": [
 "South America"
 ],
@@ -980,7 +2380,34 @@
 "ll": [
 -2,
 -77.5
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes"
+],
+"former": "Part of Gran Colombia (1822–30)",
+"langs": [
+"Spanish"
+],
+"pop": 18289896,
+"popYear": "2025",
+"area": 276841,
+"areaRank": 73,
+"currency": "United States dollar (USD)",
+"demonym": "Ecuadorean",
+"city": "Guayaquil",
+"coast": "Pacific Ocean",
+"high": "Chimborazo, 6,263 m",
+"tz": "UTC−5 to UTC−6",
+"drive": "Right",
+"ind": "1822 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7125,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "EGY",
@@ -993,6 +2420,8 @@
 "capitals": [
 "Cairo"
 ],
+"capitalNote": "",
+"a2": "EG",
 "cont": [
 "Africa"
 ],
@@ -1000,7 +2429,34 @@
 "ll": [
 27,
 30
-]
+],
+"info": {
+"sub": "North Africa",
+"areas": [
+"Mediterranean"
+],
+"former": "United Arab Republic (with Syria, 1958–61)",
+"langs": [
+"Arabic"
+],
+"pop": 118365995,
+"popYear": "2025",
+"area": 1002450,
+"areaRank": 29,
+"currency": "Egyptian pound (EGP)",
+"demonym": "Egyptian",
+"city": "",
+"coast": "Mediterranean Sea, Red Sea",
+"high": "Mount Catherine, 2,629 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1922 from the UK",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3086,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SLV",
@@ -1013,6 +2469,8 @@
 "capitals": [
 "San Salvador"
 ],
+"capitalNote": "",
+"a2": "SV",
 "cont": [
 "North America"
 ],
@@ -1020,7 +2478,32 @@
 "ll": [
 13.83333333,
 -88.91666666
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "Federal Republic of Central America (1823–41)",
+"langs": [
+"Spanish"
+],
+"pop": 6365503,
+"popYear": "2025",
+"area": 21041,
+"areaRank": 149,
+"currency": "United States dollar (USD)",
+"demonym": "Salvadoran",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Cerro El Pital, 2,730 m",
+"tz": "UTC−6",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5767,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GNQ",
@@ -1033,6 +2516,8 @@
 "capitals": [
 "Malabo"
 ],
+"capitalNote": "",
+"a2": "GQ",
 "cont": [
 "Africa"
 ],
@@ -1040,7 +2525,34 @@
 "ll": [
 2,
 10
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "Spanish Guinea (until 1968)",
+"langs": [
+"French",
+"Portuguese",
+"Spanish"
+],
+"pop": 1938431,
+"popYear": "2025",
+"area": 28051,
+"areaRank": 142,
+"currency": "Central African CFA franc (XAF)",
+"demonym": "Equatorial Guinean",
+"city": "Bata",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Pico Basilé, 3,011 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1968 from Spain",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6615,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ERI",
@@ -1053,6 +2565,8 @@
 "capitals": [
 "Asmara"
 ],
+"capitalNote": "",
+"a2": "ER",
 "cont": [
 "Africa"
 ],
@@ -1060,7 +2574,36 @@
 "ll": [
 15,
 39
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"Horn of Africa"
+],
+"former": "Part of Ethiopia (until 1993)",
+"langs": [
+"Arabic",
+"English",
+"Tigrinya"
+],
+"pop": 3607003,
+"popYear": "2025",
+"area": 117600,
+"areaRank": 99,
+"currency": "Eritrean nakfa (ERN)",
+"demonym": "Eritrean",
+"city": "",
+"coast": "Red Sea",
+"high": "Emba Soira, 3,018 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1993 from Ethiopia",
+"gov": "One-party presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 689,
+"gdpYear": "2011"
+}
 },
 {
 "iso": "EST",
@@ -1073,6 +2616,8 @@
 "capitals": [
 "Tallinn"
 ],
+"capitalNote": "",
+"a2": "EE",
 "cont": [
 "Europe"
 ],
@@ -1080,7 +2625,34 @@
 "ll": [
 59,
 26
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Baltic states"
+],
+"former": "Part of the Soviet Union (1940–91)",
+"langs": [
+"Estonian"
+],
+"pop": 1366475,
+"popYear": "2025",
+"area": 45227,
+"areaRank": 129,
+"currency": "Euro (EUR)",
+"demonym": "Estonian",
+"city": "",
+"coast": "Baltic Sea",
+"high": "Suur Munamägi, 318 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1918 from Russia (restored 1991)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 34418,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SWZ",
@@ -1094,6 +2666,8 @@
 "Mbabane",
 "Lobamba"
 ],
+"capitalNote": "Mbabane (executive), Lobamba (royal and legislative)",
+"a2": "SZ",
 "cont": [
 "Africa"
 ],
@@ -1101,7 +2675,33 @@
 "ll": [
 -26.5,
 31.5
-]
+],
+"info": {
+"sub": "Southern Africa",
+"areas": [],
+"former": "Swaziland (until 2018)",
+"langs": [
+"English",
+"Swazi"
+],
+"pop": 1256174,
+"popYear": "2025",
+"area": 17364,
+"areaRank": 154,
+"currency": "Swazi lilangeni (SZL); South African rand (ZAR)",
+"demonym": "Swazi",
+"city": "Manzini",
+"coast": "",
+"high": "Emlembe, 1,862 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1968 from the UK",
+"gov": "Absolute monarchy",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4108,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ETH",
@@ -1114,6 +2714,8 @@
 "capitals": [
 "Addis Ababa"
 ],
+"capitalNote": "",
+"a2": "ET",
 "cont": [
 "Africa"
 ],
@@ -1121,7 +2723,34 @@
 "ll": [
 8,
 38
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"Horn of Africa"
+],
+"former": "Abyssinia",
+"langs": [
+"Amharic"
+],
+"pop": 135472051,
+"popYear": "2025",
+"area": 1104300,
+"areaRank": 26,
+"currency": "Ethiopian birr (ETB)",
+"demonym": "Ethiopian",
+"city": "",
+"coast": "",
+"high": "Ras Dashen, 4,550 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "Never colonised (occupied by Italy 1936–41)",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 933,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "FJI",
@@ -1134,6 +2763,8 @@
 "capitals": [
 "Suva"
 ],
+"capitalNote": "",
+"a2": "FJ",
 "cont": [
 "Oceania"
 ],
@@ -1141,7 +2772,34 @@
 "ll": [
 -18,
 175
-]
+],
+"info": {
+"sub": "Melanesia",
+"areas": [],
+"former": "",
+"langs": [
+"English",
+"Fijian",
+"Fiji Hindi"
+],
+"pop": 933154,
+"popYear": "2025",
+"area": 18272,
+"areaRank": 152,
+"currency": "Fijian dollar (FJD)",
+"demonym": "Fijian",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Mount Tomanivi, 1,324 m",
+"tz": "UTC+12",
+"drive": "Left",
+"ind": "1970 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6642,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "FIN",
@@ -1154,6 +2812,8 @@
 "capitals": [
 "Helsinki"
 ],
+"capitalNote": "",
+"a2": "FI",
 "cont": [
 "Europe"
 ],
@@ -1161,7 +2821,35 @@
 "ll": [
 64,
 26
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Nordic countries"
+],
+"former": "",
+"langs": [
+"Finnish",
+"Swedish"
+],
+"pop": 5646436,
+"popYear": "2025",
+"area": 338424,
+"areaRank": 65,
+"currency": "Euro (EUR)",
+"demonym": "Finnish",
+"city": "",
+"coast": "Baltic Sea",
+"high": "Halti, 1,324 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1917 from Russia",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 56149,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "FRA",
@@ -1174,6 +2862,8 @@
 "capitals": [
 "Paris"
 ],
+"capitalNote": "",
+"a2": "FR",
 "cont": [
 "Europe"
 ],
@@ -1181,7 +2871,35 @@
 "ll": [
 46,
 2
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Alps",
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 68720337,
+"popYear": "2025",
+"area": 551695,
+"areaRank": 48,
+"currency": "Euro (EUR)",
+"demonym": "French",
+"city": "",
+"coast": "Atlantic Ocean, English Channel, Mediterranean Sea",
+"high": "Mont Blanc, 4,806 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Kingdom from 843; Fifth Republic since 1958",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 48986,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GAB",
@@ -1194,6 +2912,8 @@
 "capitals": [
 "Libreville"
 ],
+"capitalNote": "",
+"a2": "GA",
 "cont": [
 "Africa"
 ],
@@ -1201,7 +2921,32 @@
 "ll": [
 -1,
 11.75
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 2593130,
+"popYear": "2025",
+"area": 267668,
+"areaRank": 76,
+"currency": "Central African CFA franc (XAF)",
+"demonym": "Gabonese",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mont Bengoué, 1,070 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 8263,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GMB",
@@ -1215,6 +2960,8 @@
 "capitals": [
 "Banjul"
 ],
+"capitalNote": "",
+"a2": "GM",
 "cont": [
 "Africa"
 ],
@@ -1222,7 +2969,32 @@
 "ll": [
 13.46666666,
 -16.56666666
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 2822093,
+"popYear": "2025",
+"area": 10689,
+"areaRank": 162,
+"currency": "dalasi (GMD)",
+"demonym": "Gambian",
+"city": "Serekunda",
+"coast": "Atlantic Ocean",
+"high": "Unnamed point, 53 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1965 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 919,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GEO",
@@ -1234,6 +3006,8 @@
 "capitals": [
 "Tbilisi"
 ],
+"capitalNote": "",
+"a2": "GE",
 "cont": [
 "Asia"
 ],
@@ -1241,7 +3015,34 @@
 "ll": [
 42,
 43.5
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Caucasus"
+],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Georgian"
+],
+"pop": 3935766,
+"popYear": "2025",
+"area": 69700,
+"areaRank": 119,
+"currency": "lari (GEL)",
+"demonym": "Georgian",
+"city": "",
+"coast": "Black Sea",
+"high": "Shkhara, 5,193 m",
+"tz": "UTC+4",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 9692,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "DEU",
@@ -1254,6 +3055,8 @@
 "capitals": [
 "Berlin"
 ],
+"capitalNote": "",
+"a2": "DE",
 "cont": [
 "Europe"
 ],
@@ -1261,7 +3064,34 @@
 "ll": [
 51,
 9
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Alps"
+],
+"former": "West Germany and East Germany (until 1990)",
+"langs": [
+"German"
+],
+"pop": 83491249,
+"popYear": "2025",
+"area": 357114,
+"areaRank": 62,
+"currency": "Euro (EUR)",
+"demonym": "German",
+"city": "",
+"coast": "North Sea, Baltic Sea",
+"high": "Zugspitze, 2,962 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Unified 1871 (reunified 1990)",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 60496,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GHA",
@@ -1274,6 +3104,8 @@
 "capitals": [
 "Accra"
 ],
+"capitalNote": "",
+"a2": "GH",
 "cont": [
 "Africa"
 ],
@@ -1281,7 +3113,32 @@
 "ll": [
 8,
 -2
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "Gold Coast (until 1957)",
+"langs": [
+"English"
+],
+"pop": 35064272,
+"popYear": "2025",
+"area": 238533,
+"areaRank": 80,
+"currency": "Ghanaian cedi (GHS)",
+"demonym": "Ghanaian",
+"city": "",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Mount Afadja, 885 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1957 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3257,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GRC",
@@ -1294,6 +3151,8 @@
 "capitals": [
 "Athens"
 ],
+"capitalNote": "",
+"a2": "GR",
 "cont": [
 "Europe"
 ],
@@ -1301,7 +3160,35 @@
 "ll": [
 39,
 22
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Balkans",
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"Greek"
+],
+"pop": 10413962,
+"popYear": "2025",
+"area": 131990,
+"areaRank": 95,
+"currency": "Euro (EUR)",
+"demonym": "Greek",
+"city": "",
+"coast": "Aegean, Ionian and Mediterranean seas",
+"high": "Mount Olympus, 2,918 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1830 from the Ottoman Empire",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 26948,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GRD",
@@ -1313,6 +3200,8 @@
 "capitals": [
 "St. George's"
 ],
+"capitalNote": "",
+"a2": "GD",
 "cont": [
 "North America"
 ],
@@ -1320,7 +3209,34 @@
 "ll": [
 12.11666666,
 -61.66666666
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 117303,
+"popYear": "2025",
+"area": 344,
+"areaRank": 187,
+"currency": "Eastern Caribbean dollar (XCD)",
+"demonym": "Grenadian",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Mount St Catherine, 840 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1974 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 12107,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GTM",
@@ -1334,6 +3250,8 @@
 "Guatemala City",
 "Guatemala"
 ],
+"capitalNote": "",
+"a2": "GT",
 "cont": [
 "North America"
 ],
@@ -1341,7 +3259,32 @@
 "ll": [
 15.5,
 -90.25
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "Federal Republic of Central America (1823–41)",
+"langs": [
+"Spanish"
+],
+"pop": 18687881,
+"popYear": "2025",
+"area": 108889,
+"areaRank": 105,
+"currency": "Guatemalan quetzal (GTQ)",
+"demonym": "Guatemalan",
+"city": "",
+"coast": "Caribbean Sea, Pacific Ocean",
+"high": "Tajumulco, 4,220 m",
+"tz": "UTC−6",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6598,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GIN",
@@ -1354,6 +3297,8 @@
 "capitals": [
 "Conakry"
 ],
+"capitalNote": "",
+"a2": "GN",
 "cont": [
 "Africa"
 ],
@@ -1361,7 +3306,32 @@
 "ll": [
 11,
 -10
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "French Guinea (until 1958)",
+"langs": [
+"French"
+],
+"pop": 15099727,
+"popYear": "2025",
+"area": 245857,
+"areaRank": 77,
+"currency": "Guinean franc (GNF)",
+"demonym": "Guinean",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mont Nimba, 1,752 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1958 from France",
+"gov": "Military-led transitional government",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1877,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GNB",
@@ -1375,6 +3345,8 @@
 "capitals": [
 "Bissau"
 ],
+"capitalNote": "",
+"a2": "GW",
 "cont": [
 "Africa"
 ],
@@ -1382,7 +3354,33 @@
 "ll": [
 12,
 -15
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "Portuguese Guinea (until 1973)",
+"langs": [
+"Portuguese",
+"Upper Guinea Creole"
+],
+"pop": 2249515,
+"popYear": "2025",
+"area": 36125,
+"areaRank": 135,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Guinea-Bissauan",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Unnamed point, 300 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1973 from Portugal",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 1124,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "GUY",
@@ -1395,6 +3393,8 @@
 "capitals": [
 "Georgetown"
 ],
+"capitalNote": "",
+"a2": "GY",
 "cont": [
 "South America"
 ],
@@ -1402,7 +3402,34 @@
 "ll": [
 5,
 -59
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Guianas"
+],
+"former": "British Guiana (until 1966)",
+"langs": [
+"English"
+],
+"pop": 835986,
+"popYear": "2025",
+"area": 214969,
+"areaRank": 83,
+"currency": "Guyanese dollar (GYD)",
+"demonym": "Guyanese",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Roraima, 2,810 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1966 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 32414,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "HTI",
@@ -1415,6 +3442,8 @@
 "capitals": [
 "Port-au-Prince"
 ],
+"capitalNote": "",
+"a2": "HT",
 "cont": [
 "North America"
 ],
@@ -1422,7 +3451,35 @@
 "ll": [
 19,
 -72.41666666
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Greater Antilles"
+],
+"former": "Saint-Domingue (until 1804)",
+"langs": [
+"French",
+"Haitian Creole"
+],
+"pop": 11906095,
+"popYear": "2025",
+"area": 27750,
+"areaRank": 144,
+"currency": "Haitian gourde (HTG)",
+"demonym": "Haitian",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Pic la Selle, 2,680 m",
+"tz": "UTC−5",
+"drive": "Right",
+"ind": "1804 from France",
+"gov": "Presidential republic (transitional council since 2024)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2694,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "HND",
@@ -1435,6 +3492,8 @@
 "capitals": [
 "Tegucigalpa"
 ],
+"capitalNote": "",
+"a2": "HN",
 "cont": [
 "North America"
 ],
@@ -1442,7 +3501,32 @@
 "ll": [
 15,
 -86.5
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "Federal Republic of Central America (1823–41)",
+"langs": [
+"Spanish"
+],
+"pop": 11005850,
+"popYear": "2025",
+"area": 112492,
+"areaRank": 101,
+"currency": "Honduran lempira (HNL)",
+"demonym": "Honduran",
+"city": "",
+"coast": "Caribbean Sea, Pacific Ocean",
+"high": "Cerro Las Minas, 2,870 m",
+"tz": "UTC−6",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3598,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "HUN",
@@ -1454,6 +3538,8 @@
 "capitals": [
 "Budapest"
 ],
+"capitalNote": "",
+"a2": "HU",
 "cont": [
 "Europe"
 ],
@@ -1461,7 +3547,32 @@
 "ll": [
 47,
 20
-]
+],
+"info": {
+"sub": "Central Europe",
+"areas": [],
+"former": "Austria-Hungary (until 1918)",
+"langs": [
+"Hungarian"
+],
+"pop": 9514251,
+"popYear": "2025",
+"area": 93028,
+"areaRank": 108,
+"currency": "Hungarian forint (HUF)",
+"demonym": "Hungarian",
+"city": "",
+"coast": "",
+"high": "Kékes, 1,014 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Kingdom from the year 1000",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 25907,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ISL",
@@ -1473,6 +3584,8 @@
 "capitals": [
 "Reykjavik"
 ],
+"capitalNote": "",
+"a2": "IS",
 "cont": [
 "Europe"
 ],
@@ -1480,7 +3593,34 @@
 "ll": [
 65,
 -18
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Nordic countries"
+],
+"former": "",
+"langs": [
+"Icelandic"
+],
+"pop": 392404,
+"popYear": "2025",
+"area": 103000,
+"areaRank": 106,
+"currency": "Icelandic króna (ISK)",
+"demonym": "Icelander",
+"city": "",
+"coast": "Atlantic and Arctic oceans",
+"high": "Hvannadalshnúkur, 2,110 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1944 from Denmark (sovereign 1918)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 98323,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "IND",
@@ -1493,6 +3633,8 @@
 "capitals": [
 "New Delhi"
 ],
+"capitalNote": "",
+"a2": "IN",
 "cont": [
 "Asia"
 ],
@@ -1500,7 +3642,37 @@
 "ll": [
 20,
 77
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Himalayas",
+"Indian subcontinent"
+],
+"former": "",
+"langs": [
+"English",
+"Hindi",
+"Tamil"
+],
+"pop": 1463865525,
+"popYear": "2025",
+"area": 3287590,
+"areaRank": 7,
+"currency": "Indian rupee (INR)",
+"demonym": "Indian",
+"city": "Mumbai",
+"coast": "Arabian Sea, Bay of Bengal, Indian Ocean",
+"high": "Kangchenjunga, 8,586 m",
+"tz": "UTC+5:30",
+"drive": "Left",
+"ind": "1947 from the UK",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2702,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "IDN",
@@ -1513,6 +3685,8 @@
 "capitals": [
 "Jakarta"
 ],
+"capitalNote": "",
+"a2": "ID",
 "cont": [
 "Asia"
 ],
@@ -1520,7 +3694,34 @@
 "ll": [
 -5,
 120
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Malay Archipelago"
+],
+"former": "Dutch East Indies (until 1945)",
+"langs": [
+"Indonesian"
+],
+"pop": 285721236,
+"popYear": "2025",
+"area": 1904569,
+"areaRank": 14,
+"currency": "Indonesian rupiah (IDR)",
+"demonym": "Indonesian",
+"city": "",
+"coast": "Indian and Pacific oceans",
+"high": "Puncak Jaya, 4,884 m",
+"tz": "UTC+7 to UTC+9",
+"drive": "Left",
+"ind": "1945 from the Netherlands (recognised 1949)",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5060,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "IRN",
@@ -1533,6 +3734,8 @@
 "capitals": [
 "Tehran"
 ],
+"capitalNote": "",
+"a2": "IR",
 "cont": [
 "Asia"
 ],
@@ -1540,7 +3743,32 @@
 "ll": [
 32,
 53
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [],
+"former": "Persia (until 1935)",
+"langs": [
+"Persian (Farsi)"
+],
+"pop": 92417681,
+"popYear": "2025",
+"area": 1648195,
+"areaRank": 17,
+"currency": "Iranian rial (IRR)",
+"demonym": "Iranian",
+"city": "",
+"coast": "Caspian Sea, Persian Gulf, Gulf of Oman",
+"high": "Mount Damavand, 5,610 m",
+"tz": "UTC+3:30",
+"drive": "Right",
+"ind": "Ancient state, never colonised",
+"gov": "Theocratic Islamic republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 3924,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "IRQ",
@@ -1553,6 +3781,8 @@
 "capitals": [
 "Baghdad"
 ],
+"capitalNote": "",
+"a2": "IQ",
 "cont": [
 "Asia"
 ],
@@ -1560,7 +3790,34 @@
 "ll": [
 33,
 44
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [],
+"former": "",
+"langs": [
+"Arabic",
+"Aramaic",
+"Sorani"
+],
+"pop": 47020774,
+"popYear": "2025",
+"area": 438317,
+"areaRank": 58,
+"currency": "Iraqi dinar (IQD)",
+"demonym": "Iraqi",
+"city": "",
+"coast": "Persian Gulf (58 km)",
+"high": "Cheekha Dar, 3,611 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1932 from the UK",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5410,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "IRL",
@@ -1573,6 +3830,8 @@
 "capitals": [
 "Dublin"
 ],
+"capitalNote": "",
+"a2": "IE",
 "cont": [
 "Europe"
 ],
@@ -1580,7 +3839,35 @@
 "ll": [
 53,
 -8
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"British Isles"
+],
+"former": "Irish Free State (1922–37)",
+"langs": [
+"English",
+"Irish"
+],
+"pop": 5484367,
+"popYear": "2025",
+"area": 70273,
+"areaRank": 118,
+"currency": "Euro (EUR)",
+"demonym": "Irish",
+"city": "",
+"coast": "Atlantic Ocean, Irish Sea",
+"high": "Carrauntoohil, 1,039 m",
+"tz": "UTC+0",
+"drive": "Left",
+"ind": "1922 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 131592,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ISR",
@@ -1593,6 +3880,8 @@
 "capitals": [
 "Jerusalem"
 ],
+"capitalNote": "",
+"a2": "IL",
 "cont": [
 "Asia"
 ],
@@ -1600,7 +3889,36 @@
 "ll": [
 31.47,
 35.13
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Mediterranean",
+"Levant"
+],
+"former": "Mandatory Palestine (until 1948)",
+"langs": [
+"Arabic",
+"Hebrew"
+],
+"pop": 10122800,
+"popYear": "2025",
+"area": 20770,
+"areaRank": 150,
+"currency": "Israeli new shekel (ILS)",
+"demonym": "Israeli",
+"city": "",
+"coast": "Mediterranean Sea, Red Sea (Gulf of Aqaba)",
+"high": "Mount Meron, 1,208 m (within its pre-1967 borders)",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1948, end of the British Mandate",
+"gov": "Parliamentary republic",
+"rec": "A UN member, but not recognised by about 28 UN members.",
+"income": "High income",
+"gdppc": 60337,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ITA",
@@ -1613,6 +3931,8 @@
 "capitals": [
 "Rome"
 ],
+"capitalNote": "",
+"a2": "IT",
 "cont": [
 "Europe"
 ],
@@ -1620,7 +3940,35 @@
 "ll": [
 42.83333333,
 12.83333333
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Alps",
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"Italian"
+],
+"pop": 58915656,
+"popYear": "2025",
+"area": 301336,
+"areaRank": 72,
+"currency": "Euro (EUR)",
+"demonym": "Italian",
+"city": "",
+"coast": "Adriatic, Ionian, Tyrrhenian and Mediterranean seas",
+"high": "Mont Blanc (Monte Bianco), 4,806 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Unified 1861",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 43309,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CIV",
@@ -1636,6 +3984,8 @@
 "Yamoussoukro",
 "Abidjan"
 ],
+"capitalNote": "Yamoussoukro (official), Abidjan (economic centre)",
+"a2": "CI",
 "cont": [
 "Africa"
 ],
@@ -1643,7 +3993,32 @@
 "ll": [
 8,
 -5
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 32711547,
+"popYear": "2025",
+"area": 322463,
+"areaRank": 69,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Ivorian",
+"city": "Abidjan",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Mont Nimba, 1,752 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3050,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "JAM",
@@ -1655,6 +4030,8 @@
 "capitals": [
 "Kingston"
 ],
+"capitalNote": "",
+"a2": "JM",
 "cont": [
 "North America"
 ],
@@ -1662,7 +4039,35 @@
 "ll": [
 18.25,
 -77.5
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Greater Antilles"
+],
+"former": "",
+"langs": [
+"English",
+"Jamaican Patois"
+],
+"pop": 2837077,
+"popYear": "2025",
+"area": 10991,
+"areaRank": 160,
+"currency": "Jamaican dollar (JMD)",
+"demonym": "Jamaican",
+"city": "",
+"coast": "Caribbean Sea",
+"high": "Blue Mountain Peak, 2,256 m",
+"tz": "UTC−5",
+"drive": "Left",
+"ind": "1962 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 8003,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "JPN",
@@ -1674,6 +4079,8 @@
 "capitals": [
 "Tokyo"
 ],
+"capitalNote": "",
+"a2": "JP",
 "cont": [
 "Asia"
 ],
@@ -1681,7 +4088,32 @@
 "ll": [
 36,
 138
-]
+],
+"info": {
+"sub": "East Asia",
+"areas": [],
+"former": "",
+"langs": [
+"Japanese"
+],
+"pop": 123366734,
+"popYear": "2025",
+"area": 377930,
+"areaRank": 61,
+"currency": "Japanese yen (JPY)",
+"demonym": "Japanese",
+"city": "",
+"coast": "Pacific Ocean, Sea of Japan",
+"high": "Mount Fuji, 3,776 m",
+"tz": "UTC+9",
+"drive": "Left",
+"ind": "Ancient state, never colonised",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 35951,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "JOR",
@@ -1694,6 +4126,8 @@
 "capitals": [
 "Amman"
 ],
+"capitalNote": "",
+"a2": "JO",
 "cont": [
 "Asia"
 ],
@@ -1701,7 +4135,34 @@
 "ll": [
 31,
 36
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Levant"
+],
+"former": "Transjordan (until 1949)",
+"langs": [
+"Arabic"
+],
+"pop": 11520684,
+"popYear": "2025",
+"area": 89342,
+"areaRank": 110,
+"currency": "Jordanian dinar (JOD)",
+"demonym": "Jordanian",
+"city": "",
+"coast": "Red Sea (Gulf of Aqaba, 26 km)",
+"high": "Jabal Umm al Dami, 1,854 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1946 from the UK",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5348,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KAZ",
@@ -1714,6 +4175,8 @@
 "capitals": [
 "Astana"
 ],
+"capitalNote": "",
+"a2": "KZ",
 "cont": [
 "Asia"
 ],
@@ -1721,7 +4184,33 @@
 "ll": [
 48,
 68
-]
+],
+"info": {
+"sub": "Central Asia",
+"areas": [],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Kazakh",
+"Russian"
+],
+"pop": 20843754,
+"popYear": "2025",
+"area": 2724900,
+"areaRank": 9,
+"currency": "Kazakhstani tenge (KZT)",
+"demonym": "Kazakhstani",
+"city": "Almaty",
+"coast": "Caspian Sea (no ocean coast)",
+"high": "Khan Tengri, 7,010 m",
+"tz": "UTC+5",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 14692,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KEN",
@@ -1734,6 +4223,8 @@
 "capitals": [
 "Nairobi"
 ],
+"capitalNote": "",
+"a2": "KE",
 "cont": [
 "Africa"
 ],
@@ -1741,7 +4232,35 @@
 "ll": [
 1,
 38
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"African Great Lakes"
+],
+"former": "British East Africa (until 1920)",
+"langs": [
+"English",
+"Swahili"
+],
+"pop": 57532493,
+"popYear": "2025",
+"area": 580367,
+"areaRank": 47,
+"currency": "Kenyan shilling (KES)",
+"demonym": "Kenyan",
+"city": "",
+"coast": "Indian Ocean",
+"high": "Mount Kenya, 5,199 m",
+"tz": "UTC+3",
+"drive": "Left",
+"ind": "1963 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2363,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KIR",
@@ -1755,6 +4274,8 @@
 "South Tarawa",
 "Tarawa"
 ],
+"capitalNote": "",
+"a2": "KI",
 "cont": [
 "Oceania"
 ],
@@ -1762,7 +4283,33 @@
 "ll": [
 1.41666666,
 173
-]
+],
+"info": {
+"sub": "Micronesia",
+"areas": [],
+"former": "Gilbert Islands (until 1979)",
+"langs": [
+"English",
+"Gilbertese"
+],
+"pop": 136488,
+"popYear": "2025",
+"area": 811,
+"areaRank": 174,
+"currency": "Australian dollar (AUD); Kiribati dollar (KID)",
+"demonym": "I-Kiribati",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Unnamed point on Banaba, 81 m",
+"tz": "UTC+12 to UTC+14",
+"drive": "Left",
+"ind": "1979 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2559,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "XKX",
@@ -1777,6 +4324,8 @@
 "Pristina",
 "Prishtina"
 ],
+"capitalNote": "",
+"a2": "XK",
 "cont": [
 "Europe"
 ],
@@ -1784,7 +4333,35 @@
 "ll": [
 42.666667,
 21.166667
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans"
+],
+"former": "Part of Serbia (UN-administered 1999–2008)",
+"langs": [
+"Albanian",
+"Serbian"
+],
+"pop": 1576876,
+"popYear": "2025",
+"area": 10908,
+"areaRank": 161,
+"currency": "Euro (EUR)",
+"demonym": "Kosovar",
+"city": "",
+"coast": "",
+"high": "Gjeravica, 2,656 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Declared 2008 from Serbia",
+"gov": "Parliamentary republic",
+"rec": "Declared independence from Serbia in 2008. Recognised by about 100 UN members, but not a UN member; Serbia still claims it.",
+"income": "Upper middle income",
+"gdppc": 7899,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KWT",
@@ -1798,6 +4375,8 @@
 "Kuwait City",
 "Kuwait"
 ],
+"capitalNote": "",
+"a2": "KW",
 "cont": [
 "Asia"
 ],
@@ -1805,7 +4384,35 @@
 "ll": [
 29.5,
 45.75
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula",
+"Gulf states"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 4865298,
+"popYear": "2025",
+"area": 17818,
+"areaRank": 153,
+"currency": "Kuwaiti dinar (KWD)",
+"demonym": "Kuwaiti",
+"city": "",
+"coast": "Persian Gulf",
+"high": "Unnamed point, 306 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1961 from the UK",
+"gov": "Constitutional monarchy (emirate)",
+"rec": "",
+"income": "High income",
+"gdppc": 32312,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KGZ",
@@ -1818,6 +4425,8 @@
 "capitals": [
 "Bishkek"
 ],
+"capitalNote": "",
+"a2": "KG",
 "cont": [
 "Asia"
 ],
@@ -1825,7 +4434,33 @@
 "ll": [
 41,
 75
-]
+],
+"info": {
+"sub": "Central Asia",
+"areas": [],
+"former": "Kirghizia, part of the Soviet Union (until 1991)",
+"langs": [
+"Kyrgyz",
+"Russian"
+],
+"pop": 7343064,
+"popYear": "2025",
+"area": 199951,
+"areaRank": 85,
+"currency": "Kyrgyzstani som (KGS)",
+"demonym": "Kirghiz",
+"city": "",
+"coast": "",
+"high": "Jengish Chokusu, 7,439 m",
+"tz": "UTC+6",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3081,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LAO",
@@ -1839,6 +4474,8 @@
 "capitals": [
 "Vientiane"
 ],
+"capitalNote": "",
+"a2": "LA",
 "cont": [
 "Asia"
 ],
@@ -1846,7 +4483,34 @@
 "ll": [
 18,
 105
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Indochina"
+],
+"former": "",
+"langs": [
+"Lao"
+],
+"pop": 7873046,
+"popYear": "2025",
+"area": 236800,
+"areaRank": 82,
+"currency": "Lao kip (LAK)",
+"demonym": "Laotian",
+"city": "",
+"coast": "",
+"high": "Phou Bia, 2,819 m",
+"tz": "UTC+7",
+"drive": "Right",
+"ind": "1953 from France",
+"gov": "One-party socialist republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2325,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LVA",
@@ -1859,6 +4523,8 @@
 "capitals": [
 "Riga"
 ],
+"capitalNote": "",
+"a2": "LV",
 "cont": [
 "Europe"
 ],
@@ -1866,7 +4532,34 @@
 "ll": [
 57,
 25
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Baltic states"
+],
+"former": "Part of the Soviet Union (1940–91)",
+"langs": [
+"Latvian"
+],
+"pop": 1847785,
+"popYear": "2025",
+"area": 64559,
+"areaRank": 122,
+"currency": "Euro (EUR)",
+"demonym": "Latvian",
+"city": "",
+"coast": "Baltic Sea",
+"high": "Gaiziņkalns, 312 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1918 from Russia (restored 1991)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 26312,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LBN",
@@ -1879,6 +4572,8 @@
 "capitals": [
 "Beirut"
 ],
+"capitalNote": "",
+"a2": "LB",
 "cont": [
 "Asia"
 ],
@@ -1886,7 +4581,36 @@
 "ll": [
 33.83333333,
 35.83333333
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Mediterranean",
+"Levant"
+],
+"former": "",
+"langs": [
+"Arabic",
+"French"
+],
+"pop": 5849421,
+"popYear": "2025",
+"area": 10452,
+"areaRank": 163,
+"currency": "Lebanese pound (LBP)",
+"demonym": "Lebanese",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Qurnat as Sawda, 3,088 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1943 from France",
+"gov": "Parliamentary republic (power shared between religious groups)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4473,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "LSO",
@@ -1899,6 +4623,8 @@
 "capitals": [
 "Maseru"
 ],
+"capitalNote": "",
+"a2": "LS",
 "cont": [
 "Africa"
 ],
@@ -1906,7 +4632,33 @@
 "ll": [
 -29.5,
 28.5
-]
+],
+"info": {
+"sub": "Southern Africa",
+"areas": [],
+"former": "Basutoland (until 1966)",
+"langs": [
+"English",
+"Sotho"
+],
+"pop": 2363325,
+"popYear": "2025",
+"area": 30355,
+"areaRank": 138,
+"currency": "Lesotho loti (LSL); South African rand (ZAR)",
+"demonym": "Mosotho",
+"city": "",
+"coast": "",
+"high": "Thabana Ntlenyana, 3,482 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1966 from the UK",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1089,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LBR",
@@ -1919,6 +4671,8 @@
 "capitals": [
 "Monrovia"
 ],
+"capitalNote": "",
+"a2": "LR",
 "cont": [
 "Africa"
 ],
@@ -1926,7 +4680,32 @@
 "ll": [
 6.5,
 -9.5
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 5731206,
+"popYear": "2025",
+"area": 111369,
+"areaRank": 102,
+"currency": "Liberian dollar (LRD)",
+"demonym": "Liberian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Wuteve, 1,440 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1847, founded by freed American slaves",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 915,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LBY",
@@ -1939,6 +4718,8 @@
 "capitals": [
 "Tripoli"
 ],
+"capitalNote": "",
+"a2": "LY",
 "cont": [
 "Africa"
 ],
@@ -1946,7 +4727,35 @@
 "ll": [
 25,
 17
-]
+],
+"info": {
+"sub": "North Africa",
+"areas": [
+"Mediterranean",
+"Maghreb"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 7458555,
+"popYear": "2025",
+"area": 1759540,
+"areaRank": 16,
+"currency": "Libyan dinar (LYD)",
+"demonym": "Libyan",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Bikku Bitti, 2,267 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1951 from UN administration (formerly Italian)",
+"gov": "Provisional government (country divided)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6449,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LIE",
@@ -1959,6 +4768,8 @@
 "capitals": [
 "Vaduz"
 ],
+"capitalNote": "",
+"a2": "LI",
 "cont": [
 "Europe"
 ],
@@ -1966,7 +4777,34 @@
 "ll": [
 47.26666666,
 9.53333333
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Alps"
+],
+"former": "",
+"langs": [
+"German"
+],
+"pop": 41024,
+"popYear": "2025",
+"area": 160,
+"areaRank": 192,
+"currency": "Swiss franc (CHF)",
+"demonym": "Liechtensteiner",
+"city": "Schaan",
+"coast": "",
+"high": "Grauspitz, 2,599 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Sovereign since 1806",
+"gov": "Constitutional monarchy (principality)",
+"rec": "",
+"income": "High income",
+"gdppc": 220167,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "LTU",
@@ -1979,6 +4817,8 @@
 "capitals": [
 "Vilnius"
 ],
+"capitalNote": "",
+"a2": "LT",
 "cont": [
 "Europe"
 ],
@@ -1986,7 +4826,34 @@
 "ll": [
 56,
 24
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Baltic states"
+],
+"former": "Part of the Soviet Union (1940–90)",
+"langs": [
+"Lithuanian"
+],
+"pop": 2888774,
+"popYear": "2025",
+"area": 65300,
+"areaRank": 121,
+"currency": "Euro (EUR)",
+"demonym": "Lithuanian",
+"city": "",
+"coast": "Baltic Sea",
+"high": "Aukštojas Hill, 294 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1918 from Russia (restored 1990)",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 32959,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LUX",
@@ -1999,6 +4866,8 @@
 "capitals": [
 "Luxembourg"
 ],
+"capitalNote": "",
+"a2": "LU",
 "cont": [
 "Europe"
 ],
@@ -2006,7 +4875,36 @@
 "ll": [
 49.75,
 6.16666666
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Benelux"
+],
+"former": "",
+"langs": [
+"German",
+"French",
+"Luxembourgish"
+],
+"pop": 686970,
+"popYear": "2025",
+"area": 2586,
+"areaRank": 170,
+"currency": "Euro (EUR)",
+"demonym": "Luxembourger",
+"city": "",
+"coast": "",
+"high": "Kneiff, 560 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Independent grand duchy since 1867",
+"gov": "Constitutional monarchy (grand duchy)",
+"rec": "",
+"income": "High income",
+"gdppc": 147252,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MDG",
@@ -2019,6 +4917,8 @@
 "capitals": [
 "Antananarivo"
 ],
+"capitalNote": "",
+"a2": "MG",
 "cont": [
 "Africa"
 ],
@@ -2026,7 +4926,33 @@
 "ll": [
 -20,
 47
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "Malagasy Republic (1958–75)",
+"langs": [
+"French",
+"Malagasy"
+],
+"pop": 32740678,
+"popYear": "2025",
+"area": 587041,
+"areaRank": 45,
+"currency": "Malagasy ariary (MGA)",
+"demonym": "Malagasy",
+"city": "",
+"coast": "Indian Ocean",
+"high": "Maromokotro, 2,876 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 599,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MWI",
@@ -2039,6 +4965,8 @@
 "capitals": [
 "Lilongwe"
 ],
+"capitalNote": "",
+"a2": "MW",
 "cont": [
 "Africa"
 ],
@@ -2046,7 +4974,33 @@
 "ll": [
 -13.5,
 34
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "Nyasaland (until 1964)",
+"langs": [
+"English",
+"Chewa"
+],
+"pop": 22216120,
+"popYear": "2025",
+"area": 118484,
+"areaRank": 98,
+"currency": "Malawian kwacha (MWK)",
+"demonym": "Malawian",
+"city": "",
+"coast": "",
+"high": "Sapitwa (Mount Mulanje), 3,002 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1964 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 672,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MYS",
@@ -2059,6 +5013,8 @@
 "Kuala Lumpur",
 "Putrajaya"
 ],
+"capitalNote": "Kuala Lumpur (official), Putrajaya (seat of government)",
+"a2": "MY",
 "cont": [
 "Asia"
 ],
@@ -2066,7 +5022,35 @@
 "ll": [
 2.5,
 112.5
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Malay Archipelago"
+],
+"former": "Malaya (until 1963)",
+"langs": [
+"English",
+"Malay"
+],
+"pop": 35977838,
+"popYear": "2025",
+"area": 330803,
+"areaRank": 67,
+"currency": "Malaysian ringgit (MYR)",
+"demonym": "Malaysian",
+"city": "",
+"coast": "South China Sea, Strait of Malacca",
+"high": "Mount Kinabalu, 4,095 m",
+"tz": "UTC+8",
+"drive": "Left",
+"ind": "1957 from the UK (Malaysia formed 1963)",
+"gov": "Federal parliamentary elective constitutional monarchy",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 13125,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MDV",
@@ -2079,6 +5063,8 @@
 "capitals": [
 "Malé"
 ],
+"capitalNote": "",
+"a2": "MV",
 "cont": [
 "Asia"
 ],
@@ -2086,7 +5072,34 @@
 "ll": [
 3.25,
 73
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Indian subcontinent"
+],
+"former": "",
+"langs": [
+"Maldivian"
+],
+"pop": 529676,
+"popYear": "2025",
+"area": 300,
+"areaRank": 189,
+"currency": "Maldivian rufiyaa (MVR)",
+"demonym": "Maldivan",
+"city": "",
+"coast": "Indian Ocean",
+"high": "Unnamed point, about 5 m (the world's lowest-lying country)",
+"tz": "UTC+5",
+"drive": "Left",
+"ind": "1965 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 14615,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MLI",
@@ -2099,6 +5112,8 @@
 "capitals": [
 "Bamako"
 ],
+"capitalNote": "",
+"a2": "ML",
 "cont": [
 "Africa"
 ],
@@ -2106,7 +5121,34 @@
 "ll": [
 17,
 -4
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [
+"Sahel"
+],
+"former": "French Sudan (until 1960)",
+"langs": [
+"French"
+],
+"pop": 25198821,
+"popYear": "2025",
+"area": 1240192,
+"areaRank": 23,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Malian",
+"city": "",
+"coast": "",
+"high": "Hombori Tondo, 1,155 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Military junta",
+"rec": "",
+"income": "Low income",
+"gdppc": 1193,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MLT",
@@ -2119,6 +5161,8 @@
 "capitals": [
 "Valletta"
 ],
+"capitalNote": "",
+"a2": "MT",
 "cont": [
 "Europe"
 ],
@@ -2126,7 +5170,35 @@
 "ll": [
 35.83333333,
 14.58333333
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"English",
+"Maltese"
+],
+"pop": 579704,
+"popYear": "2025",
+"area": 316,
+"areaRank": 188,
+"currency": "Euro (EUR)",
+"demonym": "Maltese",
+"city": "St Paul's Bay",
+"coast": "Mediterranean Sea",
+"high": "Ta' Dmejrek, 253 m",
+"tz": "UTC+1",
+"drive": "Left",
+"ind": "1964 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 47907,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MHL",
@@ -2139,6 +5211,8 @@
 "capitals": [
 "Majuro"
 ],
+"capitalNote": "",
+"a2": "MH",
 "cont": [
 "Oceania"
 ],
@@ -2146,7 +5220,33 @@
 "ll": [
 9,
 168
-]
+],
+"info": {
+"sub": "Micronesia",
+"areas": [],
+"former": "Trust Territory of the Pacific Islands (until 1986)",
+"langs": [
+"English",
+"Marshallese"
+],
+"pop": 36282,
+"popYear": "2025",
+"area": 181,
+"areaRank": 191,
+"currency": "United States dollar (USD)",
+"demonym": "Marshallese",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Unnamed point on Likiep, 10 m",
+"tz": "UTC+12",
+"drive": "Right",
+"ind": "1986 from US-administered UN trusteeship",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 8489,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MRT",
@@ -2159,6 +5259,8 @@
 "capitals": [
 "Nouakchott"
 ],
+"capitalNote": "",
+"a2": "MR",
 "cont": [
 "Africa"
 ],
@@ -2166,7 +5268,35 @@
 "ll": [
 20,
 -12
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [
+"Maghreb",
+"Sahel"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 5315065,
+"popYear": "2025",
+"area": 1030700,
+"areaRank": 28,
+"currency": "Mauritanian ouguiya (MRU)",
+"demonym": "Mauritanian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Kediet ej Jill, 915 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2198,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MUS",
@@ -2179,6 +5309,8 @@
 "capitals": [
 "Port Louis"
 ],
+"capitalNote": "",
+"a2": "MU",
 "cont": [
 "Africa"
 ],
@@ -2186,7 +5318,34 @@
 "ll": [
 -20.28333333,
 57.55
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "",
+"langs": [
+"English",
+"French",
+"Mauritian Creole"
+],
+"pop": 1243741,
+"popYear": "2025",
+"area": 2040,
+"areaRank": 171,
+"currency": "Mauritian rupee (MUR)",
+"demonym": "Mauritian",
+"city": "",
+"coast": "Indian Ocean",
+"high": "Piton de la Petite Rivière Noire, 828 m",
+"tz": "UTC+4",
+"drive": "Left",
+"ind": "1968 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 12991,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MEX",
@@ -2199,6 +5358,8 @@
 "capitals": [
 "Mexico City"
 ],
+"capitalNote": "",
+"a2": "MX",
 "cont": [
 "North America"
 ],
@@ -2206,7 +5367,32 @@
 "ll": [
 23,
 -102
-]
+],
+"info": {
+"sub": "North America",
+"areas": [],
+"former": "New Spain (colonial)",
+"langs": [
+"Spanish"
+],
+"pop": 131946900,
+"popYear": "2025",
+"area": 1964375,
+"areaRank": 13,
+"currency": "Mexican peso (MXN)",
+"demonym": "Mexican",
+"city": "",
+"coast": "Pacific Ocean, Gulf of Mexico, Caribbean Sea",
+"high": "Pico de Orizaba, 5,636 m",
+"tz": "UTC−5 to UTC−8",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Federal presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 13889,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "FSM",
@@ -2220,6 +5406,8 @@
 "capitals": [
 "Palikir"
 ],
+"capitalNote": "",
+"a2": "FM",
 "cont": [
 "Oceania"
 ],
@@ -2227,7 +5415,32 @@
 "ll": [
 6.91666666,
 158.25
-]
+],
+"info": {
+"sub": "Micronesia",
+"areas": [],
+"former": "Trust Territory of the Pacific Islands (until 1986)",
+"langs": [
+"English"
+],
+"pop": 113683,
+"popYear": "2025",
+"area": 702,
+"areaRank": 179,
+"currency": "",
+"demonym": "Micronesian",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Nahnalaud, 782 m",
+"tz": "UTC+10 to UTC+11",
+"drive": "Right",
+"ind": "1986 from US-administered UN trusteeship",
+"gov": "Federal republic (no political parties)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 4414,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MDA",
@@ -2240,6 +5453,8 @@
 "capitals": [
 "Chișinău"
 ],
+"capitalNote": "",
+"a2": "MD",
 "cont": [
 "Europe"
 ],
@@ -2247,7 +5462,32 @@
 "ll": [
 47,
 29
-]
+],
+"info": {
+"sub": "Eastern Europe",
+"areas": [],
+"former": "Moldavia, part of the Soviet Union (until 1991)",
+"langs": [
+"Moldavian"
+],
+"pop": 2360527,
+"popYear": "2025",
+"area": 33846,
+"areaRank": 136,
+"currency": "Moldovan leu (MDL)",
+"demonym": "Moldovan",
+"city": "",
+"coast": "",
+"high": "Bălănești Hill, 430 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 8622,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MCO",
@@ -2260,6 +5500,8 @@
 "capitals": [
 "Monaco"
 ],
+"capitalNote": "",
+"a2": "MC",
 "cont": [
 "Europe"
 ],
@@ -2267,7 +5509,35 @@
 "ll": [
 43.73333333,
 7.4
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Alps",
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 38341,
+"popYear": "2025",
+"area": 2.02,
+"areaRank": 196,
+"currency": "Euro (EUR)",
+"demonym": "Monegasque",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Chemin des Révoires, 161 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Ruled by the Grimaldi family since 1297",
+"gov": "Constitutional monarchy (principality)",
+"rec": "",
+"income": "High income",
+"gdppc": 288002,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "MNG",
@@ -2280,6 +5550,8 @@
 "Ulaanbaatar",
 "Ulan Bator"
 ],
+"capitalNote": "",
+"a2": "MN",
 "cont": [
 "Asia"
 ],
@@ -2287,7 +5559,32 @@
 "ll": [
 46,
 105
-]
+],
+"info": {
+"sub": "East Asia",
+"areas": [],
+"former": "Outer Mongolia; Mongolian People's Republic (until 1992)",
+"langs": [
+"Mongolian"
+],
+"pop": 3568978,
+"popYear": "2025",
+"area": 1564110,
+"areaRank": 18,
+"currency": "Mongolian tögrög (MNT)",
+"demonym": "Mongolian",
+"city": "",
+"coast": "",
+"high": "Khüiten Peak, 4,374 m",
+"tz": "UTC+7 to UTC+8",
+"drive": "Right",
+"ind": "1911 from Qing China",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7108,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MNE",
@@ -2299,6 +5596,8 @@
 "capitals": [
 "Podgorica"
 ],
+"capitalNote": "",
+"a2": "ME",
 "cont": [
 "Europe"
 ],
@@ -2306,7 +5605,35 @@
 "ll": [
 42.5,
 19.3
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans",
+"Mediterranean"
+],
+"former": "Part of Yugoslavia; Serbia and Montenegro (until 2006)",
+"langs": [
+"Montenegrin"
+],
+"pop": 623129,
+"popYear": "2025",
+"area": 13812,
+"areaRank": 157,
+"currency": "Euro (EUR)",
+"demonym": "Montenegrin",
+"city": "",
+"coast": "Adriatic Sea",
+"high": "Zla Kolata, 2,534 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "2006 from Serbia and Montenegro",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 14817,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MAR",
@@ -2319,6 +5646,8 @@
 "capitals": [
 "Rabat"
 ],
+"capitalNote": "",
+"a2": "MA",
 "cont": [
 "Africa"
 ],
@@ -2326,7 +5655,36 @@
 "ll": [
 32,
 -5
-]
+],
+"info": {
+"sub": "North Africa",
+"areas": [
+"Mediterranean",
+"Maghreb"
+],
+"former": "",
+"langs": [
+"Arabic",
+"Berber"
+],
+"pop": 38430770,
+"popYear": "2025",
+"area": 446550,
+"areaRank": 57,
+"currency": "Moroccan dirham (MAD)",
+"demonym": "Moroccan",
+"city": "Casablanca",
+"coast": "Atlantic Ocean, Mediterranean Sea",
+"high": "Toubkal, 4,167 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1956 from France (and Spain)",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4672,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MOZ",
@@ -2339,6 +5697,8 @@
 "capitals": [
 "Maputo"
 ],
+"capitalNote": "",
+"a2": "MZ",
 "cont": [
 "Africa"
 ],
@@ -2346,7 +5706,32 @@
 "ll": [
 -18.25,
 35
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "Portuguese East Africa (until 1975)",
+"langs": [
+"Portuguese"
+],
+"pop": 35631653,
+"popYear": "2025",
+"area": 801590,
+"areaRank": 35,
+"currency": "Mozambican metical (MZN)",
+"demonym": "Mozambican",
+"city": "",
+"coast": "Indian Ocean (Mozambique Channel)",
+"high": "Monte Binga, 2,436 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1975 from Portugal",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 627,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "MMR",
@@ -2359,6 +5744,8 @@
 "capitals": [
 "Naypyidaw"
 ],
+"capitalNote": "",
+"a2": "MM",
 "cont": [
 "Asia"
 ],
@@ -2366,7 +5753,34 @@
 "ll": [
 22,
 98
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Indochina"
+],
+"former": "Burma (until 1989)",
+"langs": [
+"Burmese"
+],
+"pop": 54850648,
+"popYear": "2025",
+"area": 676578,
+"areaRank": 39,
+"currency": "Burmese kyat (MMK)",
+"demonym": "Burmese",
+"city": "Yangon",
+"coast": "Andaman Sea, Bay of Bengal",
+"high": "Hkakabo Razi, 5,881 m",
+"tz": "UTC+6:30",
+"drive": "Right",
+"ind": "1948 from the UK",
+"gov": "Military junta",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1489,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NAM",
@@ -2379,6 +5793,8 @@
 "capitals": [
 "Windhoek"
 ],
+"capitalNote": "",
+"a2": "NA",
 "cont": [
 "Africa"
 ],
@@ -2386,7 +5802,40 @@
 "ll": [
 -22,
 17
-]
+],
+"info": {
+"sub": "Southern Africa",
+"areas": [],
+"former": "South West Africa (until 1990)",
+"langs": [
+"Afrikaans",
+"German",
+"English",
+"Herero",
+"Khoekhoe",
+"Kwangali",
+"Lozi",
+"Ndonga",
+"Tswana"
+],
+"pop": 3092816,
+"popYear": "2025",
+"area": 825615,
+"areaRank": 34,
+"currency": "Namibian dollar (NAD); South African rand (ZAR)",
+"demonym": "Namibian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Königstein (Brandberg), 2,573 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1990 from South Africa",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4876,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NRU",
@@ -2399,6 +5848,8 @@
 "capitals": [
 "Yaren"
 ],
+"capitalNote": "",
+"a2": "NR",
 "cont": [
 "Oceania"
 ],
@@ -2406,7 +5857,33 @@
 "ll": [
 -0.53333333,
 166.91666666
-]
+],
+"info": {
+"sub": "Micronesia",
+"areas": [],
+"former": "Pleasant Island",
+"langs": [
+"English",
+"Nauru"
+],
+"pop": 12025,
+"popYear": "2025",
+"area": 21,
+"areaRank": 195,
+"currency": "Australian dollar (AUD)",
+"demonym": "Nauruan",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Command Ridge, 71 m",
+"tz": "UTC+12",
+"drive": "Left",
+"ind": "1968 from Australian-administered UN trusteeship",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 14640,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NPL",
@@ -2419,6 +5896,8 @@
 "capitals": [
 "Kathmandu"
 ],
+"capitalNote": "",
+"a2": "NP",
 "cont": [
 "Asia"
 ],
@@ -2426,7 +5905,35 @@
 "ll": [
 28,
 84
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Himalayas",
+"Indian subcontinent"
+],
+"former": "",
+"langs": [
+"Nepali"
+],
+"pop": 29618118,
+"popYear": "2025",
+"area": 147181,
+"areaRank": 93,
+"currency": "Nepalese rupee (NPR)",
+"demonym": "Nepalese",
+"city": "",
+"coast": "",
+"high": "Mount Everest, 8,849 m",
+"tz": "UTC+5:45",
+"drive": "Left",
+"ind": "Never colonised (unified 1768)",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1536,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NLD",
@@ -2440,6 +5947,8 @@
 "capitals": [
 "Amsterdam"
 ],
+"capitalNote": "",
+"a2": "NL",
 "cont": [
 "Europe"
 ],
@@ -2447,7 +5956,34 @@
 "ll": [
 52.5,
 5.75
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Benelux"
+],
+"former": "",
+"langs": [
+"Dutch"
+],
+"pop": 18087633,
+"popYear": "2025",
+"area": 41850,
+"areaRank": 131,
+"currency": "Euro (EUR)",
+"demonym": "Dutch",
+"city": "",
+"coast": "North Sea",
+"high": "Vaalserberg, 322 m (European part)",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1581 from Spain (recognised 1648)",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 73684,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NZL",
@@ -2460,6 +5996,8 @@
 "capitals": [
 "Wellington"
 ],
+"capitalNote": "",
+"a2": "NZ",
 "cont": [
 "Oceania"
 ],
@@ -2467,7 +6005,34 @@
 "ll": [
 -41,
 174
-]
+],
+"info": {
+"sub": "Australasia",
+"areas": [],
+"former": "",
+"langs": [
+"English",
+"Māori",
+"New Zealand Sign Language"
+],
+"pop": 5324700,
+"popYear": "2025",
+"area": 270467,
+"areaRank": 75,
+"currency": "New Zealand dollar (NZD)",
+"demonym": "New Zealander",
+"city": "Auckland",
+"coast": "Pacific Ocean, Tasman Sea",
+"high": "Aoraki / Mount Cook, 3,724 m",
+"tz": "UTC+12 to UTC+12:45",
+"drive": "Left",
+"ind": "Dominion 1907, fully independent 1947, from the UK",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 49591,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NIC",
@@ -2480,6 +6045,8 @@
 "capitals": [
 "Managua"
 ],
+"capitalNote": "",
+"a2": "NI",
 "cont": [
 "North America"
 ],
@@ -2487,7 +6054,32 @@
 "ll": [
 13,
 -85
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "Federal Republic of Central America (1823–41)",
+"langs": [
+"Spanish"
+],
+"pop": 7007502,
+"popYear": "2025",
+"area": 130373,
+"areaRank": 96,
+"currency": "Nicaraguan córdoba (NIO)",
+"demonym": "Nicaraguan",
+"city": "",
+"coast": "Caribbean Sea, Pacific Ocean",
+"high": "Mogotón, 2,085 m",
+"tz": "UTC−6",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3173,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NER",
@@ -2500,6 +6092,8 @@
 "capitals": [
 "Niamey"
 ],
+"capitalNote": "",
+"a2": "NE",
 "cont": [
 "Africa"
 ],
@@ -2507,7 +6101,34 @@
 "ll": [
 16,
 8
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [
+"Sahel"
+],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 27917831,
+"popYear": "2025",
+"area": 1267000,
+"areaRank": 21,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Nigerien",
+"city": "",
+"coast": "",
+"high": "Mont Idoukal-n-Taghès, 2,022 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Military junta",
+"rec": "",
+"income": "Low income",
+"gdppc": 775,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NGA",
@@ -2520,6 +6141,8 @@
 "capitals": [
 "Abuja"
 ],
+"capitalNote": "",
+"a2": "NG",
 "cont": [
 "Africa"
 ],
@@ -2527,7 +6150,32 @@
 "ll": [
 10,
 8
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 237527782,
+"popYear": "2025",
+"area": 923768,
+"areaRank": 31,
+"currency": "Nigerian naira (NGN)",
+"demonym": "Nigerian",
+"city": "Lagos",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Chappal Waddi, 2,419 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from the UK",
+"gov": "Federal presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1224,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PRK",
@@ -2541,6 +6189,8 @@
 "capitals": [
 "Pyongyang"
 ],
+"capitalNote": "",
+"a2": "KP",
 "cont": [
 "Asia"
 ],
@@ -2548,7 +6198,34 @@
 "ll": [
 40,
 127
-]
+],
+"info": {
+"sub": "East Asia",
+"areas": [
+"Korean Peninsula"
+],
+"former": "",
+"langs": [
+"Korean"
+],
+"pop": 26571036,
+"popYear": "2025",
+"area": 120538,
+"areaRank": 97,
+"currency": "North Korean won (KPW)",
+"demonym": "North Korean",
+"city": "",
+"coast": "Yellow Sea, Sea of Japan",
+"high": "Paektu Mountain, 2,744 m",
+"tz": "UTC+9",
+"drive": "Right",
+"ind": "1945 from Japan (state founded 1948)",
+"gov": "One-party totalitarian dictatorship",
+"rec": "A UN member, not recognised by South Korea or Japan.",
+"income": "Low income",
+"gdppc": null,
+"gdpYear": ""
+}
 },
 {
 "iso": "MKD",
@@ -2561,6 +6238,8 @@
 "capitals": [
 "Skopje"
 ],
+"capitalNote": "",
+"a2": "MK",
 "cont": [
 "Europe"
 ],
@@ -2568,7 +6247,34 @@
 "ll": [
 41.83333333,
 22
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans"
+],
+"former": "Macedonia; Former Yugoslav Republic of Macedonia (until 2019)",
+"langs": [
+"Macedonian"
+],
+"pop": 1820909,
+"popYear": "2025",
+"area": 25713,
+"areaRank": 146,
+"currency": "denar (MKD)",
+"demonym": "Macedonian",
+"city": "",
+"coast": "",
+"high": "Mount Korab, 2,764 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1991 from Yugoslavia",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 10490,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "NOR",
@@ -2581,6 +6287,8 @@
 "capitals": [
 "Oslo"
 ],
+"capitalNote": "",
+"a2": "NO",
 "cont": [
 "Europe"
 ],
@@ -2588,7 +6296,37 @@
 "ll": [
 62,
 10
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Scandinavia",
+"Nordic countries"
+],
+"former": "",
+"langs": [
+"Norwegian Nynorsk",
+"Norwegian Bokmål",
+"Sami"
+],
+"pop": 5610870,
+"popYear": "2025",
+"area": 323802,
+"areaRank": 68,
+"currency": "Norwegian krone (NOK)",
+"demonym": "Norwegian",
+"city": "",
+"coast": "North, Norwegian and Barents seas",
+"high": "Galdhøpiggen, 2,469 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1905, end of the union with Sweden",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 94594,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "OMN",
@@ -2601,6 +6339,8 @@
 "capitals": [
 "Muscat"
 ],
+"capitalNote": "",
+"a2": "OM",
 "cont": [
 "Asia"
 ],
@@ -2608,7 +6348,35 @@
 "ll": [
 21,
 57
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula",
+"Gulf states"
+],
+"former": "Muscat and Oman (until 1970)",
+"langs": [
+"Arabic"
+],
+"pop": 5494691,
+"popYear": "2025",
+"area": 309500,
+"areaRank": 71,
+"currency": "Omani rial (OMR)",
+"demonym": "Omani",
+"city": "",
+"coast": "Arabian Sea, Gulf of Oman",
+"high": "Jebel Shams, 3,009 m",
+"tz": "UTC+4",
+"drive": "Right",
+"ind": "Never colonised (Portuguese expelled 1650)",
+"gov": "Absolute monarchy (sultanate)",
+"rec": "",
+"income": "High income",
+"gdppc": 19947,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PAK",
@@ -2621,6 +6389,8 @@
 "capitals": [
 "Islamabad"
 ],
+"capitalNote": "",
+"a2": "PK",
 "cont": [
 "Asia"
 ],
@@ -2628,7 +6398,36 @@
 "ll": [
 30,
 70
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Himalayas",
+"Indian subcontinent"
+],
+"former": "",
+"langs": [
+"English",
+"Urdu"
+],
+"pop": 255219554,
+"popYear": "2025",
+"area": 881912,
+"areaRank": 33,
+"currency": "Pakistani rupee (PKR)",
+"demonym": "Pakistani",
+"city": "Karachi",
+"coast": "Arabian Sea",
+"high": "K2, 8,611 m",
+"tz": "UTC+5",
+"drive": "Left",
+"ind": "1947 from the UK",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1596,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PLW",
@@ -2642,6 +6441,8 @@
 "Ngerulmud",
 "Melekeok"
 ],
+"capitalNote": "",
+"a2": "PW",
 "cont": [
 "Oceania"
 ],
@@ -2649,7 +6450,33 @@
 "ll": [
 7.5,
 134.5
-]
+],
+"info": {
+"sub": "Micronesia",
+"areas": [],
+"former": "Trust Territory of the Pacific Islands (until 1994)",
+"langs": [
+"English",
+"Palauan"
+],
+"pop": 17663,
+"popYear": "2025",
+"area": 459,
+"areaRank": 182,
+"currency": "United States dollar (USD)",
+"demonym": "Palauan",
+"city": "Koror",
+"coast": "Pacific Ocean, Philippine Sea",
+"high": "Mount Ngerchelchuus, 242 m",
+"tz": "UTC+9",
+"drive": "Right",
+"ind": "1994 from US-administered UN trusteeship",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 19532,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PSE",
@@ -2664,6 +6491,8 @@
 "East Jerusalem",
 "Jerusalem"
 ],
+"capitalNote": "Ramallah (administrative), East Jerusalem (proclaimed)",
+"a2": "PS",
 "cont": [
 "Asia"
 ],
@@ -2671,7 +6500,35 @@
 "ll": [
 31.9,
 35.2
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Mediterranean",
+"Levant"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 5413596,
+"popYear": "2025",
+"area": 6220,
+"areaRank": 165,
+"currency": "Egyptian pound (EGP); Israeli new shekel (ILS); Jordanian dinar (JOD)",
+"demonym": "Palestinian",
+"city": "Gaza",
+"coast": "Mediterranean Sea (Gaza), Dead Sea",
+"high": "Mount Nabi Yunis, 1,030 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "Independence declared 1988",
+"gov": "Semi-presidential republic (Palestinian Authority)",
+"rec": "A UN non-member observer state since 2012, recognised by about 150 of the 193 UN members.",
+"income": "Lower middle income",
+"gdppc": 3171,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PAN",
@@ -2684,6 +6541,8 @@
 "capitals": [
 "Panama City"
 ],
+"capitalNote": "",
+"a2": "PA",
 "cont": [
 "North America"
 ],
@@ -2691,7 +6550,32 @@
 "ll": [
 9,
 -80
-]
+],
+"info": {
+"sub": "Central America",
+"areas": [],
+"former": "Part of Colombia (until 1903)",
+"langs": [
+"Spanish"
+],
+"pop": 4571189,
+"popYear": "2025",
+"area": 75417,
+"areaRank": 116,
+"currency": "Panamanian balboa (PAB); United States dollar (USD)",
+"demonym": "Panamanian",
+"city": "",
+"coast": "Caribbean Sea, Pacific Ocean",
+"high": "Volcán Barú, 3,474 m",
+"tz": "UTC−5",
+"drive": "Right",
+"ind": "1903 from Colombia (1821 from Spain)",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 19790,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PNG",
@@ -2705,6 +6589,8 @@
 "capitals": [
 "Port Moresby"
 ],
+"capitalNote": "",
+"a2": "PG",
 "cont": [
 "Oceania"
 ],
@@ -2712,7 +6598,34 @@
 "ll": [
 -6,
 147
-]
+],
+"info": {
+"sub": "Melanesia",
+"areas": [],
+"former": "Territory of Papua and New Guinea",
+"langs": [
+"English",
+"Hiri Motu",
+"Tok Pisin"
+],
+"pop": 10762817,
+"popYear": "2025",
+"area": 462840,
+"areaRank": 54,
+"currency": "Papua New Guinean kina (PGK)",
+"demonym": "Papua New Guinean",
+"city": "",
+"coast": "Pacific Ocean, Coral Sea, Solomon Sea",
+"high": "Mount Wilhelm, 4,509 m",
+"tz": "UTC+10 to UTC+11",
+"drive": "Left",
+"ind": "1975 from Australia",
+"gov": "Parliamentary constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3020,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PRY",
@@ -2725,6 +6638,8 @@
 "capitals": [
 "Asunción"
 ],
+"capitalNote": "",
+"a2": "PY",
 "cont": [
 "South America"
 ],
@@ -2732,7 +6647,35 @@
 "ll": [
 -23,
 -58
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Southern Cone"
+],
+"former": "",
+"langs": [
+"Guaraní",
+"Spanish"
+],
+"pop": 7013078,
+"popYear": "2025",
+"area": 406752,
+"areaRank": 59,
+"currency": "Paraguayan guaraní (PYG)",
+"demonym": "Paraguayan",
+"city": "",
+"coast": "",
+"high": "Cerro Peró, 842 m",
+"tz": "UTC−3",
+"drive": "Right",
+"ind": "1811 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7027,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PER",
@@ -2745,6 +6688,8 @@
 "capitals": [
 "Lima"
 ],
+"capitalNote": "",
+"a2": "PE",
 "cont": [
 "South America"
 ],
@@ -2752,7 +6697,36 @@
 "ll": [
 -10,
 -76
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes"
+],
+"former": "",
+"langs": [
+"Aymara",
+"Quechua",
+"Spanish"
+],
+"pop": 34576665,
+"popYear": "2025",
+"area": 1285216,
+"areaRank": 19,
+"currency": "Peruvian sol (PEN)",
+"demonym": "Peruvian",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Huascarán, 6,768 m",
+"tz": "UTC−5",
+"drive": "Right",
+"ind": "1821 from Spain",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 9684,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PHL",
@@ -2765,6 +6739,8 @@
 "capitals": [
 "Manila"
 ],
+"capitalNote": "",
+"a2": "PH",
 "cont": [
 "Asia"
 ],
@@ -2772,7 +6748,35 @@
 "ll": [
 13,
 122
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Malay Archipelago"
+],
+"former": "",
+"langs": [
+"English",
+"Filipino"
+],
+"pop": 116786962,
+"popYear": "2025",
+"area": 342353,
+"areaRank": 63,
+"currency": "Philippine peso (PHP)",
+"demonym": "Filipino",
+"city": "Quezon City",
+"coast": "Pacific Ocean, Philippine Sea, South China Sea",
+"high": "Mount Apo, 2,954 m",
+"tz": "UTC+8",
+"drive": "Right",
+"ind": "1946 from the USA (1898 from Spain)",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 4171,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "POL",
@@ -2785,6 +6789,8 @@
 "capitals": [
 "Warsaw"
 ],
+"capitalNote": "",
+"a2": "PL",
 "cont": [
 "Europe"
 ],
@@ -2792,7 +6798,32 @@
 "ll": [
 52,
 20
-]
+],
+"info": {
+"sub": "Central Europe",
+"areas": [],
+"former": "",
+"langs": [
+"Polish"
+],
+"pop": 36435861,
+"popYear": "2025",
+"area": 312679,
+"areaRank": 70,
+"currency": "Polish złoty (PLN)",
+"demonym": "Polish",
+"city": "",
+"coast": "Baltic Sea",
+"high": "Rysy, 2,499 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Kingdom from 966 (restored 1918)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 28420,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "PRT",
@@ -2805,6 +6836,8 @@
 "capitals": [
 "Lisbon"
 ],
+"capitalNote": "",
+"a2": "PT",
 "cont": [
 "Europe"
 ],
@@ -2812,7 +6845,34 @@
 "ll": [
 39.5,
 -8
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Iberian Peninsula"
+],
+"former": "",
+"langs": [
+"Portuguese"
+],
+"pop": 10804871,
+"popYear": "2025",
+"area": 92090,
+"areaRank": 109,
+"currency": "Euro (EUR)",
+"demonym": "Portuguese",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Pico, 2,351 m",
+"tz": "UTC−1 to UTC+0",
+"drive": "Right",
+"ind": "Kingdom from 1143",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 32082,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "QAT",
@@ -2825,6 +6885,8 @@
 "capitals": [
 "Doha"
 ],
+"capitalNote": "",
+"a2": "QA",
 "cont": [
 "Asia"
 ],
@@ -2832,7 +6894,35 @@
 "ll": [
 25.5,
 51.25
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula",
+"Gulf states"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 2972215,
+"popYear": "2025",
+"area": 11586,
+"areaRank": 159,
+"currency": "Qatari riyal (QAR)",
+"demonym": "Qatari",
+"city": "",
+"coast": "Persian Gulf",
+"high": "Qurayn Abu al Bawl, 103 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1971 from the UK",
+"gov": "Absolute monarchy (emirate)",
+"rec": "",
+"income": "High income",
+"gdppc": 72525,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "COG",
@@ -2847,6 +6937,8 @@
 "capitals": [
 "Brazzaville"
 ],
+"capitalNote": "",
+"a2": "CG",
 "cont": [
 "Africa"
 ],
@@ -2854,7 +6946,34 @@
 "ll": [
 -1,
 15
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "French Congo; People's Republic of the Congo (1970–91)",
+"langs": [
+"French",
+"Kikongo",
+"Lingala"
+],
+"pop": 6484437,
+"popYear": "2025",
+"area": 342000,
+"areaRank": 64,
+"currency": "Central African CFA franc (XAF)",
+"demonym": "Congolese",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mont Nabeba, 1,020 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2515,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ROU",
@@ -2866,6 +6985,8 @@
 "capitals": [
 "Bucharest"
 ],
+"capitalNote": "",
+"a2": "RO",
 "cont": [
 "Europe"
 ],
@@ -2873,7 +6994,32 @@
 "ll": [
 46,
 25
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [],
+"former": "",
+"langs": [
+"Romanian"
+],
+"pop": 19020271,
+"popYear": "2025",
+"area": 238391,
+"areaRank": 81,
+"currency": "Romanian leu (RON)",
+"demonym": "Romanian",
+"city": "",
+"coast": "Black Sea",
+"high": "Moldoveanu, 2,544 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1878 from the Ottoman Empire",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 22538,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "RUS",
@@ -2886,6 +7032,8 @@
 "capitals": [
 "Moscow"
 ],
+"capitalNote": "",
+"a2": "RU",
 "cont": [
 "Europe",
 "Asia"
@@ -2894,7 +7042,34 @@
 "ll": [
 60,
 100
-]
+],
+"info": {
+"sub": "Eastern Europe",
+"areas": [
+"Caucasus"
+],
+"former": "Russian Empire; part of the Soviet Union (1922–91)",
+"langs": [
+"Russian"
+],
+"pop": 143513328,
+"popYear": "2025",
+"area": 17098242,
+"areaRank": 1,
+"currency": "Russian ruble (RUB)",
+"demonym": "Russian",
+"city": "",
+"coast": "Arctic and Pacific oceans, Baltic, Black and Caspian seas",
+"high": "Mount Elbrus, 5,642 m",
+"tz": "UTC+2 to UTC+12",
+"drive": "Right",
+"ind": "1991, successor of the Soviet Union",
+"gov": "Federal semi-presidential republic (authoritarian)",
+"rec": "",
+"income": "High income",
+"gdppc": 17547,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "RWA",
@@ -2907,6 +7082,8 @@
 "capitals": [
 "Kigali"
 ],
+"capitalNote": "",
+"a2": "RW",
 "cont": [
 "Africa"
 ],
@@ -2914,7 +7091,36 @@
 "ll": [
 -2,
 30
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"African Great Lakes"
+],
+"former": "Ruanda, part of Ruanda-Urundi (until 1962)",
+"langs": [
+"English",
+"French",
+"Kinyarwanda"
+],
+"pop": 14569341,
+"popYear": "2025",
+"area": 26338,
+"areaRank": 145,
+"currency": "Rwandan franc (RWF)",
+"demonym": "Rwandan",
+"city": "",
+"coast": "",
+"high": "Mount Karisimbi, 4,507 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1962 from Belgium",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 1124,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KNA",
@@ -2930,6 +7136,8 @@
 "capitals": [
 "Basseterre"
 ],
+"capitalNote": "",
+"a2": "KN",
 "cont": [
 "North America"
 ],
@@ -2937,7 +7145,34 @@
 "ll": [
 17.33333333,
 -62.75
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 46922,
+"popYear": "2025",
+"area": 261,
+"areaRank": 190,
+"currency": "Eastern Caribbean dollar (XCD)",
+"demonym": "Kittitian or Nevisian",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Mount Liamuiga, 1,156 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1983 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "High income",
+"gdppc": 25223,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LCA",
@@ -2950,6 +7185,8 @@
 "capitals": [
 "Castries"
 ],
+"capitalNote": "",
+"a2": "LC",
 "cont": [
 "North America"
 ],
@@ -2957,7 +7194,34 @@
 "ll": [
 13.88333333,
 -60.96666666
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 180149,
+"popYear": "2025",
+"area": 616,
+"areaRank": 180,
+"currency": "Eastern Caribbean dollar (XCD)",
+"demonym": "Saint Lucian",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Mount Gimie, 950 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1979 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 14746,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "VCT",
@@ -2971,6 +7235,8 @@
 "capitals": [
 "Kingstown"
 ],
+"capitalNote": "",
+"a2": "VC",
 "cont": [
 "North America"
 ],
@@ -2978,7 +7244,34 @@
 "ll": [
 13.25,
 -61.2
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 99924,
+"popYear": "2025",
+"area": 389,
+"areaRank": 186,
+"currency": "Eastern Caribbean dollar (XCD)",
+"demonym": "Saint Vincentian",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "La Soufrière, 1,234 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1979 from the UK",
+"gov": "Constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 12562,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "WSM",
@@ -2991,6 +7284,8 @@
 "capitals": [
 "Apia"
 ],
+"capitalNote": "",
+"a2": "WS",
 "cont": [
 "Oceania"
 ],
@@ -2998,7 +7293,33 @@
 "ll": [
 -13.58333333,
 -172.33333333
-]
+],
+"info": {
+"sub": "Polynesia",
+"areas": [],
+"former": "Western Samoa (until 1997)",
+"langs": [
+"English",
+"Samoan"
+],
+"pop": 219306,
+"popYear": "2025",
+"area": 2842,
+"areaRank": 169,
+"currency": "Samoan tālā (WST)",
+"demonym": "Samoan",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Mount Silisili, 1,858 m",
+"tz": "UTC+13",
+"drive": "Left",
+"ind": "1962 from New Zealand",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5873,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SMR",
@@ -3012,6 +7333,8 @@
 "City of San Marino",
 "San Marino"
 ],
+"capitalNote": "",
+"a2": "SM",
 "cont": [
 "Europe"
 ],
@@ -3019,7 +7342,32 @@
 "ll": [
 43.76666666,
 12.41666666
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [],
+"former": "",
+"langs": [
+"Italian"
+],
+"pop": 34109,
+"popYear": "2025",
+"area": 61,
+"areaRank": 193,
+"currency": "Euro (EUR)",
+"demonym": "Sammarinese",
+"city": "Serravalle",
+"coast": "",
+"high": "Monte Titano, 739 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Traditionally founded in 301",
+"gov": "Parliamentary republic (two Captains Regent)",
+"rec": "",
+"income": "High income",
+"gdppc": 59871,
+"gdpYear": "2023"
+}
 },
 {
 "iso": "SAU",
@@ -3034,6 +7382,8 @@
 "capitals": [
 "Riyadh"
 ],
+"capitalNote": "",
+"a2": "SA",
 "cont": [
 "Asia"
 ],
@@ -3041,7 +7391,35 @@
 "ll": [
 25,
 45
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula",
+"Gulf states"
+],
+"former": "Kingdom of Hejaz and Nejd (until 1932)",
+"langs": [
+"Arabic"
+],
+"pop": 36973555,
+"popYear": "2025",
+"area": 2149690,
+"areaRank": 12,
+"currency": "Saudi riyal (SAR)",
+"demonym": "Saudi Arabian",
+"city": "",
+"coast": "Red Sea, Persian Gulf",
+"high": "Jabal Sawda, 3,000 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "Kingdom unified 1932",
+"gov": "Absolute monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 34537,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SEN",
@@ -3054,6 +7432,8 @@
 "capitals": [
 "Dakar"
 ],
+"capitalNote": "",
+"a2": "SN",
 "cont": [
 "Africa"
 ],
@@ -3061,7 +7441,34 @@
 "ll": [
 14,
 -14
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [
+"Sahel"
+],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 18931966,
+"popYear": "2025",
+"area": 196722,
+"areaRank": 86,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Senegalese",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Unnamed point near Népen Diakha, 648 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1955,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SRB",
@@ -3074,6 +7481,8 @@
 "capitals": [
 "Belgrade"
 ],
+"capitalNote": "",
+"a2": "RS",
 "cont": [
 "Europe"
 ],
@@ -3081,7 +7490,34 @@
 "ll": [
 44,
 21
-]
+],
+"info": {
+"sub": "Southeast Europe",
+"areas": [
+"Balkans"
+],
+"former": "Yugoslavia; Serbia and Montenegro (until 2006)",
+"langs": [
+"Serbian"
+],
+"pop": 6549143,
+"popYear": "2025",
+"area": 88361,
+"areaRank": 111,
+"currency": "Serbian dinar (RSD)",
+"demonym": "Serbian",
+"city": "",
+"coast": "",
+"high": "Midžor, 2,169 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1878 from the Ottoman Empire (separate state again 2006)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 15262,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SYC",
@@ -3094,6 +7530,8 @@
 "capitals": [
 "Victoria"
 ],
+"capitalNote": "",
+"a2": "SC",
 "cont": [
 "Africa"
 ],
@@ -3101,7 +7539,34 @@
 "ll": [
 -4.58333333,
 55.66666666
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "",
+"langs": [
+"Seychellois Creole",
+"English",
+"French"
+],
+"pop": 122730,
+"popYear": "2025",
+"area": 452,
+"areaRank": 183,
+"currency": "Seychellois rupee (SCR)",
+"demonym": "Seychellois",
+"city": "",
+"coast": "Indian Ocean",
+"high": "Morne Seychellois, 905 m",
+"tz": "UTC+4",
+"drive": "Left",
+"ind": "1976 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 19449,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SLE",
@@ -3114,6 +7579,8 @@
 "capitals": [
 "Freetown"
 ],
+"capitalNote": "",
+"a2": "SL",
 "cont": [
 "Africa"
 ],
@@ -3121,7 +7588,32 @@
 "ll": [
 8.5,
 -11.5
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 8819794,
+"popYear": "2025",
+"area": 71740,
+"areaRank": 117,
+"currency": "Sierra Leonean leone (SLL)",
+"demonym": "Sierra Leonean",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Bintumani, 1,945 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1961 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 846,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SGP",
@@ -3134,6 +7626,8 @@
 "capitals": [
 "Singapore"
 ],
+"capitalNote": "",
+"a2": "SG",
 "cont": [
 "Asia"
 ],
@@ -3141,7 +7635,37 @@
 "ll": [
 1.36666666,
 103.8
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Malay Archipelago"
+],
+"former": "",
+"langs": [
+"English",
+"Malay",
+"Tamil",
+"Chinese"
+],
+"pop": 6111175,
+"popYear": "2025",
+"area": 710,
+"areaRank": 178,
+"currency": "Singapore dollar (SGD)",
+"demonym": "Singaporean",
+"city": "",
+"coast": "Singapore Strait, South China Sea",
+"high": "Bukit Timah Hill, 164 m",
+"tz": "UTC+8",
+"drive": "Left",
+"ind": "1965 from Malaysia (1963 from the UK)",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 98814,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SVK",
@@ -3154,6 +7678,8 @@
 "capitals": [
 "Bratislava"
 ],
+"capitalNote": "",
+"a2": "SK",
 "cont": [
 "Europe"
 ],
@@ -3161,7 +7687,32 @@
 "ll": [
 48.66666666,
 19.5
-]
+],
+"info": {
+"sub": "Central Europe",
+"areas": [],
+"former": "Part of Czechoslovakia (until 1993)",
+"langs": [
+"Slovak"
+],
+"pop": 5413813,
+"popYear": "2025",
+"area": 49037,
+"areaRank": 127,
+"currency": "Euro (EUR)",
+"demonym": "Slovak",
+"city": "",
+"coast": "",
+"high": "Gerlachovský štít, 2,655 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1993, split of Czechoslovakia",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 28544,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SVN",
@@ -3174,6 +7725,8 @@
 "capitals": [
 "Ljubljana"
 ],
+"capitalNote": "",
+"a2": "SI",
 "cont": [
 "Europe"
 ],
@@ -3181,7 +7734,36 @@
 "ll": [
 46.11666666,
 14.81666666
-]
+],
+"info": {
+"sub": "Central Europe",
+"areas": [
+"Balkans",
+"Alps",
+"Mediterranean"
+],
+"former": "Part of Yugoslavia (until 1991)",
+"langs": [
+"Slovene"
+],
+"pop": 2130986,
+"popYear": "2025",
+"area": 20273,
+"areaRank": 151,
+"currency": "Euro (EUR)",
+"demonym": "Slovene",
+"city": "",
+"coast": "Adriatic Sea (47 km)",
+"high": "Triglav, 2,864 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1991 from Yugoslavia",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 37376,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SLB",
@@ -3193,6 +7775,8 @@
 "capitals": [
 "Honiara"
 ],
+"capitalNote": "",
+"a2": "SB",
 "cont": [
 "Oceania"
 ],
@@ -3200,7 +7784,32 @@
 "ll": [
 -8,
 159
-]
+],
+"info": {
+"sub": "Melanesia",
+"areas": [],
+"former": "British Solomon Islands (until 1975)",
+"langs": [
+"English"
+],
+"pop": 838645,
+"popYear": "2025",
+"area": 28896,
+"areaRank": 140,
+"currency": "Solomon Islands dollar (SBD)",
+"demonym": "Solomon Islander",
+"city": "",
+"coast": "Pacific Ocean, Solomon Sea, Coral Sea",
+"high": "Mount Popomanaseu, 2,335 m",
+"tz": "UTC+11",
+"drive": "Left",
+"ind": "1978 from the UK",
+"gov": "Parliamentary constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 2086,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SOM",
@@ -3213,6 +7822,8 @@
 "capitals": [
 "Mogadishu"
 ],
+"capitalNote": "",
+"a2": "SO",
 "cont": [
 "Africa"
 ],
@@ -3220,7 +7831,35 @@
 "ll": [
 10,
 49
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"Horn of Africa"
+],
+"former": "Italian Somaliland and British Somaliland (until 1960)",
+"langs": [
+"Arabic",
+"Somali"
+],
+"pop": 19654739,
+"popYear": "2025",
+"area": 637657,
+"areaRank": 41,
+"currency": "Somali shilling (SOS)",
+"demonym": "Somali",
+"city": "",
+"coast": "Indian Ocean, Gulf of Aden",
+"high": "Shimbiris, 2,416 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1960 from the UK and Italy",
+"gov": "Federal parliamentary republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 661,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ZAF",
@@ -3235,6 +7874,8 @@
 "Bloemfontein",
 "Cape Town"
 ],
+"capitalNote": "Pretoria (executive), Cape Town (legislative), Bloemfontein (judicial)",
+"a2": "ZA",
 "cont": [
 "Africa"
 ],
@@ -3242,7 +7883,42 @@
 "ll": [
 -29,
 24
-]
+],
+"info": {
+"sub": "Southern Africa",
+"areas": [],
+"former": "Union of South Africa (until 1961)",
+"langs": [
+"Afrikaans",
+"English",
+"Southern Ndebele",
+"Northern Sotho",
+"Southern Sotho",
+"Swazi",
+"Tswana",
+"Tsonga",
+"Venda",
+"Xhosa",
+"Zulu"
+],
+"pop": 64747319,
+"popYear": "2025",
+"area": 1221037,
+"areaRank": 24,
+"currency": "South African rand (ZAR)",
+"demonym": "South African",
+"city": "Johannesburg",
+"coast": "Atlantic and Indian oceans",
+"high": "Mafadi, 3,450 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "Union 1910, republic 1961, from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6598,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "KOR",
@@ -3256,6 +7932,8 @@
 "capitals": [
 "Seoul"
 ],
+"capitalNote": "",
+"a2": "KR",
 "cont": [
 "Asia"
 ],
@@ -3263,7 +7941,34 @@
 "ll": [
 37,
 127.5
-]
+],
+"info": {
+"sub": "East Asia",
+"areas": [
+"Korean Peninsula"
+],
+"former": "",
+"langs": [
+"Korean"
+],
+"pop": 51684564,
+"popYear": "2025",
+"area": 100210,
+"areaRank": 107,
+"currency": "South Korean won (KRW)",
+"demonym": "South Korean",
+"city": "",
+"coast": "Yellow Sea, Sea of Japan, Korea Strait",
+"high": "Hallasan, 1,950 m",
+"tz": "UTC+9",
+"drive": "Right",
+"ind": "1945 from Japan (republic founded 1948)",
+"gov": "Presidential republic",
+"rec": "A UN member, not recognised by North Korea.",
+"income": "High income",
+"gdppc": 36227,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SSD",
@@ -3276,6 +7981,8 @@
 "capitals": [
 "Juba"
 ],
+"capitalNote": "",
+"a2": "SS",
 "cont": [
 "Africa"
 ],
@@ -3283,7 +7990,32 @@
 "ll": [
 7,
 30
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "Part of Sudan (until 2011)",
+"langs": [
+"English"
+],
+"pop": 12188788,
+"popYear": "2025",
+"area": 619745,
+"areaRank": 43,
+"currency": "South Sudanese pound (SSP)",
+"demonym": "South Sudanese",
+"city": "",
+"coast": "",
+"high": "Kinyeti, 3,187 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "2011 from Sudan",
+"gov": "Presidential republic (transitional)",
+"rec": "",
+"income": "Low income",
+"gdppc": 1080,
+"gdpYear": "2015"
+}
 },
 {
 "iso": "ESP",
@@ -3296,6 +8028,8 @@
 "capitals": [
 "Madrid"
 ],
+"capitalNote": "",
+"a2": "ES",
 "cont": [
 "Europe"
 ],
@@ -3303,7 +8037,35 @@
 "ll": [
 40,
 -4
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [
+"Iberian Peninsula",
+"Mediterranean"
+],
+"former": "",
+"langs": [
+"Spanish"
+],
+"pop": 49355143,
+"popYear": "2025",
+"area": 505992,
+"areaRank": 51,
+"currency": "Euro (EUR)",
+"demonym": "Spanish",
+"city": "",
+"coast": "Atlantic Ocean, Mediterranean Sea",
+"high": "Teide, 3,715 m",
+"tz": "UTC+0 to UTC+1",
+"drive": "Right",
+"ind": "Unified 1479–1516",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 38627,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "LKA",
@@ -3318,6 +8080,8 @@
 "Kotte",
 "Colombo"
 ],
+"capitalNote": "Sri Jayawardenepura Kotte (official), Colombo (commercial centre)",
+"a2": "LK",
 "cont": [
 "Asia"
 ],
@@ -3325,7 +8089,35 @@
 "ll": [
 7,
 81
-]
+],
+"info": {
+"sub": "South Asia",
+"areas": [
+"Indian subcontinent"
+],
+"former": "Ceylon (until 1972)",
+"langs": [
+"Sinhala",
+"Tamil"
+],
+"pop": 21756000,
+"popYear": "2025",
+"area": 65610,
+"areaRank": 120,
+"currency": "Sri Lankan rupee (LKR)",
+"demonym": "Sri Lankan",
+"city": "Colombo",
+"coast": "Indian Ocean",
+"high": "Pidurutalagala, 2,524 m",
+"tz": "UTC+5:30",
+"drive": "Left",
+"ind": "1948 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5002,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SDN",
@@ -3338,6 +8130,8 @@
 "capitals": [
 "Khartoum"
 ],
+"capitalNote": "",
+"a2": "SD",
 "cont": [
 "Africa"
 ],
@@ -3345,7 +8139,35 @@
 "ll": [
 15,
 30
-]
+],
+"info": {
+"sub": "North Africa",
+"areas": [
+"Sahel"
+],
+"former": "Anglo-Egyptian Sudan (until 1956)",
+"langs": [
+"Arabic",
+"English"
+],
+"pop": 51662147,
+"popYear": "2025",
+"area": 1886068,
+"areaRank": 15,
+"currency": "Sudanese pound (SDG)",
+"demonym": "Sudanese",
+"city": "Omdurman",
+"coast": "Red Sea",
+"high": "Deriba Caldera (Jebel Marra), 3,042 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1956 from the UK and Egypt",
+"gov": "Military government (civil war since 2023)",
+"rec": "",
+"income": "Low income",
+"gdppc": 1165,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SUR",
@@ -3358,6 +8180,8 @@
 "capitals": [
 "Paramaribo"
 ],
+"capitalNote": "",
+"a2": "SR",
 "cont": [
 "South America"
 ],
@@ -3365,7 +8189,34 @@
 "ll": [
 4,
 -56
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Guianas"
+],
+"former": "Dutch Guiana (until 1975)",
+"langs": [
+"Dutch"
+],
+"pop": 639850,
+"popYear": "2025",
+"area": 163820,
+"areaRank": 90,
+"currency": "Surinamese dollar (SRD)",
+"demonym": "Surinamer",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Julianatop, 1,286 m",
+"tz": "UTC−3",
+"drive": "Left",
+"ind": "1975 from the Netherlands",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 7070,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SWE",
@@ -3378,6 +8229,8 @@
 "capitals": [
 "Stockholm"
 ],
+"capitalNote": "",
+"a2": "SE",
 "cont": [
 "Europe"
 ],
@@ -3385,7 +8238,35 @@
 "ll": [
 62,
 15
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"Scandinavia",
+"Nordic countries"
+],
+"former": "",
+"langs": [
+"Swedish"
+],
+"pop": 10596620,
+"popYear": "2025",
+"area": 450295,
+"areaRank": 55,
+"currency": "Swedish krona (SEK)",
+"demonym": "Swedish",
+"city": "",
+"coast": "Baltic Sea, Gulf of Bothnia, Kattegat",
+"high": "Kebnekaise, 2,097 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Kingdom since the Middle Ages (left the Kalmar Union 1523)",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 63133,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "CHE",
@@ -3399,6 +8280,8 @@
 "Bern",
 "Berne"
 ],
+"capitalNote": "",
+"a2": "CH",
 "cont": [
 "Europe"
 ],
@@ -3406,7 +8289,37 @@
 "ll": [
 47,
 8
-]
+],
+"info": {
+"sub": "Western Europe",
+"areas": [
+"Alps"
+],
+"former": "",
+"langs": [
+"French",
+"Swiss German",
+"Italian",
+"Romansh"
+],
+"pop": 9092436,
+"popYear": "2025",
+"area": 41284,
+"areaRank": 132,
+"currency": "Swiss franc (CHF)",
+"demonym": "Swiss",
+"city": "Zürich",
+"coast": "",
+"high": "Dufourspitze, 4,634 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "Old Swiss Confederacy, 1291",
+"gov": "Federal directorial republic",
+"rec": "",
+"income": "High income",
+"gdppc": 114769,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "SYR",
@@ -3419,6 +8332,8 @@
 "capitals": [
 "Damascus"
 ],
+"capitalNote": "",
+"a2": "SY",
 "cont": [
 "Asia"
 ],
@@ -3426,7 +8341,35 @@
 "ll": [
 35,
 38
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Mediterranean",
+"Levant"
+],
+"former": "United Arab Republic (with Egypt, 1958–61)",
+"langs": [
+"Arabic"
+],
+"pop": 25620427,
+"popYear": "2025",
+"area": 185180,
+"areaRank": 87,
+"currency": "Syrian pound (SYP)",
+"demonym": "Syrian",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Mount Hermon, 2,814 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1946 from France",
+"gov": "Provisional government (since December 2024)",
+"rec": "",
+"income": "Low income",
+"gdppc": 1057,
+"gdpYear": "2022"
+}
 },
 {
 "iso": "STP",
@@ -3440,6 +8383,8 @@
 "capitals": [
 "São Tomé"
 ],
+"capitalNote": "",
+"a2": "ST",
 "cont": [
 "Africa"
 ],
@@ -3447,7 +8392,32 @@
 "ll": [
 1,
 7
-]
+],
+"info": {
+"sub": "Central Africa",
+"areas": [],
+"former": "",
+"langs": [
+"Portuguese"
+],
+"pop": 240254,
+"popYear": "2025",
+"area": 964,
+"areaRank": 173,
+"currency": "São Tomé and Príncipe dobra (STN)",
+"demonym": "Sao Tomean",
+"city": "",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Pico de São Tomé, 2,024 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1975 from Portugal",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4084,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TWN",
@@ -3460,6 +8430,8 @@
 "capitals": [
 "Taipei"
 ],
+"capitalNote": "",
+"a2": "TW",
 "cont": [
 "Asia"
 ],
@@ -3467,7 +8439,32 @@
 "ll": [
 23.5,
 121
-]
+],
+"info": {
+"sub": "East Asia",
+"areas": [],
+"former": "Formosa (historical name)",
+"langs": [
+"Chinese"
+],
+"pop": 23400000,
+"popYear": "2024",
+"area": 36193,
+"areaRank": 134,
+"currency": "New Taiwan dollar (TWD)",
+"demonym": "Taiwanese",
+"city": "New Taipei",
+"coast": "Pacific Ocean, Taiwan Strait, South China Sea",
+"high": "Yushan (Jade Mountain), 3,952 m",
+"tz": "UTC+8",
+"drive": "Right",
+"ind": "Republic of China founded 1912 (on Taiwan since 1949)",
+"gov": "Semi-presidential republic",
+"rec": "Officially the Republic of China. Recognised by only about 12 UN members and not a UN member; the People's Republic of China claims it.",
+"income": "High income (not rated by the World Bank)",
+"gdppc": 33000,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "TJK",
@@ -3480,6 +8477,8 @@
 "capitals": [
 "Dushanbe"
 ],
+"capitalNote": "",
+"a2": "TJ",
 "cont": [
 "Asia"
 ],
@@ -3487,7 +8486,33 @@
 "ll": [
 39,
 71
-]
+],
+"info": {
+"sub": "Central Asia",
+"areas": [],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Russian",
+"Tajik"
+],
+"pop": 10786734,
+"popYear": "2025",
+"area": 143100,
+"areaRank": 94,
+"currency": "Tajikistani somoni (TJS)",
+"demonym": "Tadzhik",
+"city": "",
+"coast": "",
+"high": "Ismoil Somoni Peak, 7,495 m",
+"tz": "UTC+5",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1637,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TZA",
@@ -3500,6 +8525,8 @@
 "capitals": [
 "Dodoma"
 ],
+"capitalNote": "",
+"a2": "TZ",
 "cont": [
 "Africa"
 ],
@@ -3507,7 +8534,35 @@
 "ll": [
 -6,
 35
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"African Great Lakes"
+],
+"former": "Tanganyika and Zanzibar (merged 1964)",
+"langs": [
+"English",
+"Swahili"
+],
+"pop": 70545865,
+"popYear": "2025",
+"area": 945087,
+"areaRank": 30,
+"currency": "Tanzanian shilling (TZS)",
+"demonym": "Tanzanian",
+"city": "Dar es Salaam",
+"coast": "Indian Ocean",
+"high": "Kilimanjaro, 5,895 m",
+"tz": "UTC+3",
+"drive": "Left",
+"ind": "1961 from the UK (union with Zanzibar 1964)",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1319,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "THA",
@@ -3520,6 +8575,8 @@
 "capitals": [
 "Bangkok"
 ],
+"capitalNote": "",
+"a2": "TH",
 "cont": [
 "Asia"
 ],
@@ -3527,7 +8584,34 @@
 "ll": [
 15,
 100
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Indochina"
+],
+"former": "Siam (until 1939)",
+"langs": [
+"Thai"
+],
+"pop": 71619863,
+"popYear": "2025",
+"area": 513120,
+"areaRank": 50,
+"currency": "Thai baht (THB)",
+"demonym": "Thai",
+"city": "",
+"coast": "Gulf of Thailand, Andaman Sea",
+"high": "Doi Inthanon, 2,565 m",
+"tz": "UTC+7",
+"drive": "Left",
+"ind": "Never colonised",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 8057,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TLS",
@@ -3541,6 +8625,8 @@
 "capitals": [
 "Dili"
 ],
+"capitalNote": "",
+"a2": "TL",
 "cont": [
 "Asia"
 ],
@@ -3548,7 +8634,35 @@
 "ll": [
 -8.83333333,
 125.91666666
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Malay Archipelago"
+],
+"former": "Portuguese Timor; East Timor",
+"langs": [
+"Portuguese",
+"Tetum"
+],
+"pop": 1418517,
+"popYear": "2025",
+"area": 14874,
+"areaRank": 155,
+"currency": "United States dollar (USD)",
+"demonym": "East Timorese",
+"city": "",
+"coast": "Timor Sea, Banda Sea",
+"high": "Tatamailau, 2,986 m",
+"tz": "UTC+9",
+"drive": "Left",
+"ind": "2002 (from Portugal 1975, then Indonesian occupation and UN administration)",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1341,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TGO",
@@ -3561,6 +8675,8 @@
 "capitals": [
 "Lomé"
 ],
+"capitalNote": "",
+"a2": "TG",
 "cont": [
 "Africa"
 ],
@@ -3568,7 +8684,32 @@
 "ll": [
 8,
 1.16666666
-]
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "French Togoland (until 1960)",
+"langs": [
+"French"
+],
+"pop": 8591626,
+"popYear": "2025",
+"area": 56785,
+"areaRank": 123,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Togolese",
+"city": "",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Mont Agou, 986 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1384,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TON",
@@ -3581,6 +8722,8 @@
 "capitals": [
 "Nuku'alofa"
 ],
+"capitalNote": "",
+"a2": "TO",
 "cont": [
 "Oceania"
 ],
@@ -3588,7 +8731,33 @@
 "ll": [
 -20,
 -175
-]
+],
+"info": {
+"sub": "Polynesia",
+"areas": [],
+"former": "",
+"langs": [
+"English",
+"Tongan"
+],
+"pop": 103742,
+"popYear": "2025",
+"area": 747,
+"areaRank": 177,
+"currency": "Tongan paʻanga (TOP)",
+"demonym": "Tongan",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Kao, 1,046 m",
+"tz": "UTC+13",
+"drive": "Left",
+"ind": "1970 from the UK (protectorate)",
+"gov": "Constitutional monarchy",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6547,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TTO",
@@ -3602,6 +8771,8 @@
 "capitals": [
 "Port of Spain"
 ],
+"capitalNote": "",
+"a2": "TT",
 "cont": [
 "North America"
 ],
@@ -3609,7 +8780,34 @@
 "ll": [
 11,
 -61
-]
+],
+"info": {
+"sub": "Caribbean",
+"areas": [
+"Lesser Antilles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 1367764,
+"popYear": "2025",
+"area": 5130,
+"areaRank": 167,
+"currency": "Trinidad and Tobago dollar (TTD)",
+"demonym": "Trinidadian",
+"city": "Chaguanas",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "El Cerro del Aripo, 940 m",
+"tz": "UTC−4",
+"drive": "Left",
+"ind": "1962 from the UK",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "High income",
+"gdppc": 18967,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TUN",
@@ -3622,6 +8820,8 @@
 "capitals": [
 "Tunis"
 ],
+"capitalNote": "",
+"a2": "TN",
 "cont": [
 "Africa"
 ],
@@ -3629,7 +8829,35 @@
 "ll": [
 34,
 9
-]
+],
+"info": {
+"sub": "North Africa",
+"areas": [
+"Mediterranean",
+"Maghreb"
+],
+"former": "",
+"langs": [
+"Arabic"
+],
+"pop": 12348573,
+"popYear": "2025",
+"area": 163610,
+"areaRank": 91,
+"currency": "Tunisian dinar (TND)",
+"demonym": "Tunisian",
+"city": "",
+"coast": "Mediterranean Sea",
+"high": "Jebel ech Chambi, 1,544 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1956 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4657,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TUR",
@@ -3644,6 +8872,8 @@
 "capitals": [
 "Ankara"
 ],
+"capitalNote": "",
+"a2": "TR",
 "cont": [
 "Europe",
 "Asia"
@@ -3652,7 +8882,34 @@
 "ll": [
 39,
 35
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Mediterranean"
+],
+"former": "Officially 'Türkiye' since 2022",
+"langs": [
+"Turkish"
+],
+"pop": 85878556,
+"popYear": "2025",
+"area": 783562,
+"areaRank": 36,
+"currency": "Turkish lira (TRY)",
+"demonym": "Turkish",
+"city": "Istanbul",
+"coast": "Black, Aegean, Marmara and Mediterranean seas",
+"high": "Mount Ararat, 5,137 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1923, successor of the Ottoman Empire",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 18599,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TKM",
@@ -3664,6 +8921,8 @@
 "capitals": [
 "Ashgabat"
 ],
+"capitalNote": "",
+"a2": "TM",
 "cont": [
 "Asia"
 ],
@@ -3671,7 +8930,33 @@
 "ll": [
 40,
 60
-]
+],
+"info": {
+"sub": "Central Asia",
+"areas": [],
+"former": "Turkmenia, part of the Soviet Union (until 1991)",
+"langs": [
+"Russian",
+"Turkmen"
+],
+"pop": 7618847,
+"popYear": "2025",
+"area": 488100,
+"areaRank": 52,
+"currency": "Turkmenistan manat (TMT)",
+"demonym": "Turkmen",
+"city": "",
+"coast": "Caspian Sea (no ocean coast)",
+"high": "Aýrybaba, 3,139 m",
+"tz": "UTC+5",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6540,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "TUV",
@@ -3683,6 +8968,8 @@
 "capitals": [
 "Funafuti"
 ],
+"capitalNote": "",
+"a2": "TV",
 "cont": [
 "Oceania"
 ],
@@ -3690,7 +8977,33 @@
 "ll": [
 -8,
 178
-]
+],
+"info": {
+"sub": "Polynesia",
+"areas": [],
+"former": "Ellice Islands (until 1975)",
+"langs": [
+"English",
+"Tuvaluan"
+],
+"pop": 9492,
+"popYear": "2025",
+"area": 26,
+"areaRank": 194,
+"currency": "Australian dollar (AUD); Tuvaluan dollar (TVD)",
+"demonym": "Tuvaluan",
+"city": "",
+"coast": "Pacific Ocean",
+"high": "Unnamed point on Niulakita, 4.6 m",
+"tz": "UTC+12",
+"drive": "Left",
+"ind": "1978 from the UK",
+"gov": "Parliamentary constitutional monarchy (Commonwealth realm)",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 6041,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "UGA",
@@ -3703,6 +9016,8 @@
 "capitals": [
 "Kampala"
 ],
+"capitalNote": "",
+"a2": "UG",
 "cont": [
 "Africa"
 ],
@@ -3710,7 +9025,35 @@
 "ll": [
 1,
 32
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [
+"African Great Lakes"
+],
+"former": "",
+"langs": [
+"English",
+"Swahili"
+],
+"pop": 51384894,
+"popYear": "2025",
+"area": 241550,
+"areaRank": 79,
+"currency": "Ugandan shilling (UGX)",
+"demonym": "Ugandan",
+"city": "",
+"coast": "",
+"high": "Margherita Peak, 5,109 m",
+"tz": "UTC+3",
+"drive": "Left",
+"ind": "1962 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Low income",
+"gdppc": 1206,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "UKR",
@@ -3723,6 +9066,8 @@
 "Kyiv",
 "Kiev"
 ],
+"capitalNote": "",
+"a2": "UA",
 "cont": [
 "Europe"
 ],
@@ -3730,7 +9075,32 @@
 "ll": [
 49,
 32
-]
+],
+"info": {
+"sub": "Eastern Europe",
+"areas": [],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Ukrainian"
+],
+"pop": 38980376,
+"popYear": "2025",
+"area": 603500,
+"areaRank": 44,
+"currency": "Ukrainian hryvnia (UAH)",
+"demonym": "Ukrainian",
+"city": "",
+"coast": "Black Sea, Sea of Azov",
+"high": "Hoverla, 2,061 m",
+"tz": "UTC+2",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Semi-presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5866,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ARE",
@@ -3744,6 +9114,8 @@
 "capitals": [
 "Abu Dhabi"
 ],
+"capitalNote": "",
+"a2": "AE",
 "cont": [
 "Asia"
 ],
@@ -3751,7 +9123,35 @@
 "ll": [
 24,
 54
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula",
+"Gulf states"
+],
+"former": "Trucial States (until 1971)",
+"langs": [
+"Arabic"
+],
+"pop": 11513149,
+"popYear": "2025",
+"area": 83600,
+"areaRank": 114,
+"currency": "United Arab Emirates dirham (AED)",
+"demonym": "Emirati",
+"city": "Dubai",
+"coast": "Persian Gulf, Gulf of Oman",
+"high": "Jebel Jais, 1,934 m",
+"tz": "UTC+4",
+"drive": "Right",
+"ind": "1971 from the UK",
+"gov": "Federation of seven absolute monarchies",
+"rec": "",
+"income": "High income",
+"gdppc": 50274,
+"gdpYear": "2024"
+}
 },
 {
 "iso": "GBR",
@@ -3767,6 +9167,8 @@
 "capitals": [
 "London"
 ],
+"capitalNote": "",
+"a2": "GB",
 "cont": [
 "Europe"
 ],
@@ -3774,7 +9176,34 @@
 "ll": [
 54,
 -2
-]
+],
+"info": {
+"sub": "Northern Europe",
+"areas": [
+"British Isles"
+],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 69487000,
+"popYear": "2025",
+"area": 242900,
+"areaRank": 78,
+"currency": "British pound (GBP)",
+"demonym": "British",
+"city": "",
+"coast": "Atlantic Ocean, North Sea, English Channel, Irish Sea",
+"high": "Ben Nevis, 1,345 m",
+"tz": "UTC+0",
+"drive": "Left",
+"ind": "Kingdom of Great Britain 1707; United Kingdom 1801",
+"gov": "Parliamentary constitutional monarchy",
+"rec": "",
+"income": "High income",
+"gdppc": 57602,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "USA",
@@ -3792,6 +9221,8 @@
 "Washington",
 "Washington DC"
 ],
+"capitalNote": "",
+"a2": "US",
 "cont": [
 "North America"
 ],
@@ -3799,7 +9230,32 @@
 "ll": [
 38,
 -97
-]
+],
+"info": {
+"sub": "North America",
+"areas": [],
+"former": "",
+"langs": [
+"English"
+],
+"pop": 341784857,
+"popYear": "2025",
+"area": 9372610,
+"areaRank": 4,
+"currency": "United States dollar (USD)",
+"demonym": "American",
+"city": "New York City",
+"coast": "Atlantic, Pacific and Arctic oceans, Gulf of Mexico",
+"high": "Denali, 6,190 m",
+"tz": "UTC−5 to UTC−10",
+"drive": "Right",
+"ind": "1776 from Great Britain",
+"gov": "Federal presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 90027,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "URY",
@@ -3812,6 +9268,8 @@
 "capitals": [
 "Montevideo"
 ],
+"capitalNote": "",
+"a2": "UY",
 "cont": [
 "South America"
 ],
@@ -3819,7 +9277,34 @@
 "ll": [
 -33,
 -56
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Southern Cone"
+],
+"former": "",
+"langs": [
+"Spanish"
+],
+"pop": 3384688,
+"popYear": "2025",
+"area": 181034,
+"areaRank": 89,
+"currency": "Uruguayan peso (UYU)",
+"demonym": "Uruguayan",
+"city": "",
+"coast": "Atlantic Ocean, Río de la Plata",
+"high": "Cerro Catedral, 514 m",
+"tz": "UTC−3",
+"drive": "Right",
+"ind": "1825 from Brazil (recognised 1828)",
+"gov": "Presidential republic",
+"rec": "",
+"income": "High income",
+"gdppc": 25216,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "UZB",
@@ -3832,6 +9317,8 @@
 "capitals": [
 "Tashkent"
 ],
+"capitalNote": "",
+"a2": "UZ",
 "cont": [
 "Asia"
 ],
@@ -3839,7 +9326,33 @@
 "ll": [
 41,
 64
-]
+],
+"info": {
+"sub": "Central Asia",
+"areas": [],
+"former": "Part of the Soviet Union (until 1991)",
+"langs": [
+"Russian",
+"Uzbek"
+],
+"pop": 37053428,
+"popYear": "2025",
+"area": 447400,
+"areaRank": 56,
+"currency": "Uzbekistani soʻm (UZS)",
+"demonym": "Uzbekistani",
+"city": "",
+"coast": "",
+"high": "Khazret Sultan, 4,643 m",
+"tz": "UTC+5",
+"drive": "Right",
+"ind": "1991 from the Soviet Union",
+"gov": "Presidential republic (authoritarian)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3968,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "VUT",
@@ -3852,6 +9365,8 @@
 "capitals": [
 "Port Vila"
 ],
+"capitalNote": "",
+"a2": "VU",
 "cont": [
 "Oceania"
 ],
@@ -3859,7 +9374,34 @@
 "ll": [
 -16,
 167
-]
+],
+"info": {
+"sub": "Melanesia",
+"areas": [],
+"former": "New Hebrides (until 1980)",
+"langs": [
+"Bislama",
+"English",
+"French"
+],
+"pop": 335169,
+"popYear": "2025",
+"area": 12189,
+"areaRank": 158,
+"currency": "Vanuatu vatu (VUV)",
+"demonym": "Ni-Vanuatu",
+"city": "",
+"coast": "Pacific Ocean, Coral Sea",
+"high": "Mount Tabwemasana, 1,879 m",
+"tz": "UTC+11",
+"drive": "Right",
+"ind": "1980 from the UK and France",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 4039,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "VAT",
@@ -3875,6 +9417,8 @@
 "Vatican City",
 "Vatican"
 ],
+"capitalNote": "",
+"a2": "VA",
 "cont": [
 "Europe"
 ],
@@ -3882,7 +9426,33 @@
 "ll": [
 41.9,
 12.45
-]
+],
+"info": {
+"sub": "Southern Europe",
+"areas": [],
+"former": "",
+"langs": [
+"Italian",
+"Latin"
+],
+"pop": 800,
+"popYear": "2023",
+"area": 0.44,
+"areaRank": 197,
+"currency": "Euro (EUR)",
+"demonym": "Vatican",
+"city": "",
+"coast": "",
+"high": "Vatican Hill, 75 m",
+"tz": "UTC+1",
+"drive": "Right",
+"ind": "1929 (Lateran Treaty with Italy)",
+"gov": "Elective absolute monarchy (ruled by the Pope)",
+"rec": "Not a UN member: the Holy See is a UN non-member observer state.",
+"income": "",
+"gdppc": null,
+"gdpYear": ""
+}
 },
 {
 "iso": "VEN",
@@ -3895,6 +9465,8 @@
 "capitals": [
 "Caracas"
 ],
+"capitalNote": "",
+"a2": "VE",
 "cont": [
 "South America"
 ],
@@ -3902,7 +9474,34 @@
 "ll": [
 8,
 -66
-]
+],
+"info": {
+"sub": "South America",
+"areas": [
+"Andes"
+],
+"former": "Part of Gran Colombia (1819–30)",
+"langs": [
+"Spanish"
+],
+"pop": 28516896,
+"popYear": "2025",
+"area": 916445,
+"areaRank": 32,
+"currency": "Venezuelan bolívar soberano (VES)",
+"demonym": "Venezuelan",
+"city": "",
+"coast": "Caribbean Sea, Atlantic Ocean",
+"high": "Pico Bolívar, 4,978 m",
+"tz": "UTC−4",
+"drive": "Right",
+"ind": "1811 from Spain",
+"gov": "Federal presidential republic (authoritarian)",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3495,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "VNM",
@@ -3916,6 +9515,8 @@
 "capitals": [
 "Hanoi"
 ],
+"capitalNote": "",
+"a2": "VN",
 "cont": [
 "Asia"
 ],
@@ -3923,7 +9524,34 @@
 "ll": [
 16.16666666,
 107.83333333
-]
+],
+"info": {
+"sub": "Southeast Asia",
+"areas": [
+"Indochina"
+],
+"former": "North Vietnam and South Vietnam (until 1976)",
+"langs": [
+"Vietnamese"
+],
+"pop": 101598527,
+"popYear": "2025",
+"area": 331212,
+"areaRank": 66,
+"currency": "Vietnamese đồng (VND)",
+"demonym": "Vietnamese",
+"city": "Ho Chi Minh City",
+"coast": "South China Sea, Gulf of Tonkin, Gulf of Thailand",
+"high": "Fansipan, 3,143 m",
+"tz": "UTC+7",
+"drive": "Right",
+"ind": "1945 from France (reunified 1976)",
+"gov": "One-party socialist republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5066,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "YEM",
@@ -3936,6 +9564,8 @@
 "capitals": [
 "Sana'a"
 ],
+"capitalNote": "",
+"a2": "YE",
 "cont": [
 "Asia"
 ],
@@ -3943,7 +9573,34 @@
 "ll": [
 15,
 48
-]
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Arabian Peninsula"
+],
+"former": "North Yemen and South Yemen (until 1990)",
+"langs": [
+"Arabic"
+],
+"pop": 41773878,
+"popYear": "2025",
+"area": 527968,
+"areaRank": 49,
+"currency": "Yemeni rial (YER)",
+"demonym": "Yemeni",
+"city": "",
+"coast": "Red Sea, Gulf of Aden, Arabian Sea",
+"high": "Jabal an-Nabi Shu'ayb, 3,666 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "Unified 1990 (North 1918, South 1967)",
+"gov": "Disputed (civil war; Houthis control the north)",
+"rec": "",
+"income": "Low income",
+"gdppc": 634,
+"gdpYear": "2018"
+}
 },
 {
 "iso": "ZMB",
@@ -3956,6 +9613,8 @@
 "capitals": [
 "Lusaka"
 ],
+"capitalNote": "",
+"a2": "ZM",
 "cont": [
 "Africa"
 ],
@@ -3963,7 +9622,32 @@
 "ll": [
 -15,
 30
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "Northern Rhodesia (until 1964)",
+"langs": [
+"English"
+],
+"pop": 21913874,
+"popYear": "2025",
+"area": 752612,
+"areaRank": 38,
+"currency": "Zambian kwacha (ZMW)",
+"demonym": "Zambian",
+"city": "",
+"coast": "",
+"high": "Mafinga Central, 2,339 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1964 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 1318,
+"gdpYear": "2025"
+}
 },
 {
 "iso": "ZWE",
@@ -3976,6 +9660,8 @@
 "capitals": [
 "Harare"
 ],
+"capitalNote": "",
+"a2": "ZW",
 "cont": [
 "Africa"
 ],
@@ -3983,6 +9669,45 @@
 "ll": [
 -20,
 30
-]
+],
+"info": {
+"sub": "East Africa",
+"areas": [],
+"former": "Southern Rhodesia; Rhodesia (until 1980)",
+"langs": [
+"Chibarwe",
+"English",
+"Kalanga",
+"Khoisan",
+"Ndau",
+"Northern Ndebele",
+"Chewa",
+"Shona",
+"Sotho",
+"Tonga",
+"Tswana",
+"Tsonga",
+"Venda",
+"Xhosa",
+"Zimbabwean Sign Language"
+],
+"pop": 16950795,
+"popYear": "2025",
+"area": 390757,
+"areaRank": 60,
+"currency": "Botswana pula (BWP); Chinese yuan (CNY); Euro (EUR); British pound (GBP); Indian rupee (INR); Japanese yen (JPY); United States dollar (USD); South African rand (ZAR); Zimbabwean bonds (ZWB)",
+"demonym": "Zimbabwean",
+"city": "",
+"coast": "",
+"high": "Mount Nyangani, 2,592 m",
+"tz": "UTC+2",
+"drive": "Left",
+"ind": "1980 from the UK",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3021,
+"gdpYear": "2025"
+}
 }
 ]

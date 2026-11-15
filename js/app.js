@@ -76,9 +76,9 @@
     t.hidden = typing;
     resetGiveUp();
     if (mode === "explore") {
-      $("eyebrow").textContent = "Free tap" + where;
+      $("eyebrow").textContent = "Learning mode" + where;
       t.textContent = "Tap any country";
-      $("score").textContent = "Shows the name of whatever you tap.";
+      $("score").textContent = "Tap any country to learn about it.";
     } else if (isName()) {
       $("eyebrow").textContent = (finished ? "Finished" : caps() ? "Name the capitals" : "Name the countries") + where;
       if (finished) {
@@ -109,11 +109,12 @@
 
   function tap(c, view) {
     if (!inRegion(c)) return; // countries outside the region are greyed out and do nothing
-    if (S.mode === "explore") { flashName(c); state[c.iso] = "flash"; redraw(); return; }
+    if (S.mode === "explore") { flashName(c); state[c.iso] = "flash"; showLearnCard(c); redraw(); return; }
     if (finished) { flashName(c); return; } // reviewing: tap any country to see its name (or capital)
     if (isName()) { tapName(c, view); return; }
     if (!target || state[c.iso] === "good") return; // already-correct countries do nothing
     // the next country appears instantly; the map keeps the green/red result
+    GG.Stats.answer(S.mode, target.iso, c === target);
     if (c === target) { state[c.iso] = "good"; nGood++; }
     else {
       state[target.iso] = "bad"; nBad++;
@@ -176,9 +177,126 @@
     finish();
   };
 
+  // ---------- Learning mode card ----------
+  const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  const num = n => n.toLocaleString("en-GB");
+  function fmtPop(n, year) {
+    if (!n) return "";
+    const s = n >= 1e9 ? `${(n / 1e9).toFixed(2)} billion` : n >= 1e6 ? `${(n / 1e6).toFixed(n >= 1e7 ? 1 : 2)} million` : n >= 1e4 ? num(Math.round(n / 1000) * 1000) : `about ${num(n)}`;
+    return year ? `${s} (${year})` : s;
+  }
+  const facts = rows => rows.filter(r => r[1]).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+  let learnMore = false;
+  function showLearnCard(c) {
+    const i = c.info || {};
+    // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
+    $("lcFlag").src = (window.GG_FLAGS && window.GG_FLAGS[c.iso]) || `data/flags/${c.iso}.svg`;
+    $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [c.cont.join(" and "), i.sub, ...(i.areas || [])].filter(Boolean)
+      .filter((v, n, a) => a.indexOf(v) === n).join(" · ");
+    $("lcMain").innerHTML = facts([
+      [c.capitalNote ? "Capitals" : "Capital", c.capitalNote || c.capitals[0] || "None"],
+      ["Population", fmtPop(i.pop, i.popYear)],
+    ]);
+    const group = (title, rows) => { const h = facts(rows); return h ? `<h4>${title}</h4><dl class="lcfacts">${h}</dl>` : ""; };
+    $("lcMore").innerHTML =
+      group("People", [
+        [i.langs && i.langs.length > 1 ? "Languages" : "Language", (i.langs || []).join(", ")],
+        ["People are called", i.demonym],
+        ["Largest city", i.city],
+        ["Currency", i.currency],
+      ]) +
+      group("Land", [
+        ["Area", i.area ? `${num(Math.round(i.area))} km² (#${i.areaRank} of 197)` : ""],
+        ["Coast", i.coast || "Landlocked"],
+        ["Highest point", i.high],
+        [/ to /.test(i.tz || "") ? "Time zones" : "Time zone", i.tz],
+        ["Drives on the", i.drive && i.drive.toLowerCase()],
+      ]) +
+      group("History and status", [
+        ["Formerly", i.former],
+        ["Independence", i.ind],
+        ["Government", i.gov],
+        ["Recognition", i.rec],
+        ["Income level", [i.income, i.gdppc ? `$${num(i.gdppc)} per person (${i.gdpYear})` : ""].filter(Boolean).join(", ")],
+      ]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  function setLearnMore(on) {
+    learnMore = on;
+    $("lcMore").hidden = !on;
+    $("lcMoreBtn").textContent = on ? "Fewer facts" : "More facts";
+    $("lcMoreBtn").setAttribute("aria-expanded", on);
+    $("learnCard").classList.toggle("expanded", on);
+  }
+  $("lcMoreBtn").onclick = () => setLearnMore(!learnMore);
+  function hideLearnCard() { $("learnCard").hidden = true; }
+  $("lcClose").onclick = () => { hideLearnCard(); Object.keys(state).forEach(k => delete state[k]); redraw(); };
+
+  // ---------- stats page ----------
+  const MODE_NAMES = { find: "Find countries", name: "Name countries", findcap: "Find by capital", namecap: "Name capitals" };
+  let statsSkill = "country";
+  const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  function openStats() { renderStats(); $("stats").hidden = false; }
+  function closeStats() { $("stats").hidden = true; resetStatsReset(); }
+  function renderStats() {
+    const skill = statsSkill, St = GG.Stats;
+    document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
+    const acc = c => { const e = St.entry(skill, c.iso); return e && e.a ? e.c / e.a : null; };
+    const known = c => { const a = acc(c); return a !== null && a >= 0.75; };
+    // regions
+    const rows = Object.entries(REGIONS).map(([key, r]) => {
+      const cs = key === "world" ? geo.countries : geo.countries.filter(r.test);
+      const k = cs.filter(known).length, seen = cs.filter(c => acc(c) !== null).length, pct = Math.round(100 * k / cs.length);
+      return `<div class="srow"><div class="sname">${r.name}</div><div class="sbar"><i style="width:${pct}%"></i></div>` +
+        `<div class="snum">${k}/${cs.length}</div><div class="ssub">${seen} seen</div></div>`;
+    }).join("");
+    $("statsRegions").innerHTML = rows;
+    // weakest
+    const weak = geo.countries.filter(c => acc(c) !== null && acc(c) < 1)
+      .sort((a, b) => acc(a) - acc(b) || St.entry(skill, b.iso).a - St.entry(skill, a.iso).a).slice(0, 15);
+    $("statsWeak").innerHTML = weak.length ? weak.map(c => {
+      const e = St.entry(skill, c.iso);
+      const what = skill === "capital" ? `${c.name} <small>${c.capitals[0]}</small>` : c.name;
+      return `<li><span>${what}</span><span class="snum">${e.c} of ${e.a} right</span></li>`;
+    }).join("") : `<li class="empty">Nothing yet. Play a ${skill === "capital" ? "capitals" : "countries"} game and your weakest ones will show here.</li>`;
+    // bests (for this skill's games)
+    const modes = skill === "capital" ? ["findcap", "namecap"] : ["find", "name"];
+    const bests = Object.entries(St.bests()).filter(([k]) => modes.includes(k.split("|")[0]))
+      .map(([k, v]) => { const [m, rg] = k.split("|"); return `<li><span>${MODE_NAMES[m]} · ${REGIONS[rg] ? REGIONS[rg].name : rg}</span><span class="snum">${v.pct}% · ${fmtTime(v.secs)}</span></li>`; });
+    $("statsBests").innerHTML = bests.length ? bests.join("") : `<li class="empty">No games finished yet.</li>`;
+    // recent games
+    const games = St.games().filter(g => modes.includes(g.mode)).slice(0, 8);
+    $("statsGames").innerHTML = games.length ? games.map(g => {
+      const d = new Date(g.date), day = d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
+      return `<li><span>${MODE_NAMES[g.mode]} · ${REGIONS[g.region] ? REGIONS[g.region].name : g.region}${g.gaveUp ? " <small>gave up</small>" : ""}</span>` +
+        `<span class="snum">${g.score}/${g.total} · ${day}</span></li>`;
+    }).join("") : `<li class="empty">No games yet.</li>`;
+  }
+  $("statsBtn").onclick = openStats;
+  $("statsClose").onclick = closeStats;
+  $("stats").addEventListener("click", e => { if (e.target === $("stats")) closeStats(); });
+  $("statsSkill").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { statsSkill = b.dataset.v; renderStats(); } });
+  let statsResetTimer;
+  function resetStatsReset() { clearTimeout(statsResetTimer); $("statsReset").textContent = "Reset all stats"; $("statsReset").classList.remove("confirm"); }
+  $("statsReset").onclick = () => {
+    const b = $("statsReset");
+    if (!b.classList.contains("confirm")) {
+      b.classList.add("confirm"); b.textContent = "Tap again to delete all stats";
+      statsResetTimer = setTimeout(resetStatsReset, 3000); return;
+    }
+    GG.Stats.reset(); resetStatsReset(); renderStats();
+  };
+
   // ---------- end of a game: results pop-up ----------
+  let newBest = false;
   function finish() {
     finished = true; endTime = Date.now();
+    // naming games: record every country in the region once, named or not
+    if (isName()) regionCountries().forEach(c => GG.Stats.answer(S.mode, c.iso, state[c.iso] === "good"));
+    newBest = GG.Stats.game(S.mode, S.region, nGood, total, Math.round((endTime - startTime) / 1000), gaveUp);
     show();
     openResults();
   }
@@ -191,6 +309,7 @@
     $("resultsWhat").textContent = named ? (caps() ? "capitals named" : "countries named") : "right first time";
     const missed = total - nGood;
     $("resultsDetail").textContent = `${pct}% · ${missed} ${named ? "not named" : "missed"} · ${time}`;
+    $("resultsBest").hidden = !newBest;
     $("results").hidden = false;
   }
   function closeResults() { $("results").hidden = true; }
@@ -308,11 +427,12 @@
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
+    hideLearnCard();
     if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; show(); } else newGame();
   }
 
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") { closeSetup(); closeInset(); closeResults(); }
+    if (e.key === "Escape") { closeSetup(); closeInset(); closeResults(); closeStats(); }
     if (e.key === "ArrowLeft") step(-1);
     if (e.key === "ArrowRight") step(1);
   });

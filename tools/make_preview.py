@@ -5,6 +5,8 @@ next to it. The real app (index.html) is unchanged. Usage:
 
   python tools/make_preview.py <output folder>
 """
+import base64
+import json
 import pathlib
 import re
 import shutil
@@ -35,6 +37,10 @@ def main(out):
         return "<script>\n" + (ROOT / src).read_text(encoding="utf8") + "\n</script>"
 
     body = re.sub(r'<script src="([^"]+)"></script>', script, body)
+    # flags go inside the page (the test artifact has a file limit; the real app uses data/flags/)
+    flags = {p.stem: "data:image/svg+xml;base64," + base64.b64encode(p.read_bytes()).decode()
+             for p in sorted((ROOT / "data" / "flags").glob("*.svg"))}
+    body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";</script>\n" + body
     page = "\n".join([title, '<meta name="claude:viewport-fit-sides" content="cover">', fonts,
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])
     (out / "geography-game.html").write_text(page, encoding="utf8")
