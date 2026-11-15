@@ -38,7 +38,7 @@ ALT = {
     "COD": ["DRC", "DR Congo", "Congo-Kinshasa", "Congo Kinshasa"],
     "COG": ["Congo", "Congo-Brazzaville", "Congo Brazzaville"],
     "CAF": ["CAR"],
-    "CIV": ["Cote d'Ivoire", "Côte d'Ivoire"],
+    "CIV": ["Ivory Coast", "Cote d'Ivoire"],
     "CZE": ["Czech Republic"],
     "TLS": ["East Timor"],
     "PNG": ["PNG"],
@@ -53,7 +53,7 @@ ALT = {
     "STP": ["Sao Tome"],
     "TTO": ["Trinidad"],
     "ATG": ["Antigua"],
-    "CPV": ["Cabo Verde"],
+    "CPV": ["Cape Verde"],
     "TUR": ["Turkey", "Turkiye"],
     "GMB": ["The Gambia"],
     "BHS": ["The Bahamas"],
@@ -67,7 +67,7 @@ ALT = {
     "GNB": ["Guinea Bissau"],
 }
 # display names where the source's common name isn't the usual English one
-DISPLAY = {"TUR": "Turkey"}
+DISPLAY = {"TUR": "Türkiye", "CIV": "Côte d'Ivoire", "CPV": "Cabo Verde"}
 
 # Capitals. The first is the one shown in "Find the country by its capital"; every listed one is accepted when
 # typing. Countries with several official capitals accept any of them (PLAN.md), and common English
@@ -155,6 +155,22 @@ def fix_topology(t, quiz_ids):
                 extra.append({"type": "MultiPolygon", "arcs": out, "id": name})
     geoms.extend(extra)
     t["objects"] = {"countries": t["objects"]["countries"]}  # drop the unused "land" object
+    # Borders (arcs between two different countries or territories) and coastlines (arcs used by one only),
+    # worked out here once so the app doesn't have to on every start (it made the splash stutter on phones).
+    # (Lines inside a merged country, e.g. Somalia-Somaliland, are neither, so they aren't drawn.)
+    users = {}
+    def walk(arcs, n, gid):
+        for a in arcs:
+            if isinstance(a, list):
+                walk(a, n, gid)
+            else:
+                users.setdefault(a if a >= 0 else ~a, []).append((n, gid))
+    for n, g in enumerate(geoms):
+        walk(g["arcs"], n, g["id"])
+    borders = [[i] for i, u in sorted(users.items()) if len({gid for _, gid in u}) > 1]
+    coast = [[i] for i, u in sorted(users.items()) if len({n for n, _ in u}) == 1]
+    t["objects"]["borders"] = {"type": "MultiLineString", "arcs": borders}
+    t["objects"]["coast"] = {"type": "MultiLineString", "arcs": coast}
     return t
 
 

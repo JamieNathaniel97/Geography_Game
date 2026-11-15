@@ -1,9 +1,9 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "geography-game-v11";
+const CACHE = "gaia-quest-v12";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
-  "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
+  "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
   "data/world-50m.json", "data/world-110m.json", "data/countries.json", "data/relief.jpg",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",

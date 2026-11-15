@@ -226,7 +226,7 @@ FORMER = {
     "MKD": "Macedonia; Former Yugoslav Republic of Macedonia (until 2019)", "MLI": "French Sudan (until 1960)",
     "MMR": "Burma (until 1989)", "MWI": "Nyasaland (until 1964)", "MYS": "Malaya (until 1963)",
     "NAM": "South West Africa (until 1990)", "SUR": "Dutch Guiana (until 1975)", "SWZ": "Swaziland (until 2018)",
-    "THA": "Siam (until 1939)", "TLS": "Portuguese Timor; East Timor", "TUR": "Officially 'Türkiye' since 2022",
+    "THA": "Siam (until 1939)", "TLS": "Portuguese Timor; East Timor", "TUR": "Turkey (English name until 2022)",
     "TUV": "Ellice Islands (until 1975)", "TWN": "Formosa (historical name)", "TZA": "Tanganyika and Zanzibar (merged 1964)",
     "VUT": "New Hebrides (until 1980)", "WSM": "Western Samoa (until 1997)", "ZMB": "Northern Rhodesia (until 1964)",
     "ZWE": "Southern Rhodesia; Rhodesia (until 1980)", "MNG": "Outer Mongolia; Mongolian People's Republic (until 1992)",

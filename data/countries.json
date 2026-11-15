@@ -1377,6 +1377,54 @@
 }
 },
 {
+"iso": "CPV",
+"id": "132",
+"name": "Cabo Verde",
+"names": [
+"Cabo Verde",
+"Cape Verde",
+"Republic of Cabo Verde"
+],
+"capitals": [
+"Praia"
+],
+"capitalNote": "",
+"a2": "CV",
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+16,
+-24
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "Cape Verde (official English name until 2013)",
+"langs": [
+"Portuguese"
+],
+"pop": 527326,
+"popYear": "2025",
+"area": 4033,
+"areaRank": 168,
+"currency": "Cape Verdean escudo (CVE)",
+"demonym": "Cape Verdian",
+"city": "",
+"coast": "Atlantic Ocean",
+"high": "Mount Fogo, 2,829 m",
+"tz": "UTC−1",
+"drive": "Right",
+"ind": "1975 from Portugal",
+"gov": "Parliamentary republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 5796,
+"gdpYear": "2025"
+}
+},
+{
 "iso": "KHM",
 "id": "116",
 "name": "Cambodia",
@@ -1517,54 +1565,6 @@
 "rec": "",
 "income": "High income",
 "gdppc": 55698,
-"gdpYear": "2025"
-}
-},
-{
-"iso": "CPV",
-"id": "132",
-"name": "Cape Verde",
-"names": [
-"Cape Verde",
-"Republic of Cabo Verde",
-"Cabo Verde"
-],
-"capitals": [
-"Praia"
-],
-"capitalNote": "",
-"a2": "CV",
-"cont": [
-"Africa"
-],
-"car": false,
-"ll": [
-16,
--24
-],
-"info": {
-"sub": "West Africa",
-"areas": [],
-"former": "Cape Verde (official English name until 2013)",
-"langs": [
-"Portuguese"
-],
-"pop": 527326,
-"popYear": "2025",
-"area": 4033,
-"areaRank": 168,
-"currency": "Cape Verdean escudo (CVE)",
-"demonym": "Cape Verdian",
-"city": "",
-"coast": "Atlantic Ocean",
-"high": "Mount Fogo, 2,829 m",
-"tz": "UTC−1",
-"drive": "Right",
-"ind": "1975 from Portugal",
-"gov": "Parliamentary republic",
-"rec": "",
-"income": "Upper middle income",
-"gdppc": 5796,
 "gdpYear": "2025"
 }
 },
@@ -2104,6 +2104,56 @@
 "rec": "",
 "income": "High income",
 "gdppc": 35917,
+"gdpYear": "2025"
+}
+},
+{
+"iso": "CIV",
+"id": "384",
+"name": "Côte d'Ivoire",
+"names": [
+"Côte d'Ivoire",
+"Ivory Coast",
+"Republic of Côte d'Ivoire",
+"Cote d'Ivoire"
+],
+"capitals": [
+"Yamoussoukro",
+"Abidjan"
+],
+"capitalNote": "Yamoussoukro (official), Abidjan (economic centre)",
+"a2": "CI",
+"cont": [
+"Africa"
+],
+"car": false,
+"ll": [
+8,
+-5
+],
+"info": {
+"sub": "West Africa",
+"areas": [],
+"former": "",
+"langs": [
+"French"
+],
+"pop": 32711547,
+"popYear": "2025",
+"area": 322463,
+"areaRank": 69,
+"currency": "West African CFA franc (XOF)",
+"demonym": "Ivorian",
+"city": "Abidjan",
+"coast": "Atlantic Ocean (Gulf of Guinea)",
+"high": "Mont Nimba, 1,752 m",
+"tz": "UTC+0",
+"drive": "Right",
+"ind": "1960 from France",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Lower middle income",
+"gdppc": 3050,
 "gdpYear": "2025"
 }
 },
@@ -3967,56 +4017,6 @@
 "rec": "",
 "income": "High income",
 "gdppc": 43309,
-"gdpYear": "2025"
-}
-},
-{
-"iso": "CIV",
-"id": "384",
-"name": "Ivory Coast",
-"names": [
-"Ivory Coast",
-"Republic of Côte d'Ivoire",
-"Cote d'Ivoire",
-"Côte d'Ivoire"
-],
-"capitals": [
-"Yamoussoukro",
-"Abidjan"
-],
-"capitalNote": "Yamoussoukro (official), Abidjan (economic centre)",
-"a2": "CI",
-"cont": [
-"Africa"
-],
-"car": false,
-"ll": [
-8,
--5
-],
-"info": {
-"sub": "West Africa",
-"areas": [],
-"former": "",
-"langs": [
-"French"
-],
-"pop": 32711547,
-"popYear": "2025",
-"area": 322463,
-"areaRank": 69,
-"currency": "West African CFA franc (XOF)",
-"demonym": "Ivorian",
-"city": "Abidjan",
-"coast": "Atlantic Ocean (Gulf of Guinea)",
-"high": "Mont Nimba, 1,752 m",
-"tz": "UTC+0",
-"drive": "Right",
-"ind": "1960 from France",
-"gov": "Presidential republic",
-"rec": "",
-"income": "Lower middle income",
-"gdppc": 3050,
 "gdpYear": "2025"
 }
 },
@@ -8860,58 +8860,6 @@
 }
 },
 {
-"iso": "TUR",
-"id": "792",
-"name": "Turkey",
-"names": [
-"Turkey",
-"Türkiye",
-"Republic of Türkiye",
-"Turkiye"
-],
-"capitals": [
-"Ankara"
-],
-"capitalNote": "",
-"a2": "TR",
-"cont": [
-"Europe",
-"Asia"
-],
-"car": false,
-"ll": [
-39,
-35
-],
-"info": {
-"sub": "Western Asia (Middle East)",
-"areas": [
-"Mediterranean"
-],
-"former": "Officially 'Türkiye' since 2022",
-"langs": [
-"Turkish"
-],
-"pop": 85878556,
-"popYear": "2025",
-"area": 783562,
-"areaRank": 36,
-"currency": "Turkish lira (TRY)",
-"demonym": "Turkish",
-"city": "Istanbul",
-"coast": "Black, Aegean, Marmara and Mediterranean seas",
-"high": "Mount Ararat, 5,137 m",
-"tz": "UTC+3",
-"drive": "Right",
-"ind": "1923, successor of the Ottoman Empire",
-"gov": "Presidential republic",
-"rec": "",
-"income": "Upper middle income",
-"gdppc": 18599,
-"gdpYear": "2025"
-}
-},
-{
 "iso": "TKM",
 "id": "795",
 "name": "Turkmenistan",
@@ -9002,6 +8950,58 @@
 "rec": "",
 "income": "Upper middle income",
 "gdppc": 6041,
+"gdpYear": "2025"
+}
+},
+{
+"iso": "TUR",
+"id": "792",
+"name": "Türkiye",
+"names": [
+"Türkiye",
+"Republic of Türkiye",
+"Turkey",
+"Turkiye"
+],
+"capitals": [
+"Ankara"
+],
+"capitalNote": "",
+"a2": "TR",
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"ll": [
+39,
+35
+],
+"info": {
+"sub": "Western Asia (Middle East)",
+"areas": [
+"Mediterranean"
+],
+"former": "Turkey (English name until 2022)",
+"langs": [
+"Turkish"
+],
+"pop": 85878556,
+"popYear": "2025",
+"area": 783562,
+"areaRank": 36,
+"currency": "Turkish lira (TRY)",
+"demonym": "Turkish",
+"city": "Istanbul",
+"coast": "Black, Aegean, Marmara and Mediterranean seas",
+"high": "Mount Ararat, 5,137 m",
+"tz": "UTC+3",
+"drive": "Right",
+"ind": "1923, successor of the Ottoman Empire",
+"gov": "Presidential republic",
+"rec": "",
+"income": "Upper middle income",
+"gdppc": 18599,
 "gdpYear": "2025"
 }
 },

@@ -467,7 +467,8 @@
       const ctx = this.ctx, col = this.col, proj = this.projection();
       const path = d3.geoPath(proj, ctx);
       // full detail is too slow to redraw every frame on a phone, so spin with the lighter outlines
-      const light = this.moving && this.t.k < 4;
+      // lighter outlines while spinning, and while the splash screen covers the map (keeps the splash smooth)
+      const light = (this.moving && this.t.k < 4) || GG.splashShowing;
       const feats = light ? this.geo.f110 : this.geo.f50;
       const centre = this.centre();
       const R = proj.scale(), half = Math.hypot(this.w, this.h) / 2;

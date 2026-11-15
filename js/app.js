@@ -5,6 +5,15 @@
   const $ = id => document.getElementById(id);
 
   const S = { mode: "find", region: "world", magnify: false };
+
+  // Remembered between visits, on this phone: map toggles and the last game's settings.
+  const PREFS_KEY = "gg.prefs.v1";
+  let prefs = {};
+  try { prefs = JSON.parse(localStorage.getItem(PREFS_KEY)) || {}; } catch (e) { prefs = {}; }
+  function savePrefs(changes) {
+    Object.assign(prefs, changes);
+    try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch (e) { /* storage blocked: just don't remember */ }
+  }
   const state = {};     // iso -> 'good' | 'bad' | 'flash'
   const flashing = {};  // iso -> true while a wrong tap flashes yellow
   let geo, main, inset = null;
@@ -364,18 +373,22 @@
 
   // ---------- map controls ----------
   function setViewButton() { $("viewBtn").textContent = main.mode === "globe" ? "Flat map" : "Globe"; }
-  $("viewBtn").onclick = () => { main.setMode(main.mode === "globe" ? "flat" : "globe"); setViewButton(); };
-  $("bordersBtn").onclick = () => {
-    main.borders = !main.borders;
-    $("bordersBtn").classList.toggle("on", main.borders); $("bordersBtn").setAttribute("aria-pressed", main.borders);
-    if (inset) inset.borders = main.borders;
-    redraw();
+  $("viewBtn").onclick = () => {
+    main.setMode(main.mode === "globe" ? "flat" : "globe"); setViewButton();
+    if (S.region === "world") savePrefs({ worldView: main.mode });
   };
-  $("terrainBtn").onclick = () => {
-    const on = !main.terrain;
+  function setBorders(on) {
+    main.borders = on;
+    $("bordersBtn").classList.toggle("on", on); $("bordersBtn").setAttribute("aria-pressed", on);
+    if (inset) inset.borders = on;
+    redraw();
+  }
+  function setTerrainOn(on) {
     main.setTerrain(on); if (inset) inset.setTerrain(on);
     $("terrainBtn").classList.toggle("on", on); $("terrainBtn").setAttribute("aria-pressed", on);
-  };
+  }
+  $("bordersBtn").onclick = () => { setBorders(!main.borders); savePrefs({ borders: main.borders }); };
+  $("terrainBtn").onclick = () => { setTerrainOn(!main.terrain); savePrefs({ terrain: !!main.terrain }); };
   function setMag(on) {
     S.magnify = on;
     $("magBtn").classList.toggle("on", on); $("magBtn").setAttribute("aria-pressed", on);
@@ -502,6 +515,8 @@
   };
   function startGame(mode, region, view) {
     S.mode = mode; S.region = region;
+    savePrefs({ game: { mode, region, weak: !!S.weak, timer: !!S.timer, paceFind: S.paceFind || 5, paceName: S.paceName || 10 },
+      ...(region === "world" ? { worldView: view } : {}) });
     // region games are cropped to the region; the jump bar is swapped for a "Whole region" button
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
     $("jumpbar").hidden = region !== "world";
@@ -527,6 +542,7 @@
       console.error(err);
       $("eyebrow").textContent = "Problem";
       $("target").textContent = "The map data didn't load. Check your connection and reload.";
+      GG.splashDone();
       return;
     }
     // flat map is Patterson (chosen 2026-11-14); ?proj= still picks another style for testing
@@ -543,11 +559,20 @@
       const region = REGIONS[q.get("region")] ? q.get("region") : "world";
       startGame("find", region, region === "world" ? q.get("view") || "globe" : "flat");
     } else {
-      newGame();
+      // reopen where you left off: your last game starts behind the New game screen, ready to go
+      if (prefs.borders === false) setBorders(false);
+      if (prefs.terrain) setTerrainOn(true);
+      const g = prefs.game || {};
+      S.weak = !!g.weak; S.timer = !!g.timer; S.paceFind = g.paceFind || 5; S.paceName = g.paceName || 10;
+      const region = REGIONS[g.region] ? g.region : "world";
+      const mode = ["find", "name", "findcap", "namecap", "explore"].includes(g.mode) ? g.mode : "find";
+      startGame(mode, region, region === "world" ? (prefs.worldView === "flat" ? "flat" : "globe") : "flat");
       openSetup(); // first screen: choose a game
     }
     if (q.get("terrain")) $("terrainBtn").click();
     if (q.get("at")) { const [lo, la, sp] = q.get("at").split(",").map(Number); main.lookAt(lo, la, sp, false); }
+    GG.onSplashGone = () => main.requestDraw();
+    GG.splashDone();
     let lastW = main.w;
     window.addEventListener("resize", () => {
       main.resize();

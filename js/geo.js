@@ -24,13 +24,17 @@
     return r.json();
   }
 
-  function featuresOf(topo, byId) {
+  // country shapes from the topology, in batches with pauses between them (see `pause` below)
+  async function featuresOf(topo, byId) {
     const groups = {};
     topo.objects.countries.geometries.forEach(g => (groups[g.id] = groups[g.id] || []).push(g));
-    return Object.entries(groups).map(([id, gs]) => {
+    const out = [];
+    for (const [n, [id, gs]] of Object.entries(groups).entries()) {
+      if (n % 12 === 11) await new Promise(r => setTimeout(r, 0));
       const geometry = gs.length > 1 ? topojson.merge(topo, gs) : topojson.feature(topo, gs[0]).geometry;
-      return { type: "Feature", id, geometry, c: byId[id] || null };
-    });
+      out.push({ type: "Feature", id, geometry, c: byId[id] || null });
+    }
+    return out;
   }
 
   // ----- small helpers for shapes in a local flat plane (degrees, x scaled by cos(lat)) -----
@@ -159,28 +163,39 @@
     return reliefPromise;
   };
 
+  // Loading is split into small steps with a pause between them, so the splash animation can keep drawing
+  // (on a phone, doing it all in one go froze the splash for the best part of a second).
+  const pause = () => new Promise(r => setTimeout(r, 0));
+
   GG.loadGeo = async function () {
     const [t50, t110, countries] = await Promise.all([
       getJSON("data/world-50m.json"), getJSON("data/world-110m.json"), getJSON("data/countries.json")]);
     const byId = {}, byIso = {};
     countries.forEach(c => { byId[c.id] = c; byIso[c.iso] = c; });
-    const f50 = featuresOf(t50, byId), f110 = featuresOf(t110, byId);
-    const borders50 = topojson.mesh(t50, t50.objects.countries, (a, b) => a !== b);
-    const borders110 = topojson.mesh(t110, t110.objects.countries, (a, b) => a !== b);
-    const coast50 = topojson.mesh(t50, t50.objects.countries, (a, b) => a === b);
-    const coast110 = topojson.mesh(t110, t110.objects.countries, (a, b) => a === b);
+    await pause();
+    const f110 = await featuresOf(t110, byId);
+    await pause();
+    const f50 = await featuresOf(t50, byId);
+    await pause();
+    // border and coastline lines are prepared in advance by tools/build_data.py
+    const borders50 = topojson.feature(t50, t50.objects.borders), borders110 = topojson.feature(t110, t110.objects.borders);
+    const coast50 = topojson.feature(t50, t50.objects.coast), coast110 = topojson.feature(t110, t110.objects.coast);
+    await pause();
 
     // per-feature culling data for the globe: centroid and angular radius
-    [f50, f110].forEach(fs => fs.forEach(f => {
+    for (const fs of [f110, f50]) for (const [n, f] of fs.entries()) {
+      if (n % 25 === 24) await pause();
       f.centroid = d3.geoCentroid(f);
       const b = d3.geoBounds(f);
       f.radius = Math.max(...[[b[0][0], b[0][1]], [b[1][0], b[1][1]], [b[0][0], b[1][1]], [b[1][0], b[0][1]]]
         .map(p => d3.geoDistance(p, f.centroid)));
       if (b[0][0] > b[1][0]) f.radius = Math.PI; // crosses the date line: never cull
-    }));
+    }
+    await pause();
 
-    f50.forEach(f => {
-      const c = f.c; if (!c) return;
+    for (const [n, f] of f50.entries()) {
+      if (n % 12 === 11) await pause();
+      const c = f.c; if (!c) continue;
       c.feature = f;
       c.bounds = d3.geoBounds(f);
       const polys = f.geometry.type === "MultiPolygon" ? f.geometry.coordinates : [f.geometry.coordinates];
@@ -192,7 +207,7 @@
       const latMid = (mb[0][1] + mb[1][1]) / 2;
       c.sizeDeg = Math.max((mb[1][0] - mb[0][0]) * Math.cos(latMid * Math.PI / 180), mb[1][1] - mb[0][1]);
       if (ISLANDS.has(c.iso)) c.shape = islandShape(c, polys.map(p => p[0]));
-    });
+    }
     f110.forEach(f => { if (f.c) f.c.feature110 = f; });
 
     const tuv = byIso.TUV;

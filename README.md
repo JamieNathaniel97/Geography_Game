@@ -1,6 +1,6 @@
-# Geography Game
+# Gaia Quest
 
-Map games for learning every country, capital and flag. It runs offline on an Android phone as an installable web app (PWA). The full brief is in [PLAN.md](PLAN.md).
+*Learn your world.* Map games for learning every country, capital and flag. It runs offline on an Android phone as an installable web app (PWA). The full brief is in [PLAN.md](PLAN.md).
 
 ## Status
 

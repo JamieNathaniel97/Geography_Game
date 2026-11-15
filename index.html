@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-<title>Geography Game</title>
-<meta name="description" content="Learn every country in the world on a map: find the country, offline on your phone.">
+<title>Gaia Quest</title>
+<meta name="description" content="Gaia Quest: learn your world. Map games for every country, capital and flag, offline on your phone.">
 <meta name="theme-color" content="#17262b">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
@@ -14,6 +14,11 @@
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+<div id="splash" aria-label="Gaia Quest, loading">
+  <canvas aria-hidden="true"></canvas>
+  <div class="splashname">Gaia Quest</div>
+  <div class="splashtag">Learn your world</div>
+</div>
 <div id="app">
   <header class="bar">
     <button class="iconbtn" id="menuBtn" type="button" aria-label="New game" aria-haspopup="dialog">
@@ -152,6 +157,7 @@
 <script src="vendor/d3.min.js"></script>
 <script src="vendor/topojson-client.min.js"></script>
 <script src="vendor/d3-geo-projection.min.js"></script>
+<script src="js/splash.js"></script>
 <script src="js/names.js"></script>
 <script src="js/stats.js"></script>
 <script src="js/geo.js"></script>

@@ -237,8 +237,8 @@ Decided 2026-11-15:
 
 ## Polish for later (interest scored 1–5 by the user, 2026-11-15)
 
-- 5: Remember the last game settings and map toggles between visits.
-- 5: A proper app name and splash screen.
+- 5: Remember the last game settings and map toggles between visits. **Done:** borders, terrain, globe/flat and the last game's settings. The Learning card resets each visit, as the user asked.
+- 5: A proper app name and splash screen. **Done:** the app is called **Gaia Quest**, tagline "Learn your world". The splash shows a globe over Europe and Africa turning slowly while its countries light up green, with the name and tagline. It plays while the map loads, lasts at least about 3.4 seconds, and can be tapped away once the app is ready (`js/splash.js`).
 - 3: Light/dark theme switch (the app currently follows the phone's setting).
 - 2: A "How to play" page.
 - 2: Improve the stats page.
