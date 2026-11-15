@@ -93,6 +93,7 @@ CAPITALS = {
     "UKR": ["Kyiv", "Kiev"],
     "XKX": ["Pristina", "Prishtina"],
     "CHE": ["Bern", "Berne"],
+    "GNQ": ["Ciudad de la Paz", "Malabo"],
 }
 # what each capital is for, shown in Learning mode where a country has more than one
 CAPITAL_NOTES = {
@@ -104,6 +105,7 @@ CAPITAL_NOTES = {
     "LKA": "Sri Jayawardenepura Kotte (official), Colombo (commercial centre)",
     "MYS": "Kuala Lumpur (official), Putrajaya (seat of government)",
     "PSE": "Ramallah (administrative), East Jerusalem (proclaimed)",
+    "GNQ": "Ciudad de la Paz (new capital), Malabo (former capital)",
 }
 
 

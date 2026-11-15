@@ -39,7 +39,7 @@
       this.borders = opts.borders !== false;
       this.moving = false;
       this.t = d3.zoomIdentity;
-      this.hits = { islands: [], bubbles: [] };
+      this.hits = { islands: [], bubbles: [], rings: [] }; // filled in by each draw
       this.readColours();
       this.crop = null;
       this.zoom = d3.zoom().scaleExtent([1, MAX_K]).clickDistance(8)

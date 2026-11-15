@@ -414,12 +414,22 @@
   }
 
   // ---------- magnifier inset ----------
+  // The magnifier's map is built once and reused: building a new one each time left the old ones listening to
+  // the same taps, so one tap could be answered twice (right, then "wrong" for the next question).
+  let insetView = null;
   function openInset(ll, span) {
     $("inset").hidden = false;
-    inset = new GG.MapView($("insetMap"), { geo, mode: "flat", flatStyle: main.styleKey, getState, onTap: tap,
-      isTarget: c => c === target, isActive: inRegion, isOpen, borders: main.borders });
-    if (main.terrain) inset.setTerrain(true);
+    if (!insetView) {
+      insetView = new GG.MapView($("insetMap"), { geo, mode: "flat", flatStyle: main.styleKey, getState,
+        onTap: (c, v) => { if (inset) tap(c, v); }, isTarget: c => c === target, isActive: inRegion, isOpen, borders: main.borders });
+    } else {
+      insetView.resize();
+    }
+    inset = insetView;
+    inset.borders = main.borders;
+    inset.setTerrain(!!main.terrain);
     inset.lookAt(ll[0], ll[1], span, false);
+    inset.requestDraw();
   }
   function closeInset() { $("inset").hidden = true; inset = null; }
   $("insetClose").onclick = closeInset;
@@ -552,7 +562,7 @@
       isTarget: c => c === target, isActive: inRegion, isOpen });
     main.lookAt(15, 25, 120, false);
     buildRegionButtons();
-    GG.debug = { main, geo, startGame };
+    GG.debug = { main, geo, startGame, inset: () => insetView };
     setViewButton();
     // testing hooks: ?region=europe&view=flat starts that game; ?at=lon,lat,span and ?terrain=1 adjust the view
     if (REGIONS[q.get("region")] || q.get("view")) {
