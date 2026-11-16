@@ -37,9 +37,12 @@
 
   // Games: find = Find the country, name = Name the countries, findcap = Find the country by its capital,
   // namecap = Name the capitals, explore = Free tap
-  const isFind = () => S.mode === "find" || S.mode === "findcap";
-  const isName = () => S.mode === "name" || S.mode === "namecap";
+  const isFind = () => S.mode === "find" || S.mode === "findcap" || S.mode === "findflag";
+  const isName = () => S.mode === "name" || S.mode === "namecap" || S.mode === "nameflag";
   const caps = () => S.mode === "findcap" || S.mode === "namecap";
+  const flags = () => S.mode === "findflag" || S.mode === "nameflag";
+  // flag image (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
+  const flagSrc = c => (window.GG_FLAGS && window.GG_FLAGS[c.iso]) || `data/flags/${c.iso}.webp`;
   const capital = c => c.capitals[0] || "";
   const label = c => (caps() ? `${c.name}: ${capital(c)}` : c.name);
   let selected = null;   // naming games: the country whose name or capital is being typed
@@ -59,6 +62,7 @@
     if (S.weak && isFind()) list = weakest(list, WEAK_COUNT);
     total = list.length;
     order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null;
+    if (S.mode === "nameflag") buildFlagGrid(); else hideFlagGrid();
     startTime = Date.now();
     startClock();
     closeResults();
@@ -119,7 +123,10 @@
     const mode = S.mode, where = S.region === "world" ? "" : " · " + REGIONS[S.region].name;
     target = isFind() && !finished ? order[idx] || null : null;
     const t = $("target"); t.className = "target";
-    const typing = isName() && selected && !finished;
+    const typing = isName() && !flags() && selected && !finished;
+    // Find by flag shows the flag instead of a name
+    $("targetFlag").hidden = !(S.mode === "findflag" && target);
+    if (S.mode === "findflag" && target) { $("targetFlag").src = flagSrc(target); $("targetFlag").alt = "Which country has this flag?"; }
     $("prev").hidden = $("fwd").hidden = !isFind() || finished;
     $("nameInput").placeholder = caps() ? `Capital of ${selected ? selected.name : ""}` : "Type the name";
     $("giveup").hidden = mode === "explore";
@@ -131,24 +138,24 @@
       t.textContent = "Tap any country";
       $("score").textContent = "Tap any country to learn about it.";
     } else if (isName()) {
-      $("eyebrow").textContent = (finished ? "Finished" : caps() ? "Name the capitals" : "Name the countries") + where;
+      $("eyebrow").textContent = (finished ? "Finished" : flags() ? "Name the flags" : caps() ? "Name the capitals" : "Name the countries") + where;
       if (finished) {
         t.textContent = `${nGood} of ${total} named`;
-        $("score").textContent = `Tap any country to see its ${caps() ? "capital" : "name"}.`;
+        $("score").textContent = flags() ? "Missed flags are shown in red." : `Tap any country to see its ${caps() ? "capital" : "name"}.`;
         $("giveup").textContent = "Play again";
       } else {
-        if (!typing) t.textContent = "Tap a country";
+        if (!typing) t.textContent = flags() ? "Type each flag's country" : "Tap a country";
         $("score").innerHTML = `<b>${nGood}</b> / ${total} named`;
       }
     } else if (finished) {
       $("eyebrow").textContent = "Finished" + where;
       t.textContent = `${nGood} of ${total} right`;
-      $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed · tap any country to see it`;
+      $("score").innerHTML = `<b>${nGood}</b> / ${total} <span class="wrong">· ${nBad} wrong</span> · tap any country to see it`;
       $("giveup").textContent = "Play again";
     } else {
-      $("eyebrow").textContent = (caps() ? "Find by capital" : "Find") + where + (S.weak ? " · knowledge gaps" : "");
-      t.textContent = caps() ? capital(target) : target.name;
-      $("score").innerHTML = `<b>${nGood}</b> right · <b>${nBad}</b> missed · ${order.length} to go`;
+      $("eyebrow").textContent = (S.mode === "findflag" ? "Find by flag" : caps() ? "Find by capital" : "Find") + where + (S.weak ? " · knowledge gaps" : "");
+      t.textContent = S.mode === "findflag" ? "" : caps() ? capital(target) : target.name;
+      $("score").innerHTML = `<b>${nGood}</b> / ${total} <span class="wrong">· ${nBad} wrong</span>`;
     }
     redraw();
   }
@@ -171,7 +178,8 @@
       state[target.iso] = "bad"; nBad++;
       flashing[c.iso] = true; // the tapped country flashes yellow once
       setTimeout(() => { delete flashing[c.iso]; redraw(); }, 450);
-      toast(caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name, caps() ? 2400 : 1800);
+      toast(S.mode === "findflag" ? `Missed: that was the flag of ${target.name}` : caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name,
+        caps() || S.mode === "findflag" ? 2400 : 1800);
     }
     if (inset && view === inset) closeInset();
     next();
@@ -241,7 +249,7 @@
   function showLearnCard(c) {
     const i = c.info || {};
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
-    $("lcFlag").src = (window.GG_FLAGS && window.GG_FLAGS[c.iso]) || `data/flags/${c.iso}.svg`;
+    $("lcFlag").src = flagSrc(c);
     $("lcFlag").alt = `Flag of ${c.name}`;
     $("lcName").textContent = c.name;
     $("lcSub").textContent = [c.cont.join(" and "), i.sub, ...(i.areas || [])].filter(Boolean)
@@ -287,7 +295,8 @@
   $("lcClose").onclick = () => { hideLearnCard(); Object.keys(state).forEach(k => delete state[k]); redraw(); };
 
   // ---------- stats page ----------
-  const MODE_NAMES = { find: "Find countries", name: "Name countries", findcap: "Find by capital", namecap: "Name capitals" };
+  const MODE_NAMES = { find: "Find countries", name: "Name countries", findcap: "Find by capital", namecap: "Name capitals",
+    findflag: "Find by flag", nameflag: "Name the flags" };
   let statsSkill = "country";
   const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
   function openStats() { renderStats(); $("stats").hidden = false; }
@@ -314,7 +323,7 @@
       return `<li><span>${what}</span><span class="snum">${e.c} of ${e.a} right</span></li>`;
     }).join("") : `<li class="empty">Nothing yet. Play a ${skill === "capital" ? "capitals" : "countries"} game and your weakest ones will show here.</li>`;
     // bests (for this skill's games)
-    const modes = skill === "capital" ? ["findcap", "namecap"] : ["find", "name"];
+    const modes = skill === "capital" ? ["findcap", "namecap"] : skill === "flag" ? ["findflag", "nameflag"] : ["find", "name"];
     const bests = Object.entries(St.bests()).filter(([k]) => modes.includes(k.split("|")[0]))
       .map(([k, v]) => { const [m, rg] = k.split("|"); return `<li><span>${MODE_NAMES[m]} · ${REGIONS[rg] ? REGIONS[rg].name : rg}</span><span class="snum">${v.pct}% · ${fmtTime(v.secs)}</span></li>`; });
     $("statsBests").innerHTML = bests.length ? bests.join("") : `<li class="empty">No games finished yet.</li>`;
@@ -341,10 +350,71 @@
     GG.Stats.reset(); resetStatsReset(); renderStats();
   };
 
+  // ---------- game 6: Name the flags (a grid of flags, no map) ----------
+  // Type the country under each flag; it goes green as soon as the name is right and the cursor moves on to
+  // the next unanswered flag. Answer in any order. Same forgiving matching as the other naming games.
+  function buildFlagGrid() {
+    const grid = $("flagGrid");
+    grid.innerHTML = "";
+    order.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "fcard"; card.dataset.iso = c.iso;
+      card.innerHTML = `<img src="${flagSrc(c)}" alt="A flag" loading="lazy"><input type="text" autocomplete="off" autocorrect="off" ` +
+        `autocapitalize="off" spellcheck="false" enterkeyhint="next" aria-label="Country with this flag" placeholder="${(prefs.perRow || 4) >= 6 ? "…" : "Country"}">`;
+      grid.appendChild(card);
+    });
+    $("flagPanel").hidden = false;
+    $("flagPanel").scrollTop = 0;
+  }
+  $("flagGrid").addEventListener("click", e => {
+    const img = e.target.closest(".fcard img"); if (!img) return;
+    const input = img.closest(".fcard").querySelector("input");
+    if (input) input.focus();
+  });
+  // flags per row (3-7), remembered between visits
+  function setPerRow(n) {
+    $("flagGrid").style.setProperty("--per-row", n);
+    $("flagGrid").classList.toggle("dense", n >= 6);
+    $("flagGrid").querySelectorAll("input").forEach(i => { i.placeholder = n >= 6 ? "…" : "Country"; });
+    $("segPerRow").querySelectorAll("button").forEach(b => b.classList.toggle("on", +b.dataset.v === n));
+  }
+  setPerRow(prefs.perRow || 4);
+  $("segPerRow").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    setPerRow(+b.dataset.v); savePrefs({ perRow: +b.dataset.v });
+  });
+  function hideFlagGrid() { $("flagPanel").hidden = true; $("flagGrid").innerHTML = ""; }
+  $("flagGrid").addEventListener("input", e => {
+    const input = e.target, card = input.closest(".fcard"); if (!card || finished) return;
+    const c = geo.byIso[card.dataset.iso], typed = input.value, match = GG.nameMatches(c, typed, "names");
+    if (!match) return; // no reaction until it's right
+    if (!match.exact) toast(`You typed \u201c${typed.trim()}\u201d \u2014 it's spelled \u201c${match.name}\u201d`, 4000);
+    state[c.iso] = "good"; nGood++;
+    order = order.filter(x => x !== c);
+    card.classList.add("good");
+    input.replaceWith(Object.assign(document.createElement("div"), { className: "fname", textContent: c.name }));
+    if (!order.length) { finish(); return; }
+    // move on to the next unanswered flag after this one (wrapping round)
+    const cards = [...$("flagGrid").children], i = cards.indexOf(card);
+    const nextCard = cards.slice(i + 1).concat(cards.slice(0, i)).find(k => !k.classList.contains("good"));
+    const nextInput = nextCard && nextCard.querySelector("input");
+    if (nextInput) { nextInput.focus({ preventScroll: true }); nextCard.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+    show();
+  });
+  function revealFlagGrid() { // after giving up: missed names in red
+    [...$("flagGrid").children].forEach(card => {
+      if (card.classList.contains("good")) return;
+      card.classList.add("bad");
+      const input = card.querySelector("input");
+      if (input) input.replaceWith(Object.assign(document.createElement("div"), { className: "fname", textContent: geo.byIso[card.dataset.iso].name }));
+    });
+  }
+
   // ---------- end of a game: results pop-up ----------
   let newBest = false;
   function finish() {
     finished = true; endTime = Date.now();
+    if (S.mode === "nameflag") { revealFlagGrid(); document.activeElement && document.activeElement.blur(); }
     // naming games: record every country in the region once, named or not
     if (isName()) regionCountries().forEach(c => GG.Stats.answer(S.mode, c.iso, state[c.iso] === "good"));
     newBest = GG.Stats.game(S.mode, S.region, nGood, total, Math.round((endTime - startTime) / 1000), gaveUp, S.weak && isFind());
@@ -358,7 +428,7 @@
     const named = isName();
     $("resultsTitle").textContent = gaveUp === "time" ? "Time's up!" : gaveUp ? "Game over" : pct === 100 ? "Perfect!" : "Finished!";
     $("resultsScore").textContent = `${nGood} / ${total}`;
-    $("resultsWhat").textContent = named ? (caps() ? "capitals named" : "countries named") : "right first time";
+    $("resultsWhat").textContent = named ? (flags() ? "flags named" : caps() ? "capitals named" : "countries named") : "right first time";
     const missed = total - nGood;
     $("resultsDetail").textContent = `${pct}% · ${missed} ${named ? "not named" : "missed"} · ${time}`;
     $("resultsBest").hidden = !newBest;
@@ -444,7 +514,7 @@
 
   // ---------- setup screen (New game) ----------
   const pick = { mode: "find", region: "world", view: "globe", weak: false, timer: false, paceFind: 5, paceName: 10 };
-  const isNameMode = m => m === "name" || m === "namecap";
+  const isNameMode = m => m === "name" || m === "namecap" || m === "nameflag";
   function segSelect(el, v) { el.querySelectorAll("button").forEach(b => b.classList.toggle("on", b.dataset.v === v)); }
   function buildRegionButtons() {
     $("regions").innerHTML = "";
@@ -483,7 +553,7 @@
   $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); showOptions(); } });
   // Options tab: knowledge gaps only for the Find games; the timer for every scored game
   function showOptions() {
-    const find = pick.mode === "find" || pick.mode === "findcap";
+    const find = pick.mode === "find" || pick.mode === "findcap" || pick.mode === "findflag";
     $("questionsField").hidden = !find;
     $("questionsNA").hidden = find;
     $("timerField").hidden = pick.mode === "explore";
@@ -529,12 +599,13 @@
       ...(region === "world" ? { worldView: view } : {}) });
     // region games are cropped to the region; the jump bar is swapped for a "Whole region" button
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
-    $("jumpbar").hidden = region !== "world";
+    $("jumpbar").hidden = region !== "world" || mode === "nameflag"; // no map in Name the flags
     $("regionBtn").hidden = region === "world";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
     hideLearnCard();
+    if (mode !== "nameflag") hideFlagGrid();
     if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; startTime = 0; clearInterval(clockTimer); tickClock(); show(); } else newGame();
   }
 
@@ -575,7 +646,7 @@
       const g = prefs.game || {};
       S.weak = !!g.weak; S.timer = !!g.timer; S.paceFind = g.paceFind || 5; S.paceName = g.paceName || 10;
       const region = REGIONS[g.region] ? g.region : "world";
-      const mode = ["find", "name", "findcap", "namecap", "explore"].includes(g.mode) ? g.mode : "find";
+      const mode = ["find", "name", "findcap", "namecap", "findflag", "nameflag", "explore"].includes(g.mode) ? g.mode : "find";
       startGame(mode, region, region === "world" ? (prefs.worldView === "flat" ? "flat" : "globe") : "flat");
       openSetup(); // first screen: choose a game
     }

@@ -7,12 +7,13 @@
 (function () {
   const GG = (window.GG = window.GG || {});
   const KEY = "gg.stats.v1";
-  const empty = () => ({ countries: { country: {}, capital: {} }, bests: {}, games: [] });
+  const empty = () => ({ countries: { country: {}, capital: {}, flag: {} }, bests: {}, games: [] });
   let data = empty();
   try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.countries) data = Object.assign(empty(), s); } catch (e) { /* fresh start */ }
+  data.countries.flag = data.countries.flag || {}; // added with the flag games
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* storage full or blocked */ } };
 
-  const skillOf = mode => (mode === "findcap" || mode === "namecap" ? "capital" : "country");
+  const skillOf = mode => (mode === "findcap" || mode === "namecap" ? "capital" : mode === "findflag" || mode === "nameflag" ? "flag" : "country");
 
   GG.Stats = {
     skillOf,

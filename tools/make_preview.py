@@ -38,8 +38,8 @@ def main(out):
 
     body = re.sub(r'<script src="([^"]+)"></script>', script, body)
     # flags go inside the page (the test artifact has a file limit; the real app uses data/flags/)
-    flags = {p.stem: "data:image/svg+xml;base64," + base64.b64encode(p.read_bytes()).decode()
-             for p in sorted((ROOT / "data" / "flags").glob("*.svg"))}
+    flags = {p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
+             for p in sorted((ROOT / "data" / "flags").glob("*.webp"))}
     body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";</script>\n" + body
     page = "\n".join([title, '<meta name="claude:viewport-fit-sides" content="cover">', fonts,
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])

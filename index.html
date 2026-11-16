@@ -21,20 +21,23 @@
 </div>
 <div id="app">
   <header class="bar">
+    <div class="barside">
     <button class="iconbtn" id="menuBtn" type="button" aria-label="New game" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
     <button class="iconbtn" id="statsBtn" type="button" aria-label="Your stats" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
     </button>
+    </div>
     <div class="prompt">
       <div class="eyebrow" id="eyebrow">Find</div>
       <div class="target" id="target">Loading map…</div>
+      <img class="targetflag" id="targetFlag" alt="" hidden>
       <input class="nameinput" id="nameInput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off"
         spellcheck="false" enterkeyhint="done" placeholder="Type the name" aria-label="Country name" hidden>
     </div>
-    <button class="btn" id="nameClose" type="button" aria-label="Stop naming this country" hidden>✕</button>
-    <div class="arrows">
+    <div class="barside right">
+      <button class="btn" id="nameClose" type="button" aria-label="Stop naming this country" hidden>✕</button>
       <button class="btn arrow" id="prev" type="button" aria-label="Previous country">‹</button>
       <button class="btn arrow" id="fwd" type="button" aria-label="Next country">›</button>
     </div>
@@ -52,6 +55,12 @@
       <button class="chip on" id="bordersBtn" type="button" aria-pressed="true">Borders</button>
       <button class="chip" id="terrainBtn" type="button" aria-pressed="false">Terrain</button>
       <button class="chip" id="magBtn" type="button" aria-pressed="false">Magnifier</button>
+    </div>
+    <div class="flagpanel" id="flagPanel" hidden>
+      <div class="rowpick"><span>Flags per row</span>
+        <div class="seg" id="segPerRow"><button data-v="3" type="button">3</button><button data-v="4" type="button">4</button><button data-v="5" type="button">5</button><button data-v="6" type="button">6</button><button data-v="7" type="button">7</button></div>
+      </div>
+      <div class="flaggrid" id="flagGrid"></div>
     </div>
     <div class="toast" id="toast" hidden></div>
     <div class="learncard" id="learnCard" hidden>
@@ -83,10 +92,10 @@
     <div class="field"><span class="label">Game</span>
       <div class="gamegroups" id="segGame">
         <details open><summary>Find <small>tap the country on the map</small></summary>
-          <div class="games"><button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button type="button" disabled>By flag <small>soon</small></button></div>
+          <div class="games"><button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button data-v="findflag" type="button">By flag</button></div>
         </details>
         <details><summary>Name <small>type the answer</small></summary>
-          <div class="games"><button data-v="name" type="button">Countries</button><button data-v="namecap" type="button">Capitals</button><button type="button" disabled>Flags <small>soon</small></button></div>
+          <div class="games"><button data-v="name" type="button">Countries</button><button data-v="namecap" type="button">Capitals</button><button data-v="nameflag" type="button">Flags</button></div>
         </details>
         <details><summary>Learn <small>no score</small></summary>
           <div class="games"><button data-v="explore" type="button">Learning mode</button></div>
@@ -138,7 +147,7 @@
 <div class="overlay" id="stats" hidden>
   <div class="sheet statssheet" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
     <div class="sheethead"><h2 id="statsTitle">Your stats</h2><button class="btn" id="statsClose" type="button">Close</button></div>
-    <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button></div>
+    <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button><button data-v="flag" type="button">Flags</button></div>
     <section><h3>How well you know each region</h3><p class="hint2">Known = right at least 3 times in 4.</p><div id="statsRegions"></div></section>
     <section><h3>Weakest</h3><ul class="slist" id="statsWeak"></ul></section>
     <section><h3>Personal bests</h3><ul class="slist" id="statsBests"></ul></section>

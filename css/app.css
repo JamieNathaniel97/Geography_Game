@@ -29,9 +29,11 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .gutter, .bar, .subbar, .jumpbar {
   padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
 
-.bar { background: var(--panel); display: flex; align-items: center; gap: 10px; padding-block: 8px 2px; }
+.bar { background: var(--panel); display: grid; grid-template-columns: 92px minmax(0, 1fr) 92px; align-items: center; gap: 8px; padding-block: 8px 2px; }
+.barside { display: flex; gap: 6px; align-items: center; }
+.barside.right { justify-content: flex-end; }
 .iconbtn { border: 0; background: transparent; padding: 6px; border-radius: 8px; display: grid; place-items: center; color: var(--muted); }
-.prompt { flex: 1; min-width: 0; }
+.prompt { min-width: 0; text-align: center; display: grid; justify-items: center; }
 .eyebrow { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .target { font-family: var(--display); font-weight: 700; font-size: 25px; line-height: 1.1;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -39,13 +41,14 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nameinput { width: 100%; font: 600 20px var(--display); color: var(--fg); background: var(--bg); border: 2px solid var(--accent);
   border-radius: 8px; padding: 5px 10px; margin-top: 2px; outline: none; }
 .nameinput::placeholder { color: var(--muted); font-weight: 500; }
-.arrows { display: flex; gap: 6px; }
+
 .btn { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 7px 12px; font-weight: 500; }
-.btn.arrow { font-size: 24px; line-height: 1; padding: 4px 14px 6px; }
+.btn.arrow { font-size: 24px; line-height: 1; padding: 4px 12px 6px; }
 .btn.wide { width: 100%; }
 .subbar { background: var(--panel); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;
   gap: 12px; padding-block: 2px 8px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .score b { color: var(--fg); font-weight: 600; }
+.score .wrong { color: var(--muted); }
 .clock { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--fg); }
 .clock.low { color: var(--bad); }
 .linkbtn { border: 0; background: transparent; color: var(--accent); font-weight: 600; padding: 4px 2px; }
@@ -115,7 +118,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   max-height: calc(100% - 20px); overflow-y: auto; }
 .learncard.expanded { max-height: 70%; }
 .lchead { display: flex; gap: 12px; align-items: center; }
-.learncard img { width: 84px; height: 63px; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); flex: none; background: var(--bg); }
+.learncard img { width: 84px; height: 63px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
 .lcbody { flex: 1; min-width: 0; display: grid; gap: 2px; }
 .lcname { font: 700 22px/1.1 var(--display); }
 .lcsub { font-size: 12px; color: var(--muted); }
@@ -151,6 +154,29 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 #splash.play .splashtag { animation: splashUp .7s ease-out 1.6s forwards; }
 @keyframes splashUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { #splash .splashname, #splash .splashtag { opacity: 1; animation: none !important; } }
+/* the flag to find: big enough to study, scaling with the screen, in its own proportions */
+.targetflag { display: block; height: clamp(50px, 12vh, 147px); width: auto; max-width: 100%; object-fit: contain; margin: 4px auto 2px; filter: drop-shadow(0 1px 3px rgba(0,0,0,.25)); }
+.flagpanel { position: absolute; inset: 0; z-index: 4; overflow-y: auto; background: var(--bg); -webkit-overflow-scrolling: touch;
+  padding: 12px max(12px, env(safe-area-inset-right, 0px)) 24px max(12px, env(safe-area-inset-left, 0px)); }
+.flaggrid { display: grid; grid-template-columns: repeat(var(--per-row, 4), minmax(0, 1fr)); gap: 8px; }
+/* flags-per-row picker (for testing grid sizes) */
+.rowpick { position: sticky; top: -12px; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 8px; margin: -12px -12px 10px;
+  padding: 8px 12px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.rowpick .seg button { padding: 5px 11px; }
+.fcard { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 6px; display: grid; gap: 5px; min-width: 0; }
+.fcard img { cursor: pointer; width: 100%; aspect-ratio: 3 / 2; object-fit: contain; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
+.fcard input { width: 100%; min-width: 0; font: 500 14px var(--body); color: var(--fg); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px; outline: none; }
+.fcard input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.fcard .fname { font: 600 14px/1.2 var(--body); padding: 5px 2px; overflow-wrap: break-word; hyphens: auto; }
+/* 6 or 7 per row: tighter cards and smaller text so names and boxes still fit */
+.flaggrid.dense { gap: 6px; }
+.flaggrid.dense .fcard { padding: 4px; gap: 3px; border-radius: 8px; }
+.flaggrid.dense .fcard input { font-size: 12px; padding: 4px 5px; }
+.flaggrid.dense .fcard .fname { font-size: 11.5px; padding: 3px 1px; }
+.fcard.good { border-color: var(--good); } .fcard.good .fname { color: var(--good); }
+.fcard.bad { border-color: var(--bad); } .fcard.bad .fname { color: var(--bad); }
+.toast { z-index: 6; }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
 .inbox { background: var(--panel); border-radius: 12px; overflow: hidden; width: min(560px, 100%); height: min(70vh, 560px);
   display: flex; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,.35); }

@@ -1,6 +1,6 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "gaia-quest-v14";
+const CACHE = "gaia-quest-v18";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
@@ -15,7 +15,7 @@ self.addEventListener("install", event => {
     // the flags (Learning mode), one per country in the country list
     try {
       const cs = await (await fetch("data/countries.json")).json();
-      await cache.addAll(cs.map(c => `data/flags/${c.iso}.svg`));
+      await cache.addAll(cs.map(c => `data/flags/${c.iso}.webp`));
     } catch (e) { /* they'll be cached as they're viewed */ }
     // the sharper terrain tiles (about 9 MB), listed in their index, so terrain works offline when zoomed in
     try {
