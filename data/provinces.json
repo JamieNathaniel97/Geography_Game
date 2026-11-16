@@ -1,0 +1,545 @@
+[
+{
+"iso": "AB",
+"id": "AB",
+"name": "Alberta",
+"names": [
+"Alberta"
+],
+"capitals": [
+"Edmonton"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "AB",
+"info": {
+"abbr": "AB",
+"kind": "Province",
+"city": "Calgary",
+"year": 1905,
+"pop": 4262635,
+"popYear": "2021 census",
+"region": "Prairies",
+"tz": "Mountain",
+"origin": "Princess Louise Caroline Alberta, a daughter of Queen Victoria",
+"high": [
+"Mount Columbia",
+3747
+],
+"area": 661848,
+"bird": "Great horned owl",
+"flower": "Wild rose",
+"areaRank": 6
+},
+"capLL": [
+[
+-113.502,
+53.552
+]
+]
+},
+{
+"iso": "BC",
+"id": "BC",
+"name": "British Columbia",
+"names": [
+"British Columbia"
+],
+"capitals": [
+"Victoria"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "BC",
+"info": {
+"abbr": "BC",
+"kind": "Province",
+"city": "Vancouver",
+"year": 1871,
+"pop": 5000879,
+"popYear": "2021 census",
+"region": "West Coast",
+"tz": "Pacific; Mountain (the northeast and the East Kootenays)",
+"origin": "The Columbia River, named after the ship Columbia; \"British\" set it apart from the American Columbia district",
+"high": [
+"Mount Fairweather",
+4663
+],
+"area": 944735,
+"bird": "Steller's jay",
+"flower": "Pacific dogwood",
+"areaRank": 5
+},
+"capLL": [
+[
+-123.35,
+48.433
+]
+]
+},
+{
+"iso": "MB",
+"id": "MB",
+"name": "Manitoba",
+"names": [
+"Manitoba"
+],
+"capitals": [
+"Winnipeg"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MB",
+"info": {
+"abbr": "MB",
+"kind": "Province",
+"city": "",
+"year": 1870,
+"pop": 1342153,
+"popYear": "2021 census",
+"region": "Prairies",
+"tz": "Central",
+"origin": "Probably Cree or Ojibwe for \"strait of the spirit\", after the narrows of Lake Manitoba",
+"high": [
+"Baldy Mountain",
+832
+],
+"area": 647797,
+"bird": "Great grey owl",
+"flower": "Prairie crocus",
+"areaRank": 8
+},
+"capLL": [
+[
+-97.166,
+49.883
+]
+]
+},
+{
+"iso": "NB",
+"id": "NB",
+"name": "New Brunswick",
+"names": [
+"New Brunswick"
+],
+"capitals": [
+"Fredericton"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NB",
+"info": {
+"abbr": "NB",
+"kind": "Province",
+"city": "Moncton",
+"year": 1867,
+"pop": 775610,
+"popYear": "2021 census",
+"region": "Atlantic",
+"tz": "Atlantic",
+"origin": "The German duchy of Brunswick-Lüneburg, the family home of King George III",
+"high": [
+"Mount Carleton",
+817
+],
+"area": 72908,
+"bird": "Black-capped chickadee",
+"flower": "Purple violet",
+"areaRank": 11
+},
+"capLL": [
+[
+-66.633,
+45.95
+]
+]
+},
+{
+"iso": "NL",
+"id": "NL",
+"name": "Newfoundland and Labrador",
+"names": [
+"Newfoundland and Labrador",
+"Newfoundland"
+],
+"capitals": [
+"St. John's",
+"St Johns",
+"Saint John's"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NL",
+"info": {
+"abbr": "NL",
+"kind": "Province",
+"city": "",
+"year": 1949,
+"pop": 510550,
+"popYear": "2021 census",
+"region": "Atlantic",
+"tz": "Newfoundland; Atlantic (most of Labrador)",
+"origin": "Newfoundland: the \"new found land\"; Labrador probably after the Portuguese explorer João Fernandes Lavrador",
+"high": [
+"Mount Caubvick",
+1652
+],
+"area": 405212,
+"bird": "Atlantic puffin",
+"flower": "Pitcher plant",
+"areaRank": 10
+},
+"capLL": [
+[
+-52.681,
+47.585
+]
+]
+},
+{
+"iso": "NT",
+"id": "NT",
+"name": "Northwest Territories",
+"names": [
+"Northwest Territories",
+"NWT",
+"Northwest Territory"
+],
+"capitals": [
+"Yellowknife"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NT",
+"info": {
+"abbr": "NT",
+"kind": "Territory",
+"city": "",
+"year": 1870,
+"pop": 41070,
+"popYear": "2021 census",
+"region": "The North",
+"tz": "Mountain",
+"origin": "The old North-Western Territory, bought from the Hudson's Bay Company in 1870",
+"high": [
+"Mount Nirvana",
+2773
+],
+"area": 1346106,
+"bird": "Gyrfalcon",
+"flower": "Mountain avens",
+"areaRank": 3
+},
+"capLL": [
+[
+-114.397,
+62.442
+]
+]
+},
+{
+"iso": "NS",
+"id": "NS",
+"name": "Nova Scotia",
+"names": [
+"Nova Scotia"
+],
+"capitals": [
+"Halifax"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NS",
+"info": {
+"abbr": "NS",
+"kind": "Province",
+"city": "",
+"year": 1867,
+"pop": 969383,
+"popYear": "2021 census",
+"region": "Atlantic",
+"tz": "Atlantic",
+"origin": "Latin for \"New Scotland\"",
+"high": [
+"White Hill",
+532
+],
+"area": 55284,
+"bird": "Osprey",
+"flower": "Mayflower",
+"areaRank": 12
+},
+"capLL": [
+[
+-63.6,
+44.65
+]
+]
+},
+{
+"iso": "NU",
+"id": "NU",
+"name": "Nunavut",
+"names": [
+"Nunavut"
+],
+"capitals": [
+"Iqaluit"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NU",
+"info": {
+"abbr": "NU",
+"kind": "Territory",
+"city": "",
+"year": 1999,
+"pop": 36858,
+"popYear": "2021 census",
+"region": "The North",
+"tz": "Eastern; Central; Mountain",
+"origin": "Inuktitut for \"our land\"",
+"high": [
+"Barbeau Peak",
+2616
+],
+"area": 2093190,
+"bird": "Rock ptarmigan",
+"flower": "Purple saxifrage",
+"areaRank": 1
+},
+"capLL": [
+[
+-68.5,
+63.75
+]
+]
+},
+{
+"iso": "ON",
+"id": "ON",
+"name": "Ontario",
+"names": [
+"Ontario"
+],
+"capitals": [
+"Toronto"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "ON",
+"info": {
+"abbr": "ON",
+"kind": "Province",
+"city": "",
+"year": 1867,
+"pop": 14223942,
+"popYear": "2021 census",
+"region": "Central",
+"tz": "Eastern; Central (the northwest)",
+"origin": "Lake Ontario; an Iroquoian word often given as \"great lake\" or \"beautiful water\"",
+"high": [
+"Ishpatina Ridge",
+693
+],
+"area": 1076395,
+"bird": "Common loon",
+"flower": "White trillium",
+"areaRank": 4
+},
+"capLL": [
+[
+-79.422,
+43.702
+]
+]
+},
+{
+"iso": "PE",
+"id": "PE",
+"name": "Prince Edward Island",
+"names": [
+"Prince Edward Island",
+"PEI",
+"PE Island"
+],
+"capitals": [
+"Charlottetown"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "PE",
+"info": {
+"abbr": "PE",
+"kind": "Province",
+"city": "",
+"year": 1873,
+"pop": 154331,
+"popYear": "2021 census",
+"region": "Atlantic",
+"tz": "Atlantic",
+"origin": "Prince Edward, Duke of Kent, the father of Queen Victoria",
+"high": [
+"Near Springton",
+142
+],
+"area": 5660,
+"bird": "Blue jay",
+"flower": "Pink lady's slipper",
+"areaRank": 13
+},
+"capLL": [
+[
+-63.131,
+46.249
+]
+]
+},
+{
+"iso": "QC",
+"id": "QC",
+"name": "Quebec",
+"names": [
+"Quebec"
+],
+"capitals": [
+"Quebec City",
+"Quebec"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "QC",
+"info": {
+"abbr": "QC",
+"kind": "Province",
+"city": "Montreal",
+"year": 1867,
+"pop": 8501833,
+"popYear": "2021 census",
+"region": "Central",
+"tz": "Eastern; Atlantic (the Magdalen Islands and the far east)",
+"origin": "Algonquin for \"where the river narrows\", at Quebec City",
+"high": [
+"Mont D'Iberville",
+1652
+],
+"area": 1542056,
+"bird": "Snowy owl",
+"flower": "Blue flag iris",
+"areaRank": 2
+},
+"capLL": [
+[
+-71.246,
+46.84
+]
+]
+},
+{
+"iso": "SK",
+"id": "SK",
+"name": "Saskatchewan",
+"names": [
+"Saskatchewan"
+],
+"capitals": [
+"Regina"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "SK",
+"info": {
+"abbr": "SK",
+"kind": "Province",
+"city": "Saskatoon",
+"year": 1905,
+"pop": 1132505,
+"popYear": "2021 census",
+"region": "Prairies",
+"tz": "Central (no daylight saving); Mountain (around Lloydminster)",
+"origin": "The Saskatchewan River; Cree kisiskāciwani-sīpiy, \"swift-flowing river\"",
+"high": [
+"Cypress Hills",
+1392
+],
+"area": 651036,
+"bird": "Sharp-tailed grouse",
+"flower": "Western red lily",
+"areaRank": 7
+},
+"capLL": [
+[
+-104.617,
+50.45
+]
+]
+},
+{
+"iso": "YT",
+"id": "YT",
+"name": "Yukon",
+"names": [
+"Yukon",
+"Yukon Territory",
+"The Yukon"
+],
+"capitals": [
+"Whitehorse"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "YT",
+"info": {
+"abbr": "YT",
+"kind": "Territory",
+"city": "",
+"year": 1898,
+"pop": 40232,
+"popYear": "2021 census",
+"region": "The North",
+"tz": "Mountain (all year)",
+"origin": "The Yukon River; Gwich'in for \"great river\"",
+"high": [
+"Mount Logan",
+5959
+],
+"area": 482443,
+"bird": "Common raven",
+"flower": "Fireweed",
+"areaRank": 9
+},
+"capLL": [
+[
+-135.05,
+60.717
+]
+]
+}
+]

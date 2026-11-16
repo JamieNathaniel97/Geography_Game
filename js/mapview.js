@@ -16,6 +16,8 @@
     natural: { name: "Curved (old)", factory: () => d3.geoNaturalEarth1(), raw: d3.geoNaturalEarth1Raw, wrap: false },
     // the usual US map: Albers projection with Alaska and Hawaii as insets, fitted to the states themselves
     usa: { name: "US states", factory: () => d3.geoAlbersUsa(), wrap: false, fit: true },
+    // Canada: Lambert conformal conic, as Statistics Canada draws it (standard parallels 49°N and 77°N)
+    canada: { name: "Canada", factory: () => d3.geoConicConformal().parallels([49, 77]).rotate([91.87, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country

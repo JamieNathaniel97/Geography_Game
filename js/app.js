@@ -4,11 +4,26 @@
   const GG = window.GG;
   const $ = id => document.getElementById(id);
 
-  // data: "world" (countries) or "us" (US states, build 3)
+  // data: "world" (countries), or a country map: "us" (US states, build 3), "ca" (Canada's provinces and territories)
   const S = { mode: "find", region: "world", magnify: false, data: "world" };
-  let geoWorld = null, geoUS = null;
-  const noun = () => (S.data === "us" ? "state" : "country");
-  const nouns = () => (S.data === "us" ? "states" : "countries");
+  let geoWorld = null, geoUS = null, geoCA = null;
+  // each country map: what its parts are called, its region key and map style, and how its data loads
+  const DATASETS = {
+    world: { noun: "country", nouns: "countries", Nouns: "Countries" },
+    us: { noun: "state", nouns: "states", Nouns: "States", region: "usa", style: "usa", count: 50,
+      load: async () => (geoUS = geoUS || await GG.loadUS()) },
+    ca: { noun: "province or territory", nouns: "provinces and territories", Nouns: "Provinces & territories",
+      region: "canada", style: "canada", count: 13,
+      titles: { tapAny: "Tap to learn", tapOne: "Tap one on the map", flagEach: "Name each flag" }, load: async () => (geoCA = geoCA || await GG.loadCA(geoWorld.lakes)) },
+  };
+  const isCountryMap = d => d === "us" || d === "ca";
+  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : geoWorld); // null until a country map has loaded
+  const dataOfRegion = r => Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
+  const noun = () => DATASETS[S.data].noun;
+  // the big title in the top bar: shorter wording where the usual one is too long to fit
+  const title = (key, usual) => (DATASETS[S.data].titles || {})[key] || usual;
+  const phWord = () => ({ world: "Country", us: "State", ca: "Province" })[S.data]; // flag grid boxes
+  const nouns = () => DATASETS[S.data].nouns;
 
   // Remembered between visits, on this phone: map toggles and the last game's settings.
   const PREFS_KEY = "gg.prefs.v1";
@@ -35,6 +50,7 @@
     carib:    { name: "Caribbean",     test: c => c.car,                            view: { globe: [-72.5, 18, 25.7],  flat: [-72.5, 18, 25.7] },  crop: [[-87, 9], [-58, 28]] },
     samerica: { name: "South America", test: c => c.cont.includes("South America"), view: { globe: [-58, -21.5, 44.7], flat: [-58, -24, 56] },     crop: [[-93, -57], [-33, 14]] },
     usa:      { name: "United States", us: true, test: () => true }, // the whole US map (US states games)
+    canada:   { name: "Canada", us: true, test: () => true },        // the whole Canada map (provinces games)
     oceania:  { name: "Oceania",       test: c => c.cont.includes("Oceania"),       view: { globe: [167, -16, 74.3],   flat: [167, -16, 74.3] },   crop: [[110, -50], [212, 22]] },
   };
   const inRegion = c => (S.region === "world" || REGIONS[S.region].test(c)) && !(tlYear < 1959 && c.info && c.info.year > tlYear);
@@ -48,7 +64,7 @@
   const flags = () => S.mode === "findflag" || S.mode === "nameflag";
   // flag image (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
   const flagSrc = c => {
-    const key = (geoUS && geoUS.byIso[c.iso] === c ? "us/" : "") + c.iso; // a state (also shown on the world Learning map)
+    const key = c.flagKey || c.iso; // states and provinces have their own folder (us/, ca/)
     return (window.GG_FLAGS && window.GG_FLAGS[key]) || `data/flags/${key}.webp`;
   };
   const capital = c => c.capitals[0] || "";
@@ -150,7 +166,7 @@
     resetGiveUp();
     if (mode === "explore") {
       $("eyebrow").textContent = "Learning mode" + where;
-      t.textContent = `Tap any ${noun()}`;
+      t.textContent = title("tapAny", `Tap any ${noun()}`);
       $("score").textContent = `Tap any ${noun()} to learn about it.`;
     } else if (isName()) {
       $("eyebrow").textContent = (finished ? "Finished" : flags() ? "Name the flags" : caps() ? "Name the capitals" : `Name the ${nouns()}`) + where;
@@ -159,7 +175,7 @@
         $("score").textContent = flags() ? "Missed flags are shown in red." : `Tap any ${noun()} to see its ${caps() ? "capital" : "name"}.`;
         $("giveup").textContent = "Play again";
       } else {
-        if (!typing) t.textContent = flags() ? `Type each flag's ${noun()}` : `Tap a ${noun()}`;
+        if (!typing) t.textContent = flags() ? title("flagEach", `Type each flag's ${noun()}`) : title("tapOne", `Tap a ${noun()}`);
         $("score").innerHTML = `<b>${nGood}</b> / ${total} named`;
       }
     } else if (finished) {
@@ -276,6 +292,7 @@
   function showLearnCard(c) {
     const i = c.info || {};
     if (geoUS && geoUS.byIso[c.iso] === c) { showStateCard(c, i); return; }
+    if (geoCA && geoCA.byIso[c.iso] === c) { showProvinceCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
     $("lcFlag").src = flagSrc(c);
     $("lcFlag").alt = `Flag of ${c.name}`;
@@ -313,6 +330,36 @@
   }
   // US states: flag, region and abbreviation, capital, population; More facts in groups, like the country card
   const factGroup = (title, rows) => { const h = facts(rows); return h ? `<h4>${title}</h4><dl class="lcfacts">${h}</dl>` : ""; };
+  // Canada's provinces and territories (2021 census, areas from Statistics Canada)
+  function showProvinceCard(c, i) {
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = `${i.kind} · ${i.region} · ${i.abbr}`;
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    const hi = i.high;
+    const joined = i.year === 1867 ? "1867, at Confederation (a founding province)"
+      : c.iso === "NU" ? "1999, split from the Northwest Territories"
+      : c.iso === "YT" ? "1898, split from the Northwest Territories" : String(i.year);
+    $("lcMore").innerHTML =
+      factGroup("People", [
+        ["Largest city", i.city || `${c.capitals[0]} (the capital)`],
+      ]) +
+      factGroup("Land", [
+        ["Area", i.area ? `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 13` : ""],
+        ["Highest point", hi ? `${hi[0]}, ${num(hi[1])} m (${num(Math.round(hi[1] * 3.28084))} ft)` : ""],
+        [/;/.test(i.tz || "") ? "Time zones" : "Time zone", i.tz],
+      ]) +
+      factGroup("History", [
+        ["Part of Canada since", joined],
+        ["Name comes from", i.origin],
+      ]) +
+      factGroup(i.kind === "Territory" ? "Territorial symbols" : "Provincial symbols", [
+        ["Bird", i.bird],
+        ["Flower", i.flower],
+      ]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
   function showStateCard(c, i) {
     $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
     $("lcName").textContent = c.name;
@@ -356,7 +403,7 @@
   // `unit` names the parts (States, Provinces, Counties); `soon` ones are listed but can't be opened yet.
   const COUNTRY_MAPS = {
     USA: { name: "United States", focus: "The U.S.", cont: "North America", unit: "States", data: "us", region: "usa" },
-    CAN: { name: "Canada", focus: "Canada", cont: "North America", unit: "Provinces", soon: true },
+    CAN: { name: "Canada", focus: "Canada", cont: "North America", unit: "Provinces & territories", data: "ca", region: "canada" },
     GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", soon: true },
   };
   let focusOn = null;
@@ -369,28 +416,36 @@
   $("focusBtn").onclick = () => { if (focusOn) startGame("explore", focusOn.region, "flat", focusOn.data); };
   $("worldBtn").onclick = () => startGame("explore", "world", prefs.worldView || "globe", "world");
   $("lcClose").onclick = () => { hideLearnCard(); selectSub(null); Object.keys(state).forEach(k => delete state[k]); redraw(); };
-  // ---------- Reservations layer (US Learning map only; too heavy for the world globe) ----------
-  // US reservations and Oklahoma tribal areas. Canada's reserves are in data/tribal-ca.json for a future Canada map.
-  let tribal = null, tribalLoading = false, resAfterSplash = false, resOn = !!prefs.reserves;
+  // ---------- Reservations layer (country Learning maps only; too heavy for the world globe) ----------
+  // US: reservations and Oklahoma tribal areas (US Census). Canada: First Nations reserves, and Indigenous settlement
+  // and owned lands (Natural Resources Canada). One file per country, loaded the first time it's needed.
+  const RES = {
+    us: { file: "data/tribal-us.json", label: "Reservations", credit: "Reservations: US Census Bureau." },
+    ca: { file: "data/tribal-ca.json", label: "Reserves",
+      credit: "Reserves: Natural Resources Canada. Contains information licensed under the Open Government Licence – Canada." },
+  };
+  const tribal = {}, tribalLoading = {};
+  let resAfterSplash = false, resOn = !!prefs.reserves;
   function showReserves() {
-    const learning = S.mode === "explore" && S.data === "us";
-    // loaded the first time it's needed, but not under the splash (preparing them made the splash jumpy)
-    if (learning && resOn && !tribal && GG.splashShowing) resAfterSplash = true;
-    else if (learning && resOn && !tribal && !tribalLoading) {
-      tribalLoading = true; toast("Loading reservations…");
-      fetch("data/tribal-us.json").then(r => r.json()).then(g => { tribal = GG.fixWinding(g); toast(null); showReserves(); })
-        .catch(() => { toast("Couldn't load the reservations.", 2000); resOn = false; showReserves(); })
-        .finally(() => { tribalLoading = false; });
+    const d = S.data, learning = S.mode === "explore" && !!RES[d];
+    // not loaded under the splash (preparing them made the splash jumpy)
+    if (learning && resOn && !tribal[d] && GG.splashShowing) resAfterSplash = true;
+    else if (learning && resOn && !tribal[d] && !tribalLoading[d]) {
+      tribalLoading[d] = true; toast(`Loading ${RES[d].label.toLowerCase()}…`);
+      fetch(RES[d].file).then(r => r.json()).then(g => { tribal[d] = GG.fixWinding(g); toast(null); showReserves(); })
+        .catch(() => { toast(`Couldn't load the ${RES[d].label.toLowerCase()}.`, 2000); resOn = false; showReserves(); })
+        .finally(() => { tribalLoading[d] = false; });
     }
     $("resBtn").hidden = !learning;
-    const on = learning && resOn && tribal;
+    if (learning) { $("resBtn").textContent = RES[d].label; $("resCredit").textContent = RES[d].credit; }
+    const on = learning && resOn && tribal[d];
     $("resBtn").classList.toggle("on", learning && resOn); $("resBtn").setAttribute("aria-pressed", learning && resOn);
     $("resCredit").hidden = !on;
-    main.setReserves(on ? tribal : null);
+    main.setReserves(on ? tribal[d] : null);
   }
   $("resBtn").onclick = () => { resOn = !resOn; savePrefs({ reserves: resOn }); showReserves(); };
   const RES_KIND = { Reservation: "Reservation, United States", "Oklahoma tribal area": "Oklahoma tribal statistical area, United States",
-    Reserve: "First Nations reserve or settlement land, Canada" };
+    Reserve: "Indigenous reserve or settlement land, Canada" };
 
   // US states on the world Learning map (loaded the first time they're needed)
   function useSub(on) {
@@ -453,22 +508,24 @@
   // ---------- stats page ----------
   const MODE_NAMES = { find: "Find countries", name: "Name countries", findcap: "Find by capital", namecap: "Name capitals",
     findflag: "Find by flag", nameflag: "Name the flags" };
-  const modeName = (m, region) => region === "usa" ? MODE_NAMES[m].replace("countries", "states") : MODE_NAMES[m];
+  const modeName = (m, region) => MODE_NAMES[m].replace("countries", DATASETS[dataOfRegion(region)].nouns);
   let statsSkill = "country", statsData = "world";
   const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
   function openStats() { statsData = S.data; renderStats(); $("stats").hidden = false; }
   function closeStats() { $("stats").hidden = true; resetStatsReset(); }
   function renderStats() {
-    const skill = statsSkill, St = GG.Stats, us = statsData === "us";
+    const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = us ? "States" : "Countries";
-    if (us && !geoUS) { GG.loadUS().then(g => { geoUS = geoUS || g; renderStats(); }); return; }
-    const g = us ? geoUS : geoWorld;
+    $("statsSkill").querySelector('[data-v="country"]').textContent = sub ? (statsData === "ca" ? "Provinces" : "States") : "Countries";
+    if (sub && !geoFor(statsData)) { ds.load().then(renderStats).catch(() => {}); return; }
+    const g = geoFor(statsData);
+    // games of this map: a country map's own region, or any world region
+    const ofThis = rg => sub ? rg === ds.region : !(REGIONS[rg] && REGIONS[rg].us);
     const acc = c => { const e = St.entry(skill, c.iso); return e && e.a ? e.c / e.a : null; };
     const known = c => { const a = acc(c); return a !== null && a >= 0.75; };
     // regions
-    const rows = Object.entries(REGIONS).filter(([, r]) => !!r.us === us).map(([key, r]) => {
+    const rows = Object.entries(REGIONS).filter(([key, r]) => sub ? key === ds.region : !r.us).map(([key, r]) => {
       const cs = key === "world" ? g.countries : g.countries.filter(r.test);
       const k = cs.filter(known).length, seen = cs.filter(c => acc(c) !== null).length, pct = Math.round(100 * k / cs.length);
       return `<div class="srow"><div class="sname">${r.name}</div><div class="sbar"><i style="width:${pct}%"></i></div>` +
@@ -482,14 +539,14 @@
       const e = St.entry(skill, c.iso);
       const what = skill === "capital" ? `${c.name} <small>${c.capitals[0]}</small>` : c.name;
       return `<li><span>${what}</span><span class="snum">${e.c} of ${e.a} right</span></li>`;
-    }).join("") : `<li class="empty">Nothing yet. Play a ${skill === "capital" ? "capitals" : skill === "flag" ? "flags" : us ? "states" : "countries"} game and your weakest ones will show here.</li>`;
+    }).join("") : `<li class="empty">Nothing yet. Play a ${skill === "capital" ? "capitals" : skill === "flag" ? "flags" : ds.nouns} game and your weakest ones will show here.</li>`;
     // bests (for this skill's games)
     const modes = skill === "capital" ? ["findcap", "namecap"] : skill === "flag" ? ["findflag", "nameflag"] : ["find", "name"];
-    const bests = Object.entries(St.bests()).filter(([k]) => modes.includes(k.split("|")[0]) && (k.split("|")[1] === "usa") === us)
+    const bests = Object.entries(St.bests()).filter(([k]) => modes.includes(k.split("|")[0]) && ofThis(k.split("|")[1]))
       .map(([k, v]) => { const [m, rg] = k.split("|"); return `<li><span>${modeName(m, rg)} · ${REGIONS[rg] ? REGIONS[rg].name : rg}</span><span class="snum">${v.pct}% · ${fmtTime(v.secs)}</span></li>`; });
     $("statsBests").innerHTML = bests.length ? bests.join("") : `<li class="empty">No games finished yet.</li>`;
     // recent games
-    const games = St.games().filter(gm => modes.includes(gm.mode) && (gm.region === "usa") === us).slice(0, 8);
+    const games = St.games().filter(gm => modes.includes(gm.mode) && ofThis(gm.region)).slice(0, 8);
     $("statsGames").innerHTML = games.length ? games.map(g => { // (g here is one game)
       const d = new Date(g.date), day = d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
       return `<li><span>${modeName(g.mode, g.region)} · ${REGIONS[g.region] ? REGIONS[g.region].name : g.region}${g.weak ? " <small>knowledge gaps</small>" : ""}${g.gaveUp ? " <small>gave up</small>" : ""}</span>` +
@@ -522,7 +579,7 @@
       const card = document.createElement("div");
       card.className = "fcard"; card.dataset.iso = c.iso;
       card.innerHTML = `<img src="${flagSrc(c)}" alt="A flag" loading="lazy"><input type="text" autocomplete="off" autocorrect="off" ` +
-        `autocapitalize="off" spellcheck="false" enterkeyhint="next" aria-label="${S.data === "us" ? "State" : "Country"} with this flag" placeholder="${(prefs.perRow || 4) >= 6 ? "…" : S.data === "us" ? "State" : "Country"}">`;
+        `autocapitalize="off" spellcheck="false" enterkeyhint="next" aria-label="${phWord()} with this flag" placeholder="${(prefs.perRow || 4) >= 6 ? "…" : phWord()}">`;
       grid.appendChild(card);
     });
     $("flagPanel").hidden = false;
@@ -537,7 +594,7 @@
   function setPerRow(n) {
     $("flagGrid").style.setProperty("--per-row", n);
     $("flagGrid").classList.toggle("dense", n >= 6);
-    $("flagGrid").querySelectorAll("input").forEach(i => { i.placeholder = n >= 6 ? "…" : S.data === "us" ? "State" : "Country"; });
+    $("flagGrid").querySelectorAll("input").forEach(i => { i.placeholder = n >= 6 ? "…" : phWord(); });
     $("segPerRow").querySelectorAll("button").forEach(b => b.classList.toggle("on", +b.dataset.v === n));
   }
   setPerRow(prefs.perRow || 4);
@@ -676,7 +733,6 @@
 
   // ---------- setup screen (New game) ----------
   const pick = { mode: "find", region: "world", view: "globe", weak: false, timer: false, paceFind: 5, paceName: 10, data: "world" };
-  const STATE_COUNT = 50;
   const isNameMode = m => m === "name" || m === "namecap" || m === "nameflag";
   function segSelect(el, v) { el.querySelectorAll("button").forEach(b => b.classList.toggle("on", b.dataset.v === v)); }
   function buildRegionButtons() {
@@ -727,7 +783,7 @@
   $("segData").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     pick.tab = b.dataset.v; pick.country = null;
-    if (pick.tab === "world") { pick.data = "world"; if (pick.region === "usa") pick.region = "world"; segSelect($("regions"), pick.region); }
+    if (pick.tab === "world") { pick.data = "world"; if (REGIONS[pick.region].us) pick.region = "world"; segSelect($("regions"), pick.region); }
     showData(); showOptions();
   });
   $("countryList").addEventListener("click", e => {
@@ -782,7 +838,7 @@
     $("paceBox").hidden = !pick.timer;
     const pace = isNameMode(pick.mode) ? pick.paceName : pick.paceFind;
     segSelect($("segPace"), String(pace));
-    const r = REGIONS[pick.region], all = pick.data === "us" ? STATE_COUNT : pick.region === "world" ? geoWorld.countries.length : geoWorld.countries.filter(r.test).length;
+    const r = REGIONS[pick.region], all = isCountryMap(pick.data) ? DATASETS[pick.data].count : pick.region === "world" ? geoWorld.countries.length : geoWorld.countries.filter(r.test).length;
     const n = find && pick.weak ? Math.min(20, all) : all, secs = n * pace;
     $("paceTotal").textContent = `${r.name}: ${n} × ${pace} s = ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
     $("regionSummary").textContent = `${r.name} · ${all}`;
@@ -818,17 +874,17 @@
 
   // switch between the world and US states maps (US data loads the first time it's needed)
   async function useData(data) {
-    if (data === "us" && !geoUS) geoUS = await GG.loadUS();
+    if (isCountryMap(data)) await DATASETS[data].load();
     S.data = data;
-    geo = data === "us" ? geoUS : geoWorld;
-    const style = data === "us" ? "usa" : "patterson";
+    geo = geoFor(data);
+    const style = isCountryMap(data) ? DATASETS[data].style : "patterson";
     main.setGeo(geo, style);
     if (insetView) insetView.setGeo(geo, style);
     GG.debug.geo = geo;
   }
   function startGame(mode, region, view, data = S.data) {
     if (data !== S.data || !geo) return useData(data).then(() => startGame(mode, region, view, data));
-    if (data === "us") { region = "usa"; view = "flat"; }
+    if (isCountryMap(data)) { region = DATASETS[data].region; view = "flat"; }
     S.mode = mode; S.region = region;
     savePrefs({ game: { mode, region, data, weak: !!S.weak, timer: !!S.timer, paceFind: S.paceFind || 5, paceName: S.paceName || 10 },
       ...(region === "world" ? { worldView: view } : {}) });
@@ -838,9 +894,9 @@
     $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
-    $("regionBtn").textContent = data === "us" ? "Whole US" : "Whole region";
+    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
-    $("worldBtn").hidden = !(mode === "explore" && data === "us"); // back from Focus on US states
+    $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
     hideLearnCard();
@@ -875,12 +931,12 @@
       isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed });
     main.lookAt(15, 25, 120, false);
     buildRegionButtons();
-    GG.debug = { main, geo, startGame, inset: () => insetView, get geoUS() { return geoUS; } };
+    GG.debug = { main, geo, startGame, inset: () => insetView, get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };
     setViewButton();
     // testing hooks: ?region=europe&view=flat starts that game; ?at=lon,lat,span and ?terrain=1 adjust the view
     if (REGIONS[q.get("region")] || q.get("view") || q.get("data")) {
       const region = REGIONS[q.get("region")] ? q.get("region") : "world";
-      startGame("find", region, region === "world" ? q.get("view") || "globe" : "flat", q.get("data") === "us" ? "us" : "world");
+      startGame("find", region, region === "world" ? q.get("view") || "globe" : "flat", isCountryMap(q.get("data")) ? q.get("data") : "world");
     } else {
       // reopen where you left off: your last game starts behind the New game screen, ready to go
       if (prefs.borders === false) setBorders(false);
@@ -889,7 +945,7 @@
       S.weak = !!g.weak; S.timer = !!g.timer; S.paceFind = g.paceFind || 5; S.paceName = g.paceName || 10;
       const region = REGIONS[g.region] ? g.region : "world";
       const mode = ["find", "name", "findcap", "namecap", "findflag", "nameflag", "explore"].includes(g.mode) ? g.mode : "find";
-      const ready = startGame(mode, region, region === "world" ? (prefs.worldView === "flat" ? "flat" : "globe") : "flat", g.data === "us" ? "us" : "world");
+      const ready = startGame(mode, region, region === "world" ? (prefs.worldView === "flat" ? "flat" : "globe") : "flat", isCountryMap(g.data) ? g.data : "world");
       Promise.resolve(ready).then(openSetup); // first screen: choose a game
     }
     if (q.get("terrain")) $("terrainBtn").click();

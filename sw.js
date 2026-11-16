@@ -1,12 +1,13 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "gaia-quest-v28";
+const CACHE = "gaia-quest-v29";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
   "data/world-50m.json", "data/world-110m.json", "data/countries.json", "data/relief.jpg",
   "data/us-states.json", "data/states.json", "data/lakes.json", "data/tribal-us.json",
+  "data/ca-provinces.json", "data/provinces.json", "data/tribal-ca.json",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png", "icons/apple-touch-icon.png",
 ];
 
@@ -23,6 +24,8 @@ self.addEventListener("install", event => {
       await cache.addAll(cs.map(c => fresh(`data/flags/${c.iso}.webp`)));
       const st = await (await fetch(fresh("data/states.json"))).json();
       await cache.addAll(st.map(s => fresh(`data/flags/us/${s.iso}.webp`)));
+      const pv = await (await fetch(fresh("data/provinces.json"))).json();
+      await cache.addAll(pv.map(s => fresh(`data/flags/ca/${s.iso}.webp`)));
     } catch (e) { /* they'll be cached as they're viewed */ }
   }));
   self.skipWaiting();
