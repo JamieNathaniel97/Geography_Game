@@ -13,14 +13,42 @@
     us: { noun: "state", nouns: "states", Nouns: "States", region: "usa", style: "usa", count: 50,
       load: async () => (geoUS = geoUS || await GG.loadUS()) },
     ca: { noun: "province or territory", nouns: "provinces and territories", Nouns: "Provinces & territories",
-      region: "canada", style: "canada", count: 13,
-      titles: { tapAny: "Tap to learn", tapOne: "Tap one on the map", flagEach: "Name each flag" }, load: async () => (geoCA = geoCA || await GG.loadCA(geoWorld.lakes)) },
+      region: "canada", style: "canada", count: 13, load: async () => (geoCA = geoCA || await GG.loadCA(geoWorld.lakes)) },
   };
   const isCountryMap = d => d === "us" || d === "ca";
   const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : geoWorld); // null until a country map has loaded
   const dataOfRegion = r => Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const noun = () => DATASETS[S.data].noun;
-  // the big title in the top bar: shorter wording where the usual one is too long to fit
+  // Big names (the top-bar title: countries, states, provinces, capitals; the Learning card's name) keep their full
+  // size when they fit, and shrink only as far as they must (e.g. Newfoundland and Labrador, Saint Vincent and the
+  // Grenadines). Refitted whenever the text or the width changes.
+  // A name that would need to go below about 17 px on one line wraps onto two lines instead, as large as fits.
+  // The top-bar title keeps its fixed height either way (its second line overlaps the score row below).
+  function fitText(el) {
+    if (!el.offsetParent) return; // hidden: fitted when it's shown
+    el.style.fontSize = ""; el.style.whiteSpace = ""; el.style.lineHeight = ""; el.style.overflow = "";
+    // exact text width (fractions of a pixel) against the room available, with 1 px to spare: rounded widths let a
+    // name overflow by a fraction and still be cut off with "…"
+    const range = document.createRange(), room = el.parentElement.getBoundingClientRect().width - 1;
+    const wide = () => { range.selectNodeContents(el); return range.getBoundingClientRect().width > room; };
+    const max = parseFloat(getComputedStyle(el).fontSize);
+    let size = max;
+    while (wide() && size > 17) { size -= 1; el.style.fontSize = size + "px"; }
+    if (!wide()) return;
+    el.style.whiteSpace = "normal"; el.style.lineHeight = "1.1"; el.style.overflow = "visible";
+    size = Math.round(max * 0.85); el.style.fontSize = size + "px";
+    while ((wide() || el.scrollHeight > size * 1.1 * 2 + 2) && size > 13) { size -= 1; el.style.fontSize = size + "px"; }
+  }
+  const FIT = ["target", "lcName"].map(id => $(id));
+  const fitAll = () => FIT.forEach(fitText);
+  FIT.forEach(el => {
+    const fit = () => fitText(el);
+    new MutationObserver(fit).observe(el, { childList: true, characterData: true, subtree: true });
+    if (window.ResizeObserver) { const ro = new ResizeObserver(fit); ro.observe(el.parentElement); ro.observe(el); }
+  });
+  // the app's font arrives after the first fit (it was measured in the stand-in font): fit again once it's here
+  if (document.fonts) { document.fonts.ready.then(fitAll); document.fonts.addEventListener("loadingdone", fitAll); }
+  // shorter wording for a country map's top-bar title, if one is ever too long even on two lines (DATASETS[..].titles)
   const title = (key, usual) => (DATASETS[S.data].titles || {})[key] || usual;
   const phWord = () => ({ world: "Country", us: "State", ca: "Province" })[S.data]; // flag grid boxes
   const nouns = () => DATASETS[S.data].nouns;

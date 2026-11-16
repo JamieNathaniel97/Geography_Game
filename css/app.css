@@ -35,8 +35,13 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .iconbtn { border: 0; background: transparent; padding: 6px; border-radius: 8px; display: grid; place-items: center; color: var(--muted); }
 .prompt { min-width: 0; text-align: center; display: grid; justify-items: center; }
 .eyebrow { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.target { max-width: 100%; font-family: var(--display); font-weight: 700; font-size: 25px; line-height: 1.1;
+/* The title box is always one full-size line tall, so a smaller or two-line name never moves the map: a shrunk
+   name is centred in it, and a two-line name's second line hangs down over the score row (fitText in app.js). */
+.target { max-width: 100%; height: 28px; line-height: 28px; position: relative; z-index: 3; pointer-events: none;
+  text-shadow: 0 0 3px var(--panel), 0 0 6px var(--panel);
+  font-family: var(--display); font-weight: 700; font-size: 25px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.target:empty { height: 0; } /* Find by flag: the flag takes its place */
 .target.good { color: var(--good); } .target.bad { color: var(--bad); }
 .nameinput { width: 100%; font: 600 20px var(--display); color: var(--fg); background: var(--bg); border: 2px solid var(--accent);
   border-radius: 8px; padding: 5px 10px; margin-top: 2px; outline: none; }
@@ -170,7 +175,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .lchead { display: flex; gap: 12px; align-items: center; }
 .learncard img { width: 84px; height: 63px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
 .lcbody { flex: 1; min-width: 0; display: grid; gap: 2px; }
-.lcname { font: 700 22px/1.1 var(--display); }
+.lcname { font: 700 22px/1.1 var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } /* shrunk to fit by fitText */
 .lcsub { font-size: 12px; color: var(--muted); }
 .lcclose { align-self: flex-start; padding: 4px 9px; }
 .lcfacts { display: grid; grid-template-columns: 9.2em 1fr; gap: 3px 10px; margin: 0; font-size: 14px; }
