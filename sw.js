@@ -1,11 +1,12 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "gaia-quest-v18";
+const CACHE = "gaia-quest-v21";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
   "data/world-50m.json", "data/world-110m.json", "data/countries.json", "data/relief.jpg",
+  "data/us-states.json", "data/states.json",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png", "icons/apple-touch-icon.png",
 ];
 
@@ -16,6 +17,8 @@ self.addEventListener("install", event => {
     try {
       const cs = await (await fetch("data/countries.json")).json();
       await cache.addAll(cs.map(c => `data/flags/${c.iso}.webp`));
+      const st = await (await fetch("data/states.json")).json();
+      await cache.addAll(st.map(s => `data/flags/us/${s.iso}.webp`));
     } catch (e) { /* they'll be cached as they're viewed */ }
     // the sharper terrain tiles (about 9 MB), listed in their index, so terrain works offline when zoomed in
     try {

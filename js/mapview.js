@@ -14,8 +14,11 @@
     mercator: { name: "Mercator", factory: () => d3.geoMercator(), raw: d3.geoMercatorRaw, wrap: true },
     equirect: { name: "Plain grid", factory: () => d3.geoEquirectangular(), raw: d3.geoEquirectangularRaw, wrap: true },
     natural: { name: "Curved (old)", factory: () => d3.geoNaturalEarth1(), raw: d3.geoNaturalEarth1Raw, wrap: false },
+    // the usual US map: Albers projection with Alaska and Hawaii as insets, fitted to the states themselves
+    usa: { name: "US states", factory: () => d3.geoAlbersUsa(), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
+  const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country
   const RING_MAX = 36;                                              // px
   // ring diameter: 22 px when the country is a dot, growing to 36 px; the whole ring is the tap area
   const ringSize = px => Math.min(RING_MAX, Math.max(22, px * 1.5 + 18));
@@ -70,7 +73,7 @@
       const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
       this.col = { bg: v("--bg"), sea: v("--sea"), land: v("--land"), border: v("--border"), coast: v("--coast"),
         terr: v("--terr"), good: v("--good"), bad: v("--bad"), flash: v("--flash"), marker: v("--marker"),
-        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel") };
+        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel"), capital: v("--capital") };
     }
 
     // ----- size and projections -----
@@ -100,6 +103,14 @@
         const top = p([0, NORTH])[1], bottom = p([0, SOUTH])[1];
         p.translate([this.w / 2, -top]).clipExtent([[-1, 0], [this.w + 1, bottom - top]]);
         this.flat = p; this.BW = this.w; this.BH = bottom - top;
+      } else if (st.fit) {
+        // fitted to the map's own shapes (US states): the shapes fill the width with a small margin
+        const fc = { type: "FeatureCollection", features: this.geo.f50.filter(f => f.c) }, pad = this.w * 0.03;
+        this.flat = st.factory().fitWidth(this.w - 2 * pad, fc);
+        const tr = this.flat.translate();
+        this.flat.translate([tr[0] + pad, tr[1] + pad]);
+        const b = d3.geoPath(this.flat).bounds(fc);
+        this.BW = this.w; this.BH = b[1][1] + pad;
       } else {
         this.flat = st.factory().rotate([-CURVED_CENTRE, 0]).fitWidth(this.w, { type: "Sphere" });
         const b = d3.geoPath(this.flat).bounds({ type: "Sphere" });
@@ -211,6 +222,103 @@
       return null;
     }
 
+    // Terrain for the US map (Albers, with the Alaska and Hawaii insets moved in), so it can't be drawn row by
+    // row like the world map. Built once per map size: each pixel is turned back into lon/lat and read from the
+    // sharpest relief tiles, then trimmed to the states' outlines. Done in slices so the app stays responsive.
+    // The US map is fitted to its width, so a size change just scales it: one layer is stretched to fit, and
+    // only rebuilt when the screen needs a much sharper one.
+    drawUSRelief() {
+      const want = Math.min(3072, Math.round(this.BW * this.dpr * 2.5)), u = this.usRelief;
+      if (!u || u.geo !== this.geo || u.cv.width < want * 0.6) this.buildUSRelief(want);
+      if (!u || u.geo !== this.geo) return;
+      this.ctx.globalCompositeOperation = "multiply";
+      this.ctx.drawImage(u.cv, 0, 0, this.BW, this.BH);
+      this.ctx.globalCompositeOperation = "source-over";
+    }
+    async buildUSRelief(TW) {
+      if (this.usReliefBusy) return;
+      this.usReliefBusy = true;
+      try { await this.makeUSRelief(TW); } finally { this.usReliefBusy = false; }
+    }
+    async makeUSRelief(TW) {
+      const geo = this.geo;
+      const flat = this.flat, BW = this.BW, BH = this.BH, r = this.relief;
+      const TH = Math.round(TW * BH / BW), sc = BW / TW;
+      const pause = () => new Promise(res => setTimeout(res, 0));
+      const back = (x, y) => { // lon/lat under a map point, or null off the map (checked by projecting it again)
+        const ll = flat.invert([x, y]);
+        if (!ll || !isFinite(ll[0])) return null;
+        const q = flat(ll);
+        return q && Math.abs(q[0] - x) + Math.abs(q[1] - y) < 0.5 ? ll : null;
+      };
+      // lon/lat on a coarse grid; pixels in between are blended from its corners (the projection is smooth),
+      // except in cells where a corner is off the map, which are worked out pixel by pixel
+      const G = 8, gw = Math.ceil(TW / G) + 1, gh = Math.ceil(TH / G) + 1, grid = new Array(gw * gh);
+      for (let j = 0; j < gh; j++) {
+        if (j % 24 === 0) { await pause(); if (this.geo !== geo) return; }
+        for (let i = 0; i < gw; i++) grid[j * gw + i] = back(i * G * sc, j * G * sc);
+      }
+      // the relief source: the sharpest tile level if there is one, else the whole-world image
+      const tl = r.tiles && r.tiles.levels[r.tiles.levels.length - 1];
+      let sample;
+      if (tl) {
+        const S = r.tiles.size, deg = S * 360 / tl.w, need = new Set(), tiles = (this.usTiles = this.usTiles || new Map());
+        grid.forEach(ll => { if (ll) need.add(Math.floor((ll[0] + 180) / deg) + "_" + Math.floor((90 - ll[1]) / deg)); });
+        await Promise.all([...need].filter(n => tl.set.has(n) && !tiles.has(n)).map(n => new Promise(res => {
+          const img = new Image();
+          img.onload = () => {
+            const cv = document.createElement("canvas"); cv.width = cv.height = S;
+            const cx = cv.getContext("2d"); cx.drawImage(img, 0, 0);
+            const d = cx.getImageData(0, 0, S, S).data, g = new Uint8Array(S * S);
+            for (let i = 0; i < g.length; i++) g[i] = d[i * 4];
+            tiles.set(n, g); res();
+          };
+          img.onerror = res;
+          img.src = "data/relief/" + tl.w + "/" + n + ".jpg";
+        })));
+        sample = (lon, lat) => {
+          const fx = (lon + 180) / deg, fy = (90 - lat) / deg, tx = Math.floor(fx), ty = Math.floor(fy);
+          const g = tiles.get(tx + "_" + ty);
+          if (!g) return 255;
+          const u = Math.max(0, Math.min(S - 1.001, (fx - tx) * S - 0.5)), v = Math.max(0, Math.min(S - 1.001, (fy - ty) * S - 0.5));
+          const u0 = u | 0, v0 = v | 0, du = u - u0, dv = v - v0, a = v0 * S + u0, b = a + S;
+          const top = g[a] + (g[a + 1] - g[a]) * du, bot = g[b] + (g[b + 1] - g[b]) * du;
+          return top + (bot - top) * dv;
+        };
+      } else {
+        const lev = r.levels[0], g = lev.grey, rw = lev.w, rh = lev.h;
+        sample = (lon, lat) => g[Math.min(rh - 1, Math.floor((90 - lat) / 180 * rh)) * rw + Math.min(rw - 1, Math.floor((lon + 180) / 360 * rw))];
+      }
+      const cv = document.createElement("canvas"); cv.width = TW; cv.height = TH;
+      const cx = cv.getContext("2d"), img = cx.createImageData(TW, TH), d = img.data;
+      for (let y = 0; y < TH; y++) {
+        if (y % 48 === 0) { await pause(); if (this.geo !== geo) return; }
+        const j = Math.floor(y / G), fy = y / G - j;
+        for (let x = 0, i = y * TW * 4; x < TW; x++, i += 4) {
+          const k = Math.floor(x / G), fx = x / G - k;
+          const p00 = grid[j * gw + k], p10 = grid[j * gw + k + 1], p01 = grid[(j + 1) * gw + k], p11 = grid[(j + 1) * gw + k + 1];
+          let lon, lat;
+          if (p00 && p10 && p01 && p11 && Math.abs(p00[0] - p11[0]) < 5) {
+            lon = (p00[0] * (1 - fx) + p10[0] * fx) * (1 - fy) + (p01[0] * (1 - fx) + p11[0] * fx) * fy;
+            lat = (p00[1] * (1 - fx) + p10[1] * fx) * (1 - fy) + (p01[1] * (1 - fx) + p11[1] * fx) * fy;
+          } else {
+            const ll = back((x + 0.5) * sc, (y + 0.5) * sc);
+            if (!ll) { d[i + 3] = 0; continue; }
+            lon = ll[0]; lat = ll[1];
+          }
+          d[i] = d[i + 1] = d[i + 2] = sample(lon, lat); d[i + 3] = 255;
+        }
+      }
+      cx.putImageData(img, 0, 0);
+      // keep the shading on the states only (not on Canada or Mexico, which are drawn as sea here)
+      cx.globalCompositeOperation = "destination-in";
+      cx.setTransform(1 / sc, 0, 0, 1 / sc, 0, 0);
+      cx.beginPath(); d3.geoPath(flat, cx)({ type: "FeatureCollection", features: this.geo.f50 }); cx.fill();
+      if (this.geo !== geo) return;
+      this.usRelief = { geo, cv };
+      this.requestDraw();
+    }
+
     // the relief on the globe: each screen pixel is turned back into lon/lat (inverse orthographic)
     // and looked up in the relief. `step` > 1 works at lower resolution while the globe is moving.
     globeRelief(step) {
@@ -251,6 +359,16 @@
       }
       this.reliefCv.getContext("2d").putImageData(this.reliefImg, 0, 0);
       return this.reliefCv;
+    }
+    // switch to another set of shapes (world countries or US states) and flat map style
+    setGeo(geo, styleKey) {
+      this.geo = geo;
+      this.styleKey = styleKey;
+      this.crop = null; // a region crop belongs to the old map (Europe's box means nothing on the US map); the game sets a new one
+      this.buildFlat();
+      this.hits = { islands: [], bubbles: [], rings: [] };
+      this.applyMode();
+      this.requestDraw();
     }
     setFlatStyle(key) {
       if (key === this.styleKey) return;
@@ -331,14 +449,14 @@
       if (this.mode === "flat") {
         const t = this.t, tr = this.flat.translate();
         const p = this.style.factory().scale(this.flat.scale() * t.k).translate([tr[0] * t.k + t.x, tr[1] * t.k + t.y]);
-        if (!this.wrap) p.rotate(this.flat.rotate());
+        if (!this.wrap && p.rotate && this.flat.rotate) p.rotate(this.flat.rotate());
         return p;
       }
       const g = this.globeState();
       return this.globe.rotate([g.rotate[0], g.rotate[1], 0]).scale(g.scale).translate([this.w / 2, this.h / 2]);
     }
     pxPerDeg() {
-      return this.mode === "flat" ? this.t.k * this.BW / 360 : this.R0 * this.t.k * RAD;
+      return this.mode === "flat" ? this.t.k * this.flat.scale() * RAD : this.R0 * this.t.k * RAD;
     }
     // base (zoom 1) x of the screen centre, unwrapped
     baseCentreX() { return this.t.invert([this.w / 2, this.h / 2])[0]; }
@@ -365,8 +483,9 @@
     lookAt(lon, lat, spanDeg, animate = true) {
       const side = Math.min(this.w, this.h) * 0.9;
       if (this.mode === "flat") {
-        const k = Math.max(this.zoom.scaleExtent()[0], Math.min(MAX_K, side / (spanDeg * this.BW / 360)));
+        const k = Math.max(this.zoom.scaleExtent()[0], Math.min(MAX_K, side / (spanDeg * this.flat.scale() * RAD)));
         const p = this.flat([lon, Math.max(SOUTH + 1, Math.min(NORTH - 1, lat))]);
+        if (!p) { this.world(animate); return; } // outside this map (e.g. not part of the US layout)
         let x = p[0];
         if (this.crop) { const [x0, , x1] = this.cropRect(); while (x < x0) x += this.BW; while (x > x1) x -= this.BW; }
         else if (this.wrap) { const cx = this.baseCentreX(); while (x - cx > this.BW / 2) x -= this.BW; while (cx - x > this.BW / 2) x += this.BW; }
@@ -439,7 +558,9 @@
       if (!this.flatPaths) {
         const path = d3.geoPath(this.flat);
         const sphere = new Path2D();
-        if (this.wrap) sphere.rect(0, 0, this.BW, this.BH); else sphere.addPath(new Path2D(path({ type: "Sphere" })));
+        if (this.wrap) sphere.rect(0, 0, this.BW, this.BH);
+        else if (this.style.fit) sphere.rect(-this.BW, -this.BH, this.BW * 3, this.BH * 3); // sea all round the US
+        else sphere.addPath(new Path2D(path({ type: "Sphere" })));
         this.flatPaths = {
           sphere,
           features: this.geo.f50.map(f => ({ f, p: new Path2D(path(f) || "") })),
@@ -454,13 +575,14 @@
         ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
         ctx.fillStyle = col.sea; ctx.fill(P.sphere);
         groups.forEach((ps, c) => { ctx.fillStyle = c; ps.forEach(p => ctx.fill(p)); });
-        if (this.terrain && this.relief && this.wrap) {
-          this.drawFlatRelief(dx);
+        if (this.terrain && this.relief && (this.wrap || this.style.fit)) {
+          if (this.wrap) this.drawFlatRelief(dx); else this.drawUSRelief();
           ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
         }
         ctx.lineJoin = "round";
         ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(P.coast);
         if (this.borders) { ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k; ctx.stroke(P.borders); }
+        this.drawSub(ctx, null, t.k);
       });
     }
     drawGlobe() {
@@ -489,7 +611,46 @@
       ctx.lineJoin = "round";
       ctx.beginPath(); path(light ? this.geo.coast110 : this.geo.coast50); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6; ctx.stroke();
       if (this.borders) { ctx.beginPath(); path(light ? this.geo.borders110 : this.geo.borders50); ctx.strokeStyle = col.border; ctx.lineWidth = 0.7; ctx.stroke(); }
+      this.drawSub(ctx, path, 1);
       ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+
+    // Subdivisions (US states on the world Learning map): their borders fade in as you zoom in, and the
+    // tapped one is highlighted. `sub` = { features, borders, selected }.
+    setSub(sub) { this.sub = sub; this.subPaths = null; this.requestDraw(); }
+    subAlpha() {
+      if (!this.sub || this.styleKey === "usa") return 0;
+      return Math.max(0, Math.min(1, (this.pxPerDeg() - 3) / 2.5)); // from about 3 px per degree; fully shown by 5.5
+    }
+    drawSub(ctx, path, k) {
+      const a = this.subAlpha(), sub = this.sub;
+      if (!a) return;
+      ctx.save();
+      ctx.globalAlpha = a;
+      if (path) { // globe: projected each frame
+        if (sub.selected) { ctx.beginPath(); path(sub.selected); ctx.fillStyle = this.col.flash; ctx.fill(); }
+        ctx.beginPath(); path(sub.borders);
+      } else { // flat map: paths in base map units, prepared once
+        if (!this.subPaths || this.subPaths.flat !== this.flat) {
+          const p = d3.geoPath(this.flat);
+          this.subPaths = { flat: this.flat, borders: new Path2D(p(sub.borders) || ""), sel: new Map() };
+        }
+        if (sub.selected) {
+          let sp = this.subPaths.sel.get(sub.selected);
+          if (!sp) { sp = new Path2D(d3.geoPath(this.flat)(sub.selected) || ""); this.subPaths.sel.set(sub.selected, sp); }
+          ctx.fillStyle = this.col.flash; ctx.fill(sp);
+        }
+      }
+      ctx.strokeStyle = this.col.border; ctx.lineWidth = 0.6 / k; ctx.setLineDash([3 / k, 2 / k]);
+      if (path) ctx.stroke(); else ctx.stroke(this.subPaths.borders);
+      ctx.restore();
+    }
+    // the subdivision under a screen point (only while they're shown), or null
+    subAt(x, y) {
+      if (this.subAlpha() < 0.5) return null;
+      const ll = this.lonLatAt(x, y);
+      if (!ll) return null;
+      return this.sub.features.find(f => d3.geoContains(f, ll)) || null;
     }
 
     // fade out everything outside the region's box
@@ -513,7 +674,7 @@
     drawOverlays() {
       const ctx = this.ctx, col = this.col, proj = this.projection(), ppd = this.pxPerDeg(), geo = this.geo;
       // pixels per degree when fully zoomed out on the world map (the baseline for growing rings)
-      const ppd0 = this.mode === "flat" ? this.BW / 360 : this.R0 * RAD * 0.9;
+      const ppd0 = this.mode === "flat" ? this.flat.scale() * RAD : this.R0 * RAD * 0.9;
       const W = this.w, H = this.h, m = 40;
       const flat = this.mode === "flat", s0 = proj.scale(), tr = proj.translate(), raw = this.style.raw;
       const norm = lon => { const l = lon - (flat ? this.flatCentre : 0); return ((l + 540) % 360) - 180; };
@@ -603,6 +764,21 @@
         ctx.fillStyle = col.fg; ctx.font = "600 12px Barlow, system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
         ctx.fillText(String(b.cl.members.length), b.x, b.y);
       });
+      // capital dots (capitals games): a dark red dot at each capital of an answered country or state
+      if (this.opts.showCapital) {
+        ctx.fillStyle = col.capital; ctx.strokeStyle = col.panel; ctx.lineWidth = 1.5;
+        geo.countries.forEach(c => {
+          if (!c.capLL || !this.opts.showCapital(c)) return;
+          c.capLL.forEach(ll => {
+            if (!this.visible(ll)) return;
+            const p = proj(ll); if (!p) return;
+            offsets.forEach(dx => {
+              if (!onScreen(p[0] + dx, p[1], 6)) return;
+              ctx.beginPath(); ctx.arc(p[0] + dx, p[1], 4, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
+            });
+          });
+        });
+      }
       this.hits = { islands: islands.slice().reverse(), bubbles, rings };
     }
 
@@ -614,6 +790,7 @@
       const b = this.hits.bubbles.find(b => Math.hypot(b.x - x, b.y - y) <= b.r + 4);
       if (b) { this.zoomToCountries(b.cl.members); return; }
       const c = this.resolveTap(x, y);
+      this.lastTap = [x, y];
       if (c) this.opts.onTap(c, this);
     }
     // Which country a tap means. The rules, in order:
@@ -635,26 +812,53 @@
       // circles and ovals under the finger: the one whose centre is nearest wins
       const under = rings.concat(ovals).sort(near)[0];
       if (under) return under.c;
-      // snap: nearest open small country (by its centre) or oval (by its outline) within reach
-      const proj = this.projection(), ppd = this.pxPerDeg(), offsets = this.copies();
-      let best = null, bd = Infinity;
+      // snap (sea taps): the country whose coastline is nearest wins, as long as it's still open and the tap
+      // is within SEA_REACH px of that coast. Answered or greyed-out countries count when finding the nearest,
+      // so a tap just off Vietnam never jumps across to Cambodia.
+      if (land) return land; // answered land: nothing new to pick
+      const ll = this.lonLatAt(x, y), ppd = this.pxPerDeg();
+      let best = null, bd = SEA_REACH;
       this.hits.islands.forEach(s => {
-        if (!open(s.c)) return;
         const gap = edgeDistance(s.pts, x, y);
-        if (gap < 16 && gap < bd) { bd = gap; best = s.c; }
+        if (gap < bd) { bd = gap; best = s.c; }
       });
-      for (const c of this.geo.countries) {
-        if (c.shape || !c.anchor || !open(c)) continue;
-        const size = c.sizeDeg * ppd;
-        if (size >= 44 || !this.visible(c.anchor)) continue;
-        const reach = Math.max(20, size / 2 + 12);
-        const p = proj(c.anchor);
-        for (const dx of offsets) {
-          const d = Math.hypot(p[0] + dx - x, p[1] - y);
-          if (d < reach && d < bd) { bd = d; best = c; }
+      if (ll) {
+        // every shape on the map counts, including grey non-quiz land (Greenland, territories): a tap on or
+        // nearest to those picks nothing
+        const m = (SEA_REACH + 4) / ppd;
+        for (const f of this.geo.f50) {
+          if (f.c && f.c.shape) continue; // island ovals are handled above
+          const b = f.bounds || (f.bounds = d3.geoBounds(f));
+          if (!inBounds([[b[0][0] - m, b[0][1] - m], [b[1][0] + m, b[1][1] + m]], ll)) continue;
+          if (!f.c && d3.geoContains(f, ll)) return null;
+          const gap = this.coastGap(f, x, y, bd);
+          if (gap < bd) { bd = gap; best = f.c; }
         }
       }
-      return best || land;
+      return best && open(best) ? best : null;
+    }
+    // screen distance from a point to a shape's outline (segments further than `limit` away are skipped)
+    coastGap(f, x, y, limit) {
+      const proj = this.projection(), offsets = this.copies();
+      const g = f.geometry, polys = g.type === "Polygon" ? [g.coordinates] : g.coordinates;
+      let best = Infinity;
+      for (const poly of polys) for (const ring of poly) {
+        let prev = null;
+        for (const ll of ring) {
+          const p = this.visible(ll) ? proj(ll) : null;
+          if (p && prev) {
+            for (const dx of offsets) {
+              const ax = prev[0] + dx, ay = prev[1], bx = p[0] + dx, by = p[1];
+              if (Math.min(ax, bx) > x + limit || Math.max(ax, bx) < x - limit || Math.min(ay, by) > y + limit || Math.max(ay, by) < y - limit) continue;
+              const ex = bx - ax, ey = by - ay, L = ex * ex + ey * ey;
+              const u = L ? Math.max(0, Math.min(1, ((x - ax) * ex + (y - ay) * ey) / L)) : 0;
+              best = Math.min(best, Math.hypot(ax + u * ex - x, ay + u * ey - y));
+            }
+          }
+          prev = p;
+        }
+      }
+      return best;
     }
     // the country whose land is under the point (true borders only, no circles or ovals)
     landAt(x, y) {

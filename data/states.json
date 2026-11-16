@@ -1,0 +1,2154 @@
+[
+{
+"iso": "AL",
+"id": "AL",
+"name": "Alabama",
+"names": [
+"Alabama"
+],
+"capitals": [
+"Montgomery"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "AL",
+"info": {
+"abbr": "AL",
+"city": "Huntsville",
+"nickname": "Yellowhammer State",
+"year": 1819,
+"order": 22,
+"pop": 5024279,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central",
+"origin": "Possibly from the Alabama (Alibamu) people; a Choctaw phrase often given as \"thicket clearers\"",
+"high": [
+"Cheaha Mountain",
+2413,
+735
+],
+"areaSqMi": 52420,
+"bird": "Yellowhammer (northern flicker)",
+"flower": "Camellia",
+"areaRank": 30
+},
+"capLL": [
+[
+-86.279,
+32.362
+]
+]
+},
+{
+"iso": "AK",
+"id": "AK",
+"name": "Alaska",
+"names": [
+"Alaska"
+],
+"capitals": [
+"Juneau"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "AK",
+"info": {
+"abbr": "AK",
+"city": "Anchorage",
+"nickname": "The Last Frontier",
+"year": 1959,
+"order": 49,
+"pop": 733391,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Alaska; Hawaii–Aleutian (western Aleutians)",
+"origin": "Aleut alaxsxaq, \"the mainland\"",
+"high": [
+"Denali (Mount McKinley)",
+20310,
+6190
+],
+"areaSqMi": 665384,
+"bird": "Willow ptarmigan",
+"flower": "Forget-me-not",
+"areaRank": 1
+},
+"capLL": [
+[
+-134.42,
+58.314
+]
+]
+},
+{
+"iso": "AZ",
+"id": "AZ",
+"name": "Arizona",
+"names": [
+"Arizona"
+],
+"capitals": [
+"Phoenix"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "AZ",
+"info": {
+"abbr": "AZ",
+"city": "",
+"nickname": "Grand Canyon State",
+"year": 1912,
+"order": 48,
+"pop": 7151502,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain (no daylight saving, except the Navajo Nation)",
+"origin": "Probably O'odham ali ṣonak, \"small spring\"",
+"high": [
+"Humphreys Peak",
+12633,
+3851
+],
+"areaSqMi": 113990,
+"bird": "Cactus wren",
+"flower": "Saguaro blossom",
+"areaRank": 6
+},
+"capLL": [
+[
+-112.072,
+33.542
+]
+]
+},
+{
+"iso": "AR",
+"id": "AR",
+"name": "Arkansas",
+"names": [
+"Arkansas"
+],
+"capitals": [
+"Little Rock"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "AR",
+"info": {
+"abbr": "AR",
+"city": "",
+"nickname": "The Natural State",
+"year": 1836,
+"order": 25,
+"pop": 3011524,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central",
+"origin": "A French spelling of an Illinois name for the Quapaw people",
+"high": [
+"Mount Magazine",
+2753,
+839
+],
+"areaSqMi": 53179,
+"bird": "Northern mockingbird",
+"flower": "Apple blossom",
+"areaRank": 29
+},
+"capLL": [
+[
+-92.331,
+34.736
+]
+]
+},
+{
+"iso": "CA",
+"id": "CA",
+"name": "California",
+"names": [
+"California"
+],
+"capitals": [
+"Sacramento"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "CA",
+"info": {
+"abbr": "CA",
+"city": "Los Angeles",
+"nickname": "Golden State",
+"year": 1850,
+"order": 31,
+"pop": 39538223,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Pacific",
+"origin": "A mythical island in a 16th-century Spanish novel",
+"high": [
+"Mount Whitney",
+14505,
+4421
+],
+"areaSqMi": 163695,
+"bird": "California quail",
+"flower": "California poppy",
+"areaRank": 3
+},
+"capLL": [
+[
+-121.472,
+38.577
+]
+]
+},
+{
+"iso": "CO",
+"id": "CO",
+"name": "Colorado",
+"names": [
+"Colorado"
+],
+"capitals": [
+"Denver"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "CO",
+"info": {
+"abbr": "CO",
+"city": "",
+"nickname": "Centennial State",
+"year": 1876,
+"order": 38,
+"pop": 5773714,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain",
+"origin": "Spanish for \"coloured red\", after the Colorado River",
+"high": [
+"Mount Elbert",
+14440,
+4401
+],
+"areaSqMi": 104094,
+"bird": "Lark bunting",
+"flower": "Rocky Mountain columbine",
+"areaRank": 8
+},
+"capLL": [
+[
+-104.986,
+39.741
+]
+]
+},
+{
+"iso": "CT",
+"id": "CT",
+"name": "Connecticut",
+"names": [
+"Connecticut"
+],
+"capitals": [
+"Hartford"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "CT",
+"info": {
+"abbr": "CT",
+"city": "Bridgeport",
+"nickname": "Constitution State",
+"year": 1788,
+"order": 5,
+"pop": 3605944,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "Mohegan-Pequot quinatucquet, \"upon the long river\"",
+"high": [
+"Mount Frissell (south slope)",
+2380,
+725
+],
+"areaSqMi": 5543,
+"bird": "American robin",
+"flower": "Mountain laurel",
+"areaRank": 48
+},
+"capLL": [
+[
+-72.682,
+41.772
+]
+]
+},
+{
+"iso": "DE",
+"id": "DE",
+"name": "Delaware",
+"names": [
+"Delaware"
+],
+"capitals": [
+"Dover"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "DE",
+"info": {
+"abbr": "DE",
+"city": "Wilmington",
+"nickname": "First State",
+"year": 1787,
+"order": 1,
+"pop": 989948,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "The Delaware River, named after Lord De La Warr, an early governor of Virginia",
+"high": [
+"Ebright Azimuth",
+448,
+137
+],
+"areaSqMi": 2489,
+"bird": "Blue Hen chicken",
+"flower": "Peach blossom",
+"areaRank": 49
+},
+"capLL": [
+[
+-75.525,
+39.158
+]
+]
+},
+{
+"iso": "FL",
+"id": "FL",
+"name": "Florida",
+"names": [
+"Florida"
+],
+"capitals": [
+"Tallahassee"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "FL",
+"info": {
+"abbr": "FL",
+"city": "Jacksonville",
+"nickname": "Sunshine State",
+"year": 1845,
+"order": 27,
+"pop": 21538187,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern; Central (western Panhandle)",
+"origin": "Spanish for \"flowery\": Ponce de León landed at Easter (Pascua Florida) 1513",
+"high": [
+"Britton Hill",
+345,
+105
+],
+"areaSqMi": 65758,
+"bird": "Northern mockingbird",
+"flower": "Orange blossom",
+"areaRank": 22
+},
+"capLL": [
+[
+-84.28,
+30.45
+]
+]
+},
+{
+"iso": "GA",
+"id": "GA",
+"name": "Georgia",
+"names": [
+"Georgia"
+],
+"capitals": [
+"Atlanta"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "GA",
+"info": {
+"abbr": "GA",
+"city": "",
+"nickname": "Peach State",
+"year": 1788,
+"order": 4,
+"pop": 10711908,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "King George II of Great Britain",
+"high": [
+"Brasstown Bald",
+4784,
+1458
+],
+"areaSqMi": 59425,
+"bird": "Brown thrasher",
+"flower": "Cherokee rose",
+"areaRank": 24
+},
+"capLL": [
+[
+-84.402,
+33.832
+]
+]
+},
+{
+"iso": "HI",
+"id": "HI",
+"name": "Hawaii",
+"names": [
+"Hawaii"
+],
+"capitals": [
+"Honolulu"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "HI",
+"info": {
+"abbr": "HI",
+"city": "",
+"nickname": "Aloha State",
+"year": 1959,
+"order": 50,
+"pop": 1455271,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Hawaii–Aleutian (no daylight saving)",
+"origin": "Hawaiian; possibly from Hawaiki, the Polynesian homeland",
+"high": [
+"Mauna Kea",
+13803,
+4207
+],
+"areaSqMi": 10932,
+"bird": "Nēnē (Hawaiian goose)",
+"flower": "Yellow hibiscus",
+"areaRank": 43
+},
+"capLL": [
+[
+-157.86,
+21.309
+]
+]
+},
+{
+"iso": "ID",
+"id": "ID",
+"name": "Idaho",
+"names": [
+"Idaho"
+],
+"capitals": [
+"Boise"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "ID",
+"info": {
+"abbr": "ID",
+"city": "",
+"nickname": "Gem State",
+"year": 1890,
+"order": 43,
+"pop": 1839106,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain; Pacific (northern panhandle)",
+"origin": "Uncertain: an invented word, claimed to mean \"gem of the mountains\"",
+"high": [
+"Borah Peak",
+12662,
+3859
+],
+"areaSqMi": 83569,
+"bird": "Mountain bluebird",
+"flower": "Syringa (mock orange)",
+"areaRank": 14
+},
+"capLL": [
+[
+-116.227,
+43.609
+]
+]
+},
+{
+"iso": "IL",
+"id": "IL",
+"name": "Illinois",
+"names": [
+"Illinois"
+],
+"capitals": [
+"Springfield"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "IL",
+"info": {
+"abbr": "IL",
+"city": "Chicago",
+"nickname": "Prairie State",
+"year": 1818,
+"order": 21,
+"pop": 12812508,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central",
+"origin": "A French form of the Algonquian name of the Illinois people",
+"high": [
+"Charles Mound",
+1235,
+376
+],
+"areaSqMi": 57914,
+"bird": "Northern cardinal",
+"flower": "Violet",
+"areaRank": 25
+},
+"capLL": [
+[
+-89.65,
+39.82
+]
+]
+},
+{
+"iso": "IN",
+"id": "IN",
+"name": "Indiana",
+"names": [
+"Indiana"
+],
+"capitals": [
+"Indianapolis"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "IN",
+"info": {
+"abbr": "IN",
+"city": "",
+"nickname": "Hoosier State",
+"year": 1816,
+"order": 19,
+"pop": 6785528,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Eastern; Central (northwest and southwest corners)",
+"origin": "\"Land of the Indians\"",
+"high": [
+"Hoosier Hill",
+1257,
+383
+],
+"areaSqMi": 36420,
+"bird": "Northern cardinal",
+"flower": "Peony",
+"areaRank": 38
+},
+"capLL": [
+[
+-86.172,
+39.752
+]
+]
+},
+{
+"iso": "IA",
+"id": "IA",
+"name": "Iowa",
+"names": [
+"Iowa"
+],
+"capitals": [
+"Des Moines"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "IA",
+"info": {
+"abbr": "IA",
+"city": "",
+"nickname": "Hawkeye State",
+"year": 1846,
+"order": 29,
+"pop": 3190369,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central",
+"origin": "The Ioway people",
+"high": [
+"Hawkeye Point",
+1670,
+509
+],
+"areaSqMi": 56273,
+"bird": "Eastern goldfinch",
+"flower": "Wild prairie rose",
+"areaRank": 26
+},
+"capLL": [
+[
+-93.62,
+41.58
+]
+]
+},
+{
+"iso": "KS",
+"id": "KS",
+"name": "Kansas",
+"names": [
+"Kansas"
+],
+"capitals": [
+"Topeka"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "KS",
+"info": {
+"abbr": "KS",
+"city": "Wichita",
+"nickname": "Sunflower State",
+"year": 1861,
+"order": 34,
+"pop": 2937880,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central; Mountain (four western counties)",
+"origin": "The Kansa (Kaw) people, \"people of the south wind\"",
+"high": [
+"Mount Sunflower",
+4039,
+1231
+],
+"areaSqMi": 82278,
+"bird": "Western meadowlark",
+"flower": "Sunflower",
+"areaRank": 15
+},
+"capLL": [
+[
+-95.67,
+39.05
+]
+]
+},
+{
+"iso": "KY",
+"id": "KY",
+"name": "Kentucky",
+"names": [
+"Kentucky"
+],
+"capitals": [
+"Frankfort"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "KY",
+"info": {
+"abbr": "KY",
+"city": "Louisville",
+"nickname": "Bluegrass State",
+"year": 1792,
+"order": 15,
+"pop": 4505836,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern; Central (western half)",
+"origin": "Probably Iroquoian, often said to mean \"on the meadow\"",
+"high": [
+"Black Mountain",
+4145,
+1263
+],
+"areaSqMi": 40408,
+"bird": "Northern cardinal",
+"flower": "Goldenrod",
+"areaRank": 37
+},
+"capLL": [
+[
+-84.873,
+38.201
+]
+]
+},
+{
+"iso": "LA",
+"id": "LA",
+"name": "Louisiana",
+"names": [
+"Louisiana"
+],
+"capitals": [
+"Baton Rouge"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "LA",
+"info": {
+"abbr": "LA",
+"city": "New Orleans",
+"nickname": "Pelican State",
+"year": 1812,
+"order": 18,
+"pop": 4657757,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central",
+"origin": "King Louis XIV of France",
+"high": [
+"Driskill Mountain",
+535,
+163
+],
+"areaSqMi": 52378,
+"bird": "Brown pelican",
+"flower": "Magnolia",
+"areaRank": 31
+},
+"capLL": [
+[
+-91.14,
+30.458
+]
+]
+},
+{
+"iso": "ME",
+"id": "ME",
+"name": "Maine",
+"names": [
+"Maine"
+],
+"capitals": [
+"Augusta"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "ME",
+"info": {
+"abbr": "ME",
+"city": "Portland",
+"nickname": "Pine Tree State",
+"year": 1820,
+"order": 23,
+"pop": 1362359,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "Uncertain: perhaps sailors' word for \"the mainland\", or the French province of Maine",
+"high": [
+"Katahdin",
+5267,
+1605
+],
+"areaSqMi": 35380,
+"bird": "Black-capped chickadee",
+"flower": "White pine cone and tassel",
+"areaRank": 39
+},
+"capLL": [
+[
+-69.78,
+44.311
+]
+]
+},
+{
+"iso": "MD",
+"id": "MD",
+"name": "Maryland",
+"names": [
+"Maryland"
+],
+"capitals": [
+"Annapolis"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MD",
+"info": {
+"abbr": "MD",
+"city": "Baltimore",
+"nickname": "Old Line State",
+"year": 1788,
+"order": 7,
+"pop": 6177224,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "Queen Henrietta Maria, wife of King Charles I",
+"high": [
+"Hoye-Crest",
+3360,
+1024
+],
+"areaSqMi": 12406,
+"bird": "Baltimore oriole",
+"flower": "Black-eyed Susan",
+"areaRank": 42
+},
+"capLL": [
+[
+-76.492,
+38.978
+]
+]
+},
+{
+"iso": "MA",
+"id": "MA",
+"name": "Massachusetts",
+"names": [
+"Massachusetts"
+],
+"capitals": [
+"Boston"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MA",
+"info": {
+"abbr": "MA",
+"city": "",
+"nickname": "Bay State",
+"year": 1788,
+"order": 6,
+"pop": 7029917,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "The Massachusett people, \"at the great hill\"",
+"high": [
+"Mount Greylock",
+3489,
+1063
+],
+"areaSqMi": 10554,
+"bird": "Black-capped chickadee",
+"flower": "Mayflower",
+"areaRank": 44
+},
+"capLL": [
+[
+-71.072,
+42.332
+]
+]
+},
+{
+"iso": "MI",
+"id": "MI",
+"name": "Michigan",
+"names": [
+"Michigan"
+],
+"capitals": [
+"Lansing"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MI",
+"info": {
+"abbr": "MI",
+"city": "Detroit",
+"nickname": "Great Lakes State",
+"year": 1837,
+"order": 26,
+"pop": 10077331,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Eastern; Central (four counties bordering Wisconsin)",
+"origin": "Ojibwe mishigami, \"great water\"",
+"high": [
+"Mount Arvon",
+1979,
+603
+],
+"areaSqMi": 96714,
+"bird": "American robin",
+"flower": "Apple blossom",
+"areaRank": 11
+},
+"capLL": [
+[
+-84.547,
+42.734
+]
+]
+},
+{
+"iso": "MN",
+"id": "MN",
+"name": "Minnesota",
+"names": [
+"Minnesota"
+],
+"capitals": [
+"Saint Paul",
+"St Paul"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MN",
+"info": {
+"abbr": "MN",
+"city": "Minneapolis",
+"nickname": "North Star State",
+"year": 1858,
+"order": 32,
+"pop": 5706494,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central",
+"origin": "Dakota mní sóta, \"clear water\"",
+"high": [
+"Eagle Mountain",
+2301,
+701
+],
+"areaSqMi": 86936,
+"bird": "Common loon",
+"flower": "Pink and white lady's slipper",
+"areaRank": 12
+},
+"capLL": [
+[
+-93.085,
+44.944
+]
+]
+},
+{
+"iso": "MS",
+"id": "MS",
+"name": "Mississippi",
+"names": [
+"Mississippi"
+],
+"capitals": [
+"Jackson"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MS",
+"info": {
+"abbr": "MS",
+"city": "",
+"nickname": "Magnolia State",
+"year": 1817,
+"order": 20,
+"pop": 2961279,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central",
+"origin": "The Mississippi River; Ojibwe misi-ziibi, \"great river\"",
+"high": [
+"Woodall Mountain",
+807,
+246
+],
+"areaSqMi": 48432,
+"bird": "Northern mockingbird",
+"flower": "Magnolia",
+"areaRank": 32
+},
+"capLL": [
+[
+-90.185,
+32.299
+]
+]
+},
+{
+"iso": "MO",
+"id": "MO",
+"name": "Missouri",
+"names": [
+"Missouri"
+],
+"capitals": [
+"Jefferson City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MO",
+"info": {
+"abbr": "MO",
+"city": "Kansas City",
+"nickname": "Show-Me State",
+"year": 1821,
+"order": 24,
+"pop": 6154913,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central",
+"origin": "The Missouria people, \"people with wooden canoes\"",
+"high": [
+"Taum Sauk Mountain",
+1772,
+540
+],
+"areaSqMi": 69707,
+"bird": "Eastern bluebird",
+"flower": "Hawthorn",
+"areaRank": 21
+},
+"capLL": [
+[
+-92.173,
+38.577
+]
+]
+},
+{
+"iso": "MT",
+"id": "MT",
+"name": "Montana",
+"names": [
+"Montana"
+],
+"capitals": [
+"Helena"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "MT",
+"info": {
+"abbr": "MT",
+"city": "Billings",
+"nickname": "Treasure State",
+"year": 1889,
+"order": 41,
+"pop": 1084225,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain",
+"origin": "Spanish montaña, \"mountainous\"",
+"high": [
+"Granite Peak",
+12799,
+3901
+],
+"areaSqMi": 147040,
+"bird": "Western meadowlark",
+"flower": "Bitterroot",
+"areaRank": 4
+},
+"capLL": [
+[
+-112.035,
+46.593
+]
+]
+},
+{
+"iso": "NE",
+"id": "NE",
+"name": "Nebraska",
+"names": [
+"Nebraska"
+],
+"capitals": [
+"Lincoln"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NE",
+"info": {
+"abbr": "NE",
+"city": "Omaha",
+"nickname": "Cornhusker State",
+"year": 1867,
+"order": 37,
+"pop": 1961504,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central; Mountain (western panhandle)",
+"origin": "Otoe for \"flat water\", the Platte River",
+"high": [
+"Panorama Point",
+5424,
+1653
+],
+"areaSqMi": 77348,
+"bird": "Western meadowlark",
+"flower": "Goldenrod",
+"areaRank": 16
+},
+"capLL": [
+[
+-96.68,
+40.82
+]
+]
+},
+{
+"iso": "NV",
+"id": "NV",
+"name": "Nevada",
+"names": [
+"Nevada"
+],
+"capitals": [
+"Carson City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NV",
+"info": {
+"abbr": "NV",
+"city": "Las Vegas",
+"nickname": "Silver State",
+"year": 1864,
+"order": 36,
+"pop": 3104614,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Pacific",
+"origin": "Spanish for \"snow-covered\", after the Sierra Nevada",
+"high": [
+"Boundary Peak",
+13140,
+4005
+],
+"areaSqMi": 110572,
+"bird": "Mountain bluebird",
+"flower": "Sagebrush",
+"areaRank": 7
+},
+"capLL": [
+[
+-119.766,
+39.164
+]
+]
+},
+{
+"iso": "NH",
+"id": "NH",
+"name": "New Hampshire",
+"names": [
+"New Hampshire"
+],
+"capitals": [
+"Concord"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NH",
+"info": {
+"abbr": "NH",
+"city": "Manchester",
+"nickname": "Granite State",
+"year": 1788,
+"order": 9,
+"pop": 1377529,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "The county of Hampshire in England",
+"high": [
+"Mount Washington",
+6288,
+1917
+],
+"areaSqMi": 9349,
+"bird": "Purple finch",
+"flower": "Purple lilac",
+"areaRank": 46
+},
+"capLL": [
+[
+-71.538,
+43.208
+]
+]
+},
+{
+"iso": "NJ",
+"id": "NJ",
+"name": "New Jersey",
+"names": [
+"New Jersey"
+],
+"capitals": [
+"Trenton"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NJ",
+"info": {
+"abbr": "NJ",
+"city": "Newark",
+"nickname": "Garden State",
+"year": 1787,
+"order": 3,
+"pop": 9288994,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "The island of Jersey in the Channel Islands",
+"high": [
+"High Point",
+1803,
+550
+],
+"areaSqMi": 8723,
+"bird": "Eastern goldfinch",
+"flower": "Violet",
+"areaRank": 47
+},
+"capLL": [
+[
+-74.743,
+40.217
+]
+]
+},
+{
+"iso": "NM",
+"id": "NM",
+"name": "New Mexico",
+"names": [
+"New Mexico"
+],
+"capitals": [
+"Santa Fe"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NM",
+"info": {
+"abbr": "NM",
+"city": "Albuquerque",
+"nickname": "Land of Enchantment",
+"year": 1912,
+"order": 47,
+"pop": 2117522,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain",
+"origin": "Spanish Nuevo México, after the Valley of Mexico",
+"high": [
+"Wheeler Peak",
+13161,
+4011
+],
+"areaSqMi": 121590,
+"bird": "Greater roadrunner",
+"flower": "Yucca",
+"areaRank": 5
+},
+"capLL": [
+[
+-105.937,
+35.687
+]
+]
+},
+{
+"iso": "NY",
+"id": "NY",
+"name": "New York",
+"names": [
+"New York"
+],
+"capitals": [
+"Albany"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NY",
+"info": {
+"abbr": "NY",
+"city": "New York City",
+"nickname": "Empire State",
+"year": 1788,
+"order": 11,
+"pop": 20201249,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "The Duke of York, later King James II",
+"high": [
+"Mount Marcy",
+5344,
+1629
+],
+"areaSqMi": 54555,
+"bird": "Eastern bluebird",
+"flower": "Rose",
+"areaRank": 27
+},
+"capLL": [
+[
+-73.82,
+42.67
+]
+]
+},
+{
+"iso": "NC",
+"id": "NC",
+"name": "North Carolina",
+"names": [
+"North Carolina"
+],
+"capitals": [
+"Raleigh"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "NC",
+"info": {
+"abbr": "NC",
+"city": "Charlotte",
+"nickname": "Tar Heel State",
+"year": 1789,
+"order": 12,
+"pop": 10439388,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "King Charles I (Carolus in Latin)",
+"high": [
+"Mount Mitchell",
+6684,
+2037
+],
+"areaSqMi": 53819,
+"bird": "Northern cardinal",
+"flower": "Dogwood",
+"areaRank": 28
+},
+"capLL": [
+[
+-78.645,
+35.819
+]
+]
+},
+{
+"iso": "ND",
+"id": "ND",
+"name": "North Dakota",
+"names": [
+"North Dakota"
+],
+"capitals": [
+"Bismarck"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "ND",
+"info": {
+"abbr": "ND",
+"city": "Fargo",
+"nickname": "Peace Garden State",
+"year": 1889,
+"order": 39,
+"pop": 779094,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central; Mountain (southwest)",
+"origin": "The Dakota people, \"friends\" or \"allies\"",
+"high": [
+"White Butte",
+3506,
+1069
+],
+"areaSqMi": 70698,
+"bird": "Western meadowlark",
+"flower": "Wild prairie rose",
+"areaRank": 19
+},
+"capLL": [
+[
+-100.783,
+46.808
+]
+]
+},
+{
+"iso": "OH",
+"id": "OH",
+"name": "Ohio",
+"names": [
+"Ohio"
+],
+"capitals": [
+"Columbus"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "OH",
+"info": {
+"abbr": "OH",
+"city": "",
+"nickname": "Buckeye State",
+"year": 1803,
+"order": 17,
+"pop": 11799448,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Eastern",
+"origin": "Seneca ohiːyo', \"good river\"",
+"high": [
+"Campbell Hill",
+1549,
+472
+],
+"areaSqMi": 44826,
+"bird": "Northern cardinal",
+"flower": "Red carnation",
+"areaRank": 34
+},
+"capLL": [
+[
+-82.992,
+39.982
+]
+]
+},
+{
+"iso": "OK",
+"id": "OK",
+"name": "Oklahoma",
+"names": [
+"Oklahoma"
+],
+"capitals": [
+"Oklahoma City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "OK",
+"info": {
+"abbr": "OK",
+"city": "",
+"nickname": "Sooner State",
+"year": 1907,
+"order": 46,
+"pop": 3959353,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central",
+"origin": "Choctaw okla humma, \"red people\"",
+"high": [
+"Black Mesa",
+4973,
+1516
+],
+"areaSqMi": 69899,
+"bird": "Scissor-tailed flycatcher",
+"flower": "Oklahoma rose",
+"areaRank": 20
+},
+"capLL": [
+[
+-97.521,
+35.472
+]
+]
+},
+{
+"iso": "OR",
+"id": "OR",
+"name": "Oregon",
+"names": [
+"Oregon"
+],
+"capitals": [
+"Salem"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "OR",
+"info": {
+"abbr": "OR",
+"city": "Portland",
+"nickname": "Beaver State",
+"year": 1859,
+"order": 33,
+"pop": 4237256,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Pacific; Mountain (most of Malheur County)",
+"origin": "Uncertain: perhaps \"Ouragon\", an early name for the Columbia River",
+"high": [
+"Mount Hood",
+11249,
+3429
+],
+"areaSqMi": 98379,
+"bird": "Western meadowlark",
+"flower": "Oregon grape",
+"areaRank": 9
+},
+"capLL": [
+[
+-123.024,
+44.928
+]
+]
+},
+{
+"iso": "PA",
+"id": "PA",
+"name": "Pennsylvania",
+"names": [
+"Pennsylvania"
+],
+"capitals": [
+"Harrisburg"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "PA",
+"info": {
+"abbr": "PA",
+"city": "Philadelphia",
+"nickname": "Keystone State",
+"year": 1787,
+"order": 2,
+"pop": 13002700,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "\"Penn's woods\", after Admiral William Penn, the founder's father",
+"high": [
+"Mount Davis",
+3213,
+979
+],
+"areaSqMi": 46054,
+"bird": "Ruffed grouse",
+"flower": "Mountain laurel",
+"areaRank": 33
+},
+"capLL": [
+[
+-76.885,
+40.274
+]
+]
+},
+{
+"iso": "RI",
+"id": "RI",
+"name": "Rhode Island",
+"names": [
+"Rhode Island"
+],
+"capitals": [
+"Providence"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "RI",
+"info": {
+"abbr": "RI",
+"city": "",
+"nickname": "Ocean State",
+"year": 1790,
+"order": 13,
+"pop": 1097379,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "Probably Dutch Roodt Eylandt, \"red island\", or the Greek island of Rhodes",
+"high": [
+"Jerimoth Hill",
+812,
+247
+],
+"areaSqMi": 1545,
+"bird": "Rhode Island Red (chicken)",
+"flower": "Violet",
+"areaRank": 50
+},
+"capLL": [
+[
+-71.417,
+41.823
+]
+]
+},
+{
+"iso": "SC",
+"id": "SC",
+"name": "South Carolina",
+"names": [
+"South Carolina"
+],
+"capitals": [
+"Columbia"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "SC",
+"info": {
+"abbr": "SC",
+"city": "Charleston",
+"nickname": "Palmetto State",
+"year": 1788,
+"order": 8,
+"pop": 5118425,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "King Charles I (Carolus in Latin)",
+"high": [
+"Sassafras Mountain",
+3553,
+1083
+],
+"areaSqMi": 32020,
+"bird": "Carolina wren",
+"flower": "Yellow jessamine",
+"areaRank": 40
+},
+"capLL": [
+[
+-80.9,
+34.04
+]
+]
+},
+{
+"iso": "SD",
+"id": "SD",
+"name": "South Dakota",
+"names": [
+"South Dakota"
+],
+"capitals": [
+"Pierre"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "SD",
+"info": {
+"abbr": "SD",
+"city": "Sioux Falls",
+"nickname": "Mount Rushmore State",
+"year": 1889,
+"order": 40,
+"pop": 886667,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central; Mountain (western half)",
+"origin": "The Dakota people, \"friends\" or \"allies\"",
+"high": [
+"Black Elk Peak",
+7242,
+2207
+],
+"areaSqMi": 77116,
+"bird": "Ring-necked pheasant",
+"flower": "Pasque flower",
+"areaRank": 17
+},
+"capLL": [
+[
+-100.351,
+44.368
+]
+]
+},
+{
+"iso": "TN",
+"id": "TN",
+"name": "Tennessee",
+"names": [
+"Tennessee"
+],
+"capitals": [
+"Nashville"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "TN",
+"info": {
+"abbr": "TN",
+"city": "",
+"nickname": "Volunteer State",
+"year": 1796,
+"order": 16,
+"pop": 6910840,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central; Eastern (east Tennessee)",
+"origin": "Tanasi, a Cherokee town",
+"high": [
+"Kuwohi (formerly Clingmans Dome)",
+6643,
+2025
+],
+"areaSqMi": 42144,
+"bird": "Northern mockingbird",
+"flower": "Iris",
+"areaRank": 36
+},
+"capLL": [
+[
+-86.782,
+36.172
+]
+]
+},
+{
+"iso": "TX",
+"id": "TX",
+"name": "Texas",
+"names": [
+"Texas"
+],
+"capitals": [
+"Austin"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "TX",
+"info": {
+"abbr": "TX",
+"city": "Houston",
+"nickname": "Lone Star State",
+"year": 1845,
+"order": 28,
+"pop": 29145505,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Central; Mountain (far west, around El Paso)",
+"origin": "Caddo táyshaʔ, \"friends\" or \"allies\"",
+"high": [
+"Guadalupe Peak",
+8751,
+2667
+],
+"areaSqMi": 268596,
+"bird": "Northern mockingbird",
+"flower": "Bluebonnet",
+"areaRank": 2
+},
+"capLL": [
+[
+-97.745,
+30.269
+]
+]
+},
+{
+"iso": "UT",
+"id": "UT",
+"name": "Utah",
+"names": [
+"Utah"
+],
+"capitals": [
+"Salt Lake City"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "UT",
+"info": {
+"abbr": "UT",
+"city": "",
+"nickname": "Beehive State",
+"year": 1896,
+"order": 45,
+"pop": 3271616,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain",
+"origin": "The Ute people",
+"high": [
+"Kings Peak",
+13528,
+4123
+],
+"areaSqMi": 84897,
+"bird": "California gull",
+"flower": "Sego lily",
+"areaRank": 13
+},
+"capLL": [
+[
+-111.932,
+40.777
+]
+]
+},
+{
+"iso": "VT",
+"id": "VT",
+"name": "Vermont",
+"names": [
+"Vermont"
+],
+"capitals": [
+"Montpelier"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "VT",
+"info": {
+"abbr": "VT",
+"city": "Burlington",
+"nickname": "Green Mountain State",
+"year": 1791,
+"order": 14,
+"pop": 643077,
+"popYear": "2020 census",
+"region": "Northeast",
+"tz": "Eastern",
+"origin": "French vert mont, \"green mountain\"",
+"high": [
+"Mount Mansfield",
+4393,
+1339
+],
+"areaSqMi": 9616,
+"bird": "Hermit thrush",
+"flower": "Red clover",
+"areaRank": 45
+},
+"capLL": [
+[
+-72.576,
+44.26
+]
+]
+},
+{
+"iso": "VA",
+"id": "VA",
+"name": "Virginia",
+"names": [
+"Virginia"
+],
+"capitals": [
+"Richmond"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "VA",
+"info": {
+"abbr": "VA",
+"city": "Virginia Beach",
+"nickname": "Old Dominion",
+"year": 1788,
+"order": 10,
+"pop": 8631393,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "Queen Elizabeth I, the \"Virgin Queen\"",
+"high": [
+"Mount Rogers",
+5729,
+1746
+],
+"areaSqMi": 42775,
+"bird": "Northern cardinal",
+"flower": "American dogwood",
+"areaRank": 35
+},
+"capLL": [
+[
+-77.452,
+37.552
+]
+]
+},
+{
+"iso": "WA",
+"id": "WA",
+"name": "Washington",
+"names": [
+"Washington",
+"Washington State"
+],
+"capitals": [
+"Olympia"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "WA",
+"info": {
+"abbr": "WA",
+"city": "Seattle",
+"nickname": "Evergreen State",
+"year": 1889,
+"order": 42,
+"pop": 7705281,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Pacific",
+"origin": "George Washington",
+"high": [
+"Mount Rainier",
+14411,
+4392
+],
+"areaSqMi": 71298,
+"bird": "American goldfinch",
+"flower": "Coast rhododendron",
+"areaRank": 18
+},
+"capLL": [
+[
+-122.899,
+47.038
+]
+]
+},
+{
+"iso": "WV",
+"id": "WV",
+"name": "West Virginia",
+"names": [
+"West Virginia"
+],
+"capitals": [
+"Charleston"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "WV",
+"info": {
+"abbr": "WV",
+"city": "",
+"nickname": "Mountain State",
+"year": 1863,
+"order": 35,
+"pop": 1793716,
+"popYear": "2020 census",
+"region": "South",
+"tz": "Eastern",
+"origin": "The western counties of Virginia, which split away in 1863",
+"high": [
+"Spruce Knob",
+4863,
+1482
+],
+"areaSqMi": 24230,
+"bird": "Northern cardinal",
+"flower": "Rhododendron",
+"areaRank": 41
+},
+"capLL": [
+[
+-81.633,
+38.35
+]
+]
+},
+{
+"iso": "WI",
+"id": "WI",
+"name": "Wisconsin",
+"names": [
+"Wisconsin"
+],
+"capitals": [
+"Madison"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "WI",
+"info": {
+"abbr": "WI",
+"city": "Milwaukee",
+"nickname": "Badger State",
+"year": 1848,
+"order": 30,
+"pop": 5893718,
+"popYear": "2020 census",
+"region": "Midwest",
+"tz": "Central",
+"origin": "Uncertain: a Miami name for the Wisconsin River, often given as \"river running through a red place\"",
+"high": [
+"Timms Hill",
+1951,
+595
+],
+"areaSqMi": 65496,
+"bird": "American robin",
+"flower": "Wood violet",
+"areaRank": 23
+},
+"capLL": [
+[
+-89.401,
+43.073
+]
+]
+},
+{
+"iso": "WY",
+"id": "WY",
+"name": "Wyoming",
+"names": [
+"Wyoming"
+],
+"capitals": [
+"Cheyenne"
+],
+"cont": [
+"North America"
+],
+"car": false,
+"a2": "WY",
+"info": {
+"abbr": "WY",
+"city": "",
+"nickname": "Equality State",
+"year": 1890,
+"order": 44,
+"pop": 576851,
+"popYear": "2020 census",
+"region": "West",
+"tz": "Mountain",
+"origin": "Lenape for \"at the big river flat\", via the Wyoming Valley in Pennsylvania",
+"high": [
+"Gannett Peak",
+13804,
+4207
+],
+"areaSqMi": 97813,
+"bird": "Western meadowlark",
+"flower": "Indian paintbrush",
+"areaRank": 10
+},
+"capLL": [
+[
+-104.82,
+41.14
+]
+]
+}
+]

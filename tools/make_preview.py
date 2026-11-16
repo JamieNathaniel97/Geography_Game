@@ -40,11 +40,13 @@ def main(out):
     # flags go inside the page (the test artifact has a file limit; the real app uses data/flags/)
     flags = {p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
              for p in sorted((ROOT / "data" / "flags").glob("*.webp"))}
+    flags.update({"us/" + p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
+                  for p in sorted((ROOT / "data" / "flags" / "us").glob("*.webp"))})
     body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";</script>\n" + body
     page = "\n".join([title, '<meta name="claude:viewport-fit-sides" content="cover">', fonts,
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])
     (out / "geography-game.html").write_text(page, encoding="utf8")
-    for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg"):
+    for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg", "us-states.json", "states.json"):
         shutil.copy(ROOT / "data" / f, out / "data" / f)
     if (out / "data" / "relief").exists():
         shutil.rmtree(out / "data" / "relief")

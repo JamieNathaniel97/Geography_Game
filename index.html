@@ -63,6 +63,13 @@
       <div class="flaggrid" id="flagGrid"></div>
     </div>
     <div class="toast" id="toast" hidden></div>
+    <div class="timeline" id="timeline" hidden>
+      <button class="btn tlplay" id="tlPlay" type="button" aria-label="Play the timeline">▶</button>
+      <div class="tlbody">
+        <div class="tllabel" id="tlLabel"></div>
+        <input type="range" id="tlRange" min="1787" max="1959" step="1" value="1959" aria-label="Year">
+      </div>
+    </div>
     <div class="learncard" id="learnCard" hidden>
       <div class="lchead">
         <img id="lcFlag" alt="" width="96" height="72">
@@ -89,9 +96,10 @@
     <div class="sheethead"><h2 id="setupTitle">New game</h2><button class="btn" id="setupClose" type="button">Close</button></div>
     <div class="seg tabs" id="setupTabs" role="tablist"><button data-v="game" class="on" type="button" role="tab">Game</button><button data-v="options" type="button" role="tab">Options</button></div>
     <div class="tabpanel" id="tabGame">
+    <div class="seg" id="segData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button></div>
     <div class="field"><span class="label">Game</span>
       <div class="gamegroups" id="segGame">
-        <details open><summary>Find <small>tap the country on the map</small></summary>
+        <details open><summary>Find <small>tap it on the map</small></summary>
           <div class="games"><button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button data-v="findflag" type="button">By flag</button></div>
         </details>
         <details><summary>Name <small>type the answer</small></summary>
@@ -147,6 +155,7 @@
 <div class="overlay" id="stats" hidden>
   <div class="sheet statssheet" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
     <div class="sheethead"><h2 id="statsTitle">Your stats</h2><button class="btn" id="statsClose" type="button">Close</button></div>
+    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button></div>
     <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button><button data-v="flag" type="button">Flags</button></div>
     <section><h3>How well you know each region</h3><p class="hint2">Known = right at least 3 times in 4.</p><div id="statsRegions"></div></section>
     <section><h3>Weakest</h3><ul class="slist" id="statsWeak"></ul></section>

@@ -25,9 +25,9 @@
   }
 
   // country shapes from the topology, in batches with pauses between them (see `pause` below)
-  async function featuresOf(topo, byId) {
+  async function featuresOf(topo, byId, object = "countries") {
     const groups = {};
-    topo.objects.countries.geometries.forEach(g => (groups[g.id] = groups[g.id] || []).push(g));
+    topo.objects[object].geometries.forEach(g => (groups[g.id] = groups[g.id] || []).push(g));
     const out = [];
     for (const [n, [id, gs]] of Object.entries(groups).entries()) {
       if (n % 12 === 11) await new Promise(r => setTimeout(r, 0));
@@ -166,6 +166,33 @@
   // Loading is split into small steps with a pause between them, so the splash animation can keep drawing
   // (on a phone, doing it all in one go froze the splash for the best part of a second).
   const pause = () => new Promise(r => setTimeout(r, 0));
+
+  // ----- US states (build 3): the same shape of data as the world map, so the map and games work unchanged -----
+  const US_RINGS = new Set(["RI", "DE"]); // small states with an adaptive circle
+  GG.loadUS = async function () {
+    const [topo, states] = await Promise.all([getJSON("data/us-states.json"), getJSON("data/states.json")]);
+    const byId = {}, byIso = {};
+    states.forEach(c => { byId[c.id] = c; byIso[c.iso] = c; });
+    await pause();
+    const feats = await featuresOf(topo, byId, "states");
+    for (const f of feats) {
+      f.centroid = d3.geoCentroid(f); f.radius = Math.PI;
+      const c = f.c; if (!c) continue;
+      c.feature = f;
+      c.bounds = d3.geoBounds(f);
+      const polys = f.geometry.type === "MultiPolygon" ? f.geometry.coordinates : [f.geometry.coordinates];
+      let best = polys[0], bestA = -1;
+      polys.forEach(p => { const a = d3.geoArea({ type: "Polygon", coordinates: p }); if (a > bestA) { bestA = a; best = p; } });
+      const main = { type: "Polygon", coordinates: best }, mb = d3.geoBounds(main);
+      c.anchor = d3.geoCentroid(main);
+      c.sizeDeg = Math.max((mb[1][0] - mb[0][0]) * Math.cos((mb[0][1] + mb[1][1]) / 2 * Math.PI / 180), mb[1][1] - mb[0][1]);
+      c.minPx = DEFAULT_MIN_PX;
+      c.ring = c.ringAdaptive = US_RINGS.has(c.iso);
+    }
+    const borders = topojson.feature(topo, topo.objects.borders), coast = topojson.feature(topo, topo.objects.coast);
+    return { kind: "us", countries: states, byIso, f50: feats, f110: feats, borders50: borders, borders110: borders,
+      coast50: coast, coast110: coast, clusters: [], ringPx: DEFAULT_MIN_PX };
+  };
 
   GG.loadGeo = async function () {
     const [t50, t110, countries] = await Promise.all([

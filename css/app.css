@@ -3,7 +3,7 @@
   --bg: #e4ebed; --panel: #ffffff; --fg: #17262b; --muted: #5b6d73; --line: #cfd9dc;
   --sea: #cfe3ea; --land: #f6f3ea; --border: #8d9a96; --coast: #7f9aa1; --terr: #d5d8d6; --halo: #9db8c1; --off: #e1e4e1;
   --accent: #1f6f8b; --accent-fg: #ffffff;
-  --good: #2f9e55; --bad: #d64541; --flash: #e3a21a; --marker: #1f6f8b; --sel: #7cc4dc;
+  --good: #2f9e55; --bad: #d64541; --flash: #e3a21a; --marker: #1f6f8b; --sel: #7cc4dc; --capital: #8b1414;
   --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
   --body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
@@ -12,7 +12,7 @@
   :root {
     --bg: #0b1417; --panel: #16252a; --fg: #e4ecee; --muted: #93a6ab; --line: #2a3c42;
     --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726;
-    --accent: #4fb3d4; --accent-fg: #06222c; --good: #3fbf6a; --bad: #ef5e5a; --flash: #f0b43a; --marker: #7fd0ea; --sel: #2f7f99;
+    --accent: #4fb3d4; --accent-fg: #06222c; --good: #3fbf6a; --bad: #ef5e5a; --flash: #f0b43a; --marker: #7fd0ea; --sel: #2f7f99; --capital: #c62828;
     color-scheme: dark;
   }
 }
@@ -92,6 +92,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .regions button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .regions button.on small { color: inherit; opacity: .8; }
 .tabs button { padding-block: 9px; font-weight: 600; }
+#segData button, #statsData button { padding-block: 8px; font-weight: 600; }
 .tabpanel { display: grid; gap: 14px; }
 .regiongroup { border: 1px solid var(--line); border-radius: 8px; padding: 0 10px; }
 .regiongroup[open] { padding-bottom: 10px; }
@@ -117,6 +118,16 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; box-shadow: 0 4px 16px rgba(0,0,0,.2);
   max-height: calc(100% - 20px); overflow-y: auto; }
 .learncard.expanded { max-height: 70%; }
+/* statehood timeline (US Learning mode); the Learning card sits above it */
+.timeline { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; gap: 10px; align-items: center;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
+.tlplay { flex: none; width: 40px; height: 40px; padding: 0; font-size: 16px; }
+.tlbody { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.tllabel { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tllabel b { font: 700 16px var(--display); margin-right: 4px; font-variant-numeric: tabular-nums; }
+.timeline input { width: 100%; margin: 0; accent-color: var(--accent); height: 26px; }
+#mapwrap.hastl .learncard { bottom: 78px; max-height: calc(100% - 88px); }
+#mapwrap.hastl .learncard.expanded { max-height: calc(70% - 68px); }
 .lchead { display: flex; gap: 12px; align-items: center; }
 .learncard img { width: 84px; height: 63px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
 .lcbody { flex: 1; min-width: 0; display: grid; gap: 2px; }

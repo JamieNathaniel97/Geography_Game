@@ -274,6 +274,8 @@ def main():
     import sys
     sys.path.insert(0, str(ROOT / "tools"))
     add_learning_info(countries)
+    import capitals
+    capitals.add_capital_coords(countries)
     ids = {c["id"] for c in countries}
     for res in ("50m", "110m"):
         topo = fix_topology(fetch(f"countries-{res}.json"), ids)

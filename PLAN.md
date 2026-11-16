@@ -89,7 +89,7 @@ Games 3 and 4 mirror games 1 and 2, using capital cities instead of country name
 
 ## Build 2: flag games (built 2026-11-16)
 
-Built: game 5 (Find by flag: a large flag in the centred top bar) and game 6 (Name the flags: a grid of flags with a box under each; tapping the flag or the box starts typing; focus moves to the next unanswered flag). Flags have their own stats tab. All flags come from Flagpedia in their real proportions (Nepal's pennant, square Switzerland and Vatican City). Still to decide: the final number of flags per row in the grid (a 3–7 picker is in the app for testing).
+Built: game 5 (Find by flag: a large flag in the centred top bar) and game 6 (Name the flags: a grid of flags with a box under each; tapping the flag or the box starts typing; focus moves to the next unanswered flag). Flags have their own stats tab. All flags come from Flagpedia in their real proportions (Nepal's pennant, square Switzerland and Vatican City). Flags per row: the 3–7 picker stays as a setting (remembered between visits), rather than one fixed size.
 
 Build 1 is games 1 to 4 only. Build 2 adds the games below once build 1 has been tested. Structure the code so new game modes can be added easily.
 
@@ -109,9 +109,19 @@ Build 1 is games 1 to 4 only. Build 2 adds the games below once build 1 has been
 - A counter tracks progress, for example "45 / 197".
 - Same forgiving name matching as game 2.
 
-## Build 3: US states (do not build yet)
+## Build 3: US states (built 2026-11-16)
 
 Build 3 adds US state games after build 2. All use a flat map of the US, with Alaska and Hawaii shown as insets, and the same borders, terrain and satellite toggles as game 1. Small states (for example Rhode Island, Delaware) get arrows, as tiny countries do.
+
+Built (build 3): Find, Name, Find by capital, Name capitals, flags and Learning mode for the 50 states. Terrain on the US map is built once from the sharp relief tiles (inverse-projected through the Albers insets) and trimmed to the states. Capital dots: in the capitals games, a dark red dot marks each answered country's or state's capital (every official capital for countries with more than one).
+
+
+US Learning (decided 2026-11-16):
+- State card "More facts": largest city, nickname; area (km² and sq mi, rank of 50), highest point, time zones; year joined, where the name comes from; state bird and flower.
+- Statehood timeline in US Learning mode: a slider from 1787 to 1959 with Play. States not yet in the Union are grey and the ones joining that year are highlighted. On trial in the US map only; it could become the history slider for the world map later.
+- US states on the world Learning map: zoom into the US and the state borders fade in (dashed); tap a state for its card. Learning mode only, so world quizzes still treat the USA as one country.
+- Turned down: colouring the map by topic, a neighbours list, big-city dots.
+Taps on the sea: the country (or grey land) with the nearest coastline wins, within 12 px of that coast, and only if it's still open. Before this, small countries reached about 20 px from their centre, so a tap just off Vietnam could pick Cambodia.
 
 ### 7. Find the state
 
@@ -247,6 +257,9 @@ Decided 2026-11-15:
 - 1: Haptic feedback on right and wrong answers.
 
 ## Nice-to-haves for later
+
+- State abbreviations quiz (two-letter codes such as TX), suggested 2026-11-16.
+- Airport codes quiz (three-letter codes such as LHR, JFK), the user's idea from the abbreviations quiz, 2026-11-16.
 
 - Haptic feedback on right and wrong answers.
 - Daily challenge.
