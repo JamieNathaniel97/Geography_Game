@@ -8,3 +8,8 @@ __pycache__/
 tools/_flags_sheet.html
 tools/_flags_sheet.html
 _hello.html
+_bench*.html
+_bench*.js
+_cur.html
+_shot.html
+_shot.js

@@ -73,7 +73,7 @@
       const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
       this.col = { bg: v("--bg"), sea: v("--sea"), land: v("--land"), border: v("--border"), coast: v("--coast"),
         terr: v("--terr"), good: v("--good"), bad: v("--bad"), flash: v("--flash"), marker: v("--marker"),
-        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel"), capital: v("--capital") };
+        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel"), capital: v("--capital"), unformed: v("--unformed"), reserve: v("--reserve") };
     }
 
     // ----- size and projections -----
@@ -540,6 +540,7 @@
     active(c) { return !this.opts.isActive || this.opts.isActive(c); }
     fillFor(f) {
       if (!f.c) return this.col.terr;
+      if (this.opts.isUnformed && this.opts.isUnformed(f.c)) return this.col.unformed; // statehood timeline: not a state yet
       if (!this.active(f.c)) return this.col.off; // outside the quiz region
       const s = this.opts.getState(f.c);
       return s ? this.col[s] : this.col.land;
@@ -562,27 +563,58 @@
         else if (this.style.fit) sphere.rect(-this.BW, -this.BH, this.BW * 3, this.BH * 3); // sea all round the US
         else sphere.addPath(new Path2D(path({ type: "Sphere" })));
         this.flatPaths = {
-          sphere,
+          sphere, path,
           features: this.geo.f50.map(f => ({ f, p: new Path2D(path(f) || "") })),
           borders: new Path2D(path(this.geo.borders50) || ""),
           coast: new Path2D(path(this.geo.coast50) || ""),
+          // zoomed right out, the 1:50m detail is finer than a pixel and slow to stroke: lighter lines then
+          coastLo: this.geo.coast110 ? new Path2D(path(this.geo.coast110) || "") : null,
+          bordersLo: this.geo.borders110 ? new Path2D(path(this.geo.borders110) || "") : null,
+          lakes: this.geo.lakes ? new Path2D(path(this.geo.lakes) || "") : null,
         };
       }
       const P = this.flatPaths;
+      // zoomed in: pieces (one polygon or line each, with its box) so the ones off screen can be skipped
+      const cull = t.k >= 2.5;
+      if (cull && !P.pieces) {
+        const piece = g => { const d = P.path(g); return d ? { p: new Path2D(d), b: P.path.bounds(g) } : null; };
+        const linePieces = g => g ? piecesOf(g).map(piece).filter(Boolean) : [];
+        P.pieces = {
+          features: new Map(P.features.map(({ f }) => [f, piecesOf(f).map(piece).filter(Boolean)])),
+          coast: linePieces(this.geo.coast50), borders: linePieces(this.geo.borders50), lakes: linePieces(this.geo.lakes),
+        };
+      }
       const groups = new Map();
-      P.features.forEach(({ f, p }) => { const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push(p); });
-      this.copies().forEach(dx => {
+      P.features.forEach(({ f, p }) => { const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push({ f, p }); });
+      const lo = t.k < 1.6 && P.coastLo && this.geo.coast110 !== this.geo.coast50;
+      const Wk = this.BW * t.k;
+      this.copies().filter(dx => t.x + dx + Wk > 0 && t.x + dx < this.w).forEach(dx => { // only copies on screen
         ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
+        // the part of the base map on screen for this copy
+        const x0 = (-t.x - dx) / t.k, x1 = (this.w - t.x - dx) / t.k, y0 = -t.y / t.k, y1 = (this.h - t.y) / t.k;
+        const on = b => b[1][0] >= x0 && b[0][0] <= x1 && b[1][1] >= y0 && b[0][1] <= y1;
+        const visible = list => { const out = new Path2D(); list.forEach(o => { if (on(o.b)) out.addPath(o.p); }); return out; };
         ctx.fillStyle = col.sea; ctx.fill(P.sphere);
-        groups.forEach((ps, c) => { ctx.fillStyle = c; ps.forEach(p => ctx.fill(p)); });
+        groups.forEach((ps, c) => {
+          ctx.fillStyle = c;
+          const seams = c === col.unformed; // land not yet a state: stroke in its own colour to hide the seams between areas
+          if (seams) { ctx.strokeStyle = c; ctx.lineWidth = 1 / t.k; }
+          if (cull) { const v = visible(ps.flatMap(({ f }) => P.pieces.features.get(f))); ctx.fill(v); if (seams) ctx.stroke(v); }
+          else ps.forEach(({ p }) => { ctx.fill(p); if (seams) ctx.stroke(p); });
+        });
         if (this.terrain && this.relief && (this.wrap || this.style.fit)) {
           if (this.wrap) this.drawFlatRelief(dx); else this.drawUSRelief();
           ctx.setTransform(this.dpr * t.k, 0, 0, this.dpr * t.k, this.dpr * (t.x + dx), this.dpr * t.y);
         }
         ctx.lineJoin = "round";
-        ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(P.coast);
-        if (this.borders) { ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k; ctx.stroke(P.borders); }
+        if (P.lakes) { const lakes = cull ? visible(P.pieces.lakes) : P.lakes; ctx.fillStyle = col.sea; ctx.fill(lakes); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.5 / t.k; ctx.stroke(lakes); }
+        ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(cull ? visible(P.pieces.coast) : lo ? P.coastLo : P.coast);
+        if (this.borders) {
+          ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k;
+          ctx.stroke(this.bordersOverride ? this.overridePath(P) : cull ? visible(P.pieces.borders) : lo ? P.bordersLo : P.borders);
+        }
         this.drawSub(ctx, null, t.k);
+        this.drawReserves(ctx, null, t.k, cull ? on : null);
       });
     }
     drawGlobe() {
@@ -597,9 +629,13 @@
       const view = half >= R ? Math.PI / 2 : Math.asin(half / R);
       ctx.beginPath(); path({ type: "Sphere" }); ctx.fillStyle = col.sea; ctx.fill();
       const groups = new Map();
+      // zoomed in (much less than a hemisphere on screen): draw only the pieces in view
+      const cull = !light && view < 1.2, inView = o => d3.geoDistance(o.centroid, centre) <= view + o.radius;
+      const lines = g => { if (!cull) { path(g); return; } piecesOf(g).forEach(o => { if (inView(o)) path(o); }); };
       feats.forEach(f => {
-        if (d3.geoDistance(f.centroid, centre) > view + f.radius) return;
-        const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push(f);
+        if (!inView(f)) return;
+        const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []);
+        if (cull) piecesOf(f).forEach(o => { if (inView(o)) groups.get(c).push(o); }); else groups.get(c).push(f);
       });
       groups.forEach((fs, c) => { ctx.beginPath(); fs.forEach(f => path(f)); ctx.fillStyle = c; ctx.fill(); });
       if (this.terrain && this.relief) {
@@ -609,12 +645,156 @@
         ctx.globalCompositeOperation = "source-over";
       }
       ctx.lineJoin = "round";
-      ctx.beginPath(); path(light ? this.geo.coast110 : this.geo.coast50); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6; ctx.stroke();
-      if (this.borders) { ctx.beginPath(); path(light ? this.geo.borders110 : this.geo.borders50); ctx.strokeStyle = col.border; ctx.lineWidth = 0.7; ctx.stroke(); }
-      this.drawSub(ctx, path, 1);
+      if (this.geo.lakes) { ctx.beginPath(); lines(light ? this.geo.lakes110 : this.geo.lakes); ctx.fillStyle = col.sea; ctx.fill(); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.5; ctx.stroke(); }
+      ctx.beginPath(); lines(light ? this.geo.coast110 : this.geo.coast50); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6; ctx.stroke();
+      if (this.borders) { ctx.beginPath(); lines(light ? this.geo.borders110 : this.geo.borders50); ctx.strokeStyle = col.border; ctx.lineWidth = 0.7; ctx.stroke(); }
+      this.drawSub(ctx, path, 1, cull ? lines : null);
+      this.drawReserves(ctx, path, 1, null);
       ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.stroke();
     }
 
+    // Indigenous reserved lands (Learning mode layer): shapes tinted and outlined; the smallest ones are dots,
+    // drawn with the overlays so they stay a fixed size. `fc` = GeoJSON FeatureCollection, or null.
+    setReserves(fc) {
+      this.reserves = fc;
+      if (fc && !fc._split) {
+        fc._split = {
+          shapes: { type: "FeatureCollection", features: fc.features.filter(f => f.geometry.type !== "Point") },
+          dots: fc.features.filter(f => f.geometry.type === "Point"),
+        };
+      }
+      this.resPaths = null;
+      this.requestDraw();
+    }
+    drawReserves(ctx, path, k, onBox) {
+      if (!this.reserves) return;
+      const shapes = this.reserves._split.shapes, col = this.col;
+      ctx.save();
+      let shape = null;
+      const specks = []; // shapes too small to outline at this zoom: screen points, drawn as 1.5 px specks
+      if (path) { // globe: a copy simplified to this zoom, only the pieces facing us (full detail was ~250 ms a frame)
+        const proj = path.projection(), R = proj.scale(), centre = this.centre(), half = Math.hypot(this.w, this.h) / 2;
+        // while the globe moves, a coarser copy (like the lighter coastlines)
+        const view = half >= R ? Math.PI / 2 : Math.asin(half / R), lv = this.resLevel(shapes, this.moving ? R / 3 : R);
+        ctx.beginPath();
+        lv.pieces.forEach(o => { if (d3.geoDistance(o.centroid, centre) <= view + o.radius) path(o); });
+        const c = unitVec(centre), cv = Math.cos(Math.min(Math.PI / 2, view + 0.01));
+        lv.specks.forEach(o => {
+          const v = o._v || (o._v = unitVec(o.centroid));
+          if (v[0] * c[0] + v[1] * c[1] + v[2] * c[2] < cv) return; // on the far side or off screen
+          const p = proj(o.centroid); if (p) specks.push(p);
+        });
+      } else {
+        if (!this.resPaths || this.resPaths.flat !== this.flat) {
+          const p = d3.geoPath(this.flat);
+          this.resPaths = { flat: this.flat, lv: new Map() };
+        }
+        // a lighter copy for this zoom, in base map units so it's built once per level
+        const lv = this.resLevel(shapes, this.pxPerDeg() / RAD);
+        let lp = this.resPaths.lv.get(lv);
+        if (!lp) {
+          const p = d3.geoPath(this.flat);
+          lp = { all: new Path2D(p({ type: "GeometryCollection", geometries: lv.pieces }) || ""),
+            pieces: lv.pieces.map(g => { const d = p(g); return d ? { p: new Path2D(d), b: p.bounds(g) } : null; }).filter(Boolean),
+            specks: lv.specks.map(o => this.flat(o.centroid)).filter(Boolean) };
+          this.resPaths.lv.set(lv, lp);
+        }
+        if (onBox) { shape = new Path2D(); lp.pieces.forEach(o => { if (onBox(o.b)) shape.addPath(o.p); }); } // zoomed in: only the pieces on screen
+        else shape = lp.all;
+        const m = ctx.getTransform(), d = this.dpr;
+        lp.specks.forEach(b => specks.push([(m.a * b[0] + m.e) / d, (m.d * b[1] + m.f) / d]));
+      }
+      ctx.globalAlpha = 0.35; ctx.fillStyle = col.reserve;
+      if (path) ctx.fill(); else ctx.fill(shape);
+      ctx.globalAlpha = 0.9; ctx.strokeStyle = col.reserve; ctx.lineWidth = 0.8 / k;
+      if (path) ctx.stroke(); else ctx.stroke(shape);
+      if (specks.length) { // one speck per 1.5 px cell: zoomed out, thousands land on the same few pixels
+        ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0); ctx.fillStyle = col.reserve; ctx.beginPath();
+        const seen = new Set(), W = this.w, H = this.h;
+        specks.forEach(([x, y]) => {
+          if (x < -2 || y < -2 || x > W + 2 || y > H + 2) return;
+          const key = Math.round(x / 1.5) * 65536 + Math.round(y / 1.5);
+          if (seen.has(key)) return; seen.add(key);
+          ctx.rect(x - 0.75, y - 0.75, 1.5, 1.5);
+        });
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+    // The reserves for a globe of radius R px, cached per zoom level: outlines simplified to about 0.6 px,
+    // and shapes under about 1.5 px across kept only as a centre point (a speck).
+    resLevel(shapes, R) {
+      const L = Math.max(0, Math.ceil(Math.log2(0.6 / R / 2e-5))); // tolerance 2e-5 rad (about 130 m) x 2^L
+      const cache = shapes._lv || (shapes._lv = new Map());
+      if (cache.has(L)) return cache.get(L);
+      const tol = 2e-5 * 2 ** L, tolDeg = tol * 180 / Math.PI, pieces = [], specks = [];
+      piecesOf(shapes).forEach(o => {
+        if (o.radius - 0.002 < 1.25 * tol) { specks.push(o); return; } // capOf pads the radius by 0.002
+        // simplifying can flip which way a ring runs, and on the globe a flipped outline fills the rest of the world:
+        // outlines must enclose less than a hemisphere, holes (on their own) more
+        const ring = r => ({ type: "Polygon", coordinates: [r] });
+        let outer = simplifyRing(o.coordinates[0], tolDeg);
+        if (outer.length < 4) { specks.push(o); return; }
+        if (d3.geoArea(ring(outer)) > 2 * Math.PI) outer = outer.slice().reverse();
+        const holes = o.coordinates.slice(1).map(r => simplifyRing(r, tolDeg)).filter(r => r.length >= 4)
+          .map(r => d3.geoArea(ring(r)) < 2 * Math.PI ? r.slice().reverse() : r);
+        // last check: tiny triangles with no area (a few in the data) can still read as "the whole world"
+        if (d3.geoArea({ type: "Polygon", coordinates: [outer, ...holes] }) > 2 * Math.PI) { specks.push(o); return; }
+        pieces.push({ type: "Polygon", coordinates: [outer, ...holes], centroid: o.centroid, radius: o.radius });
+      });
+      const lv = { pieces, specks };
+      cache.set(L, lv);
+      return lv;
+    }
+    drawReserveDots(ctx, proj) {
+      if (!this.reserves) return;
+      const offsets = this.copies(), W = this.w, H = this.h;
+      ctx.fillStyle = this.col.reserve; ctx.strokeStyle = this.col.panel; ctx.lineWidth = 1;
+      const r = Math.max(1.5, Math.min(3.5, this.pxPerDeg() / 6));
+      const globe = this.mode !== "flat", c = globe ? unitVec(this.centre()) : null, cv = Math.cos(Math.PI / 2 - 0.01);
+      const seen = new Set(); // one dot per spot: zoomed out, many overlap exactly
+      ctx.beginPath();
+      this.reserves._split.dots.forEach(f => {
+        const ll = f.geometry.coordinates;
+        if (globe) { const v = f._v || (f._v = unitVec(ll)); if (v[0] * c[0] + v[1] * c[1] + v[2] * c[2] < cv) return; }
+        const p = proj(ll); if (!p) return;
+        offsets.forEach(dx => {
+          const x = p[0] + dx;
+          if (x < -5 || x > W + 5 || p[1] < -5 || p[1] > H + 5) return;
+          const key = Math.round(x / r) * 65536 + Math.round(p[1] / r);
+          if (seen.has(key)) return; seen.add(key);
+          ctx.moveTo(x + r, p[1]); ctx.arc(x, p[1], r, 0, 2 * Math.PI);
+        });
+      });
+      ctx.fill();
+    }
+    // the reserved land under a screen point (a shape, or a dot within reach), or null
+    reserveAt(x, y) {
+      if (!this.reserves) return null;
+      const proj = this.projection(), offsets = this.copies();
+      let best = null, bd = 10;
+      this.reserves._split.dots.forEach(f => {
+        const ll = f.geometry.coordinates;
+        if (!this.visible(ll)) return;
+        const p = proj(ll); if (!p) return;
+        offsets.forEach(dx => { const d = Math.hypot(p[0] + dx - x, p[1] - y); if (d < bd) { bd = d; best = f; } });
+      });
+      if (best) return best;
+      const ll = this.lonLatAt(x, y);
+      if (!ll) return null;
+      return this.reserves._split.shapes.features.find(f => {
+        const b = f._b || (f._b = d3.geoBounds(f));
+        return ll[0] >= b[0][0] && ll[0] <= b[1][0] && ll[1] >= b[0][1] && ll[1] <= b[1][1] && d3.geoContains(f, ll);
+      }) || null;
+    }
+    // Other borders in place of the usual ones (the statehood timeline: only borders that existed that year)
+    setBordersOverride(g) { this.bordersOverride = g; this.requestDraw(); }
+    overridePath(P) {
+      const cache = P.override || (P.override = new Map());
+      let p = cache.get(this.bordersOverride);
+      if (!p) { p = new Path2D(P.path(this.bordersOverride) || ""); cache.set(this.bordersOverride, p); }
+      return p;
+    }
     // Subdivisions (US states on the world Learning map): their borders fade in as you zoom in, and the
     // tapped one is highlighted. `sub` = { features, borders, selected }.
     setSub(sub) { this.sub = sub; this.subPaths = null; this.requestDraw(); }
@@ -622,14 +802,14 @@
       if (!this.sub || this.styleKey === "usa") return 0;
       return Math.max(0, Math.min(1, (this.pxPerDeg() - 3) / 2.5)); // from about 3 px per degree; fully shown by 5.5
     }
-    drawSub(ctx, path, k) {
+    drawSub(ctx, path, k, lines) {
       const a = this.subAlpha(), sub = this.sub;
       if (!a) return;
       ctx.save();
       ctx.globalAlpha = a;
       if (path) { // globe: projected each frame
         if (sub.selected) { ctx.beginPath(); path(sub.selected); ctx.fillStyle = this.col.flash; ctx.fill(); }
-        ctx.beginPath(); path(sub.borders);
+        ctx.beginPath(); (lines || path)(sub.borders);
       } else { // flat map: paths in base map units, prepared once
         if (!this.subPaths || this.subPaths.flat !== this.flat) {
           const p = d3.geoPath(this.flat);
@@ -641,7 +821,8 @@
           ctx.fillStyle = this.col.flash; ctx.fill(sp);
         }
       }
-      ctx.strokeStyle = this.col.border; ctx.lineWidth = 0.6 / k; ctx.setLineDash([3 / k, 2 / k]);
+      ctx.strokeStyle = this.col.border; ctx.lineWidth = 0.6 / k;
+      if (!this.moving) ctx.setLineDash([3 / k, 2 / k]); // dashes are slow to draw: solid while the map moves
       if (path) ctx.stroke(); else ctx.stroke(this.subPaths.borders);
       ctx.restore();
     }
@@ -765,6 +946,7 @@
         ctx.fillText(String(b.cl.members.length), b.x, b.y);
       });
       // capital dots (capitals games): a dark red dot at each capital of an answered country or state
+      this.drawReserveDots(ctx, proj);
       if (this.opts.showCapital) {
         ctx.fillStyle = col.capital; ctx.strokeStyle = col.panel; ctx.lineWidth = 1.5;
         geo.countries.forEach(c => {
@@ -898,6 +1080,64 @@
   };
 
   function mod(a, n) { return ((a % n) + n) % n; }
+  // Zoomed in, most of the world is off screen, so shapes and lines are split into pieces (one polygon or line
+  // each) that can be skipped when they're out of view. Made once per geometry, the first time it's needed.
+  function piecesOf(g) {
+    if (g._pieces) return g._pieces;
+    const out = [], add = (type, coordinates) => out.push(capOf({ type, coordinates }));
+    const walk = gm => {
+      if (!gm) return;
+      if (gm.type === "FeatureCollection") gm.features.forEach(f => walk(f.geometry));
+      else if (gm.type === "Feature") walk(gm.geometry);
+      else if (gm.type === "Polygon" || gm.type === "LineString") add(gm.type, gm.coordinates);
+      else if (gm.type === "MultiPolygon") gm.coordinates.forEach(c => add("Polygon", c));
+      else if (gm.type === "MultiLineString") gm.coordinates.forEach(c => add("LineString", c));
+      else if (gm.type === "GeometryCollection") gm.geometries.forEach(walk);
+    };
+    walk(g);
+    return (g._pieces = out);
+  }
+  // a [lon, lat] point as a unit vector (dot products give the cosine of the angle between two points)
+  function unitVec([lo, la]) {
+    const l = lo * RAD, p = la * RAD, cp = Math.cos(p);
+    return [cp * Math.cos(l), cp * Math.sin(l), Math.sin(p)];
+  }
+  // Douglas-Peucker on a closed ring (lon/lat degrees); returns the points kept, first and last included
+  function simplifyRing(pts, tol) {
+    const n = pts.length;
+    if (n <= 4) return pts;
+    const keep = new Uint8Array(n); keep[0] = keep[n - 1] = 1;
+    let far = 0, fd = -1; // split the ring at the point farthest from the start
+    for (let i = 1; i < n - 1; i++) { const d = (pts[i][0] - pts[0][0]) ** 2 + (pts[i][1] - pts[0][1]) ** 2; if (d > fd) { fd = d; far = i; } }
+    keep[far] = 1;
+    const stack = [[0, far], [far, n - 1]];
+    while (stack.length) {
+      const [a, b] = stack.pop(), [ax, ay] = pts[a], [bx, by] = pts[b], dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy;
+      let md = 0, mi = -1;
+      for (let i = a + 1; i < b; i++) {
+        const [x, y] = pts[i], u = L ? Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / L)) : 0;
+        const d = Math.hypot(ax + u * dx - x, ay + u * dy - y);
+        if (d > md) { md = d; mi = i; }
+      }
+      if (md > tol) { keep[mi] = 1; stack.push([a, mi], [mi, b]); }
+    }
+    return pts.filter((_, i) => keep[i]);
+  }
+  // a piece's centre and angular radius (every point is within `radius` of `centre`)
+  function capOf(geom) {
+    const pts = geom.type === "Polygon" ? geom.coordinates[0] : geom.coordinates;
+    let x = 0, y = 0, z = 0;
+    for (const [lo, la] of pts) {
+      const l = lo * Math.PI / 180, p = la * Math.PI / 180, cp = Math.cos(p);
+      x += cp * Math.cos(l); y += cp * Math.sin(l); z += Math.sin(p);
+    }
+    const n = Math.hypot(x, y, z);
+    geom.centroid = n < 1e-9 ? [0, 0] : [Math.atan2(y, x) * 180 / Math.PI, Math.asin(z / n) * 180 / Math.PI];
+    let r = 0;
+    for (const pt of pts) r = Math.max(r, d3.geoDistance(geom.centroid, pt));
+    geom.radius = n < 1e-9 ? Math.PI : r + 0.002;
+    return geom;
+  }
   // shortest distance from a point to a closed outline
   function edgeDistance(pts, x, y) {
     let best = Infinity;

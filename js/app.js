@@ -56,6 +56,8 @@
   let selected = null;   // naming games: the country whose name or capital is being typed
   // statehood timeline (US Learning mode): the year shown; states that join that year are highlighted
   let tlYear = 1959, tlTimer = null;
+  const isUnformed = c => tlYear < 1959 && !!c.info && c.info.year > tlYear;
+  const tlBorders = new Map(); // year -> borders that existed then (between two states, or a state and land not yet a state)
   const getState = c => (flashing[c.iso] ? "flash" : c === selected ? "sel" : state[c.iso] ||
     (tlYear < 1959 && c.info && c.info.year === tlYear ? "sel" : null));
   // still to answer (Free tap, or a finished naming game: any country in the region); taps near small
@@ -181,12 +183,17 @@
   function tap(c, view) {
     if (!inRegion(c)) return; // countries outside the region are greyed out and do nothing
     if (S.mode === "explore") {
+      // Reservations layer: name the reserved land under the tap (the card still shows the country or state)
+      const res = main.reserves && view.lastTap ? view.reserveAt(view.lastTap[0], view.lastTap[1]) : null;
+      if (res) toast(`${res.properties.n} · ${RES_KIND[res.properties.k] || ""}`, 3000);
       // world Learning map zoomed into the US: a tap on a state shows the state
       const f = c.iso === "USA" && view.sub && view.lastTap ? view.subAt(view.lastTap[0], view.lastTap[1]) : null;
       selectSub(f);
       flashName(f ? f.c : c);
       if (!f) state[c.iso] = "flash";
-      showLearnCard(f ? f.c : c); redraw(); return;
+      showLearnCard(f ? f.c : c);
+      showFocus(c);
+      redraw(); return;
     }
     if (finished) { flashName(c); return; } // reviewing: tap any country to see its name (or capital)
     if (isName()) { tapName(c, view); return; }
@@ -339,17 +346,61 @@
     $("lcMore").hidden = !on;
     $("lcMoreBtn").textContent = on ? "Fewer facts" : "More facts";
     $("lcMoreBtn").setAttribute("aria-expanded", on);
-    $("learnCard").classList.toggle("expanded", on);
+    $("lcWrap").classList.toggle("expanded", on);
   }
   $("lcMoreBtn").onclick = () => setLearnMore(!learnMore);
-  function hideLearnCard() { $("learnCard").hidden = true; }
+  function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; }
+  // Focus: a button above the card that opens a country's own map in Learning mode ("Focus on <name> ›").
+  // Only the US has its own map so far; the plan is one for every country (PLAN.md).
+  // Countries with their own map: the Countries tab in the New game menu and the Focus button both use this list.
+  // `unit` names the parts (States, Provinces, Counties); `soon` ones are listed but can't be opened yet.
+  const COUNTRY_MAPS = {
+    USA: { name: "United States", focus: "The U.S.", cont: "North America", unit: "States", data: "us", region: "usa" },
+    CAN: { name: "Canada", focus: "Canada", cont: "North America", unit: "Provinces", soon: true },
+    GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", soon: true },
+  };
+  let focusOn = null;
+  function showFocus(c) {
+    const m = S.data === "world" ? COUNTRY_MAPS[c.iso] : null;
+    focusOn = m && !m.soon ? m : null;
+    $("focusBtn").hidden = !focusOn;
+    if (focusOn) $("focusBtn").textContent = `Focus on ${focusOn.focus} ›`;
+  }
+  $("focusBtn").onclick = () => { if (focusOn) startGame("explore", focusOn.region, "flat", focusOn.data); };
+  $("worldBtn").onclick = () => startGame("explore", "world", prefs.worldView || "globe", "world");
   $("lcClose").onclick = () => { hideLearnCard(); selectSub(null); Object.keys(state).forEach(k => delete state[k]); redraw(); };
+  // ---------- Reservations layer (US Learning map only; too heavy for the world globe) ----------
+  // US reservations and Oklahoma tribal areas. Canada's reserves are in data/tribal-ca.json for a future Canada map.
+  let tribal = null, tribalLoading = false, resAfterSplash = false, resOn = !!prefs.reserves;
+  function showReserves() {
+    const learning = S.mode === "explore" && S.data === "us";
+    // loaded the first time it's needed, but not under the splash (preparing them made the splash jumpy)
+    if (learning && resOn && !tribal && GG.splashShowing) resAfterSplash = true;
+    else if (learning && resOn && !tribal && !tribalLoading) {
+      tribalLoading = true; toast("Loading reservations…");
+      fetch("data/tribal-us.json").then(r => r.json()).then(g => { tribal = GG.fixWinding(g); toast(null); showReserves(); })
+        .catch(() => { toast("Couldn't load the reservations.", 2000); resOn = false; showReserves(); })
+        .finally(() => { tribalLoading = false; });
+    }
+    $("resBtn").hidden = !learning;
+    const on = learning && resOn && tribal;
+    $("resBtn").classList.toggle("on", learning && resOn); $("resBtn").setAttribute("aria-pressed", learning && resOn);
+    $("resCredit").hidden = !on;
+    main.setReserves(on ? tribal : null);
+  }
+  $("resBtn").onclick = () => { resOn = !resOn; savePrefs({ reserves: resOn }); showReserves(); };
+  const RES_KIND = { Reservation: "Reservation, United States", "Oklahoma tribal area": "Oklahoma tribal statistical area, United States",
+    Reserve: "First Nations reserve or settlement land, Canada" };
+
   // US states on the world Learning map (loaded the first time they're needed)
   function useSub(on) {
     if (!on) { main.setSub(null); return; }
-    const set = () => { if (S.mode === "explore" && S.data === "world") main.setSub({ features: geoUS.f50.filter(f => f.c), borders: geoUS.borders50, selected: null }); };
+    const set = () => { if (S.mode === "explore" && S.data === "world") main.setSub({ features: geoUS.f50.filter(f => f.c), borders: subBorders(), selected: null }); };
     if (geoUS) set(); else GG.loadUS().then(g => { geoUS = geoUS || g; set(); }).catch(() => {});
   }
+  // the state borders, simplified once: the full detail made zooming into the US jittery on the world map
+  let subBordersCache = null;
+  const subBorders = () => subBordersCache || (subBordersCache = GG.simplify(geoUS.borders50, 0.02));
   function selectSub(f) { if (main.sub) { main.sub.selected = f; main.requestDraw(); } }
 
   // ---------- statehood timeline (US Learning mode) ----------
@@ -363,6 +414,11 @@
     const n = states.length;
     const note = joined.length ? `${joined.map(c => c.name).join(", ")} joined` : "";
     $("tlLabel").innerHTML = `<b>${year}</b> ${n === 50 ? "All 50 states" : `${n} state${n === 1 ? "" : "s"}`}${note ? " · " + esc(note) : ""}`;
+    if (year >= 1959 || !geo.bordersWhere) main.setBordersOverride(null);
+    else {
+      if (!tlBorders.has(year)) tlBorders.set(year, geo.bordersWhere((a, b) => (a && a.info.year <= year) || (b && b.info.year <= year)));
+      main.setBordersOverride(tlBorders.get(year));
+    }
     redraw();
   }
   function stopTimeline() { clearInterval(tlTimer); tlTimer = null; $("tlPlay").textContent = "▶"; $("tlPlay").setAttribute("aria-label", "Play the timeline"); }
@@ -371,12 +427,17 @@
     $("timeline").hidden = !on;
     $("mapwrap").classList.toggle("hastl", on);
     tlYear = 1959;
+    main.setBordersOverride(null);
     if (on) setTimeline(1959);
   }
   $("tlRange").addEventListener("input", e => { stopTimeline(); setTimeline(+e.target.value); });
+  // the arrows jump to the previous or next year a state joined
+  const joinYears = () => [...new Set(geo.countries.map(c => c.info.year))].sort((a, b) => a - b);
+  $("tlPrev").onclick = () => { stopTimeline(); const y = joinYears().filter(y => y < tlYear).pop(); setTimeline(y || 1787); };
+  $("tlNext").onclick = () => { stopTimeline(); const y = joinYears().find(y => y > tlYear); setTimeline(y || 1959); };
   $("tlPlay").onclick = () => {
     if (tlTimer) { stopTimeline(); return; }
-    const years = [...new Set(geo.countries.map(c => c.info.year))].sort((a, b) => a - b);
+    const years = joinYears();
     let i = tlYear >= 1959 ? 0 : years.findIndex(y => y > tlYear);
     if (i < 0) i = 0;
     setTimeline(years[i]);
@@ -635,24 +696,66 @@
   document.querySelectorAll("#segGame details").forEach(d => d.addEventListener("toggle", () => {
     if (d.open) document.querySelectorAll("#segGame details").forEach(o => { if (o !== d) o.open = false; });
   }));
-  // World or US states: relabel the games and show only the choices that apply
+  // Countries tab: continent headings (the Caribbean is part of North America) with a button per country map
+  function buildCountryList() {
+    const conts = ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"];
+    $("countryList").innerHTML = conts.map(ct => {
+      const btns = Object.entries(COUNTRY_MAPS).filter(([, m]) => m.cont === ct).map(([iso, m]) => {
+        const c = geoWorld.byIso[iso];
+        return `<button type="button" data-v="${iso}"${m.soon ? " disabled" : ""}>${c ? `<img src="${flagSrc(c)}" alt="">` : ""}` +
+          `<span>${esc(m.name)}</span>${m.soon ? "<small>soon</small>" : ""}</button>`;
+      }).join("");
+      return `<section><h3>${ct}</h3>${btns ? `<div class="cbtns">${btns}</div>` : `<p class="none">More countries to come</p>`}</section>`;
+    }).join("");
+  }
+  // World, the list of countries, or one country's page (its Find and Name games)
   function showData() {
-    segSelect($("segData"), pick.data);
-    const us = pick.data === "us";
-    document.querySelectorAll('#segGame button[data-v="find"], #segGame button[data-v="name"]').forEach(b => { b.textContent = us ? "States" : "Countries"; });
-    $("regionGroup").hidden = us;
-    $("viewField").hidden = us || pick.region !== "world";
+    const countries = pick.tab === "countries";
+    segSelect($("segData"), pick.tab);
+    $("worldPanel").hidden = countries;
+    $("countryList").hidden = !countries || !!pick.country;
+    $("countryPage").hidden = !countries || !pick.country;
+    if (countries && pick.country) {
+      const m = COUNTRY_MAPS[pick.country];
+      $("cpName").textContent = m.name;
+      $("cpGames").querySelectorAll('[data-v="find"], [data-v="name"]').forEach(b => { b.textContent = m.unit; });
+      segSelect($("cpGames"), pick.mode);
+    }
+    $("startBtn").hidden = countries && !pick.country; // pick a country first
+    if (!countries) { segSelect($("segGame"), pick.mode); showGameGroup(pick.mode); $("viewField").hidden = pick.region !== "world"; }
   }
   $("segData").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
-    pick.data = b.dataset.v;
-    if (pick.data === "us") pick.region = "usa";
-    else if (pick.region === "usa") pick.region = "world";
-    segSelect($("regions"), pick.region);
+    pick.tab = b.dataset.v; pick.country = null;
+    if (pick.tab === "world") { pick.data = "world"; if (pick.region === "usa") pick.region = "world"; segSelect($("regions"), pick.region); }
     showData(); showOptions();
   });
+  $("countryList").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b || b.disabled) return;
+    const m = COUNTRY_MAPS[b.dataset.v];
+    pick.country = b.dataset.v; pick.data = m.data; pick.region = m.region;
+    showData(); showOptions();
+  });
+  $("cpBack").onclick = () => { pick.country = null; showData(); };
+  $("cpGames").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    pick.mode = b.dataset.v; segSelect($("cpGames"), pick.mode); showOptions();
+  });
+  // the cog: Options (knowledge gaps, timer) in place of the games
+  function showOptPanel(on) {
+    $("tabOptions").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on;
+    $("setupTitle").textContent = on ? "Options" : "New game";
+    $("optBtn").classList.toggle("on", on); $("optBtn").setAttribute("aria-pressed", on);
+  }
+  $("optBtn").onclick = () => showOptPanel($("tabOptions").hidden);
+  $("optBack").onclick = () => showOptPanel(false);
   function openSetup() {
-    pick.mode = S.mode; pick.region = S.region; pick.view = S.region === "world" ? main.mode : "globe"; pick.data = S.data;
+    // Learning mode has its own tab now, so the menu opens on a scored game
+    pick.mode = S.mode === "explore" ? "find" : S.mode;
+    pick.region = S.region; pick.view = S.region === "world" ? main.mode : "globe"; pick.data = S.data;
+    pick.tab = S.data === "world" ? "world" : "countries";
+    pick.country = S.data === "world" ? null : Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k].data === S.data) || null;
+    if (!$("countryList").childElementCount) buildCountryList();
     segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); segSelect($("segView"), pick.view);
     showGameGroup(pick.mode);
     $("viewField").hidden = pick.region !== "world";
@@ -660,7 +763,7 @@
     pick.paceFind = S.paceFind || 5; pick.paceName = S.paceName || 10;
     segSelect($("segQuestions"), pick.weak ? "weak" : "all"); segSelect($("segTimer"), pick.timer ? "on" : "off");
     $("regionGroup").open = false;
-    showTab("game");
+    showOptPanel(false);
     showData();
     showOptions();
     $("setup").hidden = false;
@@ -684,14 +787,14 @@
     $("paceTotal").textContent = `${r.name}: ${n} × ${pace} s = ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
     $("regionSummary").textContent = `${r.name} · ${all}`;
     const parts = [find && pick.weak ? "Knowledge gaps" : "", pick.timer && pick.mode !== "explore" ? `Timer ${pace} s` : ""].filter(Boolean);
-    $("setupTabs").querySelector('[data-v="options"]').textContent = parts.length ? `Options · ${parts.length}` : "Options";
+    $("optBadge").hidden = !parts.length; $("optBadge").textContent = parts.length; // options switched on
+    $("optBtn").setAttribute("aria-label", parts.length ? `Options: ${parts.join(", ")}` : "Options");
   }
-  function showTab(tab) {
-    segSelect($("setupTabs"), tab);
-    $("tabGame").hidden = tab !== "game";
-    $("tabOptions").hidden = tab !== "options";
-  }
-  $("setupTabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) showTab(b.dataset.v); });
+  // the Learning mode tab goes straight to the Learning globe
+  $("setupTabs").addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (b && b.dataset.v === "learn") { closeSetup(); closeInset(); startGame("explore", "world", "globe", "world"); }
+  });
   $("segQuestions").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.weak = b.dataset.v === "weak"; segSelect($("segQuestions"), b.dataset.v); showOptions(); } });
   $("segTimer").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.timer = b.dataset.v === "on"; segSelect($("segTimer"), b.dataset.v); showOptions(); } });
   $("segPace").addEventListener("click", e => {
@@ -732,14 +835,18 @@
     // region games are cropped to the region; the jump bar is swapped for a "Whole region" button
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
     $("jumpbar").hidden = region !== "world" || mode === "nameflag"; // no map in Name the flags
-    $("regionBtn").hidden = region === "world";
+    $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
+    $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
+    if (mode === "explore" && S.magnify) setMag(false);
     $("regionBtn").textContent = data === "us" ? "Whole US" : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
+    $("worldBtn").hidden = !(mode === "explore" && data === "us"); // back from Focus on US states
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
     hideLearnCard();
     showTimeline(mode === "explore" && data === "us");
     useSub(mode === "explore" && data === "world");
+    showReserves();
     if (mode !== "nameflag") hideFlagGrid();
     if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; startTime = 0; clearInterval(clockTimer); tickClock(); show(); } else newGame();
   }
@@ -765,10 +872,10 @@
     const q = new URLSearchParams(location.search);
     const style = GG.FLAT_STYLES[q.get("proj")] ? q.get("proj") : "patterson";
     main = new GG.MapView($("map"), { geo, mode: "globe", flatStyle: style, getState, onTap: tap, onPoint,
-      isTarget: c => c === target, isActive: inRegion, isOpen, showCapital });
+      isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed });
     main.lookAt(15, 25, 120, false);
     buildRegionButtons();
-    GG.debug = { main, geo, startGame, inset: () => insetView };
+    GG.debug = { main, geo, startGame, inset: () => insetView, get geoUS() { return geoUS; } };
     setViewButton();
     // testing hooks: ?region=europe&view=flat starts that game; ?at=lon,lat,span and ?terrain=1 adjust the view
     if (REGIONS[q.get("region")] || q.get("view") || q.get("data")) {
@@ -787,7 +894,7 @@
     }
     if (q.get("terrain")) $("terrainBtn").click();
     if (q.get("at")) { const [lo, la, sp] = q.get("at").split(",").map(Number); main.lookAt(lo, la, sp, false); }
-    GG.onSplashGone = () => main.requestDraw();
+    GG.onSplashGone = () => { main.requestDraw(); if (resAfterSplash) { resAfterSplash = false; showReserves(); } };
     GG.splashDone();
     let lastW = main.w;
     window.addEventListener("resize", () => {

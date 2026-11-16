@@ -1,7 +1,7 @@
 /* Layout: one-screen app. Prompt bar on top, the map fills the middle, jump bar fixed at the very bottom. */
 :root {
   --bg: #e4ebed; --panel: #ffffff; --fg: #17262b; --muted: #5b6d73; --line: #cfd9dc;
-  --sea: #cfe3ea; --land: #f6f3ea; --border: #8d9a96; --coast: #7f9aa1; --terr: #d5d8d6; --halo: #9db8c1; --off: #e1e4e1;
+  --sea: #cfe3ea; --land: #f6f3ea; --border: #8d9a96; --coast: #7f9aa1; --terr: #d5d8d6; --halo: #9db8c1; --off: #e1e4e1; --unformed: #ddd3bb; --reserve: #b5532e;
   --accent: #1f6f8b; --accent-fg: #ffffff;
   --good: #2f9e55; --bad: #d64541; --flash: #e3a21a; --marker: #1f6f8b; --sel: #7cc4dc; --capital: #8b1414;
   --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
@@ -11,7 +11,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b1417; --panel: #16252a; --fg: #e4ecee; --muted: #93a6ab; --line: #2a3c42;
-    --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726;
+    --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726; --unformed: #3a3a2c; --reserve: #e0875f;
     --accent: #4fb3d4; --accent-fg: #06222c; --good: #3fbf6a; --bad: #ef5e5a; --flash: #f0b43a; --marker: #7fd0ea; --sel: #2f7f99; --capital: #c62828;
     color-scheme: dark;
   }
@@ -76,6 +76,31 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sheet { background: var(--panel); border-radius: 12px; width: min(440px, 100%); padding: 16px; display: grid; gap: 14px; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
 .sheethead { display: flex; align-items: center; justify-content: space-between; }
 .sheethead h2 { margin: 0; font: 700 22px var(--display); }
+.headbtns { display: flex; align-items: center; gap: 4px; }
+.cog { position: relative; color: var(--fg); }
+.cog.on { color: var(--accent); }
+.cog .badge { position: absolute; top: 0; right: 0; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px;
+  background: var(--accent); color: var(--accent-fg); font: 700 10px/16px var(--body); text-align: center; }
+#optBack { justify-self: start; }
+/* Countries tab: continent headings with country buttons; a country's page has Find and Name columns */
+.clist { display: grid; gap: 12px; }
+.clist h3 { margin: 0 0 6px; font: 700 15px var(--display); color: var(--muted); letter-spacing: .03em; }
+.clist .cbtns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.clist .cbtns button { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--panel); border-radius: 8px;
+  padding: 8px 10px; font-weight: 500; text-align: left; min-width: 0; }
+.clist .cbtns img { width: 28px; height: 20px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 1px rgba(0,0,0,.25)); }
+.clist .cbtns span { min-width: 0; overflow-wrap: anywhere; }
+.clist .cbtns small { margin-left: auto; color: var(--muted); font-size: 11px; }
+.clist .cbtns button:disabled { opacity: .55; cursor: default; }
+.clist .none { margin: 0; font-size: 13px; color: var(--muted); }
+.cpage { display: grid; gap: 12px; }
+.cphead { display: grid; gap: 2px; justify-items: start; }
+.cphead h3 { margin: 0; font: 700 20px var(--display); }
+.cpcols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cpcol { display: grid; gap: 6px; align-content: start; }
+.cpcol .label small { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.cpcol button { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 9px 10px; font-weight: 500; }
+.cpcol button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 .field { display: grid; gap: 6px; }
 .label { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .seg { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -114,10 +139,15 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .bigscore small { color: var(--muted); font-size: 13px; }
 .results .detail { margin: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
 .resultbtns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 6px; }
-.learncard { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; flex-direction: column; gap: 6px;
+/* the card and the button above it (Focus on US states) sit together at the bottom of the map */
+.lcwrap { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+  max-height: calc(100% - 20px); pointer-events: none; }
+.lcwrap > * { pointer-events: auto; }
+.lcwrap.expanded { max-height: 70%; }
+.learncard { align-self: stretch; flex: 0 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 6px;
   background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; box-shadow: 0 4px 16px rgba(0,0,0,.2);
-  max-height: calc(100% - 20px); overflow-y: auto; }
-.learncard.expanded { max-height: 70%; }
+  overflow-y: auto; }
+#focusBtn { flex: none; font-weight: 600; }
 /* statehood timeline (US Learning mode); the Learning card sits above it */
 .timeline { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; gap: 10px; align-items: center;
   background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
@@ -125,9 +155,14 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tlbody { flex: 1; min-width: 0; display: grid; gap: 2px; }
 .tllabel { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tllabel b { font: 700 16px var(--display); margin-right: 4px; font-variant-numeric: tabular-nums; }
-.timeline input { width: 100%; margin: 0; accent-color: var(--accent); height: 26px; }
-#mapwrap.hastl .learncard { bottom: 78px; max-height: calc(100% - 88px); }
-#mapwrap.hastl .learncard.expanded { max-height: calc(70% - 68px); }
+.tlrow { display: flex; align-items: center; gap: 8px; }
+.credit { position: absolute; left: 8px; bottom: 6px; max-width: 70%; font-size: 10px; line-height: 1.3; color: var(--muted);
+  background: color-mix(in srgb, var(--panel) 80%, transparent); padding: 2px 6px; border-radius: 6px; pointer-events: none; }
+#mapwrap.hastl .credit { bottom: 82px; }
+.tlstep { flex: none; width: 34px; height: 30px; padding: 0; font-size: 18px; line-height: 1; }
+.timeline input { flex: 1; min-width: 0; margin: 0; accent-color: var(--accent); height: 26px; }
+#mapwrap.hastl .lcwrap { bottom: 78px; max-height: calc(100% - 88px); }
+#mapwrap.hastl .lcwrap.expanded { max-height: calc(70% - 68px); }
 .lchead { display: flex; gap: 12px; align-items: center; }
 .learncard img { width: 84px; height: 63px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
 .lcbody { flex: 1; min-width: 0; display: grid; gap: 2px; }

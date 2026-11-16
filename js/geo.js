@@ -191,12 +191,60 @@
     }
     const borders = topojson.feature(topo, topo.objects.borders), coast = topojson.feature(topo, topo.objects.coast);
     return { kind: "us", countries: states, byIso, f50: feats, f110: feats, borders50: borders, borders110: borders,
-      coast50: coast, coast110: coast, clusters: [], ringPx: DEFAULT_MIN_PX };
+      coast50: coast, coast110: coast, clusters: [], ringPx: DEFAULT_MIN_PX,
+      // borders between just some of the states (the statehood timeline only draws the ones that existed)
+      bordersWhere: test => topojson.mesh(topo, topo.objects.states, (a, b) => a !== b && test(byId[a.id], byId[b.id])) };
+  };
+
+  // Fewer points in lines and outlines (Douglas–Peucker, tolerance in degrees), for things redrawn every frame
+  GG.simplify = function (g, tol) {
+    const line = pts => {
+      if (pts.length < 3) return pts;
+      const keep = new Uint8Array(pts.length); keep[0] = keep[pts.length - 1] = 1;
+      const stack = [[0, pts.length - 1]];
+      while (stack.length) {
+        const [a, b] = stack.pop(), [ax, ay] = pts[a], [bx, by] = pts[b], dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy;
+        let best = -1, bd = tol * tol;
+        for (let i = a + 1; i < b; i++) {
+          const [px, py] = pts[i];
+          const u = L ? Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / L)) : 0;
+          const ex = ax + u * dx - px, ey = ay + u * dy - py, d = ex * ex + ey * ey;
+          if (d > bd) { bd = d; best = i; }
+        }
+        if (best > 0) { keep[best] = 1; stack.push([a, best], [best, b]); }
+      }
+      return pts.filter((_, i) => keep[i]);
+    };
+    const ring = r => { const out = line(r); return out.length >= 4 ? out : null; };
+    const geom = gm => {
+      const t = gm.type, c = gm.coordinates;
+      if (t === "LineString") return { type: t, coordinates: line(c) };
+      if (t === "MultiLineString") return { type: t, coordinates: c.map(line) };
+      if (t === "Polygon") return { type: t, coordinates: c.map(ring).filter(Boolean) };
+      if (t === "MultiPolygon") return { type: t, coordinates: c.map(p => p.map(ring).filter(Boolean)).filter(p => p.length) };
+      return gm;
+    };
+    if (g.type === "FeatureCollection") return { type: g.type, features: g.features.map(f => ({ ...f, geometry: geom(f.geometry) })) };
+    if (g.type === "Feature") return { ...g, geometry: geom(g.geometry) };
+    return geom(g);
+  };
+
+  // d3 wants clockwise outer rings: a polygon wound the other way reads as the whole world except that area.
+  // Each part that d3 sees as bigger than half the globe is turned round.
+  GG.fixWinding = function (fc) {
+    fc.features.forEach(f => {
+      const g = f.geometry; if (!g) return;
+      const polys = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
+      polys.forEach(p => { if (d3.geoArea({ type: "Polygon", coordinates: p }) > 2 * Math.PI) p.forEach(r => r.reverse()); });
+    });
+    return fc;
   };
 
   GG.loadGeo = async function () {
-    const [t50, t110, countries] = await Promise.all([
-      getJSON("data/world-50m.json"), getJSON("data/world-110m.json"), getJSON("data/countries.json")]);
+    const [t50, t110, countries, lakes] = await Promise.all([
+      getJSON("data/world-50m.json"), getJSON("data/world-110m.json"), getJSON("data/countries.json"),
+      getJSON("data/lakes.json").catch(() => null)]); // the big lakes (optional: the map works without them)
+    if (lakes) GG.fixWinding(lakes);
     const byId = {}, byIso = {};
     countries.forEach(c => { byId[c.id] = c; byIso[c.iso] = c; });
     await pause();
@@ -247,7 +295,8 @@
       c.ringAdaptive = ADAPTIVE_RINGS.has(c.iso);
     });
     return {
-      countries, byIso, f50, f110, borders50, borders110, coast50, coast110,
+      countries, byIso, f50, f110, borders50, borders110, coast50, coast110, lakes,
+      lakes110: lakes && GG.simplify(lakes, 0.08), // lighter lakes while the globe spins
       clusters: CLUSTERS.map(cl => ({ name: cl.name, members: cl.members.map(i => byIso[i]) })),
       ringPx: DEFAULT_MIN_PX,
     };
