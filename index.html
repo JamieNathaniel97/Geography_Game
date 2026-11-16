@@ -206,6 +206,7 @@
 <script src="vendor/d3.min.js"></script>
 <script src="vendor/topojson-client.min.js"></script>
 <script src="vendor/d3-geo-projection.min.js"></script>
+<button class="updatebar" id="updateBtn" type="button" hidden>New version ready · tap to update</button>
 <script src="js/splash.js"></script>
 <script src="js/names.js"></script>
 <script src="js/stats.js"></script>
@@ -215,6 +216,14 @@
 <script>
   if ("serviceWorker" in navigator && location.protocol === "https:") {
     window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+    // A new version has downloaded and taken over: offer a reload (never automatic, so a game isn't lost).
+    // The first install also fires this, but there was no old version then.
+    let hadVersion = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (hadVersion) document.getElementById("updateBtn").hidden = false;
+      hadVersion = true;
+    });
+    document.getElementById("updateBtn").onclick = () => location.reload();
   }
 </script>
 </body>
