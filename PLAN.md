@@ -87,7 +87,9 @@ Games 3 and 4 mirror games 1 and 2, using capital cities instead of country name
 - Countries with more than one capital (for example South Africa, Bolivia) accept any of them.
 - Built 2026-11-15. Game 3 shows the first listed capital and a miss says "Missed: Bamako is in Mali". Game 4 uses the same matching, spelling note and give-up behaviour as game 2. Capitals come from the country data, with corrections and accepted alternatives in `tools/build_data.py` (CAPITALS): for example Mbabane/Lobamba, Sucre/La Paz, Colombo/Sri Jayawardenepura Kotte, Kuala Lumpur/Putrajaya, Kyiv/Kiev, Bern/Berne, Washington/Washington DC.
 
-## Build 2: future games (do not build yet)
+## Build 2: flag games (built 2026-11-16)
+
+Built: game 5 (Find by flag: a large flag in the centred top bar) and game 6 (Name the flags: a grid of flags with a box under each; tapping the flag or the box starts typing; focus moves to the next unanswered flag). Flags have their own stats tab. All flags come from Flagpedia in their real proportions (Nepal's pennant, square Switzerland and Vatican City). Still to decide: the final number of flags per row in the grid (a 3–7 picker is in the app for testing).
 
 Build 1 is games 1 to 4 only. Build 2 adds the games below once build 1 has been tested. Structure the code so new game modes can be added easily.
 
