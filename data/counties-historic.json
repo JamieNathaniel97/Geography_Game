@@ -14,7 +14,15 @@
 "kind": "historic",
 "area": 1213,
 "flag": true,
-"areaRank": 93
+"areaRank": 93,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Bee orchid",
+"food": "Bedfordshire clanger",
+"landmark": "Woburn Abbey",
+"motto": "Constant be",
+"flag": "Beauchamp red and gold, the Dukes of Bedford's shells and the waves of the Great Ouse"
+}
 },
 "cont": [
 "Europe"
@@ -45,7 +53,13 @@
 "kind": "historic",
 "area": 1873,
 "flag": true,
-"areaRank": 67
+"areaRank": 67,
+"facts": {
+"kingdom": "Wessex",
+"flower": "Summer snowflake",
+"landmark": "Windsor Castle",
+"flag": "A royal red stag and an oak tree: the 'Royal County'"
+}
 },
 "cont": [
 "Europe"
@@ -76,7 +90,15 @@
 "kind": "historic",
 "area": 1934,
 "flag": true,
-"areaRank": 64
+"areaRank": 64,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Chiltern gentian",
+"food": "Aylesbury duck",
+"landmark": "Bletchley Park",
+"motto": "Vestigia nulla retrorsum (no steps backwards)",
+"flag": "A white swan on red and black, from the Dukes of Buckingham"
+}
 },
 "cont": [
 "Europe"
@@ -106,7 +128,14 @@
 "kind": "historic",
 "area": 2222,
 "flag": true,
-"areaRank": 51
+"areaRank": 51,
+"facts": {
+"kingdom": "East Anglia",
+"flower": "Pasqueflower",
+"food": "Cambridge burnt cream",
+"landmark": "King's College Chapel, Cambridge",
+"flag": "East Anglia's three gold crowns above the River Cam"
+}
 },
 "cont": [
 "Europe"
@@ -136,7 +165,15 @@
 "kind": "historic",
 "area": 2688,
 "flag": true,
-"areaRank": 37
+"areaRank": 37,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Cuckooflower",
+"food": "Cheshire cheese",
+"landmark": "Chester's Rows and Roman walls",
+"motto": "Jure et dignitate gladii (by the right and dignity of the sword)",
+"flag": "The golden wheatsheaves of the Earls of Chester and the sword of a county palatine"
+}
 },
 "cont": [
 "Europe"
@@ -168,7 +205,17 @@
 "kind": "historic",
 "area": 3592,
 "flag": true,
-"areaRank": 26
+"areaRank": 26,
+"facts": {
+"kingdom": "Dumnonia, a British kingdom (Kernow)",
+"flower": "Cornish heath",
+"day": "St Piran's Day (5 March)",
+"people": "Cousin Jacks (Cornish miners abroad)",
+"food": "Cornish pasty",
+"landmark": "St Michael's Mount",
+"motto": "Onen hag oll (one and all)",
+"flag": "St Piran's Cross: white on black, like tin in the black ore"
+}
 },
 "cont": [
 "Europe"
@@ -199,7 +246,14 @@
 "kind": "historic",
 "area": 2645,
 "flag": true,
-"areaRank": 38
+"areaRank": 38,
+"facts": {
+"kingdom": "Northumbria (Bernicia)",
+"flower": "Spring gentian",
+"day": "St Cuthbert's Day (20 March)",
+"landmark": "Durham Cathedral",
+"flag": "St Cuthbert's cross, found in his tomb in 1827, in blue and gold"
+}
 },
 "cont": [
 "Europe"
@@ -229,7 +283,15 @@
 "kind": "historic",
 "area": 3964,
 "flag": true,
-"areaRank": 23
+"areaRank": 23,
+"facts": {
+"kingdom": "Rheged, a British kingdom; later Northumbria and Strathclyde",
+"flower": "Grass-of-Parnassus",
+"food": "Cumberland sausage",
+"landmark": "The Lake District (Derwentwater)",
+"motto": "Perfer et obdura (be patient and endure)",
+"flag": "Grass-of-Parnassus flowers above the blue and white waves of the coast and lakes"
+}
 },
 "cont": [
 "Europe"
@@ -260,7 +322,15 @@
 "kind": "historic",
 "area": 2634,
 "flag": true,
-"areaRank": 39
+"areaRank": 39,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Jacob's-ladder",
+"food": "Bakewell pudding",
+"landmark": "Chatsworth House",
+"motto": "Bene consulendo (by good counsel)",
+"flag": "A gold Tudor rose on a green cross: the centre of England"
+}
 },
 "cont": [
 "Europe"
@@ -290,7 +360,16 @@
 "kind": "historic",
 "area": 6801,
 "flag": true,
-"areaRank": 7
+"areaRank": 7,
+"facts": {
+"kingdom": "Dumnonia, a British kingdom; then Wessex",
+"flower": "Primrose",
+"day": "St Petroc's Day (4 June)",
+"food": "Devon cream tea",
+"landmark": "Dartmoor",
+"motto": "Auxilio divino (by divine aid)",
+"flag": "St Petroc's Cross: green hills, black moors, white sea spray"
+}
 },
 "cont": [
 "Europe"
@@ -320,7 +399,15 @@
 "kind": "historic",
 "area": 2595,
 "flag": true,
-"areaRank": 41
+"areaRank": 41,
+"facts": {
+"kingdom": "Wessex",
+"flower": "Dorset heath",
+"food": "Dorset Blue Vinny cheese",
+"landmark": "The Jurassic Coast (Durdle Door)",
+"motto": "Who's a-fear'd",
+"flag": "St Wite's Cross: red and white for England, gold for fields and beaches"
+}
 },
 "cont": [
 "Europe"
@@ -350,7 +437,13 @@
 "kind": "historic",
 "area": 4048,
 "flag": true,
-"areaRank": 22
+"areaRank": 22,
+"facts": {
+"kingdom": "Essex (the East Saxons)",
+"flower": "Common poppy",
+"landmark": "Colchester Castle",
+"flag": "Three Saxon seaxes (notched swords) on red"
+}
 },
 "cont": [
 "Europe"
@@ -380,7 +473,14 @@
 "kind": "historic",
 "area": 3279,
 "flag": true,
-"areaRank": 30
+"areaRank": 30,
+"facts": {
+"kingdom": "The Hwicce, under Mercia",
+"flower": "Wild daffodil",
+"food": "Double Gloucester cheese",
+"landmark": "Gloucester Cathedral and the Cotswolds",
+"flag": "The Severn Cross: green fields, the blue Severn, gold Cotswold stone"
+}
 },
 "cont": [
 "Europe"
@@ -410,7 +510,16 @@
 "kind": "historic",
 "area": 4254,
 "flag": true,
-"areaRank": 19
+"areaRank": 19,
+"facts": {
+"kingdom": "Wessex",
+"flower": "Dog-rose",
+"day": "Hampshire Day (15 July, St Swithun's Day)",
+"people": "Hampshire hogs",
+"food": "Hampshire watercress",
+"landmark": "Winchester Cathedral and the New Forest",
+"flag": "The Hampshire rose and crown on gold and red"
+}
 },
 "cont": [
 "Europe"
@@ -440,7 +549,15 @@
 "kind": "historic",
 "area": 2165,
 "flag": true,
-"areaRank": 53
+"areaRank": 53,
+"facts": {
+"kingdom": "Mercia (the Magonsæte)",
+"flower": "Mistletoe",
+"food": "Cider",
+"landmark": "The Mappa Mundi, Hereford Cathedral",
+"motto": "Pulchra terra Dei donum (this fair land is the gift of God)",
+"flag": "A Hereford bull's head on red earth above the River Wye"
+}
 },
 "cont": [
 "Europe"
@@ -470,7 +587,13 @@
 "kind": "historic",
 "area": 1641,
 "flag": true,
-"areaRank": 80
+"areaRank": 80,
+"facts": {
+"kingdom": "Essex and Mercia",
+"landmark": "St Albans Cathedral",
+"motto": "Trust and fear not",
+"flag": "A hart (a pun on the name) above the county's many rivers"
+}
 },
 "cont": [
 "Europe"
@@ -500,7 +623,12 @@
 "kind": "historic",
 "area": 939,
 "flag": true,
-"areaRank": 100
+"areaRank": 100,
+"facts": {
+"kingdom": "Mercia (the Middle Angles)",
+"flower": "Water-violet",
+"flag": "A gold hunting horn on green"
+}
 },
 "cont": [
 "Europe"
@@ -531,7 +659,16 @@
 "kind": "historic",
 "area": 4061,
 "flag": true,
-"areaRank": 21
+"areaRank": 21,
+"facts": {
+"kingdom": "Kent (founded by the Jutes)",
+"flower": "Hop",
+"people": "Men of Kent and Kentish Men",
+"food": "Kentish cherries",
+"landmark": "Canterbury Cathedral and the White Cliffs of Dover",
+"motto": "Invicta (unconquered)",
+"flag": "The Invicta: a white horse rampant on red"
+}
 },
 "cont": [
 "Europe"
@@ -562,7 +699,16 @@
 "kind": "historic",
 "area": 4940,
 "flag": true,
-"areaRank": 15
+"areaRank": 15,
+"facts": {
+"kingdom": "Northumbria (and Mercia south of the Ribble)",
+"flower": "Red rose",
+"day": "Lancashire Day (27 November)",
+"food": "Lancashire hotpot",
+"landmark": "Blackpool Tower",
+"motto": "In concilio consilium (in counsel is wisdom)",
+"flag": "The red rose of Lancaster on gold"
+}
 },
 "cont": [
 "Europe"
@@ -592,7 +738,15 @@
 "kind": "historic",
 "area": 2165,
 "flag": true,
-"areaRank": 54
+"areaRank": 54,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Foxglove",
+"food": "Melton Mowbray pork pie and Red Leicester",
+"landmark": "Bosworth Field",
+"motto": "For'ard, for'ard",
+"flag": "A running fox and the de Beaumont cinquefoil on Simon de Montfort's red and white zigzags"
+}
 },
 "cont": [
 "Europe"
@@ -622,7 +776,16 @@
 "kind": "historic",
 "area": 6933,
 "flag": true,
-"areaRank": 6
+"areaRank": 6,
+"facts": {
+"kingdom": "Lindsey, under Mercia",
+"flower": "Common dog-violet",
+"day": "Lincolnshire Day (1 October)",
+"people": "Yellowbellies",
+"food": "Lincolnshire sausage",
+"landmark": "Lincoln Cathedral",
+"flag": "Lincoln's red cross and fleur-de-lis between green fields and blue sea"
+}
 },
 "cont": [
 "Europe"
@@ -653,7 +816,14 @@
 "kind": "historic",
 "area": 738,
 "flag": true,
-"areaRank": 106
+"areaRank": 106,
+"facts": {
+"kingdom": "The Middle Saxons, under Essex then Mercia",
+"flower": "Wood anemone",
+"day": "Middlesex Day (16 May)",
+"landmark": "Hampton Court Palace",
+"flag": "Three Saxon seaxes on red beneath a Saxon crown"
+}
 },
 "cont": [
 "Europe"
@@ -683,7 +853,16 @@
 "kind": "historic",
 "area": 5337,
 "flag": true,
-"areaRank": 12
+"areaRank": 12,
+"facts": {
+"kingdom": "East Anglia",
+"flower": "Common poppy",
+"day": "Norfolk Day (27 July)",
+"people": "Norfolk dumplings",
+"food": "Cromer crab",
+"landmark": "The Norfolk Broads",
+"flag": "The arms of Ralph de Gael, first Earl of Norfolk"
+}
 },
 "cont": [
 "Europe"
@@ -713,7 +892,13 @@
 "kind": "historic",
 "area": 2599,
 "flag": true,
-"areaRank": 40
+"areaRank": 40,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Cowslip",
+"landmark": "Althorp",
+"flag": "A cross for the crossroads of England, maroon and gold, black for leather, and a red rose"
+}
 },
 "cont": [
 "Europe"
@@ -746,7 +931,14 @@
 "kind": "historic",
 "area": 5239,
 "flag": true,
-"areaRank": 13
+"areaRank": 13,
+"facts": {
+"kingdom": "Northumbria (Bernicia)",
+"flower": "Bloody crane's-bill",
+"food": "Craster kippers",
+"landmark": "Bamburgh Castle and Hadrian's Wall",
+"flag": "Red and gold stripes, possibly from King Oswald of Northumbria, with castle battlements"
+}
 },
 "cont": [
 "Europe"
@@ -777,7 +969,14 @@
 "kind": "historic",
 "area": 2187,
 "flag": true,
-"areaRank": 52
+"areaRank": 52,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Autumn crocus",
+"food": "Bramley apples (first grown in Southwell)",
+"landmark": "Sherwood Forest",
+"flag": "Robin Hood on a St George's cross: the middle of England"
+}
 },
 "cont": [
 "Europe"
@@ -807,7 +1006,14 @@
 "kind": "historic",
 "area": 1953,
 "flag": true,
-"areaRank": 63
+"areaRank": 63,
+"facts": {
+"kingdom": "Wessex and Mercia",
+"flower": "Snake's-head fritillary",
+"landmark": "Blenheim Palace",
+"motto": "Sapere aude (dare to be wise)",
+"flag": "An ox crossing a ford of the Thames, in Oxford blue"
+}
 },
 "cont": [
 "Europe"
@@ -837,7 +1043,14 @@
 "kind": "historic",
 "area": 394,
 "flag": true,
-"areaRank": 116
+"areaRank": 116,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Clustered bellflower",
+"landmark": "Rutland Water",
+"motto": "Multum in parvo (much in little)",
+"flag": "A gold horseshoe among acorns on green: England's smallest county"
+}
 },
 "cont": [
 "Europe"
@@ -868,7 +1081,16 @@
 "kind": "historic",
 "area": 3478,
 "flag": true,
-"areaRank": 28
+"areaRank": 28,
+"facts": {
+"kingdom": "Powys, a Welsh kingdom; then Mercia",
+"flower": "Round-leaved sundew",
+"people": "Salopians",
+"food": "Fidget pie",
+"landmark": "Ironbridge Gorge",
+"motto": "Floreat Salopia (may Shropshire flourish)",
+"flag": "Three 'loggerheads' (leopards' faces), the county's old emblem"
+}
 },
 "cont": [
 "Europe"
@@ -900,7 +1122,15 @@
 "kind": "historic",
 "area": 4220,
 "flag": true,
-"areaRank": 20
+"areaRank": 20,
+"facts": {
+"kingdom": "Wessex",
+"flower": "Cheddar pink",
+"food": "Cheddar cheese",
+"landmark": "Glastonbury Tor and Cheddar Gorge",
+"motto": "Sumorsaete ealle (all the people of Somerset)",
+"flag": "A red dragon on gold, from Alfred the Great's Wessex"
+}
 },
 "cont": [
 "Europe"
@@ -930,7 +1160,16 @@
 "kind": "historic",
 "area": 3048,
 "flag": true,
-"areaRank": 33
+"areaRank": 33,
+"facts": {
+"kingdom": "Mercia",
+"flower": "Heather",
+"day": "Staffordshire Day (1 May)",
+"food": "Staffordshire oatcakes",
+"landmark": "Alton Towers",
+"motto": "The knot unites",
+"flag": "The Stafford knot on the de Stafford red chevron"
+}
 },
 "cont": [
 "Europe"
@@ -961,7 +1200,15 @@
 "kind": "historic",
 "area": 3892,
 "flag": true,
-"areaRank": 24
+"areaRank": 24,
+"facts": {
+"kingdom": "East Anglia",
+"flower": "Oxlip",
+"day": "Suffolk Day (21 June)",
+"people": "'Silly Suffolk' (from selig, holy)",
+"landmark": "Sutton Hoo",
+"flag": "St Edmund's crown and crossed arrows on blue"
+}
 },
 "cont": [
 "Europe"
@@ -993,7 +1240,13 @@
 "kind": "historic",
 "area": 1967,
 "flag": true,
-"areaRank": 62
+"areaRank": 62,
+"facts": {
+"kingdom": "Surrey, a small kingdom fought over by Kent, Mercia and Wessex",
+"flower": "Cowslip",
+"landmark": "Kew Gardens",
+"flag": "The blue and gold checks of the de Warenne Earls of Surrey"
+}
 },
 "cont": [
 "Europe"
@@ -1024,7 +1277,15 @@
 "kind": "historic",
 "area": 3817,
 "flag": true,
-"areaRank": 25
+"areaRank": 25,
+"facts": {
+"kingdom": "Sussex (the South Saxons)",
+"flower": "Round-headed rampion",
+"day": "Sussex Day (16 June)",
+"food": "Sussex pond pudding",
+"landmark": "The Royal Pavilion, Brighton",
+"flag": "Six gold martlets (heraldic swallows) on blue"
+}
 },
 "cont": [
 "Europe"
@@ -1054,7 +1315,13 @@
 "kind": "historic",
 "area": 2380,
 "flag": true,
-"areaRank": 45
+"areaRank": 45,
+"facts": {
+"kingdom": "Mercia (the Hwicce in the south)",
+"flower": "Honeysuckle",
+"landmark": "Warwick Castle and Shakespeare's Stratford-upon-Avon",
+"flag": "The bear and ragged staff of the Earls of Warwick"
+}
 },
 "cont": [
 "Europe"
@@ -1086,7 +1353,14 @@
 "kind": "historic",
 "area": 2034,
 "flag": true,
-"areaRank": 59
+"areaRank": 59,
+"facts": {
+"kingdom": "Rheged, a British kingdom; then Northumbria",
+"flower": "Alpine forget-me-not",
+"food": "Kendal mint cake",
+"landmark": "Ullswater",
+"flag": "An apple tree for Appleby on the red and white bars of Kendal"
+}
 },
 "cont": [
 "Europe"
@@ -1118,7 +1392,15 @@
 "kind": "historic",
 "area": 3559,
 "flag": true,
-"areaRank": 27
+"areaRank": 27,
+"facts": {
+"kingdom": "Wessex",
+"flower": "Burnt-tip orchid",
+"people": "Moonrakers",
+"food": "Wiltshire ham",
+"landmark": "Stonehenge",
+"flag": "A great bustard in a ring like the stone circles of Stonehenge and Avebury"
+}
 },
 "cont": [
 "Europe"
@@ -1148,7 +1430,14 @@
 "kind": "historic",
 "area": 1837,
 "flag": true,
-"areaRank": 71
+"areaRank": 71,
+"facts": {
+"kingdom": "The Hwicce, under Mercia",
+"flower": "Cowslip",
+"food": "Worcestershire sauce",
+"landmark": "Worcester Cathedral and the Malvern Hills",
+"flag": "Three black Worcester pears"
+}
 },
 "cont": [
 "Europe"
@@ -1179,7 +1468,16 @@
 "kind": "historic",
 "area": 15753,
 "flag": true,
-"areaRank": 1
+"areaRank": 1,
+"facts": {
+"kingdom": "Northumbria (Deira); later the Viking kingdom of Jórvík",
+"flower": "Harebell",
+"day": "Yorkshire Day (1 August)",
+"people": "Tykes",
+"food": "Yorkshire pudding",
+"landmark": "York Minster",
+"flag": "The white rose of York on blue"
+}
 },
 "cont": [
 "Europe"
@@ -1210,7 +1508,15 @@
 "kind": "historic",
 "area": 5187,
 "flag": true,
-"areaRank": 14
+"areaRank": 14,
+"facts": {
+"kingdom": "Pictland (Mar and Buchan)",
+"clans": "Gordon, Forbes, Farquharson",
+"flower": "Bearberry",
+"food": "Aberdeen Angus beef",
+"landmark": "Balmoral Castle",
+"flag": "A crowned castle on gold and purple: barley, whisky and heather"
+}
 },
 "cont": [
 "Europe"
@@ -1241,7 +1547,14 @@
 "kind": "historic",
 "area": 2284,
 "flag": false,
-"areaRank": 50
+"areaRank": 50,
+"facts": {
+"kingdom": "Pictland",
+"clans": "Ogilvy, Lindsay",
+"flower": "Alpine catchfly",
+"food": "Arbroath smokie",
+"landmark": "Glamis Castle"
+}
 },
 "cont": [
 "Europe"
@@ -1272,7 +1585,14 @@
 "kind": "historic",
 "area": 8648,
 "flag": false,
-"areaRank": 3
+"areaRank": 3,
+"facts": {
+"kingdom": "Dál Riata",
+"clans": "Campbell, MacDougall, MacLean, MacLachlan",
+"flower": "Foxglove",
+"food": "Loch Fyne oysters",
+"landmark": "Inveraray Castle and Iona Abbey"
+}
 },
 "cont": [
 "Europe"
@@ -1302,7 +1622,14 @@
 "kind": "historic",
 "area": 2977,
 "flag": false,
-"areaRank": 34
+"areaRank": 34,
+"facts": {
+"kingdom": "Strathclyde",
+"clans": "Kennedy, Cunningham, Montgomery, Boyd",
+"flower": "Green-winged orchid",
+"food": "Ayrshire bacon",
+"landmark": "Culzean Castle and Burns Cottage"
+}
 },
 "cont": [
 "Europe"
@@ -1332,7 +1659,14 @@
 "kind": "historic",
 "area": 1597,
 "flag": true,
-"areaRank": 82
+"areaRank": 82,
+"facts": {
+"kingdom": "Pictland",
+"clans": "Grant, Gordon",
+"flower": "Dark-red helleborine",
+"food": "Speyside malt whisky",
+"flag": "A sun over orange and blue bands with a white bridge: coast, rivers and whisky"
+}
 },
 "cont": [
 "Europe"
@@ -1364,7 +1698,14 @@
 "kind": "historic",
 "area": 1199,
 "flag": true,
-"areaRank": 94
+"areaRank": 94,
+"facts": {
+"kingdom": "Northumbria (Bernicia); Scottish from 1018",
+"clans": "Home, Swinton",
+"flower": "Rock-rose",
+"landmark": "St Abb's Head",
+"flag": "The Union Chain Bridge, a salmon and barley, linking Scotland and England"
+}
 },
 "cont": [
 "Europe"
@@ -1395,7 +1736,13 @@
 "kind": "historic",
 "area": 587,
 "flag": false,
-"areaRank": 113
+"areaRank": 113,
+"facts": {
+"kingdom": "Dál Riata",
+"clans": "Stuart of Bute",
+"flower": "Thrift",
+"landmark": "Mount Stuart"
+}
 },
 "cont": [
 "Europe"
@@ -1424,7 +1771,14 @@
 "kind": "historic",
 "area": 1817,
 "flag": true,
-"areaRank": 73
+"areaRank": 73,
+"facts": {
+"kingdom": "The Norse Earldom of Orkney",
+"clans": "Sinclair, Gunn, Keith",
+"flower": "Scottish primrose",
+"landmark": "John o' Groats",
+"flag": "A gold galley on a Nordic cross: Viking roots and Caithness flagstone"
+}
 },
 "cont": [
 "Europe"
@@ -1456,7 +1810,13 @@
 "kind": "historic",
 "area": 146,
 "flag": false,
-"areaRank": 119
+"areaRank": 119,
+"facts": {
+"kingdom": "Pictland",
+"clans": "Bruce, Erskine",
+"flower": "Opposite-leaved golden-saxifrage",
+"landmark": "Alloa Tower"
+}
 },
 "cont": [
 "Europe"
@@ -1487,7 +1847,12 @@
 "kind": "historic",
 "area": 865,
 "flag": false,
-"areaRank": 104
+"areaRank": 104,
+"facts": {
+"kingdom": "Pictland",
+"clans": "Mackenzie, Urquhart",
+"flower": "Spring cinquefoil"
+}
 },
 "cont": [
 "Europe"
@@ -1517,7 +1882,13 @@
 "kind": "historic",
 "area": 2784,
 "flag": false,
-"areaRank": 35
+"areaRank": 35,
+"facts": {
+"kingdom": "Strathclyde",
+"clans": "Johnstone, Maxwell, Jardine",
+"flower": "Harebell",
+"landmark": "Caerlaverock Castle"
+}
 },
 "cont": [
 "Europe"
@@ -1547,7 +1918,13 @@
 "kind": "historic",
 "area": 691,
 "flag": false,
-"areaRank": 109
+"areaRank": 109,
+"facts": {
+"kingdom": "Strathclyde (Alt Clut, the Rock of the Clyde)",
+"clans": "Colquhoun, MacFarlane",
+"flower": "Lesser water-plantain",
+"landmark": "Loch Lomond"
+}
 },
 "cont": [
 "Europe"
@@ -1577,7 +1954,14 @@
 "kind": "historic",
 "area": 707,
 "flag": true,
-"areaRank": 108
+"areaRank": 108,
+"facts": {
+"kingdom": "Northumbria (Bernicia)",
+"clans": "Hepburn, Seton",
+"flower": "Viper's-bugloss",
+"landmark": "Tantallon Castle and the Bass Rock",
+"flag": "A lion on a voided saltire: Athelstaneford, birthplace of the Saltire"
+}
 },
 "cont": [
 "Europe"
@@ -1608,7 +1992,13 @@
 "kind": "historic",
 "area": 1348,
 "flag": false,
-"areaRank": 87
+"areaRank": 87,
+"facts": {
+"kingdom": "Pictland (Fib)",
+"clans": "Wemyss, MacDuff",
+"flower": "Coralroot orchid",
+"landmark": "St Andrews and its Old Course"
+}
 },
 "cont": [
 "Europe"
@@ -1638,7 +2028,13 @@
 "kind": "historic",
 "area": 11170,
 "flag": false,
-"areaRank": 2
+"areaRank": 2,
+"facts": {
+"kingdom": "Pictland; the Norse held the Hebrides",
+"clans": "Fraser, MacDonald, Macpherson, Cameron, Chisholm",
+"flower": "Twinflower",
+"landmark": "Loch Ness and Ben Nevis"
+}
 },
 "cont": [
 "Europe"
@@ -1668,7 +2064,12 @@
 "kind": "historic",
 "area": 1004,
 "flag": false,
-"areaRank": 98
+"areaRank": 98,
+"facts": {
+"kingdom": "Pictland (the Mearns)",
+"clans": "Keith, Burnett",
+"landmark": "Dunnottar Castle"
+}
 },
 "cont": [
 "Europe"
@@ -1698,7 +2099,12 @@
 "kind": "historic",
 "area": 201,
 "flag": false,
-"areaRank": 118
+"areaRank": 118,
+"facts": {
+"kingdom": "Pictland",
+"flower": "Holy-grass",
+"landmark": "Loch Leven Castle"
+}
 },
 "cont": [
 "Europe"
@@ -1730,7 +2136,14 @@
 "kind": "historic",
 "area": 2369,
 "flag": true,
-"areaRank": 47
+"areaRank": 47,
+"facts": {
+"kingdom": "Galloway",
+"clans": "Maxwell, MacLellan",
+"flower": "Bog-rosemary",
+"landmark": "Threave Castle",
+"flag": "St Cuthbert's cross on green and white checks, the cloth Galloway's stewards used to count taxes"
+}
 },
 "cont": [
 "Europe"
@@ -1762,7 +2175,14 @@
 "kind": "historic",
 "area": 2308,
 "flag": false,
-"areaRank": 49
+"areaRank": 49,
+"facts": {
+"kingdom": "Strathclyde",
+"clans": "Hamilton, Douglas",
+"flower": "Dune helleborine",
+"food": "Tunnock's teacakes",
+"landmark": "New Lanark"
+}
 },
 "cont": [
 "Europe"
@@ -1792,7 +2212,13 @@
 "kind": "historic",
 "area": 951,
 "flag": false,
-"areaRank": 99
+"areaRank": 99,
+"facts": {
+"kingdom": "Northumbria (Lothian)",
+"clans": "Sinclair, Dundas",
+"flower": "Sticky catchfly",
+"landmark": "Edinburgh Castle and Rosslyn Chapel"
+}
 },
 "cont": [
 "Europe"
@@ -1823,7 +2249,15 @@
 "kind": "historic",
 "area": 1261,
 "flag": true,
-"areaRank": 91
+"areaRank": 91,
+"facts": {
+"kingdom": "Pictland (Moray)",
+"clans": "Grant, Innes, Dunbar",
+"flower": "One-flowered wintergreen",
+"food": "Speyside malt whisky",
+"landmark": "Elgin Cathedral",
+"flag": "A gold wheatsheaf over waves of sea and sand"
+}
 },
 "cont": [
 "Europe"
@@ -1854,7 +2288,13 @@
 "kind": "historic",
 "area": 432,
 "flag": false,
-"areaRank": 115
+"areaRank": 115,
+"facts": {
+"kingdom": "Pictland (Moray)",
+"clans": "Rose, Campbell of Cawdor",
+"flower": "Chickweed wintergreen",
+"landmark": "Cawdor Castle"
+}
 },
 "cont": [
 "Europe"
@@ -1883,7 +2323,13 @@
 "kind": "historic",
 "area": 1072,
 "flag": true,
-"areaRank": 97
+"areaRank": 97,
+"facts": {
+"kingdom": "The Norse Earldom of Orkney; part of Norway until 1468",
+"flower": "Alpine bearberry",
+"landmark": "Skara Brae",
+"flag": "St Magnus' Cross: a Nordic cross in Scottish and Norwegian royal red and gold"
+}
 },
 "cont": [
 "Europe"
@@ -1915,7 +2361,13 @@
 "kind": "historic",
 "area": 926,
 "flag": false,
-"areaRank": 102
+"areaRank": 102,
+"facts": {
+"kingdom": "Strathclyde",
+"clans": "Tweedie",
+"flower": "Cloudberry",
+"landmark": "Traquair House"
+}
 },
 "cont": [
 "Europe"
@@ -1945,7 +2397,13 @@
 "kind": "historic",
 "area": 6662,
 "flag": false,
-"areaRank": 8
+"areaRank": 8,
+"facts": {
+"kingdom": "Pictland (Fortriu)",
+"clans": "Murray, Drummond, Robertson, Menzies, MacGregor",
+"flower": "Alpine gentian",
+"landmark": "Scone Palace"
+}
 },
 "cont": [
 "Europe"
@@ -1976,7 +2434,13 @@
 "kind": "historic",
 "area": 651,
 "flag": false,
-"areaRank": 112
+"areaRank": 112,
+"facts": {
+"kingdom": "Strathclyde",
+"clans": "Stewart, Sempill",
+"flower": "Bogbean",
+"landmark": "Paisley Abbey"
+}
 },
 "cont": [
 "Europe"
@@ -2006,7 +2470,13 @@
 "kind": "historic",
 "area": 7530,
 "flag": false,
-"areaRank": 4
+"areaRank": 4,
+"facts": {
+"kingdom": "Pictland; the Norse held the coast and islands",
+"clans": "Mackenzie, Ross, Munro, Matheson",
+"flower": "Bog asphodel",
+"landmark": "Eilean Donan Castle"
+}
 },
 "cont": [
 "Europe"
@@ -2036,7 +2506,13 @@
 "kind": "historic",
 "area": 1742,
 "flag": false,
-"areaRank": 76
+"areaRank": 76,
+"facts": {
+"kingdom": "Northumbria",
+"clans": "Kerr, Scott, Elliot",
+"flower": "Maiden pink",
+"landmark": "Melrose Abbey"
+}
 },
 "cont": [
 "Europe"
@@ -2066,7 +2542,13 @@
 "kind": "historic",
 "area": 662,
 "flag": false,
-"areaRank": 111
+"areaRank": 111,
+"facts": {
+"kingdom": "Northumbria",
+"clans": "Scott",
+"flower": "Mountain pansy",
+"food": "Selkirk bannock"
+}
 },
 "cont": [
 "Europe"
@@ -2095,7 +2577,14 @@
 "kind": "historic",
 "area": 1573,
 "flag": true,
-"areaRank": 84
+"areaRank": 84,
+"facts": {
+"kingdom": "Norway, until 1469",
+"flower": "Shetland mouse-ear",
+"landmark": "Jarlshof",
+"motto": "Með lögum skal land byggja (by law shall the land be built)",
+"flag": "A white Nordic cross on Scottish blue, for 500 years since Shetland passed from Norway"
+}
 },
 "cont": [
 "Europe"
@@ -2126,7 +2615,13 @@
 "kind": "historic",
 "area": 1171,
 "flag": false,
-"areaRank": 95
+"areaRank": 95,
+"facts": {
+"kingdom": "Where the Picts, Britons and Northumbria met",
+"clans": "Graham, Buchanan",
+"flower": "Scottish dock",
+"landmark": "Stirling Castle"
+}
 },
 "cont": [
 "Europe"
@@ -2155,7 +2650,14 @@
 "kind": "historic",
 "area": 5498,
 "flag": true,
-"areaRank": 11
+"areaRank": 11,
+"facts": {
+"kingdom": "The Norse Earldom of Orkney (the Vikings' 'South Land')",
+"clans": "Mackay, Sutherland, Gunn",
+"flower": "Grass-of-Parnassus",
+"landmark": "Dunrobin Castle",
+"flag": "Two crosses and a gold star: Scotland meets Norway"
+}
 },
 "cont": [
 "Europe"
@@ -2186,7 +2688,12 @@
 "kind": "historic",
 "area": 316,
 "flag": false,
-"areaRank": 117
+"areaRank": 117,
+"facts": {
+"kingdom": "Northumbria (Lothian)",
+"flower": "Common spotted-orchid",
+"landmark": "Linlithgow Palace"
+}
 },
 "cont": [
 "Europe"
@@ -2217,7 +2724,13 @@
 "kind": "historic",
 "area": 1295,
 "flag": false,
-"areaRank": 89
+"areaRank": 89,
+"facts": {
+"kingdom": "Galloway",
+"clans": "Agnew, MacDowall",
+"flower": "Yellow iris",
+"landmark": "Whithorn Priory"
+}
 },
 "cont": [
 "Europe"
@@ -2249,7 +2762,14 @@
 "kind": "historic",
 "area": 728,
 "flag": true,
-"areaRank": 107
+"areaRank": 107,
+"facts": {
+"kingdom": "Gwynedd",
+"flower": "Spotted rock-rose",
+"food": "Halen Môn sea salt",
+"landmark": "Beaumaris Castle",
+"flag": "Hwfa's Banner: the arms of Hwfa ap Cynddelw, 12th-century steward of Gwynedd"
+}
 },
 "cont": [
 "Europe"
@@ -2282,7 +2802,12 @@
 "kind": "historic",
 "area": 1923,
 "flag": false,
-"areaRank": 66
+"areaRank": 66,
+"facts": {
+"kingdom": "Brycheiniog",
+"flower": "Cuckooflower",
+"landmark": "Bannau Brycheiniog (the Brecon Beacons)"
+}
 },
 "cont": [
 "Europe"
@@ -2314,7 +2839,13 @@
 "kind": "historic",
 "area": 1472,
 "flag": true,
-"areaRank": 85
+"areaRank": 85,
+"facts": {
+"kingdom": "Gwynedd",
+"flower": "Snowdon lily",
+"landmark": "Yr Wyddfa (Snowdon) and Caernarfon Castle",
+"flag": "Owain's Eagles: the three gold eagles of Owain Gwynedd, for Eryri"
+}
 },
 "cont": [
 "Europe"
@@ -2347,7 +2878,12 @@
 "kind": "historic",
 "area": 1788,
 "flag": false,
-"areaRank": 74
+"areaRank": 74,
+"facts": {
+"kingdom": "Ceredigion; later Deheubarth",
+"flower": "Bog-rosemary",
+"landmark": "Devil's Bridge"
+}
 },
 "cont": [
 "Europe"
@@ -2377,7 +2913,13 @@
 "kind": "historic",
 "area": 2397,
 "flag": false,
-"areaRank": 44
+"areaRank": 44,
+"facts": {
+"kingdom": "Deheubarth",
+"flower": "Whorled caraway",
+"food": "Carmarthen ham",
+"landmark": "The National Botanic Garden of Wales"
+}
 },
 "cont": [
 "Europe"
@@ -2408,7 +2950,12 @@
 "kind": "historic",
 "area": 1728,
 "flag": false,
-"areaRank": 77
+"areaRank": 77,
+"facts": {
+"kingdom": "Gwynedd and Powys",
+"flower": "Limestone woundwort",
+"landmark": "Pontcysyllte Aqueduct"
+}
 },
 "cont": [
 "Europe"
@@ -2439,7 +2986,13 @@
 "kind": "historic",
 "area": 672,
 "flag": true,
-"areaRank": 110
+"areaRank": 110,
+"facts": {
+"kingdom": "Tegeingl, between Gwynedd and Powys",
+"flower": "Bell heather",
+"landmark": "St Winefride's Well, Holywell",
+"flag": "Edwin's Cross: four choughs around a black cross, for Edwin of Tegeingl"
+}
 },
 "cont": [
 "Europe"
@@ -2471,7 +3024,14 @@
 "kind": "historic",
 "area": 2134,
 "flag": true,
-"areaRank": 55
+"areaRank": 55,
+"facts": {
+"kingdom": "Morgannwg (Glywysing)",
+"flower": "Yellow whitlow-grass",
+"food": "Glamorgan sausage and Caerphilly cheese",
+"landmark": "Cardiff Castle",
+"flag": "Iestyn's Chevrons: the arms of Iestyn ap Gwrgant, last native ruler of Morgannwg"
+}
 },
 "cont": [
 "Europe"
@@ -2503,7 +3063,13 @@
 "kind": "historic",
 "area": 1749,
 "flag": true,
-"areaRank": 75
+"areaRank": 75,
+"facts": {
+"kingdom": "Gwynedd (Meirionnydd)",
+"flower": "Welsh poppy",
+"landmark": "Harlech Castle",
+"flag": "Three goats against a rising sun, from the banner of the men of Meirionnydd"
+}
 },
 "cont": [
 "Europe"
@@ -2537,7 +3103,13 @@
 "kind": "historic",
 "area": 1402,
 "flag": true,
-"areaRank": 86
+"areaRank": 86,
+"facts": {
+"kingdom": "Gwent",
+"flower": "Foxglove",
+"landmark": "Tintern Abbey",
+"flag": "Inyr's Banner: the arms of King Inyr of Gwent"
+}
 },
 "cont": [
 "Europe"
@@ -2569,7 +3141,12 @@
 "kind": "historic",
 "area": 2063,
 "flag": false,
-"areaRank": 58
+"areaRank": 58,
+"facts": {
+"kingdom": "Powys",
+"flower": "Spiked speedwell",
+"landmark": "Powis Castle"
+}
 },
 "cont": [
 "Europe"
@@ -2600,7 +3177,14 @@
 "kind": "historic",
 "area": 1641,
 "flag": true,
-"areaRank": 81
+"areaRank": 81,
+"facts": {
+"kingdom": "Dyfed; later Deheubarth",
+"flower": "Thrift",
+"food": "Pembrokeshire early potatoes",
+"landmark": "St Davids Cathedral",
+"flag": "A Tudor rose for Henry VII, born in Pembroke Castle, on St David's cross"
+}
 },
 "cont": [
 "Europe"
@@ -2633,7 +3217,12 @@
 "kind": "historic",
 "area": 1219,
 "flag": false,
-"areaRank": 92
+"areaRank": 92,
+"facts": {
+"kingdom": "Powys (Elfael and Maelienydd)",
+"flower": "Radnor lily",
+"landmark": "The Elan Valley reservoirs"
+}
 },
 "cont": [
 "Europe"
@@ -2669,7 +3258,13 @@
 "kind": "ireland",
 "area": 3095,
 "flag": false,
-"areaRank": 32
+"areaRank": 32,
+"facts": {
+"kingdom": "Ulaid (Dál nAraidi and Dál Riata)",
+"flower": "Harebell",
+"landmark": "The Giant's Causeway",
+"gaa": "Saffron and white · The Saffs, The Glensmen"
+}
 },
 "cont": [
 "Europe"
@@ -2703,7 +3298,14 @@
 "kind": "ireland",
 "area": 1326,
 "flag": false,
-"areaRank": 88
+"areaRank": 88,
+"facts": {
+"kingdom": "Airgíalla",
+"flower": "Cowbane",
+"food": "Armagh Bramley apples",
+"landmark": "Navan Fort",
+"gaa": "Orange and white · The Orchard County"
+}
 },
 "cont": [
 "Europe"
@@ -2737,7 +3339,14 @@
 "kind": "ireland",
 "area": 2498,
 "flag": false,
-"areaRank": 43
+"areaRank": 43,
+"facts": {
+"kingdom": "Ulaid (Dál Fiatach)",
+"flower": "Spring squill",
+"food": "Comber potatoes",
+"landmark": "The Mourne Mountains",
+"gaa": "Red and black · The Mournemen"
+}
 },
 "cont": [
 "Europe"
@@ -2771,7 +3380,13 @@
 "kind": "ireland",
 "area": 1851,
 "flag": false,
-"areaRank": 69
+"areaRank": 69,
+"facts": {
+"kingdom": "Fir Manach (Airgíalla)",
+"flower": "Globeflower",
+"landmark": "Marble Arch Caves",
+"gaa": "Green and white · The Ernesiders"
+}
 },
 "cont": [
 "Europe"
@@ -2808,7 +3423,13 @@
 "kind": "ireland",
 "area": 2121,
 "flag": false,
-"areaRank": 56
+"areaRank": 56,
+"facts": {
+"kingdom": "Cenél nEógain (Tír Eoghain)",
+"flower": "Purple saxifrage",
+"landmark": "Derry's walls",
+"gaa": "Red and white · The Oak Leaf County (as Derry)"
+}
 },
 "cont": [
 "Europe"
@@ -2842,7 +3463,12 @@
 "kind": "ireland",
 "area": 3265,
 "flag": false,
-"areaRank": 31
+"areaRank": 31,
+"facts": {
+"kingdom": "Tír Eoghain (the O'Neills)",
+"flower": "Bog-rosemary",
+"gaa": "White and red · The Red Hands"
+}
 },
 "cont": [
 "Europe"
@@ -2876,7 +3502,12 @@
 "kind": "ireland",
 "area": 896,
 "flag": false,
-"areaRank": 103
+"areaRank": 103,
+"facts": {
+"kingdom": "Leinster (Uí Cheinnselaig)",
+"landmark": "Brownshill Dolmen",
+"gaa": "Red, green and yellow · The Barrowsiders"
+}
 },
 "cont": [
 "Europe"
@@ -2910,7 +3541,11 @@
 "kind": "ireland",
 "area": 1932,
 "flag": false,
-"areaRank": 65
+"areaRank": 65,
+"facts": {
+"kingdom": "East Bréifne",
+"gaa": "Blue and white · The Breifne County"
+}
 },
 "cont": [
 "Europe"
@@ -2944,7 +3579,12 @@
 "kind": "ireland",
 "area": 3450,
 "flag": false,
-"areaRank": 29
+"areaRank": 29,
+"facts": {
+"kingdom": "Thomond (Dál gCais)",
+"landmark": "The Cliffs of Moher",
+"gaa": "Saffron and blue · The Banner"
+}
 },
 "cont": [
 "Europe"
@@ -2978,7 +3618,13 @@
 "kind": "ireland",
 "area": 7504,
 "flag": false,
-"areaRank": 5
+"areaRank": 5,
+"facts": {
+"kingdom": "Desmond (Munster)",
+"food": "Clonakilty black pudding",
+"landmark": "Blarney Castle",
+"gaa": "Red and white · The Rebels"
+}
 },
 "cont": [
 "Europe"
@@ -3012,7 +3658,12 @@
 "kind": "ireland",
 "area": 4859,
 "flag": false,
-"areaRank": 16
+"areaRank": 16,
+"facts": {
+"kingdom": "Tír Chonaill",
+"landmark": "Slieve League cliffs",
+"gaa": "Green and gold · Tír Chonaill"
+}
 },
 "cont": [
 "Europe"
@@ -3046,7 +3697,13 @@
 "kind": "ireland",
 "area": 929,
 "flag": false,
-"areaRank": 101
+"areaRank": 101,
+"facts": {
+"kingdom": "The Norse Kingdom of Dublin, in Leinster",
+"food": "Dublin coddle",
+"landmark": "The Book of Kells, Trinity College",
+"gaa": "Sky blue and navy · The Dubs"
+}
 },
 "cont": [
 "Europe"
@@ -3080,7 +3737,13 @@
 "kind": "ireland",
 "area": 6168,
 "flag": false,
-"areaRank": 9
+"areaRank": 9,
+"facts": {
+"kingdom": "Connacht (Uí Maine and Uí Fiachrach Aidhne)",
+"food": "Galway oysters",
+"landmark": "Connemara and the Aran Islands",
+"gaa": "Maroon and white · The Tribesmen"
+}
 },
 "cont": [
 "Europe"
@@ -3114,7 +3777,12 @@
 "kind": "ireland",
 "area": 4807,
 "flag": false,
-"areaRank": 17
+"areaRank": 17,
+"facts": {
+"kingdom": "Desmond (the Ciarraige)",
+"landmark": "Skellig Michael",
+"gaa": "Green and gold · The Kingdom"
+}
 },
 "cont": [
 "Europe"
@@ -3148,7 +3816,12 @@
 "kind": "ireland",
 "area": 1694,
 "flag": false,
-"areaRank": 79
+"areaRank": 79,
+"facts": {
+"kingdom": "Leinster (Uí Fáeláin)",
+"landmark": "The Curragh",
+"gaa": "White · The Lilywhites"
+}
 },
 "cont": [
 "Europe"
@@ -3182,7 +3855,13 @@
 "kind": "ireland",
 "area": 2071,
 "flag": false,
-"areaRank": 57
+"areaRank": 57,
+"facts": {
+"kingdom": "Osraige",
+"food": "Smithwick's ale",
+"landmark": "Kilkenny Castle",
+"gaa": "Black and amber · The Cats"
+}
 },
 "cont": [
 "Europe"
@@ -3219,7 +3898,12 @@
 "kind": "ireland",
 "area": 1719,
 "flag": false,
-"areaRank": 78
+"areaRank": 78,
+"facts": {
+"kingdom": "Loígis (Leinster)",
+"landmark": "The Rock of Dunamase",
+"gaa": "Blue and white · The O'Moore County"
+}
 },
 "cont": [
 "Europe"
@@ -3253,7 +3937,11 @@
 "kind": "ireland",
 "area": 1588,
 "flag": false,
-"areaRank": 83
+"areaRank": 83,
+"facts": {
+"kingdom": "West Bréifne",
+"gaa": "Green and gold · The Ridge County"
+}
 },
 "cont": [
 "Europe"
@@ -3288,7 +3976,13 @@
 "kind": "ireland",
 "area": 2755,
 "flag": false,
-"areaRank": 36
+"areaRank": 36,
+"facts": {
+"kingdom": "Thomond (Munster)",
+"food": "Limerick ham",
+"landmark": "King John's Castle",
+"gaa": "Green and white · The Treaty County"
+}
 },
 "cont": [
 "Europe"
@@ -3322,7 +4016,11 @@
 "kind": "ireland",
 "area": 1092,
 "flag": false,
-"areaRank": 96
+"areaRank": 96,
+"facts": {
+"kingdom": "Annaly (Anghaile)",
+"gaa": "Blue and gold · The Midlanders"
+}
 },
 "cont": [
 "Europe"
@@ -3356,7 +4054,12 @@
 "kind": "ireland",
 "area": 826,
 "flag": false,
-"areaRank": 105
+"areaRank": 105,
+"facts": {
+"kingdom": "Airgíalla (Oriel)",
+"landmark": "Monasterboice",
+"gaa": "Red and white · The Wee County"
+}
 },
 "cont": [
 "Europe"
@@ -3390,7 +4093,12 @@
 "kind": "ireland",
 "area": 5597,
 "flag": false,
-"areaRank": 10
+"areaRank": 10,
+"facts": {
+"kingdom": "Connacht (Uí Fiachrach)",
+"landmark": "Croagh Patrick",
+"gaa": "Green and red · The Yew County"
+}
 },
 "cont": [
 "Europe"
@@ -3425,7 +4133,12 @@
 "kind": "ireland",
 "area": 2342,
 "flag": false,
-"areaRank": 48
+"areaRank": 48,
+"facts": {
+"kingdom": "Mide, seat of the High Kings at Tara",
+"landmark": "Newgrange",
+"gaa": "Green and gold · The Royal County"
+}
 },
 "cont": [
 "Europe"
@@ -3459,7 +4172,11 @@
 "kind": "ireland",
 "area": 1294,
 "flag": false,
-"areaRank": 90
+"areaRank": 90,
+"facts": {
+"kingdom": "Airgíalla (Oriel)",
+"gaa": "White and blue · The Farney Army"
+}
 },
 "cont": [
 "Europe"
@@ -3494,7 +4211,12 @@
 "kind": "ireland",
 "area": 2001,
 "flag": false,
-"areaRank": 61
+"areaRank": 61,
+"facts": {
+"kingdom": "Uí Failge",
+"landmark": "Clonmacnoise",
+"gaa": "Green, white and gold · The Faithful County"
+}
 },
 "cont": [
 "Europe"
@@ -3528,7 +4250,12 @@
 "kind": "ireland",
 "area": 2548,
 "flag": false,
-"areaRank": 42
+"areaRank": 42,
+"facts": {
+"kingdom": "Connacht (Síl Muiredaig)",
+"landmark": "Rathcroghan",
+"gaa": "Primrose and blue · The Rossies"
+}
 },
 "cont": [
 "Europe"
@@ -3562,7 +4289,12 @@
 "kind": "ireland",
 "area": 1836,
 "flag": false,
-"areaRank": 72
+"areaRank": 72,
+"facts": {
+"kingdom": "Connacht (Uí Fiachrach)",
+"landmark": "Benbulbin",
+"gaa": "Black and white · The Yeats County"
+}
 },
 "cont": [
 "Europe"
@@ -3597,7 +4329,12 @@
 "kind": "ireland",
 "area": 4305,
 "flag": false,
-"areaRank": 18
+"areaRank": 18,
+"facts": {
+"kingdom": "Munster (the Kings of Cashel)",
+"landmark": "The Rock of Cashel",
+"gaa": "Blue and gold · The Premier County"
+}
 },
 "cont": [
 "Europe"
@@ -3632,7 +4369,13 @@
 "kind": "ireland",
 "area": 1862,
 "flag": false,
-"areaRank": 68
+"areaRank": 68,
+"facts": {
+"kingdom": "The Déise",
+"food": "Waterford blaa",
+"landmark": "Waterford Crystal",
+"gaa": "White and blue · The Déise"
+}
 },
 "cont": [
 "Europe"
@@ -3666,7 +4409,12 @@
 "kind": "ireland",
 "area": 1839,
 "flag": false,
-"areaRank": 70
+"areaRank": 70,
+"facts": {
+"kingdom": "Mide",
+"landmark": "The Hill of Uisneach",
+"gaa": "Maroon and white · The Lake County"
+}
 },
 "cont": [
 "Europe"
@@ -3700,7 +4448,13 @@
 "kind": "ireland",
 "area": 2376,
 "flag": false,
-"areaRank": 46
+"areaRank": 46,
+"facts": {
+"kingdom": "Leinster (Uí Cheinnselaig)",
+"food": "Wexford strawberries",
+"landmark": "Hook Lighthouse",
+"gaa": "Purple and gold · The Model County"
+}
 },
 "cont": [
 "Europe"
@@ -3734,7 +4488,12 @@
 "kind": "ireland",
 "area": 2024,
 "flag": false,
-"areaRank": 60
+"areaRank": 60,
+"facts": {
+"kingdom": "Leinster",
+"landmark": "Glendalough",
+"gaa": "Blue and gold · The Garden County"
+}
 },
 "cont": [
 "Europe"
@@ -3765,7 +4524,11 @@
 "kind": "crown",
 "area": 7,
 "flag": true,
-"areaRank": 122
+"areaRank": 122,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"flag": "St George's cross with the island's green-and-gold lion badge"
+}
 },
 "cont": [
 "Europe"
@@ -3797,7 +4560,13 @@
 "kind": "crown",
 "area": 63,
 "flag": true,
-"areaRank": 121
+"areaRank": 121,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"food": "Guernsey gâche (fruit loaf)",
+"landmark": "Castle Cornet",
+"flag": "St George's cross with a gold Norman cross"
+}
 },
 "cont": [
 "Europe"
@@ -3829,7 +4598,15 @@
 "kind": "crown",
 "area": 575,
 "flag": true,
-"areaRank": 114
+"areaRank": 114,
+"facts": {
+"kingdom": "The Norse Kingdom of Mann and the Isles",
+"flower": "Fuchsia",
+"food": "Manx kippers",
+"landmark": "The Laxey Wheel",
+"motto": "Quocunque jeceris stabit (wherever you throw it, it will stand)",
+"flag": "The Three Legs of Man (the triskelion) on red"
+}
 },
 "cont": [
 "Europe"
@@ -3861,7 +4638,13 @@
 "kind": "crown",
 "area": 119,
 "flag": true,
-"areaRank": 120
+"areaRank": 120,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"food": "Jersey Royal potatoes",
+"landmark": "Mont Orgueil Castle",
+"flag": "A red saltire with the arms of Jersey: three lions of England"
+}
 },
 "cont": [
 "Europe"
@@ -3893,7 +4676,12 @@
 "kind": "crown",
 "area": 4,
 "flag": true,
-"areaRank": 123
+"areaRank": 123,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"landmark": "La Coupée",
+"flag": "St George's cross with Normandy's two gold lions"
+}
 },
 "cont": [
 "Europe"

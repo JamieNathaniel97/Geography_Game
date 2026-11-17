@@ -1,0 +1,376 @@
+[
+{
+"iso": "N-ENG",
+"id": "N-ENG",
+"name": "England",
+"names": [
+"England"
+],
+"capitals": [
+"London"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "N-ENG",
+"info": {
+"nation": "England",
+"kind": "nation",
+"city": "",
+"pop": 56490048,
+"popYear": "2021 census",
+"area": 130279,
+"saint": "St George (23 April)",
+"langs": "English",
+"high": [
+"Scafell Pike",
+978
+],
+"flower": "Tudor rose",
+"history": "Kingdom of England from 927; united with Scotland in 1707",
+"gov": "UK Parliament (no separate parliament of its own)",
+"historic": 39,
+"ceremonial": 48,
+"flag": true
+},
+"flagKey": "uk/N-ENG"
+},
+{
+"iso": "N-SCO",
+"id": "N-SCO",
+"name": "Scotland",
+"names": [
+"Scotland"
+],
+"capitals": [
+"Edinburgh"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "N-SCO",
+"info": {
+"nation": "Scotland",
+"kind": "nation",
+"city": "Glasgow",
+"pop": 5439842,
+"popYear": "2022 census",
+"area": 80231,
+"saint": "St Andrew (30 November)",
+"langs": "English, Scots, Scottish Gaelic",
+"high": [
+"Ben Nevis",
+1345
+],
+"flower": "Thistle",
+"history": "Kingdom of Scotland from 843; united with England in 1707",
+"gov": "Scottish Parliament (Holyrood), since 1999",
+"historic": 34,
+"ceremonial": 35,
+"flag": true
+},
+"flagKey": "uk/N-SCO"
+},
+{
+"iso": "N-WAL",
+"id": "N-WAL",
+"name": "Wales",
+"names": [
+"Wales"
+],
+"capitals": [
+"Cardiff"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "N-WAL",
+"info": {
+"nation": "Wales",
+"kind": "nation",
+"city": "",
+"pop": 3107494,
+"popYear": "2021 census",
+"area": 20779,
+"saint": "St David (1 March)",
+"langs": "Welsh, English",
+"high": [
+"Yr Wyddfa (Snowdon)",
+1085
+],
+"flower": "Daffodil (and the leek)",
+"history": "Welsh kingdoms and principalities; joined to England by the Laws in Wales Acts 1535–1542",
+"gov": "Senedd (Welsh Parliament), since 1999",
+"historic": 13,
+"ceremonial": 8,
+"flag": true
+},
+"flagKey": "uk/N-WAL"
+},
+{
+"iso": "N-NIR",
+"id": "N-NIR",
+"name": "Northern Ireland",
+"names": [
+"Northern Ireland"
+],
+"capitals": [
+"Belfast"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "N-NIR",
+"info": {
+"nation": "Northern Ireland",
+"kind": "nation",
+"city": "",
+"pop": 1903175,
+"popYear": "2021 census",
+"area": 14130,
+"saint": "St Patrick (17 March)",
+"langs": "English, Irish, Ulster Scots",
+"high": [
+"Slieve Donard",
+850
+],
+"flower": "Flax (shamrock also used)",
+"history": "Formed in 1921, when Ireland was partitioned",
+"gov": "Northern Ireland Assembly (Stormont), since 1998",
+"historic": 6,
+"ceremonial": 6,
+"flag": true
+},
+"flagKey": "uk/N-NIR"
+},
+{
+"iso": "N-IRL",
+"id": "N-IRL",
+"name": "Republic of Ireland",
+"names": [
+"Republic of Ireland"
+],
+"capitals": [
+"Dublin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "N-IRL",
+"info": {
+"nation": "Republic of Ireland",
+"kind": "nation",
+"city": "",
+"pop": 5149139,
+"popYear": "2022 census",
+"area": 70273,
+"saint": "St Patrick (17 March)",
+"langs": "Irish, English",
+"high": [
+"Carrauntoohil",
+1039
+],
+"flower": "Shamrock",
+"history": "Irish Free State from 1922; a republic since 1949",
+"gov": "Oireachtas (parliament) in Dublin; an independent country in the EU",
+"historic": 26,
+"ceremonial": 26,
+"flag": true
+},
+"flagKey": "uk/N-IRL"
+},
+{
+"iso": "D-ALD",
+"id": "D-ALD",
+"name": "Alderney",
+"names": [
+"Alderney"
+],
+"capitals": [
+"St Anne",
+"Saint Anne"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 7,
+"flag": true,
+"areaRank": 122,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"flag": "St George's cross with the island's green-and-gold lion badge"
+}
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-ALD",
+"capLL": [
+[
+-2.208,
+49.715
+]
+],
+"flagKey": "uk/D-ALD"
+},
+{
+"iso": "D-GGY",
+"id": "D-GGY",
+"name": "Guernsey",
+"names": [
+"Guernsey"
+],
+"capitals": [
+"St Peter Port",
+"Saint Peter Port"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 63,
+"flag": true,
+"areaRank": 121,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"food": "Guernsey gâche (fruit loaf)",
+"landmark": "Castle Cornet",
+"flag": "St George's cross with a gold Norman cross"
+}
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-GGY",
+"capLL": [
+[
+-2.535,
+49.46
+]
+],
+"flagKey": "uk/D-GGY"
+},
+{
+"iso": "D-IOM",
+"id": "D-IOM",
+"name": "Isle of Man",
+"names": [
+"Isle of Man",
+"Mann"
+],
+"capitals": [
+"Douglas"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 575,
+"flag": true,
+"areaRank": 114,
+"facts": {
+"kingdom": "The Norse Kingdom of Mann and the Isles",
+"flower": "Fuchsia",
+"food": "Manx kippers",
+"landmark": "The Laxey Wheel",
+"motto": "Quocunque jeceris stabit (wherever you throw it, it will stand)",
+"flag": "The Three Legs of Man (the triskelion) on red"
+}
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-IOM",
+"capLL": [
+[
+-4.483,
+54.15
+]
+],
+"flagKey": "uk/D-IOM"
+},
+{
+"iso": "D-JER",
+"id": "D-JER",
+"name": "Jersey",
+"names": [
+"Jersey"
+],
+"capitals": [
+"St Helier",
+"Saint Helier"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 119,
+"flag": true,
+"areaRank": 120,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"food": "Jersey Royal potatoes",
+"landmark": "Mont Orgueil Castle",
+"flag": "A red saltire with the arms of Jersey: three lions of England"
+}
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-JER",
+"capLL": [
+[
+-2.105,
+49.188
+]
+],
+"flagKey": "uk/D-JER"
+},
+{
+"iso": "D-SRK",
+"id": "D-SRK",
+"name": "Sark",
+"names": [
+"Sark"
+],
+"capitals": [
+"La Seigneurie",
+"Sark"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 4,
+"flag": true,
+"areaRank": 123,
+"facts": {
+"kingdom": "The Duchy of Normandy",
+"landmark": "La Coupée",
+"flag": "St George's cross with Normandy's two gold lions"
+}
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-SRK",
+"capLL": [
+[
+-2.3606,
+49.4316
+]
+],
+"flagKey": "uk/D-SRK"
+}
+]

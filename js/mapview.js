@@ -579,6 +579,7 @@
           coastLo: this.geo.coast110 ? new Path2D(path(this.geo.coast110) || "") : null,
           bordersLo: this.geo.borders110 ? new Path2D(path(this.geo.borders110) || "") : null,
           lakes: this.geo.lakes ? new Path2D(path(this.geo.lakes) || "") : null,
+          nations: this.geo.nationBorders ? new Path2D(path(this.geo.nationBorders) || "") : null,
         };
       }
       const P = this.flatPaths;
@@ -620,6 +621,8 @@
         if (this.borders) {
           ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k;
           ctx.stroke(this.bordersOverride ? this.overridePath(P) : cull ? visible(P.pieces.borders) : lo ? P.bordersLo : P.borders);
+          // the borders between the UK's nations, bolder so England, Scotland and Wales stand out
+          if (P.nations) { ctx.strokeStyle = col.fg; ctx.globalAlpha = 0.55; ctx.lineWidth = 2 / t.k; ctx.stroke(P.nations); ctx.globalAlpha = 1; }
         }
         this.drawSub(ctx, null, t.k);
         this.drawReserves(ctx, null, t.k, cull ? on : null);

@@ -212,11 +212,18 @@
     prepareParts(feats, rings, flagDir, ringDeg);
     return { kind, countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders,
       coast50: fc.coast, coast110: fc.coast, clusters: [], ringPx: DEFAULT_MIN_PX,
-      lakes: lakes || null, lakes110: lakes || null };
+      lakes: lakes || null, lakes110: lakes || null,
+      nationBorders: fc.nations || null }; // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
   }
   // ----- Britain and Ireland's counties (build 4): set = "historic" or "ceremonial"; each includes Ireland's 32
   // counties and the Crown Dependencies, with France as a grey area. Small counties (the City of London, the
   // Channel Islands, Clackmannanshire...) get a circle.
+  // the UK and Ireland's five countries (Learning mode's first view; the counties come after "Focus on ...")
+  GG.loadUKNations = async lakes => {
+    const g = await loadShapes("data/uk-nations.json", "data/uk-nations-info.json", "ukn", "uk/", new Set(), lakes, 0.25);
+    g.nationBorders = g.borders50; // every border here is between countries: drawn bold
+    return g;
+  };
   GG.loadUK = (set, lakes) => loadShapes(`data/uk-${set}.json`, `data/counties-${set}.json`, set === "historic" ? "uk" : "ukc",
     "uk/", new Set(), lakes, 0.25);
 

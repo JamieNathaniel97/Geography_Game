@@ -8,7 +8,7 @@
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
   let geoWorld = null, geoUS = null, geoCA = null;
-  const geoUK = {}; // "uk", "ukc"
+  const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
     world: { noun: "country", nouns: "countries", Nouns: "Countries" },
@@ -21,6 +21,9 @@
       set: "Historic", load: async () => (geoUK.uk = geoUK.uk || await GG.loadUK("historic", geoWorld.lakes)) },
     ukc: { noun: "county", nouns: "counties", Nouns: "Counties", cap: "county town", caps: "county towns", region: "ukc", style: "uk",
       set: "Ceremonial", load: async () => (geoUK.ukc = geoUK.ukc || await GG.loadUK("ceremonial", geoWorld.lakes)) },
+    // Learning mode's view of the UK and Ireland: just the five countries, each with a card and "Focus on ..." to its counties
+    ukn: { noun: "country", nouns: "countries", Nouns: "Countries", region: "ukn", style: "uk",
+      load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
   const isCountryMap = d => !!DATASETS[d] && d !== "world";
   const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
@@ -58,7 +61,7 @@
   if (document.fonts) { document.fonts.ready.then(fitAll); document.fonts.addEventListener("loadingdone", fitAll); }
   // shorter wording for a country map's top-bar title, if one is ever too long even on two lines (DATASETS[..].titles)
   const title = (key, usual) => (DATASETS[S.data].titles || {})[key] || usual;
-  const phWord = () => ({ world: "Country", us: "State", ca: "Province", uk: "County", ukc: "County" })[S.data]; // flag grid boxes
+  const phWord = () => ({ world: "Country", us: "State", ca: "Province", uk: "County", ukc: "County", ukn: "Country" })[S.data]; // flag grid boxes
   const nouns = () => DATASETS[S.data].nouns;
 
   // Remembered between visits, on this phone: map toggles and the last game's settings.
@@ -98,12 +101,21 @@
     REGIONS[d + "-eng"] = { name: "England", us: true, data: d, test: c => c.info.nation === "England",
       view: { flat: [-1.6, 52.9, 6.6] }, crop: [[-6.6, 49.8], [2.2, 55.9]] };
     REGIONS[d + "-sco"] = { name: "Scotland", us: true, data: d, test: c => c.info.nation === "Scotland",
-      view: { flat: [-4.3, 57.6, 6.6] }, crop: [[-8.9, 54.5], [-0.5, 61]] };
+      view: { flat: [-4.3, 58.0, 6.6] }, crop: [[-8.9, 54.5], [-0.5, 61]] };
     REGIONS[d + "-wal"] = { name: "Wales", us: true, data: d, test: c => c.info.nation === "Wales",
       view: { flat: [-3.75, 52.4, 2.9] }, crop: [[-5.6, 51.3], [-2.6, 53.5]] };
     REGIONS[d + "-ire"] = { name: "Ireland", us: true, data: d, test: c => c.info.island === "Ireland",
       view: { flat: [-7.9, 53.45, 5.2] }, crop: [[-10.8, 51.3], [-5.3, 55.5]] };
+    // for Learning mode's "Focus on Northern Ireland" / "Focus on the Republic of Ireland"
+    REGIONS[d + "-nir"] = { name: "Northern Ireland", us: true, data: d, test: c => c.info.nation === "Northern Ireland",
+      view: { flat: [-6.7, 54.65, 2.4] }, crop: [[-8.4, 53.9], [-5.2, 55.45]] };
+    REGIONS[d + "-roi"] = { name: "Republic of Ireland", us: true, data: d, test: c => c.info.nation === "Republic of Ireland",
+      view: { flat: [-8.0, 53.3, 5.0] }, crop: [[-10.8, 51.3], [-5.7, 55.5]] };
   });
+  REGIONS.ukn = { name: "UK & Ireland", us: true, data: "ukn", test: () => true };
+  // a country on the countries view -> its counties (in the county set last used), as a region of that set
+  const NATION_REGION = { "N-ENG": "-eng", "N-SCO": "-sco", "N-WAL": "-wal", "N-NIR": "-nir", "N-IRL": "-roi" };
+  const ukSet = () => (prefs.ukSet === "ukc" ? "ukc" : "uk");
   // Flag games leave out the counties with no registered flag
   const inRegion = c => (S.region === "world" || REGIONS[S.region].test(c)) && !(tlYear < 1959 && c.info && c.info.year > tlYear)
     && !(flags() && c.info && c.info.flag === false);
@@ -347,6 +359,7 @@
     $("lcFlag").hidden = false; // (a county with no flag hides it)
     if (geoUS && geoUS.byIso[c.iso] === c) { showStateCard(c, i); return; }
     if (geoCA && geoCA.byIso[c.iso] === c) { showProvinceCard(c, i); return; }
+    if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
     $("lcFlag").src = flagSrc(c);
@@ -385,6 +398,34 @@
   }
   // US states: flag, region and abbreviation, capital, population; More facts in groups, like the country card
   const factGroup = (title, rows) => { const h = facts(rows); return h ? `<h4>${title}</h4><dl class="lcfacts">${h}</dl>` : ""; };
+  // the UK and Ireland's countries (Learning mode's countries view)
+  function showNationCard(c, i) {
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = c.iso === "N-NIR" ? "Union Flag" : `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = c.iso === "N-IRL" ? "Independent country · Europe" : "Country of the United Kingdom";
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People", [
+        ["Largest city", i.city || `${c.capitals[0]} (the capital)`],
+        [/,/.test(i.langs) ? "Languages" : "Language", i.langs],
+        ["Patron saint", i.saint],
+      ]) +
+      factGroup("Land", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi)`],
+        ["Highest point", `${i.high[0]}, ${num(i.high[1])} m (${num(Math.round(i.high[1] * 3.28084))} ft)`],
+        ["Counties", c.iso === "N-NIR" || c.iso === "N-IRL" ? `${i.historic} traditional counties` : `${i.historic} historic, ${i.ceremonial} ${c.iso === "N-WAL" ? "preserved" : c.iso === "N-SCO" ? "lieutenancy areas" : "ceremonial"}`],
+      ]) +
+      factGroup("History", [
+        ["Story", i.history],
+        ["Governed by", i.gov],
+      ]) +
+      factGroup("Symbols", [
+        ["Flag", c.iso === "N-NIR" ? "No official flag of its own: the Union Flag is used" : ""],
+        ["Emblem", i.flower],
+      ]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
   // Britain and Ireland's counties: what kind of area it is, its county town, nation (and province, Irish name), area
   function showCountyCard(c, i) {
     $("lcFlag").hidden = !i.flag; // only counties with a registered flag have one
@@ -396,15 +437,36 @@
     $("lcSub").textContent = [what, i.cd ? "" : i.nation, i.province ? `${i.province}` : ""].filter(Boolean).join(" · ");
     const n = (geoUK[S.data] || geoUK.uk).countries.length;
     $("lcMain").innerHTML = facts([[i.cd ? "Capital" : "County town", c.capitals[0]], ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi)`]]);
+    const f = i.facts || {}; // tools/uk_facts.py
+    const [gaaColours, gaaName] = (f.gaa || "").split(" · ");
     $("lcMore").innerHTML =
       factGroup("Names", [
         ["In Irish", i.irish],
         ["Also called", c.names.filter(x => x !== c.name && !/^(County|Co) /.test(x)).join(", ")],
         ["Other county towns", c.capitals.slice(1).filter(t => !/^(Kingston|Newcastle|Appleby|Port Laoise|Saint )$/.test(t)).join(", ")],
+        ["Locals are called", f.people],
+      ]) +
+      factGroup("History", [
+        ["Historic kingdom", f.kingdom],
+        ["Clans", f.clans],
+      ]) +
+      factGroup("Culture", [
+        ["County flower", f.flower],
+        ["County day", f.day],
+        ["Famous food", f.food],
+        ["Landmark", f.landmark],
+        ["Motto", f.motto],
+      ]) +
+      factGroup("Gaelic games", [
+        ["County colours", gaaColours],
+        ["Nickname", gaaName],
       ]) +
       factGroup("Land", [
-        ["Size", `#${i.areaRank} of ${n} by area`],
-        ["Flag", i.flag ? "Registered in the UK Flag Registry" : i.cd ? "" : "No registered flag yet"],
+        ["Size", S.data === "ukn" ? "" : `#${i.areaRank} of ${n} by area`],
+      ]) +
+      factGroup("Flag", [
+        ["Shows", i.flag ? f.flag : ""],
+        ["Status", i.flag ? (i.cd ? "Official flag" : "Registered in the UK Flag Registry") : i.cd ? "" : "No registered flag yet"],
       ]);
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
@@ -487,15 +549,28 @@
     GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", data: "uk", region: "uk", page: "Britain & Ireland" },
     IRL: { name: "Ireland", focus: "Ireland", cont: "Europe", unit: "Counties", data: "uk", region: "uk-ire", page: "Britain & Ireland" },
   };
+  // from the world Learning map, the UK and Ireland open the countries view first
+  const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
+  };
   let focusOn = null;
   function showFocus(c) {
     const m = S.data === "world" ? COUNTRY_MAPS[c.iso] : null;
     focusOn = m && !m.soon ? m : null;
+    // the UK & Ireland countries view: each country opens its own counties
+    if (S.data === "ukn" && NATION_REGION[c.iso]) {
+      const d = ukSet();
+      focusOn = { focus: c.iso === "N-IRL" ? "the Republic" : c.name, region: d + NATION_REGION[c.iso], data: d };
+    }
     $("focusBtn").hidden = !focusOn;
     if (focusOn) $("focusBtn").textContent = `Focus on ${focusOn.focus} ›`;
   }
-  $("focusBtn").onclick = () => { if (focusOn) startGame("explore", focusOn.region, "flat", focusOn.data); };
-  $("worldBtn").onclick = () => startGame("explore", "world", prefs.worldView || "globe", "world");
+  $("focusBtn").onclick = () => {
+    if (!focusOn) return;
+    const into = S.data === "world" && FOCUS_INTO[Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k] === focusOn)];
+    startGame("explore", (into || focusOn).region, "flat", (into || focusOn).data);
+  };
+  $("worldBtn").onclick = () => S.data === "uk" || S.data === "ukc" ? startGame("explore", "ukn", "flat", "ukn")
+    : startGame("explore", "world", prefs.worldView || "globe", "world");
   $("lcClose").onclick = () => { hideLearnCard(); selectSub(null); Object.keys(state).forEach(k => delete state[k]); redraw(); };
   // ---------- Reservations layer (country Learning maps only; too heavy for the world globe) ----------
   // US: reservations and Oklahoma tribal areas (US Census). Canada: First Nations reserves, and Indigenous settlement
@@ -593,7 +668,7 @@
     return MODE_NAMES[m].replace("countries", d.nouns).replace("capitals", d.caps || "capitals").replace("capital", d.cap || "capital"); };
   let statsSkill = "country", statsData = "world";
   const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
-  function openStats() { statsData = S.data; renderStats(); $("stats").hidden = false; }
+  function openStats() { statsData = S.data === "ukn" ? "uk" : S.data; renderStats(); $("stats").hidden = false; }
   function closeStats() { $("stats").hidden = true; resetStatsReset(); }
   function renderStats() {
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
@@ -773,6 +848,7 @@
     main.lookAt(lon, lat, span, animate);
   }
   $("regionBtn").onclick = () => goTo(S.region);
+  const WORLD_JUMPS = $("jumps").innerHTML; // the continent buttons (the UK Learning map swaps in its own)
   $("jumps").addEventListener("click", e => {
     const b = e.target.closest("button"); if (b) goTo(b.dataset.v);
   });
@@ -887,7 +963,7 @@
     showData(); showOptions();
   });
   $("cpBack").onclick = () => { pick.country = null; showData(); };
-  $("setBtn").onclick = () => { const d = S.data === "uk" ? "ukc" : "uk"; startGame("explore", d + S.region.replace(/^ukc?/, ""), "flat", d); };
+  $("setBtn").onclick = () => { const d = S.data === "uk" ? "ukc" : "uk"; savePrefs({ ukSet: d }); startGame("explore", d + S.region.replace(/^ukc?/, ""), "flat", d); };
   const ukRegionPart = r => r.replace(/^ukc?/, "");
   $("cpSet").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
@@ -1008,6 +1084,8 @@
     GG.debug.geo = geo;
   }
   function startGame(mode, region, view, data = S.data) {
+    // Learning mode's whole UK & Ireland is the countries view (no county lines); counties come after "Focus on ..."
+    if (mode === "explore" && (data === "uk" || data === "ukc") && (region === "uk" || region === "ukc")) { data = "ukn"; region = "ukn"; }
     if (data !== S.data || !geo) return useData(data).then(() => startGame(mode, region, view, data));
     // a country map's own regions (England, Scotland...), or else the whole map
     if (isCountryMap(data)) { if (dataOfRegion(region) !== data) region = DATASETS[data].region; view = "flat"; }
@@ -1023,11 +1101,12 @@
     $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
+    $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view
     // Britain and Ireland's Learning map: switch between the two county sets
     // Britain and Ireland: the sources' credit lines (required by their licences), on the map in every UK game
-    const ukMap = data === "uk" || data === "ukc";
+    const ukMap = data === "uk" || data === "ukc" || data === "ukn";
     $("mapCredit").hidden = !ukMap;
-    if (ukMap) $("mapCredit").innerHTML = (data === "uk"
+    if (ukMap) $("mapCredit").innerHTML = (data !== "ukc"
       ? 'Counties: <a href="https://www.county-borders.co.uk" target="_blank" rel="noopener">Historic County Borders Project</a>'
       : "Contains OS data © Crown copyright and database right 2026") +
       '. Ireland © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Flags: UK Flag Registry.';

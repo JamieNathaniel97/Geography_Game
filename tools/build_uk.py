@@ -468,6 +468,26 @@ def shapes(geoms):
     return {"type": "FeatureCollection", "features": feats, "borders": rounded(merged(borders)), "coast": rounded(merged(coast))}
 
 
+def nation_borders(fc, items):
+    """Adds "nations": the borders between England, Scotland and Wales, and between Northern Ireland and the Republic
+    (drawn bolder on the map), taken from the finished county outlines so they sit exactly on the county borders"""
+    from shapely.geometry import shape as to_shape
+    nation = {it["iso"]: it["info"]["nation"] for it in items if not it["info"].get("cd")}
+    geo = {f["id"]: to_shape(f["geometry"]) for f in fc["features"] if f["id"] in nation}
+    keys = list(geo)
+    lines = []
+    for i, a in enumerate(keys):
+        for b in keys[i + 1:]:
+            if nation[a] == nation[b]:
+                continue
+            A, B = geo[a].bounds, geo[b].bounds
+            if A[0] > B[2] or B[0] > A[2] or A[1] > B[3] or B[1] > A[3]:
+                continue
+            lines += lines_only(geo[a].boundary.intersection(geo[b].boundary))
+    fc["nations"] = rounded(linemerge(lines) if lines else MultiLineString([]))
+    return fc
+
+
 def town_coords(items, geoms):
     z = fetch("https://download.geonames.org/export/dump/cities500.zip", DL / "cities500.zip")
     rows = [l.split("\t") for l in zipfile.ZipFile(z).open("cities500.txt").read().decode("utf8").splitlines()]
@@ -544,11 +564,116 @@ def main():
         by_area = sorted(items, key=lambda c: -c["info"]["area"])
         for it in items:
             it["info"]["areaRank"] = by_area.index(it) + 1
-        (ROOT / "data" / f"uk-{kind}.json").write_text(json.dumps(shapes(geoms), separators=(",", ":")), encoding="utf8")
+        (ROOT / "data" / f"uk-{kind}.json").write_text(json.dumps(nation_borders(shapes(geoms), items), separators=(",", ":")), encoding="utf8")
+        add_facts(items)
         items.sort(key=lambda c: (nations.index(c["info"]["nation"]), c["name"]))
         (ROOT / "data" / f"counties-{kind}.json").write_text(json.dumps(items, ensure_ascii=False, indent=0), encoding="utf8")
         print(f"{kind}: {len(items)} areas, {sum(1 for i in items if i['info']['flag'])} with flags")
+    build_nations()
+
+
+def add_facts(items):
+    """the Learning card facts (tools/uk_facts.py) on each county, by its id"""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import uk_facts as F
+    by_id = {}
+    by_id.update({"H-" + slug(k): v for k, v in F.HISTORIC.items()})
+    by_id.update({"I-" + slug(k): v for k, v in F.IRELAND.items()})
+    by_id.update(F.CROWN)
+    by_id.update({"C-" + slug(k): F.ceremonial(k) for k in CEREMONIAL})
+    n = 0
+    for it in items:
+        f = by_id.get(it["iso"])
+        if f:
+            it["info"]["facts"] = {k: v for k, v in f.items() if v}
+            n += 1
+    return n
+
+
+def apply_facts():
+    """adds the facts to the county files already built (no need to rebuild the shapes)"""
+    for name in ("counties-historic.json", "counties-ceremonial.json", "uk-nations-info.json"):
+        p = ROOT / "data" / name
+        items = json.loads(p.read_text(encoding="utf8"))
+        n = add_facts(items)
+        p.write_text(json.dumps(items, ensure_ascii=False, indent=0), encoding="utf8")
+        print(f"{name}: facts for {n} of {len(items)}")
+
+
+# ---------- the UK and Ireland's countries, for the Learning map's first view (counties come after "Focus on ...") ----------
+# (name, capital, largest city if not the capital, population, census/estimate, area km², patron saint (day), languages,
+#  highest point (name, m), national flower or emblem, history, how it's governed, flagcdn code)
+NATIONS = {
+    "N-ENG": ("England", "London", "", 56490048, "2021 census", 130279, "St George (23 April)", "English",
+              ("Scafell Pike", 978), "Tudor rose", "Kingdom of England from 927; united with Scotland in 1707",
+              "UK Parliament (no separate parliament of its own)", "gb-eng"),
+    "N-SCO": ("Scotland", "Edinburgh", "Glasgow", 5439842, "2022 census", 80231, "St Andrew (30 November)",
+              "English, Scots, Scottish Gaelic", ("Ben Nevis", 1345), "Thistle",
+              "Kingdom of Scotland from 843; united with England in 1707", "Scottish Parliament (Holyrood), since 1999", "gb-sct"),
+    "N-WAL": ("Wales", "Cardiff", "", 3107494, "2021 census", 20779, "St David (1 March)", "Welsh, English",
+              ("Yr Wyddfa (Snowdon)", 1085), "Daffodil (and the leek)",
+              "Welsh kingdoms and principalities; joined to England by the Laws in Wales Acts 1535–1542",
+              "Senedd (Welsh Parliament), since 1999", "gb-wls"),
+    "N-NIR": ("Northern Ireland", "Belfast", "", 1903175, "2021 census", 14130, "St Patrick (17 March)",
+              "English, Irish, Ulster Scots", ("Slieve Donard", 850), "Flax (shamrock also used)",
+              "Formed in 1921, when Ireland was partitioned", "Northern Ireland Assembly (Stormont), since 1998", "gb"),
+    "N-IRL": ("Republic of Ireland", "Dublin", "", 5149139, "2022 census", 70273, "St Patrick (17 March)", "Irish, English",
+              ("Carrauntoohil", 1039), "Shamrock", "Irish Free State from 1922; a republic since 1949",
+              "Oireachtas (parliament) in Dublin; an independent country in the EU", None),
+}
+NATION_OF = {"N-ENG": "England", "N-SCO": "Scotland", "N-WAL": "Wales", "N-NIR": "Northern Ireland", "N-IRL": "Republic of Ireland"}
+
+
+def build_nations():
+    """data/uk-nations.json (the five countries, the Crown Dependencies and France, merged from the historic county
+    shapes so coast and borders match them exactly) and data/uk-nations-info.json (the countries' facts)"""
+    from shapely.geometry import shape as to_shape
+    fc = json.loads((ROOT / "data" / "uk-historic.json").read_text(encoding="utf8"))
+    hist = json.loads((ROOT / "data" / "counties-historic.json").read_text(encoding="utf8"))
+    cer = json.loads((ROOT / "data" / "counties-ceremonial.json").read_text(encoding="utf8"))
+    nation = {c["iso"]: c["info"]["nation"] for c in hist}
+    geo = {f["id"]: to_shape(f["geometry"]) for f in fc["features"]}
+    areas = {iso: polygonal(unary_union([g for k, g in geo.items() if nation.get(k) == n])) for iso, n in NATION_OF.items()}
+    for k, g in geo.items():  # the Crown Dependencies and France stay as they are
+        if k.startswith("D-") or k.startswith("T-"):
+            areas[k] = g
+    keys = list(areas)
+    borders = []
+    for i, a in enumerate(keys):
+        for b in keys[i + 1:]:
+            borders += lines_only(areas[a].boundary.intersection(areas[b].boundary))
+    bu = unary_union(borders)
+    coast = lines_only(unary_union([g.boundary for g in areas.values()]).difference(bu.buffer(1e-7)))
+    merged = lambda ls: linemerge(ls) if ls else MultiLineString([])
+    out = {"type": "FeatureCollection", "features": [{"type": "Feature", "id": k, "geometry": rounded(g)} for k, g in areas.items()],
+           "borders": rounded(merged(borders)), "coast": rounded(merged(coast))}
+    (ROOT / "data" / "uk-nations.json").write_text(json.dumps(out, separators=(",", ":")), encoding="utf8")
+    count = lambda items, n: sum(1 for c in items if c["info"]["nation"] == n)
+    items = []
+    for iso, (name, cap, city, pop, popYear, area, saint, langs, high, flower, history, gov, flag) in NATIONS.items():
+        n = NATION_OF[iso]
+        it = {"iso": iso, "id": iso, "name": name, "names": [name], "capitals": [cap], "cont": ["Europe"], "car": False, "a2": iso,
+              "info": {"nation": n, "kind": "nation", "city": city, "pop": pop, "popYear": popYear, "area": area, "saint": saint,
+                       "langs": langs, "high": high, "flower": flower, "history": history, "gov": gov,
+                       "historic": count(hist, n), "ceremonial": count(cer, n), "flag": True},
+              "flagKey": "uk/" + iso}
+        items.append(it)
+        p = ROOT / "data" / "flags" / "uk" / f"{iso}.webp"
+        if not p.exists():
+            if flag:
+                data = urllib.request.urlopen(urllib.request.Request(f"https://flagcdn.com/w640/{flag}.webp", headers=UA), timeout=60).read()
+                Image.open(io.BytesIO(data)).convert("RGB").save(p, "WEBP", quality=88)
+            else:
+                Image.open(ROOT / "data" / "flags" / "IRL.webp").convert("RGB").save(p, "WEBP", quality=88)
+    items += [c for c in hist if c["info"].get("cd")]  # the Crown Dependencies keep their county-style cards
+    (ROOT / "data" / "uk-nations-info.json").write_text(json.dumps(items, ensure_ascii=False, indent=0), encoding="utf8")
+    print("nations:", len(items), "areas")
 
 
 if __name__ == "__main__":
-    main()
+    if sys.argv[1:] == ["nations"]:
+        build_nations()  # just the countries view, from the county files already built
+    elif sys.argv[1:] == ["facts"]:
+        apply_facts()  # just the Learning card facts, into the county files already built
+    else:
+        main()
