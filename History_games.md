@@ -160,7 +160,7 @@ Famous shipwrecks from every era, from the Bronze Age Uluburun wreck to the 20th
 1. The symbol appears at the wreck with the year: **"1912"**.
 2. The map zooms in to fit it, as in H2b.
 3. The user names the ship: type the name or pick from 4 choices (the same setting as H1b and H2b). Typing is forgiving: "Titanic" counts for "RMS Titanic", and prefixes such as RMS, HMS, SS, USS and MV are optional.
-4. The answer card shows the name, year, a short description, what sank it (iceberg, storm, battle, torpedo), lives lost, and when the wreck was found.
+4. The answer card shows the name, year, a short description, what sank it (iceberg, storm, battle, torpedo), **lives lost** (decided 2026-11-17: always shown where known; "no lives lost" where none were), and when the wreck was found.
 
 ### Choosing wrecks
 
@@ -173,12 +173,11 @@ Famous shipwrecks from every era, from the Bronze Age Uluburun wreck to the 20th
 
 - **Source: Wikidata** (CC0), as for H1 and H2. Wikidata records a wreck either as its own item ("shipwreck") or on the ship's item, with the wreck's position; the script takes both.
 - **Script written:** `tools/build_wrecks.py` writes `data/wrecks.json`: name, description, year sunk, wreck position, the country when it's in a country's waters, lives lost, the year it was found, and whether it was sunk in war. **Run it in VS Code:** `python tools/build_wrecks.py 15` (wrecks with articles in at least 15 Wikipedia languages; there are far fewer famous wrecks than battles, so the cut-off is lower).
-- **Hand-picked wrecks:** `tools/wrecks_extra.py` holds **49 hand-picked wrecks** across every era: Uluburun, the Antikythera wreck, the Belitung wreck, Nanhai One, the Mary Rose, the Vasa, the Batavia, Queen Anne's Revenge, the San José, HMS Erebus and Terror, the Titanic, the Lusitania, the Endurance, the Bismarck, the Yamato, USS Arizona, the Wilhelm Gustloff, the Edmund Fitzgerald, the Doña Paz and more. They're always included.
+- **Hand-picked wrecks:** `tools/wrecks_extra.py` holds **47 hand-picked wrecks** across every era: Uluburun, the Antikythera wreck, the Belitung wreck, Nanhai One, the Mary Rose, the Vasa, the Batavia, Queen Anne's Revenge, the San José, HMS Erebus and Terror, the Titanic, the Lusitania, the Endurance, the Bismarck, the Yamato, USS Arizona, the Wilhelm Gustloff, the **Edmund Fitzgerald** (asked for by the user, 2026-11-17), the Doña Paz and more. They're always included.
+- **Only known wrecks** (decided 2026-11-17): every wreck in the set must have a known, found position. Wrecks never found (the Flor de la Mar, the Santa María) or doubtfully identified (the Mary Celeste) are left out. When checking the output, drop any whose Wikidata position is only where the ship was lost, not where the wreck lies.
 - **Check by hand:** a ship's coordinates in Wikidata are sometimes its home port rather than its wreck. The script lists every wreck that's inside a country, to check. **Raised wrecks** such as the Vasa (now in a Stockholm museum) and the Mary Rose (Portsmouth) are played at the place they sank; set `raised` in `FIXES` so the card can say where they are now.
 - **War graves:** many wrecks, such as USS Arizona and HMS Hood, are war graves. The card should say so plainly and respectfully.
 
 ### Open questions for the user (H3)
 
-1. **Wrecks never found** (for example the Flor de la Mar and Columbus's Santa María): include them at their likely place, marked "approximate" on the card, or only wrecks whose place is known?
-2. **Cut-off:** the hand-picked list stops at the Doña Paz (1987). Leave out more recent disasters, such as the MS Estonia (1994) or the Costa Concordia (2012), the same way H2 stops at 1993?
-3. **Lives lost:** show the number on the card, or leave it out?
+1. **Cut-off:** the hand-picked list stops at the Doña Paz (1987). Leave out more recent disasters, such as the MS Estonia (1994) or the Costa Concordia (2012), the same way H2 stops at 1993?
