@@ -9,6 +9,7 @@ Fixes applied to the shapes (see PLAN.md):
   - Overseas parts of France and the Netherlands, Tokelau (NZ) and Ashmore Reef (Australia)
     become separate territories (grey, untappable).
   - Every geometry without a quiz country is a territory, with an ID starting "T-".
+  - Crimea moves from Russia to Ukraine.
 
 Run from the repo root:  python tools/build_data.py
 Downloads are cached in tools/downloads/ (git-ignored).
@@ -156,6 +157,16 @@ def fix_topology(t, quiz_ids):
                 g["arcs"] = [p for p in g["arcs"] if not test(*first_point(p))]
                 extra.append({"type": "MultiPolygon", "arcs": out, "id": name})
     geoms.extend(extra)
+    # Crimea: the source draws it as part of Russia; here it's Ukraine's, as most countries count it (and as Russia's map
+    # shows it, Russia_plan.md)
+    rus = next(g for g in geoms if g["id"] == "643")
+    ukr = next(g for g in geoms if g["id"] == "804")
+    crimea = [p for p in rus["arcs"] if 32 < first_point(p)[0] < 37 and 44 < first_point(p)[1] < 46.5]
+    assert len(crimea) == 1, len(crimea)
+    rus["arcs"] = [p for p in rus["arcs"] if p not in crimea]
+    if ukr["type"] == "Polygon":
+        ukr["type"], ukr["arcs"] = "MultiPolygon", [ukr["arcs"]]
+    ukr["arcs"] += crimea
     t["objects"] = {"countries": t["objects"]["countries"]}  # drop the unused "land" object
     # Borders (arcs between two different countries or territories) and coastlines (arcs used by one only),
     # worked out here once so the app doesn't have to on every start (it made the splash stutter on phones).
