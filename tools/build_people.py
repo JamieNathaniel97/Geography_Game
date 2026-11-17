@@ -15,16 +15,20 @@
 Source: Wikidata (https://www.wikidata.org), CC0 (public domain). Queries the Wikidata Query Service, so it needs
 network access; run it where query.wikidata.org is reachable (not from a locked-down sandbox).
 
-Run from the repo root:  python tools/build_people.py [min_links]
+Run from the repo root:  python tools/build_people.py [min_links] [--images]
 min_links (default 100): only people with Wikipedia articles in at least this many languages. Lower it for more
 people. The raw query results are cached in tools/downloads/people/ so re-runs don't hit the server again; delete
 that folder to refresh.
+The hand-picked people in tools/people_extra.py are always added (marked "picked": true), whatever their fame.
+--images also downloads a small portrait for each person whose Wikidata picture has a free licence (see
+fetch_images), with its credit; people without a free picture get "img": null.
 
 Check the output by hand before shipping: Wikidata sometimes has several birth or death places (the build takes
 the first with coordinates and prints the people it had to choose for), and places that are a country or region
 rather than a town (printed as warnings; fix them in FIXES below).
 """
 import json
+import re
 import pathlib
 import sys
 import time
@@ -65,16 +69,19 @@ QUERY = """
 SELECT ?p ?pLabel ?pDescription ?links ?born ?died
        ?bp ?bpLabel ?bcoord ?bcountryIso ?dp ?dpLabel ?dcoord ?dcountryIso
        (GROUP_CONCAT(DISTINCT STRAFTER(STR(?occ), "entity/"); separator=" ") AS ?occs)
+       (SAMPLE(?image) AS ?img) (SAMPLE(?article) AS ?title)
 WHERE {
+  %(pick)s
   ?p wdt:P31 wd:Q5 ;
      wikibase:sitelinks ?links .
-  FILTER(?links >= %(min)d)
   ?p wdt:P569 ?born ; wdt:P570 ?died .
   ?p wdt:P19 ?bp . ?bp wdt:P625 ?bcoord .
   ?p wdt:P20 ?dp . ?dp wdt:P625 ?dcoord .
   OPTIONAL { ?bp wdt:P17 ?bc . ?bc wdt:P298 ?bcountryIso . }
   OPTIONAL { ?dp wdt:P17 ?dc . ?dc wdt:P298 ?dcountryIso . }
   OPTIONAL { ?p wdt:P106 ?occ . }
+  OPTIONAL { ?p wdt:P18 ?image . }
+  OPTIONAL { ?article schema:about ?p ; schema:isPartOf <https://en.wikipedia.org/> . }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 }
 GROUP BY ?p ?pLabel ?pDescription ?links ?born ?died
@@ -117,7 +124,20 @@ def main():
     min_links = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     DL.mkdir(parents=True, exist_ok=True)
     print(f"querying Wikidata for people with >= {min_links} Wikipedia languages ...")
-    rows = sparql(QUERY % {"min": min_links}, DL / f"people_{min_links}.json")["results"]["bindings"]
+    fame = "?p wikibase:sitelinks ?l0 . FILTER(?l0 >= %d)" % min_links
+    rows = sparql(QUERY % {"pick": fame}, DL / f"people_{min_links}.json")["results"]["bindings"]
+
+    # the hand-picked people (tools/people_extra.py), looked up by English Wikipedia title, 40 at a time
+    sys.path.insert(0, str(ROOT / "tools"))
+    from people_extra import EXTRA
+    extra_titles = {t: region for region, ts in EXTRA.items() for t in ts}
+    titles = list(extra_titles)
+    for i in range(0, len(titles), 40):
+        vals = " ".join('<https://en.wikipedia.org/wiki/%s>' % urllib.parse.quote(t.replace(" ", "_"), safe="")
+                        for t in titles[i:i + 40])
+        pick = "VALUES ?article { %s } ?article schema:about ?p ." % vals
+        print(f"  hand-picked people {i + 1}-{min(i + 40, len(titles))} ...")
+        rows += sparql(QUERY % {"pick": pick}, DL / f"extra_{i // 40}.json")["results"]["bindings"]
 
     app_isos = {c["iso"] for c in json.loads((ROOT / "data" / "countries.json").read_text(encoding="utf-8"))}
     iso_fix = {"XKX": "UNK"}  # Kosovo
@@ -142,7 +162,20 @@ def main():
             "bp": g("bpLabel"), "bll": point(g("bcoord")), "biso": iso(g("bcountryIso")),
             "dp": g("dpLabel"), "dll": point(g("dcoord")), "diso": iso(g("dcountryIso")),
             "links": int(g("links")),
+            "picked": False,
+            "image": g("img"),  # a Wikimedia Commons file; see --images
+            "title": urllib.parse.unquote(g("title").rsplit("/", 1)[-1]).replace("_", " ") if g("title") else None,
         }
+
+    found = set()
+    for p in people.values():
+        if p["title"] in extra_titles:
+            p["picked"] = True
+            found.add(p["title"])
+    missing = [t for t in titles if t not in found]
+    if missing:
+        print(f"{len(missing)} hand-picked titles not found (wrong title, alive, or no birth/death place with "
+              "coordinates in Wikidata); fix them in tools/people_extra.py:", ", ".join(missing))
 
     for pid, fix in FIXES.items():
         if pid in people:
@@ -156,10 +189,61 @@ def main():
     print("by kind:", {k: sum(p["kind"] == k for p in out) for k in KIND_ORDER + ["other"]})
     if many:
         print(f"{len(many)} people have more than one birth or death place in Wikidata; check:", ", ".join(many[:40]))
+    if "--images" in sys.argv:
+        fetch_images(out)
+        OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
     vague = [p["name"] for p in out if p["biso"] is None or p["diso"] is None]
     if vague:
         print(f"{len(vague)} people have a place with no modern country (at sea, ancient sites, territories); check:",
               ", ".join(vague[:40]))
+
+
+# Licences that allow bundling the picture in the app (with credit where they need it)
+FREE = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa")
+IMG_DIR = ROOT / "data" / "people"
+IMG_WIDTH = 240
+
+
+def fetch_images(people):
+    """Downloads a small portrait for each person whose Wikidata picture has a free licence (checked per file with the
+    Commons API), to data/people/<id>.webp, and stores the credit in the record: "img": {"credit": ..., "licence": ...}.
+    People whose picture isn't free (many 20th-century photos) get no picture."""
+    from PIL import Image
+    import io
+    IMG_DIR.mkdir(parents=True, exist_ok=True)
+    kept = skipped = 0
+    for p in people:
+        f = p.pop("image", None)
+        p["img"] = None
+        if not f:
+            continue
+        name = urllib.parse.unquote(f.rsplit("/", 1)[-1])
+        api = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
+            "action": "query", "titles": "File:" + name, "prop": "imageinfo", "format": "json",
+            "iiprop": "url|extmetadata", "iiurlwidth": IMG_WIDTH})
+        try:
+            with urllib.request.urlopen(urllib.request.Request(api, headers={"User-Agent": UA["User-Agent"]}),
+                                        timeout=60) as r:
+                info = next(iter(json.load(r)["query"]["pages"].values()))["imageinfo"][0]
+            meta = info.get("extmetadata", {})
+            lic = meta.get("LicenseShortName", {}).get("value", "")
+            if not lic.lower().startswith(FREE):
+                skipped += 1
+                continue
+            artist = meta.get("Artist", {}).get("value", "")
+            artist = re.sub(r"<[^>]+>", "", artist).strip()  # the API gives HTML
+            out = IMG_DIR / f"{p['id']}.webp"
+            if not out.exists():
+                with urllib.request.urlopen(urllib.request.Request(info["thumburl"],
+                                            headers={"User-Agent": UA["User-Agent"]}), timeout=60) as r:
+                    Image.open(io.BytesIO(r.read())).convert("RGB").save(out, "WEBP", quality=72)
+                time.sleep(0.5)  # be polite to Commons
+            p["img"] = {"credit": artist or "Wikimedia Commons", "licence": lic, "file": name}
+            kept += 1
+        except Exception as e:
+            print("  picture failed for", p["name"], e)
+    print(f"pictures: {kept} free ones saved in data/people/, {skipped} skipped (not a free licence)")
 
 
 if __name__ == "__main__":

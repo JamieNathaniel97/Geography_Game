@@ -207,6 +207,8 @@ Build 4 recreates the build 3 games for the counties of Great Britain and the wh
 - Back and forward arrows next to the prompt move instantly through the countries still to answer, with no penalty, so the user can answer in any order. There is no skip or pass button.
 - Give up button that ends the quiz and shows the answers.
 
+- **Marathon** (named 2026-11-17): the name for the option "every item in the chosen set" when a game offers a choice of lengths (first used in the History games, History_games.md: 10, 20, 50 or Marathon). Use the same name wherever another game gets a length choice.
+
 ## Progress and learning
 
 - Track per-country stats: times asked, times correct, last seen.

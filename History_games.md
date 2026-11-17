@@ -16,14 +16,22 @@ Famous people from history (leaders, scientists, artists, writers, composers, ph
 
 ### Game H1a: Where were they born and where did they die?
 
-1. A person comes up at the top, for example **"Napoleon Bonaparte · French emperor"**, with their years (open question 4).
+1. A person comes up at the top, for example **"Napoleon Bonaparte · French emperor · 1769–1821"**. The years are always shown (decided 2026-11-17).
 2. **The map zooms into the area** where the person lived (see "Zooming" below).
 3. **First tap: the birth place guess.** A **green dot** appears where the user tapped.
 4. **Second tap: the death place guess.** A **red dot** appears.
 5. **The real places appear:** a **baby symbol** at the real birth place and a **skull symbol** at the real death place, each labelled with the place name and year ("Ajaccio, 1769", "Saint Helena, 1821"). A thin line joins each guess to the real place, with the distance ("212 km away").
 6. The map zooms out just enough to show all four marks, then a "Next ›" button moves on.
 
-- **Scoring:** nobody can tap an exact town, so it scores by distance, like GeoGuessr: for example up to 100 points for each place, falling the further away the tap was (100 points within 25 km, 0 beyond 2,000 km). The end-of-game pop-up shows the total, the average distance and the best and worst guesses.
+- **Scoring (decided 2026-11-17): a score from 1 to 100 for each place.** **100** means within 20 km, and **1** means the opposite side of the Earth (20,000 km away). In between, the score falls on a log scale, so being close matters most:
+
+  `score = 100 − 99 × log(d / 20) / log(1000)`, where d is the distance in km (100 at 20 km or less, 1 at 20,000 km)
+
+  | Distance | 20 km | 50 km | 100 km | 200 km | 500 km | 1,000 km | 2,000 km | 5,000 km | 10,000 km | 20,000 km |
+  | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+  | Score | 100 | 87 | 77 | 67 | 54 | 44 | 34 | 21 | 11 | 1 |
+
+  Each person gets two scores (birth and death), shown next to the symbols. The end-of-game pop-up shows the average score (out of 100), the average distance, and the best and worst guesses. Personal bests use the average.
 - **Symbols:** drawn as small SVG icons (a baby's face, a skull), not emoji, so they look the same on every phone and work offline.
 - Taps on the sea count (people die at sea, and coastal towns need taps near the shore).
 - Back and forward arrows, Give up and the timer work as in the other games.
@@ -35,7 +43,9 @@ The other way round:
 1. The map shows the **baby symbol** at the birth place and the **skull symbol** at the death place, with the place names and years: "👶 Ajaccio, 1769 → 💀 Saint Helena, 1821".
 2. The map zooms to fit both.
 3. The user guesses the person (open question 5 on how).
-4. Right: the person's name, description and photo-free card appear. Wrong or Give up: the answer is shown.
+4. Right: the person's card appears (name, description, years, places, and a portrait if there's a free one). Wrong or Give up: the answer is shown.
+
+- **Answering (decided 2026-11-17): both ways, as a setting** in Options: **Type the name** (forgiving matching; surnames and well-known short names count, such as "Napoleon", "Einstein", "Gandhi") or **4 choices** (the other three are people of the same kind and era, so it isn't too easy).
 
 ### Zooming
 
@@ -50,22 +60,19 @@ Before each game, like Region:
 - **Kind:** All, Leaders, Scientists and inventors, Artists and architects, Writers and poets, Composers and musicians, Philosophers, Explorers.
 - **Era:** All, Ancient (before 500), Medieval (500–1500), Early modern (1500–1800), 1800s, 1900s and later.
 - **Region:** the usual continents, by where the person was born.
-- Each game is 10 people (open question 2).
+- **Length (decided 2026-11-17):** a choice of **10, 20 or 50** people, or **Marathon**: the whole chosen set. "Marathon" is the app's name for "every item in the chosen set", to be used for the same option in other games too (PLAN.md).
 
 ### Data
 
 - **Source: Wikidata**, which is CC0 (public domain), so there are no licence worries. Credit it on the map anyway.
 - **Script written:** `tools/build_people.py` writes `data/people.json`: each person's name, short description, kind, birth and death years (BC as negative), birth and death places with coordinates, the modern country of each place, and how famous they are (the number of Wikipedia languages with an article about them). Only people who have died are included, since the game needs a death place.
+- **Hand-picked people (decided 2026-11-17):** `tools/people_extra.py` holds **174 hand-picked people** to balance the set: leaders, thinkers, artists and scientists from Africa, the Middle East, South Asia, East and Southeast Asia, Latin America, Indigenous North America and Oceania, and women from Europe and North America. They're always included whatever their fame score, marked `"picked": true`. The script prints any title it can't find in Wikidata; fix those in the file. Add more freely: it's just a list of English Wikipedia article titles.
 - **Not run yet:** the sandbox this plan was written in can only reach GitHub, so it couldn't download from Wikidata. **Run the script in VS Code**: `python tools/build_people.py 100`. The number is the fame cut-off (people with articles in at least 100 languages); lower it for more people. The first try will show how many people that gives; somewhere around 500 to 1,500 is a good size.
 - **Check by hand** before shipping. The script prints people with several birth or death places, and places with no modern country (at sea, ancient sites). Fix them in its `FIXES` table. Some birthplaces in Wikidata are a country or region rather than a town, which would make a bad answer; drop or fix those.
 - **Old places:** use the place's position, not old borders. The card can show the old name and the modern country ("Königsberg, Prussia (now Kaliningrad, Russia)").
-- **Fairness:** Wikipedia fame leans towards European men. When choosing the cut-off, check the spread by region and era, and add a hand-picked list of important people from elsewhere if the set is lopsided (open question 3).
+- **Fairness:** Wikipedia fame leans towards European men, which is why the hand-picked list exists. After the first run, check the spread by region, era and kind, and add to the list where it's thin.
+- **Pictures (decided 2026-11-17: yes, if free):** `python tools/build_people.py 100 --images` also downloads a small portrait (240 px wide, WebP) for each person whose Wikidata picture has a **free licence**, checked file by file with the Wikimedia Commons API: public domain, CC0, CC BY or CC BY-SA. Pictures go in `data/people/<id>.webp`, and each record keeps the credit and licence, which the card shows in small print under the picture (CC BY and CC BY-SA require it). People with no free picture (many 20th-century photos) just have no picture. At about 10 KB each, 1,000 portraits is about 10 MB, so load them only when a card opens, and let the offline cache keep the ones that have been seen, rather than bundling them all at install.
 
 ### Open questions for the user (H1)
 
-1. **Scoring by distance:** points falling with distance, as above, or just "close enough" (green within some distance, red beyond)?
-2. **How many people per game:** 10, 20, or the whole chosen set?
-3. **Hand-picked extras:** add a hand-picked list to balance the set, or use Wikidata's fame ranking alone?
-4. **H1a prompt:** show the years (helps a lot) or only the name and description?
-5. **H1b answer:** type the name (forgiving matching, accepting surnames such as "Napoleon" or "Einstein"), or pick from 4 choices, or both as a setting?
-6. **Pictures:** show a portrait on the answer card? Paintings of people who died long ago are mostly public domain (Wikimedia Commons), but photos of 20th-century people often aren't. **Proposed:** no pictures to start with.
+None at the moment (all answered 2026-11-17). Run `tools/build_people.py` in VS Code and check the results by hand first.
