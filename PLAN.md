@@ -245,6 +245,13 @@ Decided 2026-11-15:
 - **Non-country territories** (Greenland, Western Sahara, French Guiana and so on) are drawn in grey and can't be tapped. A separate territories quiz may come later, so the data should store territories as their own records (type: territory, with a sovereign state), not discard them.
 - A country can belong to more than one continent, so continent is a list, not a single value.
 
+### High-resolution coasts (decided 2026-11-17)
+
+- **Standard for every new country map** (Mexico, Brazil, and the countries in [jobs/build_countries.md](jobs/build_countries.md)): two levels of detail. The light file (Natural Earth 1:10m, simplified about 1–3 km) stays the default for loading and zoomed-out drawing; a **detail level** (coast and borders to about 100–200 m) loads only when zoomed in past a threshold, in tiles, so only the part on screen is fetched (like the terrain relief). Taps use whichever level is drawn.
+- **Coast source:** GSHHG 2.3.7 full resolution (level f, about 100 m; free to use), already downloaded (`tools/downloads/uk/gshhg-shp-2.3.7.zip`). `tools/fetch_country_data.py` clips it per country to `tools/downloads/<code>/coast_f.geojson` (land L1 and lakes L2). OpenStreetMap's coast is finer but share-alike (ODbL), so not used.
+- **Region edges at the coast:** fit each region's shape to the new shoreline (trim or extend), as `fit_to_land` does in `tools/build_uk.py`.
+- **Later, not now:** redo the maps already built (US, Canada, India, China, Russia, Australia; the UK already uses GSHHG for its coast) with the detail level. Decided 2026-11-17 to leave them as they are for now and come back to it another time.
+
 ### Continent assignments for borderline countries
 
 - **Russia, Turkey:** both Europe and Asia.

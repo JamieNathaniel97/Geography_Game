@@ -1,10 +1,11 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "gaia-quest-v53";
+const CACHE = "gaia-quest-v56";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js", "js/tutorial.js",
   "media/Learning_mode_clip.webm", "media/Learning_mode_clip.mp4", "media/Learning_mode_clip.jpg",
+  "media/Learning_mode_clip_light.webm", "media/Learning_mode_clip_light.mp4", "media/Learning_mode_clip_light.jpg",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
   "data/world-50m.json", "data/world-110m.json", "data/countries.json", "data/relief.jpg",
   "data/us-states.json", "data/states.json", "data/lakes.json", "data/tribal-us.json",

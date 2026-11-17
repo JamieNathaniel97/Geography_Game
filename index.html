@@ -6,6 +6,8 @@
 <title>Gaia Quest</title>
 <meta name="description" content="Gaia Quest: learn your world. Map games for every country, capital and flag, offline on your phone.">
 <meta name="theme-color" content="#17262b">
+<script>/* Options > Theme (Auto / Light / Dark), applied before the first paint */
+try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -117,6 +119,8 @@
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
     <div class="sheethead"><h2 id="setupTitle">New game</h2>
       <div class="headbtns">
+        <!-- help: a placeholder for now (a help function comes later) -->
+        <button class="iconbtn" id="helpBtn" type="button" aria-label="Help"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.3 9.2a2.8 2.8 0 0 1 5.4 1c0 1.9-2.7 2.4-2.7 4.1"/><circle cx="12" cy="17.6" r=".6" fill="currentColor"/></svg></button>
         <button class="iconbtn cog" id="optBtn" type="button" aria-label="Options" aria-pressed="false">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           <span class="badge" id="optBadge" hidden></span>
@@ -164,18 +168,25 @@
       <summary><span class="label">Region</span> <span id="regionSummary">World · 197</span></summary>
       <div class="regions" id="regions"></div>
     </details>
-    <div class="field" id="viewField"><span class="label">Map</span>
-      <div class="seg" id="segView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
-    </div>
     </div>
     <!-- Learning mode (World): a looping clip of how it works (Learning_mode_clip.md; js/tutorial.js + tools/record_clip.py),
          with the old steps as its captions: 1 Tap a country, 2 Info, 3 Focus on -->
     <div id="learnPanel" class="learnpanel" hidden>
-      <video id="learnClip" muted loop playsinline preload="none" poster="media/Learning_mode_clip.jpg"
-        aria-label="How Learning mode works: tap a country, read its card, then focus on it to see its states">
-        <source src="media/Learning_mode_clip.webm" type="video/webm"><source src="media/Learning_mode_clip.mp4" type="video/mp4">
-      </video>
+      <video id="learnClip" muted loop playsinline preload="none"
+        aria-label="How Learning mode works: tap a country, read its card, then focus on it to see its states"></video>
     </div>
+    </div>
+    <!-- More games: History (History_games.md) and Misc (Misc_games.md); each opens once built -->
+    <div class="tabpanel" id="tabMore" hidden>
+      <button class="linkbtn" id="moreBack" type="button">‹ Back</button>
+      <div class="cpcols moregames">
+        <div class="cpcol"><span class="label">History</span>
+          <button type="button" disabled>Historical figures <small>soon</small></button>
+          <button type="button" disabled>Famous battles <small>soon</small></button>
+          <button type="button" disabled>Famous shipwrecks <small>soon</small></button></div>
+        <div class="cpcol"><span class="label">Misc</span>
+          <button type="button" disabled>Airport codes <small>soon</small></button></div>
+      </div>
     </div>
     <div class="tabpanel" id="tabOptions" hidden>
       <button class="linkbtn" id="optBack" type="button">‹ Back</button>
@@ -184,6 +195,10 @@
         <p class="hint2">Knowledge gaps asks the 20 countries you most need to practise. Find games only.</p>
       </div>
       <p class="hint2" id="questionsNA" hidden>Knowledge gaps is only for the Find games.</p>
+      <div class="field" id="themeField"><span class="label">Theme</span>
+        <div class="seg" id="segTheme"><button data-v="auto" type="button">Auto</button><button data-v="light" type="button">Light</button><button data-v="dark" type="button">Dark</button></div>
+        <p class="hint2">Auto follows your phone's light or dark mode.</p>
+      </div>
       <div class="field" id="learnViewField" hidden><span class="label">Map</span>
         <div class="seg" id="segLearnView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
       </div>
@@ -195,6 +210,12 @@
           <p class="hint2" id="paceTotal"></p>
         </div>
       </div>
+    </div>
+    <div class="gamerow" id="gameRow">
+      <!-- pinned above Start (doesn't scroll with the games). Globe / Flat map: a small switch (on = globe); world games only -->
+      <label class="switchfield" id="viewField"><span class="switch"><input type="checkbox" id="viewSwitch" checked><span class="knob"></span></span>
+        <span id="viewLabel">Globe</span></label>
+      <button class="btn morebtn" id="moreBtn" type="button">More games ›</button>
     </div>
     <button class="btn primary wide" id="startBtn" type="button">Start</button>
     

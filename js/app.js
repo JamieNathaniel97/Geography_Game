@@ -760,6 +760,14 @@
     // coming next (Mexico_plan.md, Brazil_plan.md)
     MEX: { name: "Mexico", focus: "Mexico", cont: "North America", unit: "States", soon: true },
     BRA: { name: "Brazil", focus: "Brazil", cont: "South America", unit: "States", soon: true },
+    // the next wave (jobs/build_countries.md)
+    DEU: { name: "Germany", focus: "Germany", cont: "Europe", unit: "States", soon: true },
+    FRA: { name: "France", focus: "France", cont: "Europe", unit: "Regions", soon: true },
+    ITA: { name: "Italy", focus: "Italy", cont: "Europe", unit: "Regions", soon: true },
+    ESP: { name: "Spain", focus: "Spain", cont: "Europe", unit: "Communities", soon: true },
+    JPN: { name: "Japan", focus: "Japan", cont: "Asia", unit: "Prefectures", soon: true },
+    NGA: { name: "Nigeria", focus: "Nigeria", cont: "Africa", unit: "States", soon: true },
+    ARG: { name: "Argentina", focus: "Argentina", cont: "South America", unit: "Provinces", soon: true },
   };
   // from the world Learning map, the UK and Ireland open the countries view first
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
@@ -1214,7 +1222,6 @@
     // Learning mode's Countries: just the list (a tap opens that country's map)
     $("countryList").hidden = !countries || (!learn && !!pick.country);
     $("countryPage").hidden = !countries || learn || !pick.country;
-    $("optBtn").hidden = learn && countries; // nothing to set there
     playClip(!countries && learn);
     if (countries && pick.country) {
       const m = COUNTRY_MAPS[pick.country], ds = DATASETS[pick.data];
@@ -1244,6 +1251,7 @@
     $("startBtn").hidden = countries && (learn || !pick.country); // pick a country first
     $("startBtn").textContent = learn ? "Discover" : "Start";
     if (!countries && !learn) { segSelect($("segGame"), pick.mode); $("viewField").hidden = pick.region !== "world"; }
+    $("gameRow").hidden = countries || learn; // the switch and More games: the Game tab's World view
   }
   $("segData").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
@@ -1300,6 +1308,7 @@
   // the cog: Options (knowledge gaps, timer) in place of the games
   function showOptPanel(on) {
     $("tabOptions").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on;
+    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
     $("setupTitle").textContent = on ? "Options" : pick.learn ? "Learning mode" : "New game";
     $("optBtn").classList.toggle("on", on); $("optBtn").setAttribute("aria-pressed", on);
   }
@@ -1316,22 +1325,51 @@
       : Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k].data === mapData) || null;
     pick.cd = !!S.cd; pick.ut = S.ut !== false;
     if (!$("countryList").childElementCount) buildCountryList();
-    segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); segSelect($("segView"), pick.view);
+    segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); setViewSwitch();
     if (pick.learn && pick.region !== "world" && !isCountryMap(pick.data)) pick.region = "world";
     $("viewField").hidden = pick.region !== "world";
+    segSelect($("segTheme"), prefs.theme === "light" || prefs.theme === "dark" ? prefs.theme : "auto");
     pick.weak = !!S.weak; pick.timer = !!S.timer;
     pick.paceFind = S.paceFind || 5; pick.paceName = S.paceName || 10;
     segSelect($("segQuestions"), pick.weak ? "weak" : "all"); segSelect($("segTimer"), pick.timer ? "on" : "off");
     $("gameGroup").open = true; $("regionGroup").open = false;
+    $("tabMore").hidden = true;
     showOptPanel(false);
     showData();
     showOptions();
     $("setup").hidden = false;
   }
   function closeSetup() { $("setup").hidden = true; playClip(false); }
+  // ---------- theme: Auto (the phone's light or dark mode), Light or Dark (Options) ----------
+  const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark"
+    : !!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  function setTheme(t) {
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+    savePrefs({ theme: t === "light" || t === "dark" ? t : null });
+    segSelect($("segTheme"), t === "light" || t === "dark" ? t : "auto");
+    themeChanged();
+  }
+  // the map and inset re-read their colours, and the clip switches to the matching version
+  function themeChanged() {
+    main.readColours(); if (insetView) insetView.readColours(); redraw();
+    clipSource();
+  }
+  $("segTheme").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setTheme(b.dataset.v); });
+  // the clip in the theme's colours (media/Learning_mode_clip*.webm|mp4|jpg, recorded by tools/record_clip.py)
+  function clipSource() {
+    const v = $("learnClip"); if (!v) return;
+    const base = "media/Learning_mode_clip" + (isDark() ? "" : "_light");
+    if (v.dataset.base === base) return;
+    const playing = !v.paused;
+    v.dataset.base = base; v.poster = base + ".jpg";
+    v.innerHTML = `<source src="${base}.webm" type="video/webm"><source src="${base}.mp4" type="video/mp4">`;
+    v.load();
+    if (playing) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+  }
   // the Learning mode clip loops only while it's on screen; with reduced motion it waits for a tap on play
   function playClip(on) {
     const v = $("learnClip"); if (!v) return;
+    clipSource();
     const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     v.controls = still;
     if (on && !still) { if (v.preload === "none") v.preload = "auto"; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
@@ -1372,7 +1410,7 @@
     if (pick.learn) pick.country = null;
     showData(); showOptions();
   });
-  $("segLearnView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); showOptions(); } });
+  $("segLearnView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; setViewSwitch(); showOptions(); } });
   $("segQuestions").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.weak = b.dataset.v === "weak"; segSelect($("segQuestions"), b.dataset.v); showOptions(); } });
   $("segTimer").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.timer = b.dataset.v === "on"; segSelect($("segTimer"), b.dataset.v); showOptions(); } });
   $("segPace").addEventListener("click", e => {
@@ -1387,7 +1425,22 @@
     $("regionGroup").open = false;
     showOptions();
   });
-  $("segView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); } });
+  // the Globe / Flat switch (on = globe)
+  function setViewSwitch() {
+    $("viewSwitch").checked = pick.view !== "flat";
+    $("viewLabel").textContent = pick.view === "flat" ? "Flat map" : "Globe";
+  }
+  $("viewSwitch").addEventListener("change", () => { pick.view = $("viewSwitch").checked ? "globe" : "flat"; setViewSwitch(); segSelect($("segLearnView"), pick.view); });
+  // More games: History and Misc, in place of the game choices (all "soon" until they're built)
+  function showMorePanel(on) {
+    $("tabMore").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on; $("startBtn").hidden = on || $("startBtn").dataset.wasHidden === "1";
+    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
+    $("setupTitle").textContent = on ? "More games" : pick.learn ? "Learning mode" : "New game";
+  }
+  $("moreBtn").onclick = () => { $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : ""; showMorePanel(true); };
+  $("moreBack").onclick = () => showMorePanel(false);
+  // help: a placeholder until the help function is written
+  $("helpBtn").onclick = () => toast("Help is coming soon.", 1800);
   $("startBtn").onclick = () => {
     closeSetup(); closeInset();
     if (pick.learn) { magnifierIntro(() => startGame("explore", "world", pick.view, "world")); return; } // Discover: through a magnifying glass
@@ -1407,12 +1460,10 @@
     const ns = "http://www.w3.org/2000/svg", el = document.createElement("div");
     el.className = "magintro"; el.setAttribute("aria-hidden", "true");
     el.innerHTML = `<svg xmlns="${ns}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-      <defs><mask id="magHole"><rect width="${W}" height="${H}" fill="#fff"/><circle id="magHoleC" cx="${cx}" cy="${cy}" r="0" fill="#000"/></mask>
-        <radialGradient id="magGlint" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+      <defs><mask id="magHole"><rect width="${W}" height="${H}" fill="#fff"/><circle id="magHoleC" cx="${cx}" cy="${cy}" r="0" fill="#000"/></mask></defs>
       <rect class="magshade" width="${W}" height="${H}" mask="url(#magHole)"/>
       <g id="magGlass" transform="translate(${cx} ${cy}) scale(.55)" style="opacity:0">
         <line class="maghandle" x1="${r0 * 0.74}" y1="${r0 * 0.74}" x2="${r0 * 1.62}" y2="${r0 * 1.62}"/>
-        <circle r="${r0}" fill="url(#magGlint)"/>
         <circle class="magring" r="${r0}"/>
       </g></svg>`;
     document.body.appendChild(el);
@@ -1547,9 +1598,7 @@
       main.requestDraw();
       if (inset) { inset.resize(); inset.requestDraw(); }
     });
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-      main.readColours(); if (inset) inset.readColours(); redraw();
-    });
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", themeChanged);
   }
   start();
 })();

@@ -20,7 +20,7 @@
       box-shadow: 0 3px 10px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.08); z-index: 60; pointer-events: none; opacity: 0; }
     .demoripple { position: fixed; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid rgba(255,255,255,.9);
       box-shadow: 0 0 0 1px rgba(0,0,0,.25); z-index: 59; pointer-events: none; }
-    .democap { position: fixed; left: 50%; top: 64px; transform: translateX(-50%); z-index: 58; pointer-events: none; display: flex; gap: 8px;
+    .democap { position: fixed; left: 50%; top: 64px; transform: translate(-50%, -50%); z-index: 58; pointer-events: none; display: flex; gap: 8px;
       align-items: center; padding: 7px 14px 7px 8px; border-radius: 999px; background: var(--panel); color: var(--fg);
       box-shadow: 0 4px 16px rgba(0,0,0,.3); font: 700 17px var(--display); white-space: nowrap; opacity: 0; transition: opacity .3s; }
     .democap .n { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; font-size: 14px; }
@@ -76,6 +76,8 @@
   }
   function caption(n, text) {
     if (!captions) return;
+    // level with the Borders button (the caption's middle on the button's middle)
+    const b = $("bordersBtn"); if (b && b.offsetParent) { const r = b.getBoundingClientRect(); cap.style.top = (r.top + r.height / 2) + "px"; }
     if (!text) { cap.classList.remove("on"); return; }
     cap.innerHTML = (n ? `<span class="n">${n}</span>` : "") + `<span>${text}</span>`;
     cap.style.paddingLeft = n ? "8px" : "14px";
@@ -116,12 +118,12 @@
     const side = Math.min(m.w, m.h) * 0.9, kUS = side / (52 * m.R0 * Math.PI / 180);
     await fly(-98, 39, kUS, 3000);
     // 3. tap the USA
-    caption(1, "Tap a country");
+    caption(1, "Tap a Country");
     await tapMap([-98.5, 38.6], 800);
     // 4. hold on the card
     await W(1500);
     // 5. more facts
-    caption(2, "Info");
+    caption(2, "Country Information");
     await tapEl($("lcMoreBtn"), 650);
     // 6. hold, and scroll the card a little
     await W(700);
@@ -131,19 +133,27 @@
     await tapEl($("lcLess"), 650);
     await W(300);
     // 8. focus on the US
-    caption(3, "Focus on");
+    caption(3, "Zoom to Country");
     await tapThroughFade($("focusBtn"), 650, () => GG.debug.main.geo && GG.debug.main.geo.kind === "us");
     // 9. tap Colorado
-    caption(0, "Tap a state");
+    caption(4, "Tap a Region");
     await W(300);
     await tapMap([-105.5, 39.0], 800);
-    // 10. hold on the state card
-    await W(1800);
+    // 10. hold on the state card, then open its facts and scroll, as with the country
+    await W(1300);
+    caption(5, "Regional Information");
+    await tapEl($("lcMoreBtn"), 650);
+    await W(600);
+    const card2 = $("learnCard"), top2 = card2.scrollTop, room2 = Math.min(200, card2.scrollHeight - card2.clientHeight);
+    if (room2 > 20) { await tween(1000, e => { card2.scrollTop = top2 + room2 * e; }); await W(300); }
+    await tapEl($("lcLess"), 650);
+    await W(400);
     // 11. back to the world map
-    caption(0, "");
+    caption(6, "Return to World Map");
     await tapThroughFade($("worldBtn"), 700, () => !GG.debug.main.geo.kind && $("lcName").textContent === "United States");
     // back where we left: the US, its card open again. Close it
     await W(500);
+    caption(0, "");
     await tapEl($("lcClose"), 650);
     await W(250);
     await moveTo(innerWidth / 2, innerHeight - 60, 800);

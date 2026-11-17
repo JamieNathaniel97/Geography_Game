@@ -8,13 +8,20 @@
   --body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
 }
+/* dark theme: follows the phone (Auto), unless Options > Theme chooses Light or Dark (html[data-theme]) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0b1417; --panel: #16252a; --fg: #e4ecee; --muted: #93a6ab; --line: #2a3c42;
     --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726; --unformed: #3a3a2c; --reserve: #e0875f; --hist: #e07a5f;
     --accent: #4fb3d4; --accent-fg: #06222c; --good: #3fbf6a; --bad: #ef5e5a; --flash: #f0b43a; --marker: #7fd0ea; --sel: #2f7f99; --capital: #0f4a24; --good-sel: #1d7a40; --bad-sel: #a32622;
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+    --bg: #0b1417; --panel: #16252a; --fg: #e4ecee; --muted: #93a6ab; --line: #2a3c42;
+    --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726; --unformed: #3a3a2c; --reserve: #e0875f; --hist: #e07a5f;
+    --accent: #4fb3d4; --accent-fg: #06222c; --good: #3fbf6a; --bad: #ef5e5a; --flash: #f0b43a; --marker: #7fd0ea; --sel: #2f7f99; --capital: #0f4a24; --good-sel: #1d7a40; --bad-sel: #a32622;
+    color-scheme: dark;
 }
 /* the scripts on the Learning cards (India's names in their own scripts): small Noto subsets, tools/build_fonts.py */
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-devanagari.woff") format("woff"); unicode-range: U+0900-097F; font-display: swap; }
@@ -148,7 +155,14 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .regiongroup { border: 1px solid var(--line); border-radius: 8px; padding: 0 10px; }
 .regiongroup[open] { padding-bottom: 10px; }
 .regiongroup summary { cursor: pointer; padding: 9px 0; font-weight: 600; list-style-position: inside; }
-.regiongroup summary .label { margin-right: 4px; }
+.regiongroup summary .label { margin-right: 4px; font-weight: 800; color: var(--fg); letter-spacing: .07em; }
+/* a light sweeps across "GAME" / "REGION" as the box opens */
+.regiongroup[open] summary .label {
+  background: linear-gradient(100deg, var(--fg) 0 38%, var(--accent) 50%, var(--fg) 62% 100%) 0 0 / 260% 100% no-repeat;
+  -webkit-background-clip: text; background-clip: text; color: transparent; animation: gqShimmer .9s ease-out 1 both;
+}
+@keyframes gqShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .regiongroup[open] summary .label { animation: none; } }
 #paceBox { display: grid; gap: 6px; margin-top: 6px; }
  .sheet { max-height: calc(100vh - 32px); overflow-y: auto; }
 /* the New game menu keeps one height whatever is open (no wobble); its panels scroll inside */
@@ -162,7 +176,24 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 #gameGroup .cpcols { padding-top: 2px; }
 .regiongroup summary #gameSummary, .regiongroup summary #regionSummary { color: var(--muted); font-weight: 500; }
 #setup .tabpanel > .learnpanel { flex: 1 1 auto; min-height: 180px; display: flex; }
-.learnpanel video { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; background: #0b1417; display: block; }
+/* the clip fills its box (on a phone the box is almost the clip's shape, so only a sliver is trimmed), on the theme's background */
+.learnpanel video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; /* trims mostly from the bottom: the captions are at the top */
+  border-radius: 10px; background: var(--bg); display: block; }
+ /* the Game tab's last row: the Globe / Flat switch on the left, More games on the right */
+.gamerow { display: flex; align-items: center; gap: 12px; min-height: 40px; }
+.switchfield { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600; user-select: none; }
+.switch { position: relative; width: 44px; height: 26px; flex: none; }
+.switch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.switch .knob { position: absolute; inset: 0; border-radius: 999px; background: var(--line); transition: background .2s; pointer-events: none; }
+.switch .knob::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--panel);
+  box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .2s; }
+.switch input:checked + .knob { background: var(--accent); }
+.switch input:checked + .knob::after { transform: translateX(18px); }
+.switch input:focus-visible + .knob { outline: 2px solid var(--accent); outline-offset: 2px; }
+.morebtn { margin-left: auto; font-weight: 600; }
+.moregames button { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; text-align: left; }
+.moregames button small { color: var(--muted); font-size: 11px; font-weight: 500; }
+.moregames button:disabled { opacity: .6; cursor: default; }
  /* the magnifying glass at the start of Learning mode */
 .magintro { position: fixed; inset: 0; z-index: 30; } /* (blocks taps while it plays) */
 .magintro svg { display: block; }

@@ -83,6 +83,7 @@
     }
 
     readColours() {
+      this.hatch = null; // (made again in the new colours)
       const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
       this.col = { bg: v("--bg"), sea: v("--sea"), land: v("--land"), border: v("--border"), coast: v("--coast"),
         terr: v("--terr"), good: v("--good"), bad: v("--bad"), goodSel: v("--good-sel"), badSel: v("--bad-sel"), flash: v("--flash"), marker: v("--marker"),
