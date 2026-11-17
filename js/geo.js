@@ -256,13 +256,8 @@
     if (pr.held.some(([a, b]) => a <= y && (b === null || y < b))) return "held";
     return pr.held.some(([a]) => a <= y) ? "lost" : null;
   };
-  // the North Caucasus republics crowd together: one numbered bubble until you zoom in (like the Lesser Antilles)
-  GG.loadRU = async lakes => {
-    const g = await loadShapes("data/ru-regions.json", "data/ru-parts.json", "ru", "ru/", RU_RINGS, lakes);
-    // the bubble sits in the Black Sea just offshore, so it doesn't cover Dagestan
-    g.clusters = [{ name: "North Caucasus", members: ["RU-KC", "RU-KB", "RU-SE", "RU-IN", "RU-CE"].map(i => g.byIso[i]), at: [36.8, 42.7] }];
-    return g;
-  };
+  // (the North Caucasus republics have their own circles; no numbered bubble, removed 2026-11-17)
+  GG.loadRU = lakes => loadShapes("data/ru-regions.json", "data/ru-parts.json", "ru", "ru/", RU_RINGS, lakes);
 
   // Fewer points in lines and outlines (Douglas–Peucker, tolerance in degrees), for things redrawn every frame
   GG.simplify = function (g, tol) {

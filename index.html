@@ -168,13 +168,13 @@
       <div class="seg" id="segView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
     </div>
     </div>
-    <!-- Learning mode (World): how it works, in the space the game choices use (a looping clip goes here later) -->
+    <!-- Learning mode (World): a looping clip of how it works (Learning_mode_clip.md; js/tutorial.js + tools/record_clip.py),
+         with the old steps as its captions: 1 Tap a country, 2 Info, 3 Focus on -->
     <div id="learnPanel" class="learnpanel" hidden>
-      <ol class="lsteps">
-        <li><span class="lsnum">1</span><div><b>Tap</b><p>Tap any country on the globe to see it highlighted.</p></div></li>
-        <li><span class="lsnum">2</span><div><b>Info</b><p>Its card shows the capital, flag and population. <i>More facts</i> opens the rest.</p></div></li>
-        <li><span class="lsnum">3</span><div><b>Focus on</b><p><i>Focus on</i> opens the country's own map of states, provinces or counties, where there is one.</p></div></li>
-      </ol>
+      <video id="learnClip" muted loop playsinline preload="none" poster="media/Learning_mode_clip.jpg"
+        aria-label="How Learning mode works: tap a country, read its card, then focus on it to see its states">
+        <source src="media/Learning_mode_clip.webm" type="video/webm"><source src="media/Learning_mode_clip.mp4" type="video/mp4">
+      </video>
     </div>
     </div>
     <div class="tabpanel" id="tabOptions" hidden>
@@ -245,6 +245,7 @@
 <script src="js/geo.js"></script>
 <script src="js/mapview.js"></script>
 <script src="js/app.js"></script>
+<script src="js/tutorial.js"></script>
 <script>
   if ("serviceWorker" in navigator && location.protocol === "https:") {
     window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));

@@ -55,6 +55,9 @@ def main(out):
     if (out / "data" / "relief").exists():
         shutil.rmtree(out / "data" / "relief")
     shutil.copytree(ROOT / "data" / "relief", out / "data" / "relief")
+    (out / "media").mkdir(exist_ok=True)
+    for f in (ROOT / "media").glob("Learning_mode_clip.*"):
+        shutil.copy(f, out / "media" / f.name)
     (out / "fonts").mkdir(exist_ok=True)
     for f in (ROOT / "fonts").glob("*.woff"):
         shutil.copy(f, out / "fonts" / f.name)

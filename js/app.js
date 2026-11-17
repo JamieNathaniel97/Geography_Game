@@ -765,7 +765,9 @@
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
   };
   let focusOn = null;
+  let focusFrom = null; // the country whose "Focus on" button is showing
   function showFocus(c) {
+    focusFrom = c;
     const m = S.data === "world" ? COUNTRY_MAPS[c.iso] : null;
     focusOn = m && !m.soon ? m : null;
     // the UK & Ireland countries view: each country opens its own counties
@@ -776,13 +778,26 @@
     $("focusBtn").hidden = !focusOn;
     if (focusOn) $("focusBtn").textContent = `Focus on ${focusOn.focus} ›`;
   }
+  // the view you left when you focused on a country (per map: the world, or the UK & Ireland countries view),
+  // so the back button returns to exactly that, with the country's card open again
+  const viewBefore = {};
   $("focusBtn").onclick = () => {
     if (!focusOn) return;
+    viewBefore[S.data] = { t: main.t, mode: main.mode, iso: focusFrom && focusFrom.iso };
     const into = S.data === "world" && FOCUS_INTO[Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k] === focusOn)];
     startGame("explore", (into || focusOn).region, "flat", (into || focusOn).data);
   };
-  $("worldBtn").onclick = () => S.data === "uk" || S.data === "ukc" ? startGame("explore", "ukn", "flat", "ukn")
-    : startGame("explore", "world", prefs.worldView || "globe", "world");
+  $("worldBtn").onclick = () => {
+    const back = S.data === "uk" || S.data === "ukc" ? "ukn" : "world", v = viewBefore[back];
+    const view = back === "world" ? (v ? v.mode : prefs.worldView || "globe") : "flat";
+    Promise.resolve(startGame("explore", back, view, back)).then(() => {
+      if (!v || S.data !== back) return;
+      main.setTransform(v.t, false);
+      const c = v.iso && geo.byIso[v.iso];
+      if (c) { state[c.iso] = "flash"; flashName(c); showLearnCard(c); showFocus(c); }
+      redraw();
+    });
+  };
   $("lcClose").onclick = () => { hideLearnCard(); selectSub(null); Object.keys(state).forEach(k => delete state[k]); redraw(); };
   // ---------- Reservations layer (country Learning maps only; too heavy for the world globe) ----------
   // US: reservations and Oklahoma tribal areas (US Census). Canada: First Nations reserves, and Indigenous settlement
@@ -1200,6 +1215,7 @@
     $("countryList").hidden = !countries || (!learn && !!pick.country);
     $("countryPage").hidden = !countries || learn || !pick.country;
     $("optBtn").hidden = learn && countries; // nothing to set there
+    playClip(!countries && learn);
     if (countries && pick.country) {
       const m = COUNTRY_MAPS[pick.country], ds = DATASETS[pick.data];
       $("cpName").textContent = m.page || m.name;
@@ -1312,7 +1328,15 @@
     showOptions();
     $("setup").hidden = false;
   }
-  function closeSetup() { $("setup").hidden = true; }
+  function closeSetup() { $("setup").hidden = true; playClip(false); }
+  // the Learning mode clip loops only while it's on screen; with reduced motion it waits for a tap on play
+  function playClip(on) {
+    const v = $("learnClip"); if (!v) return;
+    const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    v.controls = still;
+    if (on && !still) { if (v.preload === "none") v.preload = "auto"; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    else if (!on) v.pause();
+  }
   $("menuBtn").onclick = openSetup;
   $("setupClose").onclick = closeSetup;
   $("setup").addEventListener("click", e => { if (e.target === $("setup")) closeSetup(); });
@@ -1366,10 +1390,59 @@
   $("segView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); } });
   $("startBtn").onclick = () => {
     closeSetup(); closeInset();
-    if (pick.learn) { startGame("explore", "world", pick.view, "world"); return; } // Discover: the Learning world map
+    if (pick.learn) { magnifierIntro(() => startGame("explore", "world", pick.view, "world")); return; } // Discover: through a magnifying glass
     S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName; S.cd = !!pick.cd; S.ut = pick.ut !== false;
     startGame(pick.mode, pick.region, pick.region === "world" ? pick.view : "flat", pick.data);
   };
+
+  // ---------- the start of Learning mode ("Discover"): a magnifying glass in the middle of the screen rushes towards
+  // you; the map shows through its lens (magnified at first), and the rim passes out around the edges of the screen.
+  // Order: the glass pops in over the current map; then `whenShown` opens the Learning map while the glass holds still
+  // (loading can't stall a still glass); once that's drawn, the glass rushes past. Skipped for reduced motion.
+  function magnifierIntro(whenShown) {
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { whenShown(); return; }
+    const old = document.querySelector(".magintro"); if (old) old.remove();
+    const W = innerWidth, H = innerHeight, cx = W / 2, cy = H / 2;
+    const r0 = Math.min(W, H) * 0.17, rEnd = Math.hypot(W, H) * 0.62 + r0; // lens radius at rest, and once it's past the corners
+    const ns = "http://www.w3.org/2000/svg", el = document.createElement("div");
+    el.className = "magintro"; el.setAttribute("aria-hidden", "true");
+    el.innerHTML = `<svg xmlns="${ns}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+      <defs><mask id="magHole"><rect width="${W}" height="${H}" fill="#fff"/><circle id="magHoleC" cx="${cx}" cy="${cy}" r="0" fill="#000"/></mask>
+        <radialGradient id="magGlint" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+      <rect class="magshade" width="${W}" height="${H}" mask="url(#magHole)"/>
+      <g id="magGlass" transform="translate(${cx} ${cy}) scale(.55)" style="opacity:0">
+        <line class="maghandle" x1="${r0 * 0.74}" y1="${r0 * 0.74}" x2="${r0 * 1.62}" y2="${r0 * 1.62}"/>
+        <circle r="${r0}" fill="url(#magGlint)"/>
+        <circle class="magring" r="${r0}"/>
+      </g></svg>`;
+    document.body.appendChild(el);
+    const hole = el.querySelector("#magHoleC"), glass = el.querySelector("#magGlass"), map = $("map");
+    const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2); // ease-in-out
+    const set = (s, shadeA, glassA, lensOpen, zoom) => {
+      hole.setAttribute("r", Math.max(0, r0 * s - 3) * lensOpen);
+      glass.setAttribute("transform", `translate(${cx} ${cy}) scale(${s})`);
+      el.querySelector(".magshade").style.opacity = shadeA; glass.style.opacity = glassA;
+      map.style.transform = zoom > 1.001 ? `scale(${zoom})` : "";
+    };
+    const T_IN = 380, T_HOLD = 300, T_GO = 950;
+    let t0 = null, ready = false, holdFrom = null, goFrom = null; // (timed from animation frames, not performance.now())
+    const frame = now => {
+      if (t0 === null) t0 = now;
+      const t = now - t0;
+      if (t < T_IN) { const k = ease(t / T_IN); set(0.55 + 0.45 * k, 1, k, k, 1.35); requestAnimationFrame(frame); return; } // pops in
+      if (holdFrom === null) {                                                                                             // shown: open the map
+        holdFrom = now; set(1, 1, 1, 1, 1.35);
+        requestAnimationFrame(() => Promise.resolve(whenShown()).then(() => requestAnimationFrame(() => requestAnimationFrame(() => { ready = true; }))));
+      }
+      if (goFrom === null) {                                                                                               // holds still
+        if (ready && now - holdFrom >= T_HOLD) goFrom = now; else { requestAnimationFrame(frame); return; }
+      }
+      const k = Math.min(1, (now - goFrom) / T_GO), e = k * k * (3 - 2 * k);                                             // rushes past
+      set(Math.pow(rEnd / r0, Math.pow(e, 1.6)), 1 - Math.max(0, (e - 0.55) / 0.45), 1, 1, 1 + 0.35 * (1 - e));
+      if (k < 1) requestAnimationFrame(frame); else { el.remove(); map.style.transform = ""; }
+    };
+    requestAnimationFrame(frame);
+  }
 
   // switch between the world and US states maps (US data loads the first time it's needed)
   async function useData(data) {
@@ -1446,7 +1519,7 @@
       isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed });
     main.lookAt(15, 25, 120, false);
     buildRegionButtons();
-    GG.debug = { main, geo, startGame, inset: () => insetView, get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };
+    GG.debug = { main, geo, startGame, preload: d => DATASETS[d].load(), inset: () => insetView, get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };
     setViewButton();
     // testing hooks: ?region=europe&view=flat starts that game; ?at=lon,lat,span and ?terrain=1 adjust the view
     if (REGIONS[q.get("region")] || q.get("view") || q.get("data")) {

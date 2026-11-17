@@ -75,7 +75,7 @@
       // games): otherwise the picture is stretched and taps land in the wrong place
       if (window.ResizeObserver) {
         new ResizeObserver(() => {
-          const r = canvas.getBoundingClientRect();
+          const r = { width: canvas.clientWidth, height: canvas.clientHeight };
           if (Math.abs(r.width - this.w) > 0.5 || Math.abs(r.height - this.h) > 0.5) { this.resize(); this.requestDraw(); }
         }).observe(canvas);
       }
@@ -91,7 +91,8 @@
 
     // ----- size and projections -----
     resize() {
-      const r = this.canvas.getBoundingClientRect();
+      // the layout size: a CSS transform (the magnifying glass scales the map) mustn't change it, or taps miss
+      const r = { width: this.canvas.clientWidth, height: this.canvas.clientHeight };
       this.w = Math.max(50, r.width); this.h = Math.max(50, r.height);
       this.dpr = Math.min(window.devicePixelRatio || 1, 2.5);
       this.canvas.width = Math.round(this.w * this.dpr); this.canvas.height = Math.round(this.h * this.dpr);

@@ -1,6 +1,6 @@
 # Learning_mode_clip – Instructions
 
-A short tutorial clip (about 20 seconds) that shows how Learning mode works, by playing the real app with a pretend finger. Drafted 2026-11-17. Nothing is built yet. **Open questions** are at the end.
+A short tutorial clip (about 20 seconds) that shows how Learning mode works, by playing the real app with a pretend finger. Drafted 2026-11-17. **Built 2026-11-17:** `js/tutorial.js` (the demo, `?demo=learning`), `tools/record_clip.py` (frame-by-frame recorder, standard-library Python + ffmpeg, as Node/Playwright aren't installed), `media/Learning_mode_clip.webm/.mp4/.jpg` (22.7 s, dark theme, recorded at 510×550 CSS px at 2×, 816×880 video). It replaces the three steps on the Learning mode tab (decided 2026-11-17), and the steps became its captions: 1 Tap a country, 2 Info, 3 Focus on, then Tap a state. Re-record with the command in `tools/record_clip.py` whenever the app's look changes.
 
 ## The idea
 
