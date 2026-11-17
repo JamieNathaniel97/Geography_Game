@@ -116,5 +116,4 @@ India's map changed by **splitting and redrawing**, not by new areas joining lik
 
 1. **UTs:** include all 8 by default (36 total), or default to the 28 states?
 2. **Flags:** leave the flag games out, or use something in their place (emblems, languages)?
-3. Should India come **before the United Kingdom**, which is marked "soon"?
-4. **Kashmir areas:** can the Pakistan-administered side be tapped as part of Jammu and Kashmir/Ladakh, or is it grey? And do the China borders (Aksai Chin, Arunachal Pradesh) get the same dotted treatment?
+3. **Kashmir areas:** can the Pakistan-administered side be tapped as part of Jammu and Kashmir/Ladakh, or is it grey? And do the China borders (Aksai Chin, Arunachal Pradesh) get the same dotted treatment?
