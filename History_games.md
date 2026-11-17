@@ -23,15 +23,15 @@ Famous people from history (leaders, scientists, artists, writers, composers, ph
 5. **The real places appear:** a **baby symbol** at the real birth place and a **skull symbol** at the real death place, each labelled with the place name and year ("Ajaccio, 1769", "Saint Helena, 1821"). A thin line joins each guess to the real place, with the distance ("212 km away").
 6. The map zooms out just enough to show all four marks, then a "Next ›" button moves on.
 
-- **Scoring (decided 2026-11-17): a score from 1 to 1,000 for each place.** **1,000** means within 20 km, and **1** means the opposite side of the Earth (20,000 km away). In between, the score falls on a log scale, so being close matters most:
+- **Scoring (decided 2026-11-17): each round is worth up to 100 points**, so a 10-round game is out of **1,000**. A place's score is **100** within 20 km, and **1** means the opposite side of the Earth (20,000 km away). In between, the score falls on a log scale, so being close matters most:
 
-  `score = 1000 − 999 × log(d / 20) / log(1000)`, rounded, where d is the distance in km (1,000 at 20 km or less, 1 at 20,000 km)
+  `score = 100 − 99 × log(d / 20) / log(1000)`, rounded, where d is the distance in km (100 at 20 km or less, 1 at 20,000 km)
 
   | Distance | 20 km | 50 km | 100 km | 200 km | 500 km | 1,000 km | 2,000 km | 5,000 km | 10,000 km | 20,000 km |
   | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-  | Score | 1,000 | 867 | 767 | 667 | 534 | 434 | 334 | 201 | 101 | 1 |
+  | Score | 100 | 87 | 77 | 67 | 54 | 44 | 34 | 21 | 11 | 1 |
 
-  Each person gets two scores (birth and death), shown next to the symbols. The end-of-game pop-up shows the total score (out of 2,000 per person) and the average per place (out of 1,000), the average distance, and the best and worst guesses. Personal bests use the average per place, so games of different lengths can be compared.
+  Each person gets two place scores (birth and death), shown next to the symbols, and **the round's score is their average** (out of 100). The running total builds up round by round: after 3 rounds a player might have 240, and a perfect fourth round adds 100. The end-of-game pop-up shows the total (out of 100 × the number of rounds: 1,000 for 10, 5,000 for 50), the average per round, the average distance, and the best and worst guesses. Personal bests use the total for the 10, 20 and 50 lengths, and the average per round for Marathon.
 - **Symbols:** drawn as small SVG icons (a baby's face, a skull), not emoji, so they look the same on every phone and work offline.
 - Taps on the sea count (people die at sea, and coastal towns need taps near the shore).
 - Back and forward arrows, Give up and the timer work as in the other games.
@@ -88,11 +88,11 @@ Famous battles from every era, from Kadesh (about 1274 BC) to the late 20th cent
 1. A battle comes up at the top with its year: **"Battle of Hastings · 1066"**.
 2. **No zooming in** (decided 2026-11-17): the map stays on the whole chosen region (the world, or a continent), so the user has to know where it was. They can still pinch to zoom themselves.
 3. **One tap:** a dot appears where the user tapped.
-   - **Hint button:** tapping **Hint** before answering zooms the map to the general area (the same frame as H1a: the real place inside a generous, slightly random margin, at least about 1,500 km across). The round's points are then **halved** (at most 500), and the score shows a small "hint" mark.
+   - **Hint button:** tapping **Hint** before answering zooms the map to the general area (the same frame as H1a: the real place inside a generous, slightly random margin, at least about 1,500 km across). The round's score is then **halved**: a perfect answer earns 50 instead of 100 (it's half of whatever the tap scores, not a cap on the game). The round shows a small "hint" mark.
 4. **The real place appears** as a **crossed-swords symbol** (an **anchor** for naval battles), labelled with the place and year, with a line from the tap and the distance.
-5. **Score: 1 to 1,000**, the same distance formula as H1 (1,000 within 20 km, 1 at 20,000 km). One place per battle, so each battle is out of 1,000 (500 with a hint).
+5. **Score: up to 100 per round**, the same distance formula as H1 (100 within 20 km, 1 at 20,000 km), so a 10-battle game is out of 1,000. With a hint, the round's score is halved (a perfect answer earns 50). Example: a player on 300 after three rounds can reach 400 with a perfect fourth answer, or 350 if they used the hint.
 
-**Big-area battles** (decided 2026-11-17): battles fought over a large area (the Battle of Britain, Gallipoli, Normandy, Kursk, Midway and others, listed in `AREAS` in `tools/battles_extra.py`) are **shapes, not points**. When the answer is shown, the whole area is highlighted, like a country highlight. A tap anywhere inside scores the full 1,000; outside, the score uses the distance to the nearest edge of the area.
+**Big-area battles** (decided 2026-11-17): battles fought over a large area (the Battle of Britain, Gallipoli, Normandy, Kursk, Midway and others, listed in `AREAS` in `tools/battles_extra.py`) are **shapes, not points**. When the answer is shown, the whole area is highlighted, like a country highlight. A tap anywhere inside scores the full 100; outside, the score uses the distance to the nearest edge of the area.
 
 ### Game H2b: Which battle was it?
 
@@ -127,8 +127,16 @@ Like H1, before each game:
 - **Hand-picked battles:** `tools/battles_extra.py` holds **141 hand-picked battles** across every era and region: Kadesh, Gaugamela, Red Cliffs, Talas, Ain Jalut, Panipat, Sekigahara, Myeongnyang, Ayacucho, Adwa, Isandlwana, Tsushima, Kohima, Dien Bien Phu, Cuito Cuanavale and many more. They're always included. The script prints any title it can't find.
 - **Cut-off (decided 2026-11-17):** the set ends in **1993** (`MAX_YEAR` in the script), where the hand-picked list ends. Nothing from wars still being fought.
 - **Sides and winners:** the script also fetches who fought and who won. Wikidata is patchy here: it prints how many battles have none, and the important ones should be filled or fixed in its `FIXES` table.
-- **Area shapes:** big-area battles need hand-drawn, simplified shapes in `tools/battle_areas.geojson` (one feature per battle, with its title), drawn from historical maps. The script lists the ones still missing; until a battle has a shape, it uses its point.
+- **Area shapes (decided 2026-11-17: an action item for the build):** drawing the big-area shapes is **a task in the H2 build**, not something to leave for later. Each battle in `AREAS` gets a hand-drawn, simplified shape in `tools/battle_areas.geojson` (one feature per battle, with its title), drawn from historical maps of where the fighting happened. The build script lists the ones still missing, and H2 isn't finished until that list is empty.
 - **Check by hand:** the script also lists battles with no country, which it counts as naval; check them. Ancient battles' places are sometimes disputed (Kadesh, Teutoburg Forest); use the most accepted place, and say so on the card.
+
+### Build order (H2)
+
+1. Run `tools/build_battles.py` and fix the hand-picked titles it can't find.
+2. **Draw the big-area shapes** in `tools/battle_areas.geojson` for every battle in `AREAS`, and re-run the script until none are missing.
+3. Check sides and winners for the hand-picked battles, and fill gaps in `FIXES`.
+4. H2a (tap the place, Hint button, area highlighting and scoring), then H2b (name it, with typing and 4 choices).
+5. Filters (kind, era, region, war) and lengths.
 
 ### Open questions for the user (H2)
 
