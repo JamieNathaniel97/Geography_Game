@@ -31,7 +31,7 @@ Same layout as `tools/build_ca.py`:
 
 ## Capitals (games 3 and 4 equivalents)
 
-Most parts have one capital. These need care, and the game should accept any listed answer:
+Most parts have one capital. These need care. **Decided 2026-11-17: confirm every multiple or seasonal capital against an up-to-date source during the build** (the table below is a starting list, not final). Assam's capital is **Dispur** only.
 
 | Part | Accept |
 | --- | --- |
@@ -47,7 +47,7 @@ Most parts have one capital. These need care, and the game should accept any lis
 | Delhi | New Delhi / Delhi |
 | Andaman and Nicobar | Sri Vijaya Puram (renamed from Port Blair in 2024), and Port Blair is also accepted |
 
-Old city names are also accepted, unlike former country names, because people still use them every day: Bombay, Madras, Calcutta, Bangalore, Trivandrum (Thiruvananthapuram), Pondicherry. Dispur (Assam's capital) sits inside Guwahati, so whether to accept Guwahati is an open question. Spell "Thiruvananthapuram" forgivingly. It's long, so the one-typo rule matters.
+Old city names are also accepted, unlike former country names, because people still use them every day: Bombay, Madras, Calcutta, Bangalore, Trivandrum (Thiruvananthapuram), Pondicherry. Spell "Thiruvananthapuram" forgivingly. It's long, so the one-typo rule matters.
 
 ## Names matching
 
@@ -103,6 +103,5 @@ India's map changed by **splitting and redrawing**, not by new areas joining lik
 
 1. **Disputed borders:** which line to draw for Jammu and Kashmir and Ladakh? Options: (a) India's official claimed boundary (the whole of Kashmir including Pakistan- and China-administered areas, which is the map required in India); (b) the de facto Line of Control, with the claimed areas hatched or grey; (c) both, with a toggle. The world map's choice should also be checked so the two maps agree. Arunachal Pradesh (claimed by China) raises the same question.
 2. **UTs:** include all 8 by default (36 total), or default to the 28 states?
-3. **Capitals:** Dispur vs Guwahati for Assam, and the summer/winter capitals. Accept both, or only the main one?
-4. **Flags:** leave the flag games out, or use something in their place (emblems, languages)?
-5. Should India come **before the United Kingdom**, which is marked "soon"?
+3. **Flags:** leave the flag games out, or use something in their place (emblems, languages)?
+4. Should India come **before the United Kingdom**, which is marked "soon"?
