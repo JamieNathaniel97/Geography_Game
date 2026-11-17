@@ -23,15 +23,15 @@ Famous people from history (leaders, scientists, artists, writers, composers, ph
 5. **The real places appear:** a **baby symbol** at the real birth place and a **skull symbol** at the real death place, each labelled with the place name and year ("Ajaccio, 1769", "Saint Helena, 1821"). A thin line joins each guess to the real place, with the distance ("212 km away").
 6. The map zooms out just enough to show all four marks, then a "Next ›" button moves on.
 
-- **Scoring (decided 2026-11-17): a score from 1 to 100 for each place.** **100** means within 20 km, and **1** means the opposite side of the Earth (20,000 km away). In between, the score falls on a log scale, so being close matters most:
+- **Scoring (decided 2026-11-17): a score from 1 to 1,000 for each place.** **1,000** means within 20 km, and **1** means the opposite side of the Earth (20,000 km away). In between, the score falls on a log scale, so being close matters most:
 
-  `score = 100 − 99 × log(d / 20) / log(1000)`, where d is the distance in km (100 at 20 km or less, 1 at 20,000 km)
+  `score = 1000 − 999 × log(d / 20) / log(1000)`, rounded, where d is the distance in km (1,000 at 20 km or less, 1 at 20,000 km)
 
   | Distance | 20 km | 50 km | 100 km | 200 km | 500 km | 1,000 km | 2,000 km | 5,000 km | 10,000 km | 20,000 km |
   | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-  | Score | 100 | 87 | 77 | 67 | 54 | 44 | 34 | 21 | 11 | 1 |
+  | Score | 1,000 | 867 | 767 | 667 | 534 | 434 | 334 | 201 | 101 | 1 |
 
-  Each person gets two scores (birth and death), shown next to the symbols. The end-of-game pop-up shows the average score (out of 100), the average distance, and the best and worst guesses. Personal bests use the average.
+  Each person gets two scores (birth and death), shown next to the symbols. The end-of-game pop-up shows the total score (out of 2,000 per person) and the average per place (out of 1,000), the average distance, and the best and worst guesses. Personal bests use the average per place, so games of different lengths can be compared.
 - **Symbols:** drawn as small SVG icons (a baby's face, a skull), not emoji, so they look the same on every phone and work offline.
 - Taps on the sea count (people die at sea, and coastal towns need taps near the shore).
 - Back and forward arrows, Give up and the timer work as in the other games.
