@@ -10,7 +10,7 @@ China has **33 provincial-level divisions** that it actually governs. That makes
 - **Autonomous regions (5):** Guangxi, Inner Mongolia, Ningxia, Tibet (Xizang), Xinjiang.
 - **Municipalities (4):** Beijing, Chongqing, Shanghai, Tianjin.
 - **Special administrative regions (2):** Hong Kong, Macau.
-- **Taiwan:** China counts it as a 23rd province, but it is governed separately, and the world map already treats it as its own country (`EXTRA` in `tools/build_data.py`). **Proposed:** grey and untappable on the China map, labelled "Taiwan", the same way the US and Greenland are grey context on the Canada map (open question 1).
+- **Taiwan:** China counts it as a 23rd province, but it is governed separately, and the world map already treats it as its own country (`EXTRA` in `tools/build_data.py`). **Decided 2026-11-17:** Taiwan is **not part of China on this map**. It is grey and untappable, labelled "Taiwan", like the other neighbours.
 - Like Canada, each part has a `kind` (Province, Autonomous region, Municipality, SAR), shown on the Learning card.
 - `unit` word: **"Provinces"**. The New game page reads Find: Provinces, Capitals; Name: Provinces, Capitals.
 
@@ -33,10 +33,10 @@ China has **33 provincial-level divisions** that it actually governs. That makes
 
 Same rule as India (decided 2026-11-17): **disputed borders dotted, disputed areas grey and untappable.**
 
-- **Aksai Chin** (China-administered, claimed by India): India's map has it grey. For the two maps to agree, it's **grey here too**, with dotted borders (open question 2).
+- **Aksai Chin** (China-administered, claimed by India): **Decided:** grey here too, matching India's map, with dotted borders.
 - **Arunachal Pradesh** (India-administered, claimed by China as "South Tibet"): India's land. Grey context here, with its border dotted.
 - **Taiwan:** see above.
-- **South China Sea islands** (Paracel and Spratly Islands, disputed with Vietnam, the Philippines and others): **proposed** to leave them out entirely and not draw the "nine-dash line" (open question 3).
+- **South China Sea islands** (Paracel and Spratly Islands, disputed with Vietnam, the Philippines and others): **Decided:** leave them off, and don't draw the "nine-dash line".
 
 ## Capitals
 
@@ -48,8 +48,8 @@ Same rule as India (decided 2026-11-17): **disputed borders dotted, disputed are
 | Tibet | Lhasa |
 | Guangxi | Nanning |
 | Ningxia | Yinchuan |
-| Municipalities (Beijing, Shanghai, Tianjin, Chongqing) | They are cities, so they have no separate capital. **Proposed:** leave them out of the capitals games (open question 4). |
-| Hong Kong, Macau | No capital; same as the municipalities. |
+| Municipalities (Beijing, Shanghai, Tianjin, Chongqing) | **Decided:** kept in the capitals games. The answer is the city's own name (Beijing → Beijing). |
+| Hong Kong, Macau | Kept in too: Hong Kong → Hong Kong, Macau → Macau / Macao. |
 
 Confirm the whole capitals list against an up-to-date source during the build, as with India.
 
@@ -118,9 +118,5 @@ Same layout as the India card:
 
 ## Open questions for the user
 
-1. **Taiwan:** grey and untappable on the China map (it stays its own country on the world map)?
-2. **Aksai Chin:** grey here too, to match India's map?
-3. **South China Sea:** leave the disputed islands off, and don't draw the nine-dash line?
-4. **Capitals games:** leave out the 4 municipalities and 2 SARs (27 capitals), or include them with the city as its own answer?
-5. **Facts:** which of the 18 ideas above go on the card?
-6. A toggle like India's UT toggle? For example "Provinces only (22)" vs "All (33)".
+1. **Facts:** which of the 18 ideas above go on the card?
+2. **Toggle:** whether to have one, and what it switches (see the chat of 2026-11-17).
