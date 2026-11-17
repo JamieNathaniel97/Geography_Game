@@ -12,13 +12,13 @@ Russia's regions are called **federal subjects**. **83** of them are internation
 - **Federal cities (2):** Moscow, Saint Petersburg.
 - **Autonomous oblast (1):** Jewish Autonomous Oblast.
 - **Autonomous okrugs (4):** Chukotka, Khanty-Mansi (Yugra), Nenets, Yamalo-Nenets.
-- **Annexed parts of Ukraine:** Russia also counts Crimea, Sevastopol, and the Donetsk, Luhansk, Zaporizhzhia and Kherson regions (89 in all). Almost every country treats these as Ukraine. **Proposed:** use the same rule as India and China, so they're **grey, not part of Russia on this map, with dotted borders** (open question 1). Check that the world map draws Crimea the same way.
+- **Annexed parts of Ukraine:** Russia also counts Crimea, Sevastopol, and the Donetsk, Luhansk, Zaporizhzhia and Kherson regions (89 in all). Almost every country treats these as Ukraine. **Decided 2026-11-17:** same rule as India and China, so they're **grey, not part of Russia on this map, with dotted borders**. Check that the world map draws Crimea the same way.
 - Each part has a `kind` (Republic, Krai, Oblast, Federal city, Autonomous oblast, Autonomous okrug), shown on the Learning card.
-- `unit` word: **"Regions"** (open question 2).
+- `unit` word: **"Oblasts"** (decided 2026-11-17), used for all 83 parts even though only 46 are oblasts in law. The Learning card still shows each part's real kind.
 
 ## Wiring it into the app
 
-- `COUNTRY_MAPS`: `RUS: { name: "Russia", focus: "Russia", cont: "Europe", unit: "Regions", data: "ru", region: "russia" }`. Russia is in both Europe and Asia (PLAN.md), so list it under both headings in the Countries tab if COUNTRY_MAPS allows that; otherwise under Europe.
+- `COUNTRY_MAPS`: `RUS: { name: "Russia", focus: "Russia", cont: "Europe", unit: "Oblasts", data: "ru", region: "russia" }`. Russia is in both Europe and Asia (PLAN.md), so list it under both headings in the Countries tab if COUNTRY_MAPS allows that; otherwise under Europe.
 - `isCountryMap`, `geoFor`, region button ("Whole Russia"), stats tab label, Focus button: `"ru"` branches, or by then these should live in COUNTRY_MAPS.
 - `geo.js` loader for `data/ru-regions.json` + `data/ru-parts.json`. Bump `CACHE` in `sw.js`.
 
@@ -28,7 +28,7 @@ Russia's regions are called **federal subjects**. **83** of them are internation
 - `data/ru-parts.json`: names, alternative names, capitals and Learning facts, hand-written.
 - **Shape source:** Natural Earth 1:50m or 1:10m admin-1. Check it uses the 83 current regions, since several mergers happened in 2005–2008 (for example Perm Krai, Zabaykalsky Krai, Kamchatka Krai).
 - **The 180° line:** Chukotka crosses the antimeridian, so its shape comes in two halves. Join them in the build script.
-- **Kaliningrad** is an exclave between Poland and Lithuania, far to the west. It needs either an inset (like Alaska on the US map) or a map wide enough to include it (open question 3).
+- **Kaliningrad** is an exclave between Poland and Lithuania, far to the west. **Decided:** no inset; the map is **wide enough to include it**, with Belarus, the Baltic states and Poland as grey context.
 - **Projection:** Albers equal-area conic, standard parallels about 52°N and 68°N, central meridian 100°E, so the whole country from Kaliningrad to Chukotka fits without too much stretching.
 
 ## Disputed areas
@@ -36,13 +36,13 @@ Russia's regions are called **federal subjects**. **83** of them are internation
 Same rule as India and China: **disputed borders dotted, disputed areas grey and untappable.**
 
 - **Crimea, Sevastopol, Donetsk, Luhansk, Zaporizhzhia, Kherson:** see above.
-- **Kuril Islands:** governed by Russia, and Japan claims the four southernmost (its "Northern Territories"). **Proposed:** part of Sakhalin Oblast and tappable, since Russia governs them, but with a dotted line between them and Japan (open question 4).
+- **Kuril Islands:** governed by Russia, and Japan claims the four southernmost (its "Northern Territories"). **Decided:** part of Sakhalin Oblast and tappable, since Russia governs them, with a **dotted** line between them and Japan.
 
 ## Capitals
 
 Russia calls them "administrative centres".
 
-- **Most oblasts are named after their centre** (Novosibirsk Oblast → Novosibirsk), which makes the capitals games very easy for those. **Proposed:** keep them all in, because the map side still teaches where they are, but think about this (open question 5).
+- **Most oblasts are named after their centre** (Novosibirsk Oblast → Novosibirsk), which makes the capitals games very easy for those. **Decided:** keep all 83 in.
 - **Special cases**, to confirm during the build:
   - Moscow Oblast: no official centre in law. The government sits in **Krasnogorsk**, and **Moscow** is also accepted.
   - Leningrad Oblast: **Gatchina** officially since 2021, and Saint Petersburg is also accepted, since the government is still based there.
@@ -72,9 +72,10 @@ Russia calls them "administrative centres".
 
 - Name in English and **Russian (Cyrillic)**: Новосибирская область. Bundle a Cyrillic font subset for offline use (small).
 - Kind, **federal district** (Central, Northwestern, Southern, North Caucasian, Volga, Ural, Siberian, Far Eastern), capital, population (**2021 census**), area and rank of 83.
-- **More facts:** choose from the ideas below (open question 6).
+- **More facts:** all 18 ideas below (decided 2026-11-17).
+- **No toggle** (decided): every game uses all 83.
 
-## Fact ideas for the user to choose from
+## More facts (all 18 chosen 2026-11-17)
 
 **People and culture**
 1. Main ethnic groups (Tatars in Tatarstan, Chechens in Chechnya, Yakuts in Sakha)
@@ -102,21 +103,49 @@ Russia calls them "administrative centres".
 17. Main industry or resource (oil and gas in Yamalo-Nenets and Khanty-Mansi, diamonds in Sakha)
 18. Largest city, if it isn't the capital (Sochi, Tolyatti, Magnitogorsk)
 
+## Timeline: Russia's expansion and decline (decided 2026-11-17)
+
+A history slider, like the US statehood timeline, but showing **how far Russia's lands reached** over the centuries: growing from the small Grand Duchy of Moscow into the Russian Empire and the Soviet Union, then shrinking. It's on a wider map than the oblast map (Eastern Europe, Central Asia, the whole of northern Asia and Alaska), because the empire went far beyond today's borders.
+
+**Key moments** (one stop each on the slider; ‹ › arrows jump between them, like the US timeline):
+
+| Year | Change |
+| --- | --- |
+| 1300s | Grand Duchy of Moscow, a small state around Moscow |
+| 1478 | Novgorod's lands taken, reaching the White Sea and the north |
+| 1552–1556 | Kazan and Astrakhan conquered, giving the whole Volga |
+| 1580s–1639 | Across Siberia to the Pacific Ocean |
+| 1654 | Left-bank Ukraine joins (Pereyaslav) |
+| 1721 | Baltic coast from Sweden (Treaty of Nystad), Saint Petersburg |
+| 1772–1795 | Partitions of Poland |
+| 1783 | Crimea annexed |
+| 1799–1867 | Russian America (Alaska); **sold to the US in 1867** |
+| 1809 | Finland from Sweden |
+| 1801–1864 | The Caucasus (Georgia, Azerbaijan, Armenia, the North Caucasus) |
+| 1858–1860 | The Amur and Primorye from China (Vladivostok founded) |
+| 1860s–1885 | Central Asia (Kazakhstan, Uzbekistan, Turkmenistan and so on) |
+| 1905 | Southern Sakhalin lost to Japan |
+| 1917–1921 | **Decline:** Finland, Poland and the Baltic states leave after the revolution |
+| 1922 | The Soviet Union is formed |
+| 1939–1945 | Gains in the Second World War: the Baltic states, eastern Poland, Tuva, Kaliningrad, southern Sakhalin and the Kurils |
+| 1991 | **Decline:** the Soviet Union breaks into 15 countries; Russia's present borders |
+| 2014, 2022 | Crimea and four Ukrainian regions annexed; shown **dotted and hatched, not as Russia**, following the disputed-areas rule above |
+
+- **Colours:** land held at the slider's year in one colour, land that was held earlier but lost in a paler shade ("lost"), and today's Russia outlined so you can compare.
+- **Soviet years:** the Soviet republics (Ukraine, Kazakhstan and so on) shown inside the Union, with their borders dashed, so you can see which countries came out of it in 1991.
+- **Tapping** an area shows when it was gained (and lost), and from whom.
+- **Data:** historical borders aren't in Natural Earth. Options: **CShapes 2.0** (country borders from 1886 onwards, check the licence), the **historical-basemaps** project (world maps for many years, check the licence), or hand-drawn shapes for each stop in the build script. Earlier centuries need simplified, approximate shapes, and the card should say they're approximate.
+- This is a big job. Build it after the oblast games, and reuse the US timeline code.
+
 ## Build order
 
 1. `tools/build_ru.py`: shapes (Chukotka joined, the annexed areas split off as grey), parts data, capitals, flags, disputed lines.
 2. Map and loader (Albers projection, grey neighbours, Kaliningrad, lakes, Lake Baikal).
-3. Find and Name: Regions, then Capitals, then Flags.
+3. Find and Name: Oblasts, then Capitals, then Flags.
 4. Tiny parts (North Caucasus bubble, Moscow and Saint Petersburg circles).
 5. Learning card with Cyrillic names + "Focus on Russia".
 6. Stats and personal bests.
 
 ## Open questions for the user
 
-1. **Annexed parts of Ukraine** (Crimea, Sevastopol, Donetsk, Luhansk, Zaporizhzhia, Kherson): grey and not part of Russia, with dotted borders?
-2. **Unit word:** "Regions", or "Federal subjects"?
-3. **Kaliningrad:** an inset box, or a wider map that includes it?
-4. **Kuril Islands:** part of Sakhalin Oblast and tappable, with the Japan border dotted?
-5. **Capitals:** keep all 83, even the ones named after their capital?
-6. **Facts:** which of the 18 ideas go on the card?
-7. **Toggle:** one for the 6 small kinds (2 federal cities, the autonomous oblast and 4 autonomous okrugs)? The okrugs are huge, though (Yamalo-Nenets, Khanty-Mansi, Chukotka), so hiding them leaves holes, like China. **Proposed:** no toggle.
+None at the moment (all answered 2026-11-17).
