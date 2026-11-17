@@ -25,5 +25,7 @@ EXTRA = {
     ],
     "After 1945": [
         "SS Andrea Doria", "SS Edmund Fitzgerald", "ARA General Belgrano", "SS Admiral Nakhimov", "MV Doña Paz",
+        "MS Estonia", "Russian submarine Kursk (K-141)", "MV Le Joola", "Costa Concordia", "MV Sewol",
+        "ARA San Juan (S-42)",
     ],
 }
