@@ -10,7 +10,7 @@ India has **28 states and 8 union territories (UTs)**. That's 36 parts in all, a
 - **Union territories (8):** Andaman and Nicobar Islands, Chandigarh, Dadra and Nagar Haveli and Daman and Diu, Delhi, Jammu and Kashmir, Ladakh, Lakshadweep, Puducherry.
 - The unit word (`unit` in COUNTRY_MAPS) is **"States & UTs"**. The New game page reads Find: States & UTs, Capitals; Name: States & UTs, Capitals.
 - Like Canada, each part has a `kind`: "State" or "Union territory". The Learning card shows it.
-- A **toggle before each game, "States only (28)" or "States & UTs (36)"**, defaulting to all 36. The counter follows the choice.
+- **Decided 2026-11-17: a "Union territories" toggle** before each game (on: 36 parts, off: the 28 states only), on by default. The counter follows the choice.
 
 ## Wiring it into the app
 
@@ -31,7 +31,8 @@ Same layout as `tools/build_ca.py`:
 
 ## Kashmir border (decided 2026-11-17)
 
-- Draw the **disputed border with Pakistan in Kashmir as a dotted line**, to show it's disputed rather than settled. Normal borders stay solid.
+- Draw the **disputed borders as dotted lines**: with Pakistan in Kashmir, and with China (Aksai Chin, and Arunachal Pradesh's northern border). Settled borders stay solid.
+- **Disputed areas are grey and can't be tapped:** Pakistan-administered Kashmir and Aksai Chin. Jammu and Kashmir and Ladakh are tappable only on the Indian-administered side. Arunachal Pradesh is administered by India, so it's a normal tappable state, with its China border dotted.
 - Build it as its own line type in `in-states.json` (for example `"disputed": MultiLineString` next to `borders` and `coast`), so the map can style it separately.
 - The world map should draw the same line the same way, so the two maps agree.
 
@@ -75,7 +76,7 @@ Using the world map's tools (ovals, 8 px rings, adaptive circles like Prince Edw
 
 **Indian states and UTs have no official flags.** J&K's flag was dropped in 2019. Games 5 and 6 (Find by flag, Name the flags) **don't apply**. The country page just leaves the Flags buttons out. The planned British counties map already leaves out counties with no registered flag, so this does the same.
 
-Possible stand-ins (open question): state emblems, or a "Find by official language" game.
+Decided 2026-11-17: **no flag games** for India, and nothing in their place.
 
 ## Learning mode card
 
@@ -114,6 +115,4 @@ India's map changed by **splitting and redrawing**, not by new areas joining lik
 
 ## Open questions for the user
 
-1. **UTs:** include all 8 by default (36 total), or default to the 28 states?
-2. **Flags:** leave the flag games out, or use something in their place (emblems, languages)?
-3. **Kashmir areas:** can the Pakistan-administered side be tapped as part of Jammu and Kashmir/Ladakh, or is it grey? And do the China borders (Aksai Chin, Arunachal Pradesh) get the same dotted treatment?
+None at the moment (all answered 2026-11-17).
