@@ -238,6 +238,25 @@
   // China's 33 provincial-level divisions (tools/build_cn.py); Hong Kong and Macau are specks, so they get circles
   const CN_RINGS = new Set(["CN-HK", "CN-MO"]);
   GG.loadCN = lakes => loadShapes("data/cn-provinces.json", "data/cn-parts.json", "cn", "cn/", CN_RINGS, lakes);
+  // Russia's 83 federal subjects (tools/build_ru.py; longitudes past 180° in the far east); the two federal cities and the
+  // smallest North Caucasus republics get circles
+  const RU_RINGS = new Set(["RU-MOW", "RU-SPE", "RU-IN", "RU-SE", "RU-AD", "RU-KB", "RU-KC", "RU-CE"]);
+  // Russia's expansion timeline (tools/build_ru.py history): approximate pieces with the years Russia held them
+  GG.loadRUHistory = () => getJSON("data/ru-history.json");
+  // "held" (Russia's that year), "lost" (held earlier), "annexed" (annexed since, not recognised), or null
+  GG.heldIn = (f, y) => {
+    const pr = f.properties;
+    if (pr.annexed && y >= pr.annexed) return "annexed";
+    if (pr.held.some(([a, b]) => a <= y && (b === null || y < b))) return "held";
+    return pr.held.some(([a]) => a <= y) ? "lost" : null;
+  };
+  // the North Caucasus republics crowd together: one numbered bubble until you zoom in (like the Lesser Antilles)
+  GG.loadRU = async lakes => {
+    const g = await loadShapes("data/ru-regions.json", "data/ru-parts.json", "ru", "ru/", RU_RINGS, lakes);
+    // the bubble sits in the Black Sea just offshore, so it doesn't cover Dagestan
+    g.clusters = [{ name: "North Caucasus", members: ["RU-KC", "RU-KB", "RU-SE", "RU-IN", "RU-CE"].map(i => g.byIso[i]), at: [36.8, 42.7] }];
+    return g;
+  };
 
   // Fewer points in lines and outlines (Douglas–Peucker, tolerance in degrees), for things redrawn every frame
   GG.simplify = function (g, tol) {

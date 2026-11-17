@@ -7,7 +7,7 @@
   // data: "world" (countries), or a country map: "us" (US states, build 3), "ca" (Canada's provinces and territories),
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
-  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null;
+  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null;
   const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
@@ -23,6 +23,9 @@
     // have flags, so no flag games
     cn: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "china", style: "china", count: 33, noFlags: true,
       load: async () => (geoCN = geoCN || await GG.loadCN(geoWorld.lakes)) },
+    // Russia: 83 federal subjects (all called "oblasts" in the menus; the card shows each one's real kind), every one with a flag
+    ru: { noun: "oblast", nouns: "oblasts", Nouns: "Oblasts", region: "russia", style: "russia", count: 83,
+      load: async () => (geoRU = geoRU || await GG.loadRU(geoWorld.lakes)) },
     // Britain and Ireland: the parts are counties, and county towns stand in for capitals
     uk: { noun: "county", nouns: "counties", Nouns: "Counties", cap: "county town", caps: "county towns", region: "uk", style: "uk",
       set: "Historic", load: async () => (geoUK.uk = geoUK.uk || await GG.loadUK("historic", geoWorld.lakes)) },
@@ -33,7 +36,7 @@
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
   const isCountryMap = d => !!DATASETS[d] && d !== "world";
-  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -100,6 +103,7 @@
     // India: with the union territories switched off, only the 28 states (Learning mode always shows all 36)
     india:    { name: "India", us: true, test: c => S.ut !== false || S.mode === "explore" || c.info.kind === "State" },
     china:    { name: "China", us: true, test: () => true },
+    russia:   { name: "Russia", us: true, test: () => true },
     // Britain and Ireland, for each county set (added below): the whole map, England, Scotland, Wales and Ireland
     oceania:  { name: "Oceania",       test: c => c.cont.includes("Oceania"),       view: { globe: [167, -16, 74.3],   flat: [167, -16, 74.3] },   crop: [[110, -50], [212, 22]] },
   };
@@ -368,11 +372,13 @@
   let learnMore = false;
   function showLearnCard(c) {
     const i = c.info || {};
+    $("lcMoreBtn").hidden = false; // (a timeline card hides it)
     $("lcFlag").hidden = false; // (a county with no flag hides it)
     if (geoUS && geoUS.byIso[c.iso] === c) { showStateCard(c, i); return; }
     if (geoCA && geoCA.byIso[c.iso] === c) { showProvinceCard(c, i); return; }
     if (geoIN && geoIN.byIso[c.iso] === c) { showIndiaCard(c, i); return; }
     if (geoCN && geoCN.byIso[c.iso] === c) { showChinaCard(c, i); return; }
+    if (geoRU && geoRU.byIso[c.iso] === c) { showRussiaCard(c, i); return; }
     if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
@@ -571,6 +577,67 @@
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // Russia's federal subjects (2021 census). Names in Russian (Cyrillic).
+  function showRussiaCard(c, i) {
+    const f = i.facts || {}; // tools/ru_facts.py
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = `${i.kind} · ${i.region} Federal District · ${i.abbr}`;
+    const city = i.kind === "Federal city";
+    const capNote = c.iso === "RU-MOS" ? "Krasnogorsk (the government's seat; there's no official capital)"
+      : c.iso === "RU-LEN" ? "Gatchina (since 2021; the government still sits in Saint Petersburg)" : c.capitals[0];
+    $("lcMain").innerHTML = facts([[city ? "City" : "Capital", city ? "A city in its own right" : capNote],
+      ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("Names", [
+        ["In Russian", f.ru ? `<span class="native">${esc(f.ru)}</span>` : "", true],
+        ["Soviet name", f.soviet],
+      ]) +
+      factGroup("People and culture", [
+        ["Largest city", f.city || ""],
+        ["Peoples", f.ethnic],
+        [/,| and /.test(f.langs || "") ? "Languages" : "Language", f.langs],
+        ["Religion", f.religion],
+        ["Food", f.dish],
+        ["Traditional craft", f.craft],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 83`],
+        ["Highest point", f.high],
+        ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Borders", (i.borders || []).join(", ")],
+        ["Main river", f.river],
+        ["Climate", f.climate],
+        ["Coldest", f.cold],
+        [/ and /.test(f.tz || "") ? "Time zones" : "Time zone", f.tz ? `${f.tz}${f.tz === "UTC+3" ? " (Moscow time)" : ""}` : ""],
+        ["Natural wonder", f.nature],
+        ["Wildlife", f.animal],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Became part of Russia", f.joined],
+        [city ? "Founded" : "In its present form since", f.year ? String(f.year) : ""],
+        ["UNESCO World Heritage", f.unesco],
+        ["Trans-Siberian Railway", f.transsib ? "Passes through" : ""],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // a piece of Russia's timeline: when Russia held it and who from (approximate: drawn with today's borders)
+  function showHistoryCard(f) {
+    const pr = f.properties, y = tlYear;
+    const span = ([a, b]) => b === null ? `${a} to today` : `${a}–${b}`;
+    $("lcFlag").hidden = true;
+    $("lcName").textContent = pr.name;
+    const st = GG.heldIn(f, y);
+    $("lcSub").textContent = st === "held" ? `Part of Russia in ${y}` : st === "annexed" ? "Annexed by Russia; most countries don't recognise it" : `No longer Russia's in ${y}`;
+    $("lcMain").innerHTML = facts([["Part of Russia", pr.held.map(span).join(", and ")],
+      ["Gained from", pr.from], ["Annexed", pr.annexed ? `${pr.annexed} (not recognised by most countries)` : ""]]);
+    $("lcMain").innerHTML += '<p class="lcnote">Approximate: drawn with today\'s borders, not the old ones.</p>';
+    setLearnMore(false); $("lcMore").innerHTML = ""; $("lcMoreBtn").hidden = true;
+    $("focusBtn").hidden = true;
+    $("learnCard").hidden = false;
+  }
   // Canada's provinces and territories (2021 census, areas from Statistics Canada)
   function showProvinceCard(c, i) {
     $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
@@ -653,7 +720,7 @@
     // coming next (India_plan.md, China_plan.md, Russia_plan.md, Australia_plan.md); Russia is in Europe and Asia
     IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", data: "in", region: "india" },
     CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", data: "cn", region: "china" },
-    RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", soon: true },
+    RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", data: "ru", region: "russia" },
     AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", soon: true },
   };
   // from the world Learning map, the UK and Ireland open the countries view first
@@ -724,7 +791,22 @@
   // ---------- statehood timeline (US Learning mode) ----------
   // Drag through 1787 to 1959: states not yet in the Union are grey, the ones joining that year are highlighted.
   // Play steps through each year a state joined.
+  // Russia: 1300 to today (2023 = today: the plain map; the stops come from data/ru-history.json)
+  let tlKind = "us", ruHist = null;
+  const TL_MAX = { us: 1959, ru: 2023 };
+  function setRuTimeline(year) {
+    tlYear = year;
+    $("tlRange").value = year;
+    const today = year >= TL_MAX.ru;
+    const stop = ruHist ? ruHist.stops.filter(s => s[0] <= year).pop() : null;
+    $("tlLabel").innerHTML = today ? "<b>Today</b> Drag back through Russia's history"
+      : `<b>${year}</b> ${stop ? esc(stop[0] === year ? stop[1] : `No change since ${stop[0]}`) : ""}`;
+    $("tlLegend").hidden = today;
+    main.setHistory(today || !ruHist ? null : { fc: ruHist, year });
+    if (!today) hideLearnCard();
+  }
   function setTimeline(year) {
+    if (tlKind === "ru") { setRuTimeline(year); return; }
     tlYear = year;
     $("tlRange").value = year;
     const states = geo.countries.filter(c => c.info && c.info.year <= year);
@@ -740,23 +822,34 @@
     redraw();
   }
   function stopTimeline() { clearInterval(tlTimer); tlTimer = null; $("tlPlay").textContent = "▶"; $("tlPlay").setAttribute("aria-label", "Play the timeline"); }
-  function showTimeline(on) {
+  function showTimeline(on, kind = "us") {
     stopTimeline();
+    tlKind = kind;
     $("timeline").hidden = !on;
+    $("timeline").classList.toggle("tl2", kind === "ru");
+    $("tlLegend").hidden = true;
     $("mapwrap").classList.toggle("hastl", on);
     tlYear = 1959;
     main.setBordersOverride(null);
-    if (on) setTimeline(1959);
+    main.setHistory(null);
+    const r = $("tlRange");
+    r.min = kind === "ru" ? 1300 : 1787; r.max = TL_MAX[kind];
+    $("tlPrev").setAttribute("aria-label", kind === "ru" ? "Previous change" : "Previous state to join");
+    $("tlNext").setAttribute("aria-label", kind === "ru" ? "Next change" : "Next state to join");
+    if (on && kind === "ru" && !ruHist) GG.loadRUHistory().then(h => { ruHist = h; if (tlKind === "ru") setTimeline(+r.value); }).catch(() => {});
+    if (on) setTimeline(TL_MAX[kind]);
   }
   $("tlRange").addEventListener("input", e => { stopTimeline(); setTimeline(+e.target.value); });
   // the arrows jump to the previous or next year a state joined
-  const joinYears = () => [...new Set(geo.countries.map(c => c.info.year))].sort((a, b) => a - b);
-  $("tlPrev").onclick = () => { stopTimeline(); const y = joinYears().filter(y => y < tlYear).pop(); setTimeline(y || 1787); };
-  $("tlNext").onclick = () => { stopTimeline(); const y = joinYears().find(y => y > tlYear); setTimeline(y || 1959); };
+  const joinYears = () => tlKind === "ru" ? (ruHist ? ruHist.stops.map(s => s[0]).concat(TL_MAX.ru) : [TL_MAX.ru])
+    : [...new Set(geo.countries.map(c => c.info.year))].sort((a, b) => a - b);
+  const tlMin = () => +$("tlRange").min, tlMax = () => TL_MAX[tlKind];
+  $("tlPrev").onclick = () => { stopTimeline(); const y = joinYears().filter(y => y < tlYear).pop(); setTimeline(y || tlMin()); };
+  $("tlNext").onclick = () => { stopTimeline(); const y = joinYears().find(y => y > tlYear); setTimeline(y || tlMax()); };
   $("tlPlay").onclick = () => {
     if (tlTimer) { stopTimeline(); return; }
     const years = joinYears();
-    let i = tlYear >= 1959 ? 0 : years.findIndex(y => y > tlYear);
+    let i = tlYear >= tlMax() ? 0 : years.findIndex(y => y > tlYear);
     if (i < 0) i = 0;
     setTimeline(years[i]);
     $("tlPlay").textContent = "❚❚"; $("tlPlay").setAttribute("aria-label", "Pause the timeline");
@@ -765,7 +858,7 @@
       if (i >= years.length) { stopTimeline(); return; }
       setTimeline(years[i]);
       if (i === years.length - 1) stopTimeline();
-    }, 700);
+    }, tlKind === "ru" ? 1100 : 700);
   };
 
   // ---------- stats page ----------
@@ -781,7 +874,7 @@
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
+    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
     $("statsSkill").querySelector('[data-v="capital"]').textContent = ds.caps ? "County towns" : "Capitals";
     // no flags (India): no Flags tab
     $("statsSkill").querySelector('[data-v="flag"]').hidden = !!ds.noFlags;
@@ -994,6 +1087,11 @@
   $("insetClose").onclick = closeInset;
   $("inset").addEventListener("click", e => { if (e.target === $("inset")) closeInset(); });
   function onPoint(view, x, y) {
+    // Russia's timeline: a tap shows when that land was Russia's
+    if (view === main && main.history) {
+      const f = main.historyAt(x, y);
+      if (f) { showHistoryCard(f); return true; }
+    }
     if (!S.magnify || view !== main) return false;
     const ll = main.lonLatAt(x, y);
     setMag(false);
@@ -1222,7 +1320,7 @@
     $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
-    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : data === "cn" ? "Whole China" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
+    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : data === "cn" ? "Whole China" : data === "ru" ? "Whole Russia" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
     $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view
@@ -1241,7 +1339,7 @@
     goTo(region, false);
     hideLearnCard();
     $("reviewBar").hidden = true; reviewSel = null;
-    showTimeline(mode === "explore" && data === "us");
+    showTimeline(mode === "explore" && (data === "us" || data === "ru"), data === "ru" ? "ru" : "us");
     useSub(mode === "explore" && data === "world");
     showReserves();
     if (mode !== "nameflag") hideFlagGrid();

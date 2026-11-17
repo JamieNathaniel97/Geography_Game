@@ -3,7 +3,7 @@ characters the cards use, so they cost a few kilobytes and work offline.
 
   fonts/gq-<script>.woff   one per script, loaded by css/app.css (@font-face "GQ Scripts", with unicode ranges)
 
-Text comes from tools/in_facts.py (India's names in their own scripts) and tools/cn_facts.py (China's characters).
+Text comes from tools/in_facts.py (India's names in their own scripts) , tools/cn_facts.py (China's characters) and tools/ru_facts.py (Russia's Cyrillic).
 Run from the repo root:  python tools/build_fonts.py   (needs fontTools; the Noto fonts are in tools/downloads/fonts/)
 """
 import pathlib
@@ -28,6 +28,7 @@ SCRIPTS = {
     "kannada": ("NotoSansKannada-Regular.ttf", 0x0C80, 0x0CFF),
     "malayalam": ("NotoSansMalayalam-Regular.ttf", 0x0D00, 0x0D7F),
     "chinese": ("NotoSansSC.ttf", 0x4E00, 0x9FFF),  # CJK Unified Ideographs (China's names, simplified characters)
+    "cyrillic": ("NotoSans-Regular.ttf", 0x0400, 0x04FF),  # Russia's names
 }
 
 
@@ -35,8 +36,10 @@ def card_text():
     sys.path.insert(0, str(ROOT / "tools"))
     import in_facts
     import cn_facts
+    import ru_facts
     return ("".join(f.get("script", "") for f in in_facts.FACTS.values()) +
-            "".join(f.get("zh", "") + f.get("short", "") for f in cn_facts.FACTS.values()))
+            "".join(f.get("zh", "") + f.get("short", "") for f in cn_facts.FACTS.values()) +
+            "".join(f.get("ru", "") for f in ru_facts.FACTS.values()))
 
 
 def main():

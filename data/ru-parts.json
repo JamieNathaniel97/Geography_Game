@@ -1,0 +1,4523 @@
+[
+{
+"iso": "RU-AD",
+"id": "RU-AD",
+"name": "Adygea",
+"names": [
+"Adygea",
+"Adygeya",
+"Adygea Republic",
+"Republic of Adygea"
+],
+"capitals": [
+"Maykop",
+"Maikop"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-AD",
+"info": {
+"abbr": "AD",
+"kind": "Republic",
+"region": "Southern",
+"pop": 496934,
+"popYear": "2021 census",
+"area": 7792,
+"flag": true,
+"facts": {
+"ru": "Республика Адыгея",
+"ethnic": "Russians and Adyghe (Circassians)",
+"langs": "Adyghe",
+"religion": "Orthodox and Muslim",
+"dish": "Adyghe cheese",
+"river": "Belaya",
+"climate": "Temperate, mountainous in the south",
+"high": "Mount Chugush, 3,238 m",
+"tz": "UTC+3",
+"nature": "Lago-Naki plateau",
+"unesco": "Western Caucasus",
+"industry": "Farming and food",
+"year": 1922
+},
+"coastal": false,
+"borders": [],
+"areaRank": 80
+},
+"flagKey": "ru/RU-AD",
+"capLL": [
+[
+40.12,
+44.61
+]
+]
+},
+{
+"iso": "RU-ALT",
+"id": "RU-ALT",
+"name": "Altai Krai",
+"names": [
+"Altai Krai",
+"Altai",
+"Altai Territory"
+],
+"capitals": [
+"Barnaul"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ALT",
+"info": {
+"abbr": "ALT",
+"kind": "Krai",
+"region": "Siberian",
+"pop": 2163693,
+"popYear": "2021 census",
+"area": 167996,
+"flag": true,
+"facts": {
+"ru": "Алтайский край",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Ob",
+"climate": "Continental steppe",
+"tz": "UTC+7",
+"nature": "Belokurikha spa and Tigirek reserve",
+"industry": "Grain and farming",
+"year": 1937
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 21
+},
+"flagKey": "ru/RU-ALT",
+"notTypo": [
+"Altai Republic"
+],
+"capLL": [
+[
+83.745,
+53.355
+]
+]
+},
+{
+"iso": "RU-AL",
+"id": "RU-AL",
+"name": "Altai Republic",
+"names": [
+"Altai Republic",
+"Gorno-Altai",
+"Altai Republic Republic",
+"Republic of Altai Republic"
+],
+"capitals": [
+"Gorno-Altaysk",
+"Gorno-Altaisk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-AL",
+"info": {
+"abbr": "AL",
+"kind": "Republic",
+"region": "Siberian",
+"pop": 210924,
+"popYear": "2021 census",
+"area": 92903,
+"flag": true,
+"facts": {
+"ru": "Республика Алтай",
+"ethnic": "Russians, Altai and Kazakhs",
+"langs": "Altai",
+"religion": "Orthodox, Burkhanism and shamanism",
+"river": "Katun",
+"climate": "Continental, harsh in the mountains",
+"high": "Belukha, 4,506 m",
+"tz": "UTC+7",
+"nature": "Lake Teletskoye",
+"animal": "Snow leopard",
+"unesco": "Golden Mountains of Altai",
+"soviet": "Gorno-Altai Autonomous Oblast",
+"industry": "Tourism and farming",
+"year": 1922
+},
+"coastal": true,
+"borders": [
+"China",
+"Kazakhstan",
+"Mongolia"
+],
+"areaRank": 35
+},
+"flagKey": "ru/RU-AL",
+"notTypo": [
+"Altai Krai"
+],
+"capLL": [
+[
+85.958,
+51.961
+]
+]
+},
+{
+"iso": "RU-AMU",
+"id": "RU-AMU",
+"name": "Amur Oblast",
+"names": [
+"Amur Oblast",
+"Amur",
+"Amur Region"
+],
+"capitals": [
+"Blagoveshchensk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-AMU",
+"info": {
+"abbr": "AMU",
+"kind": "Oblast",
+"region": "Far Eastern",
+"pop": 766912,
+"popYear": "2021 census",
+"area": 361908,
+"flag": true,
+"facts": {
+"ru": "Амурская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Amur and Zeya",
+"climate": "Monsoon, sharply continental",
+"tz": "UTC+9",
+"nature": "Zeya reserve",
+"joined": "1858 (Treaty of Aigun)",
+"transsib": true,
+"industry": "Gold, and the Vostochny Cosmodrome",
+"year": 1932
+},
+"coastal": false,
+"borders": [
+"China"
+],
+"areaRank": 13
+},
+"flagKey": "ru/RU-AMU",
+"capLL": [
+[
+127.533,
+50.267
+]
+]
+},
+{
+"iso": "RU-ARK",
+"id": "RU-ARK",
+"name": "Arkhangelsk Oblast",
+"names": [
+"Arkhangelsk Oblast",
+"Arkhangelsk",
+"Archangel Oblast",
+"Arkhangelsk Region"
+],
+"capitals": [
+"Arkhangelsk",
+"Archangel"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ARK",
+"info": {
+"abbr": "ARK",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 978873,
+"popYear": "2021 census",
+"area": 413103,
+"flag": true,
+"facts": {
+"ru": "Архангельская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Kozuli (painted gingerbread)",
+"craft": "Kholmogory bone carving and Mezen painting",
+"river": "Northern Dvina",
+"climate": "Subarctic",
+"tz": "UTC+3",
+"nature": "Kenozero National Park",
+"unesco": "Solovetsky Islands",
+"joined": "1478 (with Novgorod's lands)",
+"industry": "Timber, and the Plesetsk Cosmodrome",
+"year": 1937
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12
+},
+"flagKey": "ru/RU-ARK",
+"capLL": [
+[
+40.54,
+64.54
+]
+]
+},
+{
+"iso": "RU-AST",
+"id": "RU-AST",
+"name": "Astrakhan Oblast",
+"names": [
+"Astrakhan Oblast",
+"Astrakhan",
+"Astrakhan Region"
+],
+"capitals": [
+"Astrakhan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-AST",
+"info": {
+"abbr": "AST",
+"kind": "Oblast",
+"region": "Southern",
+"pop": 960142,
+"popYear": "2021 census",
+"area": 49024,
+"flag": true,
+"facts": {
+"ru": "Астраханская область",
+"ethnic": "Russians, Kazakhs and Tatars",
+"religion": "Orthodox and Muslim",
+"dish": "Watermelons, caviar and Volga fish",
+"river": "Volga (its delta)",
+"climate": "Semi-arid desert",
+"tz": "UTC+4",
+"nature": "Volga Delta and salt Lake Baskunchak",
+"animal": "Saiga antelope",
+"joined": "1556",
+"industry": "Fishing and gas",
+"year": 1943
+},
+"coastal": true,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 54
+},
+"flagKey": "ru/RU-AST",
+"capLL": [
+[
+48.055,
+46.349
+]
+]
+},
+{
+"iso": "RU-BA",
+"id": "RU-BA",
+"name": "Bashkortostan",
+"names": [
+"Bashkortostan",
+"Bashkiria",
+"Bashkortostan Republic",
+"Republic of Bashkortostan"
+],
+"capitals": [
+"Ufa"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-BA",
+"info": {
+"abbr": "BA",
+"kind": "Republic",
+"region": "Volga",
+"pop": 4091423,
+"popYear": "2021 census",
+"area": 142947,
+"flag": true,
+"facts": {
+"ru": "Республика Башкортостан",
+"ethnic": "Bashkirs, Russians and Tatars",
+"langs": "Bashkir",
+"religion": "Muslim and Orthodox",
+"dish": "Bashkir honey and kumis (mare's milk)",
+"river": "Belaya (Agidel)",
+"climate": "Continental",
+"high": "Yamantau, 1,640 m",
+"tz": "UTC+5",
+"nature": "Kapova Cave, with Stone Age paintings",
+"joined": "1557",
+"soviet": "Bashkir ASSR",
+"industry": "Oil refining and chemicals",
+"year": 1919
+},
+"coastal": false,
+"borders": [],
+"areaRank": 27
+},
+"flagKey": "ru/RU-BA",
+"capLL": [
+[
+56.038,
+54.792
+]
+]
+},
+{
+"iso": "RU-BEL",
+"id": "RU-BEL",
+"name": "Belgorod Oblast",
+"names": [
+"Belgorod Oblast",
+"Belgorod",
+"Belgorod Region"
+],
+"capitals": [
+"Belgorod"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-BEL",
+"info": {
+"abbr": "BEL",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1540486,
+"popYear": "2021 census",
+"area": 27134,
+"flag": true,
+"facts": {
+"ru": "Белгородская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Seversky Donets",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Belogorye reserve",
+"industry": "Iron ore (Kursk Magnetic Anomaly) and farming",
+"year": 1954
+},
+"coastal": false,
+"borders": [
+"Ukraine"
+],
+"areaRank": 67
+},
+"flagKey": "ru/RU-BEL",
+"capLL": [
+[
+36.6,
+50.63
+]
+]
+},
+{
+"iso": "RU-BRY",
+"id": "RU-BRY",
+"name": "Bryansk Oblast",
+"names": [
+"Bryansk Oblast",
+"Bryansk",
+"Bryansk Region"
+],
+"capitals": [
+"Bryansk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-BRY",
+"info": {
+"abbr": "BRY",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1169161,
+"popYear": "2021 census",
+"area": 34857,
+"flag": true,
+"facts": {
+"ru": "Брянская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Desna",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Bryansk Forest reserve",
+"animal": "European bison",
+"industry": "Engineering (locomotives)",
+"year": 1944
+},
+"coastal": false,
+"borders": [
+"Belarus",
+"Ukraine"
+],
+"areaRank": 62
+},
+"flagKey": "ru/RU-BRY",
+"capLL": [
+[
+34.43,
+53.26
+]
+]
+},
+{
+"iso": "RU-BU",
+"id": "RU-BU",
+"name": "Buryatia",
+"names": [
+"Buryatia",
+"Buryat Republic",
+"Buryatia Republic",
+"Republic of Buryatia"
+],
+"capitals": [
+"Ulan-Ude"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-BU",
+"info": {
+"abbr": "BU",
+"kind": "Republic",
+"region": "Far Eastern",
+"pop": 978588,
+"popYear": "2021 census",
+"area": 351334,
+"flag": true,
+"facts": {
+"ru": "Республика Бурятия",
+"ethnic": "Russians and Buryats",
+"langs": "Buryat",
+"religion": "Buddhist, Orthodox and shamanism",
+"dish": "Buuz (steamed dumplings)",
+"river": "Selenga",
+"climate": "Sharply continental",
+"high": "Munku-Sardyk, 3,491 m",
+"tz": "UTC+8",
+"nature": "Lake Baikal's eastern shore",
+"animal": "Baikal seal (nerpa)",
+"unesco": "Lake Baikal",
+"soviet": "Buryat-Mongol ASSR",
+"transsib": true,
+"industry": "Mining and aircraft (Ulan-Ude)",
+"year": 1923
+},
+"coastal": false,
+"borders": [
+"Mongolia"
+],
+"areaRank": 14
+},
+"flagKey": "ru/RU-BU",
+"capLL": [
+[
+107.625,
+51.825
+]
+]
+},
+{
+"iso": "RU-CE",
+"id": "RU-CE",
+"name": "Chechnya",
+"names": [
+"Chechnya",
+"Chechen Republic",
+"Chechnia",
+"Chechnya Republic",
+"Republic of Chechnya"
+],
+"capitals": [
+"Grozny"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-CE",
+"info": {
+"abbr": "CE",
+"kind": "Republic",
+"region": "North Caucasian",
+"pop": 1510824,
+"popYear": "2021 census",
+"area": 16165,
+"flag": true,
+"facts": {
+"ru": "Чеченская Республика",
+"ethnic": "Chechens",
+"langs": "Chechen",
+"religion": "Muslim",
+"dish": "Zhizhig-galnash (meat with dumplings)",
+"river": "Terek and Sunzha",
+"climate": "Continental, mountainous in the south",
+"high": "Tebulosmta, 4,493 m",
+"tz": "UTC+3",
+"nature": "Lake Kezenoyam",
+"joined": "1859",
+"soviet": "Checheno-Ingush ASSR (with Ingushetia)",
+"industry": "Oil",
+"year": 1991
+},
+"coastal": false,
+"borders": [
+"Georgia"
+],
+"areaRank": 75
+},
+"flagKey": "ru/RU-CE",
+"capLL": [
+[
+45.699,
+43.319
+]
+]
+},
+{
+"iso": "RU-CHE",
+"id": "RU-CHE",
+"name": "Chelyabinsk Oblast",
+"names": [
+"Chelyabinsk Oblast",
+"Chelyabinsk",
+"Chelyabinsk Region"
+],
+"capitals": [
+"Chelyabinsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-CHE",
+"info": {
+"abbr": "CHE",
+"kind": "Oblast",
+"region": "Ural",
+"pop": 3431224,
+"popYear": "2021 census",
+"area": 88529,
+"flag": true,
+"facts": {
+"ru": "Челябинская область",
+"ethnic": "Russians, with Tatars and Bashkirs",
+"religion": "Russian Orthodox",
+"craft": "Zlatoust engraved steel and Kasli iron casting",
+"river": "Ural and Miass",
+"climate": "Continental",
+"high": "Big Nurgush, 1,406 m",
+"tz": "UTC+5",
+"nature": "Lake Zyuratkul and Taganay National Park",
+"transsib": true,
+"industry": "Steel (Magnitogorsk) and metalworking",
+"year": 1934
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 36
+},
+"flagKey": "ru/RU-CHE",
+"capLL": [
+[
+61.437,
+55.157
+]
+]
+},
+{
+"iso": "RU-CHU",
+"id": "RU-CHU",
+"name": "Chukotka",
+"names": [
+"Chukotka",
+"Chukotka Autonomous Okrug",
+"Chukchi"
+],
+"capitals": [
+"Anadyr"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-CHU",
+"info": {
+"abbr": "CHU",
+"kind": "Autonomous okrug",
+"region": "Far Eastern",
+"pop": 47490,
+"popYear": "2021 census",
+"area": 721481,
+"flag": true,
+"facts": {
+"ru": "Чукотский автономный округ",
+"ethnic": "Russians and Chukchi",
+"langs": "Chukchi, Yupik and Even",
+"religion": "Orthodox and shamanism",
+"craft": "Walrus-ivory carving",
+"river": "Anadyr",
+"climate": "Arctic and subarctic",
+"high": "Iskhodnaya, 1,887 m",
+"tz": "UTC+12",
+"nature": "Wrangel Island",
+"animal": "Polar bear and walrus",
+"unesco": "Wrangel Island",
+"joined": "1778 (fully under Russian control)",
+"industry": "Gold and reindeer herding",
+"year": 1930
+},
+"coastal": true,
+"borders": [],
+"areaRank": 6
+},
+"flagKey": "ru/RU-CHU",
+"capLL": [
+[
+177.475,
+64.737
+]
+]
+},
+{
+"iso": "RU-CU",
+"id": "RU-CU",
+"name": "Chuvashia",
+"names": [
+"Chuvashia",
+"Chuvash Republic",
+"Chuvashiya",
+"Chuvashia Republic",
+"Republic of Chuvashia"
+],
+"capitals": [
+"Cheboksary"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-CU",
+"info": {
+"abbr": "CU",
+"kind": "Republic",
+"region": "Volga",
+"pop": 1186909,
+"popYear": "2021 census",
+"area": 18343,
+"flag": true,
+"facts": {
+"ru": "Чувашская Республика",
+"ethnic": "Chuvash and Russians",
+"langs": "Chuvash",
+"religion": "Russian Orthodox",
+"craft": "Chuvash embroidery",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Chavash Varmane National Park",
+"joined": "1551",
+"soviet": "Chuvash ASSR",
+"industry": "Electrical engineering and tractors",
+"year": 1920
+},
+"coastal": false,
+"borders": [],
+"areaRank": 74
+},
+"flagKey": "ru/RU-CU",
+"capLL": [
+[
+47.25,
+56.13
+]
+]
+},
+{
+"iso": "RU-DA",
+"id": "RU-DA",
+"name": "Dagestan",
+"names": [
+"Dagestan",
+"Dagestan Republic",
+"Republic of Dagestan"
+],
+"capitals": [
+"Makhachkala"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-DA",
+"info": {
+"abbr": "DA",
+"kind": "Republic",
+"region": "North Caucasian",
+"pop": 3182054,
+"popYear": "2021 census",
+"area": 50270,
+"flag": true,
+"facts": {
+"ru": "Республика Дагестан",
+"ethnic": "Avars, Dargins, Kumyks, Lezgins and over 30 more peoples",
+"langs": "14 official languages, including Avar, Dargin, Kumyk and Lezgin",
+"religion": "Muslim",
+"dish": "Khinkal (Dagestani dumplings)",
+"craft": "Kubachi silverwork and Dagestani carpets",
+"river": "Sulak and Terek",
+"climate": "Semi-arid on the Caspian, alpine in the mountains",
+"high": "Bazardyuzyu, 4,466 m",
+"tz": "UTC+3",
+"nature": "Sulak Canyon, one of the world's deepest",
+"animal": "Dagestan tur",
+"unesco": "Derbent, Russia's oldest city",
+"joined": "1813",
+"industry": "Farming, wine and brandy (Kizlyar)",
+"year": 1921
+},
+"coastal": true,
+"borders": [
+"Azerbaijan",
+"Georgia"
+],
+"areaRank": 52
+},
+"flagKey": "ru/RU-DA",
+"capLL": [
+[
+47.5,
+42.98
+]
+]
+},
+{
+"iso": "RU-IN",
+"id": "RU-IN",
+"name": "Ingushetia",
+"names": [
+"Ingushetia",
+"Ingush Republic",
+"Ingushetia Republic",
+"Republic of Ingushetia"
+],
+"capitals": [
+"Magas"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-IN",
+"info": {
+"abbr": "IN",
+"kind": "Republic",
+"region": "North Caucasian",
+"pop": 509541,
+"popYear": "2021 census",
+"area": 3628,
+"flag": true,
+"facts": {
+"ru": "Республика Ингушетия",
+"ethnic": "Ingush",
+"langs": "Ingush",
+"religion": "Muslim",
+"river": "Sunzha",
+"climate": "Continental, mountainous in the south",
+"high": "Mount Shan, 4,451 m",
+"tz": "UTC+3",
+"nature": "Dzheyrakh-Assa reserve, with medieval stone towers",
+"soviet": "Checheno-Ingush ASSR (with Chechnya)",
+"industry": "Farming",
+"city": "Nazran",
+"year": 1992
+},
+"coastal": false,
+"borders": [
+"Georgia"
+],
+"areaRank": 81
+},
+"flagKey": "ru/RU-IN",
+"capLL": [
+[
+44.81,
+43.17
+]
+]
+},
+{
+"iso": "RU-IRK",
+"id": "RU-IRK",
+"name": "Irkutsk Oblast",
+"names": [
+"Irkutsk Oblast",
+"Irkutsk",
+"Irkutsk Region"
+],
+"capitals": [
+"Irkutsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-IRK",
+"info": {
+"abbr": "IRK",
+"kind": "Oblast",
+"region": "Siberian",
+"pop": 2370102,
+"popYear": "2021 census",
+"area": 774846,
+"flag": true,
+"facts": {
+"ru": "Иркутская область",
+"ethnic": "Russians, with Buryats",
+"religion": "Russian Orthodox",
+"dish": "Omul (Baikal fish)",
+"river": "Angara",
+"climate": "Sharply continental",
+"tz": "UTC+8",
+"nature": "Lake Baikal and Olkhon Island",
+"animal": "Baikal seal (nerpa)",
+"unesco": "Lake Baikal",
+"joined": "1661 (Irkutsk founded)",
+"transsib": true,
+"industry": "Aluminium, timber and aircraft (Irkut)",
+"year": 1937
+},
+"coastal": false,
+"borders": [],
+"areaRank": 4
+},
+"flagKey": "ru/RU-IRK",
+"capLL": [
+[
+104.245,
+52.32
+]
+]
+},
+{
+"iso": "RU-IVA",
+"id": "RU-IVA",
+"name": "Ivanovo Oblast",
+"names": [
+"Ivanovo Oblast",
+"Ivanovo",
+"Ivanovo Region"
+],
+"capitals": [
+"Ivanovo"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-IVA",
+"info": {
+"abbr": "IVA",
+"kind": "Oblast",
+"region": "Central",
+"pop": 927828,
+"popYear": "2021 census",
+"area": 21437,
+"flag": true,
+"facts": {
+"ru": "Ивановская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Palekh lacquer miniatures",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Plyos on the Volga",
+"industry": "Textiles (\"the city of brides\")",
+"year": 1936
+},
+"coastal": false,
+"borders": [],
+"areaRank": 73
+},
+"flagKey": "ru/RU-IVA",
+"capLL": [
+[
+41.01,
+57.01
+]
+]
+},
+{
+"iso": "RU-YEV",
+"id": "RU-YEV",
+"name": "Jewish Autonomous Oblast",
+"names": [
+"Jewish Autonomous Oblast",
+"Jewish Autonomous",
+"Jewish Autonomous Region",
+"Jewish Oblast",
+"Birobidzhan"
+],
+"capitals": [
+"Birobidzhan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-YEV",
+"info": {
+"abbr": "YEV",
+"kind": "Autonomous oblast",
+"region": "Far Eastern",
+"pop": 150453,
+"popYear": "2021 census",
+"area": 36271,
+"flag": true,
+"facts": {
+"ru": "Еврейская автономная область",
+"ethnic": "Russians (Jews are now about 1%)",
+"langs": "Yiddish (official, alongside Russian)",
+"religion": "Russian Orthodox",
+"river": "Amur",
+"climate": "Monsoon, continental",
+"tz": "UTC+10",
+"nature": "Bastak reserve",
+"transsib": true,
+"industry": "Farming and mining",
+"year": 1934
+},
+"coastal": false,
+"borders": [
+"China"
+],
+"areaRank": 60
+},
+"flagKey": "ru/RU-YEV",
+"capLL": [
+[
+132.951,
+48.797
+]
+]
+},
+{
+"iso": "RU-KB",
+"id": "RU-KB",
+"name": "Kabardino-Balkaria",
+"names": [
+"Kabardino-Balkaria",
+"Kabardino Balkaria",
+"Kabardino-Balkaria Republic",
+"Republic of Kabardino-Balkaria"
+],
+"capitals": [
+"Nalchik"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KB",
+"info": {
+"abbr": "KB",
+"kind": "Republic",
+"region": "North Caucasian",
+"pop": 904200,
+"popYear": "2021 census",
+"area": 12470,
+"flag": true,
+"facts": {
+"ru": "Кабардино-Балкарская Республика",
+"ethnic": "Kabardians, Russians and Balkars",
+"langs": "Kabardian and Balkar",
+"religion": "Muslim",
+"river": "Terek and Baksan",
+"climate": "Continental, alpine in the mountains",
+"high": "Mount Elbrus, 5,642 m: Europe's highest",
+"tz": "UTC+3",
+"nature": "Elbrus and the Blue Lakes",
+"animal": "Caucasian tur",
+"soviet": "Kabardino-Balkar ASSR",
+"industry": "Tourism (Elbrus ski slopes) and farming",
+"year": 1936
+},
+"coastal": false,
+"borders": [
+"Georgia"
+],
+"areaRank": 78
+},
+"flagKey": "ru/RU-KB",
+"capLL": [
+[
+43.618,
+43.498
+]
+]
+},
+{
+"iso": "RU-KGD",
+"id": "RU-KGD",
+"name": "Kaliningrad Oblast",
+"names": [
+"Kaliningrad Oblast",
+"Kaliningrad",
+"Kaliningrad Region"
+],
+"capitals": [
+"Kaliningrad",
+"Königsberg",
+"Konigsberg"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KGD",
+"info": {
+"abbr": "KGD",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 1029966,
+"popYear": "2021 census",
+"area": 15125,
+"flag": true,
+"facts": {
+"ru": "Калининградская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Amber jewellery",
+"river": "Pregolya",
+"climate": "Maritime",
+"tz": "UTC+2",
+"nature": "Curonian Spit and its dancing forest",
+"unesco": "Curonian Spit",
+"joined": "1945 (German East Prussia until then)",
+"soviet": "Kept (the city was Königsberg)",
+"industry": "Amber (90% of the world's) and car assembly",
+"year": 1946
+},
+"coastal": true,
+"borders": [
+"Lithuania",
+"Poland"
+],
+"areaRank": 76
+},
+"flagKey": "ru/RU-KGD",
+"capLL": [
+[
+20.497,
+54.7
+]
+]
+},
+{
+"iso": "RU-KL",
+"id": "RU-KL",
+"name": "Kalmykia",
+"names": [
+"Kalmykia",
+"Kalmyk Republic",
+"Kalmykia Republic",
+"Republic of Kalmykia"
+],
+"capitals": [
+"Elista"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KL",
+"info": {
+"abbr": "KL",
+"kind": "Republic",
+"region": "Southern",
+"pop": 267133,
+"popYear": "2021 census",
+"area": 74731,
+"flag": true,
+"facts": {
+"ru": "Республика Калмыкия",
+"ethnic": "Kalmyks and Russians",
+"langs": "Kalmyk (a Mongolic language)",
+"religion": "Buddhist: Europe's only mainly Buddhist region",
+"dish": "Kalmyk tea (with milk, butter and salt)",
+"river": "Volga (on its edge)",
+"climate": "Semi-arid steppe and desert",
+"tz": "UTC+3",
+"nature": "Chyorniye Zemli steppe reserve",
+"animal": "Saiga antelope",
+"joined": "1609",
+"soviet": "Kalmyk ASSR",
+"industry": "Sheep and cattle farming",
+"year": 1957
+},
+"coastal": true,
+"borders": [],
+"areaRank": 42
+},
+"flagKey": "ru/RU-KL",
+"capLL": [
+[
+44.209,
+46.329
+]
+]
+},
+{
+"iso": "RU-KLU",
+"id": "RU-KLU",
+"name": "Kaluga Oblast",
+"names": [
+"Kaluga Oblast",
+"Kaluga",
+"Kaluga Region"
+],
+"capitals": [
+"Kaluga"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KLU",
+"info": {
+"abbr": "KLU",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1069904,
+"popYear": "2021 census",
+"area": 29777,
+"flag": true,
+"facts": {
+"ru": "Калужская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Oka and Ugra",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Ugra National Park",
+"animal": "European bison",
+"industry": "Cars and engineering",
+"year": 1944
+},
+"coastal": false,
+"borders": [],
+"areaRank": 65
+},
+"flagKey": "ru/RU-KLU",
+"capLL": [
+[
+36.27,
+54.52
+]
+]
+},
+{
+"iso": "RU-KAM",
+"id": "RU-KAM",
+"name": "Kamchatka Krai",
+"names": [
+"Kamchatka Krai",
+"Kamchatka",
+"Kamchatka Territory"
+],
+"capitals": [
+"Petropavlovsk-Kamchatsky"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KAM",
+"info": {
+"abbr": "KAM",
+"kind": "Krai",
+"region": "Far Eastern",
+"pop": 291705,
+"popYear": "2021 census",
+"area": 464275,
+"flag": true,
+"facts": {
+"ru": "Камчатский край",
+"ethnic": "Russians, with Koryaks and Itelmens",
+"langs": "Koryak and Itelmen",
+"religion": "Russian Orthodox",
+"dish": "King crab and salmon roe",
+"river": "Kamchatka",
+"climate": "Subarctic maritime",
+"high": "Klyuchevskaya Sopka, 4,750 m: an active volcano",
+"tz": "UTC+12",
+"nature": "Valley of Geysers",
+"animal": "Kamchatka brown bear",
+"unesco": "Volcanoes of Kamchatka",
+"joined": "1697",
+"industry": "Fishing",
+"year": 2007
+},
+"coastal": true,
+"borders": [],
+"areaRank": 8
+},
+"flagKey": "ru/RU-KAM",
+"capLL": [
+[
+158.623,
+53.062
+]
+]
+},
+{
+"iso": "RU-KC",
+"id": "RU-KC",
+"name": "Karachay-Cherkessia",
+"names": [
+"Karachay-Cherkessia",
+"Karachay Cherkessia",
+"Karachayevo-Cherkessia",
+"Karachay-Cherkessia Republic",
+"Republic of Karachay-Cherkessia"
+],
+"capitals": [
+"Cherkessk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KC",
+"info": {
+"abbr": "KC",
+"kind": "Republic",
+"region": "North Caucasian",
+"pop": 469865,
+"popYear": "2021 census",
+"area": 14277,
+"flag": true,
+"facts": {
+"ru": "Карачаево-Черкесская Республика",
+"ethnic": "Karachays, Russians, Cherkess, Abazins and Nogais",
+"langs": "Karachay, Cherkess, Abaza and Nogai",
+"religion": "Muslim and Orthodox",
+"river": "Kuban",
+"climate": "Continental, alpine in the south",
+"high": "Mount Elbrus's western slopes",
+"tz": "UTC+3",
+"nature": "Teberda reserve and Dombay",
+"animal": "Caucasian tur",
+"unesco": "Western Caucasus",
+"industry": "Tourism and cement",
+"year": 1957
+},
+"coastal": false,
+"borders": [
+"Georgia"
+],
+"areaRank": 77
+},
+"flagKey": "ru/RU-KC",
+"capLL": [
+[
+42.06,
+44.29
+]
+]
+},
+{
+"iso": "RU-KR",
+"id": "RU-KR",
+"name": "Karelia",
+"names": [
+"Karelia",
+"Republic of Karelia",
+"Karelia Republic"
+],
+"capitals": [
+"Petrozavodsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KR",
+"info": {
+"abbr": "KR",
+"kind": "Republic",
+"region": "Northwestern",
+"pop": 533121,
+"popYear": "2021 census",
+"area": 180520,
+"flag": true,
+"facts": {
+"ru": "Республика Карелия",
+"ethnic": "Russians and Karelians",
+"langs": "Karelian, Finnish and Vepsian (regional)",
+"religion": "Russian Orthodox",
+"dish": "Kalitki (rye pies)",
+"craft": "Karelian birch",
+"river": "Kem (and Lake Onega)",
+"climate": "Cool, maritime to subarctic",
+"high": "Nuorunen, 576 m",
+"tz": "UTC+3",
+"nature": "Kivach waterfall and Lake Onega",
+"animal": "Ladoga ringed seal",
+"unesco": "Kizhi Pogost (wooden churches)",
+"joined": "1721 (most of it)",
+"soviet": "Karelo-Finnish SSR (1940–1956)",
+"industry": "Timber and paper",
+"year": 1956
+},
+"coastal": true,
+"borders": [
+"Finland"
+],
+"areaRank": 17
+},
+"flagKey": "ru/RU-KR",
+"capLL": [
+[
+34.28,
+61.85
+]
+]
+},
+{
+"iso": "RU-KEM",
+"id": "RU-KEM",
+"name": "Kemerovo Oblast",
+"names": [
+"Kemerovo Oblast",
+"Kemerovo",
+"Kuzbass",
+"Kemerovo Region"
+],
+"capitals": [
+"Kemerovo"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KEM",
+"info": {
+"abbr": "KEM",
+"kind": "Oblast",
+"region": "Siberian",
+"pop": 2600923,
+"popYear": "2021 census",
+"area": 95725,
+"flag": true,
+"facts": {
+"ru": "Кемеровская область — Кузбасс",
+"ethnic": "Russians, with Shors",
+"religion": "Russian Orthodox",
+"river": "Tom",
+"climate": "Continental",
+"high": "Verkhny Zub, 2,178 m",
+"tz": "UTC+7",
+"nature": "Sheregesh ski resort and Kuznetsk Alatau",
+"transsib": true,
+"industry": "Coal (Kuzbass)",
+"city": "Novokuznetsk",
+"year": 1943
+},
+"coastal": false,
+"borders": [],
+"areaRank": 34
+},
+"flagKey": "ru/RU-KEM",
+"capLL": [
+[
+86.09,
+55.34
+]
+]
+},
+{
+"iso": "RU-KHA",
+"id": "RU-KHA",
+"name": "Khabarovsk Krai",
+"names": [
+"Khabarovsk Krai",
+"Khabarovsk",
+"Khabarovsk Territory"
+],
+"capitals": [
+"Khabarovsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KHA",
+"info": {
+"abbr": "KHA",
+"kind": "Krai",
+"region": "Far Eastern",
+"pop": 1292944,
+"popYear": "2021 census",
+"area": 787633,
+"flag": true,
+"facts": {
+"ru": "Хабаровский край",
+"ethnic": "Russians, with Nanai and Evenks",
+"religion": "Russian Orthodox",
+"river": "Amur",
+"climate": "Monsoon, sharply continental",
+"high": "Mount Berill, 2,933 m",
+"tz": "UTC+10",
+"nature": "Shantar Islands",
+"animal": "Siberian tiger",
+"unesco": "Central Sikhote-Alin (part)",
+"joined": "1858",
+"transsib": true,
+"industry": "Timber, gold and aircraft (Komsomolsk-on-Amur)",
+"year": 1938
+},
+"coastal": true,
+"borders": [
+"China"
+],
+"areaRank": 3
+},
+"flagKey": "ru/RU-KHA",
+"anchorLL": [
+136.86,
+50.856
+],
+"capLL": [
+[
+135.12,
+48.455
+]
+]
+},
+{
+"iso": "RU-KK",
+"id": "RU-KK",
+"name": "Khakassia",
+"names": [
+"Khakassia",
+"Khakasia",
+"Khakassia Republic",
+"Republic of Khakassia"
+],
+"capitals": [
+"Abakan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KK",
+"info": {
+"abbr": "KK",
+"kind": "Republic",
+"region": "Siberian",
+"pop": 534795,
+"popYear": "2021 census",
+"area": 61569,
+"flag": true,
+"facts": {
+"ru": "Республика Хакасия",
+"ethnic": "Russians and Khakas",
+"langs": "Khakas",
+"religion": "Orthodox and shamanism",
+"river": "Yenisei and Abakan",
+"climate": "Sharply continental",
+"tz": "UTC+7",
+"nature": "Shira lakes",
+"soviet": "Khakas Autonomous Oblast",
+"industry": "Aluminium and hydropower (Sayano-Shushenskaya Dam)",
+"year": 1930
+},
+"coastal": false,
+"borders": [],
+"areaRank": 46
+},
+"flagKey": "ru/RU-KK",
+"capLL": [
+[
+91.445,
+53.704
+]
+]
+},
+{
+"iso": "RU-KHM",
+"id": "RU-KHM",
+"name": "Khanty-Mansi",
+"names": [
+"Khanty-Mansi",
+"Yugra",
+"Khanty-Mansi Autonomous Okrug",
+"Khanty-Mansiysk"
+],
+"capitals": [
+"Khanty-Mansiysk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KHM",
+"info": {
+"abbr": "KHM",
+"kind": "Autonomous okrug",
+"region": "Ural",
+"pop": 1711480,
+"popYear": "2021 census",
+"area": 534801,
+"flag": true,
+"facts": {
+"ru": "Ханты-Мансийский автономный округ — Югра",
+"ethnic": "Russians, with Tatars, Khanty and Mansi",
+"langs": "Khanty and Mansi",
+"religion": "Russian Orthodox",
+"river": "Ob and Irtysh (they meet here)",
+"climate": "Subarctic",
+"high": "Mount Narodnaya, 1,895 m: the Urals' highest",
+"tz": "UTC+5",
+"nature": "Yugansky reserve",
+"industry": "Oil (about 40% of Russia's)",
+"city": "Surgut",
+"year": 1930
+},
+"coastal": false,
+"borders": [],
+"areaRank": 7
+},
+"flagKey": "ru/RU-KHM",
+"capLL": [
+[
+69.002,
+61.002
+]
+]
+},
+{
+"iso": "RU-KIR",
+"id": "RU-KIR",
+"name": "Kirov Oblast",
+"names": [
+"Kirov Oblast",
+"Kirov",
+"Kirov Region"
+],
+"capitals": [
+"Kirov",
+"Vyatka"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KIR",
+"info": {
+"abbr": "KIR",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 1153680,
+"popYear": "2021 census",
+"area": 120374,
+"flag": true,
+"facts": {
+"ru": "Кировская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Dymkovo clay toys",
+"river": "Vyatka",
+"climate": "Continental",
+"tz": "UTC+3",
+"soviet": "City renamed Kirov (from Vyatka) in 1934",
+"transsib": true,
+"industry": "Timber and chemicals",
+"year": 1934
+},
+"coastal": false,
+"borders": [],
+"areaRank": 30
+},
+"flagKey": "ru/RU-KIR",
+"notTypo": [
+"Kursk"
+],
+"capLL": [
+[
+49.67,
+58.59
+]
+]
+},
+{
+"iso": "RU-KO",
+"id": "RU-KO",
+"name": "Komi",
+"names": [
+"Komi",
+"Komi Republic",
+"Republic of Komi"
+],
+"capitals": [
+"Syktyvkar"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KO",
+"info": {
+"abbr": "KO",
+"kind": "Republic",
+"region": "Northwestern",
+"pop": 737853,
+"popYear": "2021 census",
+"area": 416774,
+"flag": true,
+"facts": {
+"ru": "Республика Коми",
+"ethnic": "Russians and Komi",
+"langs": "Komi",
+"religion": "Russian Orthodox",
+"river": "Pechora",
+"climate": "Subarctic",
+"high": "Mount Narodnaya's western slopes (Ural Mountains)",
+"tz": "UTC+3",
+"nature": "Manpupuner rock pillars",
+"unesco": "Virgin Komi Forests",
+"soviet": "Komi ASSR",
+"industry": "Oil, gas and coal (Vorkuta)",
+"year": 1921
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11
+},
+"flagKey": "ru/RU-KO",
+"capLL": [
+[
+50.82,
+61.66
+]
+]
+},
+{
+"iso": "RU-KOS",
+"id": "RU-KOS",
+"name": "Kostroma Oblast",
+"names": [
+"Kostroma Oblast",
+"Kostroma",
+"Kostroma Region"
+],
+"capitals": [
+"Kostroma"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KOS",
+"info": {
+"abbr": "KOS",
+"kind": "Oblast",
+"region": "Central",
+"pop": 580976,
+"popYear": "2021 census",
+"area": 60211,
+"flag": true,
+"facts": {
+"ru": "Костромская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Krasnoe-on-Volga jewellery",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Kologriv Forest reserve",
+"transsib": true,
+"industry": "Timber and jewellery",
+"year": 1944
+},
+"coastal": false,
+"borders": [],
+"areaRank": 47
+},
+"flagKey": "ru/RU-KOS",
+"capLL": [
+[
+40.94,
+57.77
+]
+]
+},
+{
+"iso": "RU-KDA",
+"id": "RU-KDA",
+"name": "Krasnodar Krai",
+"names": [
+"Krasnodar Krai",
+"Krasnodar",
+"Krasnodar Territory"
+],
+"capitals": [
+"Krasnodar"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KDA",
+"info": {
+"abbr": "KDA",
+"kind": "Krai",
+"region": "Southern",
+"pop": 5838273,
+"popYear": "2021 census",
+"area": 75485,
+"flag": true,
+"facts": {
+"ru": "Краснодарский край",
+"ethnic": "Russians, with Armenians",
+"religion": "Russian Orthodox",
+"dish": "Kuban borscht",
+"river": "Kuban",
+"climate": "Temperate; humid subtropical on the Black Sea coast",
+"high": "Tsakhvoa, 3,346 m",
+"tz": "UTC+3",
+"nature": "Sochi National Park",
+"unesco": "Western Caucasus",
+"joined": "1792 (the Black Sea Cossacks)",
+"industry": "Farming, wine and Black Sea resorts (Sochi)",
+"year": 1937
+},
+"coastal": true,
+"borders": [
+"Georgia"
+],
+"areaRank": 41
+},
+"flagKey": "ru/RU-KDA",
+"capLL": [
+[
+39.0,
+45.02
+]
+]
+},
+{
+"iso": "RU-KYA",
+"id": "RU-KYA",
+"name": "Krasnoyarsk Krai",
+"names": [
+"Krasnoyarsk Krai",
+"Krasnoyarsk",
+"Krasnoyarsk Territory"
+],
+"capitals": [
+"Krasnoyarsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KYA",
+"info": {
+"abbr": "KYA",
+"kind": "Krai",
+"region": "Siberian",
+"pop": 2856971,
+"popYear": "2021 census",
+"area": 2366797,
+"flag": true,
+"facts": {
+"ru": "Красноярский край",
+"ethnic": "Russians, with Evenks, Dolgans and Nenets",
+"religion": "Russian Orthodox",
+"river": "Yenisei",
+"climate": "Continental to Arctic",
+"high": "Grandiozny Peak, 2,922 m",
+"tz": "UTC+7",
+"nature": "Stolby rock pillars and the Putorana Plateau",
+"animal": "Polar bear (on the Taymyr coast)",
+"cold": "Evenkia: about −64 °C",
+"unesco": "Putorana Plateau",
+"transsib": true,
+"joined": "1628 (Krasnoyarsk founded)",
+"industry": "Nickel (Norilsk), aluminium and hydropower",
+"year": 1934
+},
+"coastal": true,
+"borders": [],
+"areaRank": 2
+},
+"flagKey": "ru/RU-KYA",
+"capLL": [
+[
+92.864,
+56.016
+]
+]
+},
+{
+"iso": "RU-KGN",
+"id": "RU-KGN",
+"name": "Kurgan Oblast",
+"names": [
+"Kurgan Oblast",
+"Kurgan",
+"Kurgan Region"
+],
+"capitals": [
+"Kurgan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KGN",
+"info": {
+"abbr": "KGN",
+"kind": "Oblast",
+"region": "Ural",
+"pop": 776661,
+"popYear": "2021 census",
+"area": 71488,
+"flag": true,
+"facts": {
+"ru": "Курганская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Tobol",
+"climate": "Continental steppe",
+"tz": "UTC+5",
+"transsib": true,
+"industry": "Buses (KAvZ) and farming",
+"year": 1943
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 43
+},
+"flagKey": "ru/RU-KGN",
+"notTypo": [
+"Kursk"
+],
+"capLL": [
+[
+65.345,
+55.46
+]
+]
+},
+{
+"iso": "RU-KRS",
+"id": "RU-KRS",
+"name": "Kursk Oblast",
+"names": [
+"Kursk Oblast",
+"Kursk",
+"Kursk Region"
+],
+"capitals": [
+"Kursk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-KRS",
+"info": {
+"abbr": "KRS",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1082458,
+"popYear": "2021 census",
+"area": 29997,
+"flag": true,
+"facts": {
+"ru": "Курская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Antonovka apples",
+"river": "Seym",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Central Black Earth reserve",
+"industry": "Iron ore (Kursk Magnetic Anomaly) and a nuclear plant",
+"year": 1934
+},
+"coastal": false,
+"borders": [
+"Ukraine"
+],
+"areaRank": 64
+},
+"flagKey": "ru/RU-KRS",
+"notTypo": [
+"Kirov",
+"Kurgan"
+],
+"capLL": [
+[
+36.19,
+51.74
+]
+]
+},
+{
+"iso": "RU-LEN",
+"id": "RU-LEN",
+"name": "Leningrad Oblast",
+"names": [
+"Leningrad Oblast",
+"Leningrad",
+"Leningrad Region"
+],
+"capitals": [
+"Gatchina",
+"Saint Petersburg",
+"St Petersburg",
+"St. Petersburg"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-LEN",
+"info": {
+"abbr": "LEN",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 2000997,
+"popYear": "2021 census",
+"area": 83908,
+"flag": true,
+"facts": {
+"ru": "Ленинградская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Neva and Svir",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "Lake Ladoga, Europe's largest lake",
+"animal": "Ladoga ringed seal",
+"unesco": "Historic Centre of Saint Petersburg (palaces and parks around it)",
+"joined": "1721 (Treaty of Nystad)",
+"soviet": "Kept (from Leningrad, the city's Soviet name)",
+"industry": "Ports (Ust-Luga) and oil refining",
+"year": 1927
+},
+"coastal": true,
+"borders": [
+"Estonia",
+"Finland"
+],
+"areaRank": 39
+},
+"flagKey": "ru/RU-LEN",
+"capLL": [
+[
+30.133,
+59.571
+]
+]
+},
+{
+"iso": "RU-LIP",
+"id": "RU-LIP",
+"name": "Lipetsk Oblast",
+"names": [
+"Lipetsk Oblast",
+"Lipetsk",
+"Lipetsk Region"
+],
+"capitals": [
+"Lipetsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-LIP",
+"info": {
+"abbr": "LIP",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1143224,
+"popYear": "2021 census",
+"area": 24047,
+"flag": true,
+"facts": {
+"ru": "Липецкая область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Yelets lace",
+"river": "Don",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Galichya Gora reserve",
+"industry": "Steel (NLMK)",
+"year": 1954
+},
+"coastal": false,
+"borders": [],
+"areaRank": 71
+},
+"flagKey": "ru/RU-LIP",
+"capLL": [
+[
+39.64,
+52.62
+]
+]
+},
+{
+"iso": "RU-MAG",
+"id": "RU-MAG",
+"name": "Magadan Oblast",
+"names": [
+"Magadan Oblast",
+"Magadan",
+"Magadan Region"
+],
+"capitals": [
+"Magadan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-MAG",
+"info": {
+"abbr": "MAG",
+"kind": "Oblast",
+"region": "Far Eastern",
+"pop": 136085,
+"popYear": "2021 census",
+"area": 462464,
+"flag": true,
+"facts": {
+"ru": "Магаданская область",
+"ethnic": "Russians, with Evens",
+"religion": "Russian Orthodox",
+"river": "Kolyma",
+"climate": "Subarctic",
+"tz": "UTC+11",
+"nature": "Lake Jack London",
+"animal": "Steller's sea eagle",
+"industry": "Gold and silver",
+"year": 1953
+},
+"coastal": true,
+"borders": [],
+"areaRank": 9
+},
+"flagKey": "ru/RU-MAG",
+"capLL": [
+[
+150.81,
+59.575
+]
+]
+},
+{
+"iso": "RU-ME",
+"id": "RU-ME",
+"name": "Mari El",
+"names": [
+"Mari El",
+"Mari",
+"Mari El Republic",
+"Republic of Mari El"
+],
+"capitals": [
+"Yoshkar-Ola"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ME",
+"info": {
+"abbr": "ME",
+"kind": "Republic",
+"region": "Volga",
+"pop": 677097,
+"popYear": "2021 census",
+"area": 23375,
+"flag": true,
+"facts": {
+"ru": "Республика Марий Эл",
+"ethnic": "Russians and Mari",
+"langs": "Meadow Mari and Hill Mari",
+"religion": "Orthodox and the Mari traditional religion",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Mari Chodra National Park",
+"soviet": "Mari ASSR",
+"industry": "Engineering and farming",
+"year": 1920
+},
+"coastal": false,
+"borders": [],
+"areaRank": 72
+},
+"flagKey": "ru/RU-ME",
+"capLL": [
+[
+47.875,
+56.635
+]
+]
+},
+{
+"iso": "RU-MO",
+"id": "RU-MO",
+"name": "Mordovia",
+"names": [
+"Mordovia",
+"Mordovia Republic",
+"Republic of Mordovia"
+],
+"capitals": [
+"Saransk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-MO",
+"info": {
+"abbr": "MO",
+"kind": "Republic",
+"region": "Volga",
+"pop": 783552,
+"popYear": "2021 census",
+"area": 26128,
+"flag": true,
+"facts": {
+"ru": "Республика Мордовия",
+"ethnic": "Russians and Mordvins (Erzya and Moksha)",
+"langs": "Erzya and Moksha",
+"religion": "Russian Orthodox",
+"craft": "Mordvin embroidery",
+"river": "Moksha and Sura",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Smolny National Park",
+"soviet": "Mordovian ASSR",
+"industry": "Lighting and cables",
+"year": 1930
+},
+"coastal": false,
+"borders": [],
+"areaRank": 68
+},
+"flagKey": "ru/RU-MO",
+"capLL": [
+[
+45.18,
+54.17
+]
+]
+},
+{
+"iso": "RU-MOW",
+"id": "RU-MOW",
+"name": "Moscow",
+"names": [
+"Moscow",
+"Moscow City",
+"Moskva"
+],
+"capitals": [
+"Moscow"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-MOW",
+"info": {
+"abbr": "MOW",
+"kind": "Federal city",
+"region": "Central",
+"pop": 13010112,
+"popYear": "2021 census",
+"area": 2561,
+"flag": true,
+"facts": {
+"ru": "Москва",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Olivier salad (first made in Moscow)",
+"river": "Moskva",
+"climate": "Humid continental",
+"high": "Teply Stan, 255 m",
+"tz": "UTC+3",
+"nature": "Losiny Ostrov National Park",
+"animal": "Moose (in Losiny Ostrov)",
+"cold": "−42.1 °C (1940)",
+"unesco": "The Kremlin and Red Square, Novodevichy Convent and Kolomenskoye",
+"transsib": true,
+"industry": "Finance, government and services",
+"year": 1147
+},
+"coastal": false,
+"borders": [],
+"areaRank": 82
+},
+"flagKey": "ru/RU-MOW",
+"notTypo": [
+"Moscow Oblast"
+],
+"capLL": [
+[
+37.614,
+55.754
+]
+]
+},
+{
+"iso": "RU-MOS",
+"id": "RU-MOS",
+"name": "Moscow Oblast",
+"names": [
+"Moscow Oblast",
+"Moscow",
+"Moscow Region"
+],
+"capitals": [
+"Krasnogorsk",
+"Moscow"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-MOS",
+"info": {
+"abbr": "MOS",
+"kind": "Oblast",
+"region": "Central",
+"pop": 8524665,
+"popYear": "2021 census",
+"area": 44329,
+"flag": true,
+"facts": {
+"ru": "Московская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Kolomna pastila",
+"craft": "Gzhel pottery, Zhostovo trays and Sergiev Posad matryoshkas",
+"river": "Moskva and Oka",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "Prioksko-Terrasny bison reserve",
+"unesco": "Trinity Lavra of St. Sergius (Sergiev Posad)",
+"transsib": true,
+"industry": "Manufacturing and science towns",
+"city": "Balashikha",
+"year": 1929
+},
+"coastal": false,
+"borders": [],
+"areaRank": 55
+},
+"flagKey": "ru/RU-MOS",
+"anchorLL": [
+38.412,
+55.318
+],
+"notTypo": [
+"Moscow"
+],
+"capLL": [
+[
+142.09,
+48.462
+]
+]
+},
+{
+"iso": "RU-MUR",
+"id": "RU-MUR",
+"name": "Murmansk Oblast",
+"names": [
+"Murmansk Oblast",
+"Murmansk",
+"Murmansk Region"
+],
+"capitals": [
+"Murmansk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-MUR",
+"info": {
+"abbr": "MUR",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 667744,
+"popYear": "2021 census",
+"area": 144902,
+"flag": true,
+"facts": {
+"ru": "Мурманская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Ponoy",
+"climate": "Subarctic",
+"high": "Chasnachorr, 1,191 m (Khibiny)",
+"tz": "UTC+3",
+"nature": "Northern lights and the Khibiny mountains",
+"industry": "Fishing, mining and nuclear icebreakers",
+"year": 1938
+},
+"coastal": true,
+"borders": [
+"Finland",
+"Norway"
+],
+"areaRank": 25
+},
+"flagKey": "ru/RU-MUR",
+"capLL": [
+[
+33.1,
+68.97
+]
+]
+},
+{
+"iso": "RU-NEN",
+"id": "RU-NEN",
+"name": "Nenets",
+"names": [
+"Nenets",
+"Nenets Autonomous Okrug"
+],
+"capitals": [
+"Naryan-Mar"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-NEN",
+"info": {
+"abbr": "NEN",
+"kind": "Autonomous okrug",
+"region": "Northwestern",
+"pop": 41434,
+"popYear": "2021 census",
+"area": 176810,
+"flag": true,
+"facts": {
+"ru": "Ненецкий автономный округ",
+"ethnic": "Russians and Nenets",
+"langs": "Nenets",
+"religion": "Russian Orthodox",
+"river": "Pechora",
+"climate": "Arctic tundra",
+"tz": "UTC+3",
+"nature": "Nenets reserve",
+"animal": "Reindeer",
+"industry": "Oil and reindeer herding",
+"year": 1929
+},
+"coastal": true,
+"borders": [],
+"areaRank": 19
+},
+"flagKey": "ru/RU-NEN",
+"notTypo": [
+"Yamalo-Nenets"
+],
+"capLL": [
+[
+53.057,
+67.647
+]
+]
+},
+{
+"iso": "RU-NIZ",
+"id": "RU-NIZ",
+"name": "Nizhny Novgorod Oblast",
+"names": [
+"Nizhny Novgorod Oblast",
+"Nizhny Novgorod",
+"Nizhniy Novgorod Oblast",
+"Nizhegorod Oblast",
+"Nizhny Novgorod Region"
+],
+"capitals": [
+"Nizhny Novgorod",
+"Nizhniy Novgorod",
+"Gorky"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-NIZ",
+"info": {
+"abbr": "NIZ",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 3119115,
+"popYear": "2021 census",
+"area": 76624,
+"flag": true,
+"facts": {
+"ru": "Нижегородская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Khokhloma and Gorodets painting",
+"river": "Volga and Oka (they meet here)",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Kerzhensky reserve",
+"soviet": "Gorky Oblast (1932–1990)",
+"transsib": true,
+"industry": "Cars and trucks (GAZ)",
+"year": 1936
+},
+"coastal": false,
+"borders": [],
+"areaRank": 40
+},
+"flagKey": "ru/RU-NIZ",
+"capLL": [
+[
+43.998,
+56.335
+]
+]
+},
+{
+"iso": "RU-SE",
+"id": "RU-SE",
+"name": "North Ossetia–Alania",
+"names": [
+"North Ossetia–Alania",
+"North Ossetia",
+"Alania",
+"North Ossetia-Alania",
+"North Ossetia–Alania Republic",
+"Republic of North Ossetia–Alania"
+],
+"capitals": [
+"Vladikavkaz"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SE",
+"info": {
+"abbr": "SE",
+"kind": "Republic",
+"region": "North Caucasian",
+"pop": 687357,
+"popYear": "2021 census",
+"area": 7987,
+"flag": true,
+"facts": {
+"ru": "Республика Северная Осетия — Алания",
+"ethnic": "Ossetians and Russians",
+"langs": "Ossetian",
+"religion": "Orthodox, the Ossetian traditional faith and Muslim",
+"dish": "Ossetian pies",
+"river": "Terek",
+"climate": "Continental, alpine in the south",
+"high": "Dzhimara, 4,780 m",
+"tz": "UTC+3",
+"nature": "Tsey gorge and Dargavs \"city of the dead\"",
+"joined": "1774",
+"soviet": "North Ossetian ASSR (Vladikavkaz was Ordzhonikidze)",
+"industry": "Zinc and lead (Electrozinc)",
+"year": 1924
+},
+"coastal": false,
+"borders": [
+"Georgia"
+],
+"areaRank": 79
+},
+"flagKey": "ru/RU-SE",
+"capLL": [
+[
+44.67,
+43.05
+]
+]
+},
+{
+"iso": "RU-NGR",
+"id": "RU-NGR",
+"name": "Novgorod Oblast",
+"names": [
+"Novgorod Oblast",
+"Novgorod",
+"Veliky Novgorod Oblast",
+"Novgorod Region"
+],
+"capitals": [
+"Veliky Novgorod",
+"Novgorod"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-NGR",
+"info": {
+"abbr": "NGR",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 583387,
+"popYear": "2021 census",
+"area": 54501,
+"flag": true,
+"facts": {
+"ru": "Новгородская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Volkhov",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "Lake Ilmen and the Valdai Hills",
+"unesco": "Historic Monuments of Novgorod",
+"industry": "Fertilisers and chemicals",
+"year": 1944
+},
+"coastal": false,
+"borders": [],
+"areaRank": 49
+},
+"flagKey": "ru/RU-NGR",
+"notTypo": [
+"Nizhny Novgorod"
+],
+"capLL": [
+[
+31.33,
+58.5
+]
+]
+},
+{
+"iso": "RU-NVS",
+"id": "RU-NVS",
+"name": "Novosibirsk Oblast",
+"names": [
+"Novosibirsk Oblast",
+"Novosibirsk",
+"Novosibirsk Region"
+],
+"capitals": [
+"Novosibirsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-NVS",
+"info": {
+"abbr": "NVS",
+"kind": "Oblast",
+"region": "Siberian",
+"pop": 2797176,
+"popYear": "2021 census",
+"area": 177756,
+"flag": true,
+"facts": {
+"ru": "Новосибирская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Ob",
+"climate": "Continental",
+"tz": "UTC+7",
+"nature": "Lake Chany and the Vasyugan Swamp",
+"transsib": true,
+"industry": "Science (Akademgorodok) and engineering",
+"year": 1937
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 18
+},
+"flagKey": "ru/RU-NVS",
+"capLL": [
+[
+82.958,
+55.032
+]
+]
+},
+{
+"iso": "RU-OMS",
+"id": "RU-OMS",
+"name": "Omsk Oblast",
+"names": [
+"Omsk Oblast",
+"Omsk",
+"Omsk Region"
+],
+"capitals": [
+"Omsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-OMS",
+"info": {
+"abbr": "OMS",
+"kind": "Oblast",
+"region": "Siberian",
+"pop": 1858798,
+"popYear": "2021 census",
+"area": 141140,
+"flag": true,
+"facts": {
+"ru": "Омская область",
+"ethnic": "Russians, with Kazakhs",
+"religion": "Russian Orthodox",
+"river": "Irtysh",
+"climate": "Continental",
+"tz": "UTC+6",
+"transsib": true,
+"industry": "Oil refining",
+"year": 1934
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 28
+},
+"flagKey": "ru/RU-OMS",
+"notTypo": [
+"Tomsk"
+],
+"capLL": [
+[
+73.398,
+54.992
+]
+]
+},
+{
+"iso": "RU-ORE",
+"id": "RU-ORE",
+"name": "Orenburg Oblast",
+"names": [
+"Orenburg Oblast",
+"Orenburg",
+"Orenburg Region"
+],
+"capitals": [
+"Orenburg"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ORE",
+"info": {
+"abbr": "ORE",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 1862767,
+"popYear": "2021 census",
+"area": 123702,
+"flag": true,
+"facts": {
+"ru": "Оренбургская область",
+"ethnic": "Russians, Tatars and Kazakhs",
+"religion": "Orthodox and Muslim",
+"craft": "Orenburg downy shawls",
+"river": "Ural",
+"climate": "Continental steppe",
+"tz": "UTC+5",
+"nature": "Orenburg steppe reserve",
+"industry": "Gas and farming",
+"year": 1934
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 29
+},
+"flagKey": "ru/RU-ORE",
+"capLL": [
+[
+55.11,
+51.78
+]
+]
+},
+{
+"iso": "RU-ORL",
+"id": "RU-ORL",
+"name": "Oryol Oblast",
+"names": [
+"Oryol Oblast",
+"Oryol",
+"Orel Oblast",
+"Oryol Region"
+],
+"capitals": [
+"Oryol",
+"Orel"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ORL",
+"info": {
+"abbr": "ORL",
+"kind": "Oblast",
+"region": "Central",
+"pop": 713374,
+"popYear": "2021 census",
+"area": 24652,
+"flag": true,
+"facts": {
+"ru": "Орловская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Oka",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Orlovskoye Polesye National Park",
+"industry": "Farming and engineering",
+"year": 1937
+},
+"coastal": false,
+"borders": [],
+"areaRank": 70
+},
+"flagKey": "ru/RU-ORL",
+"capLL": [
+[
+36.07,
+52.97
+]
+]
+},
+{
+"iso": "RU-PNZ",
+"id": "RU-PNZ",
+"name": "Penza Oblast",
+"names": [
+"Penza Oblast",
+"Penza",
+"Penza Region"
+],
+"capitals": [
+"Penza"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-PNZ",
+"info": {
+"abbr": "PNZ",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 1266348,
+"popYear": "2021 census",
+"area": 43352,
+"flag": true,
+"facts": {
+"ru": "Пензенская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Abashevo clay toys",
+"river": "Sura",
+"climate": "Continental",
+"tz": "UTC+3",
+"industry": "Engineering and farming",
+"year": 1939
+},
+"coastal": false,
+"borders": [],
+"areaRank": 56
+},
+"flagKey": "ru/RU-PNZ",
+"notTypo": [
+"Perm"
+],
+"capLL": [
+[
+45.0,
+53.18
+]
+]
+},
+{
+"iso": "RU-PER",
+"id": "RU-PER",
+"name": "Perm Krai",
+"names": [
+"Perm Krai",
+"Perm",
+"Perm Territory"
+],
+"capitals": [
+"Perm"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-PER",
+"info": {
+"abbr": "PER",
+"kind": "Krai",
+"region": "Volga",
+"pop": 2532405,
+"popYear": "2021 census",
+"area": 160236,
+"flag": true,
+"facts": {
+"ru": "Пермский край",
+"ethnic": "Russians, with Komi-Permyaks and Tatars",
+"langs": "Komi-Permyak",
+"religion": "Russian Orthodox",
+"dish": "Pelmeni and posikunchiki",
+"river": "Kama",
+"climate": "Continental",
+"high": "Tulymsky Kamen, 1,469 m",
+"tz": "UTC+5",
+"nature": "Kungur Ice Cave",
+"soviet": "Molotov Oblast (1940–1957)",
+"transsib": true,
+"industry": "Potash, oil and chemicals",
+"year": 2005
+},
+"coastal": false,
+"borders": [],
+"areaRank": 23
+},
+"flagKey": "ru/RU-PER",
+"notTypo": [
+"Penza"
+],
+"capLL": [
+[
+56.248,
+58.002
+]
+]
+},
+{
+"iso": "RU-PRI",
+"id": "RU-PRI",
+"name": "Primorsky Krai",
+"names": [
+"Primorsky Krai",
+"Primorsky",
+"Primorye",
+"Primorski",
+"Primorsky Territory"
+],
+"capitals": [
+"Vladivostok"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-PRI",
+"info": {
+"abbr": "PRI",
+"kind": "Krai",
+"region": "Far Eastern",
+"pop": 1845165,
+"popYear": "2021 census",
+"area": 164673,
+"flag": true,
+"facts": {
+"ru": "Приморский край",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Sea urchins, scallops and trepang",
+"river": "Ussuri",
+"climate": "Monsoon",
+"high": "Oblachnaya, 1,855 m",
+"tz": "UTC+10",
+"nature": "Land of the Leopard National Park",
+"animal": "Amur leopard and Siberian tiger",
+"unesco": "Central Sikhote-Alin",
+"joined": "1860 (Treaty of Peking; Vladivostok founded)",
+"transsib": true,
+"industry": "Ports and fishing (Vladivostok: end of the Trans-Siberian)",
+"year": 1938
+},
+"coastal": true,
+"borders": [
+"China",
+"North Korea"
+],
+"areaRank": 22
+},
+"flagKey": "ru/RU-PRI",
+"capLL": [
+[
+131.91,
+43.13
+]
+]
+},
+{
+"iso": "RU-PSK",
+"id": "RU-PSK",
+"name": "Pskov Oblast",
+"names": [
+"Pskov Oblast",
+"Pskov",
+"Pskov Region"
+],
+"capitals": [
+"Pskov"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-PSK",
+"info": {
+"abbr": "PSK",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 599084,
+"popYear": "2021 census",
+"area": 55399,
+"flag": true,
+"facts": {
+"ru": "Псковская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Snetok (Lake Peipus smelt)",
+"river": "Velikaya",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "Lake Peipus",
+"unesco": "Churches of the Pskov School",
+"industry": "Farming and engineering",
+"year": 1944
+},
+"coastal": false,
+"borders": [
+"Belarus",
+"Estonia",
+"Latvia"
+],
+"areaRank": 48
+},
+"flagKey": "ru/RU-PSK",
+"capLL": [
+[
+28.33,
+57.83
+]
+]
+},
+{
+"iso": "RU-ROS",
+"id": "RU-ROS",
+"name": "Rostov Oblast",
+"names": [
+"Rostov Oblast",
+"Rostov",
+"Rostov-on-Don Oblast",
+"Rostov Region"
+],
+"capitals": [
+"Rostov-on-Don",
+"Rostov-na-Donu",
+"Rostov"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ROS",
+"info": {
+"abbr": "ROS",
+"kind": "Oblast",
+"region": "Southern",
+"pop": 4200729,
+"popYear": "2021 census",
+"area": 100967,
+"flag": true,
+"facts": {
+"ru": "Ростовская область",
+"ethnic": "Russians, with Armenians",
+"religion": "Russian Orthodox",
+"dish": "Don crayfish and dried fish",
+"river": "Don",
+"climate": "Continental steppe",
+"tz": "UTC+3",
+"nature": "Rostov steppe reserve",
+"joined": "1700s (the Don Cossacks)",
+"industry": "Combine harvesters (Rostselmash), grain and coal",
+"year": 1937
+},
+"coastal": true,
+"borders": [
+"Ukraine"
+],
+"areaRank": 33
+},
+"flagKey": "ru/RU-ROS",
+"capLL": [
+[
+39.711,
+47.237
+]
+]
+},
+{
+"iso": "RU-RYA",
+"id": "RU-RYA",
+"name": "Ryazan Oblast",
+"names": [
+"Ryazan Oblast",
+"Ryazan",
+"Ryazan Region"
+],
+"capitals": [
+"Ryazan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-RYA",
+"info": {
+"abbr": "RYA",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1102810,
+"popYear": "2021 census",
+"area": 39605,
+"flag": true,
+"facts": {
+"ru": "Рязанская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Skopin pottery and Mikhailov lace",
+"river": "Oka",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Meshchera National Park",
+"industry": "Oil refining",
+"year": 1937
+},
+"coastal": false,
+"borders": [],
+"areaRank": 58
+},
+"flagKey": "ru/RU-RYA",
+"capLL": [
+[
+39.72,
+54.62
+]
+]
+},
+{
+"iso": "RU-SPE",
+"id": "RU-SPE",
+"name": "Saint Petersburg",
+"names": [
+"Saint Petersburg",
+"St Petersburg",
+"St. Petersburg",
+"Petersburg",
+"Leningrad",
+"St Pete"
+],
+"capitals": [
+"Saint Petersburg",
+"St Petersburg",
+"St. Petersburg",
+"Leningrad"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SPE",
+"info": {
+"abbr": "SPE",
+"kind": "Federal city",
+"region": "Northwestern",
+"pop": 5601911,
+"popYear": "2021 census",
+"area": 1403,
+"flag": true,
+"facts": {
+"ru": "Санкт-Петербург",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Koryushka (smelt)",
+"river": "Neva",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "White nights in June",
+"unesco": "Historic Centre of Saint Petersburg",
+"soviet": "Leningrad (1924–1991); Petrograd before that",
+"industry": "Shipbuilding, ports and tourism",
+"year": 1703
+},
+"coastal": true,
+"borders": [],
+"areaRank": 83
+},
+"flagKey": "ru/RU-SPE",
+"anchorLL": [
+30.343,
+59.783
+],
+"capLL": [
+[
+30.314,
+59.941
+]
+]
+},
+{
+"iso": "RU-SA",
+"id": "RU-SA",
+"name": "Sakha (Yakutia)",
+"names": [
+"Sakha (Yakutia)",
+"Sakha",
+"Yakutia",
+"Sakha Republic",
+"Republic of Sakha"
+],
+"capitals": [
+"Yakutsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SA",
+"info": {
+"abbr": "SA",
+"kind": "Republic",
+"region": "Far Eastern",
+"pop": 995686,
+"popYear": "2021 census",
+"area": 3083523,
+"flag": true,
+"facts": {
+"ru": "Республика Саха (Якутия)",
+"ethnic": "Yakuts and Russians, with Evenks and Evens",
+"langs": "Yakut (Sakha), Evenki and Even",
+"religion": "Orthodox and the Yakut traditional faith",
+"dish": "Stroganina (shaved frozen fish)",
+"craft": "Khomus (jaw harp)",
+"river": "Lena",
+"climate": "Extreme subarctic",
+"high": "Mount Pobeda, 3,003 m",
+"tz": "UTC+9, UTC+10 and UTC+11",
+"nature": "Lena Pillars",
+"animal": "Siberian crane",
+"cold": "Oymyakon and Verkhoyansk: −67.8 °C, the coldest towns on Earth",
+"unesco": "Lena Pillars",
+"joined": "1632",
+"soviet": "Yakut ASSR",
+"industry": "Diamonds (a quarter of the world's), gold and coal",
+"year": 1922
+},
+"coastal": true,
+"borders": [],
+"areaRank": 1
+},
+"flagKey": "ru/RU-SA",
+"capLL": [
+[
+129.735,
+62.035
+]
+]
+},
+{
+"iso": "RU-SAK",
+"id": "RU-SAK",
+"name": "Sakhalin Oblast",
+"names": [
+"Sakhalin Oblast",
+"Sakhalin",
+"Sakhalin Region"
+],
+"capitals": [
+"Yuzhno-Sakhalinsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SAK",
+"info": {
+"abbr": "SAK",
+"kind": "Oblast",
+"region": "Far Eastern",
+"pop": 466609,
+"popYear": "2021 census",
+"area": 87101,
+"flag": true,
+"facts": {
+"ru": "Сахалинская область",
+"ethnic": "Russians, with Koreans",
+"religion": "Russian Orthodox",
+"dish": "Seafood and salmon roe",
+"river": "Poronay",
+"climate": "Monsoon, cool",
+"high": "Alaid volcano, 2,339 m (Kuril Islands)",
+"tz": "UTC+11",
+"nature": "The volcanic Kuril Islands",
+"joined": "1875 (all of Sakhalin); the south and the Kurils in 1945",
+"industry": "Oil and gas (LNG)",
+"year": 1947
+},
+"coastal": true,
+"borders": [],
+"areaRank": 37
+},
+"flagKey": "ru/RU-SAK",
+"capLL": [
+[
+142.74,
+46.965
+]
+]
+},
+{
+"iso": "RU-SAM",
+"id": "RU-SAM",
+"name": "Samara Oblast",
+"names": [
+"Samara Oblast",
+"Samara",
+"Samara Region"
+],
+"capitals": [
+"Samara",
+"Kuybyshev",
+"Kuibyshev"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SAM",
+"info": {
+"abbr": "SAM",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 3172925,
+"popYear": "2021 census",
+"area": 53565,
+"flag": true,
+"facts": {
+"ru": "Самарская область",
+"ethnic": "Russians, with Tatars",
+"religion": "Russian Orthodox",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+4",
+"nature": "Zhiguli Mountains (Samarskaya Luka)",
+"soviet": "Kuybyshev Oblast (1935–1991)",
+"industry": "Lada cars (Tolyatti) and space rockets",
+"year": 1928
+},
+"coastal": false,
+"borders": [],
+"areaRank": 50
+},
+"flagKey": "ru/RU-SAM",
+"capLL": [
+[
+50.149,
+53.197
+]
+]
+},
+{
+"iso": "RU-SAR",
+"id": "RU-SAR",
+"name": "Saratov Oblast",
+"names": [
+"Saratov Oblast",
+"Saratov",
+"Saratov Region"
+],
+"capitals": [
+"Saratov"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SAR",
+"info": {
+"abbr": "SAR",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 2442575,
+"popYear": "2021 census",
+"area": 101240,
+"flag": true,
+"facts": {
+"ru": "Саратовская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "The Saratov accordion",
+"river": "Volga",
+"climate": "Continental steppe",
+"tz": "UTC+4",
+"nature": "Khvalynsky National Park",
+"industry": "Farming and gas",
+"year": 1936
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 32
+},
+"flagKey": "ru/RU-SAR",
+"capLL": [
+[
+46.028,
+51.582
+]
+]
+},
+{
+"iso": "RU-SMO",
+"id": "RU-SMO",
+"name": "Smolensk Oblast",
+"names": [
+"Smolensk Oblast",
+"Smolensk",
+"Smolensk Region"
+],
+"capitals": [
+"Smolensk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SMO",
+"info": {
+"abbr": "SMO",
+"kind": "Oblast",
+"region": "Central",
+"pop": 888421,
+"popYear": "2021 census",
+"area": 49779,
+"flag": true,
+"facts": {
+"ru": "Смоленская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Vyazma gingerbread",
+"river": "Dnieper",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "Smolensk Lakeland National Park",
+"industry": "Diamond cutting and a nuclear plant",
+"year": 1937
+},
+"coastal": false,
+"borders": [
+"Belarus"
+],
+"areaRank": 53
+},
+"flagKey": "ru/RU-SMO",
+"capLL": [
+[
+32.047,
+54.783
+]
+]
+},
+{
+"iso": "RU-STA",
+"id": "RU-STA",
+"name": "Stavropol Krai",
+"names": [
+"Stavropol Krai",
+"Stavropol",
+"Stavropol Territory"
+],
+"capitals": [
+"Stavropol"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-STA",
+"info": {
+"abbr": "STA",
+"kind": "Krai",
+"region": "North Caucasian",
+"pop": 2907593,
+"popYear": "2021 census",
+"area": 66160,
+"flag": true,
+"facts": {
+"ru": "Ставропольский край",
+"ethnic": "Russians, with Armenians",
+"religion": "Russian Orthodox",
+"river": "Kuma",
+"climate": "Continental steppe",
+"tz": "UTC+3",
+"nature": "Caucasian Mineral Waters spa towns (Pyatigorsk, Kislovodsk)",
+"joined": "1777 (Stavropol fortress)",
+"industry": "Farming and mineral water",
+"year": 1934
+},
+"coastal": false,
+"borders": [],
+"areaRank": 45
+},
+"flagKey": "ru/RU-STA",
+"capLL": [
+[
+41.98,
+45.05
+]
+]
+},
+{
+"iso": "RU-SVE",
+"id": "RU-SVE",
+"name": "Sverdlovsk Oblast",
+"names": [
+"Sverdlovsk Oblast",
+"Sverdlovsk",
+"Sverdlovsk Region"
+],
+"capitals": [
+"Yekaterinburg",
+"Ekaterinburg",
+"Sverdlovsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-SVE",
+"info": {
+"abbr": "SVE",
+"kind": "Oblast",
+"region": "Ural",
+"pop": 4268998,
+"popYear": "2021 census",
+"area": 194307,
+"flag": true,
+"facts": {
+"ru": "Свердловская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Ural malachite and gemstones",
+"river": "Iset and Tura",
+"climate": "Continental",
+"high": "Konzhakovsky Kamen, 1,569 m",
+"tz": "UTC+5",
+"nature": "Oleny Ruchyi park",
+"soviet": "Kept (the city was Sverdlovsk 1924–1991, now Yekaterinburg)",
+"transsib": true,
+"industry": "Metals and heavy engineering (Uralmash)",
+"year": 1935
+},
+"coastal": false,
+"borders": [],
+"areaRank": 16
+},
+"flagKey": "ru/RU-SVE",
+"capLL": [
+[
+60.598,
+56.852
+]
+]
+},
+{
+"iso": "RU-TAM",
+"id": "RU-TAM",
+"name": "Tambov Oblast",
+"names": [
+"Tambov Oblast",
+"Tambov",
+"Tambov Region"
+],
+"capitals": [
+"Tambov"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TAM",
+"info": {
+"abbr": "TAM",
+"kind": "Oblast",
+"region": "Central",
+"pop": 982991,
+"popYear": "2021 census",
+"area": 34462,
+"flag": true,
+"facts": {
+"ru": "Тамбовская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Tsna",
+"climate": "Continental",
+"tz": "UTC+3",
+"industry": "Farming (black earth)",
+"year": 1937
+},
+"coastal": false,
+"borders": [],
+"areaRank": 63
+},
+"flagKey": "ru/RU-TAM",
+"notTypo": [
+"Tambov"
+],
+"capLL": [
+[
+41.43,
+52.73
+]
+]
+},
+{
+"iso": "RU-TA",
+"id": "RU-TA",
+"name": "Tatarstan",
+"names": [
+"Tatarstan",
+"Tatarstan Republic",
+"Republic of Tatarstan"
+],
+"capitals": [
+"Kazan"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TA",
+"info": {
+"abbr": "TA",
+"kind": "Republic",
+"region": "Volga",
+"pop": 4004809,
+"popYear": "2021 census",
+"area": 67847,
+"flag": true,
+"facts": {
+"ru": "Республика Татарстан",
+"ethnic": "Tatars and Russians",
+"langs": "Tatar",
+"religion": "Muslim and Orthodox",
+"dish": "Chak-chak and echpochmak",
+"craft": "Leather mosaic boots",
+"river": "Volga and Kama",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Volga-Kama reserve",
+"unesco": "Kazan Kremlin, Bolgar and Sviyazhsk",
+"joined": "1552 (Ivan the Terrible took Kazan)",
+"soviet": "Tatar ASSR",
+"industry": "Oil and KAMAZ trucks",
+"year": 1920
+},
+"coastal": false,
+"borders": [],
+"areaRank": 44
+},
+"flagKey": "ru/RU-TA",
+"capLL": [
+[
+49.124,
+55.752
+]
+]
+},
+{
+"iso": "RU-TOM",
+"id": "RU-TOM",
+"name": "Tomsk Oblast",
+"names": [
+"Tomsk Oblast",
+"Tomsk",
+"Tomsk Region"
+],
+"capitals": [
+"Tomsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TOM",
+"info": {
+"abbr": "TOM",
+"kind": "Oblast",
+"region": "Siberian",
+"pop": 1062666,
+"popYear": "2021 census",
+"area": 314391,
+"flag": true,
+"facts": {
+"ru": "Томская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Ob and Tom",
+"climate": "Continental, taiga",
+"tz": "UTC+7",
+"nature": "Vasyugan Swamp, one of the world's largest",
+"industry": "Oil, and universities",
+"year": 1944
+},
+"coastal": false,
+"borders": [],
+"areaRank": 15
+},
+"flagKey": "ru/RU-TOM",
+"notTypo": [
+"Omsk"
+],
+"capLL": [
+[
+84.975,
+56.495
+]
+]
+},
+{
+"iso": "RU-TUL",
+"id": "RU-TUL",
+"name": "Tula Oblast",
+"names": [
+"Tula Oblast",
+"Tula",
+"Tula Region"
+],
+"capitals": [
+"Tula"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TUL",
+"info": {
+"abbr": "TUL",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1501214,
+"popYear": "2021 census",
+"area": 25679,
+"flag": true,
+"facts": {
+"ru": "Тульская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Tula gingerbread (pryanik)",
+"craft": "Samovars and Filimonovo toys",
+"river": "Upa and Oka",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Yasnaya Polyana, Tolstoy's estate",
+"industry": "Weapons and metals",
+"year": 1937
+},
+"coastal": false,
+"borders": [],
+"areaRank": 69
+},
+"flagKey": "ru/RU-TUL",
+"capLL": [
+[
+37.63,
+54.2
+]
+]
+},
+{
+"iso": "RU-TY",
+"id": "RU-TY",
+"name": "Tuva",
+"names": [
+"Tuva",
+"Tyva",
+"Tuva Republic",
+"Republic of Tuva"
+],
+"capitals": [
+"Kyzyl"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TY",
+"info": {
+"abbr": "TY",
+"kind": "Republic",
+"region": "Siberian",
+"pop": 336651,
+"popYear": "2021 census",
+"area": 168604,
+"flag": true,
+"facts": {
+"ru": "Республика Тыва",
+"ethnic": "Tuvans",
+"langs": "Tuvan",
+"religion": "Buddhist and shamanism",
+"craft": "Throat singing (khoomei)",
+"river": "Yenisei (it rises here)",
+"climate": "Sharply continental",
+"high": "Mongun-Taiga, 3,970 m",
+"tz": "UTC+7",
+"nature": "Centre of Asia monument in Kyzyl",
+"animal": "Snow leopard",
+"unesco": "Uvs Nuur Basin",
+"joined": "1944 (an independent republic from 1921)",
+"soviet": "Tuvan ASSR",
+"industry": "Coal and herding",
+"year": 1944
+},
+"coastal": false,
+"borders": [
+"Mongolia"
+],
+"areaRank": 20
+},
+"flagKey": "ru/RU-TY",
+"capLL": [
+[
+94.383,
+51.707
+]
+]
+},
+{
+"iso": "RU-TVE",
+"id": "RU-TVE",
+"name": "Tver Oblast",
+"names": [
+"Tver Oblast",
+"Tver",
+"Tver Region"
+],
+"capitals": [
+"Tver",
+"Kalinin"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TVE",
+"info": {
+"abbr": "TVE",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1230171,
+"popYear": "2021 census",
+"area": 84201,
+"flag": true,
+"facts": {
+"ru": "Тверская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Pozharsky cutlets (Torzhok)",
+"craft": "Torzhok gold embroidery",
+"river": "Volga (it rises here)",
+"climate": "Humid continental",
+"tz": "UTC+3",
+"nature": "Lake Seliger and the Volga's source",
+"soviet": "Kalinin Oblast (1935–1990)",
+"industry": "Railway carriages",
+"year": 1935
+},
+"coastal": false,
+"borders": [],
+"areaRank": 38
+},
+"flagKey": "ru/RU-TVE",
+"capLL": [
+[
+35.89,
+56.86
+]
+]
+},
+{
+"iso": "RU-TYU",
+"id": "RU-TYU",
+"name": "Tyumen Oblast",
+"names": [
+"Tyumen Oblast",
+"Tyumen",
+"Tyumen Region"
+],
+"capitals": [
+"Tyumen"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-TYU",
+"info": {
+"abbr": "TYU",
+"kind": "Oblast",
+"region": "Ural",
+"pop": 1601940,
+"popYear": "2021 census",
+"area": 160122,
+"flag": true,
+"facts": {
+"ru": "Тюменская область",
+"ethnic": "Russians, with Tatars",
+"religion": "Russian Orthodox",
+"river": "Tobol and Tura",
+"climate": "Continental",
+"tz": "UTC+5",
+"nature": "Hot springs",
+"transsib": true,
+"industry": "Oil (Tyumen is Russia's oil capital)",
+"year": 1944
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 24
+},
+"flagKey": "ru/RU-TYU",
+"capLL": [
+[
+65.53,
+57.14
+]
+]
+},
+{
+"iso": "RU-UD",
+"id": "RU-UD",
+"name": "Udmurtia",
+"names": [
+"Udmurtia",
+"Udmurt Republic",
+"Udmurtia Republic",
+"Republic of Udmurtia"
+],
+"capitals": [
+"Izhevsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-UD",
+"info": {
+"abbr": "UD",
+"kind": "Republic",
+"region": "Volga",
+"pop": 1452914,
+"popYear": "2021 census",
+"area": 42061,
+"flag": true,
+"facts": {
+"ru": "Удмуртская Республика",
+"ethnic": "Russians and Udmurts",
+"langs": "Udmurt",
+"religion": "Russian Orthodox",
+"dish": "Perepechi (open pies) and pelmeni, an Udmurt word",
+"river": "Kama",
+"climate": "Continental",
+"tz": "UTC+4",
+"nature": "Nechkinsky National Park",
+"joined": "1558",
+"soviet": "Udmurt ASSR",
+"industry": "Kalashnikov rifles and Lada cars (Izhevsk)",
+"transsib": true,
+"year": 1920
+},
+"coastal": false,
+"borders": [],
+"areaRank": 57
+},
+"flagKey": "ru/RU-UD",
+"capLL": [
+[
+53.23,
+56.85
+]
+]
+},
+{
+"iso": "RU-ULY",
+"id": "RU-ULY",
+"name": "Ulyanovsk Oblast",
+"names": [
+"Ulyanovsk Oblast",
+"Ulyanovsk",
+"Ulyanovsk Region"
+],
+"capitals": [
+"Ulyanovsk",
+"Simbirsk"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ULY",
+"info": {
+"abbr": "ULY",
+"kind": "Oblast",
+"region": "Volga",
+"pop": 1196745,
+"popYear": "2021 census",
+"area": 37181,
+"flag": true,
+"facts": {
+"ru": "Ульяновская область",
+"ethnic": "Russians, Tatars and Chuvash",
+"religion": "Orthodox and Muslim",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+4",
+"nature": "Senghilee National Park",
+"soviet": "Kept (the city was Simbirsk until 1924, Lenin's birthplace)",
+"industry": "Aircraft and UAZ off-road cars",
+"year": 1943
+},
+"coastal": false,
+"borders": [],
+"areaRank": 59
+},
+"flagKey": "ru/RU-ULY",
+"capLL": [
+[
+48.41,
+54.33
+]
+]
+},
+{
+"iso": "RU-VLA",
+"id": "RU-VLA",
+"name": "Vladimir Oblast",
+"names": [
+"Vladimir Oblast",
+"Vladimir",
+"Vladimir Region"
+],
+"capitals": [
+"Vladimir"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-VLA",
+"info": {
+"abbr": "VLA",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1348134,
+"popYear": "2021 census",
+"area": 29084,
+"flag": true,
+"facts": {
+"ru": "Владимирская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Mstyora lacquer miniatures",
+"river": "Klyazma",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Meshchera National Park",
+"unesco": "White Monuments of Vladimir and Suzdal",
+"transsib": true,
+"industry": "Engineering and glass (Gus-Khrustalny)",
+"year": 1944
+},
+"coastal": false,
+"borders": [],
+"areaRank": 66
+},
+"flagKey": "ru/RU-VLA",
+"capLL": [
+[
+40.41,
+56.13
+]
+]
+},
+{
+"iso": "RU-VGG",
+"id": "RU-VGG",
+"name": "Volgograd Oblast",
+"names": [
+"Volgograd Oblast",
+"Volgograd",
+"Volgograd Region"
+],
+"capitals": [
+"Volgograd",
+"Stalingrad"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-VGG",
+"info": {
+"abbr": "VGG",
+"kind": "Oblast",
+"region": "Southern",
+"pop": 2500781,
+"popYear": "2021 census",
+"area": 112877,
+"flag": true,
+"facts": {
+"ru": "Волгоградская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Volga and Don",
+"climate": "Semi-arid steppe",
+"tz": "UTC+3",
+"nature": "Lake Elton, Europe's largest salt lake",
+"soviet": "Stalingrad Oblast (until 1961)",
+"industry": "Steel, oil refining and farming",
+"year": 1937
+},
+"coastal": false,
+"borders": [
+"Kazakhstan"
+],
+"areaRank": 31
+},
+"flagKey": "ru/RU-VGG",
+"capLL": [
+[
+44.498,
+48.712
+]
+]
+},
+{
+"iso": "RU-VLG",
+"id": "RU-VLG",
+"name": "Vologda Oblast",
+"names": [
+"Vologda Oblast",
+"Vologda",
+"Vologda Region"
+],
+"capitals": [
+"Vologda"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-VLG",
+"info": {
+"abbr": "VLG",
+"kind": "Oblast",
+"region": "Northwestern",
+"pop": 1142827,
+"popYear": "2021 census",
+"area": 144527,
+"flag": true,
+"facts": {
+"ru": "Вологодская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"dish": "Vologda butter",
+"craft": "Vologda lace",
+"river": "Sukhona",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Russky Sever National Park",
+"unesco": "Ferapontov Monastery",
+"industry": "Steel (Severstal, Cherepovets)",
+"year": 1937
+},
+"coastal": false,
+"borders": [],
+"areaRank": 26
+},
+"flagKey": "ru/RU-VLG",
+"capLL": [
+[
+39.92,
+59.21
+]
+]
+},
+{
+"iso": "RU-VOR",
+"id": "RU-VOR",
+"name": "Voronezh Oblast",
+"names": [
+"Voronezh Oblast",
+"Voronezh",
+"Voronezh Region"
+],
+"capitals": [
+"Voronezh"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-VOR",
+"info": {
+"abbr": "VOR",
+"kind": "Oblast",
+"region": "Central",
+"pop": 2308792,
+"popYear": "2021 census",
+"area": 52216,
+"flag": true,
+"facts": {
+"ru": "Воронежская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"river": "Don",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Divnogorye chalk pillars",
+"industry": "Aircraft and farming",
+"year": 1934
+},
+"coastal": false,
+"borders": [
+"Ukraine"
+],
+"areaRank": 51
+},
+"flagKey": "ru/RU-VOR",
+"capLL": [
+[
+39.268,
+51.732
+]
+]
+},
+{
+"iso": "RU-YAN",
+"id": "RU-YAN",
+"name": "Yamalo-Nenets",
+"names": [
+"Yamalo-Nenets",
+"Yamalo-Nenets Autonomous Okrug",
+"Yamal-Nenets",
+"Yamal"
+],
+"capitals": [
+"Salekhard"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-YAN",
+"info": {
+"abbr": "YAN",
+"kind": "Autonomous okrug",
+"region": "Ural",
+"pop": 510490,
+"popYear": "2021 census",
+"area": 769250,
+"flag": true,
+"facts": {
+"ru": "Ямало-Ненецкий автономный округ",
+"ethnic": "Russians, with Nenets and Khanty",
+"langs": "Nenets and Khanty",
+"religion": "Russian Orthodox",
+"dish": "Stroganina (frozen muksun fish)",
+"river": "Ob",
+"climate": "Arctic and subarctic",
+"tz": "UTC+5",
+"nature": "Yamal Peninsula and its giant craters",
+"animal": "Reindeer",
+"industry": "Natural gas (most of Russia's)",
+"city": "Novy Urengoy",
+"year": 1930
+},
+"coastal": true,
+"borders": [],
+"areaRank": 5
+},
+"flagKey": "ru/RU-YAN",
+"capLL": [
+[
+66.61,
+66.535
+]
+]
+},
+{
+"iso": "RU-YAR",
+"id": "RU-YAR",
+"name": "Yaroslavl Oblast",
+"names": [
+"Yaroslavl Oblast",
+"Yaroslavl",
+"Yaroslavl Region"
+],
+"capitals": [
+"Yaroslavl"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-YAR",
+"info": {
+"abbr": "YAR",
+"kind": "Oblast",
+"region": "Central",
+"pop": 1209811,
+"popYear": "2021 census",
+"area": 36177,
+"flag": true,
+"facts": {
+"ru": "Ярославская область",
+"ethnic": "Russians",
+"religion": "Russian Orthodox",
+"craft": "Rostov enamel (finift)",
+"river": "Volga",
+"climate": "Continental",
+"tz": "UTC+3",
+"nature": "Lake Pleshcheyevo",
+"unesco": "Historical Centre of Yaroslavl",
+"transsib": true,
+"industry": "Oil refining and engines",
+"year": 1936
+},
+"coastal": false,
+"borders": [],
+"areaRank": 61
+},
+"flagKey": "ru/RU-YAR",
+"capLL": [
+[
+39.87,
+57.62
+]
+]
+},
+{
+"iso": "RU-ZAB",
+"id": "RU-ZAB",
+"name": "Zabaykalsky Krai",
+"names": [
+"Zabaykalsky Krai",
+"Zabaykalsky",
+"Zabaikalsky Krai",
+"Trans-Baikal",
+"Transbaikal",
+"Zabaikalsky",
+"Zabaykalsky Territory"
+],
+"capitals": [
+"Chita"
+],
+"cont": [
+"Europe",
+"Asia"
+],
+"car": false,
+"a2": "RU-ZAB",
+"info": {
+"abbr": "ZAB",
+"kind": "Krai",
+"region": "Far Eastern",
+"pop": 1004125,
+"popYear": "2021 census",
+"area": 431892,
+"flag": true,
+"facts": {
+"ru": "Забайкальский край",
+"ethnic": "Russians and Buryats",
+"langs": "Buryat",
+"religion": "Orthodox and Buddhist",
+"river": "Shilka and Argun",
+"climate": "Sharply continental",
+"high": "Kodar Peak, 3,072 m",
+"tz": "UTC+9",
+"nature": "Charskiye Peski, a desert in the taiga",
+"unesco": "Landscapes of Dauria",
+"transsib": true,
+"industry": "Mining (uranium, gold, copper)",
+"year": 2008
+},
+"coastal": false,
+"borders": [
+"China",
+"Mongolia"
+],
+"areaRank": 10
+},
+"flagKey": "ru/RU-ZAB",
+"capLL": [
+[
+113.465,
+52.055
+]
+]
+}
+]

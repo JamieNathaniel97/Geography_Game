@@ -73,6 +73,7 @@
       <button class="btn tlplay" id="tlPlay" type="button" aria-label="Play the timeline">▶</button>
       <div class="tlbody">
         <div class="tllabel" id="tlLabel"></div>
+        <div class="tllegend" id="tlLegend" hidden><span><i></i>Russia then</span><span><i class="lost"></i>Lost earlier</span><span><i class="now"></i>Today</span></div>
         <div class="tlrow">
           <button class="btn tlstep" id="tlPrev" type="button" aria-label="Previous state to join">‹</button>
           <input type="range" id="tlRange" min="1787" max="1959" step="1" value="1959" aria-label="Year">
@@ -206,7 +207,7 @@
 <div class="overlay" id="stats" hidden>
   <div class="sheet statssheet" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
     <div class="sheethead"><h2 id="statsTitle">Your stats</h2><button class="btn" id="statsClose" type="button">Close</button></div>
-    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="in" type="button">India</button><button data-v="cn" type="button">China</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
+    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="in" type="button">India</button><button data-v="cn" type="button">China</button><button data-v="ru" type="button">Russia</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
     <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button><button data-v="flag" type="button">Flags</button></div>
     <section><h3>How well you know each region</h3><p class="hint2">Known = right at least 3 times in 4.</p><div id="statsRegions"></div></section>
     <section><h3>Weakest</h3><ul class="slist" id="statsWeak"></ul></section>

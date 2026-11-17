@@ -24,6 +24,8 @@
     india: { name: "India", factory: () => d3.geoConicConformal().parallels([12, 28]).rotate([-80, 0]), wrap: false, fit: true },
     // China: Albers equal-area conic, standard parallels 25°N and 47°N, centred on 105°E
     china: { name: "China", factory: () => d3.geoConicEqualArea().parallels([25, 47]).rotate([-105, 0]), wrap: false, fit: true },
+    // Russia: Albers equal-area conic, standard parallels 52°N and 68°N, centred on 100°E (Kaliningrad to Chukotka)
+    russia: { name: "Russia", factory: () => d3.geoConicEqualArea().parallels([52, 68]).rotate([-100, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country
@@ -38,6 +40,7 @@
       dy1 > dy0 ? (dy0 + dy1) / 2 : Math.min(0, dy0) || Math.max(0, dy1));
   }
 
+  const p_scaled = (p, k) => { const out = new Path2D(); out.addPath(p, new DOMMatrix([k, 0, 0, k, 0, 0])); return out; };
   GG.MapView = class MapView {
     // opts: { geo, mode: 'globe'|'flat', flatStyle, getState(c), onTap(c, view), onPoint(view,x,y), isTarget(c), borders }
     constructor(canvas, opts) {
@@ -81,7 +84,7 @@
       const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
       this.col = { bg: v("--bg"), sea: v("--sea"), land: v("--land"), border: v("--border"), coast: v("--coast"),
         terr: v("--terr"), good: v("--good"), bad: v("--bad"), goodSel: v("--good-sel"), badSel: v("--bad-sel"), flash: v("--flash"), marker: v("--marker"),
-        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel"), capital: v("--capital"), unformed: v("--unformed"), reserve: v("--reserve") };
+        panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel"), capital: v("--capital"), unformed: v("--unformed"), reserve: v("--reserve"), hist: v("--hist") };
     }
 
     // ----- size and projections -----
@@ -636,6 +639,7 @@
         }
         this.drawSub(ctx, null, t.k);
         this.drawReserves(ctx, null, t.k, cull ? on : null);
+        this.drawHistory(ctx, t.k);
       });
     }
     drawGlobe() {
@@ -672,6 +676,44 @@
       this.drawSub(ctx, path, 1, cull ? lines : null);
       this.drawReserves(ctx, path, 1, null);
       ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+
+    // A history layer (Russia's timeline): `h` = { fc, year } or null. Each piece is tinted by whether Russia held it in
+    // that year (strong), held it earlier but lost it (pale), or annexed it later without recognition (hatched);
+    // today's border is outlined to compare with.
+    setHistory(h) { this.history = h; this.requestDraw(); }
+    drawHistory(ctx, k) {
+      const h = this.history; if (!h) return;
+      if (!this.histPaths || this.histPaths.flat !== this.flat || this.histPaths.fc !== h.fc) {
+        const p = d3.geoPath(this.flat);
+        this.histPaths = { flat: this.flat, fc: h.fc, today: new Path2D(p(h.fc.today) || ""),
+          pieces: h.fc.features.map(f => ({ f, p: new Path2D(p(f) || "") })) };
+      }
+      if (!this.hatch) { // diagonal lines, for land annexed without recognition
+        const c = document.createElement("canvas"); c.width = c.height = 8;
+        const x = c.getContext("2d"); x.strokeStyle = this.col.hist; x.lineWidth = 1.6;
+        x.beginPath(); x.moveTo(-2, 10); x.lineTo(10, -2); x.moveTo(-2, 2); x.lineTo(2, -2); x.moveTo(6, 10); x.lineTo(10, 6); x.stroke();
+        this.hatch = ctx.createPattern(c, "repeat");
+      }
+      const y = h.year, col = this.col;
+      ctx.save();
+      this.histPaths.pieces.forEach(({ f, p }) => {
+        const st = GG.heldIn(f, y); if (!st) return;
+        ctx.fillStyle = col.hist; ctx.globalAlpha = st === "held" ? 0.55 : 0.16; ctx.fill(p);
+        if (st === "annexed") {
+          ctx.globalAlpha = 0.8; ctx.save(); ctx.scale(1 / k, 1 / k); // keep the hatching a fixed size on screen
+          ctx.fillStyle = this.hatch; ctx.fill(p_scaled(p, k)); ctx.restore();
+        }
+      });
+      ctx.globalAlpha = 0.85; ctx.strokeStyle = col.fg; ctx.lineWidth = 1.3 / k; ctx.setLineDash([5 / k, 3 / k]);
+      ctx.stroke(this.histPaths.today); ctx.setLineDash([]);
+      ctx.restore();
+    }
+    // the history piece under a screen point (taps on the timeline), or null
+    historyAt(x, y) {
+      if (!this.history) return null;
+      const ll = this.lonLatAt(x, y); if (!ll) return null;
+      return this.history.fc.features.find(f => GG.heldIn(f, this.history.year) && d3.geoContains(f, ll)) || null;
     }
 
     // Indigenous reserved lands (Learning mode layer): shapes tinted and outlined; the smallest ones are dots,
@@ -905,16 +947,39 @@
       };
       const shift = (s, dx) => dx === 0 ? s : Object.assign({}, s, { x: s.x + dx, pts: s.pts.map(p => [p[0] + dx, p[1]]) });
       const islands = [], rings = [], bubbles = [], hidden = new Set();
+      // a small part's circle: its diameter in pixels, or 0 once the part is big enough to tap by itself
+      const ringD = c => {
+        const px = c.sizeDeg * ppd;
+        if (c.ringAdaptive) {
+          // 8 px fully zoomed out, growing more slowly than the map (zoom^0.45), up to 90 px;
+          // it goes once the country itself is 40 px across and easy to tap
+          return px >= 40 ? 0 : Math.min(90, 8 * Math.pow(Math.max(1, ppd / ppd0), 0.45));
+        }
+        // the ring grows as you zoom in (22 px up to 36 px) and goes once the country is that big
+        return px >= RING_MAX ? 0 : ringSize(px);
+      };
+      // a cluster member as a circle (island oval, or ring: e.g. the North Caucasus republics)
+      const memberOf = c => {
+        if (c.shape) return shapeOf(c);
+        if (!c.ring || !this.visible(c.anchor)) return null;
+        const d = ringD(c); if (!d) return null;
+        const [x, y] = proj(c.anchor);
+        return { c, x, y, r: d / 2, f: 2, ring: true };
+      };
       geo.clusters.forEach(cl => {
         if (!cl.members.every(c => this.active(c))) return;
-        const ms = cl.members.map(shapeOf).filter(Boolean);
+        const ms = cl.members.map(memberOf).filter(Boolean);
         if (ms.length < 2) return;
         let overlap = false;
-        for (let i = 0; i < ms.length && !overlap; i++) for (let j = i + 1; j < ms.length; j++)
-          if ((ms[i].f > 1 || ms[j].f > 1) && Math.hypot(ms[i].x - ms[j].x, ms[i].y - ms[j].y) < (ms[i].r + ms[j].r) / 2) { overlap = true; break; }
+        for (let i = 0; i < ms.length && !overlap; i++) for (let j = i + 1; j < ms.length; j++) {
+          const gap = ms[i].ring && ms[j].ring ? ms[i].r + ms[j].r : (ms[i].r + ms[j].r) / 2; // rings: any overlap
+          if ((ms[i].f > 1 || ms[j].f > 1) && Math.hypot(ms[i].x - ms[j].x, ms[i].y - ms[j].y) < gap) { overlap = true; break; }
+        }
         if (!overlap) return;
         cl.members.forEach(c => hidden.add(c));
-        const bx = d3.mean(ms, s => s.x), by = d3.mean(ms, s => s.y);
+        // the bubble sits at the members' middle, or where the cluster says (e.g. offshore, clear of a big neighbour)
+        const at = cl.at && this.visible(cl.at) ? proj(cl.at) : null;
+        const bx = at ? at[0] : d3.mean(ms, s => s.x), by = at ? at[1] : d3.mean(ms, s => s.y);
         offsets.forEach(dx => { if (onScreen(bx + dx, by, 13)) bubbles.push({ cl, x: bx + dx, y: by, r: 13 }); });
       });
       geo.countries.forEach(c => {
@@ -923,18 +988,7 @@
           const s = shapeOf(c); if (!s) return;
           offsets.forEach(dx => { if (onScreen(s.x + dx, s.y, s.r)) islands.push(shift(s, dx)); });
         } else if (c.ring && this.visible(c.anchor)) {
-          const px = c.sizeDeg * ppd;
-          let d;
-          if (c.ringAdaptive) {
-            // 8 px fully zoomed out, growing more slowly than the map (zoom^0.45), up to 90 px;
-            // it goes once the country itself is 40 px across and easy to tap
-            if (px >= 40) return;
-            d = Math.min(90, 8 * Math.pow(Math.max(1, ppd / ppd0), 0.45));
-          } else {
-            // the ring grows as you zoom in (22 px up to 36 px) and goes once the country is that big
-            if (px >= RING_MAX) return;
-            d = ringSize(px);
-          }
+          const d = ringD(c); if (!d) return;
           const [x, y] = proj(c.anchor);
           offsets.forEach(dx => { if (onScreen(x + dx, y, d)) rings.push({ c, x: x + dx, y, d }); });
         }
@@ -990,8 +1044,11 @@
       const r = this.canvas.getBoundingClientRect();
       const x = e.clientX - r.left, y = e.clientY - r.top;
       if (this.opts.onPoint && this.opts.onPoint(this, x, y)) return; // e.g. the magnifier
+      // a bubble opens its cluster, unless the tap is on an open small part's circle (e.g. Adygea next to the North Caucasus bubble)
+      const open = this.opts.isOpen || (() => true);
       const b = this.hits.bubbles.find(b => Math.hypot(b.x - x, b.y - y) <= b.r + 4);
-      if (b) { this.zoomToCountries(b.cl.members); return; }
+      const onRing = this.hits.rings.some(r => open(r.c) && Math.hypot(r.x - x, r.y - y) <= r.d / 2 + 3);
+      if (b && !onRing) { this.zoomToCountries(b.cl.members); return; }
       const c = this.resolveTap(x, y);
       this.lastTap = [x, y];
       if (c) this.opts.onTap(c, this);

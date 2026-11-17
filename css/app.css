@@ -1,7 +1,7 @@
 /* Layout: one-screen app. Prompt bar on top, the map fills the middle, jump bar fixed at the very bottom. */
 :root {
   --bg: #e4ebed; --panel: #ffffff; --fg: #17262b; --muted: #5b6d73; --line: #cfd9dc;
-  --sea: #cfe3ea; --land: #f6f3ea; --border: #8d9a96; --coast: #7f9aa1; --terr: #d5d8d6; --halo: #9db8c1; --off: #e1e4e1; --unformed: #ddd3bb; --reserve: #b5532e;
+  --sea: #cfe3ea; --land: #f6f3ea; --border: #8d9a96; --coast: #7f9aa1; --terr: #d5d8d6; --halo: #9db8c1; --off: #e1e4e1; --unformed: #ddd3bb; --reserve: #b5532e; --hist: #b8432d;
   --accent: #1f6f8b; --accent-fg: #ffffff;
   --good: #2f9e55; --bad: #d64541; --flash: #e3a21a; --marker: #1f6f8b; --sel: #7cc4dc; --capital: #1d5e33; --good-sel: #17633a; --bad-sel: #8f1f1c;
   --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
@@ -11,7 +11,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b1417; --panel: #16252a; --fg: #e4ecee; --muted: #93a6ab; --line: #2a3c42;
-    --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726; --unformed: #3a3a2c; --reserve: #e0875f;
+    --sea: #14303a; --land: #2b3a36; --border: #6f817c; --coast: #4f6a70; --terr: #222c2b; --halo: #2f5561; --off: #1d2726; --unformed: #3a3a2c; --reserve: #e0875f; --hist: #e07a5f;
     --accent: #4fb3d4; --accent-fg: #06222c; --good: #3fbf6a; --bad: #ef5e5a; --flash: #f0b43a; --marker: #7fd0ea; --sel: #2f7f99; --capital: #0f4a24; --good-sel: #1d7a40; --bad-sel: #a32622;
     color-scheme: dark;
   }
@@ -27,6 +27,7 @@
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-kannada.woff") format("woff"); unicode-range: U+0C80-0CFF; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-malayalam.woff") format("woff"); unicode-range: U+0D00-0D7F; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-chinese.woff") format("woff"); unicode-range: U+4E00-9FFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-cyrillic.woff") format("woff"); unicode-range: U+0400-04FF; font-display: swap; }
 .native { font-family: "GQ Scripts", var(--body); font-size: 1.15em; }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
@@ -179,6 +180,12 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tlplay { flex: none; width: 40px; height: 40px; padding: 0; font-size: 16px; }
 .tlbody { flex: 1; min-width: 0; display: grid; gap: 2px; }
 .tllabel { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lcnote { font-size: 12px; color: var(--muted, #6b7a76); margin: 6px 0 0; }
+.timeline.tl2 .tllabel { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.25; }
+.tllegend { display: flex; gap: 10px; font-size: 11px; color: var(--muted, #6b7a76); }
+.tllegend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--hist); vertical-align: -1px; margin-right: 3px; }
+.tllegend i.lost { opacity: 0.3; }
+.tllegend i.now { background: none; border: 1.5px dashed var(--fg); }
 .tllabel b { font: 700 16px var(--display); margin-right: 4px; font-variant-numeric: tabular-nums; }
 .tlrow { display: flex; align-items: center; gap: 8px; }
 .credit { position: absolute; left: 8px; bottom: 6px; max-width: 70%; font-size: 10px; line-height: 1.3; color: var(--muted);
