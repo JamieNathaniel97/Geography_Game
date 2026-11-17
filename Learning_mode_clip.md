@@ -56,9 +56,9 @@ Timings are a guide; adjust them so it feels calm, not rushed.
 
 ## Turning it into a video
 
-Record the demo page at phone size with **Playwright** (headless Chrome, `recordVideo`), then convert with ffmpeg:
+Record the demo page at the clip's shape (see Look) with **Playwright** (headless Chrome, `recordVideo`), then convert with ffmpeg:
 
-- `tools/record_clip.js`: opens `index.html?demo=learning` at 1080 × 1920, waits for the script to finish, saves the recording.
+- `tools/record_clip.js`: opens `index.html?demo=learning` at the recording size (for example 544 × 408 at 2×), waits for the script to finish, saves the recording.
 - Convert to **WebM** (for the app) and **MP4 (H.264)** (as a fallback, and for sharing), saved as `media/Learning_mode_clip.webm` and `.mp4`, plus a still of position 1 as the poster image. Add them to the offline list in `sw.js` and keep the WebM small (about 1 MB or less; the box is small, so this should be easy).
 - Encode at 30 fps; if the globe looks jumpy, record at 60 fps and drop to 30.
 - If the recording stutters on heavy frames, use a fixed clock instead: the script steps time forward one frame at a time and takes a screenshot of each, then ffmpeg joins them. It's slower to make but always smooth.
