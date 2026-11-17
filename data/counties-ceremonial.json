@@ -1,0 +1,3980 @@
+[
+{
+"iso": "C-BEDFORDSHIRE",
+"id": "C-BEDFORDSHIRE",
+"name": "Bedfordshire",
+"names": [
+"Bedfordshire"
+],
+"capitals": [
+"Bedford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1236,
+"flag": true,
+"areaRank": 93
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-BEDFORDSHIRE",
+"capLL": [
+[
+-0.466,
+52.135
+]
+],
+"flagKey": "uk/BEDFORDSHIRE"
+},
+{
+"iso": "C-BERKSHIRE",
+"id": "C-BERKSHIRE",
+"name": "Berkshire",
+"names": [
+"Berkshire"
+],
+"capitals": [
+"Reading"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1265,
+"flag": true,
+"areaRank": 92
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-BERKSHIRE",
+"capLL": [
+[
+-0.971,
+51.456
+]
+],
+"flagKey": "uk/BERKSHIRE"
+},
+{
+"iso": "C-BRISTOL",
+"id": "C-BRISTOL",
+"name": "Bristol",
+"names": [
+"Bristol"
+],
+"capitals": [
+"Bristol"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 111,
+"flag": false,
+"areaRank": 123
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-BRISTOL",
+"capLL": [
+[
+-2.597,
+51.455
+]
+]
+},
+{
+"iso": "C-BUCKINGHAMSHIRE",
+"id": "C-BUCKINGHAMSHIRE",
+"name": "Buckinghamshire",
+"names": [
+"Buckinghamshire"
+],
+"capitals": [
+"Aylesbury"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1875,
+"flag": true,
+"areaRank": 68
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-BUCKINGHAMSHIRE",
+"capLL": [
+[
+-0.815,
+51.817
+]
+],
+"flagKey": "uk/BUCKINGHAMSHIRE"
+},
+{
+"iso": "C-CAMBRIDGESHIRE",
+"id": "C-CAMBRIDGESHIRE",
+"name": "Cambridgeshire",
+"names": [
+"Cambridgeshire"
+],
+"capitals": [
+"Cambridge"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3398,
+"flag": true,
+"areaRank": 31
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CAMBRIDGESHIRE",
+"capLL": [
+[
+0.117,
+52.2
+]
+],
+"flagKey": "uk/CAMBRIDGESHIRE"
+},
+{
+"iso": "C-CHESHIRE",
+"id": "C-CHESHIRE",
+"name": "Cheshire",
+"names": [
+"Cheshire"
+],
+"capitals": [
+"Chester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2350,
+"flag": true,
+"areaRank": 53
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CHESHIRE",
+"capLL": [
+[
+-2.892,
+53.191
+]
+],
+"flagKey": "uk/CHESHIRE"
+},
+{
+"iso": "C-CITY-OF-LONDON",
+"id": "C-CITY-OF-LONDON",
+"name": "City of London",
+"names": [
+"City of London",
+"The City"
+],
+"capitals": [
+"London",
+"City of London"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3,
+"flag": false,
+"areaRank": 128
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CITY-OF-LONDON",
+"capLL": [
+[
+-0.092,
+51.513
+]
+]
+},
+{
+"iso": "C-CORNWALL",
+"id": "C-CORNWALL",
+"name": "Cornwall",
+"names": [
+"Cornwall"
+],
+"capitals": [
+"Truro"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3636,
+"flag": true,
+"areaRank": 26
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CORNWALL",
+"capLL": [
+[
+-5.054,
+50.265
+]
+],
+"flagKey": "uk/CORNWALL"
+},
+{
+"iso": "C-DURHAM",
+"id": "C-DURHAM",
+"name": "County Durham",
+"names": [
+"County Durham",
+"Durham"
+],
+"capitals": [
+"Durham"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2685,
+"flag": true,
+"areaRank": 44
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DURHAM",
+"capLL": [
+[
+-1.576,
+54.777
+]
+],
+"flagKey": "uk/DURHAM"
+},
+{
+"iso": "C-CUMBRIA",
+"id": "C-CUMBRIA",
+"name": "Cumbria",
+"names": [
+"Cumbria"
+],
+"capitals": [
+"Carlisle"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 6850,
+"flag": false,
+"areaRank": 6
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CUMBRIA",
+"capLL": [
+[
+-2.938,
+54.895
+]
+]
+},
+{
+"iso": "C-DERBYSHIRE",
+"id": "C-DERBYSHIRE",
+"name": "Derbyshire",
+"names": [
+"Derbyshire"
+],
+"capitals": [
+"Matlock",
+"Derby"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2631,
+"flag": true,
+"areaRank": 45
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DERBYSHIRE",
+"capLL": [
+[
+-1.556,
+53.138
+]
+],
+"flagKey": "uk/DERBYSHIRE"
+},
+{
+"iso": "C-DEVON",
+"id": "C-DEVON",
+"name": "Devon",
+"names": [
+"Devon"
+],
+"capitals": [
+"Exeter"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 6769,
+"flag": true,
+"areaRank": 7
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DEVON",
+"capLL": [
+[
+-3.528,
+50.724
+]
+],
+"flagKey": "uk/DEVON"
+},
+{
+"iso": "C-DORSET",
+"id": "C-DORSET",
+"name": "Dorset",
+"names": [
+"Dorset"
+],
+"capitals": [
+"Dorchester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2687,
+"flag": true,
+"areaRank": 43
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DORSET",
+"capLL": [
+[
+-2.433,
+50.717
+]
+],
+"flagKey": "uk/DORSET"
+},
+{
+"iso": "C-EAST-RIDING-OF-YORKSHIRE",
+"id": "C-EAST-RIDING-OF-YORKSHIRE",
+"name": "East Riding of Yorkshire",
+"names": [
+"East Riding of Yorkshire",
+"East Riding",
+"East Yorkshire"
+],
+"capitals": [
+"Beverley"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2502,
+"flag": false,
+"areaRank": 49
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-EAST-RIDING-OF-YORKSHIRE",
+"capLL": [
+[
+-0.423,
+53.846
+]
+]
+},
+{
+"iso": "C-EAST-SUSSEX",
+"id": "C-EAST-SUSSEX",
+"name": "East Sussex",
+"names": [
+"East Sussex"
+],
+"capitals": [
+"Lewes"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1817,
+"flag": false,
+"areaRank": 73
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-EAST-SUSSEX",
+"capLL": [
+[
+0.009,
+50.874
+]
+]
+},
+{
+"iso": "C-ESSEX",
+"id": "C-ESSEX",
+"name": "Essex",
+"names": [
+"Essex"
+],
+"capitals": [
+"Chelmsford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3732,
+"flag": true,
+"areaRank": 25
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ESSEX",
+"capLL": [
+[
+0.47,
+51.736
+]
+],
+"flagKey": "uk/ESSEX"
+},
+{
+"iso": "C-GLOUCESTERSHIRE",
+"id": "C-GLOUCESTERSHIRE",
+"name": "Gloucestershire",
+"names": [
+"Gloucestershire"
+],
+"capitals": [
+"Gloucester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3160,
+"flag": true,
+"areaRank": 35
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-GLOUCESTERSHIRE",
+"capLL": [
+[
+-2.243,
+51.866
+]
+],
+"flagKey": "uk/GLOUCESTERSHIRE"
+},
+{
+"iso": "C-GREATER-LONDON",
+"id": "C-GREATER-LONDON",
+"name": "Greater London",
+"names": [
+"Greater London"
+],
+"capitals": [
+"London"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1592,
+"flag": false,
+"areaRank": 83
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-GREATER-LONDON",
+"capLL": [
+[
+-0.126,
+51.509
+]
+]
+},
+{
+"iso": "C-GREATER-MANCHESTER",
+"id": "C-GREATER-MANCHESTER",
+"name": "Greater Manchester",
+"names": [
+"Greater Manchester"
+],
+"capitals": [
+"Manchester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1277,
+"flag": false,
+"areaRank": 91
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-GREATER-MANCHESTER",
+"capLL": [
+[
+-2.237,
+53.481
+]
+]
+},
+{
+"iso": "C-HAMPSHIRE",
+"id": "C-HAMPSHIRE",
+"name": "Hampshire",
+"names": [
+"Hampshire"
+],
+"capitals": [
+"Winchester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3796,
+"flag": true,
+"areaRank": 23
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-HAMPSHIRE",
+"capLL": [
+[
+-1.319,
+51.065
+]
+],
+"flagKey": "uk/HAMPSHIRE"
+},
+{
+"iso": "C-HEREFORDSHIRE",
+"id": "C-HEREFORDSHIRE",
+"name": "Herefordshire",
+"names": [
+"Herefordshire"
+],
+"capitals": [
+"Hereford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2181,
+"flag": true,
+"areaRank": 56
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-HEREFORDSHIRE",
+"capLL": [
+[
+-2.715,
+52.057
+]
+],
+"flagKey": "uk/HEREFORDSHIRE"
+},
+{
+"iso": "C-HERTFORDSHIRE",
+"id": "C-HERTFORDSHIRE",
+"name": "Hertfordshire",
+"names": [
+"Hertfordshire"
+],
+"capitals": [
+"Hertford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1644,
+"flag": true,
+"areaRank": 82
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-HERTFORDSHIRE",
+"capLL": [
+[
+-0.079,
+51.796
+]
+],
+"flagKey": "uk/HERTFORDSHIRE"
+},
+{
+"iso": "C-ISLE-OF-WIGHT",
+"id": "C-ISLE-OF-WIGHT",
+"name": "Isle of Wight",
+"names": [
+"Isle of Wight"
+],
+"capitals": [
+"Newport"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 389,
+"flag": false,
+"areaRank": 116
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ISLE-OF-WIGHT",
+"capLL": [
+[
+-1.291,
+50.701
+]
+]
+},
+{
+"iso": "C-KENT",
+"id": "C-KENT",
+"name": "Kent",
+"names": [
+"Kent"
+],
+"capitals": [
+"Maidstone"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3768,
+"flag": true,
+"areaRank": 24
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-KENT",
+"capLL": [
+[
+0.517,
+51.267
+]
+],
+"flagKey": "uk/KENT"
+},
+{
+"iso": "C-LANCASHIRE",
+"id": "C-LANCASHIRE",
+"name": "Lancashire",
+"names": [
+"Lancashire"
+],
+"capitals": [
+"Preston",
+"Lancaster"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3084,
+"flag": true,
+"areaRank": 37
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-LANCASHIRE",
+"capLL": [
+[
+-2.705,
+53.763
+]
+],
+"flagKey": "uk/LANCASHIRE"
+},
+{
+"iso": "C-LEICESTERSHIRE",
+"id": "C-LEICESTERSHIRE",
+"name": "Leicestershire",
+"names": [
+"Leicestershire"
+],
+"capitals": [
+"Leicester",
+"Glenfield"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2159,
+"flag": true,
+"areaRank": 58
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-LEICESTERSHIRE",
+"capLL": [
+[
+-1.132,
+52.639
+]
+],
+"flagKey": "uk/LEICESTERSHIRE"
+},
+{
+"iso": "C-LINCOLNSHIRE",
+"id": "C-LINCOLNSHIRE",
+"name": "Lincolnshire",
+"names": [
+"Lincolnshire"
+],
+"capitals": [
+"Lincoln"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 6968,
+"flag": true,
+"areaRank": 5
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-LINCOLNSHIRE",
+"capLL": [
+[
+-0.538,
+53.227
+]
+],
+"flagKey": "uk/LINCOLNSHIRE"
+},
+{
+"iso": "C-MERSEYSIDE",
+"id": "C-MERSEYSIDE",
+"name": "Merseyside",
+"names": [
+"Merseyside"
+],
+"capitals": [
+"Liverpool"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 658,
+"flag": false,
+"areaRank": 108
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-MERSEYSIDE",
+"capLL": [
+[
+-2.978,
+53.411
+]
+]
+},
+{
+"iso": "C-NORFOLK",
+"id": "C-NORFOLK",
+"name": "Norfolk",
+"names": [
+"Norfolk"
+],
+"capitals": [
+"Norwich"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 5400,
+"flag": true,
+"areaRank": 13
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-NORFOLK",
+"capLL": [
+[
+1.298,
+52.628
+]
+],
+"flagKey": "uk/NORFOLK"
+},
+{
+"iso": "C-NORTH-YORKSHIRE",
+"id": "C-NORTH-YORKSHIRE",
+"name": "North Yorkshire",
+"names": [
+"North Yorkshire"
+],
+"capitals": [
+"Northallerton"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 8675,
+"flag": false,
+"areaRank": 2
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-NORTH-YORKSHIRE",
+"capLL": [
+[
+-1.432,
+54.339
+]
+]
+},
+{
+"iso": "C-NORTHAMPTONSHIRE",
+"id": "C-NORTHAMPTONSHIRE",
+"name": "Northamptonshire",
+"names": [
+"Northamptonshire"
+],
+"capitals": [
+"Northampton"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2368,
+"flag": true,
+"areaRank": 52
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-NORTHAMPTONSHIRE",
+"capLL": [
+[
+-0.883,
+52.25
+]
+],
+"flagKey": "uk/NORTHAMPTONSHIRE"
+},
+{
+"iso": "C-NORTHUMBERLAND",
+"id": "C-NORTHUMBERLAND",
+"name": "Northumberland",
+"names": [
+"Northumberland"
+],
+"capitals": [
+"Morpeth",
+"Alnwick"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 5040,
+"flag": true,
+"areaRank": 16
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-NORTHUMBERLAND",
+"capLL": [
+[
+-1.689,
+55.169
+]
+],
+"flagKey": "uk/NORTHUMBERLAND"
+},
+{
+"iso": "C-NOTTINGHAMSHIRE",
+"id": "C-NOTTINGHAMSHIRE",
+"name": "Nottinghamshire",
+"names": [
+"Nottinghamshire"
+],
+"capitals": [
+"Nottingham",
+"West Bridgford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2163,
+"flag": true,
+"areaRank": 57
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-NOTTINGHAMSHIRE",
+"capLL": [
+[
+-1.15,
+52.954
+]
+],
+"flagKey": "uk/NOTTINGHAMSHIRE"
+},
+{
+"iso": "C-OXFORDSHIRE",
+"id": "C-OXFORDSHIRE",
+"name": "Oxfordshire",
+"names": [
+"Oxfordshire"
+],
+"capitals": [
+"Oxford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2608,
+"flag": true,
+"areaRank": 46
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-OXFORDSHIRE",
+"capLL": [
+[
+-1.256,
+51.752
+]
+],
+"flagKey": "uk/OXFORDSHIRE"
+},
+{
+"iso": "C-RUTLAND",
+"id": "C-RUTLAND",
+"name": "Rutland",
+"names": [
+"Rutland"
+],
+"capitals": [
+"Oakham"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 394,
+"flag": true,
+"areaRank": 115
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-RUTLAND",
+"capLL": [
+[
+-0.733,
+52.667
+]
+],
+"flagKey": "uk/RUTLAND"
+},
+{
+"iso": "C-SHROPSHIRE",
+"id": "C-SHROPSHIRE",
+"name": "Shropshire",
+"names": [
+"Shropshire"
+],
+"capitals": [
+"Shrewsbury"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3490,
+"flag": true,
+"areaRank": 27
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SHROPSHIRE",
+"capLL": [
+[
+-2.752,
+52.71
+]
+],
+"flagKey": "uk/SHROPSHIRE"
+},
+{
+"iso": "C-SOMERSET",
+"id": "C-SOMERSET",
+"name": "Somerset",
+"names": [
+"Somerset"
+],
+"capitals": [
+"Taunton"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 4174,
+"flag": true,
+"areaRank": 21
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SOMERSET",
+"capLL": [
+[
+-3.103,
+51.015
+]
+],
+"flagKey": "uk/SOMERSET"
+},
+{
+"iso": "C-SOUTH-YORKSHIRE",
+"id": "C-SOUTH-YORKSHIRE",
+"name": "South Yorkshire",
+"names": [
+"South Yorkshire"
+],
+"capitals": [
+"Barnsley",
+"Sheffield"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1553,
+"flag": false,
+"areaRank": 87
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SOUTH-YORKSHIRE",
+"capLL": [
+[
+-1.483,
+53.55
+]
+]
+},
+{
+"iso": "C-STAFFORDSHIRE",
+"id": "C-STAFFORDSHIRE",
+"name": "Staffordshire",
+"names": [
+"Staffordshire"
+],
+"capitals": [
+"Stafford"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2719,
+"flag": true,
+"areaRank": 42
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-STAFFORDSHIRE",
+"capLL": [
+[
+-2.116,
+52.805
+]
+],
+"flagKey": "uk/STAFFORDSHIRE"
+},
+{
+"iso": "C-SUFFOLK",
+"id": "C-SUFFOLK",
+"name": "Suffolk",
+"names": [
+"Suffolk"
+],
+"capitals": [
+"Ipswich"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3841,
+"flag": true,
+"areaRank": 22
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SUFFOLK",
+"capLL": [
+[
+1.155,
+52.059
+]
+],
+"flagKey": "uk/SUFFOLK"
+},
+{
+"iso": "C-SURREY",
+"id": "C-SURREY",
+"name": "Surrey",
+"names": [
+"Surrey"
+],
+"capitals": [
+"Guildford",
+"Reigate",
+"Kingston upon Thames"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1671,
+"flag": true,
+"areaRank": 80
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SURREY",
+"capLL": [
+[
+-0.574,
+51.235
+]
+],
+"flagKey": "uk/SURREY"
+},
+{
+"iso": "C-TYNE-AND-WEAR",
+"id": "C-TYNE-AND-WEAR",
+"name": "Tyne and Wear",
+"names": [
+"Tyne and Wear"
+],
+"capitals": [
+"Newcastle upon Tyne",
+"Newcastle"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 550,
+"flag": false,
+"areaRank": 111
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-TYNE-AND-WEAR",
+"capLL": [
+[
+-1.614,
+54.973
+]
+]
+},
+{
+"iso": "C-WARWICKSHIRE",
+"id": "C-WARWICKSHIRE",
+"name": "Warwickshire",
+"names": [
+"Warwickshire"
+],
+"capitals": [
+"Warwick"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1979,
+"flag": true,
+"areaRank": 66
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WARWICKSHIRE",
+"capLL": [
+[
+-1.583,
+52.283
+]
+],
+"flagKey": "uk/WARWICKSHIRE"
+},
+{
+"iso": "C-WEST-MIDLANDS",
+"id": "C-WEST-MIDLANDS",
+"name": "West Midlands",
+"names": [
+"West Midlands"
+],
+"capitals": [
+"Birmingham"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 902,
+"flag": false,
+"areaRank": 101
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WEST-MIDLANDS",
+"capLL": [
+[
+-1.9,
+52.481
+]
+]
+},
+{
+"iso": "C-WEST-SUSSEX",
+"id": "C-WEST-SUSSEX",
+"name": "West Sussex",
+"names": [
+"West Sussex"
+],
+"capitals": [
+"Chichester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2010,
+"flag": false,
+"areaRank": 64
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WEST-SUSSEX",
+"capLL": [
+[
+-0.78,
+50.837
+]
+]
+},
+{
+"iso": "C-WEST-YORKSHIRE",
+"id": "C-WEST-YORKSHIRE",
+"name": "West Yorkshire",
+"names": [
+"West Yorkshire"
+],
+"capitals": [
+"Wakefield"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 2031,
+"flag": false,
+"areaRank": 62
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WEST-YORKSHIRE",
+"capLL": [
+[
+-1.498,
+53.683
+]
+]
+},
+{
+"iso": "C-WILTSHIRE",
+"id": "C-WILTSHIRE",
+"name": "Wiltshire",
+"names": [
+"Wiltshire"
+],
+"capitals": [
+"Trowbridge"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 3488,
+"flag": true,
+"areaRank": 28
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WILTSHIRE",
+"capLL": [
+[
+-2.209,
+51.319
+]
+],
+"flagKey": "uk/WILTSHIRE"
+},
+{
+"iso": "C-WORCESTERSHIRE",
+"id": "C-WORCESTERSHIRE",
+"name": "Worcestershire",
+"names": [
+"Worcestershire"
+],
+"capitals": [
+"Worcester"
+],
+"info": {
+"nation": "England",
+"kind": "ceremonial",
+"area": 1742,
+"flag": true,
+"areaRank": 76
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WORCESTERSHIRE",
+"capLL": [
+[
+-2.22,
+52.189
+]
+],
+"flagKey": "uk/WORCESTERSHIRE"
+},
+{
+"iso": "C-ABERDEENSHIRE",
+"id": "C-ABERDEENSHIRE",
+"name": "Aberdeenshire",
+"names": [
+"Aberdeenshire"
+],
+"capitals": [
+"Aberdeen"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 4981,
+"flag": true,
+"areaRank": 17
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ABERDEENSHIRE",
+"capLL": [
+[
+-2.098,
+57.144
+]
+],
+"flagKey": "uk/ABERDEENSHIRE"
+},
+{
+"iso": "C-ANGUS",
+"id": "C-ANGUS",
+"name": "Angus",
+"names": [
+"Angus"
+],
+"capitals": [
+"Forfar"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 2189,
+"flag": false,
+"areaRank": 55
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ANGUS",
+"capLL": [
+[
+-2.89,
+56.644
+]
+]
+},
+{
+"iso": "C-ARGYLL-AND-BUTE",
+"id": "C-ARGYLL-AND-BUTE",
+"name": "Argyll and Bute",
+"names": [
+"Argyll and Bute"
+],
+"capitals": [
+"Lochgilphead",
+"Inveraray"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 6766,
+"flag": false,
+"areaRank": 8
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ARGYLL-AND-BUTE",
+"capLL": [
+[
+-5.432,
+56.038
+]
+]
+},
+{
+"iso": "C-AYRSHIRE-AND-ARRAN",
+"id": "C-AYRSHIRE-AND-ARRAN",
+"name": "Ayrshire and Arran",
+"names": [
+"Ayrshire and Arran"
+],
+"capitals": [
+"Ayr"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 3415,
+"flag": false,
+"areaRank": 30
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-AYRSHIRE-AND-ARRAN",
+"capLL": [
+[
+-4.634,
+55.463
+]
+]
+},
+{
+"iso": "C-BANFFSHIRE",
+"id": "C-BANFFSHIRE",
+"name": "Banffshire",
+"names": [
+"Banffshire"
+],
+"capitals": [
+"Banff"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1650,
+"flag": true,
+"areaRank": 81
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-BANFFSHIRE",
+"capLL": [
+[
+-2.53,
+57.665
+]
+],
+"flagKey": "uk/BANFFSHIRE"
+},
+{
+"iso": "C-BERWICKSHIRE",
+"id": "C-BERWICKSHIRE",
+"name": "Berwickshire",
+"names": [
+"Berwickshire"
+],
+"capitals": [
+"Duns"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 916,
+"flag": true,
+"areaRank": 99
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-BERWICKSHIRE",
+"capLL": [
+[
+-2.346,
+55.777
+]
+],
+"flagKey": "uk/BERWICKSHIRE"
+},
+{
+"iso": "C-CAITHNESS",
+"id": "C-CAITHNESS",
+"name": "Caithness",
+"names": [
+"Caithness"
+],
+"capitals": [
+"Wick"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1817,
+"flag": true,
+"areaRank": 74
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CAITHNESS",
+"capLL": [
+[
+-3.094,
+58.439
+]
+],
+"flagKey": "uk/CAITHNESS"
+},
+{
+"iso": "C-ABERDEEN",
+"id": "C-ABERDEEN",
+"name": "City of Aberdeen",
+"names": [
+"City of Aberdeen",
+"Aberdeen"
+],
+"capitals": [
+"Aberdeen"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 190,
+"flag": false,
+"areaRank": 119
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ABERDEEN",
+"capLL": [
+[
+-2.098,
+57.144
+]
+]
+},
+{
+"iso": "C-DUNDEE",
+"id": "C-DUNDEE",
+"name": "City of Dundee",
+"names": [
+"City of Dundee",
+"Dundee"
+],
+"capitals": [
+"Dundee"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 61,
+"flag": false,
+"areaRank": 125
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DUNDEE",
+"capLL": [
+[
+-2.975,
+56.469
+]
+]
+},
+{
+"iso": "C-EDINBURGH",
+"id": "C-EDINBURGH",
+"name": "City of Edinburgh",
+"names": [
+"City of Edinburgh",
+"Edinburgh"
+],
+"capitals": [
+"Edinburgh"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 266,
+"flag": false,
+"areaRank": 118
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-EDINBURGH",
+"capLL": [
+[
+-3.196,
+55.952
+]
+]
+},
+{
+"iso": "C-GLASGOW",
+"id": "C-GLASGOW",
+"name": "City of Glasgow",
+"names": [
+"City of Glasgow",
+"Glasgow"
+],
+"capitals": [
+"Glasgow"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 177,
+"flag": false,
+"areaRank": 120
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-GLASGOW",
+"capLL": [
+[
+-4.258,
+55.865
+]
+]
+},
+{
+"iso": "C-CLACKMANNANSHIRE",
+"id": "C-CLACKMANNANSHIRE",
+"name": "Clackmannanshire",
+"names": [
+"Clackmannanshire"
+],
+"capitals": [
+"Alloa"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 162,
+"flag": false,
+"areaRank": 121
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CLACKMANNANSHIRE",
+"capLL": [
+[
+-3.79,
+56.116
+]
+]
+},
+{
+"iso": "C-DUMFRIES",
+"id": "C-DUMFRIES",
+"name": "Dumfries",
+"names": [
+"Dumfries"
+],
+"capitals": [
+"Dumfries"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 3011,
+"flag": false,
+"areaRank": 38
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DUMFRIES",
+"capLL": [
+[
+-3.611,
+55.07
+]
+]
+},
+{
+"iso": "C-DUNBARTONSHIRE",
+"id": "C-DUNBARTONSHIRE",
+"name": "Dunbartonshire",
+"names": [
+"Dunbartonshire"
+],
+"capitals": [
+"Dumbarton"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 850,
+"flag": false,
+"areaRank": 103
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DUNBARTONSHIRE",
+"capLL": [
+[
+-4.571,
+55.944
+]
+]
+},
+{
+"iso": "C-EAST-LOTHIAN",
+"id": "C-EAST-LOTHIAN",
+"name": "East Lothian",
+"names": [
+"East Lothian"
+],
+"capitals": [
+"Haddington"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 684,
+"flag": true,
+"areaRank": 107
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-EAST-LOTHIAN",
+"capLL": [
+[
+-2.783,
+55.956
+]
+],
+"flagKey": "uk/EAST-LOTHIAN"
+},
+{
+"iso": "C-FIFE",
+"id": "C-FIFE",
+"name": "Fife",
+"names": [
+"Fife"
+],
+"capitals": [
+"Glenrothes",
+"Cupar"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1337,
+"flag": false,
+"areaRank": 88
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-FIFE",
+"capLL": [
+[
+-3.173,
+56.195
+]
+]
+},
+{
+"iso": "C-INVERNESS",
+"id": "C-INVERNESS",
+"name": "Inverness",
+"names": [
+"Inverness",
+"Inverness-shire"
+],
+"capitals": [
+"Inverness"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 10042,
+"flag": false,
+"areaRank": 1
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-INVERNESS",
+"capLL": [
+[
+-4.224,
+57.479
+]
+]
+},
+{
+"iso": "C-KINCARDINESHIRE",
+"id": "C-KINCARDINESHIRE",
+"name": "Kincardineshire",
+"names": [
+"Kincardineshire"
+],
+"capitals": [
+"Stonehaven"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 981,
+"flag": false,
+"areaRank": 96
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-KINCARDINESHIRE",
+"capLL": [
+[
+-2.212,
+56.964
+]
+]
+},
+{
+"iso": "C-LANARKSHIRE",
+"id": "C-LANARKSHIRE",
+"name": "Lanarkshire",
+"names": [
+"Lanarkshire"
+],
+"capitals": [
+"Hamilton",
+"Lanark"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 2142,
+"flag": false,
+"areaRank": 59
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-LANARKSHIRE",
+"capLL": [
+[
+-4.033,
+55.767
+]
+]
+},
+{
+"iso": "C-MIDLOTHIAN",
+"id": "C-MIDLOTHIAN",
+"name": "Midlothian",
+"names": [
+"Midlothian"
+],
+"capitals": [
+"Dalkeith"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 356,
+"flag": false,
+"areaRank": 117
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-MIDLOTHIAN",
+"capLL": [
+[
+-3.068,
+55.893
+]
+]
+},
+{
+"iso": "C-MORAY",
+"id": "C-MORAY",
+"name": "Moray",
+"names": [
+"Moray",
+"Morayshire"
+],
+"capitals": [
+"Elgin"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 979,
+"flag": true,
+"areaRank": 97
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-MORAY",
+"capLL": [
+[
+-3.318,
+57.649
+]
+],
+"flagKey": "uk/MORAYSHIRE"
+},
+{
+"iso": "C-NAIRN",
+"id": "C-NAIRN",
+"name": "Nairn",
+"names": [
+"Nairn",
+"Nairnshire"
+],
+"capitals": [
+"Nairn"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 425,
+"flag": false,
+"areaRank": 114
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-NAIRN",
+"capLL": [
+[
+-3.88,
+57.581
+]
+]
+},
+{
+"iso": "C-ORKNEY",
+"id": "C-ORKNEY",
+"name": "Orkney",
+"names": [
+"Orkney"
+],
+"capitals": [
+"Kirkwall"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1072,
+"flag": true,
+"areaRank": 95
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ORKNEY",
+"capLL": [
+[
+-2.959,
+58.985
+]
+],
+"flagKey": "uk/ORKNEY"
+},
+{
+"iso": "C-PERTH-AND-KINROSS",
+"id": "C-PERTH-AND-KINROSS",
+"name": "Perth and Kinross",
+"names": [
+"Perth and Kinross"
+],
+"capitals": [
+"Perth"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 5390,
+"flag": false,
+"areaRank": 14
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-PERTH-AND-KINROSS",
+"capLL": [
+[
+-3.431,
+56.395
+]
+]
+},
+{
+"iso": "C-RENFREWSHIRE",
+"id": "C-RENFREWSHIRE",
+"name": "Renfrewshire",
+"names": [
+"Renfrewshire"
+],
+"capitals": [
+"Paisley",
+"Renfrew"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 602,
+"flag": false,
+"areaRank": 109
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-RENFREWSHIRE",
+"capLL": [
+[
+-4.433,
+55.832
+]
+]
+},
+{
+"iso": "C-ROSS-AND-CROMARTY",
+"id": "C-ROSS-AND-CROMARTY",
+"name": "Ross and Cromarty",
+"names": [
+"Ross and Cromarty"
+],
+"capitals": [
+"Dingwall"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 7965,
+"flag": false,
+"areaRank": 3
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ROSS-AND-CROMARTY",
+"capLL": [
+[
+-4.427,
+57.595
+]
+]
+},
+{
+"iso": "C-ROXBURGH-ETTRICK-AND-LAUDERDALE",
+"id": "C-ROXBURGH-ETTRICK-AND-LAUDERDALE",
+"name": "Roxburgh, Ettrick and Lauderdale",
+"names": [
+"Roxburgh, Ettrick and Lauderdale"
+],
+"capitals": [
+"Newtown St Boswells",
+"Jedburgh",
+"Selkirk"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 2923,
+"flag": false,
+"areaRank": 39
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-ROXBURGH-ETTRICK-AND-LAUDERDALE",
+"capLL": [
+[
+-2.669,
+55.579
+]
+]
+},
+{
+"iso": "C-SHETLAND",
+"id": "C-SHETLAND",
+"name": "Shetland",
+"names": [
+"Shetland"
+],
+"capitals": [
+"Lerwick"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1573,
+"flag": true,
+"areaRank": 85
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SHETLAND",
+"capLL": [
+[
+-1.144,
+60.153
+]
+],
+"flagKey": "uk/SHETLAND"
+},
+{
+"iso": "C-STIRLING-AND-FALKIRK",
+"id": "C-STIRLING-AND-FALKIRK",
+"name": "Stirling and Falkirk",
+"names": [
+"Stirling and Falkirk"
+],
+"capitals": [
+"Stirling"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 2552,
+"flag": false,
+"areaRank": 47
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-STIRLING-AND-FALKIRK",
+"capLL": [
+[
+-3.937,
+56.119
+]
+]
+},
+{
+"iso": "C-SUTHERLAND",
+"id": "C-SUTHERLAND",
+"name": "Sutherland",
+"names": [
+"Sutherland"
+],
+"capitals": [
+"Dornoch"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 6124,
+"flag": true,
+"areaRank": 10
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SUTHERLAND",
+"capLL": [
+[
+-4.029,
+57.88
+]
+],
+"flagKey": "uk/SUTHERLAND"
+},
+{
+"iso": "C-THE-STEWARTRY-OF-KIRKCUDBRIGHT",
+"id": "C-THE-STEWARTRY-OF-KIRKCUDBRIGHT",
+"name": "The Stewartry of Kirkcudbright",
+"names": [
+"The Stewartry of Kirkcudbright",
+"Kirkcudbright",
+"Stewartry of Kirkcudbright",
+"The Stewartry"
+],
+"capitals": [
+"Kirkcudbright"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1702,
+"flag": true,
+"areaRank": 78
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-THE-STEWARTRY-OF-KIRKCUDBRIGHT",
+"capLL": [
+[
+-4.049,
+54.838
+]
+],
+"flagKey": "uk/KIRKCUDBRIGHTSHIRE"
+},
+{
+"iso": "C-TWEEDDALE",
+"id": "C-TWEEDDALE",
+"name": "Tweeddale",
+"names": [
+"Tweeddale"
+],
+"capitals": [
+"Peebles"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 904,
+"flag": false,
+"areaRank": 100
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-TWEEDDALE",
+"capLL": [
+[
+-3.189,
+55.652
+]
+]
+},
+{
+"iso": "C-WEST-LOTHIAN",
+"id": "C-WEST-LOTHIAN",
+"name": "West Lothian",
+"names": [
+"West Lothian"
+],
+"capitals": [
+"Livingston",
+"Linlithgow"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 429,
+"flag": false,
+"areaRank": 113
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WEST-LOTHIAN",
+"capLL": [
+[
+-3.523,
+55.903
+]
+]
+},
+{
+"iso": "C-WESTERN-ISLES",
+"id": "C-WESTERN-ISLES",
+"name": "Western Isles",
+"names": [
+"Western Isles",
+"Outer Hebrides",
+"Na h-Eileanan Siar"
+],
+"capitals": [
+"Stornoway"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 3219,
+"flag": false,
+"areaRank": 34
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WESTERN-ISLES",
+"capLL": [
+[
+-6.386,
+58.209
+]
+]
+},
+{
+"iso": "C-WIGTOWN",
+"id": "C-WIGTOWN",
+"name": "Wigtown",
+"names": [
+"Wigtown"
+],
+"capitals": [
+"Stranraer",
+"Wigtown"
+],
+"info": {
+"nation": "Scotland",
+"kind": "ceremonial",
+"area": 1778,
+"flag": false,
+"areaRank": 75
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WIGTOWN",
+"capLL": [
+[
+-5.027,
+54.902
+]
+]
+},
+{
+"iso": "C-CLWYD",
+"id": "C-CLWYD",
+"name": "Clwyd",
+"names": [
+"Clwyd"
+],
+"capitals": [
+"Mold"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 2920,
+"flag": false,
+"areaRank": 40
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-CLWYD",
+"capLL": [
+[
+-3.141,
+53.167
+]
+]
+},
+{
+"iso": "C-DYFED",
+"id": "C-DYFED",
+"name": "Dyfed",
+"names": [
+"Dyfed"
+],
+"capitals": [
+"Carmarthen"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 5831,
+"flag": false,
+"areaRank": 11
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-DYFED",
+"capLL": [
+[
+-4.305,
+51.856
+]
+]
+},
+{
+"iso": "C-GWENT",
+"id": "C-GWENT",
+"name": "Gwent",
+"names": [
+"Gwent"
+],
+"capitals": [
+"Cwmbran"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 1563,
+"flag": false,
+"areaRank": 86
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-GWENT",
+"capLL": [
+[
+-3.023,
+51.654
+]
+]
+},
+{
+"iso": "C-GWYNEDD",
+"id": "C-GWYNEDD",
+"name": "Gwynedd",
+"names": [
+"Gwynedd"
+],
+"capitals": [
+"Caernarfon"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 3302,
+"flag": false,
+"areaRank": 32
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-GWYNEDD",
+"capLL": [
+[
+-4.27,
+53.141
+]
+]
+},
+{
+"iso": "C-MID-GLAMORGAN",
+"id": "C-MID-GLAMORGAN",
+"name": "Mid Glamorgan",
+"names": [
+"Mid Glamorgan"
+],
+"capitals": [
+"Cardiff",
+"Bridgend"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 790,
+"flag": false,
+"areaRank": 106
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-MID-GLAMORGAN",
+"capLL": [
+[
+-3.18,
+51.48
+]
+]
+},
+{
+"iso": "C-POWYS",
+"id": "C-POWYS",
+"name": "Powys",
+"names": [
+"Powys"
+],
+"capitals": [
+"Llandrindod Wells"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 5198,
+"flag": false,
+"areaRank": 15
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-POWYS",
+"capLL": [
+[
+-3.379,
+52.242
+]
+]
+},
+{
+"iso": "C-SOUTH-GLAMORGAN",
+"id": "C-SOUTH-GLAMORGAN",
+"name": "South Glamorgan",
+"names": [
+"South Glamorgan"
+],
+"capitals": [
+"Cardiff"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 481,
+"flag": false,
+"areaRank": 112
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-SOUTH-GLAMORGAN",
+"capLL": [
+[
+-3.18,
+51.48
+]
+]
+},
+{
+"iso": "C-WEST-GLAMORGAN",
+"id": "C-WEST-GLAMORGAN",
+"name": "West Glamorgan",
+"names": [
+"West Glamorgan"
+],
+"capitals": [
+"Swansea"
+],
+"info": {
+"nation": "Wales",
+"kind": "ceremonial",
+"area": 830,
+"flag": false,
+"areaRank": 104
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "C-WEST-GLAMORGAN",
+"capLL": [
+[
+-3.943,
+51.621
+]
+]
+},
+{
+"iso": "I-ANTRIM",
+"id": "I-ANTRIM",
+"name": "Antrim",
+"names": [
+"Antrim",
+"County Antrim",
+"Co Antrim"
+],
+"capitals": [
+"Antrim",
+"Carrickfergus",
+"Belfast"
+],
+"info": {
+"nation": "Northern Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Aontroma",
+"kind": "ireland",
+"area": 3095,
+"flag": false,
+"areaRank": 36
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-ANTRIM",
+"capLL": [
+[
+-6.211,
+54.718
+]
+]
+},
+{
+"iso": "I-ARMAGH",
+"id": "I-ARMAGH",
+"name": "Armagh",
+"names": [
+"Armagh",
+"County Armagh",
+"Co Armagh"
+],
+"capitals": [
+"Armagh"
+],
+"info": {
+"nation": "Northern Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Ard Mhacha",
+"kind": "ireland",
+"area": 1326,
+"flag": false,
+"areaRank": 89
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-ARMAGH",
+"capLL": [
+[
+-6.667,
+54.35
+]
+]
+},
+{
+"iso": "I-DOWN",
+"id": "I-DOWN",
+"name": "Down",
+"names": [
+"Down",
+"County Down",
+"Co Down"
+],
+"capitals": [
+"Downpatrick"
+],
+"info": {
+"nation": "Northern Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae an Dúin",
+"kind": "ireland",
+"area": 2498,
+"flag": false,
+"areaRank": 50
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-DOWN",
+"capLL": [
+[
+-5.715,
+54.328
+]
+]
+},
+{
+"iso": "I-FERMANAGH",
+"id": "I-FERMANAGH",
+"name": "Fermanagh",
+"names": [
+"Fermanagh",
+"County Fermanagh",
+"Co Fermanagh"
+],
+"capitals": [
+"Enniskillen"
+],
+"info": {
+"nation": "Northern Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Fhear Manach",
+"kind": "ireland",
+"area": 1851,
+"flag": false,
+"areaRank": 70
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-FERMANAGH",
+"capLL": [
+[
+-7.641,
+54.346
+]
+]
+},
+{
+"iso": "I-LONDONDERRY",
+"id": "I-LONDONDERRY",
+"name": "Londonderry",
+"names": [
+"Londonderry",
+"County Londonderry",
+"Co Londonderry",
+"Derry"
+],
+"capitals": [
+"Coleraine",
+"Derry",
+"Londonderry"
+],
+"info": {
+"nation": "Northern Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Dhoire",
+"kind": "ireland",
+"area": 2121,
+"flag": false,
+"areaRank": 60
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-LONDONDERRY",
+"capLL": [
+[
+-6.667,
+55.133
+]
+]
+},
+{
+"iso": "I-TYRONE",
+"id": "I-TYRONE",
+"name": "Tyrone",
+"names": [
+"Tyrone",
+"County Tyrone",
+"Co Tyrone"
+],
+"capitals": [
+"Omagh"
+],
+"info": {
+"nation": "Northern Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Thír Eoghain",
+"kind": "ireland",
+"area": 3265,
+"flag": false,
+"areaRank": 33
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-TYRONE",
+"capLL": [
+[
+-7.3,
+54.6
+]
+]
+},
+{
+"iso": "I-CARLOW",
+"id": "I-CARLOW",
+"name": "Carlow",
+"names": [
+"Carlow",
+"County Carlow",
+"Co Carlow"
+],
+"capitals": [
+"Carlow"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Cheatharlach",
+"kind": "ireland",
+"area": 896,
+"flag": false,
+"areaRank": 102
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-CARLOW",
+"capLL": [
+[
+-6.926,
+52.841
+]
+]
+},
+{
+"iso": "I-CAVAN",
+"id": "I-CAVAN",
+"name": "Cavan",
+"names": [
+"Cavan",
+"County Cavan",
+"Co Cavan"
+],
+"capitals": [
+"Cavan"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae an Chabháin",
+"kind": "ireland",
+"area": 1932,
+"flag": false,
+"areaRank": 67
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-CAVAN",
+"capLL": [
+[
+-7.361,
+53.991
+]
+]
+},
+{
+"iso": "I-CLARE",
+"id": "I-CLARE",
+"name": "Clare",
+"names": [
+"Clare",
+"County Clare",
+"Co Clare"
+],
+"capitals": [
+"Ennis"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Munster",
+"irish": "Contae an Chláir",
+"kind": "ireland",
+"area": 3450,
+"flag": false,
+"areaRank": 29
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-CLARE",
+"capLL": [
+[
+-8.986,
+52.844
+]
+]
+},
+{
+"iso": "I-CORK",
+"id": "I-CORK",
+"name": "Cork",
+"names": [
+"Cork",
+"County Cork",
+"Co Cork"
+],
+"capitals": [
+"Cork"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Munster",
+"irish": "Contae Chorcaí",
+"kind": "ireland",
+"area": 7504,
+"flag": false,
+"areaRank": 4
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-CORK",
+"capLL": [
+[
+-8.471,
+51.898
+]
+]
+},
+{
+"iso": "I-DONEGAL",
+"id": "I-DONEGAL",
+"name": "Donegal",
+"names": [
+"Donegal",
+"County Donegal",
+"Co Donegal"
+],
+"capitals": [
+"Lifford"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Dhún na nGall",
+"kind": "ireland",
+"area": 4859,
+"flag": false,
+"areaRank": 18
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-DONEGAL",
+"capLL": [
+[
+-7.4797,
+54.8339
+]
+]
+},
+{
+"iso": "I-DUBLIN",
+"id": "I-DUBLIN",
+"name": "Dublin",
+"names": [
+"Dublin",
+"County Dublin",
+"Co Dublin"
+],
+"capitals": [
+"Dublin"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Átha Cliath",
+"kind": "ireland",
+"area": 929,
+"flag": false,
+"areaRank": 98
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-DUBLIN",
+"capLL": [
+[
+-6.249,
+53.333
+]
+]
+},
+{
+"iso": "I-GALWAY",
+"id": "I-GALWAY",
+"name": "Galway",
+"names": [
+"Galway",
+"County Galway",
+"Co Galway"
+],
+"capitals": [
+"Galway"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Connacht",
+"irish": "Contae na Gaillimhe",
+"kind": "ireland",
+"area": 6168,
+"flag": false,
+"areaRank": 9
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-GALWAY",
+"capLL": [
+[
+-9.051,
+53.272
+]
+]
+},
+{
+"iso": "I-KERRY",
+"id": "I-KERRY",
+"name": "Kerry",
+"names": [
+"Kerry",
+"County Kerry",
+"Co Kerry"
+],
+"capitals": [
+"Tralee"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Munster",
+"irish": "Contae Chiarraí",
+"kind": "ireland",
+"area": 4807,
+"flag": false,
+"areaRank": 19
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-KERRY",
+"capLL": [
+[
+-9.703,
+52.27
+]
+]
+},
+{
+"iso": "I-KILDARE",
+"id": "I-KILDARE",
+"name": "Kildare",
+"names": [
+"Kildare",
+"County Kildare",
+"Co Kildare"
+],
+"capitals": [
+"Naas"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Chill Dara",
+"kind": "ireland",
+"area": 1694,
+"flag": false,
+"areaRank": 79
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-KILDARE",
+"capLL": [
+[
+-6.667,
+53.216
+]
+]
+},
+{
+"iso": "I-KILKENNY",
+"id": "I-KILKENNY",
+"name": "Kilkenny",
+"names": [
+"Kilkenny",
+"County Kilkenny",
+"Co Kilkenny"
+],
+"capitals": [
+"Kilkenny"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Chill Chainnigh",
+"kind": "ireland",
+"area": 2071,
+"flag": false,
+"areaRank": 61
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-KILKENNY",
+"capLL": [
+[
+-7.252,
+52.654
+]
+]
+},
+{
+"iso": "I-LAOIS",
+"id": "I-LAOIS",
+"name": "Laois",
+"names": [
+"Laois",
+"County Laois",
+"Co Laois",
+"Leix",
+"Queen's County"
+],
+"capitals": [
+"Portlaoise",
+"Port Laoise"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Laoise",
+"kind": "ireland",
+"area": 1719,
+"flag": false,
+"areaRank": 77
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-LAOIS",
+"capLL": [
+[
+-7.3,
+53.034
+]
+]
+},
+{
+"iso": "I-LEITRIM",
+"id": "I-LEITRIM",
+"name": "Leitrim",
+"names": [
+"Leitrim",
+"County Leitrim",
+"Co Leitrim"
+],
+"capitals": [
+"Carrick-on-Shannon"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Connacht",
+"irish": "Contae Liatroma",
+"kind": "ireland",
+"area": 1588,
+"flag": false,
+"areaRank": 84
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-LEITRIM",
+"capLL": [
+[
+-8.09,
+53.947
+]
+]
+},
+{
+"iso": "I-LIMERICK",
+"id": "I-LIMERICK",
+"name": "Limerick",
+"names": [
+"Limerick",
+"County Limerick",
+"Co Limerick"
+],
+"capitals": [
+"Limerick",
+"Newcastle West"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Munster",
+"irish": "Contae Luimnigh",
+"kind": "ireland",
+"area": 2755,
+"flag": false,
+"areaRank": 41
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-LIMERICK",
+"capLL": [
+[
+-8.623,
+52.665
+]
+]
+},
+{
+"iso": "I-LONGFORD",
+"id": "I-LONGFORD",
+"name": "Longford",
+"names": [
+"Longford",
+"County Longford",
+"Co Longford"
+],
+"capitals": [
+"Longford"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae an Longfoirt",
+"kind": "ireland",
+"area": 1092,
+"flag": false,
+"areaRank": 94
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-LONGFORD",
+"capLL": [
+[
+-7.798,
+53.725
+]
+]
+},
+{
+"iso": "I-LOUTH",
+"id": "I-LOUTH",
+"name": "Louth",
+"names": [
+"Louth",
+"County Louth",
+"Co Louth"
+],
+"capitals": [
+"Dundalk"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Lú",
+"kind": "ireland",
+"area": 826,
+"flag": false,
+"areaRank": 105
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-LOUTH",
+"capLL": [
+[
+-6.417,
+54.0
+]
+]
+},
+{
+"iso": "I-MAYO",
+"id": "I-MAYO",
+"name": "Mayo",
+"names": [
+"Mayo",
+"County Mayo",
+"Co Mayo"
+],
+"capitals": [
+"Castlebar"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Connacht",
+"irish": "Contae Mhaigh Eo",
+"kind": "ireland",
+"area": 5597,
+"flag": false,
+"areaRank": 12
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-MAYO",
+"capLL": [
+[
+-9.3,
+53.85
+]
+]
+},
+{
+"iso": "I-MEATH",
+"id": "I-MEATH",
+"name": "Meath",
+"names": [
+"Meath",
+"County Meath",
+"Co Meath"
+],
+"capitals": [
+"Navan",
+"Trim"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae na Mí",
+"kind": "ireland",
+"area": 2342,
+"flag": false,
+"areaRank": 54
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-MEATH",
+"capLL": [
+[
+-6.681,
+53.653
+]
+]
+},
+{
+"iso": "I-MONAGHAN",
+"id": "I-MONAGHAN",
+"name": "Monaghan",
+"names": [
+"Monaghan",
+"County Monaghan",
+"Co Monaghan"
+],
+"capitals": [
+"Monaghan"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Ulster",
+"irish": "Contae Mhuineacháin",
+"kind": "ireland",
+"area": 1294,
+"flag": false,
+"areaRank": 90
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-MONAGHAN",
+"capLL": [
+[
+-6.971,
+54.246
+]
+]
+},
+{
+"iso": "I-OFFALY",
+"id": "I-OFFALY",
+"name": "Offaly",
+"names": [
+"Offaly",
+"County Offaly",
+"Co Offaly",
+"King's County"
+],
+"capitals": [
+"Tullamore"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Uíbh Fhailí",
+"kind": "ireland",
+"area": 2001,
+"flag": false,
+"areaRank": 65
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-OFFALY",
+"capLL": [
+[
+-7.489,
+53.274
+]
+]
+},
+{
+"iso": "I-ROSCOMMON",
+"id": "I-ROSCOMMON",
+"name": "Roscommon",
+"names": [
+"Roscommon",
+"County Roscommon",
+"Co Roscommon"
+],
+"capitals": [
+"Roscommon"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Connacht",
+"irish": "Contae Ros Comáin",
+"kind": "ireland",
+"area": 2548,
+"flag": false,
+"areaRank": 48
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-ROSCOMMON",
+"capLL": [
+[
+-8.183,
+53.633
+]
+]
+},
+{
+"iso": "I-SLIGO",
+"id": "I-SLIGO",
+"name": "Sligo",
+"names": [
+"Sligo",
+"County Sligo",
+"Co Sligo"
+],
+"capitals": [
+"Sligo"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Connacht",
+"irish": "Contae Shligigh",
+"kind": "ireland",
+"area": 1836,
+"flag": false,
+"areaRank": 72
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-SLIGO",
+"capLL": [
+[
+-8.469,
+54.27
+]
+]
+},
+{
+"iso": "I-TIPPERARY",
+"id": "I-TIPPERARY",
+"name": "Tipperary",
+"names": [
+"Tipperary",
+"County Tipperary",
+"Co Tipperary"
+],
+"capitals": [
+"Clonmel",
+"Nenagh"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Munster",
+"irish": "Contae Thiobraid Árann",
+"kind": "ireland",
+"area": 4305,
+"flag": false,
+"areaRank": 20
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-TIPPERARY",
+"capLL": [
+[
+-7.704,
+52.355
+]
+]
+},
+{
+"iso": "I-WATERFORD",
+"id": "I-WATERFORD",
+"name": "Waterford",
+"names": [
+"Waterford",
+"County Waterford",
+"Co Waterford"
+],
+"capitals": [
+"Waterford",
+"Dungarvan"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Munster",
+"irish": "Contae Phort Láirge",
+"kind": "ireland",
+"area": 1862,
+"flag": false,
+"areaRank": 69
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-WATERFORD",
+"capLL": [
+[
+-7.112,
+52.258
+]
+]
+},
+{
+"iso": "I-WESTMEATH",
+"id": "I-WESTMEATH",
+"name": "Westmeath",
+"names": [
+"Westmeath",
+"County Westmeath",
+"Co Westmeath"
+],
+"capitals": [
+"Mullingar"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae na hIarmhí",
+"kind": "ireland",
+"area": 1839,
+"flag": false,
+"areaRank": 71
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-WESTMEATH",
+"capLL": [
+[
+-7.338,
+53.525
+]
+]
+},
+{
+"iso": "I-WEXFORD",
+"id": "I-WEXFORD",
+"name": "Wexford",
+"names": [
+"Wexford",
+"County Wexford",
+"Co Wexford"
+],
+"capitals": [
+"Wexford"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Loch Garman",
+"kind": "ireland",
+"area": 2376,
+"flag": false,
+"areaRank": 51
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-WEXFORD",
+"capLL": [
+[
+-6.457,
+52.334
+]
+]
+},
+{
+"iso": "I-WICKLOW",
+"id": "I-WICKLOW",
+"name": "Wicklow",
+"names": [
+"Wicklow",
+"County Wicklow",
+"Co Wicklow"
+],
+"capitals": [
+"Wicklow"
+],
+"info": {
+"nation": "Republic of Ireland",
+"island": "Ireland",
+"province": "Leinster",
+"irish": "Contae Chill Mhantáin",
+"kind": "ireland",
+"area": 2024,
+"flag": false,
+"areaRank": 63
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "I-WICKLOW",
+"capLL": [
+[
+-6.049,
+52.975
+]
+]
+},
+{
+"iso": "D-ALD",
+"id": "D-ALD",
+"name": "Alderney",
+"names": [
+"Alderney"
+],
+"capitals": [
+"St Anne",
+"Saint Anne"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 7,
+"flag": true,
+"areaRank": 126
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-ALD",
+"capLL": [
+[
+-2.208,
+49.715
+]
+],
+"flagKey": "uk/D-ALD"
+},
+{
+"iso": "D-GGY",
+"id": "D-GGY",
+"name": "Guernsey",
+"names": [
+"Guernsey"
+],
+"capitals": [
+"St Peter Port",
+"Saint Peter Port"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 63,
+"flag": true,
+"areaRank": 124
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-GGY",
+"capLL": [
+[
+-2.535,
+49.46
+]
+],
+"flagKey": "uk/D-GGY"
+},
+{
+"iso": "D-IOM",
+"id": "D-IOM",
+"name": "Isle of Man",
+"names": [
+"Isle of Man",
+"Mann"
+],
+"capitals": [
+"Douglas"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 575,
+"flag": true,
+"areaRank": 110
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-IOM",
+"capLL": [
+[
+-4.483,
+54.15
+]
+],
+"flagKey": "uk/D-IOM"
+},
+{
+"iso": "D-JER",
+"id": "D-JER",
+"name": "Jersey",
+"names": [
+"Jersey"
+],
+"capitals": [
+"St Helier",
+"Saint Helier"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 119,
+"flag": true,
+"areaRank": 122
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-JER",
+"capLL": [
+[
+-2.105,
+49.188
+]
+],
+"flagKey": "uk/D-JER"
+},
+{
+"iso": "D-SRK",
+"id": "D-SRK",
+"name": "Sark",
+"names": [
+"Sark"
+],
+"capitals": [
+"La Seigneurie",
+"Sark"
+],
+"info": {
+"nation": "Crown Dependency",
+"cd": true,
+"kind": "crown",
+"area": 4,
+"flag": true,
+"areaRank": 127
+},
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "D-SRK",
+"capLL": [
+[
+-2.3606,
+49.4316
+]
+],
+"flagKey": "uk/D-SRK"
+}
+]

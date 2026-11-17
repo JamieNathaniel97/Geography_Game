@@ -155,7 +155,10 @@ Taps on the sea: the country (or grey land) with the nearest coastline wins, wit
 
 - Like game 6: a grid of all 50 state flags, each with a text box beneath it. The user types the state's name; it goes green once correct and moves to the next flag. The user can skip around freely. A counter shows progress, for example "12 / 50".
 
-## Build 4: British and Irish counties (do not build yet)
+## Build 4: British and Irish counties (built 2026-11-16)
+
+**Built:** the Countries tab lists United Kingdom and Ireland (both open the "Britain & Ireland" page; Ireland starts on the Ireland region). The page chooses Historic or Ceremonial counties, the region (All, England, Scotland, Wales, Ireland) and the Crown Dependencies (whole map only, off by default), then Find or Name: Counties, County towns, Flags. Historic: 86 counties of Great Britain (Historic County Borders Project, Definition A: detached parts count as part of the county they lie in). Great Britain's coastline for both sets comes from GSHHG (the county sources draw land over estuaries). Ceremonial: 48 English ceremonial counties, 8 Welsh preserved counties and 35 Scottish lieutenancy areas (Ordnance Survey Boundary-Line). Both include Ireland's 32 traditional counties (townlands.ie, OpenStreetMap) and, when switched on, the Isle of Man, Jersey, Guernsey, Alderney and Sark. Flag games use only counties with a UK Flag Registry flag (56 historic; ceremonial areas use the flag of the historic county they're named after, 43) plus the Crown Dependencies. Learning mode: "Focus on the UK" / "Focus on Ireland" from the world map, a county card (county town, area, nation, Irish name and province), and a button to switch county set. Map: transverse Mercator centred on 2°W. Small counties (City of London, Clackmannanshire, the Channel Islands...) get circles. Data: tools/build_uk.py. Sources are credited on the map and in the README.
+
 
 Build 4 recreates the build 3 games for the counties of Great Britain and the whole island of Ireland. All use a flat map of Britain and Ireland, with the same borders, terrain and satellite toggles as game 1, and arrows or insets for very small counties (for example Rutland, Isle of Wight).
 

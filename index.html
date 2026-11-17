@@ -57,8 +57,10 @@
       <button class="chip" id="magBtn" type="button" aria-pressed="false">Magnifier</button>
       <button class="chip" id="resBtn" type="button" aria-pressed="false" hidden>Reservations</button>
       <button class="chip" id="worldBtn" type="button" hidden>‹ World map</button>
+      <button class="chip" id="setBtn" type="button" hidden>Ceremonial counties</button>
     </div>
     <div class="credit" id="resCredit" hidden>Reservations: US Census Bureau.</div>
+    <div class="credit" id="mapCredit" hidden></div>
     <div class="flagpanel" id="flagPanel" hidden>
       <div class="rowpick"><span>Flags per row</span>
         <div class="seg" id="segPerRow"><button data-v="3" type="button">3</button><button data-v="4" type="button">4</button><button data-v="5" type="button">5</button><button data-v="6" type="button">6</button><button data-v="7" type="button">7</button></div>
@@ -121,6 +123,14 @@
     <div id="countryList" class="clist" hidden></div>
     <div id="countryPage" class="cpage" hidden>
       <div class="cphead"><button class="linkbtn" id="cpBack" type="button">‹ Countries</button><h3 id="cpName"></h3></div>
+      <div class="cpopts" id="cpOpts" hidden>
+        <div class="field"><span class="label">Counties</span>
+          <div class="seg" id="cpSet"><button data-v="uk" type="button">Historic</button><button data-v="ukc" type="button">Ceremonial</button></div></div>
+        <div class="field"><span class="label">Region</span>
+          <div class="seg" id="cpRegion"><button data-v="all" type="button">All</button><button data-v="-eng" type="button">England</button><button data-v="-sco" type="button">Scotland</button><button data-v="-wal" type="button">Wales</button><button data-v="-ire" type="button">Ireland</button></div></div>
+        <div class="field" id="cpCDField"><span class="label">Crown Dependencies <small>Man, Jersey, Guernsey, Alderney, Sark</small></span>
+          <div class="seg" id="cpCD"><button data-v="off" type="button">Off</button><button data-v="on" type="button">On</button></div></div>
+      </div>
       <div class="cpcols" id="cpGames">
         <div class="cpcol"><span class="label">Find <small>tap it on the map</small></span>
           <button data-v="find" type="button">States</button><button data-v="findcap" type="button">Capitals</button><button data-v="findflag" type="button">Flags</button></div>
@@ -186,7 +196,7 @@
 <div class="overlay" id="stats" hidden>
   <div class="sheet statssheet" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
     <div class="sheethead"><h2 id="statsTitle">Your stats</h2><button class="btn" id="statsClose" type="button">Close</button></div>
-    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button></div>
+    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
     <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button><button data-v="flag" type="button">Flags</button></div>
     <section><h3>How well you know each region</h3><p class="hint2">Known = right at least 3 times in 4.</p><div id="statsRegions"></div></section>
     <section><h3>Weakest</h3><ul class="slist" id="statsWeak"></ul></section>

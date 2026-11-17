@@ -183,12 +183,13 @@
       bordersWhere: test => topojson.mesh(topo, topo.objects.states, (a, b) => a !== b && test(byId[a.id], byId[b.id])) };
   };
   // the parts of a country map (states, provinces): tap and label data, like the world map's countries
-  function prepareParts(feats, rings, flagDir) {
+  // `ringDeg`: parts smaller than this (degrees across) also get a circle, e.g. the City of London or Sark
+  function prepareParts(feats, rings, flagDir, ringDeg = 0) {
     for (const f of feats) {
       f.centroid = d3.geoCentroid(f); f.radius = Math.PI;
       const c = f.c; if (!c) continue;
       c.feature = f;
-      c.flagKey = flagDir + c.iso; // data/flags/<flagKey>.webp
+      c.flagKey = c.flagKey || flagDir + c.iso; // data/flags/<flagKey>.webp (the UK data names it: several share a flag)
       c.bounds = d3.geoBounds(f);
       const polys = f.geometry.type === "MultiPolygon" ? f.geometry.coordinates : [f.geometry.coordinates];
       let best = polys[0], bestA = -1;
@@ -197,25 +198,32 @@
       c.anchor = d3.geoCentroid(main);
       c.sizeDeg = Math.max((mb[1][0] - mb[0][0]) * Math.cos((mb[0][1] + mb[1][1]) / 2 * Math.PI / 180), mb[1][1] - mb[0][1]);
       c.minPx = DEFAULT_MIN_PX;
-      c.ring = c.ringAdaptive = rings.has(c.iso);
+      c.ring = c.ringAdaptive = rings.has(c.iso) || c.sizeDeg < ringDeg;
     }
   }
-
-  // ----- Canada's provinces and territories: plain GeoJSON with the border and coast lines made by tools/build_ca.py.
-  // The US and Greenland are grey areas around them (ids "T-..."). `lakes` = the world map's lakes (Great Lakes etc.).
-  const CA_RINGS = new Set(["PE"]); // Prince Edward Island is a sliver at full-Canada zoom
-  GG.loadCA = async function (lakes) {
-    const [fc, items] = await Promise.all([getJSON("data/ca-provinces.json"), getJSON("data/provinces.json")]);
+  // a country map stored as plain GeoJSON with its border and coast lines (tools/build_ca.py, tools/build_uk.py)
+  async function loadShapes(shapesUrl, itemsUrl, kind, flagDir, rings, lakes, ringDeg) {
+    const [fc, items] = await Promise.all([getJSON(shapesUrl), getJSON(itemsUrl)]);
     GG.fixWinding(fc);
     const byId = {}, byIso = {};
     items.forEach(c => { byId[c.id] = c; byIso[c.iso] = c; });
     await pause();
     const feats = fc.features.map(f => ({ type: "Feature", id: f.id, geometry: f.geometry, c: byId[f.id] || null }));
-    prepareParts(feats, CA_RINGS, "ca/");
-    return { kind: "ca", countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders,
+    prepareParts(feats, rings, flagDir, ringDeg);
+    return { kind, countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders,
       coast50: fc.coast, coast110: fc.coast, clusters: [], ringPx: DEFAULT_MIN_PX,
       lakes: lakes || null, lakes110: lakes || null };
-  };
+  }
+  // ----- Britain and Ireland's counties (build 4): set = "historic" or "ceremonial"; each includes Ireland's 32
+  // counties and the Crown Dependencies, with France as a grey area. Small counties (the City of London, the
+  // Channel Islands, Clackmannanshire...) get a circle.
+  GG.loadUK = (set, lakes) => loadShapes(`data/uk-${set}.json`, `data/counties-${set}.json`, set === "historic" ? "uk" : "ukc",
+    "uk/", new Set(), lakes, 0.25);
+
+  // ----- Canada's provinces and territories: plain GeoJSON with the border and coast lines made by tools/build_ca.py.
+  // The US and Greenland are grey areas around them (ids "T-..."). `lakes` = the world map's lakes (Great Lakes etc.).
+  const CA_RINGS = new Set(["PE"]); // Prince Edward Island is a sliver at full-Canada zoom
+  GG.loadCA = lakes => loadShapes("data/ca-provinces.json", "data/provinces.json", "ca", "ca/", CA_RINGS, lakes);
 
   // Fewer points in lines and outlines (Douglas–Peucker, tolerance in degrees), for things redrawn every frame
   GG.simplify = function (g, tol) {

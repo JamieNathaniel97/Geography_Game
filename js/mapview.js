@@ -18,6 +18,8 @@
     usa: { name: "US states", factory: () => d3.geoAlbersUsa(), wrap: false, fit: true },
     // Canada: Lambert conformal conic, as Statistics Canada draws it (standard parallels 49°N and 77°N)
     canada: { name: "Canada", factory: () => d3.geoConicConformal().parallels([49, 77]).rotate([91.87, 0]), wrap: false, fit: true },
+    // Britain and Ireland: transverse Mercator centred on 2°W, like the Ordnance Survey's National Grid
+    uk: { name: "Britain and Ireland", factory: () => d3.geoTransverseMercator().rotate([2, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country
@@ -399,6 +401,8 @@
       this.requestDraw();
     }
     cropRect() { // the box on the flat map, in zoom-1 map coordinates (x unwrapped)
+      // a fitted country map (conic, transverse Mercator): lines of longitude aren't straight, so use the box's outline
+      if (!this.wrap) { const b = d3.geoPath(this.flat).bounds(this.crop.polygon); return [b[0][0], b[0][1], b[1][0], b[1][1]]; }
       const [[w, s], [e, n]] = this.crop.box, x0 = this.flat([w, 0])[0];
       return [x0, this.flat([0, Math.min(n, NORTH)])[1], x0 + (e - w) / 360 * this.BW, this.flat([0, Math.max(s, SOUTH)])[1]];
     }
@@ -489,7 +493,7 @@
         const p = this.flat([lon, Math.max(SOUTH + 1, Math.min(NORTH - 1, lat))]);
         if (!p) { this.world(animate); return; } // outside this map (e.g. not part of the US layout)
         let x = p[0];
-        if (this.crop) { const [x0, , x1] = this.cropRect(); while (x < x0) x += this.BW; while (x > x1) x -= this.BW; }
+        if (this.crop && this.wrap) { const [x0, , x1] = this.cropRect(); while (x < x0) x += this.BW; while (x > x1) x -= this.BW; }
         else if (this.wrap) { const cx = this.baseCentreX(); while (x - cx > this.BW / 2) x -= this.BW; while (cx - x > this.BW / 2) x += this.BW; }
         this.setTransform(d3.zoomIdentity.translate(this.w / 2 - k * x, this.h / 2 - k * p[1]).scale(k), animate);
       } else {
@@ -510,7 +514,9 @@
     world(animate = true) {
       if (this.mode === "flat") {
         const x = this.wrap ? this.baseCentreX() : this.BW / 2;
-        this.setTransform(d3.zoomIdentity.translate(this.w / 2 - x, (this.h - this.BH) / 2).scale(1), animate);
+        // a fitted country map taller than the screen (Britain and Ireland, Canada) zooms out to show all of it
+        const k = !this.wrap && this.style.fit ? Math.min(1, this.h / this.BH) : 1;
+        this.setTransform(d3.zoomIdentity.translate(this.w / 2 - k * x, (this.h - k * this.BH) / 2).scale(k), animate);
       } else {
         this.setTransform(this.globeTransform(this.centre()[0], 15, 1), animate);
       }

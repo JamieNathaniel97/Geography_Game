@@ -40,7 +40,7 @@ def main(out):
     # flags go inside the page (the test artifact has a file limit; the real app uses data/flags/)
     flags = {p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
              for p in sorted((ROOT / "data" / "flags").glob("*.webp"))}
-    for sub in ("us", "ca"):  # states and provinces
+    for sub in ("us", "ca", "uk"):  # states, provinces, counties
         flags.update({f"{sub}/" + p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
                       for p in sorted((ROOT / "data" / "flags" / sub).glob("*.webp"))})
     body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";</script>\n" + body
@@ -48,7 +48,8 @@ def main(out):
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])
     (out / "geography-game.html").write_text(page, encoding="utf8")
     for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg", "us-states.json", "states.json", "lakes.json", "tribal-us.json",
-              "ca-provinces.json", "provinces.json", "tribal-ca.json"):
+              "ca-provinces.json", "provinces.json", "tribal-ca.json",
+              "uk-historic.json", "uk-ceremonial.json", "counties-historic.json", "counties-ceremonial.json"):
         shutil.copy(ROOT / "data" / f, out / "data" / f)
     if (out / "data" / "relief").exists():
         shutil.rmtree(out / "data" / "relief")
