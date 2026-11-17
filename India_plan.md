@@ -29,6 +29,12 @@ Same layout as `tools/build_ca.py`:
 - **Shape source:** the shapes must show the current map: the 2019 split of J&K and Ladakh, and the 2020 merger of Dadra and Nagar Haveli with Daman and Diu. Natural Earth's admin-1 file may still show the old J&K and the two separate UTs, so check it first. If it's out of date, use geoBoundaries ADM1 (open licence, credit it on the map) or fix the shapes by hand in the build script. Check the licence before bundling.
 - **Projection:** Lambert conformal conic, standard parallels about 12°N and 28°N, centred near 80°E.
 
+## Kashmir border (decided 2026-11-17)
+
+- Draw the **disputed border with Pakistan in Kashmir as a dotted line**, to show it's disputed rather than settled. Normal borders stay solid.
+- Build it as its own line type in `in-states.json` (for example `"disputed": MultiLineString` next to `borders` and `coast`), so the map can style it separately.
+- The world map should draw the same line the same way, so the two maps agree.
+
 ## Capitals (games 3 and 4 equivalents)
 
 Most parts have one capital. These need care. **Decided 2026-11-17: confirm every multiple or seasonal capital against an up-to-date source during the build** (the table below is a starting list, not final). Assam's capital is **Dispur** only.
@@ -79,6 +85,13 @@ Same layout as the Canada province card:
 - Population: **2011 census** is the latest published count. The 2027 census is under way, so update the figures when it's published, and label the year on the card as Canada does ("2011 census").
 - **More facts:** largest city (when it isn't the capital), official language(s), area (km² and sq mi, rank of 36), highest point, year formed (with what it was split from), name origin, and state animal, bird, flower and tree.
 - Coast or landlocked, and which countries it borders (useful for India, since many states sit on an international border).
+- **Extra facts (chosen 2026-11-17)**, grouped like the world card:
+  - **People and culture:** main script (with the name written in it, such as தமிழ்நாடு for Tamil Nadu), a famous dish, a traditional textile (Banarasi silk, Pashmina, Kanjeevaram), the biggest festival (Onam, Bihu, Durga Puja, Pongal).
+  - **Land and nature:** main river, climate type (desert, Himalayan, tropical monsoon and so on), a famous national park or tiger reserve.
+  - **History and landmarks:** the old kingdom or princely state it grew from (links with the later timeline), UNESCO World Heritage Sites, main pilgrimage sites.
+  - **Economy:** main crop or industry (tea in Assam, IT in Karnataka).
+  - Turned down: classical dance, literacy rate, forest cover, coastline length, Lok Sabha seats, upper house.
+  - Scripts need a font that covers the Indian scripts, bundled for offline use (check the size; Noto subsets per script).
 
 ## Timeline (later, after the basic games)
 
@@ -101,7 +114,7 @@ India's map changed by **splitting and redrawing**, not by new areas joining lik
 
 ## Open questions for the user
 
-1. **Disputed borders:** which line to draw for Jammu and Kashmir and Ladakh? Options: (a) India's official claimed boundary (the whole of Kashmir including Pakistan- and China-administered areas, which is the map required in India); (b) the de facto Line of Control, with the claimed areas hatched or grey; (c) both, with a toggle. The world map's choice should also be checked so the two maps agree. Arunachal Pradesh (claimed by China) raises the same question.
-2. **UTs:** include all 8 by default (36 total), or default to the 28 states?
-3. **Flags:** leave the flag games out, or use something in their place (emblems, languages)?
-4. Should India come **before the United Kingdom**, which is marked "soon"?
+1. **UTs:** include all 8 by default (36 total), or default to the 28 states?
+2. **Flags:** leave the flag games out, or use something in their place (emblems, languages)?
+3. Should India come **before the United Kingdom**, which is marked "soon"?
+4. **Kashmir areas:** can the Pakistan-administered side be tapped as part of Jammu and Kashmir/Ladakh, or is it grey? And do the China borders (Aksai Chin, Arunachal Pradesh) get the same dotted treatment?
