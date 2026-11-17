@@ -17,7 +17,7 @@ Famous people from history (leaders, scientists, artists, writers, composers, ph
 ### Game H1a: Where were they born and where did they die?
 
 1. A person comes up at the top, for example **"Napoleon Bonaparte · French emperor · 1769–1821"**. The years are always shown (decided 2026-11-17).
-2. **The map zooms into the area** where the person lived (see "Zooming" below).
+2. **No zooming in** (decided 2026-11-17, to match H2a): the map stays on the whole chosen region. **Hint button:** tapping **Hint** before the first tap zooms the map to the area where the person lived (see "Zooming" below), and the round's score is **halved** (a perfect round earns 50 instead of 100). The round shows a small "hint" mark.
 3. **First tap: the birth place guess.** A **green dot** appears where the user tapped.
 4. **Second tap: the death place guess.** A **red dot** appears.
 5. **The real places appear:** a **baby symbol** at the real birth place and a **skull symbol** at the real death place, each labelled with the place name and year ("Ajaccio, 1769", "Saint Helena, 1821"). A thin line joins each guess to the real place, with the distance ("212 km away").
@@ -49,7 +49,7 @@ The other way round:
 
 ### Zooming
 
-- **H1a:** before the taps, the map zooms to the area that holds both real places, with a generous, slightly random margin so the frame doesn't give the answer away. For someone who stayed in one country (Shakespeare), that's about the size of a country or region; for someone who travelled far (Napoleon, from Corsica to Saint Helena), it's much wider. If the frame would be smaller than a minimum size (about 1,500 km across), it's widened to that.
+- **H1a (only with Hint):** the Hint button zooms the map to the area that holds both real places, with a generous, slightly random margin so the frame doesn't give the answer away. For someone who stayed in one country (Shakespeare), that's about the size of a country or region; for someone who travelled far (Napoleon, from Corsica to Saint Helena), it's much wider. If the frame would be smaller than a minimum size (about 1,500 km across), it's widened to that.
 - **H1b:** zoom to fit the two symbols, with a margin.
 - Smooth zooms (turn and zoom together), like the Learning mode clip.
 
@@ -88,7 +88,7 @@ Famous battles from every era, from Kadesh (about 1274 BC) to the late 20th cent
 1. A battle comes up at the top with its year: **"Battle of Hastings · 1066"**.
 2. **No zooming in** (decided 2026-11-17): the map stays on the whole chosen region (the world, or a continent), so the user has to know where it was. They can still pinch to zoom themselves.
 3. **One tap:** a dot appears where the user tapped.
-   - **Hint button:** tapping **Hint** before answering zooms the map to the general area (the same frame as H1a: the real place inside a generous, slightly random margin, at least about 1,500 km across). The round's score is then **halved**: a perfect answer earns 50 instead of 100 (it's half of whatever the tap scores, not a cap on the game). The round shows a small "hint" mark.
+   - **Hint button:** tapping **Hint** before answering zooms the map to the general area (the same frame as H1a's Hint: the real place inside a generous, slightly random margin, at least about 1,500 km across). The round's score is then **halved**: a perfect answer earns 50 instead of 100 (it's half of whatever the tap scores, not a cap on the game). The round shows a small "hint" mark.
 4. **The real place appears** as a **crossed-swords symbol** (an **anchor** for naval battles), labelled with the place and year, with a line from the tap and the distance.
 5. **Score: up to 100 per round**, the same distance formula as H1 (100 within 20 km, 1 at 20,000 km), so a 10-battle game is out of 1,000. With a hint, the round's score is halved (a perfect answer earns 50). Example: a player on 300 after three rounds can reach 400 with a perfect fourth answer, or 350 if they used the hint.
 
@@ -140,4 +140,4 @@ Like H1, before each game:
 
 ### Open questions for the user (H2)
 
-None at the moment (all answered 2026-11-17). Still to decide later: whether H1a (people) should also stop zooming in and get the same Hint button, to match H2a.
+None at the moment (all answered 2026-11-17).
