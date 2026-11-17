@@ -1,7 +1,7 @@
 [
 {
-"iso": "AN",
-"id": "AN",
+"iso": "IN-AN",
+"id": "IN-AN",
 "name": "Andaman and Nicobar Islands",
 "names": [
 "Andaman and Nicobar Islands",
@@ -19,7 +19,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "AN",
+"a2": "IN-AN",
 "info": {
 "abbr": "AN",
 "kind": "Union territory",
@@ -53,8 +53,8 @@
 ]
 },
 {
-"iso": "AP",
-"id": "AP",
+"iso": "IN-AP",
+"id": "IN-AP",
 "name": "Andhra Pradesh",
 "names": [
 "Andhra Pradesh",
@@ -67,7 +67,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "AP",
+"a2": "IN-AP",
 "info": {
 "abbr": "AP",
 "kind": "State",
@@ -112,8 +112,8 @@
 ]
 },
 {
-"iso": "AR",
-"id": "AR",
+"iso": "IN-AR",
+"id": "IN-AR",
 "name": "Arunachal Pradesh",
 "names": [
 "Arunachal Pradesh",
@@ -126,7 +126,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "AR",
+"a2": "IN-AR",
 "info": {
 "abbr": "AR",
 "kind": "State",
@@ -169,8 +169,8 @@
 ]
 },
 {
-"iso": "AS",
-"id": "AS",
+"iso": "IN-AS",
+"id": "IN-AS",
 "name": "Assam",
 "names": [
 "Assam"
@@ -182,7 +182,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "AS",
+"a2": "IN-AS",
 "info": {
 "abbr": "AS",
 "kind": "State",
@@ -230,8 +230,8 @@
 ]
 },
 {
-"iso": "BR",
-"id": "BR",
+"iso": "IN-BR",
+"id": "IN-BR",
 "name": "Bihar",
 "names": [
 "Bihar"
@@ -243,7 +243,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "BR",
+"a2": "IN-BR",
 "info": {
 "abbr": "BR",
 "kind": "State",
@@ -290,8 +290,8 @@
 ]
 },
 {
-"iso": "CH",
-"id": "CH",
+"iso": "IN-CH",
+"id": "IN-CH",
 "name": "Chandigarh",
 "names": [
 "Chandigarh"
@@ -303,7 +303,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "CH",
+"a2": "IN-CH",
 "info": {
 "abbr": "CH",
 "kind": "Union territory",
@@ -334,8 +334,8 @@
 ]
 },
 {
-"iso": "CG",
-"id": "CG",
+"iso": "IN-CG",
+"id": "IN-CG",
 "name": "Chhattisgarh",
 "names": [
 "Chhattisgarh",
@@ -349,7 +349,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "CG",
+"a2": "IN-CG",
 "info": {
 "abbr": "CG",
 "kind": "State",
@@ -391,8 +391,8 @@
 ]
 },
 {
-"iso": "DH",
-"id": "DH",
+"iso": "IN-DH",
+"id": "IN-DH",
 "name": "Dadra and Nagar Haveli and Daman and Diu",
 "names": [
 "Dadra and Nagar Haveli and Daman and Diu",
@@ -411,7 +411,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "DH",
+"a2": "IN-DH",
 "info": {
 "abbr": "DH",
 "kind": "Union territory",
@@ -441,8 +441,8 @@
 ]
 },
 {
-"iso": "DL",
-"id": "DL",
+"iso": "IN-DL",
+"id": "IN-DL",
 "name": "Delhi",
 "names": [
 "Delhi",
@@ -458,7 +458,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "DL",
+"a2": "IN-DL",
 "info": {
 "abbr": "DL",
 "kind": "Union territory",
@@ -496,8 +496,8 @@
 ]
 },
 {
-"iso": "GA",
-"id": "GA",
+"iso": "IN-GA",
+"id": "IN-GA",
 "name": "Goa",
 "names": [
 "Goa"
@@ -510,7 +510,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "GA",
+"a2": "IN-GA",
 "info": {
 "abbr": "GA",
 "kind": "State",
@@ -552,8 +552,8 @@
 ]
 },
 {
-"iso": "GJ",
-"id": "GJ",
+"iso": "IN-GJ",
+"id": "IN-GJ",
 "name": "Gujarat",
 "names": [
 "Gujarat"
@@ -565,7 +565,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "GJ",
+"a2": "IN-GJ",
 "info": {
 "abbr": "GJ",
 "kind": "State",
@@ -613,8 +613,8 @@
 ]
 },
 {
-"iso": "HR",
-"id": "HR",
+"iso": "IN-HR",
+"id": "IN-HR",
 "name": "Haryana",
 "names": [
 "Haryana"
@@ -626,7 +626,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "HR",
+"a2": "IN-HR",
 "info": {
 "abbr": "HR",
 "kind": "State",
@@ -666,8 +666,8 @@
 ]
 },
 {
-"iso": "HP",
-"id": "HP",
+"iso": "IN-HP",
+"id": "IN-HP",
 "name": "Himachal Pradesh",
 "names": [
 "Himachal Pradesh",
@@ -681,7 +681,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "HP",
+"a2": "IN-HP",
 "info": {
 "abbr": "HP",
 "kind": "State",
@@ -728,8 +728,8 @@
 ]
 },
 {
-"iso": "JK",
-"id": "JK",
+"iso": "IN-JK",
+"id": "IN-JK",
 "name": "Jammu and Kashmir",
 "names": [
 "Jammu and Kashmir",
@@ -746,7 +746,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "JK",
+"a2": "IN-JK",
 "info": {
 "abbr": "JK",
 "kind": "Union territory",
@@ -791,8 +791,8 @@
 ]
 },
 {
-"iso": "JH",
-"id": "JH",
+"iso": "IN-JH",
+"id": "IN-JH",
 "name": "Jharkhand",
 "names": [
 "Jharkhand"
@@ -804,7 +804,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "JH",
+"a2": "IN-JH",
 "info": {
 "abbr": "JH",
 "kind": "State",
@@ -845,8 +845,8 @@
 ]
 },
 {
-"iso": "KA",
-"id": "KA",
+"iso": "IN-KA",
+"id": "IN-KA",
 "name": "Karnataka",
 "names": [
 "Karnataka",
@@ -860,7 +860,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "KA",
+"a2": "IN-KA",
 "info": {
 "abbr": "KA",
 "kind": "State",
@@ -905,8 +905,8 @@
 ]
 },
 {
-"iso": "KL",
-"id": "KL",
+"iso": "IN-KL",
+"id": "IN-KL",
 "name": "Kerala",
 "names": [
 "Kerala"
@@ -919,7 +919,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "KL",
+"a2": "IN-KL",
 "info": {
 "abbr": "KL",
 "kind": "State",
@@ -964,8 +964,8 @@
 ]
 },
 {
-"iso": "LA",
-"id": "LA",
+"iso": "IN-LA",
+"id": "IN-LA",
 "name": "Ladakh",
 "names": [
 "Ladakh"
@@ -978,7 +978,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "LA",
+"a2": "IN-LA",
 "info": {
 "abbr": "LA",
 "kind": "Union territory",
@@ -1020,8 +1020,8 @@
 ]
 },
 {
-"iso": "LD",
-"id": "LD",
+"iso": "IN-LD",
+"id": "IN-LD",
 "name": "Lakshadweep",
 "names": [
 "Lakshadweep"
@@ -1033,7 +1033,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "LD",
+"a2": "IN-LD",
 "info": {
 "abbr": "LD",
 "kind": "Union territory",
@@ -1066,8 +1066,8 @@
 ]
 },
 {
-"iso": "MP",
-"id": "MP",
+"iso": "IN-MP",
+"id": "IN-MP",
 "name": "Madhya Pradesh",
 "names": [
 "Madhya Pradesh",
@@ -1080,7 +1080,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "MP",
+"a2": "IN-MP",
 "info": {
 "abbr": "MP",
 "kind": "State",
@@ -1124,8 +1124,8 @@
 ]
 },
 {
-"iso": "MH",
-"id": "MH",
+"iso": "IN-MH",
+"id": "IN-MH",
 "name": "Maharashtra",
 "names": [
 "Maharashtra"
@@ -1139,7 +1139,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "MH",
+"a2": "IN-MH",
 "info": {
 "abbr": "MH",
 "kind": "State",
@@ -1184,8 +1184,8 @@
 ]
 },
 {
-"iso": "MN",
-"id": "MN",
+"iso": "IN-MN",
+"id": "IN-MN",
 "name": "Manipur",
 "names": [
 "Manipur"
@@ -1197,7 +1197,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "MN",
+"a2": "IN-MN",
 "info": {
 "abbr": "MN",
 "kind": "State",
@@ -1237,8 +1237,8 @@
 ]
 },
 {
-"iso": "ML",
-"id": "ML",
+"iso": "IN-ML",
+"id": "IN-ML",
 "name": "Meghalaya",
 "names": [
 "Meghalaya"
@@ -1250,7 +1250,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "ML",
+"a2": "IN-ML",
 "info": {
 "abbr": "ML",
 "kind": "State",
@@ -1291,8 +1291,8 @@
 ]
 },
 {
-"iso": "MZ",
-"id": "MZ",
+"iso": "IN-MZ",
+"id": "IN-MZ",
 "name": "Mizoram",
 "names": [
 "Mizoram"
@@ -1304,7 +1304,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "MZ",
+"a2": "IN-MZ",
 "info": {
 "abbr": "MZ",
 "kind": "State",
@@ -1344,8 +1344,8 @@
 ]
 },
 {
-"iso": "NL",
-"id": "NL",
+"iso": "IN-NL",
+"id": "IN-NL",
 "name": "Nagaland",
 "names": [
 "Nagaland"
@@ -1357,7 +1357,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "NL",
+"a2": "IN-NL",
 "info": {
 "abbr": "NL",
 "kind": "State",
@@ -1399,8 +1399,8 @@
 ]
 },
 {
-"iso": "OD",
-"id": "OD",
+"iso": "IN-OD",
+"id": "IN-OD",
 "name": "Odisha",
 "names": [
 "Odisha",
@@ -1413,7 +1413,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "OD",
+"a2": "IN-OD",
 "info": {
 "abbr": "OD",
 "kind": "State",
@@ -1458,8 +1458,8 @@
 ]
 },
 {
-"iso": "PY",
-"id": "PY",
+"iso": "IN-PY",
+"id": "IN-PY",
 "name": "Puducherry",
 "names": [
 "Puducherry",
@@ -1473,7 +1473,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "PY",
+"a2": "IN-PY",
 "info": {
 "abbr": "PY",
 "kind": "Union territory",
@@ -1505,8 +1505,8 @@
 ]
 },
 {
-"iso": "PB",
-"id": "PB",
+"iso": "IN-PB",
+"id": "IN-PB",
 "name": "Punjab",
 "names": [
 "Punjab"
@@ -1518,7 +1518,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "PB",
+"a2": "IN-PB",
 "info": {
 "abbr": "PB",
 "kind": "State",
@@ -1563,8 +1563,8 @@
 ]
 },
 {
-"iso": "RJ",
-"id": "RJ",
+"iso": "IN-RJ",
+"id": "IN-RJ",
 "name": "Rajasthan",
 "names": [
 "Rajasthan"
@@ -1576,7 +1576,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "RJ",
+"a2": "IN-RJ",
 "info": {
 "abbr": "RJ",
 "kind": "State",
@@ -1623,8 +1623,8 @@
 ]
 },
 {
-"iso": "SK",
-"id": "SK",
+"iso": "IN-SK",
+"id": "IN-SK",
 "name": "Sikkim",
 "names": [
 "Sikkim"
@@ -1636,7 +1636,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "SK",
+"a2": "IN-SK",
 "info": {
 "abbr": "SK",
 "kind": "State",
@@ -1684,8 +1684,8 @@
 ]
 },
 {
-"iso": "TN",
-"id": "TN",
+"iso": "IN-TN",
+"id": "IN-TN",
 "name": "Tamil Nadu",
 "names": [
 "Tamil Nadu",
@@ -1699,7 +1699,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "TN",
+"a2": "IN-TN",
 "info": {
 "abbr": "TN",
 "kind": "State",
@@ -1744,8 +1744,8 @@
 ]
 },
 {
-"iso": "TS",
-"id": "TS",
+"iso": "IN-TS",
+"id": "IN-TS",
 "name": "Telangana",
 "names": [
 "Telangana",
@@ -1758,7 +1758,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "TS",
+"a2": "IN-TS",
 "info": {
 "abbr": "TS",
 "kind": "State",
@@ -1803,8 +1803,8 @@
 ]
 },
 {
-"iso": "TR",
-"id": "TR",
+"iso": "IN-TR",
+"id": "IN-TR",
 "name": "Tripura",
 "names": [
 "Tripura"
@@ -1816,7 +1816,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "TR",
+"a2": "IN-TR",
 "info": {
 "abbr": "TR",
 "kind": "State",
@@ -1859,8 +1859,8 @@
 ]
 },
 {
-"iso": "UP",
-"id": "UP",
+"iso": "IN-UP",
+"id": "IN-UP",
 "name": "Uttar Pradesh",
 "names": [
 "Uttar Pradesh",
@@ -1873,7 +1873,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "UP",
+"a2": "IN-UP",
 "info": {
 "abbr": "UP",
 "kind": "State",
@@ -1919,8 +1919,8 @@
 ]
 },
 {
-"iso": "UK",
-"id": "UK",
+"iso": "IN-UK",
+"id": "IN-UK",
 "name": "Uttarakhand",
 "names": [
 "Uttarakhand",
@@ -1935,7 +1935,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "UK",
+"a2": "IN-UK",
 "info": {
 "abbr": "UK",
 "kind": "State",
@@ -1980,8 +1980,8 @@
 ]
 },
 {
-"iso": "WB",
-"id": "WB",
+"iso": "IN-WB",
+"id": "IN-WB",
 "name": "West Bengal",
 "names": [
 "West Bengal",
@@ -1996,7 +1996,7 @@
 "Asia"
 ],
 "car": false,
-"a2": "WB",
+"a2": "IN-WB",
 "info": {
 "abbr": "WB",
 "kind": "State",

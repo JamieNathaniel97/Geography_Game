@@ -117,7 +117,7 @@ def shapes():
     for _, r in ind.iterrows():
         if r["name"] not in PARTS:
             raise SystemExit(f"unexpected part: {r['name']}")
-        areas[PARTS[r["name"]][0]] = polygonal(r.geometry)
+        areas["IN-" + PARTS[r["name"]][0]] = polygonal(r.geometry)  # "IN-" so stats never mix with US state codes
     assert len(areas) == 36, len(areas)
     grey_dsp = {}
     for _, r in dsp.iterrows():
@@ -150,7 +150,7 @@ def shapes():
             indian = [k for k in pair if not k.startswith("T-")]
             if not indian:
                 borders += ls  # between two grey areas: not India's line, drawn as an ordinary border
-            elif pair & set(DISPUTED_GREY.values()) or (pair & {"T-PAK"} and pair & {"JK", "LA"}):
+            elif pair & set(DISPUTED_GREY.values()) or (pair & {"T-PAK"} and pair & {"IN-JK", "IN-LA"}):
                 disputed += ls
             elif indian and "T-CHN" in pair:
                 line = unary_union(ls)
@@ -185,14 +185,15 @@ def main():
     import in_facts
     (ROOT / "data" / "in-states.json").write_text(json.dumps(fc, separators=(",", ":")), encoding="utf8")
     items = []
-    for ne_name, (iso, name, kind, region, caps, pop, area, year, origin) in PARTS.items():
-        names = [name] + NAMES.get(iso, [])
+    for ne_name, (code, name, kind, region, caps, pop, area, year, origin) in PARTS.items():
+        iso = "IN-" + code
+        names = [name] + NAMES.get(code, [])
         names += [n.replace(" and ", " & ") for n in names if " and " in n]  # "Jammu & Kashmir"
         items.append({"iso": iso, "id": iso, "name": name, "names": list(dict.fromkeys(names)), "capitals": caps,
                       "cont": ["Asia"], "car": False, "a2": iso,
-                      "info": {"abbr": iso, "kind": kind, "region": region, "pop": pop, "popYear": "2011 census", "area": area,
-                               "year": year, "origin": origin, "capNote": CAPITAL_NOTE.get(iso), "flag": False,
-                               "facts": in_facts.FACTS.get(iso, {}), **extra.get(iso, {})}})
+                      "info": {"abbr": code, "kind": kind, "region": region, "pop": pop, "popYear": "2011 census", "area": area,
+                               "year": year, "origin": origin, "capNote": CAPITAL_NOTE.get(code), "flag": False,
+                               "facts": in_facts.FACTS.get(code, {}), **extra.get(iso, {})}})
     by_area = sorted(items, key=lambda c: -c["info"]["area"])
     for it in items:
         it["info"]["areaRank"] = by_area.index(it) + 1
@@ -200,7 +201,7 @@ def main():
     missing = []
     for it in items:
         pts = []
-        for city in sorted(set([it["capitals"][0]] + ([it["capitals"][1]] if it["iso"] == "JK" else [])), key=it["capitals"].index):
+        for city in sorted(set([it["capitals"][0]] + ([it["capitals"][1]] if it["iso"] == "IN-JK" else [])), key=it["capitals"].index):
             ll = capitals.find({"Sri Vijaya Puram": "Port Blair"}.get(city, city), a2="IN")
             (pts.append(ll) if ll else missing.append(f"{it['name']}: {city}"))
         it["capLL"] = pts

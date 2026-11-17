@@ -7,7 +7,7 @@
   // data: "world" (countries), or a country map: "us" (US states, build 3), "ca" (Canada's provinces and territories),
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
-  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null;
+  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null;
   const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
@@ -19,6 +19,10 @@
     // India: 28 states and 8 union territories (a toggle leaves the UTs out); no flags, so no flag games
     in: { noun: "state or union territory", nouns: "states and union territories", Nouns: "States & UTs", region: "india",
       style: "india", count: 36, noFlags: true, load: async () => (geoIN = geoIN || await GG.loadIN(geoWorld.lakes)) },
+    // China: 22 provinces, 5 autonomous regions, 4 municipalities and 2 SARs (Taiwan is grey); only Hong Kong and Macau
+    // have flags, so no flag games
+    cn: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "china", style: "china", count: 33, noFlags: true,
+      load: async () => (geoCN = geoCN || await GG.loadCN(geoWorld.lakes)) },
     // Britain and Ireland: the parts are counties, and county towns stand in for capitals
     uk: { noun: "county", nouns: "counties", Nouns: "Counties", cap: "county town", caps: "county towns", region: "uk", style: "uk",
       set: "Historic", load: async () => (geoUK.uk = geoUK.uk || await GG.loadUK("historic", geoWorld.lakes)) },
@@ -29,7 +33,7 @@
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
   const isCountryMap = d => !!DATASETS[d] && d !== "world";
-  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -95,6 +99,7 @@
     canada:   { name: "Canada", us: true, test: () => true },        // the whole Canada map (provinces games)
     // India: with the union territories switched off, only the 28 states (Learning mode always shows all 36)
     india:    { name: "India", us: true, test: c => S.ut !== false || S.mode === "explore" || c.info.kind === "State" },
+    china:    { name: "China", us: true, test: () => true },
     // Britain and Ireland, for each county set (added below): the whole map, England, Scotland, Wales and Ireland
     oceania:  { name: "Oceania",       test: c => c.cont.includes("Oceania"),       view: { globe: [167, -16, 74.3],   flat: [167, -16, 74.3] },   crop: [[110, -50], [212, 22]] },
   };
@@ -367,6 +372,7 @@
     if (geoUS && geoUS.byIso[c.iso] === c) { showStateCard(c, i); return; }
     if (geoCA && geoCA.byIso[c.iso] === c) { showProvinceCard(c, i); return; }
     if (geoIN && geoIN.byIso[c.iso] === c) { showIndiaCard(c, i); return; }
+    if (geoCN && geoCN.byIso[c.iso] === c) { showChinaCard(c, i); return; }
     if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
@@ -522,6 +528,49 @@
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // China's provincial-level divisions (2020 census; Hong Kong and Macau 2021). Names in Chinese characters and pinyin.
+  function showChinaCard(c, i) {
+    const f = i.facts || {}; // tools/cn_facts.py
+    $("lcFlag").hidden = !i.flag; // only Hong Kong and Macau have their own flags
+    if (i.flag) { $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`; }
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = `${i.kind} · ${i.region} China · ${i.abbr}`;
+    const city = i.kind === "Municipality" || i.kind === "Special administrative region";
+    $("lcMain").innerHTML = facts([[city ? "City" : "Capital", city ? "The whole area is one city" : c.capitals[0]],
+      ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("Names", [
+        ["In Chinese", f.zh ? `<span class="native">${esc(f.zh)}</span> ${esc(f.py || "")}` : "", true],
+        ["One-character name", f.short ? `<span class="native">${esc(f.short)}</span> (on number plates)` : "", true],
+      ]) +
+      factGroup("People and culture", [
+        ["Largest city", f.city || ""],
+        [/,| and /.test(f.langs || "") ? "Languages" : "Language", f.langs],
+        ["Peoples", f.ethnic],
+        ["Food", f.cuisine],
+        ["Traditional art", f.art],
+        ["Festival", f.festival],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 33`],
+        ["Highest point", f.high],
+        ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Borders", (i.borders || []).join(", ")],
+        ["Main river", f.river],
+        ["Climate", f.climate],
+        ["Scenic spot", f.scenic],
+        ["Wildlife", f.animal],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Long ago", f.ancient],
+        ["In its present form since", f.year],
+        ["UNESCO World Heritage", f.unesco],
+        ["Great Wall", f.wall],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
   // Canada's provinces and territories (2021 census, areas from Statistics Canada)
   function showProvinceCard(c, i) {
     $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
@@ -603,7 +652,7 @@
     IRL: { name: "Ireland", focus: "Ireland", cont: "Europe", unit: "Counties", data: "uk", region: "uk-ire", page: "Britain & Ireland" },
     // coming next (India_plan.md, China_plan.md, Russia_plan.md, Australia_plan.md); Russia is in Europe and Asia
     IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", data: "in", region: "india" },
-    CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", soon: true },
+    CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", data: "cn", region: "china" },
     RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", soon: true },
     AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", soon: true },
   };
@@ -732,7 +781,7 @@
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
+    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
     $("statsSkill").querySelector('[data-v="capital"]').textContent = ds.caps ? "County towns" : "Capitals";
     // no flags (India): no Flags tab
     $("statsSkill").querySelector('[data-v="flag"]').hidden = !!ds.noFlags;
@@ -1173,7 +1222,7 @@
     $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
-    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
+    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : data === "cn" ? "Whole China" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
     $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view

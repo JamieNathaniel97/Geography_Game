@@ -22,6 +22,8 @@
     uk: { name: "Britain and Ireland", factory: () => d3.geoTransverseMercator().rotate([2, 0]), wrap: false, fit: true },
     // India: Lambert conformal conic, standard parallels 12°N and 28°N, centred on 80°E
     india: { name: "India", factory: () => d3.geoConicConformal().parallels([12, 28]).rotate([-80, 0]), wrap: false, fit: true },
+    // China: Albers equal-area conic, standard parallels 25°N and 47°N, centred on 105°E
+    china: { name: "China", factory: () => d3.geoConicEqualArea().parallels([25, 47]).rotate([-105, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country

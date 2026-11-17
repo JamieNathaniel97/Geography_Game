@@ -51,6 +51,8 @@
     const norm = c[key];
     const exact = norm.indexOf(t);
     if (exact >= 0) return { exact: true, name: names[exact] };
+    // names that must never pass as a typo of this one: a neighbour one letter away (Shanxi for Shaanxi)
+    if (c.notTypo && c.notTypo.some(n => GG.normName(n) === t)) return null;
     // one typo; a name you're still typing (the start of the right name) isn't counted early
     const i = norm.findIndex(n => n.length >= 6 && !n.startsWith(t) && distance(t, n, 1) <= 1);
     return i >= 0 ? { exact: false, name: names[i] } : null;

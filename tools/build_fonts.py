@@ -3,7 +3,7 @@ characters the cards use, so they cost a few kilobytes and work offline.
 
   fonts/gq-<script>.woff   one per script, loaded by css/app.css (@font-face "GQ Scripts", with unicode ranges)
 
-Text comes from tools/in_facts.py (India's names in their own scripts); China and Russia will add theirs.
+Text comes from tools/in_facts.py (India's names in their own scripts) and tools/cn_facts.py (China's characters).
 Run from the repo root:  python tools/build_fonts.py   (needs fontTools; the Noto fonts are in tools/downloads/fonts/)
 """
 import pathlib
@@ -27,13 +27,16 @@ SCRIPTS = {
     "telugu": ("NotoSansTelugu-Regular.ttf", 0x0C00, 0x0C7F),
     "kannada": ("NotoSansKannada-Regular.ttf", 0x0C80, 0x0CFF),
     "malayalam": ("NotoSansMalayalam-Regular.ttf", 0x0D00, 0x0D7F),
+    "chinese": ("NotoSansSC.ttf", 0x4E00, 0x9FFF),  # CJK Unified Ideographs (China's names, simplified characters)
 }
 
 
 def card_text():
     sys.path.insert(0, str(ROOT / "tools"))
     import in_facts
-    return "".join(f.get("script", "") for f in in_facts.FACTS.values())
+    import cn_facts
+    return ("".join(f.get("script", "") for f in in_facts.FACTS.values()) +
+            "".join(f.get("zh", "") + f.get("short", "") for f in cn_facts.FACTS.values()))
 
 
 def main():
@@ -51,6 +54,9 @@ def main():
         opts.flavor = "woff"
         opts.name_IDs = ["*"]  # keep the licence and copyright names
         font = TTFont(SRC / file)
+        if "fvar" in font:  # a variable font: just the Regular weight
+            from fontTools.varLib import instancer
+            font = instancer.instantiateVariableFont(font, {"wght": 400})
         sub = subset.Subsetter(opts)
         sub.populate(unicodes=unicodes)
         sub.subset(font)

@@ -195,7 +195,7 @@
       let best = polys[0], bestA = -1;
       polys.forEach(p => { const a = d3.geoArea({ type: "Polygon", coordinates: p }); if (a > bestA) { bestA = a; best = p; } });
       const main = { type: "Polygon", coordinates: best }, mb = d3.geoBounds(main);
-      c.anchor = d3.geoCentroid(main);
+      c.anchor = c.anchorLL || d3.geoCentroid(main); // (the build gives a point inside when the centre falls outside, e.g. Gansu)
       c.sizeDeg = Math.max((mb[1][0] - mb[0][0]) * Math.cos((mb[0][1] + mb[1][1]) / 2 * Math.PI / 180), mb[1][1] - mb[0][1]);
       c.minPx = DEFAULT_MIN_PX;
       c.ring = c.ringAdaptive = rings.has(c.iso) || c.sizeDeg < ringDeg;
@@ -233,8 +233,11 @@
   const CA_RINGS = new Set(["PE"]); // Prince Edward Island is a sliver at full-Canada zoom
   GG.loadCA = lakes => loadShapes("data/ca-provinces.json", "data/provinces.json", "ca", "ca/", CA_RINGS, lakes);
   // India's 28 states and 8 union territories (tools/build_in.py); the small ones get circles
-  const IN_RINGS = new Set(["CH", "DL", "GA", "PY", "DH", "LD"]);
+  const IN_RINGS = new Set(["IN-CH", "IN-DL", "IN-GA", "IN-PY", "IN-DH", "IN-LD"]);
   GG.loadIN = lakes => loadShapes("data/in-states.json", "data/in-parts.json", "in", "in/", IN_RINGS, lakes);
+  // China's 33 provincial-level divisions (tools/build_cn.py); Hong Kong and Macau are specks, so they get circles
+  const CN_RINGS = new Set(["CN-HK", "CN-MO"]);
+  GG.loadCN = lakes => loadShapes("data/cn-provinces.json", "data/cn-parts.json", "cn", "cn/", CN_RINGS, lakes);
 
   // Fewer points in lines and outlines (Douglas–Peucker, tolerance in degrees), for things redrawn every frame
   GG.simplify = function (g, tol) {

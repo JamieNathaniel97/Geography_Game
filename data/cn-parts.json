@@ -1,0 +1,1722 @@
+[
+{
+"iso": "CN-AH",
+"id": "CN-AH",
+"name": "Anhui",
+"names": [
+"Anhui",
+"Anhwei"
+],
+"capitals": [
+"Hefei"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-AH",
+"info": {
+"abbr": "AH",
+"kind": "Province",
+"region": "East",
+"pop": 61027171,
+"popYear": "2020 census",
+"area": 140100,
+"flag": false,
+"facts": {
+"zh": "安徽",
+"py": "Ānhuī",
+"short": "皖",
+"langs": "Mandarin (Jianghuai and Hui dialects)",
+"cuisine": "Anhui (Hui) cuisine: stinky mandarin fish",
+"art": "Huangmei opera",
+"river": "Yangtze and Huai",
+"climate": "Humid subtropical",
+"high": "Lotus Peak, Huangshan, 1,864 m",
+"scenic": "Huangshan (the Yellow Mountains)",
+"animal": "Chinese alligator",
+"ancient": "Chu and Wu",
+"unesco": "Huangshan, and the villages of Xidi and Hongcun",
+"industry": "Cars and farming"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 22
+},
+"capLL": [
+[
+117.278,
+31.852
+]
+]
+},
+{
+"iso": "CN-BJ",
+"id": "CN-BJ",
+"name": "Beijing",
+"names": [
+"Beijing",
+"Peking"
+],
+"capitals": [
+"Beijing",
+"Peking"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-BJ",
+"info": {
+"abbr": "BJ",
+"kind": "Municipality",
+"region": "North",
+"pop": 21893095,
+"popYear": "2020 census",
+"area": 16410,
+"flag": false,
+"facts": {
+"zh": "北京",
+"py": "Běijīng",
+"short": "京",
+"langs": "Mandarin (Beijing dialect)",
+"cuisine": "Peking duck",
+"art": "Peking opera",
+"river": "Yongding",
+"climate": "Continental, dry and cold winters",
+"high": "Mount Dongling, 2,303 m",
+"ancient": "Yan, and capital of the Yuan, Ming and Qing",
+"unesco": "The Forbidden City, the Temple of Heaven and the Summer Palace",
+"wall": "Badaling and Mutianyu",
+"industry": "Technology and government"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 29
+},
+"capLL": [
+[
+116.386,
+39.931
+]
+]
+},
+{
+"iso": "CN-CQ",
+"id": "CN-CQ",
+"name": "Chongqing",
+"names": [
+"Chongqing"
+],
+"capitals": [
+"Chongqing",
+"Chungking"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-CQ",
+"info": {
+"abbr": "CQ",
+"kind": "Municipality",
+"region": "Southwest",
+"pop": 32054159,
+"popYear": "2020 census",
+"area": 82400,
+"flag": false,
+"facts": {
+"zh": "重庆",
+"py": "Chóngqìng",
+"short": "渝",
+"langs": "Sichuanese Mandarin",
+"cuisine": "Chongqing hotpot",
+"river": "Yangtze and Jialing",
+"climate": "Humid subtropical (one of China's 'furnaces')",
+"scenic": "The Three Gorges",
+"ancient": "Ba",
+"unesco": "The Dazu Rock Carvings",
+"year": "1997, split from Sichuan",
+"industry": "Cars and motorbikes"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 26
+},
+"capLL": [
+[
+106.593,
+29.567
+]
+]
+},
+{
+"iso": "CN-FJ",
+"id": "CN-FJ",
+"name": "Fujian",
+"names": [
+"Fujian",
+"Fukien"
+],
+"capitals": [
+"Fuzhou"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-FJ",
+"info": {
+"abbr": "FJ",
+"kind": "Province",
+"region": "East",
+"pop": 41540086,
+"popYear": "2020 census",
+"area": 124000,
+"flag": false,
+"facts": {
+"zh": "福建",
+"py": "Fújiàn",
+"short": "闽",
+"langs": "Min (Hokkien, Fuzhounese) and Mandarin",
+"cuisine": "Fujian (Min) cuisine: Buddha Jumps Over the Wall",
+"festival": "Mazu pilgrimage to Meizhou Island",
+"art": "Quanzhou string puppets",
+"river": "Min",
+"climate": "Humid subtropical",
+"high": "Huanggang Mountain, 2,158 m",
+"scenic": "Mount Wuyi",
+"ancient": "Minyue",
+"unesco": "Fujian Tulou, Mount Wuyi and Gulangyu",
+"industry": "Oolong tea, shoes and shipping"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 23
+},
+"capLL": [
+[
+119.298,
+26.082
+]
+]
+},
+{
+"iso": "CN-GS",
+"id": "CN-GS",
+"name": "Gansu",
+"names": [
+"Gansu",
+"Kansu"
+],
+"capitals": [
+"Lanzhou"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-GS",
+"info": {
+"abbr": "GS",
+"kind": "Province",
+"region": "Northwest",
+"pop": 25019831,
+"popYear": "2020 census",
+"area": 425800,
+"flag": false,
+"facts": {
+"zh": "甘肃",
+"py": "Gānsù",
+"short": "甘",
+"langs": "Mandarin",
+"cuisine": "Lanzhou beef noodles",
+"river": "Yellow River",
+"climate": "Arid to highland",
+"scenic": "Zhangye Danxia (the rainbow mountains)",
+"ancient": "The Hexi Corridor on the Silk Road",
+"unesco": "The Mogao Caves at Dunhuang",
+"wall": "Jiayuguan, the western end of the Ming wall",
+"industry": "Oil, wind power and farming"
+},
+"coastal": false,
+"borders": [
+"Mongolia"
+],
+"areaRank": 7
+},
+"anchorLL": [
+96.159,
+40.402
+],
+"capLL": [
+[
+103.79,
+36.058
+]
+]
+},
+{
+"iso": "CN-GD",
+"id": "CN-GD",
+"name": "Guangdong",
+"names": [
+"Guangdong",
+"Kwangtung"
+],
+"capitals": [
+"Guangzhou",
+"Canton"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-GD",
+"info": {
+"abbr": "GD",
+"kind": "Province",
+"region": "South Central",
+"pop": 126012510,
+"popYear": "2020 census",
+"area": 179800,
+"flag": false,
+"facts": {
+"zh": "广东",
+"py": "Guǎngdōng",
+"short": "粤",
+"langs": "Cantonese, Hakka, Teochew and Mandarin",
+"cuisine": "Cantonese (Yue) cuisine: dim sum",
+"art": "Cantonese opera",
+"river": "Pearl River",
+"climate": "Humid subtropical",
+"high": "Shikengkong, 1,902 m",
+"animal": "Chinese white dolphin",
+"ancient": "Nanyue",
+"unesco": "Kaiping Diaolou (watchtowers)",
+"industry": "Electronics and factories (Shenzhen, Dongguan)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15
+},
+"capLL": [
+[
+113.323,
+23.147
+]
+]
+},
+{
+"iso": "CN-GX",
+"id": "CN-GX",
+"name": "Guangxi",
+"names": [
+"Guangxi",
+"Guangxi Zhuang"
+],
+"capitals": [
+"Nanning"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-GX",
+"info": {
+"abbr": "GX",
+"kind": "Autonomous region",
+"region": "South Central",
+"pop": 50126804,
+"popYear": "2020 census",
+"area": 237600,
+"flag": false,
+"facts": {
+"zh": "广西",
+"py": "Guǎngxī",
+"short": "桂",
+"langs": "Zhuang, Cantonese and Mandarin",
+"ethnic": "Han and Zhuang (China's largest minority)",
+"cuisine": "Luosifen (river snail noodles)",
+"festival": "The Zhuang Third of March song festival",
+"river": "Pearl River (Xi)",
+"climate": "Humid subtropical",
+"high": "Mao'er Mountain, 2,141 m",
+"scenic": "Guilin and the Li River",
+"ancient": "Nanyue and the Baiyue",
+"unesco": "The Zuojiang Huashan rock art",
+"year": "1958, as an autonomous region",
+"industry": "Sugar"
+},
+"coastal": true,
+"borders": [
+"Vietnam"
+],
+"areaRank": 9
+},
+"capLL": [
+[
+108.318,
+22.822
+]
+]
+},
+{
+"iso": "CN-GZ",
+"id": "CN-GZ",
+"name": "Guizhou",
+"names": [
+"Guizhou",
+"Kweichow"
+],
+"capitals": [
+"Guiyang"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-GZ",
+"info": {
+"abbr": "GZ",
+"kind": "Province",
+"region": "Southwest",
+"pop": 38562148,
+"popYear": "2020 census",
+"area": 176200,
+"flag": false,
+"facts": {
+"zh": "贵州",
+"py": "Guìzhōu",
+"short": "贵",
+"langs": "Mandarin, Miao and Buyi",
+"ethnic": "Han, Miao, Buyi and Dong",
+"cuisine": "Sour fish soup",
+"river": "Wu",
+"climate": "Humid subtropical, often misty",
+"high": "Jiucaiping, 2,900 m",
+"scenic": "Huangguoshu Waterfall",
+"ancient": "Yelang",
+"unesco": "South China Karst and Fanjingshan",
+"industry": "Moutai liquor and data centres"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 16
+},
+"capLL": [
+[
+106.718,
+26.582
+]
+]
+},
+{
+"iso": "CN-HI",
+"id": "CN-HI",
+"name": "Hainan",
+"names": [
+"Hainan"
+],
+"capitals": [
+"Haikou"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HI",
+"info": {
+"abbr": "HI",
+"kind": "Province",
+"region": "South Central",
+"pop": 10081232,
+"popYear": "2020 census",
+"area": 35400,
+"flag": false,
+"facts": {
+"zh": "海南",
+"py": "Hǎinán",
+"short": "琼",
+"langs": "Hainanese (Min) and Mandarin",
+"ethnic": "Han and Li",
+"cuisine": "Hainan chicken",
+"climate": "Tropical",
+"high": "Wuzhi Mountain, 1,867 m",
+"scenic": "Yalong Bay, Sanya",
+"animal": "Hainan gibbon",
+"year": "1988, split from Guangdong",
+"industry": "Tourism and tropical fruit"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 28
+},
+"capLL": [
+[
+110.32,
+20.05
+]
+]
+},
+{
+"iso": "CN-HE",
+"id": "CN-HE",
+"name": "Hebei",
+"names": [
+"Hebei",
+"Hopeh"
+],
+"capitals": [
+"Shijiazhuang"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HE",
+"info": {
+"abbr": "HE",
+"kind": "Province",
+"region": "North",
+"pop": 74610235,
+"popYear": "2020 census",
+"area": 188800,
+"flag": false,
+"facts": {
+"zh": "河北",
+"py": "Héběi",
+"short": "冀",
+"langs": "Mandarin",
+"cuisine": "Donkey burgers",
+"river": "Hai",
+"climate": "Semi-arid to humid",
+"high": "Xiaowutai Mountain, 2,882 m",
+"ancient": "Yan and Zhao",
+"unesco": "Chengde Mountain Resort and the Eastern and Western Qing Tombs",
+"wall": "Shanhaiguan, where the wall meets the sea, and Jinshanling",
+"industry": "Steel"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12
+},
+"notTypo": [
+"Hubei"
+],
+"capLL": [
+[
+114.478,
+38.052
+]
+]
+},
+{
+"iso": "CN-HL",
+"id": "CN-HL",
+"name": "Heilongjiang",
+"names": [
+"Heilongjiang",
+"Heilungkiang"
+],
+"capitals": [
+"Harbin"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HL",
+"info": {
+"abbr": "HL",
+"kind": "Province",
+"region": "Northeast",
+"pop": 31850088,
+"popYear": "2020 census",
+"area": 473000,
+"flag": false,
+"facts": {
+"zh": "黑龙江",
+"py": "Hēilóngjiāng",
+"short": "黑",
+"langs": "Mandarin",
+"cuisine": "Guobaorou (sweet and sour pork)",
+"festival": "Harbin Ice and Snow Festival",
+"river": "Heilongjiang (the Amur) and Songhua",
+"climate": "Cold continental",
+"scenic": "Wudalianchi volcanoes",
+"animal": "Red-crowned crane",
+"ancient": "Bohai and the Jurchen Jin",
+"industry": "Grain and oil (Daqing)"
+},
+"coastal": false,
+"borders": [
+"Russia"
+],
+"areaRank": 6
+},
+"capLL": [
+[
+126.648,
+45.752
+]
+]
+},
+{
+"iso": "CN-HA",
+"id": "CN-HA",
+"name": "Henan",
+"names": [
+"Henan",
+"Honan"
+],
+"capitals": [
+"Zhengzhou"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HA",
+"info": {
+"abbr": "HA",
+"kind": "Province",
+"region": "South Central",
+"pop": 99365519,
+"popYear": "2020 census",
+"area": 167000,
+"flag": false,
+"facts": {
+"zh": "河南",
+"py": "Hénán",
+"short": "豫",
+"langs": "Mandarin",
+"cuisine": "Huimian (braised noodles)",
+"festival": "Shaolin kung fu",
+"art": "Yu opera",
+"river": "Yellow River",
+"climate": "Humid subtropical to temperate",
+"scenic": "Mount Song",
+"ancient": "The Shang and Zhou heartland",
+"unesco": "The Longmen Grottoes, Yinxu (Anyang) and Mount Song's temples",
+"industry": "Wheat and food"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 17
+},
+"notTypo": [
+"Hunan"
+],
+"capLL": [
+[
+113.663,
+34.757
+]
+]
+},
+{
+"iso": "CN-HK",
+"id": "CN-HK",
+"name": "Hong Kong",
+"names": [
+"Hong Kong",
+"HK"
+],
+"capitals": [
+"Hong Kong"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HK",
+"info": {
+"abbr": "HK",
+"kind": "Special administrative region",
+"region": "South Central",
+"pop": 7413070,
+"popYear": "2021 census",
+"area": 1114,
+"flag": true,
+"facts": {
+"zh": "香港",
+"py": "Xiānggǎng",
+"short": "港",
+"langs": "Cantonese and English",
+"cuisine": "Dim sum and egg tarts",
+"festival": "Cheung Chau Bun Festival",
+"art": "Hong Kong cinema",
+"climate": "Humid subtropical",
+"high": "Tai Mo Shan, 957 m",
+"scenic": "Victoria Harbour",
+"ancient": "British Hong Kong (1841–1997)",
+"year": "1997, returned from Britain",
+"industry": "Finance and trade"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 32
+},
+"flagKey": "cn/CN-HK",
+"capLL": [
+[
+114.183,
+22.307
+]
+]
+},
+{
+"iso": "CN-HB",
+"id": "CN-HB",
+"name": "Hubei",
+"names": [
+"Hubei",
+"Hupeh"
+],
+"capitals": [
+"Wuhan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HB",
+"info": {
+"abbr": "HB",
+"kind": "Province",
+"region": "South Central",
+"pop": 57752557,
+"popYear": "2020 census",
+"area": 185900,
+"flag": false,
+"facts": {
+"zh": "湖北",
+"py": "Húběi",
+"short": "鄂",
+"langs": "Mandarin",
+"cuisine": "Reganmian (hot dry noodles)",
+"river": "Yangtze and Han",
+"climate": "Humid subtropical",
+"high": "Shennong Peak, 3,106 m",
+"scenic": "The Three Gorges",
+"animal": "Golden snub-nosed monkey",
+"ancient": "Chu",
+"unesco": "The Wudang Mountains and Shennongjia",
+"industry": "Cars and steel (Wuhan)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 14
+},
+"notTypo": [
+"Hebei"
+],
+"capLL": [
+[
+114.268,
+30.582
+]
+]
+},
+{
+"iso": "CN-HN",
+"id": "CN-HN",
+"name": "Hunan",
+"names": [
+"Hunan"
+],
+"capitals": [
+"Changsha"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-HN",
+"info": {
+"abbr": "HN",
+"kind": "Province",
+"region": "South Central",
+"pop": 66444864,
+"popYear": "2020 census",
+"area": 211800,
+"flag": false,
+"facts": {
+"zh": "湖南",
+"py": "Húnán",
+"short": "湘",
+"langs": "Xiang and Mandarin",
+"ethnic": "Han, Tujia and Miao",
+"cuisine": "Hunan (Xiang) cuisine: chopped-chilli fish head",
+"art": "Xiang embroidery",
+"river": "Xiang and the Yangtze",
+"climate": "Humid subtropical",
+"scenic": "Zhangjiajie",
+"ancient": "Chu",
+"unesco": "Wulingyuan (Zhangjiajie)",
+"industry": "Rice and machinery"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10
+},
+"notTypo": [
+"Henan"
+],
+"capLL": [
+[
+112.968,
+28.202
+]
+]
+},
+{
+"iso": "CN-NM",
+"id": "CN-NM",
+"name": "Inner Mongolia",
+"names": [
+"Inner Mongolia",
+"Nei Mongol",
+"Nei Menggu"
+],
+"capitals": [
+"Hohhot"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-NM",
+"info": {
+"abbr": "NM",
+"kind": "Autonomous region",
+"region": "North",
+"pop": 24049155,
+"popYear": "2020 census",
+"area": 1183000,
+"flag": false,
+"facts": {
+"zh": "内蒙古",
+"py": "Nèi Měnggǔ",
+"short": "蒙",
+"langs": "Mandarin and Mongolian",
+"ethnic": "Han and Mongols",
+"cuisine": "Roast lamb and milk tea",
+"festival": "Naadam (horse racing, wrestling, archery)",
+"art": "Throat singing and the morin khuur (horse-head fiddle)",
+"river": "Yellow River",
+"climate": "Semi-arid to cold",
+"scenic": "The Hulunbuir grasslands",
+"ancient": "The Xiongnu, then the Mongol Empire",
+"unesco": "Xanadu, Kublai Khan's summer capital",
+"year": "1947, the first autonomous region",
+"industry": "Coal and dairy"
+},
+"coastal": false,
+"borders": [
+"Mongolia",
+"Russia"
+],
+"areaRank": 3
+},
+"capLL": [
+[
+111.658,
+40.822
+]
+]
+},
+{
+"iso": "CN-JS",
+"id": "CN-JS",
+"name": "Jiangsu",
+"names": [
+"Jiangsu",
+"Kiangsu"
+],
+"capitals": [
+"Nanjing",
+"Nanking"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-JS",
+"info": {
+"abbr": "JS",
+"kind": "Province",
+"region": "East",
+"pop": 84748016,
+"popYear": "2020 census",
+"area": 107200,
+"flag": false,
+"facts": {
+"zh": "江苏",
+"py": "Jiāngsū",
+"short": "苏",
+"city": "Suzhou",
+"langs": "Wu and Mandarin",
+"cuisine": "Jiangsu (Su) cuisine: Yangzhou fried rice",
+"art": "Kunqu opera and Su embroidery",
+"river": "Yangtze and the Grand Canal",
+"climate": "Humid subtropical",
+"scenic": "The classical gardens of Suzhou",
+"ancient": "Wu",
+"unesco": "The classical gardens of Suzhou and the Grand Canal",
+"industry": "Manufacturing and electronics"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 24
+},
+"capLL": [
+[
+118.778,
+32.052
+]
+]
+},
+{
+"iso": "CN-JX",
+"id": "CN-JX",
+"name": "Jiangxi",
+"names": [
+"Jiangxi",
+"Kiangsi"
+],
+"capitals": [
+"Nanchang"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-JX",
+"info": {
+"abbr": "JX",
+"kind": "Province",
+"region": "East",
+"pop": 45188635,
+"popYear": "2020 census",
+"area": 166900,
+"flag": false,
+"facts": {
+"zh": "江西",
+"py": "Jiāngxī",
+"short": "赣",
+"langs": "Gan and Hakka",
+"art": "Jingdezhen porcelain",
+"river": "Gan, and Poyang Lake",
+"climate": "Humid subtropical",
+"scenic": "Mount Lushan",
+"unesco": "Mount Lushan and Mount Sanqingshan",
+"industry": "Copper and porcelain"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 18
+},
+"capLL": [
+[
+115.878,
+28.682
+]
+]
+},
+{
+"iso": "CN-JL",
+"id": "CN-JL",
+"name": "Jilin",
+"names": [
+"Jilin",
+"Kirin"
+],
+"capitals": [
+"Changchun"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-JL",
+"info": {
+"abbr": "JL",
+"kind": "Province",
+"region": "Northeast",
+"pop": 24073453,
+"popYear": "2020 census",
+"area": 187400,
+"flag": false,
+"facts": {
+"zh": "吉林",
+"py": "Jílín",
+"short": "吉",
+"langs": "Mandarin and Korean",
+"ethnic": "Han, Koreans and Manchus",
+"river": "Songhua and Tumen",
+"climate": "Cold continental",
+"high": "Changbai Mountain (Paektu), 2,744 m",
+"scenic": "Changbai Mountain and its crater lake",
+"animal": "Siberian tiger",
+"ancient": "Goguryeo",
+"unesco": "The capital cities of Goguryeo",
+"industry": "Cars (Changchun)"
+},
+"coastal": false,
+"borders": [
+"North Korea",
+"Russia"
+],
+"areaRank": 13
+},
+"capLL": [
+[
+125.338,
+43.867
+]
+]
+},
+{
+"iso": "CN-LN",
+"id": "CN-LN",
+"name": "Liaoning",
+"names": [
+"Liaoning"
+],
+"capitals": [
+"Shenyang",
+"Mukden"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-LN",
+"info": {
+"abbr": "LN",
+"kind": "Province",
+"region": "Northeast",
+"pop": 42591407,
+"popYear": "2020 census",
+"area": 148000,
+"flag": false,
+"facts": {
+"zh": "辽宁",
+"py": "Liáoníng",
+"short": "辽",
+"langs": "Mandarin",
+"river": "Liao",
+"climate": "Temperate continental",
+"ancient": "Goguryeo, then the Liao and the Manchu Qing",
+"unesco": "Shenyang's Mukden Palace",
+"wall": "Jiumenkou and Hushan",
+"industry": "Steel and shipbuilding"
+},
+"coastal": true,
+"borders": [
+"North Korea"
+],
+"areaRank": 21
+},
+"capLL": [
+[
+123.448,
+41.807
+]
+]
+},
+{
+"iso": "CN-MO",
+"id": "CN-MO",
+"name": "Macau",
+"names": [
+"Macau",
+"Macao"
+],
+"capitals": [
+"Macau",
+"Macao"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-MO",
+"info": {
+"abbr": "MO",
+"kind": "Special administrative region",
+"region": "South Central",
+"pop": 683218,
+"popYear": "2021 census",
+"area": 33,
+"flag": true,
+"facts": {
+"zh": "澳门",
+"py": "Àomén",
+"short": "澳",
+"langs": "Cantonese and Portuguese",
+"cuisine": "Portuguese egg tarts",
+"festival": "Macau Grand Prix",
+"climate": "Humid subtropical",
+"high": "Coloane Alto, 170 m",
+"ancient": "Portuguese Macau (1557–1999)",
+"unesco": "The Historic Centre of Macao",
+"year": "1999, returned from Portugal",
+"industry": "Casinos and tourism"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 33
+},
+"flagKey": "cn/CN-MO",
+"capLL": [
+[
+113.545,
+22.203
+]
+]
+},
+{
+"iso": "CN-NX",
+"id": "CN-NX",
+"name": "Ningxia",
+"names": [
+"Ningxia",
+"Ningxia Hui"
+],
+"capitals": [
+"Yinchuan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-NX",
+"info": {
+"abbr": "NX",
+"kind": "Autonomous region",
+"region": "Northwest",
+"pop": 7202654,
+"popYear": "2020 census",
+"area": 66400,
+"flag": false,
+"facts": {
+"zh": "宁夏",
+"py": "Níngxià",
+"short": "宁",
+"langs": "Mandarin",
+"ethnic": "Han and Hui (Chinese Muslims)",
+"cuisine": "Hand-pulled mutton",
+"river": "Yellow River",
+"climate": "Arid",
+"high": "Helan Mountains, 3,556 m",
+"scenic": "The Shapotou dunes",
+"ancient": "Western Xia",
+"unesco": "The Western Xia imperial tombs",
+"year": "1958, as an autonomous region",
+"industry": "Wine and goji berries"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 27
+},
+"capLL": [
+[
+106.271,
+38.47
+]
+]
+},
+{
+"iso": "CN-QH",
+"id": "CN-QH",
+"name": "Qinghai",
+"names": [
+"Qinghai"
+],
+"capitals": [
+"Xining"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-QH",
+"info": {
+"abbr": "QH",
+"kind": "Province",
+"region": "Northwest",
+"pop": 5923957,
+"popYear": "2020 census",
+"area": 722300,
+"flag": false,
+"facts": {
+"zh": "青海",
+"py": "Qīnghǎi",
+"short": "青",
+"langs": "Mandarin, Tibetan and Mongolian",
+"ethnic": "Han, Tibetans and Hui",
+"river": "Yellow River and the Yangtze (their sources)",
+"climate": "Highland (the Tibetan Plateau)",
+"scenic": "Qinghai Lake",
+"animal": "Tibetan antelope",
+"ancient": "Tuyuhun and the Tibetan Empire",
+"unesco": "Hoh Xil",
+"year": "1928",
+"industry": "Salt lakes and potash"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 4
+},
+"capLL": [
+[
+101.768,
+36.622
+]
+]
+},
+{
+"iso": "CN-SN",
+"id": "CN-SN",
+"name": "Shaanxi",
+"names": [
+"Shaanxi",
+"Shensi"
+],
+"capitals": [
+"Xi'an",
+"Xian"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-SN",
+"info": {
+"abbr": "SN",
+"kind": "Province",
+"region": "Northwest",
+"pop": 39528999,
+"popYear": "2020 census",
+"area": 205600,
+"flag": false,
+"facts": {
+"zh": "陕西",
+"py": "Shǎnxī",
+"short": "陕",
+"langs": "Mandarin",
+"cuisine": "Roujiamo and biangbiang noodles",
+"art": "Qinqiang opera",
+"river": "Yellow River and Wei",
+"climate": "Semi-arid to humid",
+"high": "Mount Taibai, 3,771 m",
+"scenic": "Mount Hua",
+"animal": "Qinling giant panda and crested ibis",
+"ancient": "Qin, the first empire (its capital at Xi'an)",
+"unesco": "The Terracotta Army",
+"wall": "Yulin",
+"industry": "Coal and aircraft"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11
+},
+"notTypo": [
+"Shanxi"
+],
+"capLL": [
+[
+108.893,
+34.277
+]
+]
+},
+{
+"iso": "CN-SD",
+"id": "CN-SD",
+"name": "Shandong",
+"names": [
+"Shandong",
+"Shantung"
+],
+"capitals": [
+"Jinan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-SD",
+"info": {
+"abbr": "SD",
+"kind": "Province",
+"region": "East",
+"pop": 101527453,
+"popYear": "2020 census",
+"area": 157100,
+"flag": false,
+"facts": {
+"zh": "山东",
+"py": "Shāndōng",
+"short": "鲁",
+"city": "Qingdao",
+"langs": "Mandarin",
+"cuisine": "Shandong (Lu) cuisine: braised sea cucumber",
+"festival": "Qingdao Beer Festival",
+"art": "Weifang kites",
+"river": "Yellow River",
+"climate": "Temperate",
+"high": "Mount Tai, 1,545 m",
+"scenic": "Mount Tai",
+"ancient": "Qi and Lu, home of Confucius",
+"unesco": "Mount Tai and the Temple of Confucius at Qufu",
+"industry": "Farming, oil and appliances"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 19
+},
+"capLL": [
+[
+116.993,
+36.677
+]
+]
+},
+{
+"iso": "CN-SH",
+"id": "CN-SH",
+"name": "Shanghai",
+"names": [
+"Shanghai"
+],
+"capitals": [
+"Shanghai"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-SH",
+"info": {
+"abbr": "SH",
+"kind": "Municipality",
+"region": "East",
+"pop": 24870895,
+"popYear": "2020 census",
+"area": 6341,
+"flag": false,
+"facts": {
+"zh": "上海",
+"py": "Shànghǎi",
+"short": "沪",
+"langs": "Shanghainese (Wu) and Mandarin",
+"cuisine": "Xiaolongbao (soup dumplings)",
+"river": "Yangtze and Huangpu",
+"climate": "Humid subtropical",
+"scenic": "The Bund",
+"industry": "Finance and the world's busiest container port"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 31
+},
+"capLL": [
+[
+121.435,
+31.218
+]
+]
+},
+{
+"iso": "CN-SX",
+"id": "CN-SX",
+"name": "Shanxi",
+"names": [
+"Shanxi",
+"Shansi"
+],
+"capitals": [
+"Taiyuan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-SX",
+"info": {
+"abbr": "SX",
+"kind": "Province",
+"region": "North",
+"pop": 34915616,
+"popYear": "2020 census",
+"area": 156700,
+"flag": false,
+"facts": {
+"zh": "山西",
+"py": "Shānxī",
+"short": "晋",
+"langs": "Jin and Mandarin",
+"cuisine": "Knife-cut noodles and mature vinegar",
+"art": "Jin opera",
+"river": "Yellow River and Fen",
+"climate": "Semi-arid",
+"high": "Mount Wutai, 3,061 m",
+"scenic": "Hukou Waterfall",
+"ancient": "Jin",
+"unesco": "Pingyao, the Yungang Grottoes and Mount Wutai",
+"wall": "Yanmen Pass",
+"industry": "Coal"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 20
+},
+"notTypo": [
+"Shaanxi"
+],
+"capLL": [
+[
+112.543,
+37.877
+]
+]
+},
+{
+"iso": "CN-SC",
+"id": "CN-SC",
+"name": "Sichuan",
+"names": [
+"Sichuan",
+"Szechwan",
+"Szechuan"
+],
+"capitals": [
+"Chengdu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-SC",
+"info": {
+"abbr": "SC",
+"kind": "Province",
+"region": "Southwest",
+"pop": 83674866,
+"popYear": "2020 census",
+"area": 486000,
+"flag": false,
+"facts": {
+"zh": "四川",
+"py": "Sìchuān",
+"short": "川",
+"langs": "Sichuanese Mandarin",
+"ethnic": "Han, Yi and Tibetans",
+"cuisine": "Sichuan (Chuan) cuisine: mapo tofu and hotpot",
+"festival": "Zigong Lantern Festival",
+"art": "Sichuan opera face-changing",
+"river": "Yangtze and Min",
+"climate": "Humid subtropical, highland in the west",
+"high": "Mount Gongga, 7,556 m",
+"scenic": "Jiuzhaigou",
+"animal": "Giant panda",
+"ancient": "Shu",
+"unesco": "Jiuzhaigou, Mount Emei and the Leshan Giant Buddha, and the panda sanctuaries",
+"industry": "Pigs, rice and electronics"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 5
+},
+"capLL": [
+[
+104.068,
+30.672
+]
+]
+},
+{
+"iso": "CN-TJ",
+"id": "CN-TJ",
+"name": "Tianjin",
+"names": [
+"Tianjin",
+"Tientsin"
+],
+"capitals": [
+"Tianjin",
+"Tientsin"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-TJ",
+"info": {
+"abbr": "TJ",
+"kind": "Municipality",
+"region": "North",
+"pop": 13866009,
+"popYear": "2020 census",
+"area": 11966,
+"flag": false,
+"facts": {
+"zh": "天津",
+"py": "Tiānjīn",
+"short": "津",
+"langs": "Mandarin (Tianjin dialect)",
+"cuisine": "Goubuli baozi (steamed buns)",
+"art": "Yangliuqing New Year prints and Clay Figure Zhang",
+"river": "Hai",
+"climate": "Temperate continental",
+"high": "Jiushanding, 1,078 m",
+"wall": "Huangyaguan",
+"industry": "Port, aerospace and chemicals"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 30
+},
+"capLL": [
+[
+117.198,
+39.132
+]
+]
+},
+{
+"iso": "CN-XZ",
+"id": "CN-XZ",
+"name": "Tibet",
+"names": [
+"Tibet",
+"Xizang"
+],
+"capitals": [
+"Lhasa"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-XZ",
+"info": {
+"abbr": "XZ",
+"kind": "Autonomous region",
+"region": "Southwest",
+"pop": 3648100,
+"popYear": "2020 census",
+"area": 1228400,
+"flag": false,
+"facts": {
+"zh": "西藏",
+"py": "Xīzàng",
+"short": "藏",
+"langs": "Tibetan and Mandarin",
+"ethnic": "Tibetans",
+"cuisine": "Tsampa and butter tea",
+"festival": "Losar (Tibetan New Year) and Shoton",
+"art": "Thangka painting",
+"river": "Yarlung Tsangpo (the Brahmaputra)",
+"climate": "Highland (the 'Roof of the World')",
+"high": "Mount Everest (Qomolangma), 8,849 m",
+"scenic": "Mount Everest and Namtso Lake",
+"ancient": "The Tibetan Empire",
+"unesco": "The Potala Palace, Lhasa",
+"year": "1965, as an autonomous region",
+"industry": "Tourism and farming"
+},
+"coastal": false,
+"borders": [
+"Aksai Chin (disputed)",
+"Bhutan",
+"India",
+"Myanmar",
+"Nepal"
+],
+"areaRank": 2
+},
+"capLL": [
+[
+91.1,
+29.645
+]
+]
+},
+{
+"iso": "CN-XJ",
+"id": "CN-XJ",
+"name": "Xinjiang",
+"names": [
+"Xinjiang",
+"Sinkiang",
+"Xinjiang Uyghur",
+"Xinjiang Uygur"
+],
+"capitals": [
+"Ürümqi",
+"Urumqi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-XJ",
+"info": {
+"abbr": "XJ",
+"kind": "Autonomous region",
+"region": "Northwest",
+"pop": 25852345,
+"popYear": "2020 census",
+"area": 1664900,
+"flag": false,
+"facts": {
+"zh": "新疆",
+"py": "Xīnjiāng",
+"short": "新",
+"langs": "Uyghur and Mandarin",
+"ethnic": "Uyghurs, Han, Kazakhs and others",
+"cuisine": "Lamb skewers and polo (pilaf)",
+"art": "Uyghur Muqam",
+"river": "Tarim",
+"climate": "Desert (the Taklamakan)",
+"high": "K2 (Chogori), 8,611 m, on the border",
+"scenic": "Tianchi (Heavenly Lake) and Kanas",
+"animal": "Bactrian camel",
+"ancient": "The Western Regions and the Silk Road kingdoms",
+"unesco": "Tianshan and the Silk Roads",
+"year": "1955, as an autonomous region",
+"industry": "Cotton, oil and gas"
+},
+"coastal": false,
+"borders": [
+"Afghanistan",
+"Aksai Chin (disputed)",
+"Kazakhstan",
+"Kyrgyzstan",
+"Mongolia",
+"Pakistan",
+"Russia",
+"Shaksgam Valley (disputed)",
+"Siachen (disputed)",
+"Tajikistan"
+],
+"areaRank": 1
+},
+"capLL": [
+[
+87.573,
+43.807
+]
+]
+},
+{
+"iso": "CN-YN",
+"id": "CN-YN",
+"name": "Yunnan",
+"names": [
+"Yunnan"
+],
+"capitals": [
+"Kunming"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-YN",
+"info": {
+"abbr": "YN",
+"kind": "Province",
+"region": "Southwest",
+"pop": 47209277,
+"popYear": "2020 census",
+"area": 394100,
+"flag": false,
+"facts": {
+"zh": "云南",
+"py": "Yúnnán",
+"short": "云",
+"langs": "Mandarin and many minority languages",
+"ethnic": "Han, Yi, Bai, Hani, Dai, Naxi and more (25 groups)",
+"cuisine": "Crossing-the-bridge noodles",
+"festival": "The Dai Water-Splashing Festival",
+"river": "Lancang (the Mekong) and Jinsha",
+"climate": "Subtropical highland",
+"high": "Kawagebo, 6,740 m",
+"scenic": "The Stone Forest and Tiger Leaping Gorge",
+"animal": "Asian elephant",
+"ancient": "Dian, then the kingdoms of Nanzhao and Dali",
+"unesco": "The old town of Lijiang, the Stone Forest and the Honghe Hani rice terraces",
+"industry": "Pu'er tea, tobacco and flowers"
+},
+"coastal": false,
+"borders": [
+"Laos",
+"Myanmar",
+"Vietnam"
+],
+"areaRank": 8
+},
+"capLL": [
+[
+102.678,
+25.072
+]
+]
+},
+{
+"iso": "CN-ZJ",
+"id": "CN-ZJ",
+"name": "Zhejiang",
+"names": [
+"Zhejiang",
+"Chekiang"
+],
+"capitals": [
+"Hangzhou"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "CN-ZJ",
+"info": {
+"abbr": "ZJ",
+"kind": "Province",
+"region": "East",
+"pop": 64567588,
+"popYear": "2020 census",
+"area": 105500,
+"flag": false,
+"facts": {
+"zh": "浙江",
+"py": "Zhèjiāng",
+"short": "浙",
+"langs": "Wu and Mandarin",
+"cuisine": "Zhejiang (Zhe) cuisine: Dongpo pork",
+"art": "Yue opera",
+"river": "Qiantang (famous for its tidal bore)",
+"climate": "Humid subtropical",
+"high": "Huangmaojian, 1,929 m",
+"scenic": "West Lake, Hangzhou",
+"ancient": "Yue",
+"unesco": "West Lake, Hangzhou",
+"industry": "E-commerce and small goods (Yiwu)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 25
+},
+"capLL": [
+[
+120.168,
+30.252
+]
+]
+}
+]

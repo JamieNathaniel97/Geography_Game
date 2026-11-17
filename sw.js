@@ -1,6 +1,6 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "gaia-quest-v46";
+const CACHE = "gaia-quest-v47";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js",
@@ -9,7 +9,8 @@ const SHELL = [
   "data/us-states.json", "data/states.json", "data/lakes.json", "data/tribal-us.json",
   "data/ca-provinces.json", "data/provinces.json", "data/tribal-ca.json",
   "data/uk-historic.json", "data/uk-ceremonial.json", "data/uk-nations.json", "data/uk-nations-info.json", "data/in-states.json", "data/in-parts.json",
-  "fonts/fonts\gq-bengali.woff", "fonts/fonts\gq-devanagari.woff", "fonts/fonts\gq-gujarati.woff", "fonts/fonts\gq-gurmukhi.woff", "fonts/fonts\gq-kannada.woff", "fonts/fonts\gq-malayalam.woff", "fonts/fonts\gq-oriya.woff", "fonts/fonts\gq-tamil.woff", "fonts/fonts\gq-telugu.woff", "data/counties-historic.json", "data/counties-ceremonial.json",
+  "data/cn-provinces.json", "data/cn-parts.json",
+  "fonts/gq-bengali.woff", "fonts/gq-chinese.woff", "fonts/gq-devanagari.woff", "fonts/gq-gujarati.woff", "fonts/gq-gurmukhi.woff", "fonts/gq-kannada.woff", "fonts/gq-malayalam.woff", "fonts/gq-oriya.woff", "fonts/gq-tamil.woff", "fonts/gq-telugu.woff", "data/counties-historic.json", "data/counties-ceremonial.json",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png", "icons/apple-touch-icon.png",
 ];
 
