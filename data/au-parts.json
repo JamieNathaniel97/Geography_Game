@@ -1,0 +1,496 @@
+[
+{
+"iso": "AU-ACT",
+"id": "AU-ACT",
+"name": "Australian Capital Territory",
+"names": [
+"Australian Capital Territory",
+"ACT"
+],
+"capitals": [
+"Canberra"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-ACT",
+"info": {
+"abbr": "ACT",
+"kind": "Territory",
+"pop": 454499,
+"popYear": "2021 census",
+"area": 2358,
+"year": 1911,
+"flag": true,
+"facts": {
+"nickname": "The Bush Capital",
+"demonym": "Canberran",
+"first": "Ngunnawal and Ngambri",
+"football": "Rugby league and rugby union (the Raiders and the Brumbies)",
+"water": "Lake Burley Griffin, on the Molonglo",
+"climate": "Temperate, with cold winters",
+"high": "Bimberi Peak, 1,913 m",
+"tz": "UTC+10, daylight saving UTC+11",
+"wonder": "Namadgi National Park",
+"animal": "Southern brush-tailed rock-wallaby",
+"bird": "Gang-gang cockatoo",
+"flower": "Royal bluebell",
+"founded": "1911, cut from New South Wales for the national capital",
+"origin": "Canberra: thought to come from a Ngunnawal word, perhaps \"meeting place\"",
+"plate": "Canberra – Nation's Capital",
+"industry": "Government"
+},
+"coastal": false,
+"areaRank": 8
+},
+"flagKey": "au/AU-ACT",
+"capLL": [
+[
+149.129,
+-35.283
+]
+]
+},
+{
+"iso": "AU-JBT",
+"id": "AU-JBT",
+"name": "Jervis Bay Territory",
+"names": [
+"Jervis Bay Territory",
+"Jervis Bay",
+"JBT"
+],
+"capitals": [],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-JBT",
+"info": {
+"abbr": "JBT",
+"kind": "Territory",
+"pop": 311,
+"popYear": "2021 census",
+"area": 67,
+"year": 1915,
+"flag": false,
+"facts": {
+"first": "The Wreck Bay community, who run Booderee National Park jointly with the government",
+"water": "Jervis Bay",
+"climate": "Temperate",
+"tz": "UTC+10, daylight saving UTC+11",
+"wonder": "Booderee National Park",
+"founded": "1915, given by New South Wales so the capital would have a seaport",
+"origin": "Admiral John Jervis (the bay, named in 1791)",
+"industry": "The navy's training college (HMAS Creswell)"
+},
+"coastal": true,
+"areaRank": 9
+},
+"flagKey": "au/AU-JBT",
+"capLL": []
+},
+{
+"iso": "AU-NSW",
+"id": "AU-NSW",
+"name": "New South Wales",
+"names": [
+"New South Wales",
+"NSW"
+],
+"capitals": [
+"Sydney"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-NSW",
+"info": {
+"abbr": "NSW",
+"kind": "State",
+"pop": 8072163,
+"popYear": "2021 census",
+"area": 800642,
+"year": 1788,
+"flag": true,
+"facts": {
+"nickname": "The Premier State (the first colony)",
+"demonym": "New South Welshman",
+"first": "Wiradjuri, Gamilaraay, Bundjalung, and the Dharug and Eora around Sydney",
+"food": "Tim Tams (Arnott's, Sydney) and Hunter Valley wine",
+"football": "Rugby league",
+"water": "The Murray–Darling",
+"climate": "Temperate on the coast, semi-arid inland",
+"high": "Mount Kosciuszko, 2,228 m: Australia's highest",
+"tz": "UTC+10, daylight saving UTC+11 (Broken Hill: UTC+9:30)",
+"wonder": "The Blue Mountains",
+"animal": "Platypus",
+"bird": "Laughing kookaburra",
+"flower": "Waratah",
+"danger": "Sydney funnel-web spider",
+"founded": "1788, as a penal colony (the First Fleet)",
+"unesco": "Sydney Opera House, the Greater Blue Mountains, Lord Howe Island, Willandra Lakes",
+"origin": "James Cook thought the coast looked like South Wales (1770)",
+"plate": "NSW (once \"The First State\")",
+"industry": "Finance and services, and coal (the Hunter)"
+},
+"coastal": true,
+"areaRank": 5
+},
+"flagKey": "au/AU-NSW",
+"capLL": [
+[
+151.183,
+-33.918
+]
+]
+},
+{
+"iso": "AU-NT",
+"id": "AU-NT",
+"name": "Northern Territory",
+"names": [
+"Northern Territory",
+"NT",
+"The Territory"
+],
+"capitals": [
+"Darwin"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-NT",
+"info": {
+"abbr": "NT",
+"kind": "Territory",
+"pop": 232605,
+"popYear": "2021 census",
+"area": 1349129,
+"year": 1911,
+"flag": true,
+"facts": {
+"nickname": "The Top End (in the north)",
+"demonym": "Territorian",
+"first": "Yolngu, Arrernte, Anangu, Warlpiri and the Tiwi; about a third of Territorians are Aboriginal",
+"food": "Barramundi",
+"football": "Australian rules (AFL)",
+"water": "The Katherine River, and Uluru's waterholes",
+"climate": "Tropical in the north, desert in the south",
+"high": "Mount Zeil, 1,531 m",
+"tz": "UTC+9:30 (no daylight saving)",
+"wonder": "Uluru and Kakadu",
+"animal": "Red kangaroo",
+"bird": "Wedge-tailed eagle",
+"flower": "Sturt's desert rose",
+"danger": "Saltwater crocodile",
+"founded": "1911, taken from South Australia by the federal government",
+"unesco": "Kakadu, and Uluru-Kata Tjuta",
+"origin": "The northern part of Australia",
+"plate": "NT – Outback Australia",
+"industry": "Gas, mining (uranium, bauxite), tourism and cattle",
+"city": "Darwin, then Alice Springs"
+},
+"coastal": true,
+"areaRank": 3
+},
+"flagKey": "au/AU-NT",
+"capLL": [
+[
+130.85,
+-12.425
+]
+]
+},
+{
+"iso": "AU-QLD",
+"id": "AU-QLD",
+"name": "Queensland",
+"names": [
+"Queensland",
+"QLD"
+],
+"capitals": [
+"Brisbane"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-QLD",
+"info": {
+"abbr": "QLD",
+"kind": "State",
+"pop": 5156138,
+"popYear": "2021 census",
+"area": 1730648,
+"year": 1859,
+"flag": true,
+"facts": {
+"nickname": "The Sunshine State",
+"demonym": "Queenslander",
+"first": "Torres Strait Islanders, Kuku Yalanji, Yidinji, and the Turrbal and Yuggera around Brisbane",
+"food": "Macadamias (the \"Queensland nut\") and Bundaberg rum",
+"football": "Rugby league (State of Origin)",
+"water": "The Great Artesian Basin, under most of the state",
+"climate": "Tropical in the north, subtropical in the south",
+"high": "Mount Bartle Frere, 1,611 m",
+"tz": "UTC+10 (no daylight saving)",
+"wonder": "The Great Barrier Reef",
+"animal": "Koala",
+"bird": "Brolga",
+"flower": "Cooktown orchid",
+"danger": "Box jellyfish and saltwater crocodile",
+"founded": "1859, split from New South Wales (a penal settlement at Moreton Bay from 1824)",
+"unesco": "Great Barrier Reef, the Wet Tropics, K'gari (Fraser Island), Riversleigh fossils",
+"origin": "Queen Victoria",
+"plate": "Queensland – Sunshine State",
+"industry": "Coal, tourism and beef",
+"city": "Brisbane, then the Gold Coast"
+},
+"coastal": true,
+"areaRank": 2
+},
+"flagKey": "au/AU-QLD",
+"capLL": [
+[
+153.033,
+-27.453
+]
+]
+},
+{
+"iso": "AU-SA",
+"id": "AU-SA",
+"name": "South Australia",
+"names": [
+"South Australia",
+"SA"
+],
+"capitals": [
+"Adelaide"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-SA",
+"info": {
+"abbr": "SA",
+"kind": "State",
+"pop": 1781516,
+"popYear": "2021 census",
+"area": 983482,
+"year": 1836,
+"flag": true,
+"facts": {
+"nickname": "The Festival State",
+"demonym": "South Australian (\"Croweater\")",
+"first": "Kaurna (around Adelaide), Ngarrindjeri and Pitjantjatjara",
+"food": "Barossa Valley wine and the pie floater",
+"football": "Australian rules (AFL)",
+"water": "The Murray's mouth, and Kati Thanda–Lake Eyre",
+"climate": "Mediterranean in the south, desert in the north",
+"high": "Mount Woodroffe, 1,435 m",
+"tz": "UTC+9:30, daylight saving UTC+10:30",
+"wonder": "Kangaroo Island and Wilpena Pound",
+"animal": "Southern hairy-nosed wombat",
+"bird": "Piping shrike",
+"flower": "Sturt's desert pea",
+"danger": "Great white shark",
+"founded": "1836, a free settlement: it never took convicts",
+"unesco": "Naracoorte Caves and the Flinders Ranges",
+"origin": "The south-central part of Australia",
+"plate": "South Australia – The Festival State",
+"industry": "Wine, copper and uranium (Olympic Dam), and shipbuilding"
+},
+"coastal": true,
+"areaRank": 4
+},
+"flagKey": "au/AU-SA",
+"notTypo": [
+"WA"
+],
+"capLL": [
+[
+138.598,
+-34.933
+]
+]
+},
+{
+"iso": "AU-TAS",
+"id": "AU-TAS",
+"name": "Tasmania",
+"names": [
+"Tasmania",
+"TAS",
+"Tassie"
+],
+"capitals": [
+"Hobart"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-TAS",
+"info": {
+"abbr": "TAS",
+"kind": "State",
+"pop": 557571,
+"popYear": "2021 census",
+"area": 68401,
+"year": 1825,
+"flag": true,
+"facts": {
+"nickname": "The Apple Isle",
+"demonym": "Tasmanian (\"Taswegian\")",
+"first": "The palawa (Tasmanian Aboriginal people); their revived language is palawa kani",
+"food": "Salmon, apples and leatherwood honey",
+"football": "Australian rules (AFL)",
+"water": "The Derwent and the Tamar",
+"climate": "Cool temperate",
+"high": "Mount Ossa, 1,617 m",
+"tz": "UTC+10, daylight saving UTC+11",
+"wonder": "Cradle Mountain and Wineglass Bay",
+"animal": "Tasmanian devil",
+"bird": "Yellow wattlebird",
+"flower": "Tasmanian blue gum",
+"danger": "Tiger snake",
+"founded": "1825, split from New South Wales as Van Diemen's Land (a penal colony from 1803)",
+"unesco": "The Tasmanian Wilderness, Port Arthur and Macquarie Island",
+"origin": "Abel Tasman, the Dutch explorer (1642)",
+"plate": "Tasmania – Explore the Possibilities",
+"industry": "Tourism, salmon farming and hydropower"
+},
+"coastal": true,
+"areaRank": 7
+},
+"flagKey": "au/AU-TAS",
+"capLL": [
+[
+147.295,
+-42.85
+]
+]
+},
+{
+"iso": "AU-VIC",
+"id": "AU-VIC",
+"name": "Victoria",
+"names": [
+"Victoria",
+"VIC"
+],
+"capitals": [
+"Melbourne"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-VIC",
+"info": {
+"abbr": "VIC",
+"kind": "State",
+"pop": 6503491,
+"popYear": "2021 census",
+"area": 227416,
+"year": 1851,
+"flag": true,
+"facts": {
+"nickname": "The Garden State",
+"demonym": "Victorian",
+"first": "The Kulin nations (Wurundjeri, Boon wurrung), Gunditjmara and Yorta Yorta",
+"food": "Melbourne's coffee, and the Chiko Roll (Bendigo)",
+"football": "Australian rules (AFL): it began in Melbourne",
+"water": "The Murray (its border with NSW)",
+"climate": "Temperate",
+"high": "Mount Bogong, 1,986 m",
+"tz": "UTC+10, daylight saving UTC+11",
+"wonder": "The Twelve Apostles, on the Great Ocean Road",
+"animal": "Leadbeater's possum",
+"bird": "Helmeted honeyeater",
+"flower": "Common heath",
+"danger": "Eastern brown snake",
+"founded": "1851, split from New South Wales (settled freely from 1835)",
+"unesco": "Royal Exhibition Building, and the Budj Bim eel traps",
+"origin": "Queen Victoria",
+"plate": "Victoria – The Place to Be (once \"Garden State\")",
+"industry": "Manufacturing, services and farming"
+},
+"coastal": true,
+"areaRank": 6
+},
+"flagKey": "au/AU-VIC",
+"capLL": [
+[
+144.973,
+-37.818
+]
+]
+},
+{
+"iso": "AU-WA",
+"id": "AU-WA",
+"name": "Western Australia",
+"names": [
+"Western Australia",
+"WA"
+],
+"capitals": [
+"Perth"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "AU-WA",
+"info": {
+"abbr": "WA",
+"kind": "State",
+"pop": 2660026,
+"popYear": "2021 census",
+"area": 2527013,
+"year": 1829,
+"flag": true,
+"facts": {
+"nickname": "The Wildflower State",
+"demonym": "Western Australian (\"Sandgroper\")",
+"first": "Noongar, Yamatji, Martu and the Wongi",
+"food": "Margaret River wine and rock lobster",
+"football": "Australian rules (AFL)",
+"water": "The Swan River",
+"climate": "Mediterranean in the south-west, desert inland, tropical in the north",
+"high": "Mount Meharry, 1,249 m",
+"tz": "UTC+8 (no daylight saving)",
+"wonder": "Ningaloo Reef and the Bungle Bungles",
+"animal": "Numbat",
+"bird": "Black swan",
+"flower": "Red and green kangaroo paw",
+"danger": "Great white shark",
+"founded": "1829, as the free Swan River Colony (convicts came later, from 1850)",
+"unesco": "Shark Bay, Purnululu, the Ningaloo Coast, Fremantle Prison",
+"origin": "The western part of Australia",
+"plate": "Western Australia – The State of Excellence",
+"industry": "Iron ore (the Pilbara), gold and gas"
+},
+"coastal": true,
+"areaRank": 1
+},
+"flagKey": "au/AU-WA",
+"notTypo": [
+"SA"
+],
+"capLL": [
+[
+115.838,
+-31.953
+]
+]
+}
+]

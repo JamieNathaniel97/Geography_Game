@@ -7,7 +7,7 @@
   // data: "world" (countries), or a country map: "us" (US states, build 3), "ca" (Canada's provinces and territories),
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
-  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null;
+  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null, geoAU = null;
   const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
@@ -24,6 +24,9 @@
     cn: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "china", style: "china", count: 33, noFlags: true,
       load: async () => (geoCN = geoCN || await GG.loadCN(geoWorld.lakes)) },
     // Russia: 83 federal subjects (all called "oblasts" in the menus; the card shows each one's real kind), every one with a flag
+    // Australia: 6 states, 2 mainland territories and Jervis Bay (no capital and no flag: left out of those games)
+    au: { noun: "state or territory", nouns: "states and territories", Nouns: "States & territories", region: "australia",
+      style: "australia", count: 9, load: async () => (geoAU = geoAU || await GG.loadAU(geoWorld.lakes)) },
     ru: { noun: "oblast", nouns: "oblasts", Nouns: "Oblasts", region: "russia", style: "russia", count: 83,
       load: async () => (geoRU = geoRU || await GG.loadRU(geoWorld.lakes)) },
     // Britain and Ireland: the parts are counties, and county towns stand in for capitals
@@ -36,7 +39,7 @@
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
   const isCountryMap = d => !!DATASETS[d] && d !== "world";
-  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -104,6 +107,7 @@
     india:    { name: "India", us: true, test: c => S.ut !== false || S.mode === "explore" || c.info.kind === "State" },
     china:    { name: "China", us: true, test: () => true },
     russia:   { name: "Russia", us: true, test: () => true },
+    australia: { name: "Australia", us: true, test: () => true },
     // Britain and Ireland, for each county set (added below): the whole map, England, Scotland, Wales and Ireland
     oceania:  { name: "Oceania",       test: c => c.cont.includes("Oceania"),       view: { globe: [167, -16, 74.3],   flat: [167, -16, 74.3] },   crop: [[110, -50], [212, 22]] },
   };
@@ -131,8 +135,8 @@
   const NATION_REGION = { "N-ENG": "-eng", "N-SCO": "-sco", "N-WAL": "-wal", "N-NIR": "-nir", "N-IRL": "-roi" };
   const ukSet = () => (prefs.ukSet === "ukc" ? "ukc" : "uk");
   // Flag games leave out the counties with no registered flag
-  const inRegion = c => (S.region === "world" || REGIONS[S.region].test(c)) && !(tlYear < 1959 && c.info && c.info.year > tlYear)
-    && !(flags() && c.info && c.info.flag === false);
+  const inRegion = c => (S.region === "world" || REGIONS[S.region].test(c)) && !(tlOn() && c.info && c.info.year > tlYear)
+    && !(flags() && c.info && c.info.flag === false) && !(caps() && !c.capitals.length);
   const regionCountries = () => geo.countries.filter(inRegion);
 
   // Games: find = Find the country, name = Name the countries, findcap = Find the country by its capital,
@@ -150,13 +154,16 @@
   const label = c => (caps() ? `${c.name}: ${capital(c)}` : c.name);
   let selected = null;   // naming games: the country whose name or capital is being typed
   // statehood timeline (US Learning mode): the year shown; states that join that year are highlighted
-  let tlYear = 1959, tlTimer = null;
-  const isUnformed = c => tlYear < 1959 && !!c.info && c.info.year > tlYear;
+  let tlYear = 1959, tlTimer = null, tlKind = "us";
+  // a statehood-style timeline (US, Australia) is showing a year before its end
+  const TL_MAX = { us: 1959, au: 1915, ru: 2023 };
+  const tlOn = () => tlKind !== "ru" && tlYear < TL_MAX[tlKind];
+  const isUnformed = c => tlOn() && !!c.info && c.info.year > tlYear;
   const tlBorders = new Map(); // year -> borders that existed then (between two states, or a state and land not yet a state)
   // reviewing a finished game: the tapped country is shown in dark green (right), dark red (missed) or blue
   const getState = c => (flashing[c.iso] ? "flash" : finished && c === reviewSel ? (state[c.iso] === "good" ? "goodSel" : state[c.iso] === "bad" ? "badSel" : "sel")
     : c === selected ? "sel" : state[c.iso] ||
-    (tlYear < 1959 && c.info && c.info.year === tlYear ? "sel" : null));
+    (tlOn() && c.info && c.info.year === tlYear ? "sel" : null));
   // still to answer (Free tap, or a finished naming game: any country in the region); taps near small
   // open countries snap to them
   // once a game is finished every country in the region is open again, for reviewing the answers
@@ -379,6 +386,7 @@
     if (geoIN && geoIN.byIso[c.iso] === c) { showIndiaCard(c, i); return; }
     if (geoCN && geoCN.byIso[c.iso] === c) { showChinaCard(c, i); return; }
     if (geoRU && geoRU.byIso[c.iso] === c) { showRussiaCard(c, i); return; }
+    if (geoAU && geoAU.byIso[c.iso] === c) { showAustraliaCard(c, i); return; }
     if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
@@ -577,6 +585,33 @@
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // Australia's states and territories (2021 census; areas from Geoscience Australia)
+  function showAustraliaCard(c, i) {
+    const f = i.facts || {}; // tools/au_facts.py
+    $("lcFlag").hidden = !i.flag; // Jervis Bay has no flag of its own
+    if (i.flag) { $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`; }
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = `${i.kind} · ${i.abbr}`;
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0] || "None (run from Canberra)"], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Nickname", f.nickname], ["People are called", f.demonym], ["Largest city", f.city || ""],
+        ["First Nations", f.first], ["Food and drink", f.food], ["Football", f.football],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 9`],
+        ["Highest point", f.high],
+        ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Water", f.water], ["Climate", f.climate], ["Time zone", f.tz], ["Natural wonder", f.wonder],
+        ["Animal", f.animal], ["Bird", f.bird], ["Flower", f.flower], ["Watch out for", f.danger],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Began", f.founded], ["The name", f.origin], ["UNESCO World Heritage", f.unesco], ["Number plates", f.plate],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
   // Russia's federal subjects (2021 census). Names in Russian (Cyrillic).
   function showRussiaCard(c, i) {
     const f = i.facts || {}; // tools/ru_facts.py
@@ -721,7 +756,7 @@
     IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", data: "in", region: "india" },
     CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", data: "cn", region: "china" },
     RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", data: "ru", region: "russia" },
-    AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", soon: true },
+    AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", data: "au", region: "australia" },
   };
   // from the world Learning map, the UK and Ireland open the countries view first
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
@@ -753,7 +788,12 @@
     us: { file: "data/tribal-us.json", label: "Reservations", credit: "Reservations: US Census Bureau." },
     ca: { file: "data/tribal-ca.json", label: "Reserves",
       credit: "Reserves: Natural Resources Canada. Contains information licensed under the Open Government Licence – Canada." },
+    // Australia: native title determinations (where native title exists) and Indigenous Protected Areas
+    au: { file: "data/tribal-au.json", label: "Aboriginal land",
+      credit: "Native title: National Native Title Tribunal (CC BY 4.0). Indigenous Protected Areas: DCCEEW (CC BY 4.0)." },
   };
+  // the layer's name inside a sentence ("Loading reservations…"; Aboriginal keeps its capital)
+  const resWord = d => (d === "au" ? RES[d].label : RES[d].label.toLowerCase());
   const tribal = {}, tribalLoading = {};
   let resAfterSplash = false, resOn = !!prefs.reserves;
   function showReserves() {
@@ -761,9 +801,9 @@
     // not loaded under the splash (preparing them made the splash jumpy)
     if (learning && resOn && !tribal[d] && GG.splashShowing) resAfterSplash = true;
     else if (learning && resOn && !tribal[d] && !tribalLoading[d]) {
-      tribalLoading[d] = true; toast(`Loading ${RES[d].label.toLowerCase()}…`);
+      tribalLoading[d] = true; toast(`Loading ${resWord(d)}…`);
       fetch(RES[d].file).then(r => r.json()).then(g => { tribal[d] = GG.fixWinding(g); toast(null); showReserves(); })
-        .catch(() => { toast(`Couldn't load the ${RES[d].label.toLowerCase()}.`, 2000); resOn = false; showReserves(); })
+        .catch(() => { toast(`Couldn't load the ${resWord(d)}.`, 2000); resOn = false; showReserves(); })
         .finally(() => { tribalLoading[d] = false; });
     }
     $("resBtn").hidden = !learning;
@@ -775,7 +815,8 @@
   }
   $("resBtn").onclick = () => { resOn = !resOn; savePrefs({ reserves: resOn }); showReserves(); };
   const RES_KIND = { Reservation: "Reservation, United States", "Oklahoma tribal area": "Oklahoma tribal statistical area, United States",
-    Reserve: "Indigenous reserve or settlement land, Canada" };
+    Reserve: "Indigenous reserve or settlement land, Canada",
+    NT: "Native title over the whole area", NTP: "Native title in parts of this area", IPA: "Indigenous Protected Area" };
 
   // US states on the world Learning map (loaded the first time they're needed)
   function useSub(on) {
@@ -792,8 +833,14 @@
   // Drag through 1787 to 1959: states not yet in the Union are grey, the ones joining that year are highlighted.
   // Play steps through each year a state joined.
   // Russia: 1300 to today (2023 = today: the plain map; the stops come from data/ru-history.json)
-  let tlKind = "us", ruHist = null;
-  const TL_MAX = { us: 1959, ru: 2023 };
+  let ruHist = null;
+  // Australia: colonies split from New South Wales, then Federation and the territories (Australia_plan.md)
+  const AU_TL = { 1788: "New South Wales, the first colony (the First Fleet)", 1825: "Van Diemen's Land (Tasmania) splits from New South Wales",
+    1829: "The Swan River Colony (Western Australia), a free settlement", 1836: "South Australia, a free colony with no convicts",
+    1851: "Victoria splits from New South Wales", 1859: "Queensland splits from New South Wales",
+    1901: "Federation: the six colonies become the states of Australia",
+    1911: "The Northern Territory (from South Australia) and the ACT (from New South Wales)",
+    1915: "Jervis Bay Territory: a seaport for Canberra" };
   function setRuTimeline(year) {
     tlYear = year;
     $("tlRange").value = year;
@@ -813,8 +860,11 @@
     const joined = states.filter(c => c.info.year === year).sort((a, b) => a.info.order - b.info.order);
     const n = states.length;
     const note = joined.length ? `${joined.map(c => c.name).join(", ")} joined` : "";
-    $("tlLabel").innerHTML = `<b>${year}</b> ${n === 50 ? "All 50 states" : `${n} state${n === 1 ? "" : "s"}`}${note ? " · " + esc(note) : ""}`;
-    if (year >= 1959 || !geo.bordersWhere) main.setBordersOverride(null);
+    if (tlKind === "au") {
+      const stop = Object.keys(AU_TL).map(Number).filter(y => y <= year).pop();
+      $("tlLabel").innerHTML = `<b>${year}</b> ${esc(stop === year ? AU_TL[year] : `No change since ${stop}`)}`;
+    } else $("tlLabel").innerHTML = `<b>${year}</b> ${n === 50 ? "All 50 states" : `${n} state${n === 1 ? "" : "s"}`}${note ? " · " + esc(note) : ""}`;
+    if (year >= TL_MAX[tlKind] || !geo.bordersWhere) main.setBordersOverride(null);
     else {
       if (!tlBorders.has(year)) tlBorders.set(year, geo.bordersWhere((a, b) => (a && a.info.year <= year) || (b && b.info.year <= year)));
       main.setBordersOverride(tlBorders.get(year));
@@ -833,7 +883,7 @@
     main.setBordersOverride(null);
     main.setHistory(null);
     const r = $("tlRange");
-    r.min = kind === "ru" ? 1300 : 1787; r.max = TL_MAX[kind];
+    r.min = kind === "ru" ? 1300 : kind === "au" ? 1788 : 1787; r.max = TL_MAX[kind];
     $("tlPrev").setAttribute("aria-label", kind === "ru" ? "Previous change" : "Previous state to join");
     $("tlNext").setAttribute("aria-label", kind === "ru" ? "Next change" : "Next state to join");
     if (on && kind === "ru" && !ruHist) GG.loadRUHistory().then(h => { ruHist = h; if (tlKind === "ru") setTimeline(+r.value); }).catch(() => {});
@@ -842,6 +892,7 @@
   $("tlRange").addEventListener("input", e => { stopTimeline(); setTimeline(+e.target.value); });
   // the arrows jump to the previous or next year a state joined
   const joinYears = () => tlKind === "ru" ? (ruHist ? ruHist.stops.map(s => s[0]).concat(TL_MAX.ru) : [TL_MAX.ru])
+    : tlKind === "au" ? Object.keys(AU_TL).map(Number)
     : [...new Set(geo.countries.map(c => c.info.year))].sort((a, b) => a - b);
   const tlMin = () => +$("tlRange").min, tlMax = () => TL_MAX[tlKind];
   $("tlPrev").onclick = () => { stopTimeline(); const y = joinYears().filter(y => y < tlYear).pop(); setTimeline(y || tlMin()); };
@@ -874,7 +925,7 @@
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
+    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", au: "States", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
     $("statsSkill").querySelector('[data-v="capital"]').textContent = ds.caps ? "County towns" : "Capitals";
     // no flags (India): no Flags tab
     $("statsSkill").querySelector('[data-v="flag"]').hidden = !!ds.noFlags;
@@ -1320,7 +1371,7 @@
     $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
-    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : data === "cn" ? "Whole China" : data === "ru" ? "Whole Russia" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
+    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : data === "cn" ? "Whole China" : data === "ru" ? "Whole Russia" : data === "au" ? "Whole Australia" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
     $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view
@@ -1339,7 +1390,7 @@
     goTo(region, false);
     hideLearnCard();
     $("reviewBar").hidden = true; reviewSel = null;
-    showTimeline(mode === "explore" && (data === "us" || data === "ru"), data === "ru" ? "ru" : "us");
+    showTimeline(mode === "explore" && (data === "us" || data === "ru" || data === "au"), data === "ru" || data === "au" ? data : "us");
     useSub(mode === "explore" && data === "world");
     showReserves();
     if (mode !== "nameflag") hideFlagGrid();

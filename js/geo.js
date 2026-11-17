@@ -210,7 +210,10 @@
     await pause();
     const feats = fc.features.map(f => ({ type: "Feature", id: f.id, geometry: f.geometry, c: byId[f.id] || null }));
     prepareParts(feats, rings, flagDir, ringDeg);
-    return { kind, countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders,
+    // with each border's two parts recorded (Australia), a timeline can draw only the borders that existed then
+    const bordersWhere = fc.pairs ? test => ({ type: "MultiLineString", coordinates: fc.pairs
+      .filter(([a, b]) => test(byId[a], byId[b])).flatMap(([, , g]) => g.type === "LineString" ? [g.coordinates] : g.coordinates) }) : null;
+    return { kind, countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders, bordersWhere,
       coast50: fc.coast, coast110: fc.coast, clusters: [], ringPx: DEFAULT_MIN_PX,
       lakes: lakes || null, lakes110: lakes || null,
       nationBorders: fc.nations || null, // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
@@ -241,6 +244,9 @@
   // Russia's 83 federal subjects (tools/build_ru.py; longitudes past 180° in the far east); the two federal cities and the
   // smallest North Caucasus republics get circles
   const RU_RINGS = new Set(["RU-MOW", "RU-SPE", "RU-IN", "RU-SE", "RU-AD", "RU-KB", "RU-KC", "RU-CE"]);
+  // Australia's 6 states, 2 mainland territories and Jervis Bay (tools/build_au.py); the ACT and Jervis Bay get circles
+  const AU_RINGS = new Set(["AU-ACT", "AU-JBT"]);
+  GG.loadAU = lakes => loadShapes("data/au-states.json", "data/au-parts.json", "au", "au/", AU_RINGS, lakes);
   // Russia's expansion timeline (tools/build_ru.py history): approximate pieces with the years Russia held them
   GG.loadRUHistory = () => getJSON("data/ru-history.json");
   // "held" (Russia's that year), "lost" (held earlier), "annexed" (annexed since, not recognised), or null

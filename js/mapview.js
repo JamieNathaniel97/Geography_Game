@@ -24,6 +24,8 @@
     india: { name: "India", factory: () => d3.geoConicConformal().parallels([12, 28]).rotate([-80, 0]), wrap: false, fit: true },
     // China: Albers equal-area conic, standard parallels 25°N and 47°N, centred on 105°E
     china: { name: "China", factory: () => d3.geoConicEqualArea().parallels([25, 47]).rotate([-105, 0]), wrap: false, fit: true },
+    // Australia: Albers equal-area conic, standard parallels 18°S and 36°S, centred on 132°E
+    australia: { name: "Australia", factory: () => d3.geoConicEqualArea().parallels([-18, -36]).rotate([-132, 0]), wrap: false, fit: true },
     // Russia: Albers equal-area conic, standard parallels 52°N and 68°N, centred on 100°E (Kaliningrad to Chukotka)
     russia: { name: "Russia", factory: () => d3.geoConicEqualArea().parallels([52, 68]).rotate([-100, 0]), wrap: false, fit: true },
   };
