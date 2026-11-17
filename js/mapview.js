@@ -20,6 +20,8 @@
     canada: { name: "Canada", factory: () => d3.geoConicConformal().parallels([49, 77]).rotate([91.87, 0]), wrap: false, fit: true },
     // Britain and Ireland: transverse Mercator centred on 2°W, like the Ordnance Survey's National Grid
     uk: { name: "Britain and Ireland", factory: () => d3.geoTransverseMercator().rotate([2, 0]), wrap: false, fit: true },
+    // India: Lambert conformal conic, standard parallels 12°N and 28°N, centred on 80°E
+    india: { name: "India", factory: () => d3.geoConicConformal().parallels([12, 28]).rotate([-80, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country
@@ -580,6 +582,7 @@
           bordersLo: this.geo.borders110 ? new Path2D(path(this.geo.borders110) || "") : null,
           lakes: this.geo.lakes ? new Path2D(path(this.geo.lakes) || "") : null,
           nations: this.geo.nationBorders ? new Path2D(path(this.geo.nationBorders) || "") : null,
+          disputed: this.geo.disputed ? new Path2D(path(this.geo.disputed) || "") : null,
         };
       }
       const P = this.flatPaths;
@@ -623,6 +626,11 @@
           ctx.stroke(this.bordersOverride ? this.overridePath(P) : cull ? visible(P.pieces.borders) : lo ? P.bordersLo : P.borders);
           // the borders between the UK's nations, bolder so England, Scotland and Wales stand out
           if (P.nations) { ctx.strokeStyle = col.fg; ctx.globalAlpha = 0.55; ctx.lineWidth = 2 / t.k; ctx.stroke(P.nations); ctx.globalAlpha = 1; }
+        }
+        // disputed borders (India's Kashmir and China lines): dotted, shown even with Borders off
+        if (P.disputed) {
+          ctx.strokeStyle = col.fg; ctx.globalAlpha = 0.7; ctx.lineWidth = 1.4 / t.k; ctx.lineCap = "round";
+          ctx.setLineDash([0.1 / t.k, 3.2 / t.k]); ctx.stroke(P.disputed); ctx.setLineDash([]); ctx.lineCap = "butt"; ctx.globalAlpha = 1;
         }
         this.drawSub(ctx, null, t.k);
         this.drawReserves(ctx, null, t.k, cull ? on : null);

@@ -1,0 +1,9 @@
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-devanagari.woff") format("woff"); unicode-range: U+0900-097F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-bengali.woff") format("woff"); unicode-range: U+0980-09FF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-gurmukhi.woff") format("woff"); unicode-range: U+0A00-0A7F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-gujarati.woff") format("woff"); unicode-range: U+0A80-0AFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-oriya.woff") format("woff"); unicode-range: U+0B00-0B7F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-tamil.woff") format("woff"); unicode-range: U+0B80-0BFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-telugu.woff") format("woff"); unicode-range: U+0C00-0C7F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-kannada.woff") format("woff"); unicode-range: U+0C80-0CFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-malayalam.woff") format("woff"); unicode-range: U+0D00-0D7F; font-display: swap; }

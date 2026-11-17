@@ -28,7 +28,7 @@ def main(out):
     body = re.search(r"<body>(.*?)</body>", html, re.S).group(1)
     title = re.search(r"<title>.*?</title>", head).group(0)
     fonts = re.search(r'<link rel="stylesheet" href="https://fonts[^>]*>', head).group(0)
-    css = (ROOT / "css" / "app.css").read_text(encoding="utf8")
+    css = (ROOT / "css" / "app.css").read_text(encoding="utf8").replace("../fonts/", "fonts/")
 
     def script(m):
         src = m.group(1)
@@ -50,11 +50,14 @@ def main(out):
     for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg", "us-states.json", "states.json", "lakes.json", "tribal-us.json",
               "ca-provinces.json", "provinces.json", "tribal-ca.json",
               "uk-historic.json", "uk-ceremonial.json", "counties-historic.json", "counties-ceremonial.json",
-              "uk-nations.json", "uk-nations-info.json"):
+              "uk-nations.json", "uk-nations-info.json", "in-states.json", "in-parts.json"):
         shutil.copy(ROOT / "data" / f, out / "data" / f)
     if (out / "data" / "relief").exists():
         shutil.rmtree(out / "data" / "relief")
     shutil.copytree(ROOT / "data" / "relief", out / "data" / "relief")
+    (out / "fonts").mkdir(exist_ok=True)
+    for f in (ROOT / "fonts").glob("*.woff"):
+        shutil.copy(f, out / "fonts" / f.name)
     print("preview written to", out)
 
 

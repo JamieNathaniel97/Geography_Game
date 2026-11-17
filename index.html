@@ -84,13 +84,20 @@
     <div class="lcwrap" id="lcWrap">
     <button class="chip" id="focusBtn" type="button" hidden>Focus</button>
     <div class="learncard" id="learnCard" hidden>
+      <!-- first in the card and sticky, so they stay in the top corners while a long card scrolls:
+           "fewer facts" (top left, only when the extra facts are open) and close (top right) -->
+      <div class="lctools">
+        <button class="btn lcless" id="lcLess" type="button" aria-label="Fewer facts" hidden>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn lcclose" id="lcClose" type="button" aria-label="Close">✕</button>
+      </div>
       <div class="lchead">
         <img id="lcFlag" alt="" width="96" height="72">
         <div class="lcbody">
           <div class="lcname" id="lcName"></div>
           <div class="lcsub" id="lcSub"></div>
         </div>
-        <button class="btn lcclose" id="lcClose" type="button" aria-label="Close">✕</button>
       </div>
       <dl class="lcfacts" id="lcMain"></dl>
       <div class="lcmore" id="lcMore" hidden></div>
@@ -132,6 +139,8 @@
         <div class="field" id="cpCDField"><span class="label">Crown Dependencies <small>Man, Jersey, Guernsey, Alderney, Sark</small></span>
           <div class="seg" id="cpCD"><button data-v="off" type="button">Off</button><button data-v="on" type="button">On</button></div></div>
       </div>
+      <div class="field" id="cpUTField" hidden><span class="label">Union territories</span>
+        <div class="seg" id="cpUT"><button data-v="on" type="button">On (36)</button><button data-v="off" type="button">Off (28 states)</button></div></div>
       <div class="cpcols" id="cpGames">
         <div class="cpcol"><span class="label">Find <small>tap it on the map</small></span>
           <button data-v="find" type="button">States</button><button data-v="findcap" type="button">Capitals</button><button data-v="findflag" type="button">Flags</button></div>
@@ -197,7 +206,7 @@
 <div class="overlay" id="stats" hidden>
   <div class="sheet statssheet" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
     <div class="sheethead"><h2 id="statsTitle">Your stats</h2><button class="btn" id="statsClose" type="button">Close</button></div>
-    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
+    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="in" type="button">India</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
     <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button><button data-v="flag" type="button">Flags</button></div>
     <section><h3>How well you know each region</h3><p class="hint2">Known = right at least 3 times in 4.</p><div id="statsRegions"></div></section>
     <section><h3>Weakest</h3><ul class="slist" id="statsWeak"></ul></section>

@@ -7,7 +7,7 @@
   // data: "world" (countries), or a country map: "us" (US states, build 3), "ca" (Canada's provinces and territories),
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
-  let geoWorld = null, geoUS = null, geoCA = null;
+  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null;
   const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
@@ -16,6 +16,9 @@
       load: async () => (geoUS = geoUS || await GG.loadUS()) },
     ca: { noun: "province or territory", nouns: "provinces and territories", Nouns: "Provinces & territories",
       region: "canada", style: "canada", count: 13, load: async () => (geoCA = geoCA || await GG.loadCA(geoWorld.lakes)) },
+    // India: 28 states and 8 union territories (a toggle leaves the UTs out); no flags, so no flag games
+    in: { noun: "state or union territory", nouns: "states and union territories", Nouns: "States & UTs", region: "india",
+      style: "india", count: 36, noFlags: true, load: async () => (geoIN = geoIN || await GG.loadIN(geoWorld.lakes)) },
     // Britain and Ireland: the parts are counties, and county towns stand in for capitals
     uk: { noun: "county", nouns: "counties", Nouns: "Counties", cap: "county town", caps: "county towns", region: "uk", style: "uk",
       set: "Historic", load: async () => (geoUK.uk = geoUK.uk || await GG.loadUK("historic", geoWorld.lakes)) },
@@ -26,7 +29,7 @@
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
   const isCountryMap = d => !!DATASETS[d] && d !== "world";
-  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -61,7 +64,7 @@
   if (document.fonts) { document.fonts.ready.then(fitAll); document.fonts.addEventListener("loadingdone", fitAll); }
   // shorter wording for a country map's top-bar title, if one is ever too long even on two lines (DATASETS[..].titles)
   const title = (key, usual) => (DATASETS[S.data].titles || {})[key] || usual;
-  const phWord = () => ({ world: "Country", us: "State", ca: "Province", uk: "County", ukc: "County", ukn: "Country" })[S.data]; // flag grid boxes
+  const phWord = () => ({ world: "Country", us: "State", ca: "Province", in: "State", uk: "County", ukc: "County", ukn: "Country" })[S.data]; // flag grid boxes
   const nouns = () => DATASETS[S.data].nouns;
 
   // Remembered between visits, on this phone: map toggles and the last game's settings.
@@ -90,6 +93,8 @@
     samerica: { name: "South America", test: c => c.cont.includes("South America"), view: { globe: [-58, -21.5, 44.7], flat: [-58, -24, 56] },     crop: [[-93, -57], [-33, 14]] },
     usa:      { name: "United States", us: true, test: () => true }, // the whole US map (US states games)
     canada:   { name: "Canada", us: true, test: () => true },        // the whole Canada map (provinces games)
+    // India: with the union territories switched off, only the 28 states (Learning mode always shows all 36)
+    india:    { name: "India", us: true, test: c => S.ut !== false || S.mode === "explore" || c.info.kind === "State" },
     // Britain and Ireland, for each county set (added below): the whole map, England, Scotland, Wales and Ireland
     oceania:  { name: "Oceania",       test: c => c.cont.includes("Oceania"),       view: { globe: [167, -16, 74.3],   flat: [167, -16, 74.3] },   crop: [[110, -50], [212, 22]] },
   };
@@ -354,13 +359,14 @@
     const s = n >= 1e9 ? `${(n / 1e9).toFixed(2)} billion` : n >= 1e6 ? `${(n / 1e6).toFixed(n >= 1e7 ? 1 : 2)} million` : n >= 1e4 ? num(Math.round(n / 1000) * 1000) : `about ${num(n)}`;
     return year ? `${s} (${year})` : s;
   }
-  const facts = rows => rows.filter(r => r[1]).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+  const facts = rows => rows.filter(r => r[1]).map(([k, v, html]) => `<dt>${esc(k)}</dt><dd>${html ? v : esc(v)}</dd>`).join("");
   let learnMore = false;
   function showLearnCard(c) {
     const i = c.info || {};
     $("lcFlag").hidden = false; // (a county with no flag hides it)
     if (geoUS && geoUS.byIso[c.iso] === c) { showStateCard(c, i); return; }
     if (geoCA && geoCA.byIso[c.iso] === c) { showProvinceCard(c, i); return; }
+    if (geoIN && geoIN.byIso[c.iso] === c) { showIndiaCard(c, i); return; }
     if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
@@ -473,6 +479,49 @@
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // India's states and union territories (2011 census, the latest published)
+  function showIndiaCard(c, i) {
+    $("lcFlag").hidden = true; // Indian states and UTs have no official flags
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = `${i.kind} · ${i.region} India · ${i.abbr}`;
+    $("lcMain").innerHTML = facts([[/ (in|and|also) /.test(i.capNote || "") ? "Capitals" : "Capital", i.capNote || c.capitals[0]],
+      ["Population", fmtPop(i.pop, i.popYear)]]);
+    const f = i.facts || {}; // tools/in_facts.py
+    $("lcMore").innerHTML =
+      factGroup("Names", [
+        [f.scriptName ? `In ${f.scriptName}` : "", f.script ? `<span class="native">${esc(f.script)}</span>` : "", true],
+        ["The name means", f.origin],
+        [/,/.test(f.langs || "") ? "Languages" : "Language", f.langs],
+      ]) +
+      factGroup("People and culture", [
+        ["Largest city", f.city || ""],
+        ["Famous dish", f.dish],
+        ["Textile", f.textile],
+        ["Biggest festival", f.festival],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 36`],
+        ["Highest point", f.high],
+        ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Borders", (i.borders || []).join(", ")],
+        ["Main river", f.river],
+        ["Climate", f.climate],
+        ["National park", f.park],
+      ]) +
+      factGroup("History and landmarks", [
+        ["In its present shape since", String(i.year)],
+        ["Formed from", i.origin],
+        ["Grew from", f.kingdom],
+        ["UNESCO World Heritage", f.unesco],
+        ["Pilgrimage", f.pilgrimage],
+      ]) +
+      factGroup("Symbols", [
+        ["Animal", f.animal], ["Bird", f.bird], ["Flower", f.flower], ["Tree", f.tree],
+      ]) +
+      factGroup("Economy", [["Known for", f.economy]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
   // Canada's provinces and territories (2021 census, areas from Statistics Canada)
   function showProvinceCard(c, i) {
     $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
@@ -537,7 +586,9 @@
     $("lcMoreBtn").textContent = on ? "Fewer facts" : "More facts";
     $("lcMoreBtn").setAttribute("aria-expanded", on);
     $("lcWrap").classList.toggle("expanded", on);
+    $("lcLess").hidden = !on; // the pinned "fewer facts" arrow, top left
   }
+  $("lcLess").onclick = () => { setLearnMore(false); $("learnCard").scrollTop = 0; };
   $("lcMoreBtn").onclick = () => setLearnMore(!learnMore);
   function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; }
   // Focus: a button above the card that opens a country's own map in Learning mode ("Focus on <name> ›").
@@ -551,7 +602,7 @@
     GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", data: "uk", region: "uk", page: "Britain & Ireland" },
     IRL: { name: "Ireland", focus: "Ireland", cont: "Europe", unit: "Counties", data: "uk", region: "uk-ire", page: "Britain & Ireland" },
     // coming next (India_plan.md, China_plan.md, Russia_plan.md, Australia_plan.md); Russia is in Europe and Asia
-    IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", soon: true },
+    IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", data: "in", region: "india" },
     CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", soon: true },
     RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", soon: true },
     AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", soon: true },
@@ -681,8 +732,11 @@
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
+    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
     $("statsSkill").querySelector('[data-v="capital"]').textContent = ds.caps ? "County towns" : "Capitals";
+    // no flags (India): no Flags tab
+    $("statsSkill").querySelector('[data-v="flag"]').hidden = !!ds.noFlags;
+    if (ds.noFlags && statsSkill === "flag") { statsSkill = "country"; renderStats(); return; }
     if (sub && !geoFor(statsData)) { ds.load().then(renderStats).catch(() => {}); return; }
     const g = geoFor(statsData);
     // games of this map: a country map's own region, or any world region
@@ -950,7 +1004,10 @@
       const uk = pick.data === "uk" || pick.data === "ukc";
       $("cpOpts").hidden = !uk;
       // no county in Ireland has a registered flag: no flag games there (shown again for every other choice)
-      const noFlags = uk && /-ire$/.test(pick.region);
+      const noFlags = (uk && /-ire$/.test(pick.region)) || !!DATASETS[pick.data].noFlags;
+      // India: union territories on or off
+      $("cpUTField").hidden = pick.data !== "in";
+      if (pick.data === "in") segSelect($("cpUT"), pick.ut === false ? "off" : "on");
       $("cpGames").querySelectorAll('[data-v="findflag"], [data-v="nameflag"]').forEach(b => { b.hidden = noFlags; });
       if (noFlags && /flag$/.test(pick.mode)) { pick.mode = pick.mode.replace("flag", ""); segSelect($("cpGames"), pick.mode); }
       if (uk) {
@@ -989,6 +1046,10 @@
     pick.region = pick.data + (b.dataset.v === "all" ? "" : b.dataset.v);
     showData(); showOptions();
   });
+  $("cpUT").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    pick.ut = b.dataset.v === "on"; showData(); showOptions();
+  });
   $("cpCD").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     pick.cd = b.dataset.v === "on"; showData(); showOptions();
@@ -997,10 +1058,10 @@
   function countFor(data, region, mode, cd) {
     const g = geoFor(data);
     if (!g) return null;
-    const keep = [S.cd, S.mode]; S.cd = cd; S.mode = mode;
+    const keep = [S.cd, S.mode, S.ut]; S.cd = cd; S.mode = mode; S.ut = pick.ut;
     const n = g.countries.filter(c => region === "world" || REGIONS[region].test(c))
       .filter(c => !((mode === "findflag" || mode === "nameflag") && c.info && c.info.flag === false)).length;
-    [S.cd, S.mode] = keep;
+    [S.cd, S.mode, S.ut] = keep;
     return n;
   }
   $("cpGames").addEventListener("click", e => {
@@ -1023,7 +1084,7 @@
     const mapData = S.data === "ukc" ? "uk" : S.data; // both county sets are one entry in the list
     pick.country = S.data === "world" ? null : /-ire$/.test(S.region) ? "IRL"
       : Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k].data === mapData) || null;
-    pick.cd = !!S.cd;
+    pick.cd = !!S.cd; pick.ut = S.ut !== false;
     if (!$("countryList").childElementCount) buildCountryList();
     segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); segSelect($("segView"), pick.view);
     showGameGroup(pick.mode);
@@ -1083,7 +1144,7 @@
   $("segView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); } });
   $("startBtn").onclick = () => {
     closeSetup(); closeInset();
-    S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName; S.cd = !!pick.cd;
+    S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName; S.cd = !!pick.cd; S.ut = pick.ut !== false;
     startGame(pick.mode, pick.region, pick.region === "world" ? pick.view : "flat", pick.data);
   };
 
@@ -1104,7 +1165,7 @@
     // a country map's own regions (England, Scotland...), or else the whole map
     if (isCountryMap(data)) { if (dataOfRegion(region) !== data) region = DATASETS[data].region; view = "flat"; }
     S.mode = mode; S.region = region;
-    savePrefs({ game: { mode, region, data, cd: !!S.cd, weak: !!S.weak, timer: !!S.timer, paceFind: S.paceFind || 5, paceName: S.paceName || 10 },
+    savePrefs({ game: { mode, region, data, cd: !!S.cd, ut: S.ut !== false, weak: !!S.weak, timer: !!S.timer, paceFind: S.paceFind || 5, paceName: S.paceName || 10 },
       ...(region === "world" ? { worldView: view } : {}) });
     // region games are cropped to the region; the jump bar is swapped for a "Whole region" button
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
@@ -1112,7 +1173,7 @@
     $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
-    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
+    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
     $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view
@@ -1173,7 +1234,7 @@
       if (prefs.borders === false) setBorders(false);
       if (prefs.terrain) setTerrainOn(true);
       const g = prefs.game || {};
-      S.weak = !!g.weak; S.cd = !!g.cd; S.timer = !!g.timer; S.paceFind = g.paceFind || 5; S.paceName = g.paceName || 10;
+      S.weak = !!g.weak; S.cd = !!g.cd; S.ut = g.ut !== false; S.timer = !!g.timer; S.paceFind = g.paceFind || 5; S.paceName = g.paceName || 10;
       const region = REGIONS[g.region] ? g.region : "world";
       const mode = ["find", "name", "findcap", "namecap", "findflag", "nameflag", "explore"].includes(g.mode) ? g.mode : "find";
       const ready = startGame(mode, region, region === "world" ? (prefs.worldView === "flat" ? "flat" : "globe") : "flat", isCountryMap(g.data) ? g.data : "world");

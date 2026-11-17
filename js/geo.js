@@ -213,7 +213,8 @@
     return { kind, countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders,
       coast50: fc.coast, coast110: fc.coast, clusters: [], ringPx: DEFAULT_MIN_PX,
       lakes: lakes || null, lakes110: lakes || null,
-      nationBorders: fc.nations || null }; // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
+      nationBorders: fc.nations || null, // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
+      disputed: fc.disputed || null }; // India and others: disputed borders, drawn dotted
   }
   // ----- Britain and Ireland's counties (build 4): set = "historic" or "ceremonial"; each includes Ireland's 32
   // counties and the Crown Dependencies, with France as a grey area. Small counties (the City of London, the
@@ -231,6 +232,9 @@
   // The US and Greenland are grey areas around them (ids "T-..."). `lakes` = the world map's lakes (Great Lakes etc.).
   const CA_RINGS = new Set(["PE"]); // Prince Edward Island is a sliver at full-Canada zoom
   GG.loadCA = lakes => loadShapes("data/ca-provinces.json", "data/provinces.json", "ca", "ca/", CA_RINGS, lakes);
+  // India's 28 states and 8 union territories (tools/build_in.py); the small ones get circles
+  const IN_RINGS = new Set(["CH", "DL", "GA", "PY", "DH", "LD"]);
+  GG.loadIN = lakes => loadShapes("data/in-states.json", "data/in-parts.json", "in", "in/", IN_RINGS, lakes);
 
   // Fewer points in lines and outlines (Douglas–Peucker, tolerance in degrees), for things redrawn every frame
   GG.simplify = function (g, tol) {

@@ -16,6 +16,17 @@
     color-scheme: dark;
   }
 }
+/* the scripts on the Learning cards (India's names in their own scripts): small Noto subsets, tools/build_fonts.py */
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-devanagari.woff") format("woff"); unicode-range: U+0900-097F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-bengali.woff") format("woff"); unicode-range: U+0980-09FF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-gurmukhi.woff") format("woff"); unicode-range: U+0A00-0A7F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-gujarati.woff") format("woff"); unicode-range: U+0A80-0AFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-oriya.woff") format("woff"); unicode-range: U+0B00-0B7F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-tamil.woff") format("woff"); unicode-range: U+0B80-0BFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-telugu.woff") format("woff"); unicode-range: U+0C00-0C7F; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-kannada.woff") format("woff"); unicode-range: U+0C80-0CFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-malayalam.woff") format("woff"); unicode-range: U+0D00-0D7F; font-display: swap; }
+.native { font-family: "GQ Scripts", var(--body); font-size: 1.15em; }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body { background: var(--bg); color: var(--fg); font: 15px/1.4 var(--body); overflow: hidden; overscroll-behavior: none;
@@ -177,12 +188,19 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .timeline input { flex: 1; min-width: 0; margin: 0; accent-color: var(--accent); height: 26px; }
 #mapwrap.hastl .lcwrap { bottom: 78px; max-height: calc(100% - 88px); }
 #mapwrap.hastl .lcwrap.expanded { max-height: calc(70% - 68px); }
-.lchead { display: flex; gap: 12px; align-items: center; }
+.lchead { display: flex; gap: 12px; align-items: center; padding-right: 44px; } /* room for the close button */
 .learncard img { width: 84px; height: 63px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
 .lcbody { flex: 1; min-width: 0; display: grid; gap: 2px; }
 .lcname { font: 700 22px/1.1 var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } /* shrunk to fit by fitText */
 .lcsub { font-size: 12px; color: var(--muted); }
-.lcclose { align-self: flex-start; padding: 4px 9px; }
+/* a bar pinned to the top of the card: its buttons stay in the corners while the facts scroll beneath (its negative
+   bottom margin lets the heading sit beside them rather than below) */
+.lctools { position: sticky; top: 0; z-index: 2; flex: none; display: flex; align-items: center; height: 32px;
+  margin-bottom: -38px; pointer-events: none; }
+.lctools .btn { pointer-events: auto; height: 32px; padding: 4px 10px; background: var(--panel); box-shadow: 0 0 0 4px var(--panel);
+  display: grid; place-items: center; }
+.lcclose { margin-left: auto; }
+#lcWrap.expanded .lchead { padding-left: 44px; } /* room for "fewer facts" */
 .lcfacts { display: grid; grid-template-columns: 9.2em 1fr; gap: 3px 10px; margin: 0; font-size: 14px; }
 .lcfacts dt { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding-top: 2px; }
 .lcfacts dd { margin: 0; min-width: 0; }
