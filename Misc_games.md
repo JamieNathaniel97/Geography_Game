@@ -30,17 +30,18 @@ Learn the three-letter IATA airport codes (LHR, JFK, DXB) and the cities they se
 ### Data (downloaded 2026-11-17)
 
 - **Source:** [OurAirports](https://ourairports.com/data/), public domain, so no licence worries. Credit it on the map anyway.
-- **Built:** `tools/build_airports.py` writes `data/airports.json`, every airport with **scheduled passenger flights and an IATA code**: **3,245 airports** (1,151 graded "large", 2,094 "medium"). Each record has the code, airport name, city, the app's country code, position, size and whether the city is its country's capital (188 airports, in 150 countries).
+- **Built:** `tools/build_airports.py` writes `data/airports.json`, every airport with **scheduled passenger flights and an IATA code**: **3,268 airports** (1,155 graded "large", 2,113 "medium"), including Ukraine's (below). Each record has the code, airport name, city, the app's country code, position, size and whether the city is its country's capital (188 airports, in 150 countries).
 - The file is about 480 KB. The app should only load it when an airport game starts, and could ship a smaller file per set (see the sets below) so phones don't download all of it.
-- **Countries with no airport in the data:** Andorra, Liechtenstein, Monaco, San Marino and Vatican City (no airports of their own), Palestine (no scheduled flights), and **Ukraine** (no scheduled flights since 2022, so OurAirports marks its airports as having none).
+- **Countries with no airport in the data:** Andorra, Liechtenstein, Monaco, San Marino and Vatican City (no airports of their own), and Palestine (no scheduled flights).
+- **Ukraine (decided 2026-11-17: it must be in the games):** OurAirports marks Ukraine's airports as having no scheduled flights since 2022, so the build keeps them anyway (`SUSPENDED_OK` in the script): 23 airports, such as Boryspil (KBP), Lviv (LWO) and Odesa (ODS), marked `"suspended": true`. They're played like any other airport. Crimea's airports (Simferopol, Sevastopol) are listed under Ukraine, matching the world map. A Learning card could note that flights are suspended.
 - **Fixes needed during the build:**
-  - Some airports are listed under their own town, not the city they serve: Narita is "Narita", not Tokyo. The build needs a hand-written list of corrections (`SERVES = {"NRT": "Tokyo", "STN": "London", ...}`), checked for every airport in the chosen sets.
+  - Some airports are listed under their own town, not the city they serve: Narita is "Narita", not Tokyo. The build needs a hand-written list of corrections (`SERVES = {"NRT": "Tokyo", "KBP": "Kyiv", ...}`), checked for every airport in the chosen sets.
   - Bracketed details are already removed ("Paris (Roissy-en-France, Val-d'Oise)" → "Paris"); the original is kept as `cityFull`.
   - Check English city names (the source sometimes uses the local name).
 
-### Which airports? (open question 1)
+### Which airports? (kept flexible, 2026-11-17)
 
-3,245 is far too many for one quiz. Possible sets, chosen before each game like the Region:
+Not decided yet, so **build the games so a set is just a list of codes**, and adding or changing a set means adding a list, not new code. The data file keeps every airport; a set picks from it. Ideas for sets, chosen before each game like the Region:
 
 - **Top 50 busiest** (by passengers, from the latest ACI World ranking, hand-written into the build script). In 2025, Atlanta was the busiest, followed by Dubai and Tokyo Haneda. This is the best starter set.
 - **Top 100 busiest.**
@@ -48,14 +49,15 @@ Learn the three-letter IATA airport codes (LHR, JFK, DXB) and the cities they se
 - **By country:** for example all the UK's airports, or all the US's large airports, on the country maps. These could appear on a country's page in the Countries tab.
 - **All large airports** (1,151), as an expert set.
 
-### Where it goes in the menu (open question 2)
+### Where it goes in the menu (decided 2026-11-17)
 
-A new group on the Game tab, "Misc", under Find and Name, with the airport games in it. Later misc games (idea_02 and so on) join the same group.
+A new **"Misc" group** on the Game tab, under Find and Name, like a folder holding the airport games. Later misc games (idea_02 and so on) go in the same group.
 
 ### Open questions for the user
 
-1. **Which sets** of airports? (Top 50, Top 100, capitals, by country, all large, or some of these.)
-2. **Menu:** a "Misc" group on the Game tab?
-3. **Name games:** one prompt at a time (as in the table), Sporcle-style (tap any dot and type), or both?
-4. **Cities with several airports:** in "Name the code from the city", the prompt names the airport ("London Gatwick"), so there's one right answer. Should there also be the **city codes** that cover all a city's airports (LON for London, NYC for New York, TYO for Tokyo)?
-5. **Learning mode** for airports: yes or later?
+Left for later (2026-11-17):
+
+1. **Which sets** of airports (kept flexible for now).
+2. **Name games:** one prompt at a time, Sporcle-style (tap any dot and type), or both?
+3. **Cities with several airports:** add the city codes that cover all of a city's airports (LON, NYC, TYO)?
+4. **Learning mode** for airports: yes or later?

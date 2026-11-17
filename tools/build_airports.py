@@ -6,6 +6,7 @@
                       size: "L" (large) or "M" (medium), as OurAirports grades them
                       city: the source's city with any bracketed detail removed; cityFull keeps the original
                       capital: the airport's city is its country's capital (from data/countries.json)
+                      suspended: true for airports kept although they have no scheduled flights now (SUSPENDED_OK)
                       iso: the app's three-letter country code; null for territories that aren't one of the 197
 
 Source: OurAirports (https://ourairports.com/data/), public domain, airports.csv.
@@ -23,6 +24,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DL = ROOT / "tools" / "downloads" / "ourairports"
 SRC = "https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airports.csv"
 OUT = ROOT / "data" / "airports.json"
+# Countries whose airports are kept even with no scheduled flights right now (OurAirports marks them as having none).
+# Ukraine: airspace closed to passenger flights since February 2022; the user wants its airports in the games.
+SUSPENDED_OK = {"UA"}
 
 
 def fold(s):
@@ -46,7 +50,10 @@ def main():
     with open(csv_path, encoding="utf-8") as f:
         for a in csv.DictReader(f):
             code = a["iata_code"].strip().upper()
-            if a["type"] not in ("large_airport", "medium_airport") or a["scheduled_service"] != "yes":
+            if a["type"] not in ("large_airport", "medium_airport"):
+                continue
+            suspended = a["scheduled_service"] != "yes"
+            if suspended and a["iso_country"] not in SUSPENDED_OK:
                 continue
             if len(code) != 3 or not code.isalpha():
                 continue
@@ -62,6 +69,7 @@ def main():
                 "ll": [round(float(a["longitude_deg"]), 4), round(float(a["latitude_deg"]), 4)],
                 "size": "L" if a["type"] == "large_airport" else "M",
                 "capital": bool(iso and city and fold(city) in capitals.get(iso, ())),
+                **({"suspended": True} if suspended else {}),
             })
 
     # one record per code (the source has a few duplicates); large beats medium
