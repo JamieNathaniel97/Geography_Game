@@ -141,3 +141,44 @@ Like H1, before each game:
 ### Open questions for the user (H2)
 
 None at the moment (all answered 2026-11-17).
+
+---
+
+## H3: Famous shipwrecks
+
+Famous shipwrecks from every era, from the Bronze Age Uluburun wreck to the 20th century. Same idea as H2 (battles). Added 2026-11-17.
+
+### Game H3a: Where did it sink?
+
+1. A ship comes up at the top with the year it sank: **"RMS Titanic · 1912"**.
+2. **No zooming in**, as in H2a: the map stays on the whole chosen region. **Hint** zooms to the general area and halves the round's score.
+3. **One tap**, then the real place appears as a **sunken-ship symbol** (a small SVG of a ship on its side, different from the naval battle anchor), labelled with the place and year, with a line from the tap and the distance.
+4. **Score: up to 100 per round**, the same distance formula as H1 and H2 (100 within 20 km, 1 at 20,000 km). A hint halves it.
+
+### Game H3b: Which ship was it?
+
+1. The symbol appears at the wreck with the year: **"1912"**.
+2. The map zooms in to fit it, as in H2b.
+3. The user names the ship: type the name or pick from 4 choices (the same setting as H1b and H2b). Typing is forgiving: "Titanic" counts for "RMS Titanic", and prefixes such as RMS, HMS, SS, USS and MV are optional.
+4. The answer card shows the name, year, a short description, what sank it (iceberg, storm, battle, torpedo), lives lost, and when the wreck was found.
+
+### Choosing wrecks
+
+- **Kind:** All, Sunk in war, Sunk in peace (storms, collisions, icebergs, accidents).
+- **Era:** All, Ancient and medieval, Age of sail (1500–1850), Steam (1850–1939), Second World War, After 1945.
+- **Region:** the usual continents and oceans.
+- **Length:** 10, 20, 50 or Marathon.
+
+### Data
+
+- **Source: Wikidata** (CC0), as for H1 and H2. Wikidata records a wreck either as its own item ("shipwreck") or on the ship's item, with the wreck's position; the script takes both.
+- **Script written:** `tools/build_wrecks.py` writes `data/wrecks.json`: name, description, year sunk, wreck position, the country when it's in a country's waters, lives lost, the year it was found, and whether it was sunk in war. **Run it in VS Code:** `python tools/build_wrecks.py 15` (wrecks with articles in at least 15 Wikipedia languages; there are far fewer famous wrecks than battles, so the cut-off is lower).
+- **Hand-picked wrecks:** `tools/wrecks_extra.py` holds **49 hand-picked wrecks** across every era: Uluburun, the Antikythera wreck, the Belitung wreck, Nanhai One, the Mary Rose, the Vasa, the Batavia, Queen Anne's Revenge, the San José, HMS Erebus and Terror, the Titanic, the Lusitania, the Endurance, the Bismarck, the Yamato, USS Arizona, the Wilhelm Gustloff, the Edmund Fitzgerald, the Doña Paz and more. They're always included.
+- **Check by hand:** a ship's coordinates in Wikidata are sometimes its home port rather than its wreck. The script lists every wreck that's inside a country, to check. **Raised wrecks** such as the Vasa (now in a Stockholm museum) and the Mary Rose (Portsmouth) are played at the place they sank; set `raised` in `FIXES` so the card can say where they are now.
+- **War graves:** many wrecks, such as USS Arizona and HMS Hood, are war graves. The card should say so plainly and respectfully.
+
+### Open questions for the user (H3)
+
+1. **Wrecks never found** (for example the Flor de la Mar and Columbus's Santa María): include them at their likely place, marked "approximate" on the card, or only wrecks whose place is known?
+2. **Cut-off:** the hand-picked list stops at the Doña Paz (1987). Leave out more recent disasters, such as the MS Estonia (1994) or the Costa Concordia (2012), the same way H2 stops at 1993?
+3. **Lives lost:** show the number on the card, or leave it out?
