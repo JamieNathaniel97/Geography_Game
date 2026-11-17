@@ -7,7 +7,7 @@ The brief for Mexico's country map in Gaia Quest. It follows the same pattern as
 **31 states and Mexico City (32 parts):** Aguascalientes, Baja California, Baja California Sur, Campeche, Chiapas, Chihuahua, Coahuila, Colima, Durango, Guanajuato, Guerrero, Hidalgo, Jalisco, State of Mexico, Michoacán, Morelos, Nayarit, Nuevo León, Oaxaca, Puebla, Querétaro, Quintana Roo, San Luis Potosí, Sinaloa, Sonora, Tabasco, Tamaulipas, Tlaxcala, Veracruz, Yucatán, Zacatecas, and **Mexico City** (a federal entity since 2016, no longer the "Federal District").
 
 - Each part has a `kind` (State, or Capital city), shown on the Learning card.
-- `unit` word: **"States"** (open question 1).
+- `unit` word: **"States"** (decided 2026-11-17).
 - No disputed borders.
 
 ## Wiring it into the app
@@ -21,7 +21,7 @@ The brief for Mexico's country map in Gaia Quest. It follows the same pattern as
 - Shapes: Natural Earth admin-1 (or INEGI's official boundaries, open data; credit them). Neighbours as grey context: the US, Guatemala, Belize.
 - **Projection:** Lambert conformal conic, standard parallels 17.5°N and 29.5°N, central meridian 102°W (the projection INEGI uses).
 - Population: **2020 census** (INEGI).
-- Flags: see open question 2.
+- **Coats of arms instead of flags (decided 2026-11-17):** most states have no official flag of their own (28 of 32 fly the coat of arms on white), so games 5 and 6 become **"Find by coat of arms"** and **"Name the coats of arms"**, using each state's coat of arms (Wikimedia Commons, `data/flags/mx/`). Mexico City uses its coat of arms too.
 
 ## Capitals
 
@@ -33,7 +33,7 @@ Confirm during the build. **Twelve states share their capital's name** (Aguascal
 - Full official names accepted: Veracruz de Ignacio de la Llave, Coahuila de Zaragoza, Michoacán de Ocampo.
 - **Baja California / Baja California Sur:** typing "Baja California" must only count for Baja California (like Mato Grosso in the Brazil plan).
 - Mexico City: "CDMX", "Ciudad de México", "DF" (its old name, still common), "Mexico City".
-- State of Mexico: see open question 4.
+- **State of Mexico:** typing just **"Mexico"** counts (decided 2026-11-17), as well as "Estado de México" and "State of Mexico".
 - English forms: Mexico City, State of Mexico.
 
 ## Tiny parts
@@ -74,15 +74,18 @@ Learning mode only, like the other countries' Indigenous layers: where the main 
 
 1. `tools/build_mx.py`: shapes, parts data, capitals.
 2. Map and loader.
-3. Find and Name: States, Capitals (and Flags, if chosen).
+3. Find and Name: States, Capitals, Coats of arms.
 4. Tiny parts (central circles or bubble).
 5. Learning card + "Focus on Mexico".
 6. Indigenous layer.
-7. Timeline, if chosen.
+7. Timeline: Mexico's expansion and decline (below).
+
+## Timeline (decided 2026-11-17)
+
+"Mexico's expansion and decline", like Russia's (built the same way: Natural Earth pieces with the years Mexico held them, approximate, today's borders): independence from Spain (1821), with the First Mexican Empire reaching into Central America; Central America leaves (1823); Texas breaks away (1836); the land lost to the US after the Mexican–American War (1848); the Gadsden Purchase (1853); then the states forming, up to Quintana Roo and Baja California Sur (1974). Sources downloaded in `tools/downloads/mx/wiki/`.
 
 ## Open questions for the user
 
-1. **Unit word:** "States"?
-2. **Flags:** most states have no official flag, only a coat of arms. No flag games (like India), flag games with only the states that have official flags, or a "Find by coat of arms" game instead?
-3. **Timeline:** "Mexico's expansion and decline", like Russia's? Independence (1821), Central America leaves (1823), Texas (1836), the land lost to the US (1848), the Gadsden Purchase (1853), and the states forming up to Quintana Roo and Baja California Sur (1974).
-4. **"Mexico":** does typing "Mexico" count for the State of Mexico, or only "Estado de México" / "State of Mexico"?
+None at the moment (all answered 2026-11-17).
+
+**Indigenous layer colouring (decided 2026-11-17):** INEGI's open files give each municipality's number of Indigenous-language speakers but not which language (the by-language table is only in INEGI's SCINCE tool). So the layer shades each municipality by the **share of people who speak an Indigenous language** (2020 census ITER, INEGI; municipal boundaries from geoBoundaries, CC BY 4.0), and a tap names the municipality, its share, and its state's main Indigenous languages (INEGI tabulado "Etnicidad 4"). The by-language SCINCE table can be added later.

@@ -757,6 +757,9 @@
     CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", data: "cn", region: "china" },
     RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", data: "ru", region: "russia" },
     AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", data: "au", region: "australia" },
+    // coming next (Mexico_plan.md, Brazil_plan.md)
+    MEX: { name: "Mexico", focus: "Mexico", cont: "North America", unit: "States", soon: true },
+    BRA: { name: "Brazil", focus: "Brazil", cont: "South America", unit: "States", soon: true },
   };
   // from the world Learning map, the UK and Ireland open the countries view first
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },

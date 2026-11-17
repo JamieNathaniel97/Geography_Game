@@ -12,7 +12,7 @@ The brief for Brazil's country map in Gaia Quest. It follows the same pattern as
 - **Southeast:** Espírito Santo, Minas Gerais, Rio de Janeiro, São Paulo.
 - **South:** Paraná, Rio Grande do Sul, Santa Catarina.
 - Each part has a `kind` (State, or Federal District), shown on the Learning card.
-- `unit` word: **"States"** (open question 1).
+- `unit` word: **"States"** (decided 2026-11-17).
 - No disputed borders.
 
 ## Wiring it into the app
@@ -42,7 +42,7 @@ Confirm during the build. Two states share their capital's name (São Paulo, Rio
 
 - **Federal District:** an adaptive circle inside Goiás.
 - **Sergipe, Alagoas:** check on the phone; probably fine.
-- **Islands:** Fernando de Noronha (Pernambuco) and Trindade (Espírito Santo), see open question 2.
+- **Islands (decided 2026-11-17):** Fernando de Noronha (Pernambuco) and Trindade (Espírito Santo) are **tappable island ovals**, part of their states.
 
 ## Learning card
 
@@ -77,13 +77,15 @@ Learning mode only, like the US reservations and Australia's Aboriginal land lay
 1. `tools/build_br.py`: shapes, parts data, capitals, flags.
 2. Map and loader.
 3. Find and Name: States, Capitals, Flags.
-4. Tiny parts (Federal District circle, islands if chosen).
+4. Tiny parts (Federal District circle, Fernando de Noronha and Trindade ovals).
 5. Learning card + "Focus on Brazil".
 6. Indigenous lands layer.
-7. Timeline, if chosen.
+7. Timeline (below).
+
+## Timeline (decided 2026-11-17)
+
+A timeline of how today's states formed, reusing the US/Australia timeline code: the colonial captaincies (1534), the provinces of the Empire (1822), provinces become states (1889), Acre bought from Bolivia (1903), the capital moves to Brasília (1960), Mato Grosso do Sul (1977), and Tocantins, Amapá and Roraima (1988). Wikipedia's table of how the captaincies became provinces and states is downloaded (`tools/downloads/br/wiki/Federative units of Brazil.wiki`).
 
 ## Open questions for the user
 
-1. **Unit word:** "States"?
-2. **Islands:** Fernando de Noronha and Trindade as tappable island ovals (part of their states), or left off?
-3. **Timeline:** add one? Colonial captaincies (1534), provinces become states (1889), Acre bought from Bolivia (1903), the capital moves to Brasília (1960), Mato Grosso do Sul (1977), Tocantins (1988).
+None at the moment (all answered 2026-11-17).
