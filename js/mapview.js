@@ -76,7 +76,7 @@
     readColours() {
       const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
       this.col = { bg: v("--bg"), sea: v("--sea"), land: v("--land"), border: v("--border"), coast: v("--coast"),
-        terr: v("--terr"), good: v("--good"), bad: v("--bad"), flash: v("--flash"), marker: v("--marker"),
+        terr: v("--terr"), good: v("--good"), bad: v("--bad"), goodSel: v("--good-sel"), badSel: v("--bad-sel"), flash: v("--flash"), marker: v("--marker"),
         panel: v("--panel"), fg: v("--fg"), halo: v("--halo"), off: v("--off"), sel: v("--sel"), capital: v("--capital"), unformed: v("--unformed"), reserve: v("--reserve") };
     }
 
@@ -956,10 +956,10 @@
         ctx.fillStyle = col.fg; ctx.font = "600 12px Barlow, system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
         ctx.fillText(String(b.cl.members.length), b.x, b.y);
       });
-      // capital dots (capitals games): a dark red dot at each capital of an answered country or state
+      // capital dots (capitals games): a small dark green dot, no outline, at each capital of an answered country or state
       this.drawReserveDots(ctx, proj);
       if (this.opts.showCapital) {
-        ctx.fillStyle = col.capital; ctx.strokeStyle = col.panel; ctx.lineWidth = 1.5;
+        ctx.fillStyle = col.capital;
         geo.countries.forEach(c => {
           if (!c.capLL || !this.opts.showCapital(c)) return;
           c.capLL.forEach(ll => {
@@ -967,7 +967,7 @@
             const p = proj(ll); if (!p) return;
             offsets.forEach(dx => {
               if (!onScreen(p[0] + dx, p[1], 6)) return;
-              ctx.beginPath(); ctx.arc(p[0] + dx, p[1], 4, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
+              ctx.beginPath(); ctx.arc(p[0] + dx, p[1], 3, 0, 2 * Math.PI); ctx.fill();
             });
           });
         });

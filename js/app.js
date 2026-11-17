@@ -82,7 +82,7 @@
   // Russia and Turkey count in Europe and Asia; Caribbean countries also count in North America.
   const REGIONS = {
     world:    { name: "World" },
-    europe:   { name: "Europe",        test: c => c.cont.includes("Europe"),        view: { globe: [13, 53, 38],       flat: [15, 53, 50] },       crop: [[-26, 33], [50, 72]] },
+    europe:   { name: "Europe",        test: c => c.cont.includes("Europe"),        view: { globe: [9, 55, 46],        flat: [9, 55, 66] },        crop: [[-26, 33], [50, 72]] }, // wide enough for Iceland
     asia:     { name: "Asia",          test: c => c.cont.includes("Asia"),          view: { globe: [88, 22.5, 88],     flat: [88, 22.5, 114.6] },  crop: [[24, -12], [150, 62]] },
     africa:   { name: "Africa",        test: c => c.cont.includes("Africa"),        view: { globe: [17, 1, 72],        flat: [17, 1, 86] },        crop: [[-27, -37], [60, 38]] },
     namerica: { name: "North America", test: c => c.cont.includes("North America"), view: { globe: [-90, 25, 69],      flat: [-104, 39.5, 90.3] }, crop: [[-170, 5], [-50, 75]] },
@@ -139,7 +139,9 @@
   let tlYear = 1959, tlTimer = null;
   const isUnformed = c => tlYear < 1959 && !!c.info && c.info.year > tlYear;
   const tlBorders = new Map(); // year -> borders that existed then (between two states, or a state and land not yet a state)
-  const getState = c => (flashing[c.iso] ? "flash" : c === selected ? "sel" : state[c.iso] ||
+  // reviewing a finished game: the tapped country is shown in dark green (right), dark red (missed) or blue
+  const getState = c => (flashing[c.iso] ? "flash" : finished && c === reviewSel ? (state[c.iso] === "good" ? "goodSel" : state[c.iso] === "bad" ? "badSel" : "sel")
+    : c === selected ? "sel" : state[c.iso] ||
     (tlYear < 1959 && c.info && c.info.year === tlYear ? "sel" : null));
   // still to answer (Free tap, or a finished naming game: any country in the region); taps near small
   // open countries snap to them
@@ -149,7 +151,7 @@
   const isOpen = c => inRegion(c) && (S.mode === "explore" || finished || !state[c.iso]);
 
   // `order` holds the countries still to answer. Find the country: the arrows move through it with no penalty.
-  let order = [], idx = 0, target = null, nGood = 0, nBad = 0, finished = false, gaveUp = false, total = 0;
+  let order = [], idx = 0, target = null, nGood = 0, nBad = 0, finished = false, gaveUp = false, total = 0, reviewSel = null;
   let startTime = 0, endTime = 0;
 
   function newGame() {
@@ -157,7 +159,7 @@
     let list = regionCountries();
     if (S.weak && isFind()) list = weakest(list, WEAK_COUNT);
     total = list.length;
-    order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null;
+    order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null; reviewSel = null; $("reviewBar").hidden = true;
     if (S.mode === "nameflag") buildFlagGrid(); else hideFlagGrid();
     startTime = Date.now();
     startClock();
@@ -276,7 +278,7 @@
       showFocus(c);
       redraw(); return;
     }
-    if (finished) { flashName(c); return; } // reviewing: tap any country to see its name (or capital)
+    if (finished) { reviewSel = c; flashName(c); redraw(); return; } // reviewing: tap any country to see its name (or capital)
     if (isName()) { tapName(c, view); return; }
     if (!target || state[c.iso] === "good") return; // already-correct countries do nothing
     // the next country appears instantly; the map keeps the green/red result
@@ -812,7 +814,8 @@
     $("results").hidden = false;
   }
   function closeResults() { $("results").hidden = true; }
-  $("reviewBtn").onclick = () => { closeResults(); toast(`Tap any ${noun()} to see its answer.`, 2500); };
+  $("reviewBtn").onclick = () => { closeResults(); $("reviewBar").hidden = false; toast(`Tap any ${noun()} to see its answer.`, 2500); };
+  $("reviewBar").onclick = () => { $("reviewBar").hidden = true; openSetup(); };
   $("replayBtn").onclick = () => { closeResults(); newGame(); };
   $("listBtn").onclick = () => { closeResults(); openSetup(); };
   $("prev").onclick = () => step(-1);
@@ -940,10 +943,15 @@
       // Britain and Ireland: county set, region and the Crown Dependencies, chosen before each game
       const uk = pick.data === "uk" || pick.data === "ukc";
       $("cpOpts").hidden = !uk;
+      // no county in Ireland has a registered flag: no flag games there (shown again for every other choice)
+      const noFlags = uk && /-ire$/.test(pick.region);
+      $("cpGames").querySelectorAll('[data-v="findflag"], [data-v="nameflag"]').forEach(b => { b.hidden = noFlags; });
+      if (noFlags && /flag$/.test(pick.mode)) { pick.mode = pick.mode.replace("flag", ""); segSelect($("cpGames"), pick.mode); }
       if (uk) {
         segSelect($("cpSet"), pick.data);
         segSelect($("cpRegion"), pick.region.replace(/^ukc?/, "") || "all");
         segSelect($("cpCD"), pick.cd ? "on" : "off");
+
         $("cpCDField").hidden = pick.region !== pick.data; // whole map only
       }
     }
@@ -1116,6 +1124,7 @@
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
     hideLearnCard();
+    $("reviewBar").hidden = true; reviewSel = null;
     showTimeline(mode === "explore" && data === "us");
     useSub(mode === "explore" && data === "world");
     showReserves();
