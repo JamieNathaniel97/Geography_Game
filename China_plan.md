@@ -12,6 +12,7 @@ China has **33 provincial-level divisions** that it actually governs. That makes
 - **Special administrative regions (2):** Hong Kong, Macau.
 - **Taiwan:** China counts it as a 23rd province, but it is governed separately, and the world map already treats it as its own country (`EXTRA` in `tools/build_data.py`). **Decided 2026-11-17:** Taiwan is **not part of China on this map**. It is grey and untappable, labelled "Taiwan", like the other neighbours.
 - Like Canada, each part has a `kind` (Province, Autonomous region, Municipality, SAR), shown on the Learning card.
+- **No toggle** (decided 2026-11-17): every game always uses all 33 parts.
 - `unit` word: **"Provinces"**. The New game page reads Find: Provinces, Capitals; Name: Provinces, Capitals.
 
 ## Wiring it into the app
@@ -77,9 +78,9 @@ Same layout as the India card:
 
 - Name in English and **Chinese characters** (四川 for Sichuan), with pinyin. This needs a CJK font subset bundled for offline use. Only the characters actually used are needed, which keeps it small.
 - Kind, region (North, Northeast, East, South Central, Southwest, Northwest), capital, population (**2020 census**), area and rank of 33.
-- **More facts:** choose from the ideas below (open question 5).
+- **More facts:** all 18 ideas below (decided 2026-11-17).
 
-## Fact ideas for the user to choose from
+## More facts (all 18 chosen 2026-11-17)
 
 **People and culture**
 1. Short one-character name (川 for Sichuan, 粤 for Guangdong), as used on car number plates
@@ -118,5 +119,4 @@ Same layout as the India card:
 
 ## Open questions for the user
 
-1. **Facts:** which of the 18 ideas above go on the card?
-2. **Toggle:** whether to have one, and what it switches (see the chat of 2026-11-17).
+None at the moment (all answered 2026-11-17).
