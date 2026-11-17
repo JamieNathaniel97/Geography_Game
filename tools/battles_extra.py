@@ -52,3 +52,13 @@ EXTRA = {
         "Battle of Goose Green", "Battle of Cuito Cuanavale", "Battle of 73 Easting", "Battle of Mogadishu (1993)",
     ],
 }
+
+# Battles fought over a big area: the game highlights a shape (drawn by hand in tools/battle_areas.geojson) instead
+# of a point. A tap anywhere inside counts as right on (1,000 points); outside, the score uses the distance to the
+# edge. Add others here if their single Wikidata point is a poor answer.
+AREAS = [
+    "Battle of Britain", "Gallipoli campaign", "Guadalcanal campaign", "Kokoda Track campaign", "Normandy landings",
+    "Battle of Moscow", "Battle of Kursk", "Battle of the Bulge", "Battle of Leyte Gulf", "Battle of Midway",
+    "Battle of the Coral Sea", "Battle of Jutland", "Siege of Leningrad", "Battle of Stalingrad", "Battle of the Somme",
+    "Battle of Verdun", "Battle of Okinawa", "Battle of Iwo Jima",
+]

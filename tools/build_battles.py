@@ -8,6 +8,8 @@
                      ll: [longitude, latitude]; iso: the app's country code for the place today, or null (at sea)
                      naval: a naval battle (Wikidata type, or it's at sea); siege: a siege
                      war: the war it was part of, if Wikidata says
+                     sides, winners: the sides that fought and who won, from Wikidata (patchy: check by hand)
+                     area: for battles fought over a big area, a GeoJSON shape to highlight (from AREAS_FILE)
                      links: number of Wikipedia language editions with an article, the "how famous" score
 
 Source: Wikidata (https://www.wikidata.org), CC0 (public domain). Needs network access to query.wikidata.org,
@@ -35,12 +37,23 @@ UA = {"User-Agent": "GaiaQuestBuild/1.0 (map quiz data build; offline geography 
 
 BATTLE, NAVAL, SIEGE = "Q178561", "Q1261499", "Q188055"
 
-# hand corrections after checking the output: id -> fields to overwrite (or {"drop": True})
+# hand corrections after checking the output: id -> fields to overwrite (or {"drop": True}).
+# Sides and winners come from Wikidata and are patchy: check them, and fill or fix them here,
+# e.g. "Q48314": {"sides": ["French Empire", "Seventh Coalition"], "winners": ["Seventh Coalition"]}
 FIXES = {}
+
+# no battles after this year (decided 2026-11-17: the set ends with the hand-picked list, which stops in 1993)
+MAX_YEAR = 1993
+
+# battles fought over a big area are drawn as a shape, not a point (decided 2026-11-17); the shapes are hand-drawn,
+# simplified polygons in tools/battle_areas.geojson, one feature per battle with "properties": {"title": ...}
+AREAS_FILE = ROOT / "tools" / "battle_areas.geojson"
 
 QUERY = """
 SELECT ?b ?bLabel ?bDescription ?links ?coord ?iso ?warLabel
        (MIN(?t) AS ?start) (MAX(?e) AS ?finish)
+       (GROUP_CONCAT(DISTINCT ?sideName; separator="|") AS ?sides)
+       (GROUP_CONCAT(DISTINCT ?winName; separator="|") AS ?winners)
        (GROUP_CONCAT(DISTINCT STRAFTER(STR(?type), "entity/"); separator=" ") AS ?types)
        (SAMPLE(?article) AS ?title)
 WHERE {
@@ -52,6 +65,8 @@ WHERE {
   FILTER(BOUND(?t))
   OPTIONAL { ?b wdt:P17 ?c . ?c wdt:P298 ?iso . }
   OPTIONAL { ?b wdt:P361 ?war . }
+  OPTIONAL { ?b wdt:P710 ?side . ?side rdfs:label ?sideName . FILTER(LANG(?sideName) = "en") }
+  OPTIONAL { ?b wdt:P1346 ?win . ?win rdfs:label ?winName . FILTER(LANG(?winName) = "en") }
   OPTIONAL { ?article schema:about ?b ; schema:isPartOf <https://en.wikipedia.org/> . }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 }
@@ -126,6 +141,8 @@ def main():
             "iso": iso if iso in app_isos else None,
             "naval": NAVAL in types, "siege": SIEGE in types,
             "war": g("warLabel"), "links": int(g("links")),
+            "sides": [x for x in (g("sides") or "").split("|") if x],
+            "winners": [x for x in (g("winners") or "").split("|") if x],
             "picked": title in extra_titles, "title": title,
         }
 
@@ -133,6 +150,19 @@ def main():
     at_sea = [b for b in battles.values() if b["iso"] is None and not b["naval"]]
     for b in at_sea:
         b["naval"] = True
+
+    battles = {k: b for k, b in battles.items() if b["year"] is None or b["year"] <= MAX_YEAR}
+
+    # big-area battles: attach their shapes ("area": GeoJSON geometry); the game highlights the shape
+    from battles_extra import AREAS
+    shapes = {}
+    if AREAS_FILE.exists():
+        for f in json.loads(AREAS_FILE.read_text(encoding="utf-8"))["features"]:
+            shapes[f["properties"]["title"]] = f["geometry"]
+    for b in battles.values():
+        if b["title"] in AREAS:
+            b["area"] = shapes.get(b["title"])
+    no_shape = [t for t in AREAS if t not in shapes]
 
     for bid, fix in FIXES.items():
         if bid in battles:
@@ -153,6 +183,12 @@ def main():
     if missing:
         print(f"{len(missing)} hand-picked titles not found (wrong title, or no coordinates or date in Wikidata); "
               "fix them in tools/battles_extra.py:", ", ".join(missing))
+    if no_shape:
+        print(f"{len(no_shape)} big-area battles have no shape yet in {AREAS_FILE.relative_to(ROOT)}; draw them:",
+              ", ".join(no_shape))
+    no_sides = sum(not b["sides"] for b in out)
+    print(f"{no_sides} battles have no sides in Wikidata, {sum(not b['winners'] for b in out)} no winner; "
+          "fill the important ones in FIXES")
     if at_sea:
         print(f"{len(at_sea)} battles with no country were counted as naval; check:",
               ", ".join(b["name"] for b in at_sea[:40]))

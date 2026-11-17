@@ -86,27 +86,34 @@ Famous battles from every era, from Kadesh (about 1274 BC) to the late 20th cent
 ### Game H2a: Where was it fought?
 
 1. A battle comes up at the top with its year: **"Battle of Hastings · 1066"**.
-2. The map zooms into the area (same rules as H1a: a frame holding the real place with a generous, slightly random margin, at least about 1,500 km across).
+2. **No zooming in** (decided 2026-11-17): the map stays on the whole chosen region (the world, or a continent), so the user has to know where it was. They can still pinch to zoom themselves.
 3. **One tap:** a dot appears where the user tapped.
+   - **Hint button:** tapping **Hint** before answering zooms the map to the general area (the same frame as H1a: the real place inside a generous, slightly random margin, at least about 1,500 km across). The round's points are then **halved** (at most 500), and the score shows a small "hint" mark.
 4. **The real place appears** as a **crossed-swords symbol** (an **anchor** for naval battles), labelled with the place and year, with a line from the tap and the distance.
-5. **Score: 1 to 1,000**, the same distance formula as H1 (1,000 within 20 km, 1 at 20,000 km). One place per battle, so each battle is out of 1,000.
+5. **Score: 1 to 1,000**, the same distance formula as H1 (1,000 within 20 km, 1 at 20,000 km). One place per battle, so each battle is out of 1,000 (500 with a hint).
+
+**Big-area battles** (decided 2026-11-17): battles fought over a large area (the Battle of Britain, Gallipoli, Normandy, Kursk, Midway and others, listed in `AREAS` in `tools/battles_extra.py`) are **shapes, not points**. When the answer is shown, the whole area is highlighted, like a country highlight. A tap anywhere inside scores the full 1,000; outside, the score uses the distance to the nearest edge of the area.
 
 ### Game H2b: Which battle was it?
 
-1. The symbol appears on the map at the battle's place, with the year: **"⚔ 1815"**.
-2. The map zooms to fit it, with enough around it to recognise where it is.
+1. The symbol appears on the map at the battle's place, with the year: **"⚔ 1815"**. Big-area battles show their highlighted area instead.
+2. **The map zooms in** to fit it (decided 2026-11-17: H2b zooms, H2a doesn't), with enough around it to recognise where it is.
 3. The user names the battle: **type the name or pick from 4 choices**, the same setting as H1b. The wrong choices are battles from a similar time and region. Typing is forgiving: "Waterloo" counts for "Battle of Waterloo", "Battle of" is optional, and so are "First" and "Second" where only one battle has that name in the set.
-4. The answer card shows the name, year, the war it was part of, and a short description.
+4. The answer card shows the name, year, the war it was part of, a short description, **the sides and who won** (decided 2026-11-17). Where Wikidata has no winner, or the result was unclear, the card says "Inconclusive" or leaves the line out; don't guess.
 
 ### Choosing battles
 
 Like H1, before each game:
 
-- **Kind:** All, Land, Naval (open question 1 on sieges).
+- **Kind:** All, Land, Naval, **Sieges** (decided 2026-11-17: sieges are included; "All" mixes all three).
 - **Era:** All, Ancient (before 500), Medieval (500–1500), Early modern (1500–1800), 1800s, 1900–1945, After 1945.
 - **Region:** the usual continents, plus **At sea** for naval battles away from any coast.
 - **War** (idea): a filter for the big wars with many battles in the set, such as the Napoleonic Wars, the American Civil War, the First and Second World Wars.
 - **Length:** 10, 20, 50 or Marathon, as in H1.
+
+### Symbols (decided 2026-11-17)
+
+- **Crossed swords** for land battles and sieges, an **anchor** for naval battles, as small SVG icons.
 
 ### Naval battles
 
@@ -118,12 +125,11 @@ Like H1, before each game:
 - **Source: Wikidata** (CC0), like H1.
 - **Script written:** `tools/build_battles.py` writes `data/battles.json`: name, short description, start and end years (BC as negative), position, the modern country (none at sea), whether it was naval or a siege, the war it was part of, and the fame score. **Run it in VS Code:** `python tools/build_battles.py 40` (battles with articles in at least 40 Wikipedia languages; change the number to get more or fewer).
 - **Hand-picked battles:** `tools/battles_extra.py` holds **141 hand-picked battles** across every era and region: Kadesh, Gaugamela, Red Cliffs, Talas, Ain Jalut, Panipat, Sekigahara, Myeongnyang, Ayacucho, Adwa, Isandlwana, Tsushima, Kohima, Dien Bien Phu, Cuito Cuanavale and many more. They're always included. The script prints any title it can't find.
-- **Check by hand:** campaigns and air battles that covered a big area (the Battle of Britain, Gallipoli, Guadalcanal, Kokoda) have only one point in Wikidata, which may make a poor answer. The script also lists battles with no country, which it counts as naval; check them. Ancient battles' places are sometimes disputed (Kadesh, Teutoburg Forest); use the most accepted place, and say so on the card.
+- **Cut-off (decided 2026-11-17):** the set ends in **1993** (`MAX_YEAR` in the script), where the hand-picked list ends. Nothing from wars still being fought.
+- **Sides and winners:** the script also fetches who fought and who won. Wikidata is patchy here: it prints how many battles have none, and the important ones should be filled or fixed in its `FIXES` table.
+- **Area shapes:** big-area battles need hand-drawn, simplified shapes in `tools/battle_areas.geojson` (one feature per battle, with its title), drawn from historical maps. The script lists the ones still missing; until a battle has a shape, it uses its point.
+- **Check by hand:** the script also lists battles with no country, which it counts as naval; check them. Ancient battles' places are sometimes disputed (Kadesh, Teutoburg Forest); use the most accepted place, and say so on the card.
 
 ### Open questions for the user (H2)
 
-1. **Sieges:** include them (Siege of Leningrad, Fall of Constantinople, Siege of Yorktown), as a separate Kind or mixed in with land battles?
-2. **Campaigns and air battles** that cover big areas (Battle of Britain, Gallipoli, Normandy landings): include them with one point, or leave them out of the tap game (H2a) and keep them only for H2b?
-3. **Recent wars:** the hand-picked list stops at 1993. Where should the set end? For example, leave out wars still being fought.
-4. **Answer card:** add the sides and who won? Wikidata has this for many battles, but it's patchy, so it needs checking by hand.
-5. **Symbols:** crossed swords for land battles and an anchor for naval ones?
+None at the moment (all answered 2026-11-17). Still to decide later: whether H1a (people) should also stop zooming in and get the same Hint button, to match H2a.
