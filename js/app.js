@@ -1167,13 +1167,14 @@
       $("regions").appendChild(b);
     });
   }
-  // open the game group that holds the chosen game, close the others
-  function showGameGroup(mode) {
-    document.querySelectorAll("#segGame details").forEach(d => { d.open = !!d.querySelector(`button[data-v="${mode}"]`); });
-  }
-  document.querySelectorAll("#segGame details").forEach(d => d.addEventListener("toggle", () => {
-    if (d.open) document.querySelectorAll("#segGame details").forEach(o => { if (o !== d) o.open = false; });
+  // the Game and Region boxes: exactly one is open (opening one closes the other; closing one opens the other)
+  const accordion = [$("gameGroup"), $("regionGroup")];
+  accordion.forEach(d => d.addEventListener("toggle", () => {
+    const other = accordion.find(o => o !== d);
+    if (d.open) other.open = false; else if (!other.open) other.open = true;
   }));
+  const GAME_NAMES = { find: "Find · Countries", findcap: "Find · By capital", findflag: "Find · By flag",
+    name: "Name · Countries", namecap: "Name · Capitals", nameflag: "Name · Flags" };
   // Countries tab: continent headings (the Caribbean is part of North America) with a button per country map
   function buildCountryList() {
     const conts = ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"];
@@ -1189,11 +1190,16 @@
   }
   // World, the list of countries, or one country's page (its Find and Name games)
   function showData() {
-    const countries = pick.tab === "countries";
+    const countries = pick.tab === "countries", learn = pick.learn;
     segSelect($("segData"), pick.tab);
-    $("worldPanel").hidden = countries;
-    $("countryList").hidden = !countries || !!pick.country;
-    $("countryPage").hidden = !countries || !pick.country;
+    segSelect($("setupTabs"), learn ? "learn" : "game");
+    $("setupTitle").textContent = learn ? "Learning mode" : "New game";
+    $("worldPanel").hidden = countries || learn;
+    $("learnPanel").hidden = countries || !learn;
+    // Learning mode's Countries: just the list (a tap opens that country's map)
+    $("countryList").hidden = !countries || (!learn && !!pick.country);
+    $("countryPage").hidden = !countries || learn || !pick.country;
+    $("optBtn").hidden = learn && countries; // nothing to set there
     if (countries && pick.country) {
       const m = COUNTRY_MAPS[pick.country], ds = DATASETS[pick.data];
       $("cpName").textContent = m.page || m.name;
@@ -1219,8 +1225,9 @@
         $("cpCDField").hidden = pick.region !== pick.data; // whole map only
       }
     }
-    $("startBtn").hidden = countries && !pick.country; // pick a country first
-    if (!countries) { segSelect($("segGame"), pick.mode); showGameGroup(pick.mode); $("viewField").hidden = pick.region !== "world"; }
+    $("startBtn").hidden = countries && (learn || !pick.country); // pick a country first
+    $("startBtn").textContent = learn ? "Discover" : "Start";
+    if (!countries && !learn) { segSelect($("segGame"), pick.mode); $("viewField").hidden = pick.region !== "world"; }
   }
   $("segData").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
@@ -1231,6 +1238,11 @@
   $("countryList").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b || b.disabled) return;
     const m = COUNTRY_MAPS[b.dataset.v];
+    // Learning mode: straight to that country's own map (the UK and Ireland open on their countries view)
+    if (pick.learn) {
+      const to = FOCUS_INTO[b.dataset.v] || m;
+      closeSetup(); closeInset(); startGame("explore", to.region, "flat", to.data); return;
+    }
     pick.country = b.dataset.v; pick.data = m.data; pick.region = m.region;
     showData(); showOptions();
   });
@@ -1272,14 +1284,15 @@
   // the cog: Options (knowledge gaps, timer) in place of the games
   function showOptPanel(on) {
     $("tabOptions").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on;
-    $("setupTitle").textContent = on ? "Options" : "New game";
+    $("setupTitle").textContent = on ? "Options" : pick.learn ? "Learning mode" : "New game";
     $("optBtn").classList.toggle("on", on); $("optBtn").setAttribute("aria-pressed", on);
   }
   $("optBtn").onclick = () => showOptPanel($("tabOptions").hidden);
   $("optBack").onclick = () => showOptPanel(false);
   function openSetup() {
-    // Learning mode has its own tab now, so the menu opens on a scored game
-    pick.mode = S.mode === "explore" ? "find" : S.mode;
+    // opens on the tab you're playing in: Learning mode, or a scored game
+    pick.learn = S.mode === "explore";
+    pick.mode = S.mode === "explore" ? (prefs.game && prefs.game.mode !== "explore" ? prefs.game.mode : "find") : S.mode;
     pick.region = S.region; pick.view = S.region === "world" ? main.mode : "globe"; pick.data = S.data;
     pick.tab = S.data === "world" ? "world" : "countries";
     const mapData = S.data === "ukc" ? "uk" : S.data; // both county sets are one entry in the list
@@ -1288,12 +1301,12 @@
     pick.cd = !!S.cd; pick.ut = S.ut !== false;
     if (!$("countryList").childElementCount) buildCountryList();
     segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); segSelect($("segView"), pick.view);
-    showGameGroup(pick.mode);
+    if (pick.learn && pick.region !== "world" && !isCountryMap(pick.data)) pick.region = "world";
     $("viewField").hidden = pick.region !== "world";
     pick.weak = !!S.weak; pick.timer = !!S.timer;
     pick.paceFind = S.paceFind || 5; pick.paceName = S.paceName || 10;
     segSelect($("segQuestions"), pick.weak ? "weak" : "all"); segSelect($("segTimer"), pick.timer ? "on" : "off");
-    $("regionGroup").open = false;
+    $("gameGroup").open = true; $("regionGroup").open = false;
     showOptPanel(false);
     showData();
     showOptions();
@@ -1307,9 +1320,14 @@
   // Options tab: knowledge gaps only for the Find games; the timer for every scored game
   function showOptions() {
     const find = pick.mode === "find" || pick.mode === "findcap" || pick.mode === "findflag";
-    $("questionsField").hidden = !find;
-    $("questionsNA").hidden = find;
-    $("timerField").hidden = pick.mode === "explore";
+    // Learning mode: only what applies there (the World map's globe or flat view)
+    const learn = !!pick.learn;
+    $("questionsField").hidden = !find || learn;
+    $("questionsNA").hidden = find || learn;
+    $("timerField").hidden = pick.mode === "explore" || learn;
+    $("learnViewField").hidden = !learn || pick.tab !== "world";
+    segSelect($("segLearnView"), pick.view);
+    $("gameSummary").textContent = GAME_NAMES[pick.mode] || "";
     $("paceBox").hidden = !pick.timer;
     const pace = isNameMode(pick.mode) ? pick.paceName : pick.paceFind;
     segSelect($("segPace"), String(pace));
@@ -1319,15 +1337,18 @@
     const n = find && pick.weak ? Math.min(20, all) : all, secs = n * pace;
     $("paceTotal").textContent = `${r.name}: ${n} × ${pace} s = ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
     $("regionSummary").textContent = `${r.name} · ${all}`;
-    const parts = [find && pick.weak ? "Knowledge gaps" : "", pick.timer && pick.mode !== "explore" ? `Timer ${pace} s` : ""].filter(Boolean);
+    const parts = learn ? [] : [find && pick.weak ? "Knowledge gaps" : "", pick.timer && pick.mode !== "explore" ? `Timer ${pace} s` : ""].filter(Boolean);
     $("optBadge").hidden = !parts.length; $("optBadge").textContent = parts.length; // options switched on
     $("optBtn").setAttribute("aria-label", parts.length ? `Options: ${parts.join(", ")}` : "Options");
   }
-  // the Learning mode tab goes straight to the Learning globe
+  // Game or Learning mode (both keep the World / Countries choice)
   $("setupTabs").addEventListener("click", e => {
-    const b = e.target.closest("button");
-    if (b && b.dataset.v === "learn") { closeSetup(); closeInset(); startGame("explore", "world", "globe", "world"); }
+    const b = e.target.closest("button"); if (!b) return;
+    pick.learn = b.dataset.v === "learn";
+    if (pick.learn) pick.country = null;
+    showData(); showOptions();
   });
+  $("segLearnView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); showOptions(); } });
   $("segQuestions").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.weak = b.dataset.v === "weak"; segSelect($("segQuestions"), b.dataset.v); showOptions(); } });
   $("segTimer").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.timer = b.dataset.v === "on"; segSelect($("segTimer"), b.dataset.v); showOptions(); } });
   $("segPace").addEventListener("click", e => {
@@ -1345,6 +1366,7 @@
   $("segView").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { pick.view = b.dataset.v; segSelect($("segView"), pick.view); } });
   $("startBtn").onclick = () => {
     closeSetup(); closeInset();
+    if (pick.learn) { startGame("explore", "world", pick.view, "world"); return; } // Discover: the Learning world map
     S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName; S.cd = !!pick.cd; S.ut = pick.ut !== false;
     startGame(pick.mode, pick.region, pick.region === "world" ? pick.view : "flat", pick.data);
   };
@@ -1394,7 +1416,7 @@
     hideLearnCard();
     $("reviewBar").hidden = true; reviewSel = null;
     showTimeline(mode === "explore" && (data === "us" || data === "ru" || data === "au"), data === "ru" || data === "au" ? data : "us");
-    useSub(mode === "explore" && data === "world");
+    useSub(false); // no state lines on the world Learning map: states are on each country's own map ("Focus on ...")
     showReserves();
     if (mode !== "nameflag") hideFlagGrid();
     if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; startTime = 0; clearInterval(clockTimer); tickClock(); show(); } else newGame();

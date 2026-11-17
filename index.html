@@ -124,8 +124,8 @@
         <button class="btn" id="setupClose" type="button">Close</button>
       </div>
     </div>
-    <!-- Learning mode is a button styled as a tab: it goes straight to the Learning globe -->
-    <div class="seg tabs" id="setupTabs" role="tablist"><button data-v="game" class="on" type="button" role="tab">Game</button><button data-v="learn" type="button">Learning mode</button></div>
+    <!-- two kinds of play: a scored game, or Learning mode (tap anything, read its card, focus on a country) -->
+    <div class="seg tabs" id="setupTabs" role="tablist"><button data-v="game" class="on" type="button" role="tab">Game</button><button data-v="learn" type="button" role="tab">Learning mode</button></div>
     <div class="tabpanel" id="tabGame">
     <div class="seg" id="segData"><button data-v="world" class="on" type="button">World</button><button data-v="countries" type="button">Countries</button></div>
     <!-- Countries: one country's own map (US states now; Canada and the UK to come) -->
@@ -150,16 +150,16 @@
       </div>
     </div>
     <div id="worldPanel">
-    <div class="field"><span class="label">Game</span>
-      <div class="gamegroups" id="segGame">
-        <details open><summary>Find <small>tap it on the map</small></summary>
-          <div class="games"><button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button data-v="findflag" type="button">By flag</button></div>
-        </details>
-        <details><summary>Name <small>type the answer</small></summary>
-          <div class="games"><button data-v="name" type="button">Countries</button><button data-v="namecap" type="button">Capitals</button><button data-v="nameflag" type="button">Flags</button></div>
-        </details>
+    <!-- the Game and Region boxes: opening one closes the other, so the menu keeps one size -->
+    <details class="regiongroup" id="gameGroup" open>
+      <summary><span class="label">Game</span> <span id="gameSummary">Find · Countries</span></summary>
+      <div class="cpcols" id="segGame">
+        <div class="cpcol"><span class="label">Find <small>tap it on the map</small></span>
+          <button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button data-v="findflag" type="button">By flag</button></div>
+        <div class="cpcol"><span class="label">Name <small>type the answer</small></span>
+          <button data-v="name" type="button">Countries</button><button data-v="namecap" type="button">Capitals</button><button data-v="nameflag" type="button">Flags</button></div>
       </div>
-    </div>
+    </details>
     <details class="regiongroup" id="regionGroup">
       <summary><span class="label">Region</span> <span id="regionSummary">World · 197</span></summary>
       <div class="regions" id="regions"></div>
@@ -167,6 +167,14 @@
     <div class="field" id="viewField"><span class="label">Map</span>
       <div class="seg" id="segView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
     </div>
+    </div>
+    <!-- Learning mode (World): how it works, in the space the game choices use (a looping clip goes here later) -->
+    <div id="learnPanel" class="learnpanel" hidden>
+      <ol class="lsteps">
+        <li><span class="lsnum">1</span><div><b>Tap</b><p>Tap any country on the globe to see it highlighted.</p></div></li>
+        <li><span class="lsnum">2</span><div><b>Info</b><p>Its card shows the capital, flag and population. <i>More facts</i> opens the rest.</p></div></li>
+        <li><span class="lsnum">3</span><div><b>Focus on</b><p><i>Focus on</i> opens the country's own map of states, provinces or counties, where there is one.</p></div></li>
+      </ol>
     </div>
     </div>
     <div class="tabpanel" id="tabOptions" hidden>
@@ -176,6 +184,9 @@
         <p class="hint2">Knowledge gaps asks the 20 countries you most need to practise. Find games only.</p>
       </div>
       <p class="hint2" id="questionsNA" hidden>Knowledge gaps is only for the Find games.</p>
+      <div class="field" id="learnViewField" hidden><span class="label">Map</span>
+        <div class="seg" id="segLearnView"><button data-v="globe" class="on" type="button">Globe</button><button data-v="flat" type="button">Flat map</button></div>
+      </div>
       <div class="field" id="timerField"><span class="label">Timer</span>
         <div class="seg" id="segTimer"><button data-v="off" class="on" type="button">Off</button><button data-v="on" type="button">On</button></div>
         <div id="paceBox" hidden>
