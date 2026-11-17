@@ -550,6 +550,11 @@
     // the UK and Ireland share one map of Britain and Ireland's counties (Ireland opens on its own region)
     GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", data: "uk", region: "uk", page: "Britain & Ireland" },
     IRL: { name: "Ireland", focus: "Ireland", cont: "Europe", unit: "Counties", data: "uk", region: "uk-ire", page: "Britain & Ireland" },
+    // coming next (India_plan.md, China_plan.md, Russia_plan.md, Australia_plan.md); Russia is in Europe and Asia
+    IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", soon: true },
+    CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", soon: true },
+    RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", soon: true },
+    AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", soon: true },
   };
   // from the world Learning map, the UK and Ireland open the countries view first
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
@@ -918,7 +923,8 @@
   function buildCountryList() {
     const conts = ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"];
     $("countryList").innerHTML = conts.map(ct => {
-      const btns = Object.entries(COUNTRY_MAPS).filter(([, m]) => m.cont === ct).map(([iso, m]) => {
+      const inCont = m => (Array.isArray(m.cont) ? m.cont.includes(ct) : m.cont === ct);
+      const btns = Object.entries(COUNTRY_MAPS).filter(([, m]) => inCont(m)).map(([iso, m]) => {
         const c = geoWorld.byIso[iso];
         return `<button type="button" data-v="${iso}"${m.soon ? " disabled" : ""}>${c ? `<img src="${flagSrc(c)}" alt="">` : ""}` +
           `<span>${esc(m.name)}</span>${m.soon ? "<small>soon</small>" : ""}</button>`;
