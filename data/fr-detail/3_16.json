@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-DEU","geometry":{"type":"Polygon","coordinates":[[[10.0,48.0],[9.0,48.0],[9.0,51.0],[10.0,51.0],[10.0,48.0]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

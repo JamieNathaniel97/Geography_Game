@@ -214,6 +214,7 @@
     const bordersWhere = fc.pairs ? test => ({ type: "MultiLineString", coordinates: fc.pairs
       .filter(([a, b]) => test(byId[a], byId[b])).flatMap(([, , g]) => g.type === "LineString" ? [g.coordinates] : g.coordinates) }) : null;
     return { kind, countries: items, byIso, f50: feats, f110: feats, borders50: fc.borders, borders110: fc.borders, bordersWhere,
+      detail: fc.detail || null, // the detail level's tile index (tools/detail.py), if the map has one
       coast50: fc.coast, coast110: fc.coast, clusters: [], ringPx: DEFAULT_MIN_PX,
       lakes: lakes || null, lakes110: lakes || null,
       nationBorders: fc.nations || null, // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
@@ -247,6 +248,31 @@
   // Australia's 6 states, 2 mainland territories and Jervis Bay (tools/build_au.py); the ACT and Jervis Bay get circles
   const AU_RINGS = new Set(["AU-ACT", "AU-JBT"]);
   GG.loadAU = lakes => loadShapes("data/au-states.json", "data/au-parts.json", "au", "au/", AU_RINGS, lakes);
+  // Mexico's 31 states and Mexico City (tools/build_mx.py), with a detail level; the small central ones get circles
+  const MX_RINGS = new Set(["MX-CMX", "MX-TLA", "MX-MOR", "MX-AGU", "MX-COL"]);
+  GG.loadMX = lakes => loadShapes("data/mx-states.json", "data/mx-parts.json", "mx", "mx/", MX_RINGS, lakes);
+  // Argentina's 23 provinces and the City of Buenos Aires (tools/build_ar.py), with a detail level; the city gets a circle
+  GG.loadAR = lakes => loadShapes("data/ar-states.json", "data/ar-parts.json", "ar", "ar/", new Set(["AR-C"]), lakes);
+  // Nigeria's 36 states and the FCT (tools/build_ng.py), with a detail level; Lagos (the smallest) gets a circle
+  GG.loadNG = lakes => loadShapes("data/ng-states.json", "data/ng-parts.json", "ng", "ng/", new Set(["NG-LA"]), lakes);
+  // Spain's two sets (tools/build_es.py): the 17 communities and 2 cities, and the 50 provinces and 2 cities; Ceuta and
+  // Melilla get circles; the Canaries are in an inset (their coordinates moved: see tools/build_es.py, SHIFT)
+  GG.loadES = lakes => loadShapes("data/es-states.json", "data/es-parts.json", "es", "es/", new Set(["ES-CE", "ES-ML"]), lakes);
+  GG.loadESP = lakes => loadShapes("data/esp-states.json", "data/esp-parts.json", "esp", "esp/", new Set(["ESP-CE", "ESP-ML"]), lakes);
+  // Italy's 20 regions (tools/build_it.py), with a detail level; Vatican City and San Marino as coloured circles
+  const IT_RINGS = new Set(["IT-VA", "IT-SM"]);
+  GG.loadIT = lakes => loadShapes("data/it-states.json", "data/it-parts.json", "it", "it/", IT_RINGS, lakes);
+  // France's 13 metropolitan regions (tools/build_fr.py), with a detail level; no circles needed
+  GG.loadFR = lakes => loadShapes("data/fr-states.json", "data/fr-parts.json", "fr", "fr/", new Set(), lakes);
+  // Japan's 47 prefectures (tools/build_jp.py), with a detail level; the smallest (Osaka, Kagawa, Tokyo) get circles
+  const JP_RINGS = new Set(["JP-27", "JP-37", "JP-13"]);
+  GG.loadJP = lakes => loadShapes("data/jp-states.json", "data/jp-parts.json", "jp", "jp/", JP_RINGS, lakes);
+  // Germany's 16 states (tools/build_de.py), with a detail level; Berlin and Bremen get circles
+  const DE_RINGS = new Set(["DE-BE", "DE-HB"]);
+  GG.loadDE = lakes => loadShapes("data/de-states.json", "data/de-parts.json", "de", "de/", DE_RINGS, lakes);
+  // Brazil's 26 states and the Federal District (tools/build_br.py), with a detail level; the Federal District gets a circle
+  const BR_RINGS = new Set(["BR-DF"]);
+  GG.loadBR = lakes => loadShapes("data/br-states.json", "data/br-parts.json", "br", "br/", BR_RINGS, lakes);
   // Russia's expansion timeline (tools/build_ru.py history): approximate pieces with the years Russia held them
   GG.loadRUHistory = () => getJSON("data/ru-history.json");
   // "held" (Russia's that year), "lost" (held earlier), "annexed" (annexed since, not recognised), or null

@@ -53,7 +53,6 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
     <canvas id="map" aria-label="World map. Tap a country."></canvas>
     <div class="mapctl">
       <button class="chip" id="viewBtn" type="button">Flat map</button>
-      <button class="chip" id="regionBtn" type="button" hidden>Whole region</button>
       <button class="chip on" id="bordersBtn" type="button" aria-pressed="true">Borders</button>
       <button class="chip" id="terrainBtn" type="button" aria-pressed="false">Terrain</button>
       <button class="chip" id="magBtn" type="button" aria-pressed="false">Magnifier</button>
@@ -144,6 +143,10 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
         <div class="field" id="cpCDField"><span class="label">Crown Dependencies <small>Man, Jersey, Guernsey, Alderney, Sark</small></span>
           <div class="seg" id="cpCD"><button data-v="off" type="button">Off</button><button data-v="on" type="button">On</button></div></div>
       </div>
+      <div class="field" id="cpESField" hidden><span class="label">Set</span>
+        <div class="seg" id="cpES"><button data-v="es" type="button">Communities (19)</button><button data-v="esp" type="button">Provinces (52)</button></div></div>
+      <div class="field" id="cpJPField" hidden><span class="label">Region</span>
+        <div class="seg wrap" id="cpJP"><button data-v="all" type="button">All 47</button><button data-v="-hok" type="button">Hokkaido</button><button data-v="-toh" type="button">Tōhoku</button><button data-v="-kan" type="button">Kantō</button><button data-v="-chb" type="button">Chūbu</button><button data-v="-kns" type="button">Kansai</button><button data-v="-chg" type="button">Chūgoku</button><button data-v="-shk" type="button">Shikoku</button><button data-v="-kyu" type="button">Kyūshū</button><button data-v="-oki" type="button">Okinawa</button></div></div>
       <div class="field" id="cpUTField" hidden><span class="label">Union territories</span>
         <div class="seg" id="cpUT"><button data-v="on" type="button">On (36)</button><button data-v="off" type="button">Off (28 states)</button></div></div>
       <div class="cpcols" id="cpGames">
@@ -175,6 +178,22 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       <video id="learnClip" muted loop playsinline preload="none"
         aria-label="How Learning mode works: tap a country, read its card, then focus on it to see its states"></video>
     </div>
+    </div>
+    <!-- Help: a short guide to the app -->
+    <div class="tabpanel helppane" id="tabHelp" hidden>
+      <button class="linkbtn" id="helpBack" type="button">‹ Back</button>
+      <section><h3>Games</h3>
+        <p><b>Find</b>: a name, capital or flag appears at the top. Tap that country on the map.</p>
+        <p><b>Name</b>: tap a country, then type its name, capital or flag's country. Small spelling slips are forgiven.</p>
+        <p>Pick the game and the region, then <b>Start</b>. <b>Give up</b> shows the answers; tap any country to review them.</p></section>
+      <section><h3>Learning mode</h3>
+        <p>No score: tap anything to read its card. <b>More facts</b> opens the rest, and <b>Focus on</b> opens a country's own map of states, provinces or counties.</p></section>
+      <section><h3>The map</h3>
+        <p>Drag to move, pinch or scroll to zoom. Tiny countries have a circle round them. The buttons on the right switch <b>Borders</b>, <b>Terrain</b> and globe or flat map.</p></section>
+      <section><h3>Countries</h3>
+        <p>The <b>Countries</b> tab has games on one country's own map: US states, Canada's provinces, British and Irish counties, and more.</p></section>
+      <section><h3>Options and stats</h3>
+        <p>The cog sets a <b>timer</b>, <b>Knowledge gaps</b> (the countries you most need to practise) and the light or dark <b>theme</b>. The chart button at the top of the map shows your stats and best times.</p></section>
     </div>
     <!-- More games: History (History_games.md) and Misc (Misc_games.md); each opens once built -->
     <div class="tabpanel" id="tabMore" hidden>
@@ -239,7 +258,7 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
 <div class="overlay" id="stats" hidden>
   <div class="sheet statssheet" role="dialog" aria-modal="true" aria-labelledby="statsTitle">
     <div class="sheethead"><h2 id="statsTitle">Your stats</h2><button class="btn" id="statsClose" type="button">Close</button></div>
-    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="in" type="button">India</button><button data-v="cn" type="button">China</button><button data-v="ru" type="button">Russia</button><button data-v="au" type="button">Australia</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
+    <div class="seg" id="statsData"><button data-v="world" class="on" type="button">World</button><button data-v="us" type="button">US states</button><button data-v="ca" type="button">Canada</button><button data-v="in" type="button">India</button><button data-v="cn" type="button">China</button><button data-v="ru" type="button">Russia</button><button data-v="au" type="button">Australia</button><button data-v="mx" type="button">Mexico</button><button data-v="br" type="button">Brazil</button><button data-v="de" type="button">Germany</button><button data-v="jp" type="button">Japan</button><button data-v="fr" type="button">France</button><button data-v="it" type="button">Italy</button><button data-v="es" type="button">Spain</button><button data-v="esp" type="button">Spain (provinces)</button><button data-v="ng" type="button">Nigeria</button><button data-v="ar" type="button">Argentina</button><button data-v="uk" type="button">UK historic</button><button data-v="ukc" type="button">UK ceremonial</button></div>
     <div class="seg" id="statsSkill"><button data-v="country" class="on" type="button">Countries</button><button data-v="capital" type="button">Capitals</button><button data-v="flag" type="button">Flags</button></div>
     <section><h3>How well you know each region</h3><p class="hint2">Known = right at least 3 times in 4.</p><div id="statsRegions"></div></section>
     <section><h3>Weakest</h3><ul class="slist" id="statsWeak"></ul></section>

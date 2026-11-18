@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-HND","geometry":{"type":"Polygon","coordinates":[[[-86.6,14.4],[-87.0,14.4],[-87.0,15.0],[-86.6,15.0],[-86.6,14.4]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

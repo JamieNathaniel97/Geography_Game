@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"BR-MT","geometry":{"type":"Polygon","coordinates":[[[-57.0,-15.0],[-57.0,-12.0],[-54.0,-12.0],[-54.0,-15.0],[-57.0,-15.0]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

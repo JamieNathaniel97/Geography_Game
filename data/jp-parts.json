@@ -1,0 +1,3815 @@
+[
+{
+"iso": "JP-23",
+"id": "JP-23",
+"name": "Aichi",
+"names": [
+"Aichi",
+"Aichi Prefecture",
+"Aichi-ken",
+"Aichi ken",
+"Aichiken"
+],
+"capitals": [
+"Nagoya"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-23",
+"info": {
+"abbr": "23",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 7542415,
+"popYear": "2020 census",
+"area": 5173,
+"flag": true,
+"facts": {
+"kanji": "愛知県",
+"reading": "Aichi-ken",
+"region": "Chūbu",
+"food": "Miso katsu and hitsumabushi (eel)",
+"festival": "Owari Tsushima Tennō Festival",
+"craft": "Seto pottery and Arimatsu tie-dye",
+"dialect": "Nagoya-ben",
+"high": "Mount Chausu, 1,415 m",
+"river": "Kiso River",
+"province": "Owari and Mikawa",
+"castle": "Nagoya Castle and Atsuta Shrine",
+"meaning": "Loving wisdom",
+"industry": "Cars (Toyota) and aircraft",
+"symbols": "Flower: Kakitsubata · Tree: Hananoki · Bird: Oriental scops owl"
+},
+"coastal": true,
+"areaRank": 27
+},
+"flagKey": "jp/JP-23",
+"capLL": [
+[
+136.913,
+35.157
+]
+]
+},
+{
+"iso": "JP-05",
+"id": "JP-05",
+"name": "Akita",
+"names": [
+"Akita",
+"Akita Prefecture",
+"Akita-ken",
+"Akita ken",
+"Akitaken"
+],
+"capitals": [
+"Akita"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-05",
+"info": {
+"abbr": "05",
+"kind": "Prefecture (ken)",
+"region": "Tōhoku",
+"pop": 959502,
+"popYear": "2020 census",
+"area": 11638,
+"flag": true,
+"facts": {
+"kanji": "秋田県",
+"reading": "Akita-ken",
+"region": "Tōhoku",
+"food": "Kiritanpo (grilled rice sticks) and Inaniwa udon",
+"festival": "Kantō Matsuri (lantern poles)",
+"craft": "Kabazaiku (cherry-bark craft)",
+"dialect": "Akita-ben",
+"river": "Lake Tazawa (Japan's deepest) and the Omono River",
+"wonder": "Lake Tazawa",
+"onsen": "Nyūtō",
+"province": "Dewa (Ugo)",
+"unesco": "Shirakami-Sanchi beech forest",
+"meaning": "Autumn field",
+"industry": "Rice and sake; the Akita dog",
+"symbols": "Flower: Fuki · Tree: Akita-sugi · Bird: Copper pheasant"
+},
+"coastal": true,
+"areaRank": 6
+},
+"flagKey": "jp/JP-05",
+"capLL": [
+[
+140.09,
+39.71
+]
+]
+},
+{
+"iso": "JP-02",
+"id": "JP-02",
+"name": "Aomori",
+"names": [
+"Aomori",
+"Aomori Prefecture",
+"Aomori-ken",
+"Aomori ken",
+"Aomoriken"
+],
+"capitals": [
+"Aomori"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-02",
+"info": {
+"abbr": "02",
+"kind": "Prefecture (ken)",
+"region": "Tōhoku",
+"pop": 1237984,
+"popYear": "2020 census",
+"area": 9646,
+"flag": true,
+"facts": {
+"kanji": "青森県",
+"reading": "Aomori-ken",
+"region": "Tōhoku",
+"food": "Apples and scallops",
+"festival": "Nebuta Matsuri (giant lantern floats)",
+"craft": "Tsugaru lacquerware",
+"dialect": "Tsugaru-ben",
+"high": "Mount Iwaki, 1,625 m",
+"river": "Lake Towada",
+"wonder": "Oirase Gorge",
+"onsen": "Sukayu",
+"province": "Mutsu",
+"castle": "Hirosaki Castle",
+"unesco": "Shirakami-Sanchi beech forest; Sannai-Maruyama (Jōmon sites)",
+"meaning": "Blue (green) forest",
+"industry": "Apples (Japan's biggest grower)",
+"symbols": "Flower: Apple blossom · Tree: Hiba · Bird: Bewick's swan"
+},
+"coastal": true,
+"areaRank": 8
+},
+"flagKey": "jp/JP-02",
+"capLL": [
+[
+140.71,
+40.825
+]
+]
+},
+{
+"iso": "JP-12",
+"id": "JP-12",
+"name": "Chiba",
+"names": [
+"Chiba",
+"Chiba Prefecture",
+"Chiba-ken",
+"Chiba ken",
+"Chibaken"
+],
+"capitals": [
+"Chiba"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-12",
+"info": {
+"abbr": "12",
+"kind": "Prefecture (ken)",
+"region": "Kantō",
+"pop": 6284480,
+"popYear": "2020 census",
+"area": 5158,
+"flag": true,
+"facts": {
+"kanji": "千葉県",
+"reading": "Chiba-ken",
+"region": "Kantō",
+"food": "Peanuts",
+"festival": "Sawara Grand Festival",
+"high": "Mount Atago, 408 m (the lowest top prefecture peak)",
+"river": "Tone River",
+"wonder": "Byōbugaura cliffs",
+"province": "Awa, Kazusa and Shimōsa",
+"castle": "Naritasan Shinshō-ji temple",
+"meaning": "A thousand leaves",
+"industry": "Narita Airport, Tokyo Disney Resort and steel",
+"mascot": "Chiba-kun",
+"symbols": "Flower: Seiyō aburana blossom · Tree: Kusamaki · Bird: Meadow bunting"
+},
+"coastal": true,
+"areaRank": 28
+},
+"flagKey": "jp/JP-12",
+"capLL": [
+[
+140.106,
+35.607
+]
+]
+},
+{
+"iso": "JP-38",
+"id": "JP-38",
+"name": "Ehime",
+"names": [
+"Ehime",
+"Ehime Prefecture",
+"Ehime-ken",
+"Ehime ken",
+"Ehimeken"
+],
+"capitals": [
+"Matsuyama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-38",
+"info": {
+"abbr": "38",
+"kind": "Prefecture (ken)",
+"region": "Shikoku",
+"pop": 1334841,
+"popYear": "2020 census",
+"area": 5676,
+"flag": true,
+"facts": {
+"kanji": "愛媛県",
+"reading": "Ehime-ken",
+"region": "Shikoku",
+"food": "Mikan mandarins and tai-meshi (sea bream rice)",
+"craft": "Tobe pottery and Imabari towels",
+"dialect": "Iyo-ben",
+"high": "Mount Ishizuchi, 1,982 m: Western Japan's highest",
+"river": "Hiji River",
+"wonder": "The Shimanami Kaidō island bridges",
+"onsen": "Dōgo (one of Japan's oldest)",
+"province": "Iyo",
+"castle": "Matsuyama Castle",
+"meaning": "Lovely princess",
+"industry": "Mandarins, towels and shipbuilding",
+"mascot": "Mican",
+"symbols": "Flower: Satsuma mandarin · Tree: Pine · Bird: Japanese robin"
+},
+"coastal": true,
+"areaRank": 26
+},
+"flagKey": "jp/JP-38",
+"capLL": [
+[
+132.766,
+33.846
+]
+]
+},
+{
+"iso": "JP-18",
+"id": "JP-18",
+"name": "Fukui",
+"names": [
+"Fukui",
+"Fukui Prefecture",
+"Fukui-ken",
+"Fukui ken",
+"Fukuiken"
+],
+"capitals": [
+"Fukui"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-18",
+"info": {
+"abbr": "18",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 766863,
+"popYear": "2020 census",
+"area": 4191,
+"flag": true,
+"facts": {
+"kanji": "福井県",
+"reading": "Fukui-ken",
+"region": "Chūbu",
+"food": "Echizen crab and soba",
+"craft": "Echizen washi paper and Sabae glasses frames",
+"dialect": "Fukui-ben",
+"high": "Sannomine, 2,095 m",
+"river": "Kuzuryū River",
+"wonder": "Tōjinbō sea cliffs",
+"onsen": "Awara",
+"province": "Echizen and Wakasa",
+"castle": "Eihei-ji temple and Maruoka Castle",
+"meaning": "Fortunate well",
+"industry": "Glasses frames (most of Japan's) and dinosaur fossils",
+"symbols": "Flower: Narcissus · Tree: Pine tree · Bird: Dusky thrush"
+},
+"coastal": true,
+"areaRank": 35
+},
+"flagKey": "jp/JP-18",
+"capLL": [
+[
+136.22,
+36.07
+]
+]
+},
+{
+"iso": "JP-40",
+"id": "JP-40",
+"name": "Fukuoka",
+"names": [
+"Fukuoka",
+"Fukuoka Prefecture",
+"Fukuoka-ken",
+"Fukuoka ken",
+"Fukuokaken"
+],
+"capitals": [
+"Fukuoka"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-40",
+"info": {
+"abbr": "40",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 5135214,
+"popYear": "2020 census",
+"area": 4987,
+"flag": true,
+"facts": {
+"kanji": "福岡県",
+"reading": "Fukuoka-ken",
+"region": "Kyūshū",
+"food": "Hakata tonkotsu ramen and mentaiko",
+"festival": "Hakata Gion Yamakasa",
+"craft": "Hakata dolls and Kurume kasuri cloth",
+"dialect": "Hakata-ben",
+"high": "Mount Shaka, 1,230 m",
+"river": "Chikugo River",
+"province": "Chikuzen, Chikugo and part of Buzen",
+"castle": "Dazaifu Tenman-gū shrine",
+"unesco": "Okinoshima; Meiji industrial sites (Yawata steel)",
+"meaning": "Fortunate hill",
+"industry": "Trade with Asia, start-ups and steel (Kitakyūshū)",
+"symbols": "Flower: Ume blossom · Tree: Azalea · Bird: Japanese bush warbler"
+},
+"coastal": true,
+"areaRank": 29
+},
+"flagKey": "jp/JP-40",
+"capLL": [
+[
+130.408,
+33.597
+]
+]
+},
+{
+"iso": "JP-07",
+"id": "JP-07",
+"name": "Fukushima",
+"names": [
+"Fukushima",
+"Fukushima Prefecture",
+"Fukushima-ken",
+"Fukushima ken",
+"Fukushimaken"
+],
+"capitals": [
+"Fukushima"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-07",
+"info": {
+"abbr": "07",
+"kind": "Prefecture (ken)",
+"region": "Tōhoku",
+"pop": 1833152,
+"popYear": "2020 census",
+"area": 13784,
+"flag": true,
+"facts": {
+"kanji": "福島県",
+"reading": "Fukushima-ken",
+"region": "Tōhoku",
+"food": "Kitakata ramen and peaches",
+"festival": "Sōma Nomaoi (samurai horse festival)",
+"craft": "Akabeko (red cow toy)",
+"dialect": "Fukushima-ben",
+"high": "Mount Hiuchi, 2,356 m",
+"river": "Lake Inawashiro and the Abukuma River",
+"wonder": "Goshiki-numa (five-coloured ponds)",
+"onsen": "Higashiyama",
+"province": "Mutsu (Iwashiro and Iwaki)",
+"castle": "Tsuruga Castle (Aizu-Wakamatsu)",
+"meaning": "Fortunate island",
+"industry": "Peaches, rice and sake",
+"city": "Iwaki",
+"symbols": "Flower: Nemotoshakunage · Tree: Japanese zelkova · Bird: Narcissus flycatcher"
+},
+"coastal": true,
+"areaRank": 3
+},
+"flagKey": "jp/JP-07",
+"capLL": [
+[
+140.47,
+37.74
+]
+]
+},
+{
+"iso": "JP-21",
+"id": "JP-21",
+"name": "Gifu",
+"names": [
+"Gifu",
+"Gifu Prefecture",
+"Gifu-ken",
+"Gifu ken",
+"Gifuken"
+],
+"capitals": [
+"Gifu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-21",
+"info": {
+"abbr": "21",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 1978742,
+"popYear": "2020 census",
+"area": 10621,
+"flag": true,
+"facts": {
+"kanji": "岐阜県",
+"reading": "Gifu-ken",
+"region": "Chūbu",
+"food": "Hida beef",
+"festival": "Takayama Festival",
+"craft": "Mino washi paper and Seki knives",
+"dialect": "Gifu-ben",
+"high": "Mount Okuhotaka, 3,190 m",
+"river": "Nagara River (cormorant fishing)",
+"wonder": "Yōrō Falls",
+"onsen": "Gero",
+"province": "Mino and Hida",
+"castle": "Gifu Castle",
+"unesco": "Shirakawa-gō's thatched villages",
+"meaning": "Gi (an old Chinese capital) and hill",
+"industry": "Knives, paper and ceramics",
+"symbols": "Flower: Chinese milk vetch · Tree: Japanese yew · Bird: Rock ptarmigan"
+},
+"coastal": false,
+"areaRank": 7
+},
+"flagKey": "jp/JP-21",
+"capLL": [
+[
+136.763,
+35.423
+]
+]
+},
+{
+"iso": "JP-10",
+"id": "JP-10",
+"name": "Gunma",
+"names": [
+"Gunma",
+"Gunma Prefecture",
+"Gunma-ken",
+"Gunma ken",
+"Gunmaken"
+],
+"capitals": [
+"Maebashi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-10",
+"info": {
+"abbr": "10",
+"kind": "Prefecture (ken)",
+"region": "Kantō",
+"pop": 1939110,
+"popYear": "2020 census",
+"area": 6362,
+"flag": true,
+"facts": {
+"kanji": "群馬県",
+"reading": "Gunma-ken",
+"region": "Kantō",
+"food": "Konnyaku and Mizusawa udon",
+"craft": "Daruma dolls (Takasaki)",
+"dialect": "Gunma-ben",
+"high": "Mount Shirane (Nikkō), 2,578 m",
+"river": "Tone River",
+"wonder": "Oze marshland",
+"onsen": "Kusatsu (one of Japan's most famous)",
+"province": "Kōzuke",
+"unesco": "Tomioka Silk Mill",
+"meaning": "Herd of horses",
+"industry": "Cars (Subaru) and silk",
+"mascot": "Gunma-chan",
+"city": "Takasaki",
+"symbols": "Flower: Japanese azalea · Tree: Japanese black pine · Bird: Copper pheasant"
+},
+"coastal": false,
+"areaRank": 21
+},
+"flagKey": "jp/JP-10",
+"capLL": [
+[
+139.073,
+36.393
+]
+]
+},
+{
+"iso": "JP-34",
+"id": "JP-34",
+"name": "Hiroshima",
+"names": [
+"Hiroshima",
+"Hiroshima Prefecture",
+"Hiroshima-ken",
+"Hiroshima ken",
+"Hiroshimaken"
+],
+"capitals": [
+"Hiroshima"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-34",
+"info": {
+"abbr": "34",
+"kind": "Prefecture (ken)",
+"region": "Chūgoku",
+"pop": 2799702,
+"popYear": "2020 census",
+"area": 8480,
+"flag": true,
+"facts": {
+"kanji": "広島県",
+"reading": "Hiroshima-ken",
+"region": "Chūgoku",
+"food": "Hiroshima okonomiyaki and oysters",
+"craft": "Kumano brushes",
+"high": "Mount Osorakan, 1,346 m",
+"river": "Ōta River",
+"wonder": "Miyajima and the Seto Inland Sea",
+"province": "Aki and Bingo",
+"castle": "Itsukushima Shrine (the floating torii)",
+"unesco": "Hiroshima Peace Memorial (Genbaku Dome); Itsukushima Shrine",
+"meaning": "Broad island",
+"industry": "Cars (Mazda) and shipbuilding",
+"symbols": "Tree: Japanese maple · Bird: Red-throated diver · Flower: Japanese maple"
+},
+"coastal": true,
+"areaRank": 11
+},
+"flagKey": "jp/JP-34",
+"capLL": [
+[
+132.441,
+34.39
+]
+]
+},
+{
+"iso": "JP-01",
+"id": "JP-01",
+"name": "Hokkaido",
+"names": [
+"Hokkaido",
+"Hokkaido Prefecture",
+"Hokkaidō",
+"Hokkaidou"
+],
+"capitals": [
+"Sapporo"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-01",
+"info": {
+"abbr": "01",
+"kind": "Circuit (dō)",
+"region": "Hokkaido",
+"pop": 5224614,
+"popYear": "2020 census",
+"area": 83424,
+"flag": true,
+"facts": {
+"kanji": "北海道",
+"reading": "Hokkaidō",
+"region": "Hokkaido",
+"food": "Miso ramen, crab and Genghis Khan (grilled lamb)",
+"festival": "Sapporo Snow Festival",
+"craft": "Ainu carving",
+"dialect": "Hokkaidō-ben",
+"high": "Asahidake, 2,291 m",
+"river": "Ishikari River",
+"wonder": "Shiretoko Peninsula and the drift ice of the Sea of Okhotsk",
+"onsen": "Noboribetsu",
+"province": "Ezo (the land of the Ainu)",
+"castle": "Goryōkaku star fort (Hakodate)",
+"unesco": "Shiretoko",
+"meaning": "Northern Sea Circuit",
+"industry": "Dairy, fishing and skiing",
+"city": "",
+"symbols": "Flower: Hamanasu · Tree: Ezomatsu · Bird: Tanchō"
+},
+"coastal": true,
+"areaRank": 1
+},
+"flagKey": "jp/JP-01",
+"capLL": [
+[
+141.338,
+43.077
+]
+]
+},
+{
+"iso": "JP-28",
+"id": "JP-28",
+"name": "Hyōgo",
+"names": [
+"Hyōgo",
+"Hyōgo Prefecture",
+"Hyōgo-ken",
+"Hyōgo ken",
+"Hyōgoken",
+"Hyougo",
+"Hyougo Prefecture",
+"Hyougo-ken",
+"Hyougo ken",
+"Hyougoken",
+"Hyoogo",
+"Hyoogo Prefecture",
+"Hyoogo-ken",
+"Hyoogo ken",
+"Hyoogoken"
+],
+"capitals": [
+"Kobe",
+"Kōbe"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-28",
+"info": {
+"abbr": "28",
+"kind": "Prefecture (ken)",
+"region": "Kansai",
+"pop": 5465002,
+"popYear": "2020 census",
+"area": 8401,
+"flag": true,
+"facts": {
+"kanji": "兵庫県",
+"reading": "Hyōgo-ken",
+"region": "Kansai",
+"food": "Kobe beef and akashiyaki",
+"festival": "Nada Fighting Festival (Himeji)",
+"craft": "Banshū abacuses",
+"high": "Mount Hyōno, 1,510 m",
+"river": "Kako River",
+"wonder": "Genbudō basalt caves and the Naruto whirlpools (from Awaji)",
+"onsen": "Arima and Kinosaki",
+"province": "Settsu, Harima, Tajima, Tanba and Awaji",
+"castle": "Himeji Castle",
+"unesco": "Himeji Castle",
+"meaning": "Armoury",
+"industry": "Ports, steel and sake (Nada)",
+"symbols": "Flower: Nojigiku · Tree: Camphor tree · Bird: Oriental white stork"
+},
+"coastal": true,
+"areaRank": 12
+},
+"flagKey": "jp/JP-28",
+"capLL": [
+[
+135.17,
+34.68
+]
+]
+},
+{
+"iso": "JP-08",
+"id": "JP-08",
+"name": "Ibaraki",
+"names": [
+"Ibaraki",
+"Ibaraki Prefecture",
+"Ibaraki-ken",
+"Ibaraki ken",
+"Ibarakiken"
+],
+"capitals": [
+"Mito"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-08",
+"info": {
+"abbr": "08",
+"kind": "Prefecture (ken)",
+"region": "Kantō",
+"pop": 2867009,
+"popYear": "2020 census",
+"area": 6097,
+"flag": true,
+"facts": {
+"kanji": "茨城県",
+"reading": "Ibaraki-ken",
+"region": "Kantō",
+"food": "Nattō (fermented soybeans)",
+"festival": "Mito Plum Festival",
+"craft": "Kasama pottery",
+"dialect": "Ibaraki-ben",
+"high": "Mount Yamizo, 1,022 m",
+"river": "Lake Kasumigaura (Japan's second largest)",
+"wonder": "Fukuroda Falls",
+"province": "Hitachi",
+"castle": "Kairakuen garden (Mito)",
+"meaning": "Thorny castle",
+"industry": "Science city of Tsukuba and farming",
+"mascot": "Nebaru-kun (a nattō bean)",
+"symbols": "Flower: Rose · Tree: Ume tree · Bird: Eurasian Skylark"
+},
+"coastal": true,
+"areaRank": 24
+},
+"flagKey": "jp/JP-08",
+"capLL": [
+[
+140.48,
+36.37
+]
+]
+},
+{
+"iso": "JP-17",
+"id": "JP-17",
+"name": "Ishikawa",
+"names": [
+"Ishikawa",
+"Ishikawa Prefecture",
+"Ishikawa-ken",
+"Ishikawa ken",
+"Ishikawaken"
+],
+"capitals": [
+"Kanazawa"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-17",
+"info": {
+"abbr": "17",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 1132526,
+"popYear": "2020 census",
+"area": 4191,
+"flag": true,
+"facts": {
+"kanji": "石川県",
+"reading": "Ishikawa-ken",
+"region": "Chūbu",
+"food": "Snow crab and Kaga cuisine",
+"festival": "Kanazawa Hyakumangoku Festival",
+"craft": "Kanazawa gold leaf and Wajima lacquerware",
+"dialect": "Kanazawa-ben",
+"high": "Mount Haku, 2,702 m",
+"river": "Tedori River",
+"wonder": "Noto Peninsula",
+"onsen": "Wakura and Yamanaka",
+"province": "Kaga and Noto",
+"castle": "Kenroku-en garden and Kanazawa Castle",
+"meaning": "Stony river",
+"industry": "Crafts and machinery",
+"symbols": "Flower: Black lily · Tree: Hiba · Bird: Golden eagle"
+},
+"coastal": true,
+"areaRank": 34
+},
+"flagKey": "jp/JP-17",
+"capLL": [
+[
+136.64,
+36.56
+]
+]
+},
+{
+"iso": "JP-03",
+"id": "JP-03",
+"name": "Iwate",
+"names": [
+"Iwate",
+"Iwate Prefecture",
+"Iwate-ken",
+"Iwate ken",
+"Iwateken"
+],
+"capitals": [
+"Morioka"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-03",
+"info": {
+"abbr": "03",
+"kind": "Prefecture (ken)",
+"region": "Tōhoku",
+"pop": 1210534,
+"popYear": "2020 census",
+"area": 15275,
+"flag": true,
+"facts": {
+"kanji": "岩手県",
+"reading": "Iwate-ken",
+"region": "Tōhoku",
+"food": "Wanko soba",
+"festival": "Morioka Sansa Odori",
+"craft": "Nanbu ironware",
+"dialect": "Iwate-ben",
+"high": "Mount Iwate, 2,038 m",
+"river": "Kitakami River",
+"wonder": "Ryūsendō cave and the Sanriku coast",
+"province": "Mutsu (Rikuchū)",
+"castle": "Chūson-ji temple and its Golden Hall",
+"unesco": "Hiraizumi; Hashino iron mine",
+"meaning": "Rock hand (from a legend of a demon's handprint on a rock)",
+"industry": "Fishing, farming and ironware",
+"symbols": "Flower: Paulownia tree · Tree: Nanbu red pine · Bird: Green pheasant"
+},
+"coastal": true,
+"areaRank": 2
+},
+"flagKey": "jp/JP-03",
+"capLL": [
+[
+141.13,
+39.72
+]
+]
+},
+{
+"iso": "JP-37",
+"id": "JP-37",
+"name": "Kagawa",
+"names": [
+"Kagawa",
+"Kagawa Prefecture",
+"Kagawa-ken",
+"Kagawa ken",
+"Kagawaken"
+],
+"capitals": [
+"Takamatsu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-37",
+"info": {
+"abbr": "37",
+"kind": "Prefecture (ken)",
+"region": "Shikoku",
+"pop": 950244,
+"popYear": "2020 census",
+"area": 1877,
+"flag": true,
+"facts": {
+"kanji": "香川県",
+"reading": "Kagawa-ken",
+"region": "Shikoku",
+"food": "Sanuki udon",
+"craft": "Marugame fans (uchiwa)",
+"dialect": "Sanuki-ben",
+"high": "Mount Ryūō, 1,060 m",
+"river": "Mannō Pond (an ancient reservoir)",
+"wonder": "Shōdoshima and the art island of Naoshima",
+"province": "Sanuki",
+"castle": "Kotohira-gū shrine (785 steps) and Ritsurin Garden",
+"meaning": "Fragrant river",
+"industry": "Udon and olives; Japan's smallest prefecture",
+"symbols": "Flower: Olive · Tree: Olive · Bird: Lesser cuckoo"
+},
+"coastal": true,
+"areaRank": 47
+},
+"flagKey": "jp/JP-37",
+"capLL": [
+[
+134.045,
+34.345
+]
+]
+},
+{
+"iso": "JP-46",
+"id": "JP-46",
+"name": "Kagoshima",
+"names": [
+"Kagoshima",
+"Kagoshima Prefecture",
+"Kagoshima-ken",
+"Kagoshima ken",
+"Kagoshimaken"
+],
+"capitals": [
+"Kagoshima"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-46",
+"info": {
+"abbr": "46",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 1588256,
+"popYear": "2020 census",
+"area": 9187,
+"flag": true,
+"facts": {
+"kanji": "鹿児島県",
+"reading": "Kagoshima-ken",
+"region": "Kyūshū",
+"food": "Kurobuta pork and shōchū",
+"craft": "Satsuma ware and Ōshima tsumugi silk",
+"dialect": "Kagoshima-ben (Satsuma)",
+"high": "Mount Miyanoura (Yakushima), 1,936 m: Kyūshū's highest",
+"river": "Sendai River",
+"wonder": "Sakurajima, an active volcano",
+"onsen": "Ibusuki (sand baths) and Kirishima",
+"province": "Satsuma and Ōsumi",
+"castle": "Sengan-en garden",
+"unesco": "Yakushima; Amami-Ōshima; Meiji industrial sites",
+"meaning": "Deer child island",
+"industry": "Shōchū, sweet potatoes and the Tanegashima space centre",
+"symbols": "Flower: Miyamakirishima · Tree: Camphor laurel · Bird: Lidth's jay"
+},
+"coastal": true,
+"areaRank": 10
+},
+"flagKey": "jp/JP-46",
+"anchorLL": [
+130.47,
+31.878
+],
+"isles": [
+{
+"center": [
+129.4,
+28.25
+],
+"ring": [
+[
+129.797,
+28.25
+],
+[
+129.784,
+28.341
+],
+[
+129.744,
+28.425
+],
+[
+129.681,
+28.497
+],
+[
+129.599,
+28.553
+],
+[
+129.503,
+28.588
+],
+[
+129.4,
+28.6
+],
+[
+129.297,
+28.588
+],
+[
+129.201,
+28.553
+],
+[
+129.119,
+28.497
+],
+[
+129.056,
+28.425
+],
+[
+129.016,
+28.341
+],
+[
+129.003,
+28.25
+],
+[
+129.016,
+28.159
+],
+[
+129.056,
+28.075
+],
+[
+129.119,
+28.003
+],
+[
+129.201,
+27.947
+],
+[
+129.297,
+27.912
+],
+[
+129.4,
+27.9
+],
+[
+129.503,
+27.912
+],
+[
+129.599,
+27.947
+],
+[
+129.681,
+28.003
+],
+[
+129.744,
+28.075
+],
+[
+129.784,
+28.159
+]
+]
+},
+{
+"center": [
+128.85,
+27.6
+],
+"ring": [
+[
+129.132,
+27.6
+],
+[
+129.122,
+27.665
+],
+[
+129.094,
+27.725
+],
+[
+129.049,
+27.777
+],
+[
+128.991,
+27.817
+],
+[
+128.923,
+27.841
+],
+[
+128.85,
+27.85
+],
+[
+128.777,
+27.841
+],
+[
+128.709,
+27.817
+],
+[
+128.651,
+27.777
+],
+[
+128.606,
+27.725
+],
+[
+128.578,
+27.665
+],
+[
+128.568,
+27.6
+],
+[
+128.578,
+27.535
+],
+[
+128.606,
+27.475
+],
+[
+128.651,
+27.423
+],
+[
+128.709,
+27.383
+],
+[
+128.777,
+27.359
+],
+[
+128.85,
+27.35
+],
+[
+128.923,
+27.359
+],
+[
+128.991,
+27.383
+],
+[
+129.049,
+27.423
+],
+[
+129.094,
+27.475
+],
+[
+129.122,
+27.535
+]
+]
+},
+{
+"center": [
+130.55,
+30.45
+],
+"ring": [
+[
+130.898,
+30.45
+],
+[
+130.886,
+30.528
+],
+[
+130.851,
+30.6
+],
+[
+130.796,
+30.662
+],
+[
+130.724,
+30.71
+],
+[
+130.64,
+30.74
+],
+[
+130.55,
+30.75
+],
+[
+130.46,
+30.74
+],
+[
+130.376,
+30.71
+],
+[
+130.304,
+30.662
+],
+[
+130.249,
+30.6
+],
+[
+130.214,
+30.528
+],
+[
+130.202,
+30.45
+],
+[
+130.214,
+30.372
+],
+[
+130.249,
+30.3
+],
+[
+130.304,
+30.238
+],
+[
+130.376,
+30.19
+],
+[
+130.46,
+30.16
+],
+[
+130.55,
+30.15
+],
+[
+130.64,
+30.16
+],
+[
+130.724,
+30.19
+],
+[
+130.796,
+30.238
+],
+[
+130.851,
+30.3
+],
+[
+130.886,
+30.372
+]
+]
+}
+],
+"capLL": [
+[
+130.561,
+31.586
+]
+]
+},
+{
+"iso": "JP-14",
+"id": "JP-14",
+"name": "Kanagawa",
+"names": [
+"Kanagawa",
+"Kanagawa Prefecture",
+"Kanagawa-ken",
+"Kanagawa ken",
+"Kanagawaken"
+],
+"capitals": [
+"Yokohama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-14",
+"info": {
+"abbr": "14",
+"kind": "Prefecture (ken)",
+"region": "Kantō",
+"pop": 9237337,
+"popYear": "2020 census",
+"area": 2416,
+"flag": true,
+"facts": {
+"kanji": "神奈川県",
+"reading": "Kanagawa-ken",
+"region": "Kantō",
+"food": "Shūmai (Yokohama) and Kamakura's shirasu",
+"festival": "Shōnan Hiratsuka Tanabata",
+"craft": "Hakone yosegi marquetry",
+"high": "Mount Hiru, 1,673 m",
+"river": "Lake Ashi (Hakone)",
+"wonder": "Hakone's volcanic valley (Ōwakudani)",
+"onsen": "Hakone",
+"province": "Sagami and part of Musashi",
+"castle": "The Great Buddha of Kamakura",
+"meaning": "River of the gods",
+"industry": "Ports, cars (Nissan) and electronics",
+"symbols": "Flower: Golden-rayed lily · Tree: Ginkgo · Bird: Common gull"
+},
+"coastal": true,
+"areaRank": 43
+},
+"flagKey": "jp/JP-14",
+"capLL": [
+[
+139.602,
+35.431
+]
+]
+},
+{
+"iso": "JP-43",
+"id": "JP-43",
+"name": "Kumamoto",
+"names": [
+"Kumamoto",
+"Kumamoto Prefecture",
+"Kumamoto-ken",
+"Kumamoto ken",
+"Kumamotoken"
+],
+"capitals": [
+"Kumamoto"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-43",
+"info": {
+"abbr": "43",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 1738301,
+"popYear": "2020 census",
+"area": 7409,
+"flag": true,
+"facts": {
+"kanji": "熊本県",
+"reading": "Kumamoto-ken",
+"region": "Kyūshū",
+"food": "Basashi (horse sashimi) and karashi renkon",
+"craft": "Higo zōgan (metal inlay)",
+"dialect": "Kumamoto-ben",
+"high": "Mount Kunimi, 1,739 m",
+"river": "Kuma River",
+"wonder": "Mount Aso (one of the world's biggest calderas)",
+"onsen": "Kurokawa",
+"province": "Higo",
+"castle": "Kumamoto Castle",
+"unesco": "Meiji industrial sites (Misumi port)",
+"meaning": "Bear's root",
+"industry": "Farming and microchips (TSMC)",
+"mascot": "Kumamon (Japan's most famous mascot)",
+"symbols": "Flower: Gentian · Tree: Camphor tree · Bird: Eurasian skylark"
+},
+"coastal": true,
+"areaRank": 15
+},
+"flagKey": "jp/JP-43",
+"capLL": [
+[
+130.701,
+32.801
+]
+]
+},
+{
+"iso": "JP-26",
+"id": "JP-26",
+"name": "Kyoto",
+"names": [
+"Kyoto",
+"Kyoto Prefecture",
+"Kyoto-fu",
+"Kyoto fu",
+"Kyotofu"
+],
+"capitals": [
+"Kyoto"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-26",
+"info": {
+"abbr": "26",
+"kind": "Urban prefecture (fu)",
+"region": "Kansai",
+"pop": 2578087,
+"popYear": "2020 census",
+"area": 4612,
+"flag": true,
+"facts": {
+"kanji": "京都府",
+"reading": "Kyōto-fu",
+"region": "Kansai",
+"food": "Yudōfu, matcha (Uji) and kaiseki",
+"festival": "Gion Matsuri",
+"craft": "Nishijin weaving and Kiyomizu pottery",
+"dialect": "Kyōto-ben",
+"high": "Mount Minago, 971 m",
+"river": "Kamo and Katsura rivers",
+"wonder": "Amanohashidate sandbar (one of the Three Views of Japan)",
+"province": "Yamashiro, Tanba and Tango",
+"castle": "Kinkaku-ji (the Golden Pavilion) and Fushimi Inari",
+"unesco": "Historic Monuments of Ancient Kyoto (17 sites)",
+"meaning": "Capital city",
+"industry": "Tourism, crafts and gaming (Nintendo)",
+"symbols": "Flower: Weeping cherry blossom · Tree: Kitayama Sugi · Bird: Streaked shearwater"
+},
+"coastal": true,
+"areaRank": 31
+},
+"flagKey": "jp/JP-26",
+"capLL": [
+[
+135.748,
+35.032
+]
+]
+},
+{
+"iso": "JP-39",
+"id": "JP-39",
+"name": "Kōchi",
+"names": [
+"Kōchi",
+"Kōchi Prefecture",
+"Kōchi-ken",
+"Kōchi ken",
+"Kōchiken",
+"Kouchi",
+"Kouchi Prefecture",
+"Kouchi-ken",
+"Kouchi ken",
+"Kouchiken",
+"Koochi",
+"Koochi Prefecture",
+"Koochi-ken",
+"Koochi ken",
+"Koochiken"
+],
+"capitals": [
+"Kōchi",
+"Kouchi",
+"Koochi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-39",
+"info": {
+"abbr": "39",
+"kind": "Prefecture (ken)",
+"region": "Shikoku",
+"pop": 691527,
+"popYear": "2020 census",
+"area": 7104,
+"flag": true,
+"facts": {
+"kanji": "高知県",
+"reading": "Kōchi-ken",
+"region": "Shikoku",
+"food": "Katsuo no tataki (seared bonito)",
+"festival": "Yosakoi Matsuri",
+"craft": "Tosa washi paper",
+"dialect": "Tosa-ben",
+"river": "Shimanto River (the 'last clear river')",
+"wonder": "Cape Muroto and Cape Ashizuri",
+"province": "Tosa",
+"castle": "Kōchi Castle",
+"meaning": "High wisdom",
+"industry": "Bonito fishing, yuzu and forestry; home of Sakamoto Ryōma",
+"symbols": "Flower: Yamamomo · Tree: Yanase Sugi · Bird: Fairy pitta"
+},
+"coastal": true,
+"areaRank": 18
+},
+"flagKey": "jp/JP-39",
+"capLL": [
+[
+133.538,
+33.562
+]
+]
+},
+{
+"iso": "JP-24",
+"id": "JP-24",
+"name": "Mie",
+"names": [
+"Mie",
+"Mie Prefecture",
+"Mie-ken",
+"Mie ken",
+"Mieken"
+],
+"capitals": [
+"Tsu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-24",
+"info": {
+"abbr": "24",
+"kind": "Prefecture (ken)",
+"region": "Kansai",
+"pop": 1770254,
+"popYear": "2020 census",
+"area": 5774,
+"flag": true,
+"facts": {
+"kanji": "三重県",
+"reading": "Mie-ken",
+"region": "Kansai",
+"food": "Matsusaka beef and Ise lobster",
+"craft": "Iga ceramics and Ise katagami",
+"dialect": "Mie-ben",
+"high": "Mount Hinode-ga-take, 1,695 m",
+"river": "Kiso River",
+"wonder": "Meoto Iwa (the Wedded Rocks)",
+"province": "Ise, Iga, Shima and part of Kii",
+"castle": "Ise Grand Shrine (Ise Jingū)",
+"unesco": "The Kumano Kodō pilgrimage routes",
+"meaning": "Three-fold (a legend of a tired leg 'folded in three')",
+"industry": "Pearls (Mikimoto), chemicals and Suzuka's racing circuit",
+"city": "Yokkaichi",
+"symbols": "Flower: Iris · Tree: Japanese cedar · Bird: Snowy plover"
+},
+"coastal": true,
+"areaRank": 25
+},
+"flagKey": "jp/JP-24",
+"capLL": [
+[
+136.517,
+34.717
+]
+]
+},
+{
+"iso": "JP-04",
+"id": "JP-04",
+"name": "Miyagi",
+"names": [
+"Miyagi",
+"Miyagi Prefecture",
+"Miyagi-ken",
+"Miyagi ken",
+"Miyagiken"
+],
+"capitals": [
+"Sendai"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-04",
+"info": {
+"abbr": "04",
+"kind": "Prefecture (ken)",
+"region": "Tōhoku",
+"pop": 2301996,
+"popYear": "2020 census",
+"area": 7282,
+"flag": true,
+"facts": {
+"kanji": "宮城県",
+"reading": "Miyagi-ken",
+"region": "Tōhoku",
+"food": "Gyūtan (grilled beef tongue) and oysters",
+"festival": "Sendai Tanabata",
+"craft": "Kokeshi dolls",
+"dialect": "Sendai-ben",
+"river": "Kitakami River",
+"wonder": "Matsushima Bay (one of the Three Views of Japan)",
+"onsen": "Naruko",
+"province": "Mutsu (Rikuzen)",
+"castle": "Sendai Castle (Date Masamune)",
+"meaning": "Palace castle",
+"industry": "Fishing, rice and electronics",
+"symbols": "Flower: Miyagi bush clover · Tree: Japanese zelkova · Bird: Wild goose"
+},
+"coastal": true,
+"areaRank": 16
+},
+"flagKey": "jp/JP-04",
+"capLL": [
+[
+141.02,
+38.289
+]
+]
+},
+{
+"iso": "JP-45",
+"id": "JP-45",
+"name": "Miyazaki",
+"names": [
+"Miyazaki",
+"Miyazaki Prefecture",
+"Miyazaki-ken",
+"Miyazaki ken",
+"Miyazakiken"
+],
+"capitals": [
+"Miyazaki"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-45",
+"info": {
+"abbr": "45",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 1069576,
+"popYear": "2020 census",
+"area": 7735,
+"flag": true,
+"facts": {
+"kanji": "宮崎県",
+"reading": "Miyazaki-ken",
+"region": "Kyūshū",
+"food": "Chicken nanban and mangoes",
+"festival": "Takachiho night kagura",
+"high": "Mount Sobo, 1,756 m",
+"river": "Gokase River",
+"wonder": "Takachiho Gorge",
+"province": "Hyūga",
+"castle": "Aoshima Shrine",
+"meaning": "Shrine cape",
+"industry": "Farming (chicken, beef, mangoes) and baseball spring camps",
+"symbols": "Flower: Hamayu · Tree: Phoenix palm · Bird: Ijima copper pheasant"
+},
+"coastal": true,
+"areaRank": 14
+},
+"flagKey": "jp/JP-45",
+"capLL": [
+[
+131.418,
+31.918
+]
+]
+},
+{
+"iso": "JP-20",
+"id": "JP-20",
+"name": "Nagano",
+"names": [
+"Nagano",
+"Nagano Prefecture",
+"Nagano-ken",
+"Nagano ken",
+"Naganoken"
+],
+"capitals": [
+"Nagano"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-20",
+"info": {
+"abbr": "20",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 2048011,
+"popYear": "2020 census",
+"area": 13562,
+"flag": true,
+"facts": {
+"kanji": "長野県",
+"reading": "Nagano-ken",
+"region": "Chūbu",
+"food": "Soba and oyaki",
+"festival": "Onbashira (Suwa)",
+"craft": "Kiso lacquerware",
+"dialect": "Shinshū-ben",
+"high": "Mount Hotaka, 3,190 m",
+"river": "Chikuma River and Lake Suwa",
+"wonder": "Kamikōchi and the Japanese Alps",
+"onsen": "Jigokudani (the snow monkeys) and Nozawa",
+"province": "Shinano",
+"castle": "Matsumoto Castle and Zenkō-ji temple",
+"meaning": "Long field",
+"industry": "Precision machinery, apples and skiing (the 1998 Winter Olympics)",
+"symbols": "Flower: Gentian · Tree: White birch · Bird: Rock ptarmigan"
+},
+"coastal": false,
+"areaRank": 4
+},
+"flagKey": "jp/JP-20",
+"capLL": [
+[
+138.17,
+36.65
+]
+]
+},
+{
+"iso": "JP-42",
+"id": "JP-42",
+"name": "Nagasaki",
+"names": [
+"Nagasaki",
+"Nagasaki Prefecture",
+"Nagasaki-ken",
+"Nagasaki ken",
+"Nagasakiken"
+],
+"capitals": [
+"Nagasaki"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-42",
+"info": {
+"abbr": "42",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 1312317,
+"popYear": "2020 census",
+"area": 4131,
+"flag": true,
+"facts": {
+"kanji": "長崎県",
+"reading": "Nagasaki-ken",
+"region": "Kyūshū",
+"food": "Champon noodles and castella cake",
+"festival": "Nagasaki Kunchi",
+"craft": "Hasami porcelain",
+"dialect": "Nagasaki-ben",
+"high": "Mount Heisei-shinzan (Unzen), 1,483 m",
+"river": "Lake Ōmura",
+"wonder": "Kujūkushima (the 99 islands) and Mount Unzen",
+"onsen": "Unzen",
+"province": "Hizen, Iki and Tsushima",
+"castle": "Ōura Church and Dejima (the Dutch trading post)",
+"unesco": "Hidden Christian sites; Gunkanjima (Battleship Island)",
+"meaning": "Long cape",
+"industry": "Shipbuilding and tourism; the only port open to the West in the Edo period",
+"symbols": "Flower: Unzentsutsuji · Tree: Sawara · Bird: Mandarin duck"
+},
+"coastal": true,
+"areaRank": 37
+},
+"flagKey": "jp/JP-42",
+"anchorLL": [
+129.672,
+33.276
+],
+"capLL": [
+[
+129.885,
+32.765
+]
+]
+},
+{
+"iso": "JP-29",
+"id": "JP-29",
+"name": "Nara",
+"names": [
+"Nara",
+"Nara Prefecture",
+"Nara-ken",
+"Nara ken",
+"Naraken"
+],
+"capitals": [
+"Nara"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-29",
+"info": {
+"abbr": "29",
+"kind": "Prefecture (ken)",
+"region": "Kansai",
+"pop": 1324473,
+"popYear": "2020 census",
+"area": 3691,
+"flag": true,
+"facts": {
+"kanji": "奈良県",
+"reading": "Nara-ken",
+"region": "Kansai",
+"food": "Kakinoha-zushi (persimmon-leaf sushi)",
+"festival": "Omizutori (Tōdai-ji)",
+"craft": "Nara brushes and ink",
+"high": "Mount Hakkyō, 1,915 m",
+"river": "Yoshino River",
+"wonder": "Mount Yoshino's cherry blossoms",
+"province": "Yamato",
+"castle": "Tōdai-ji (the Great Buddha) and Hōryū-ji",
+"unesco": "Historic Nara; Hōryū-ji; the Kii mountain pilgrimage routes",
+"meaning": "Levelled land",
+"industry": "Tourism (Japan's first permanent capital, 710) and its tame deer",
+"mascot": "Sento-kun",
+"symbols": "Flower: Nara yae zakura · Tree: Sugi · Bird: Japanese robin"
+},
+"coastal": false,
+"areaRank": 40
+},
+"flagKey": "jp/JP-29",
+"capLL": [
+[
+-7.28,
+15.18
+]
+]
+},
+{
+"iso": "JP-15",
+"id": "JP-15",
+"name": "Niigata",
+"names": [
+"Niigata",
+"Niigata Prefecture",
+"Niigata-ken",
+"Niigata ken",
+"Niigataken"
+],
+"capitals": [
+"Niigata"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-15",
+"info": {
+"abbr": "15",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 2201272,
+"popYear": "2020 census",
+"area": 12584,
+"flag": true,
+"facts": {
+"kanji": "新潟県",
+"reading": "Niigata-ken",
+"region": "Chūbu",
+"food": "Koshihikari rice and sake",
+"festival": "Nagaoka Fireworks",
+"craft": "Tsubame metalwork",
+"dialect": "Niigata-ben",
+"river": "Shinano River (Japan's longest)",
+"wonder": "Sado Island",
+"onsen": "Yuzawa",
+"province": "Echigo and Sado",
+"unesco": "Sado Island gold mines",
+"meaning": "New lagoon",
+"industry": "Rice, sake and skiing",
+"mascot": "Rezakkun",
+"symbols": "Flower: Tulip · Tree: Camellia · Bird: Crested ibis"
+},
+"coastal": true,
+"areaRank": 5
+},
+"flagKey": "jp/JP-15",
+"capLL": [
+[
+139.04,
+37.92
+]
+]
+},
+{
+"iso": "JP-33",
+"id": "JP-33",
+"name": "Okayama",
+"names": [
+"Okayama",
+"Okayama Prefecture",
+"Okayama-ken",
+"Okayama ken",
+"Okayamaken"
+],
+"capitals": [
+"Okayama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-33",
+"info": {
+"abbr": "33",
+"kind": "Prefecture (ken)",
+"region": "Chūgoku",
+"pop": 1888432,
+"popYear": "2020 census",
+"area": 7114,
+"flag": true,
+"facts": {
+"kanji": "岡山県",
+"reading": "Okayama-ken",
+"region": "Chūgoku",
+"food": "White peaches and Muscat grapes; kibi dango",
+"craft": "Bizen pottery",
+"high": "Mount Ushiroyama, 1,345 m",
+"river": "Asahi and Takahashi rivers",
+"wonder": "The islands of the Seto Inland Sea",
+"province": "Bizen, Bitchū and Mimasaka",
+"castle": "Okayama Castle and Kōraku-en garden",
+"meaning": "Hill mountain",
+"industry": "Jeans (Kojima) and fruit; home of the Momotarō legend",
+"symbols": "Flower: Peach blossom · Tree: Red pine · Bird: Lesser cuckoo"
+},
+"coastal": true,
+"areaRank": 17
+},
+"flagKey": "jp/JP-33",
+"capLL": [
+[
+133.917,
+34.672
+]
+]
+},
+{
+"iso": "JP-47",
+"id": "JP-47",
+"name": "Okinawa",
+"names": [
+"Okinawa",
+"Okinawa Prefecture",
+"Okinawa-ken",
+"Okinawa ken",
+"Okinawaken"
+],
+"capitals": [
+"Naha"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-47",
+"info": {
+"abbr": "47",
+"kind": "Prefecture (ken)",
+"region": "Okinawa",
+"pop": 1467480,
+"popYear": "2020 census",
+"area": 2283,
+"flag": true,
+"facts": {
+"kanji": "沖縄県",
+"reading": "Okinawa-ken",
+"region": "Okinawa",
+"food": "Gōyā chanpurū (bitter melon) and Okinawa soba",
+"festival": "Naha Great Tug-of-war",
+"craft": "Bingata dyeing and Ryūkyū glass",
+"dialect": "Okinawan (Uchinaaguchi, a Ryukyuan language)",
+"high": "Mount Omoto (Ishigaki), 526 m",
+"wonder": "Coral reefs of the Kerama and Yaeyama islands",
+"province": "The Ryūkyū Kingdom (until 1879)",
+"castle": "Shuri Castle",
+"unesco": "Gusuku sites of the Ryūkyū Kingdom; Iriomote and the Yanbaru forest",
+"meaning": "Rope in the open sea",
+"industry": "Tourism and US military bases; its people live long lives",
+"city": "",
+"symbols": "Flower: Deego · Tree: Pinus luchuensis · Bird: Okinawa woodpecker"
+},
+"coastal": true,
+"areaRank": 44
+},
+"flagKey": "jp/JP-47",
+"isles": [
+{
+"center": [
+127.85,
+26.45
+],
+"ring": [
+[
+128.319,
+26.45
+],
+[
+128.303,
+26.559
+],
+[
+128.256,
+26.66
+],
+[
+128.182,
+26.747
+],
+[
+128.085,
+26.814
+],
+[
+127.971,
+26.856
+],
+[
+127.85,
+26.87
+],
+[
+127.729,
+26.856
+],
+[
+127.615,
+26.814
+],
+[
+127.518,
+26.747
+],
+[
+127.444,
+26.66
+],
+[
+127.397,
+26.559
+],
+[
+127.381,
+26.45
+],
+[
+127.397,
+26.341
+],
+[
+127.444,
+26.24
+],
+[
+127.518,
+26.153
+],
+[
+127.615,
+26.086
+],
+[
+127.729,
+26.044
+],
+[
+127.85,
+26.03
+],
+[
+127.971,
+26.044
+],
+[
+128.085,
+26.086
+],
+[
+128.182,
+26.153
+],
+[
+128.256,
+26.24
+],
+[
+128.303,
+26.341
+]
+]
+},
+{
+"center": [
+125.3,
+24.78
+],
+"ring": [
+[
+125.52,
+24.78
+],
+[
+125.513,
+24.832
+],
+[
+125.491,
+24.88
+],
+[
+125.456,
+24.921
+],
+[
+125.41,
+24.953
+],
+[
+125.357,
+24.973
+],
+[
+125.3,
+24.98
+],
+[
+125.243,
+24.973
+],
+[
+125.19,
+24.953
+],
+[
+125.144,
+24.921
+],
+[
+125.109,
+24.88
+],
+[
+125.087,
+24.832
+],
+[
+125.08,
+24.78
+],
+[
+125.087,
+24.728
+],
+[
+125.109,
+24.68
+],
+[
+125.144,
+24.639
+],
+[
+125.19,
+24.607
+],
+[
+125.243,
+24.587
+],
+[
+125.3,
+24.58
+],
+[
+125.357,
+24.587
+],
+[
+125.41,
+24.607
+],
+[
+125.456,
+24.639
+],
+[
+125.491,
+24.68
+],
+[
+125.513,
+24.728
+]
+]
+},
+{
+"center": [
+124.0,
+24.35
+],
+"ring": [
+[
+124.439,
+24.35
+],
+[
+124.424,
+24.454
+],
+[
+124.38,
+24.55
+],
+[
+124.31,
+24.633
+],
+[
+124.22,
+24.696
+],
+[
+124.114,
+24.736
+],
+[
+124.0,
+24.75
+],
+[
+123.886,
+24.736
+],
+[
+123.78,
+24.696
+],
+[
+123.69,
+24.633
+],
+[
+123.62,
+24.55
+],
+[
+123.576,
+24.454
+],
+[
+123.561,
+24.35
+],
+[
+123.576,
+24.246
+],
+[
+123.62,
+24.15
+],
+[
+123.69,
+24.067
+],
+[
+123.78,
+24.004
+],
+[
+123.886,
+23.964
+],
+[
+124.0,
+23.95
+],
+[
+124.114,
+23.964
+],
+[
+124.22,
+24.004
+],
+[
+124.31,
+24.067
+],
+[
+124.38,
+24.15
+],
+[
+124.424,
+24.246
+]
+]
+},
+{
+"center": [
+131.25,
+25.85
+],
+"ring": [
+[
+131.383,
+25.85
+],
+[
+131.379,
+25.881
+],
+[
+131.365,
+25.91
+],
+[
+131.344,
+25.935
+],
+[
+131.317,
+25.954
+],
+[
+131.285,
+25.966
+],
+[
+131.25,
+25.97
+],
+[
+131.215,
+25.966
+],
+[
+131.183,
+25.954
+],
+[
+131.156,
+25.935
+],
+[
+131.135,
+25.91
+],
+[
+131.121,
+25.881
+],
+[
+131.117,
+25.85
+],
+[
+131.121,
+25.819
+],
+[
+131.135,
+25.79
+],
+[
+131.156,
+25.765
+],
+[
+131.183,
+25.746
+],
+[
+131.215,
+25.734
+],
+[
+131.25,
+25.73
+],
+[
+131.285,
+25.734
+],
+[
+131.317,
+25.746
+],
+[
+131.344,
+25.765
+],
+[
+131.365,
+25.79
+],
+[
+131.379,
+25.819
+]
+]
+},
+{
+"center": [
+126.75,
+26.2
+],
+"ring": [
+[
+126.928,
+26.2
+],
+[
+126.922,
+26.241
+],
+[
+126.904,
+26.28
+],
+[
+126.876,
+26.313
+],
+[
+126.839,
+26.339
+],
+[
+126.796,
+26.355
+],
+[
+126.75,
+26.36
+],
+[
+126.704,
+26.355
+],
+[
+126.661,
+26.339
+],
+[
+126.624,
+26.313
+],
+[
+126.596,
+26.28
+],
+[
+126.578,
+26.241
+],
+[
+126.572,
+26.2
+],
+[
+126.578,
+26.159
+],
+[
+126.596,
+26.12
+],
+[
+126.624,
+26.087
+],
+[
+126.661,
+26.061
+],
+[
+126.704,
+26.045
+],
+[
+126.75,
+26.04
+],
+[
+126.796,
+26.045
+],
+[
+126.839,
+26.061
+],
+[
+126.876,
+26.087
+],
+[
+126.904,
+26.12
+],
+[
+126.922,
+26.159
+]
+]
+}
+],
+"capLL": [
+[
+127.673,
+26.207
+]
+]
+},
+{
+"iso": "JP-27",
+"id": "JP-27",
+"name": "Osaka",
+"names": [
+"Osaka",
+"Osaka Prefecture",
+"Osaka-fu",
+"Osaka fu",
+"Osakafu"
+],
+"capitals": [
+"Osaka"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-27",
+"info": {
+"abbr": "27",
+"kind": "Urban prefecture (fu)",
+"region": "Kansai",
+"pop": 8837685,
+"popYear": "2020 census",
+"area": 1905,
+"flag": true,
+"facts": {
+"kanji": "大阪府",
+"reading": "Ōsaka-fu",
+"region": "Kansai",
+"food": "Takoyaki and okonomiyaki",
+"festival": "Tenjin Matsuri and Kishiwada Danjiri",
+"craft": "Sakai knives",
+"dialect": "Ōsaka-ben (Kansai-ben)",
+"high": "Mount Yamato Katsuragi, 959 m",
+"river": "Yodo River",
+"province": "Settsu, Kawachi and Izumi",
+"castle": "Osaka Castle",
+"unesco": "The Mozu-Furuichi burial mounds",
+"meaning": "Big slope",
+"industry": "Trade, electronics (Panasonic) and Expo 2025",
+"symbols": "Flower: Japanese apricot , Primrose · Tree: Ginkgo tree · Bird: Bull-headed shrike"
+},
+"coastal": true,
+"areaRank": 46
+},
+"flagKey": "jp/JP-27",
+"capLL": [
+[
+135.458,
+34.752
+]
+]
+},
+{
+"iso": "JP-41",
+"id": "JP-41",
+"name": "Saga",
+"names": [
+"Saga",
+"Saga Prefecture",
+"Saga-ken",
+"Saga ken",
+"Sagaken"
+],
+"capitals": [
+"Saga"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-41",
+"info": {
+"abbr": "41",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 811442,
+"popYear": "2020 census",
+"area": 4465,
+"flag": true,
+"facts": {
+"kanji": "佐賀県",
+"reading": "Saga-ken",
+"region": "Kyūshū",
+"food": "Saga beef and Yobuko squid",
+"festival": "Karatsu Kunchi",
+"craft": "Arita and Imari porcelain",
+"dialect": "Saga-ben",
+"high": "Mount Kyōga, 1,076 m",
+"river": "Chikugo River and the Ariake Sea",
+"onsen": "Ureshino and Takeo",
+"province": "Hizen",
+"castle": "Yoshinogari (a Yayoi-period settlement)",
+"unesco": "Meiji industrial sites (Mietsu naval dock)",
+"industry": "Porcelain and laver seaweed (nori)",
+"symbols": "Flower: Camphor blossom · Tree: Camphor tree · Bird: Black-billed magpie"
+},
+"coastal": true,
+"areaRank": 32
+},
+"flagKey": "jp/JP-41",
+"capLL": [
+[
+130.299,
+33.249
+]
+]
+},
+{
+"iso": "JP-11",
+"id": "JP-11",
+"name": "Saitama",
+"names": [
+"Saitama",
+"Saitama Prefecture",
+"Saitama-ken",
+"Saitama ken",
+"Saitamaken"
+],
+"capitals": [
+"Saitama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-11",
+"info": {
+"abbr": "11",
+"kind": "Prefecture (ken)",
+"region": "Kantō",
+"pop": 7344765,
+"popYear": "2020 census",
+"area": 3798,
+"flag": true,
+"facts": {
+"kanji": "埼玉県",
+"reading": "Saitama-ken",
+"region": "Kantō",
+"food": "Sōka senbei (rice crackers)",
+"festival": "Chichibu Night Festival",
+"craft": "Iwatsuki dolls",
+"high": "Mount Sanpō, 2,483 m",
+"river": "Arakawa River",
+"wonder": "Nagatoro's rock terraces",
+"province": "Musashi",
+"castle": "Kawagoe's old town (Little Edo)",
+"meaning": "Cape jewel",
+"industry": "Commuter towns for Tokyo; bonsai (Ōmiya)",
+"mascot": "Kobaton",
+"symbols": "Flower: Primrose · Tree: Keyaki · Bird: Eurasian collared dove"
+},
+"coastal": false,
+"areaRank": 39
+},
+"flagKey": "jp/JP-11",
+"capLL": [
+[
+139.646,
+35.861
+]
+]
+},
+{
+"iso": "JP-25",
+"id": "JP-25",
+"name": "Shiga",
+"names": [
+"Shiga",
+"Shiga Prefecture",
+"Shiga-ken",
+"Shiga ken",
+"Shigaken"
+],
+"capitals": [
+"Ōtsu",
+"Outsu",
+"Ootsu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-25",
+"info": {
+"abbr": "25",
+"kind": "Prefecture (ken)",
+"region": "Kansai",
+"pop": 1413610,
+"popYear": "2020 census",
+"area": 4017,
+"flag": true,
+"facts": {
+"kanji": "滋賀県",
+"reading": "Shiga-ken",
+"region": "Kansai",
+"food": "Funazushi (fermented fish) and Ōmi beef",
+"craft": "Shigaraki pottery (tanuki statues)",
+"high": "Mount Ibuki, 1,377 m",
+"river": "Lake Biwa (Japan's largest lake)",
+"wonder": "Lake Biwa",
+"province": "Ōmi",
+"castle": "Hikone Castle and Enryaku-ji temple",
+"unesco": "Enryaku-ji (part of Historic Kyoto)",
+"meaning": "Nourished field",
+"industry": "Electronics and the lake",
+"mascot": "Hikonyan (a samurai cat)",
+"symbols": "Flower: Rhododendron · Tree: Japanese maple · Bird: Little grebe"
+},
+"coastal": false,
+"areaRank": 38
+},
+"flagKey": "jp/JP-25",
+"capLL": [
+[
+135.867,
+35.006
+]
+]
+},
+{
+"iso": "JP-32",
+"id": "JP-32",
+"name": "Shimane",
+"names": [
+"Shimane",
+"Shimane Prefecture",
+"Shimane-ken",
+"Shimane ken",
+"Shimaneken"
+],
+"capitals": [
+"Matsue"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-32",
+"info": {
+"abbr": "32",
+"kind": "Prefecture (ken)",
+"region": "Chūgoku",
+"pop": 671126,
+"popYear": "2020 census",
+"area": 6708,
+"flag": true,
+"facts": {
+"kanji": "島根県",
+"reading": "Shimane-ken",
+"region": "Chūgoku",
+"food": "Izumo soba and Shijimi clams",
+"craft": "Sekishū washi paper",
+"high": "Mount Osorakan, 1,346 m",
+"river": "Lake Shinji",
+"wonder": "The Oki Islands",
+"onsen": "Tamatsukuri",
+"province": "Izumo, Iwami and Oki",
+"castle": "Izumo Taisha shrine and Matsue Castle",
+"unesco": "Iwami Ginzan silver mine",
+"meaning": "Island root",
+"industry": "Fishing and farming",
+"symbols": "Flower: Moutan peony · Tree: Japanese black pine · Bird: Whooper swan"
+},
+"coastal": true,
+"areaRank": 19
+},
+"flagKey": "jp/JP-32",
+"isles": [
+{
+"center": [
+133.2,
+36.18
+],
+"ring": [
+[
+133.448,
+36.18
+],
+[
+133.439,
+36.232
+],
+[
+133.415,
+36.28
+],
+[
+133.375,
+36.321
+],
+[
+133.324,
+36.353
+],
+[
+133.264,
+36.373
+],
+[
+133.2,
+36.38
+],
+[
+133.136,
+36.373
+],
+[
+133.076,
+36.353
+],
+[
+133.025,
+36.321
+],
+[
+132.985,
+36.28
+],
+[
+132.961,
+36.232
+],
+[
+132.952,
+36.18
+],
+[
+132.961,
+36.128
+],
+[
+132.985,
+36.08
+],
+[
+133.025,
+36.039
+],
+[
+133.076,
+36.007
+],
+[
+133.136,
+35.987
+],
+[
+133.2,
+35.98
+],
+[
+133.264,
+35.987
+],
+[
+133.324,
+36.007
+],
+[
+133.375,
+36.039
+],
+[
+133.415,
+36.08
+],
+[
+133.439,
+36.128
+]
+]
+}
+],
+"capLL": [
+[
+133.067,
+35.467
+]
+]
+},
+{
+"iso": "JP-22",
+"id": "JP-22",
+"name": "Shizuoka",
+"names": [
+"Shizuoka",
+"Shizuoka Prefecture",
+"Shizuoka-ken",
+"Shizuoka ken",
+"Shizuokaken"
+],
+"capitals": [
+"Shizuoka"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-22",
+"info": {
+"abbr": "22",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 3633202,
+"popYear": "2020 census",
+"area": 7777,
+"flag": true,
+"facts": {
+"kanji": "静岡県",
+"reading": "Shizuoka-ken",
+"region": "Chūbu",
+"food": "Green tea, wasabi and eel (Hamamatsu)",
+"festival": "Hamamatsu Kite Festival",
+"craft": "Suruga bamboo ware",
+"dialect": "Shizuoka-ben",
+"high": "Mount Fuji, 3,776 m: Japan's highest",
+"river": "Ōi and Tenryū rivers",
+"wonder": "Mount Fuji and the Izu Peninsula",
+"onsen": "Atami and Shuzenji",
+"province": "Suruga, Tōtōmi and Izu",
+"castle": "Kunōzan Tōshō-gū shrine",
+"unesco": "Mount Fuji; Nirayama reverberatory furnace",
+"meaning": "Quiet hill",
+"industry": "Green tea (Japan's biggest grower), motorbikes and pianos (Yamaha, Suzuki)",
+"city": "Hamamatsu",
+"symbols": "Flower: Azalea · Tree: Sweet osmanthus · Bird: Japanese paradise flycatcher"
+},
+"coastal": true,
+"areaRank": 13
+},
+"flagKey": "jp/JP-22",
+"capLL": [
+[
+138.385,
+34.986
+]
+]
+},
+{
+"iso": "JP-09",
+"id": "JP-09",
+"name": "Tochigi",
+"names": [
+"Tochigi",
+"Tochigi Prefecture",
+"Tochigi-ken",
+"Tochigi ken",
+"Tochigiken"
+],
+"capitals": [
+"Utsunomiya"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-09",
+"info": {
+"abbr": "09",
+"kind": "Prefecture (ken)",
+"region": "Kantō",
+"pop": 1933146,
+"popYear": "2020 census",
+"area": 6408,
+"flag": true,
+"facts": {
+"kanji": "栃木県",
+"reading": "Tochigi-ken",
+"region": "Kantō",
+"food": "Gyōza (Utsunomiya) and strawberries",
+"craft": "Mashiko pottery",
+"dialect": "Tochigi-ben",
+"high": "Mount Shirane (Nikkō), 2,578 m",
+"river": "Lake Chūzenji and Kegon Falls",
+"wonder": "Kegon Falls",
+"onsen": "Kinugawa and Nasu",
+"province": "Shimotsuke",
+"castle": "Nikkō Tōshō-gū shrine",
+"unesco": "Shrines and temples of Nikkō",
+"meaning": "Horse chestnut tree",
+"industry": "Strawberries (Japan's biggest grower)",
+"symbols": "Flower: Yashio tsutsuji · Tree: Japanese horse chestnut · Bird: Blue-and-white flycatcher"
+},
+"coastal": false,
+"areaRank": 20
+},
+"flagKey": "jp/JP-09",
+"capLL": [
+[
+139.87,
+36.55
+]
+]
+},
+{
+"iso": "JP-36",
+"id": "JP-36",
+"name": "Tokushima",
+"names": [
+"Tokushima",
+"Tokushima Prefecture",
+"Tokushima-ken",
+"Tokushima ken",
+"Tokushimaken"
+],
+"capitals": [
+"Tokushima"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-36",
+"info": {
+"abbr": "36",
+"kind": "Prefecture (ken)",
+"region": "Shikoku",
+"pop": 719559,
+"popYear": "2020 census",
+"area": 4147,
+"flag": true,
+"facts": {
+"kanji": "徳島県",
+"reading": "Tokushima-ken",
+"region": "Shikoku",
+"food": "Sudachi citrus and Tokushima ramen",
+"festival": "Awa Odori (a great dance festival)",
+"craft": "Aizome (indigo dyeing)",
+"dialect": "Awa-ben",
+"high": "Mount Tsurugi, 1,955 m",
+"river": "Yoshino River",
+"wonder": "The Naruto whirlpools and the Iya Valley vine bridges",
+"province": "Awa",
+"castle": "Ryōzen-ji (the first of the 88 temples)",
+"meaning": "Virtue island",
+"industry": "Indigo, LEDs (Nichia) and sudachi",
+"symbols": "Flower: Sudachi · Tree: Yamamomo · Bird: White heron"
+},
+"coastal": true,
+"areaRank": 36
+},
+"flagKey": "jp/JP-36",
+"capLL": [
+[
+134.553,
+34.067
+]
+]
+},
+{
+"iso": "JP-13",
+"id": "JP-13",
+"name": "Tokyo",
+"names": [
+"Tokyo",
+"Tokyo Prefecture",
+"Tokyo-to",
+"Tokyo to",
+"Tokyoto",
+"Tokyo Metropolis"
+],
+"capitals": [
+"Tokyo",
+"Shinjuku"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-13",
+"info": {
+"abbr": "13",
+"kind": "Metropolis (to)",
+"region": "Kantō",
+"pop": 14047594,
+"popYear": "2020 census",
+"area": 2194,
+"flag": true,
+"facts": {
+"kanji": "東京都",
+"reading": "Tōkyō-to",
+"region": "Kantō",
+"food": "Sushi (Edomae), monjayaki and soba",
+"festival": "Sanja Matsuri (Asakusa)",
+"craft": "Edo kiriko (cut glass)",
+"dialect": "Standard Japanese (and old Shitamachi speech)",
+"high": "Mount Kumotori, 2,017 m",
+"river": "Sumida and Tama rivers",
+"wonder": "The Ogasawara Islands",
+"province": "Musashi",
+"castle": "The Imperial Palace (Edo Castle) and Sensō-ji",
+"unesco": "The Ogasawara Islands; the National Museum of Western Art",
+"meaning": "Eastern capital",
+"industry": "Government, finance, media and tech",
+"symbols": "Flower: Somei-yoshino cherry · Tree: Ginkgo · Bird: Black-headed gull"
+},
+"coastal": true,
+"areaRank": 45
+},
+"flagKey": "jp/JP-13",
+"isles": [
+{
+"center": [
+139.6,
+33.9
+],
+"ring": [
+[
+140.142,
+33.9
+],
+[
+140.124,
+34.016
+],
+[
+140.07,
+34.125
+],
+[
+139.983,
+34.218
+],
+[
+139.871,
+34.29
+],
+[
+139.74,
+34.335
+],
+[
+139.6,
+34.35
+],
+[
+139.46,
+34.335
+],
+[
+139.329,
+34.29
+],
+[
+139.217,
+34.218
+],
+[
+139.13,
+34.125
+],
+[
+139.076,
+34.016
+],
+[
+139.058,
+33.9
+],
+[
+139.076,
+33.784
+],
+[
+139.13,
+33.675
+],
+[
+139.217,
+33.582
+],
+[
+139.329,
+33.51
+],
+[
+139.46,
+33.465
+],
+[
+139.6,
+33.45
+],
+[
+139.74,
+33.465
+],
+[
+139.871,
+33.51
+],
+[
+139.983,
+33.582
+],
+[
+140.07,
+33.675
+],
+[
+140.124,
+33.784
+]
+]
+},
+{
+"center": [
+142.18,
+27.05
+],
+"ring": [
+[
+142.461,
+27.05
+],
+[
+142.451,
+27.115
+],
+[
+142.423,
+27.175
+],
+[
+142.378,
+27.227
+],
+[
+142.32,
+27.267
+],
+[
+142.253,
+27.291
+],
+[
+142.18,
+27.3
+],
+[
+142.107,
+27.291
+],
+[
+142.04,
+27.267
+],
+[
+141.982,
+27.227
+],
+[
+141.937,
+27.175
+],
+[
+141.909,
+27.115
+],
+[
+141.899,
+27.05
+],
+[
+141.909,
+26.985
+],
+[
+141.937,
+26.925
+],
+[
+141.982,
+26.873
+],
+[
+142.04,
+26.833
+],
+[
+142.107,
+26.809
+],
+[
+142.18,
+26.8
+],
+[
+142.253,
+26.809
+],
+[
+142.32,
+26.833
+],
+[
+142.378,
+26.873
+],
+[
+142.423,
+26.925
+],
+[
+142.451,
+26.985
+]
+]
+}
+],
+"capLL": [
+[
+139.749,
+35.687
+]
+]
+},
+{
+"iso": "JP-31",
+"id": "JP-31",
+"name": "Tottori",
+"names": [
+"Tottori",
+"Tottori Prefecture",
+"Tottori-ken",
+"Tottori ken",
+"Tottoriken"
+],
+"capitals": [
+"Tottori"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-31",
+"info": {
+"abbr": "31",
+"kind": "Prefecture (ken)",
+"region": "Chūgoku",
+"pop": 553407,
+"popYear": "2020 census",
+"area": 3507,
+"flag": true,
+"facts": {
+"kanji": "鳥取県",
+"reading": "Tottori-ken",
+"region": "Chūgoku",
+"food": "Nijisseiki pears and snow crab",
+"craft": "Inshū washi paper",
+"high": "Mount Daisen, 1,729 m",
+"river": "Sendai River",
+"wonder": "Tottori Sand Dunes",
+"onsen": "Misasa",
+"province": "Inaba and Hōki",
+"castle": "Mitoku-san temple (Nageire-dō)",
+"meaning": "Bird catcher",
+"industry": "Pears and fishing (the least populous prefecture)",
+"symbols": "Flower: Nijisseiki nashi pear blossom · Tree: Daisenkyaraboku · Bird: Mandarin duck"
+},
+"coastal": true,
+"areaRank": 41
+},
+"flagKey": "jp/JP-31",
+"capLL": [
+[
+134.233,
+35.5
+]
+]
+},
+{
+"iso": "JP-16",
+"id": "JP-16",
+"name": "Toyama",
+"names": [
+"Toyama",
+"Toyama Prefecture",
+"Toyama-ken",
+"Toyama ken",
+"Toyamaken"
+],
+"capitals": [
+"Toyama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-16",
+"info": {
+"abbr": "16",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 1034814,
+"popYear": "2020 census",
+"area": 4248,
+"flag": true,
+"facts": {
+"kanji": "富山県",
+"reading": "Toyama-ken",
+"region": "Chūbu",
+"food": "Firefly squid and white shrimp",
+"festival": "Owara Kaze no Bon",
+"craft": "Takaoka copperware",
+"dialect": "Toyama-ben",
+"high": "Mount Tate (Ōnanjiyama), 3,015 m",
+"river": "Jinzū and Kurobe rivers",
+"wonder": "The Tateyama Kurobe Alpine Route's snow walls",
+"province": "Etchū",
+"castle": "Zuiryū-ji temple (Takaoka)",
+"unesco": "Gokayama's thatched villages",
+"meaning": "Rich mountain",
+"industry": "Medicines and aluminium",
+"symbols": "Flower: Tulip · Tree: Tateyama Cedar · Bird: Ptarmigan"
+},
+"coastal": true,
+"areaRank": 33
+},
+"flagKey": "jp/JP-16",
+"capLL": [
+[
+137.23,
+36.7
+]
+]
+},
+{
+"iso": "JP-30",
+"id": "JP-30",
+"name": "Wakayama",
+"names": [
+"Wakayama",
+"Wakayama Prefecture",
+"Wakayama-ken",
+"Wakayama ken",
+"Wakayamaken"
+],
+"capitals": [
+"Wakayama"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-30",
+"info": {
+"abbr": "30",
+"kind": "Prefecture (ken)",
+"region": "Kansai",
+"pop": 922584,
+"popYear": "2020 census",
+"area": 4725,
+"flag": true,
+"facts": {
+"kanji": "和歌山県",
+"reading": "Wakayama-ken",
+"region": "Kansai",
+"food": "Umeboshi and mandarins",
+"craft": "Kishū lacquerware",
+"high": "Mount Ryūjin, 1,382 m",
+"river": "Kinokawa River",
+"wonder": "Nachi Falls",
+"onsen": "Shirahama",
+"province": "Kii",
+"castle": "Kōyasan (Mount Kōya) temples",
+"unesco": "Sacred sites and pilgrimage routes in the Kii Mountains",
+"meaning": "Song-of-poems mountain",
+"industry": "Plums and mandarins (Japan's biggest grower)",
+"symbols": "Flower: Ume blossom · Tree: Ubame oak · Bird: Japanese white-eye"
+},
+"coastal": true,
+"areaRank": 30
+},
+"flagKey": "jp/JP-30",
+"capLL": [
+[
+135.168,
+34.223
+]
+]
+},
+{
+"iso": "JP-06",
+"id": "JP-06",
+"name": "Yamagata",
+"names": [
+"Yamagata",
+"Yamagata Prefecture",
+"Yamagata-ken",
+"Yamagata ken",
+"Yamagataken"
+],
+"capitals": [
+"Yamagata"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-06",
+"info": {
+"abbr": "06",
+"kind": "Prefecture (ken)",
+"region": "Tōhoku",
+"pop": 1068027,
+"popYear": "2020 census",
+"area": 9323,
+"flag": true,
+"facts": {
+"kanji": "山形県",
+"reading": "Yamagata-ken",
+"region": "Tōhoku",
+"food": "Cherries and imoni (taro stew)",
+"festival": "Hanagasa Matsuri",
+"craft": "Tendo shogi pieces",
+"dialect": "Yamagata-ben",
+"high": "Mount Chōkai, 2,236 m",
+"river": "Mogami River",
+"wonder": "Zaō's snow monsters (rime-covered trees)",
+"onsen": "Ginzan",
+"province": "Dewa (Uzen)",
+"castle": "Yamadera (Risshaku-ji temple)",
+"meaning": "Mountain shape",
+"industry": "Cherries (most of Japan's)",
+"symbols": "Flower: Safflower · Tree: Cherry · Bird: Mandarin duck"
+},
+"coastal": true,
+"areaRank": 9
+},
+"flagKey": "jp/JP-06",
+"capLL": [
+[
+140.32,
+38.27
+]
+]
+},
+{
+"iso": "JP-35",
+"id": "JP-35",
+"name": "Yamaguchi",
+"names": [
+"Yamaguchi",
+"Yamaguchi Prefecture",
+"Yamaguchi-ken",
+"Yamaguchi ken",
+"Yamaguchiken"
+],
+"capitals": [
+"Yamaguchi"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-35",
+"info": {
+"abbr": "35",
+"kind": "Prefecture (ken)",
+"region": "Chūgoku",
+"pop": 1342059,
+"popYear": "2020 census",
+"area": 6113,
+"flag": true,
+"facts": {
+"kanji": "山口県",
+"reading": "Yamaguchi-ken",
+"region": "Chūgoku",
+"food": "Fugu (pufferfish) at Shimonoseki",
+"craft": "Hagi pottery",
+"high": "Mount Jakuchi, 1,337 m",
+"river": "Nishiki River",
+"wonder": "Akiyoshidō cave and Akiyoshidai plateau",
+"onsen": "Yuda",
+"province": "Suō and Nagato",
+"castle": "Kintai Bridge (Iwakuni)",
+"unesco": "Meiji industrial revolution sites (Hagi)",
+"meaning": "Mountain mouth",
+"industry": "Chemicals and fugu; the home of many prime ministers",
+"city": "Shimonoseki",
+"symbols": "Flower: Bitter summer mandarin blossom · Tree: Red pine tree · Bird: Hooded crane"
+},
+"coastal": true,
+"areaRank": 23
+},
+"flagKey": "jp/JP-35",
+"capLL": [
+[
+131.471,
+34.186
+]
+]
+},
+{
+"iso": "JP-19",
+"id": "JP-19",
+"name": "Yamanashi",
+"names": [
+"Yamanashi",
+"Yamanashi Prefecture",
+"Yamanashi-ken",
+"Yamanashi ken",
+"Yamanashiken"
+],
+"capitals": [
+"Kōfu",
+"Koufu",
+"Koofu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-19",
+"info": {
+"abbr": "19",
+"kind": "Prefecture (ken)",
+"region": "Chūbu",
+"pop": 809974,
+"popYear": "2020 census",
+"area": 2441,
+"flag": true,
+"facts": {
+"kanji": "山梨県",
+"reading": "Yamanashi-ken",
+"region": "Chūbu",
+"food": "Hōtō noodles, grapes and peaches",
+"festival": "Shingen-kō Festival",
+"craft": "Kōshū inden (lacquered deerskin)",
+"dialect": "Kōshū-ben",
+"high": "Mount Fuji, 3,776 m: Japan's highest",
+"river": "The Fuji Five Lakes",
+"wonder": "Mount Fuji",
+"onsen": "Isawa",
+"province": "Kai",
+"castle": "Takeda Shrine",
+"unesco": "Mount Fuji",
+"meaning": "Mountain pear",
+"industry": "Grapes, wine and peaches",
+"symbols": "Flower: Fujizakura · Tree: Kaede · Bird: Uguisu"
+},
+"coastal": false,
+"areaRank": 42
+},
+"flagKey": "jp/JP-19",
+"capLL": [
+[
+138.583,
+35.65
+]
+]
+},
+{
+"iso": "JP-44",
+"id": "JP-44",
+"name": "Ōita",
+"names": [
+"Ōita",
+"Ōita Prefecture",
+"Ōita-ken",
+"Ōita ken",
+"Ōitaken",
+"Ouita",
+"Ouita Prefecture",
+"Ouita-ken",
+"Ouita ken",
+"Ouitaken",
+"Ooita",
+"Ooita Prefecture",
+"Ooita-ken",
+"Ooita ken",
+"Ooitaken"
+],
+"capitals": [
+"Ōita",
+"Ouita",
+"Ooita"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "JP-44",
+"info": {
+"abbr": "44",
+"kind": "Prefecture (ken)",
+"region": "Kyūshū",
+"pop": 1123852,
+"popYear": "2020 census",
+"area": 6341,
+"flag": true,
+"facts": {
+"kanji": "大分県",
+"reading": "Ōita-ken",
+"region": "Kyūshū",
+"food": "Toriten (chicken tempura) and dried shiitake",
+"craft": "Beppu bamboo craft",
+"dialect": "Ōita-ben",
+"high": "Mount Kujū (Nakadake), 1,791 m: Kyūshū mainland's highest",
+"river": "Ōno River",
+"wonder": "Beppu's 'hells' (hot pools)",
+"onsen": "Beppu and Yufuin (Japan's most hot springs)",
+"province": "Bungo and part of Buzen",
+"castle": "Usa Jingū shrine",
+"meaning": "Big field",
+"industry": "Hot-spring tourism and shiitake",
+"city": "",
+"symbols": "Flower: Bungo-ume blossom · Tree: Bungo-ume tree · Bird: Japanese white-eye"
+},
+"coastal": true,
+"areaRank": 22
+},
+"flagKey": "jp/JP-44",
+"capLL": [
+[
+131.598,
+33.243
+]
+]
+}
+]

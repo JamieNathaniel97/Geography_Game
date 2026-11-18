@@ -1,0 +1,1268 @@
+[
+{
+"iso": "AR-B",
+"id": "AR-B",
+"name": "Buenos Aires",
+"names": [
+"Buenos Aires",
+"Buenos Aires Province",
+"Provincia de Buenos Aires"
+],
+"capitals": [
+"La Plata"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-B",
+"info": {
+"abbr": "B",
+"kind": "Province",
+"region": "Pampas",
+"pop": 17523996,
+"popYear": "2022 census",
+"area": 305907,
+"flag": true,
+"facts": {
+"demonym": "Bonaerense",
+"region": "Pampas",
+"food": "Asado and dulce de leche",
+"drink": "Mate",
+"music": "Folk and chacarera",
+"festival": "The Fiesta Nacional de la Tradición (San Antonio de Areco)",
+"club": "Estudiantes and Gimnasia (La Plata)",
+"high": "Cerro Tres Picos, 1,239 m",
+"river": "Paraná delta and the Río de la Plata",
+"wonder": "The Paraná Delta and the Sierra de la Ventana",
+"climate": "Temperate",
+"animal": "The rhea (ñandú)",
+"became": "A founding province (it accepted the 1853 constitution in 1860)",
+"person": "Diego Maradona (Lanús)",
+"industry": "Farming (soy, wheat, cattle) and Mar del Plata's beaches"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 1
+},
+"flagKey": "ar/AR-B",
+"notTypo": [
+"City of Buenos Aires"
+],
+"capLL": [
+[
+-57.96,
+-34.91
+]
+]
+},
+{
+"iso": "AR-K",
+"id": "AR-K",
+"name": "Catamarca",
+"names": [
+"Catamarca"
+],
+"capitals": [
+"San Fernando del Valle de Catamarca",
+"Catamarca"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-K",
+"info": {
+"abbr": "K",
+"kind": "Province",
+"region": "Northwest (NOA)",
+"pop": 429562,
+"popYear": "2022 census",
+"area": 101486,
+"flag": true,
+"facts": {
+"demonym": "Catamarqueño",
+"region": "Northwest (NOA)",
+"food": "Empanadas and walnuts",
+"drink": "Regional wines",
+"music": "Zamba and chacarera",
+"festival": "The National Poncho Festival",
+"indigenous": "Diaguita (Calchaquí)",
+"high": "Ojos del Salado, 6,893 m: the highest volcano on Earth",
+"wonder": "The Campo de Piedra Pómez (pumice field)",
+"climate": "Dry, high desert",
+"animal": "The vicuña",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "The Qhapaq Ñan (Inca road)",
+"industry": "Mining and olives"
+},
+"coastal": false,
+"borders": [
+"Chile"
+],
+"areaRank": 11
+},
+"flagKey": "ar/AR-K",
+"capLL": [
+[
+-65.779,
+-28.469
+]
+]
+},
+{
+"iso": "AR-H",
+"id": "AR-H",
+"name": "Chaco",
+"names": [
+"Chaco"
+],
+"capitals": [
+"Resistencia"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-H",
+"info": {
+"abbr": "H",
+"kind": "Province",
+"region": "Northeast (NEA)",
+"pop": 1129606,
+"popYear": "2022 census",
+"area": 99763,
+"flag": true,
+"facts": {
+"demonym": "Chaqueño",
+"region": "Northeast (NEA)",
+"food": "Chipá and river fish",
+"drink": "Mate",
+"music": "Chamamé",
+"indigenous": "Qom (Toba), Wichí and Moqoit",
+"river": "Paraná and Bermejo",
+"wonder": "Campo del Cielo meteorites",
+"climate": "Subtropical, hot",
+"animal": "The giant anteater",
+"became": "A national territory until 1951",
+"festival": "The Biennial of Sculptures (Resistencia)",
+"industry": "Cotton and forestry"
+},
+"coastal": false,
+"borders": [
+"Paraguay"
+],
+"areaRank": 12
+},
+"flagKey": "ar/AR-H",
+"capLL": [
+[
+-58.99,
+-27.46
+]
+]
+},
+{
+"iso": "AR-U",
+"id": "AR-U",
+"name": "Chubut",
+"names": [
+"Chubut"
+],
+"capitals": [
+"Rawson"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-U",
+"info": {
+"abbr": "U",
+"kind": "Province",
+"region": "Patagonia",
+"pop": 592621,
+"popYear": "2022 census",
+"area": 224302,
+"flag": true,
+"facts": {
+"demonym": "Chubutense",
+"region": "Patagonia",
+"food": "Welsh tea and cakes (Gaiman) and lamb",
+"music": "Welsh choirs (the Eisteddfod)",
+"festival": "The Eisteddfod of Chubut",
+"indigenous": "Mapuche and Tehuelche",
+"river": "Chubut River",
+"wonder": "Península Valdés (whales)",
+"climate": "Dry and windy",
+"animal": "The southern right whale",
+"became": "A national territory until 1955",
+"unesco": "Península Valdés; Los Alerces National Park",
+"industry": "Oil, aluminium and wool; settled by the Welsh in 1865",
+"city": "Comodoro Rivadavia"
+},
+"coastal": true,
+"borders": [
+"Chile"
+],
+"areaRank": 3
+},
+"flagKey": "ar/AR-U",
+"capLL": [
+[
+-65.1,
+-43.3
+]
+]
+},
+{
+"iso": "AR-C",
+"id": "AR-C",
+"name": "City of Buenos Aires",
+"names": [
+"City of Buenos Aires",
+"CABA",
+"Ciudad de Buenos Aires",
+"Capital Federal",
+"Autonomous City of Buenos Aires",
+"Buenos Aires City"
+],
+"capitals": [
+"Buenos Aires"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-C",
+"info": {
+"abbr": "C",
+"kind": "Autonomous city",
+"region": "Capital",
+"pop": 3121707,
+"popYear": "2022 census",
+"area": 206,
+"flag": true,
+"facts": {
+"demonym": "Porteño",
+"region": "Capital",
+"food": "Pizza porteña, milanesas and asado",
+"drink": "Mate and fernet with cola",
+"music": "Tango",
+"festival": "The Buenos Aires Tango Festival",
+"club": "Boca Juniors and River Plate",
+"river": "Río de la Plata",
+"climate": "Humid subtropical",
+"became": "Federal capital since 1880; autonomous city since 1996",
+"person": "Jorge Luis Borges and Pope Francis",
+"industry": "Finance, culture and tourism",
+"wonder": "The Costanera Sur ecological reserve"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 24
+},
+"flagKey": "ar/AR-C",
+"capLL": [
+[
+-58.399,
+-34.601
+]
+]
+},
+{
+"iso": "AR-W",
+"id": "AR-W",
+"name": "Corrientes",
+"names": [
+"Corrientes"
+],
+"capitals": [
+"Corrientes"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-W",
+"info": {
+"abbr": "W",
+"kind": "Province",
+"region": "Northeast (NEA)",
+"pop": 1212696,
+"popYear": "2022 census",
+"area": 89123,
+"flag": true,
+"facts": {
+"demonym": "Correntino",
+"region": "Northeast (NEA)",
+"food": "Chipá and sopa paraguaya",
+"drink": "Mate (much of Argentina's yerba)",
+"music": "Chamamé",
+"festival": "The Corrientes Carnival",
+"indigenous": "Guaraní",
+"river": "Paraná and Uruguay",
+"wonder": "The Iberá Wetlands",
+"climate": "Subtropical, humid",
+"animal": "The capybara and marsh deer",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"industry": "Rice, citrus, yerba mate and cattle"
+},
+"coastal": true,
+"borders": [
+"Brazil",
+"Paraguay",
+"Uruguay"
+],
+"areaRank": 15
+},
+"flagKey": "ar/AR-W",
+"capLL": [
+[
+-58.81,
+-27.49
+]
+]
+},
+{
+"iso": "AR-X",
+"id": "AR-X",
+"name": "Córdoba",
+"names": [
+"Córdoba"
+],
+"capitals": [
+"Córdoba"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-X",
+"info": {
+"abbr": "X",
+"kind": "Province",
+"region": "Pampas",
+"pop": 3840905,
+"popYear": "2022 census",
+"area": 164708,
+"flag": true,
+"facts": {
+"demonym": "Cordobés",
+"region": "Pampas",
+"food": "Alfajores cordobeses",
+"drink": "Fernet with cola",
+"music": "Cuarteto",
+"festival": "Cosquín's National Folk Festival",
+"club": "Talleres and Belgrano",
+"high": "Cerro Champaquí, 2,790 m",
+"river": "Río Suquía",
+"wonder": "The Sierras de Córdoba",
+"climate": "Temperate",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "The Jesuit Block and Estancias of Córdoba",
+"person": "Ernesto 'Che' Guevara grew up here",
+"industry": "Cars, farming and Argentina's oldest university (1613)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 5
+},
+"flagKey": "ar/AR-X",
+"capLL": [
+[
+-64.184,
+-31.398
+]
+]
+},
+{
+"iso": "AR-E",
+"id": "AR-E",
+"name": "Entre Ríos",
+"names": [
+"Entre Ríos"
+],
+"capitals": [
+"Paraná"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-E",
+"info": {
+"abbr": "E",
+"kind": "Province",
+"region": "Northeast (NEA)",
+"pop": 1425578,
+"popYear": "2022 census",
+"area": 78384,
+"flag": true,
+"facts": {
+"demonym": "Entrerriano",
+"region": "Northeast (NEA)",
+"food": "River fish (surubí, dorado)",
+"drink": "Mate",
+"music": "Chamarrita",
+"festival": "The Gualeguaychú Carnival",
+"river": "Paraná and Uruguay",
+"wonder": "El Palmar National Park",
+"climate": "Temperate, humid",
+"animal": "The capybara",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"industry": "Poultry, rice and hot springs"
+},
+"coastal": true,
+"borders": [
+"Uruguay"
+],
+"areaRank": 17
+},
+"flagKey": "ar/AR-E",
+"capLL": [
+[
+-60.533,
+-31.733
+]
+]
+},
+{
+"iso": "AR-P",
+"id": "AR-P",
+"name": "Formosa",
+"names": [
+"Formosa"
+],
+"capitals": [
+"Formosa"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-P",
+"info": {
+"abbr": "P",
+"kind": "Province",
+"region": "Northeast (NEA)",
+"pop": 607419,
+"popYear": "2022 census",
+"area": 75488,
+"flag": true,
+"facts": {
+"demonym": "Formoseño",
+"region": "Northeast (NEA)",
+"food": "Chipá",
+"drink": "Mate",
+"music": "Chamamé",
+"indigenous": "Wichí, Qom and Pilagá",
+"river": "Paraguay and Pilcomayo",
+"wonder": "The Bañado La Estrella wetlands",
+"climate": "Subtropical, hot",
+"animal": "The jaguar and giant otter",
+"became": "A national territory until 1955",
+"industry": "Farming and cattle"
+},
+"coastal": false,
+"borders": [
+"Paraguay"
+],
+"areaRank": 18
+},
+"flagKey": "ar/AR-P",
+"capLL": [
+[
+-58.183,
+-26.173
+]
+]
+},
+{
+"iso": "AR-Y",
+"id": "AR-Y",
+"name": "Jujuy",
+"names": [
+"Jujuy"
+],
+"capitals": [
+"San Salvador de Jujuy",
+"Jujuy"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-Y",
+"info": {
+"abbr": "Y",
+"kind": "Province",
+"region": "Northwest (NOA)",
+"pop": 811611,
+"popYear": "2022 census",
+"area": 53244,
+"flag": true,
+"facts": {
+"demonym": "Jujeño",
+"region": "Northwest (NOA)",
+"food": "Humita, tamales and llama meat",
+"drink": "Api (purple corn drink)",
+"music": "Carnavalito and the charango",
+"festival": "The Carnival of Humahuaca",
+"indigenous": "Kolla (Quechua and Aymara)",
+"high": "Nevado de Chañi, 5,896 m",
+"wonder": "The Hill of Seven Colours (Purmamarca) and the Salinas Grandes",
+"climate": "Dry highland (the Puna) and subtropical valleys",
+"animal": "The llama",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "The Quebrada de Humahuaca",
+"industry": "Lithium, sugar and tobacco"
+},
+"coastal": false,
+"borders": [
+"Bolivia",
+"Chile"
+],
+"areaRank": 20
+},
+"flagKey": "ar/AR-Y",
+"capLL": [
+[
+-65.3,
+-24.183
+]
+]
+},
+{
+"iso": "AR-L",
+"id": "AR-L",
+"name": "La Pampa",
+"names": [
+"La Pampa",
+"Pampa"
+],
+"capitals": [
+"Santa Rosa"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-L",
+"info": {
+"abbr": "L",
+"kind": "Province",
+"region": "Pampas",
+"pop": 361859,
+"popYear": "2022 census",
+"area": 143493,
+"flag": true,
+"facts": {
+"demonym": "Pampeano",
+"region": "Pampas",
+"food": "Asado",
+"drink": "Mate",
+"music": "Folk",
+"indigenous": "Ranquel (Rankülche)",
+"river": "Colorado and Atuel",
+"wonder": "Lihué Calel National Park",
+"climate": "Semi-arid",
+"animal": "The puma",
+"became": "A national territory until 1951",
+"industry": "Cattle and cereals"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8
+},
+"flagKey": "ar/AR-L",
+"capLL": [
+[
+-64.3,
+-36.62
+]
+]
+},
+{
+"iso": "AR-F",
+"id": "AR-F",
+"name": "La Rioja",
+"names": [
+"La Rioja",
+"Rioja"
+],
+"capitals": [
+"La Rioja"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-F",
+"info": {
+"abbr": "F",
+"kind": "Province",
+"region": "Northwest (NOA)",
+"pop": 383865,
+"popYear": "2022 census",
+"area": 91494,
+"flag": true,
+"facts": {
+"demonym": "Riojano",
+"region": "Northwest (NOA)",
+"food": "Empanadas and chivito (goat)",
+"drink": "Torrontés wine",
+"music": "Chaya",
+"festival": "The Chaya (carnival)",
+"indigenous": "Diaguita",
+"high": "Bonete Chico, 6,759 m",
+"wonder": "Talampaya National Park",
+"climate": "Dry",
+"animal": "The condor",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "Ischigualasto-Talampaya",
+"person": "Carlos Menem (Anillaco)",
+"industry": "Olives, wine and walnuts"
+},
+"coastal": false,
+"borders": [
+"Chile"
+],
+"areaRank": 14
+},
+"flagKey": "ar/AR-F",
+"capLL": [
+[
+-66.85,
+-29.41
+]
+]
+},
+{
+"iso": "AR-M",
+"id": "AR-M",
+"name": "Mendoza",
+"names": [
+"Mendoza"
+],
+"capitals": [
+"Mendoza"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-M",
+"info": {
+"abbr": "M",
+"kind": "Province",
+"region": "Cuyo",
+"pop": 2043540,
+"popYear": "2022 census",
+"area": 149069,
+"flag": true,
+"facts": {
+"demonym": "Mendocino",
+"region": "Cuyo",
+"food": "Asado and empanadas mendocinas",
+"drink": "Malbec wine",
+"music": "Cueca",
+"festival": "The National Grape Harvest Festival (Vendimia)",
+"club": "Godoy Cruz",
+"high": "Aconcagua, 6,961 m: the highest in the Americas",
+"river": "Mendoza River",
+"wonder": "Aconcagua",
+"climate": "Dry, sunny",
+"animal": "The condor",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "The Qhapaq Ñan (Inca road)",
+"industry": "Wine (most of Argentina's), oil and tourism"
+},
+"coastal": false,
+"borders": [
+"Chile"
+],
+"areaRank": 7
+},
+"flagKey": "ar/AR-M",
+"capLL": [
+[
+-68.819,
+-32.881
+]
+]
+},
+{
+"iso": "AR-N",
+"id": "AR-N",
+"name": "Misiones",
+"names": [
+"Misiones"
+],
+"capitals": [
+"Posadas"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-N",
+"info": {
+"abbr": "N",
+"kind": "Province",
+"region": "Northeast (NEA)",
+"pop": 1278873,
+"popYear": "2022 census",
+"area": 29911,
+"flag": true,
+"facts": {
+"demonym": "Misionero",
+"region": "Northeast (NEA)",
+"food": "Chipá and mandioca",
+"drink": "Mate (yerba mate is grown here)",
+"music": "Chamamé and polka",
+"festival": "The National Immigrant Festival (Oberá)",
+"indigenous": "Mbyá Guaraní",
+"river": "Paraná, Iguazú and Uruguay",
+"wonder": "The Iguazú Falls",
+"climate": "Subtropical rainforest",
+"animal": "The toucan and jaguar",
+"became": "A national territory until 1953",
+"unesco": "The Iguazú Falls; the Jesuit Missions of the Guaraní (San Ignacio Miní)",
+"industry": "Yerba mate, tea and timber"
+},
+"coastal": false,
+"borders": [
+"Brazil",
+"Paraguay"
+],
+"areaRank": 21
+},
+"flagKey": "ar/AR-N",
+"capLL": [
+[
+-55.885,
+-27.358
+]
+]
+},
+{
+"iso": "AR-Q",
+"id": "AR-Q",
+"name": "Neuquén",
+"names": [
+"Neuquén"
+],
+"capitals": [
+"Neuquén"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-Q",
+"info": {
+"abbr": "Q",
+"kind": "Province",
+"region": "Patagonia",
+"pop": 710814,
+"popYear": "2022 census",
+"area": 94422,
+"flag": true,
+"facts": {
+"demonym": "Neuquino",
+"region": "Patagonia",
+"food": "Lamb, trout and smoked meats",
+"music": "Folk",
+"indigenous": "Mapuche",
+"high": "Volcán Domuyo, 4,707 m",
+"river": "Neuquén and Limay; Lake Nahuel Huapi",
+"wonder": "Lanín volcano and the Seven Lakes Road",
+"climate": "Dry steppe and Andean forest",
+"animal": "The Patagonian dinosaurs (Giganotosaurus)",
+"became": "A national territory until 1955",
+"industry": "Oil and gas (Vaca Muerta) and skiing"
+},
+"coastal": false,
+"borders": [
+"Chile"
+],
+"areaRank": 13
+},
+"flagKey": "ar/AR-Q",
+"capLL": [
+[
+-68.06,
+-38.95
+]
+]
+},
+{
+"iso": "AR-R",
+"id": "AR-R",
+"name": "Río Negro",
+"names": [
+"Río Negro"
+],
+"capitals": [
+"Viedma"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-R",
+"info": {
+"abbr": "R",
+"kind": "Province",
+"region": "Patagonia",
+"pop": 750768,
+"popYear": "2022 census",
+"area": 202169,
+"flag": true,
+"facts": {
+"demonym": "Rionegrino",
+"region": "Patagonia",
+"food": "Apples, pears and Patagonian lamb",
+"music": "Folk",
+"indigenous": "Mapuche and Tehuelche",
+"river": "Río Negro and Lake Nahuel Huapi",
+"wonder": "Bariloche and Nahuel Huapi National Park",
+"climate": "Dry steppe and Andean forest",
+"animal": "The huemul deer",
+"became": "A national territory until 1955",
+"industry": "Fruit, tourism (Bariloche) and the INVAP nuclear company",
+"city": "San Carlos de Bariloche"
+},
+"coastal": true,
+"borders": [
+"Chile"
+],
+"areaRank": 4
+},
+"flagKey": "ar/AR-R",
+"capLL": [
+[
+-63.0,
+-40.8
+]
+]
+},
+{
+"iso": "AR-A",
+"id": "AR-A",
+"name": "Salta",
+"names": [
+"Salta"
+],
+"capitals": [
+"Salta"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-A",
+"info": {
+"abbr": "A",
+"kind": "Province",
+"region": "Northwest (NOA)",
+"pop": 1441351,
+"popYear": "2022 census",
+"area": 155341,
+"flag": true,
+"facts": {
+"demonym": "Salteño",
+"region": "Northwest (NOA)",
+"food": "Empanadas salteñas and locro",
+"drink": "Torrontés wine (Cafayate)",
+"music": "Zamba and folk peñas",
+"festival": "The Serenata a Cafayate",
+"indigenous": "Wichí, Kolla and Diaguita",
+"high": "Volcán Llullaillaco, 6,739 m (Inca child mummies were found at its top)",
+"wonder": "The Train to the Clouds and the Quebrada de las Conchas",
+"climate": "Subtropical valleys and dry highlands",
+"animal": "The vicuña",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "The Qhapaq Ñan (Inca road)",
+"industry": "Wine, tobacco and lithium"
+},
+"coastal": false,
+"borders": [
+"Bolivia",
+"Chile",
+"Paraguay"
+],
+"areaRank": 6
+},
+"flagKey": "ar/AR-A",
+"anchorLL": [
+-63.334,
+-22.996
+],
+"capLL": [
+[
+-65.417,
+-24.783
+]
+]
+},
+{
+"iso": "AR-J",
+"id": "AR-J",
+"name": "San Juan",
+"names": [
+"San Juan"
+],
+"capitals": [
+"San Juan"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-J",
+"info": {
+"abbr": "J",
+"kind": "Province",
+"region": "Cuyo",
+"pop": 822853,
+"popYear": "2022 census",
+"area": 88296,
+"flag": true,
+"facts": {
+"demonym": "Sanjuanino",
+"region": "Cuyo",
+"food": "Empanadas and melons",
+"drink": "Syrah wine",
+"music": "Cueca",
+"festival": "The National Sun Festival",
+"high": "Mercedario, 6,720 m",
+"wonder": "Ischigualasto ('Moon Valley')",
+"climate": "Very dry, sunny",
+"animal": "The guanaco",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"unesco": "Ischigualasto-Talampaya",
+"person": "Domingo Faustino Sarmiento",
+"industry": "Wine, mining and solar power"
+},
+"coastal": false,
+"borders": [
+"Chile"
+],
+"areaRank": 16
+},
+"flagKey": "ar/AR-J",
+"capLL": [
+[
+-68.52,
+-31.55
+]
+]
+},
+{
+"iso": "AR-D",
+"id": "AR-D",
+"name": "San Luis",
+"names": [
+"San Luis"
+],
+"capitals": [
+"San Luis"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-D",
+"info": {
+"abbr": "D",
+"kind": "Province",
+"region": "Cuyo",
+"pop": 542069,
+"popYear": "2022 census",
+"area": 75347,
+"flag": true,
+"facts": {
+"demonym": "Puntano",
+"region": "Cuyo",
+"food": "Chivito (goat) and empanadas",
+"music": "Cueca and tonada",
+"high": "Cerro Agua Hedionda (Sierra de San Luis), 2,150 m",
+"wonder": "Sierra de las Quijadas National Park",
+"climate": "Semi-arid",
+"animal": "The puma",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"industry": "Factories and farming"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 19
+},
+"flagKey": "ar/AR-D",
+"capLL": [
+[
+-66.35,
+-33.3
+]
+]
+},
+{
+"iso": "AR-Z",
+"id": "AR-Z",
+"name": "Santa Cruz",
+"names": [
+"Santa Cruz"
+],
+"capitals": [
+"Río Gallegos"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-Z",
+"info": {
+"abbr": "Z",
+"kind": "Province",
+"region": "Patagonia",
+"pop": 337226,
+"popYear": "2022 census",
+"area": 244458,
+"flag": true,
+"facts": {
+"demonym": "Santacruceño",
+"region": "Patagonia",
+"food": "Patagonian lamb (cordero al palo)",
+"music": "Folk",
+"indigenous": "Tehuelche",
+"high": "Cerro San Lorenzo, 3,706 m",
+"river": "Lake Argentino and Santa Cruz River",
+"wonder": "The Perito Moreno Glacier and Mount Fitz Roy",
+"climate": "Cold, dry and windy",
+"animal": "The guanaco and the Magellanic penguin",
+"became": "A national territory until 1957",
+"unesco": "Los Glaciares National Park; the Cueva de las Manos (Cave of the Hands)",
+"industry": "Oil, gold and tourism"
+},
+"coastal": true,
+"borders": [
+"Chile",
+"Southern Patagonian Ice Field"
+],
+"areaRank": 2
+},
+"flagKey": "ar/AR-Z",
+"capLL": [
+[
+-69.217,
+-51.633
+]
+]
+},
+{
+"iso": "AR-S",
+"id": "AR-S",
+"name": "Santa Fe",
+"names": [
+"Santa Fe"
+],
+"capitals": [
+"Santa Fe",
+"Santa Fe de la Vera Cruz"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-S",
+"info": {
+"abbr": "S",
+"kind": "Province",
+"region": "Pampas",
+"pop": 3544908,
+"popYear": "2022 census",
+"area": 133249,
+"flag": true,
+"facts": {
+"demonym": "Santafesino",
+"region": "Pampas",
+"food": "Alfajores santafesinos",
+"drink": "Liso beer and mate",
+"music": "Cumbia santafesina",
+"festival": "The National Flag Day (Rosario)",
+"club": "Newell's Old Boys and Rosario Central",
+"river": "Paraná",
+"wonder": "The Paraná islands",
+"climate": "Temperate, humid",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"person": "Lionel Messi (Rosario)",
+"industry": "Soybeans and ports (Rosario)",
+"city": "Rosario"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10
+},
+"flagKey": "ar/AR-S",
+"capLL": [
+[
+-60.69,
+-31.624
+]
+]
+},
+{
+"iso": "AR-G",
+"id": "AR-G",
+"name": "Santiago del Estero",
+"names": [
+"Santiago del Estero"
+],
+"capitals": [
+"Santiago del Estero",
+"Santiago"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-G",
+"info": {
+"abbr": "G",
+"kind": "Province",
+"region": "Northwest (NOA)",
+"pop": 1060906,
+"popYear": "2022 census",
+"area": 136934,
+"flag": true,
+"facts": {
+"demonym": "Santiagueño",
+"region": "Northwest (NOA)",
+"food": "Locro and empanadas",
+"music": "Chacarera",
+"festival": "The National Chacarera Festival",
+"indigenous": "Quechua speakers (Santiago's Quichua)",
+"river": "Dulce and Salado",
+"wonder": "Termas de Río Hondo (hot springs)",
+"climate": "Hot and dry",
+"became": "One of the 13 provinces that signed the 1853 constitution (Argentina's oldest city, 1553)",
+"industry": "Cotton, cattle and the Termas de Río Hondo motor racing"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9
+},
+"flagKey": "ar/AR-G",
+"capLL": [
+[
+-64.267,
+-27.783
+]
+]
+},
+{
+"iso": "AR-V",
+"id": "AR-V",
+"name": "Tierra del Fuego",
+"names": [
+"Tierra del Fuego",
+"Tierra del Fuego, Antarctica and South Atlantic Islands"
+],
+"capitals": [
+"Ushuaia"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-V",
+"info": {
+"abbr": "V",
+"kind": "Province",
+"region": "Patagonia",
+"pop": 185651,
+"popYear": "2022 census",
+"area": 20698,
+"flag": true,
+"facts": {
+"demonym": "Fueguino",
+"region": "Patagonia",
+"food": "King crab (centolla)",
+"music": "Folk",
+"indigenous": "Selk'nam and Yaghan (Yámana)",
+"high": "Monte Cornú, 1,490 m",
+"river": "Beagle Channel and Lake Fagnano",
+"wonder": "Tierra del Fuego National Park and the End of the World train",
+"climate": "Cold, subpolar",
+"animal": "The Magellanic penguin and the beaver (an invader)",
+"became": "A national territory until 1990",
+"industry": "Electronics factories and tourism (cruises to Antarctica from Ushuaia)",
+"city": "Río Grande"
+},
+"coastal": true,
+"borders": [
+"Chile"
+],
+"areaRank": 23
+},
+"flagKey": "ar/AR-V",
+"capLL": [
+[
+-68.31,
+-54.79
+]
+]
+},
+{
+"iso": "AR-T",
+"id": "AR-T",
+"name": "Tucumán",
+"names": [
+"Tucumán"
+],
+"capitals": [
+"San Miguel de Tucumán",
+"Tucumán"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "AR-T",
+"info": {
+"abbr": "T",
+"kind": "Province",
+"region": "Northwest (NOA)",
+"pop": 1731820,
+"popYear": "2022 census",
+"area": 22592,
+"flag": true,
+"facts": {
+"demonym": "Tucumano",
+"region": "Northwest (NOA)",
+"food": "Empanadas tucumanas",
+"drink": "Sugar-cane drinks",
+"music": "Zamba",
+"festival": "Independence Day (9 July 1816, signed here)",
+"club": "Atlético Tucumán",
+"high": "Cerro del Bolsón, 5,550 m",
+"wonder": "Tafí del Valle and the menhirs",
+"climate": "Subtropical",
+"became": "One of the 13 provinces that signed the 1853 constitution",
+"person": "Mercedes Sosa",
+"industry": "Sugar and lemons (the world's biggest lemon producer); Argentina's smallest province"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 22
+},
+"flagKey": "ar/AR-T",
+"capLL": [
+[
+-65.219,
+-26.814
+]
+]
+}
+]

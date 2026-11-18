@@ -13,7 +13,7 @@ Building the new country maps (the Countries tab, and "Focus on <country>" in Le
 | France | `fr` | 13 metropolitan regions (overseas regions left off) | none |
 | Italy | `it` | 20 regions (+ 107 provinces as a second set: to confirm) | flags |
 | Spain | `es` | 17 communities, Ceuta and Melilla; and the 50 provinces as a second set | flags (communities) |
-| Nigeria | `ng` | 36 states and the FCT | seals |
+| Nigeria | `ng` | 36 states and the FCT | none for now (seal games shelved) |
 | Argentina | `ar` | 23 provinces and the City of Buenos Aires | flags |
 
 Later candidates: South Africa (9 provinces), Egypt (27 governorates), South Korea, New Zealand. Indonesia and Kenya need a source other than Natural Earth (its divisions are out of date).
@@ -69,7 +69,7 @@ Follow the country's plan; where the plan and this checklist differ, the plan wi
    - screenshots checked by eye: the map, the grey reaching the edges, the circles, the card
 7. **Finish:** add the build to [PLAN.md](../PLAN.md) and mark the plan built; publish the preview; commit. Push only as the job queue or the user allows.
 
-### Mexico (ready)
+### Mexico (built overnight 2026-11-18, timeline not yet; see OVERNIGHT_REVIEW.md)
 
 - 32 parts (31 states and Mexico City); the Revillagigedo Islands left off.
 - Data in `tools/downloads/mx/`: `states.json` (capitals, largest cities, areas, **2020 census**, adding up to 126,014,024), Wikipedia articles (`wiki/states/` English, `wiki/states_local/` Spanish, `infobox.json`, `infobox_local.json`), `flags/`, `coats/` (Colima's coat of arms failed on a rate limit: fetch it again), `coast_f.geojson`, `indigenous/` (ITER census, geoBoundaries municipalities, top languages by state).
@@ -80,7 +80,7 @@ Follow the country's plan; where the plan and this checklist differ, the plan wi
 - Timeline: expansion and decline (1821 to 1974), built from pieces like Russia's.
 - Projection: Lambert conformal conic, parallels 17.5°N and 29.5°N, centre 102°W.
 
-### Brazil (ready)
+### Brazil (built overnight 2026-11-18; see OVERNIGHT_REVIEW.md)
 
 - 27 parts (26 states and the Federal District).
 - Data in `tools/downloads/br/`: `states.json` (capitals, areas, years), `census2022.json` (IBGE, adding up to 203,080,756), Wikipedia articles (`wiki/states/` English, `wiki/states_local/` Portuguese, `infobox.json` with demonyms in `infobox_local.json`), `flags/` (all 27), `coast_f.geojson`, `funai/tis_poligonais.zip` (665 Indigenous territories).
@@ -90,7 +90,7 @@ Follow the country's plan; where the plan and this checklist differ, the plan wi
 - Timeline: how today's states formed (1534 captaincies to 1988), reusing the US/Australia timeline code.
 - Projection: Albers equal-area conic, parallels about 2°S and 22°S, centre 54°W.
 
-### Germany, Japan, France, Italy, Spain, Nigeria, Argentina (decided 2026-11-17)
+### Germany, Japan, France, Italy, Spain, Nigeria, Argentina (decided 2026-11-17; Germany, Japan, France, Italy, Spain, Nigeria and Argentina built overnight 2026-11-18: all seven)
 
 Each follows the checklist; their plan files (step 2) record these decisions and add the card facts. Every one has the six games (Find and Name for the parts, capitals, and flags or their stand-in), a ~18-fact card, Focus on, a stats tab, and the high-resolution coast.
 
@@ -99,7 +99,7 @@ Each follows the checklist; their plan files (step 2) record these decisions and
 - **France:** the **18 regions only** (no departments). **The overseas regions are left off** (too far away): the map is metropolitan France with Corsica, so **13 parts**. **No flag games.** Timeline idea (Napoleonic) **shelved for now**.
 - **Italy:** 20 regions, all with flags (flag games); the **107 provinces as a second set: to confirm** (morning agenda). **Vatican City and San Marino as circles in their flag colours: Vatican yellow, San Marino blue**, each with its own **"Focus on Vatican City" / "Focus on San Marino"** button, which needs **very high-resolution data, possibly of buildings and streets** (a separate job: see "Vatican City and San Marino" below). Timeline **shelved for now**.
 - **Spain:** **two levels as two sets**: 17 communities plus Ceuta and Melilla (circles), and the 50 provinces. Flags for the communities (flag games). **The Canary Islands in an inset.** **A languages layer** (Learning mode: where Catalan, Basque, Galician and the others are spoken; find an open source and credit it). **Timeline: to discuss in the morning.**
-- **Nigeria:** 36 states and the FCT; the 2006 census (the last full count; say so on the card). State flags are mostly unofficial, so **games 5 and 6 become seal games** ("Find by seal", "Name the seals"), like Mexico's coats of arms: 32 of the 37 states show a seal or coat of arms on Wikipedia (`image_seal` / `image_coat_of_arms` in their infoboxes; Wikidata has only 11); look for the other 5 (Bayelsa, Taraba, Jigawa, Niger, Plateau) on Commons, and any still missing sit out the seal games. **Timeline: to discuss in the morning** (the state splits 1967–1996 is the idea).
+- **Nigeria:** 36 states and the FCT; the 2006 census (the last full count; say so on the card). State flags are mostly unofficial. **Seal games: shelved (2026-11-17).** The idea was "Find by seal" and "Name the seals" (like Mexico's coats of arms), but many state seals on Wikipedia aren't on Commons, which usually means they're **not freely licensed** (shown on Wikipedia as fair use), so they can't go in the app. Six were downloaded before the download was paused (Abia, Akwa Ibom, Bauchi, Benue, Borno, Edo; their licences still unchecked). **Build Nigeria without games 5 and 6 for now** (like France), and come back to it: check each seal's licence on Commons and decide whether enough states have a free one. **Timeline: to discuss in the morning** (the state splits 1967–1996 is the idea).
 - **Argentina:** 23 provinces and the City of Buenos Aires (circle), all with flags (flag games). **No Falklands** (left off the map), no Antarctic claim. **Timeline: to discuss in the morning.**
 
 ### Learning card facts (chosen 2026-11-17)

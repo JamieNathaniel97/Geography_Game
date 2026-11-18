@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-BRA","geometry":{"type":"Polygon","coordinates":[[[-53.6,-21.7],[-53.6,-24.0],[-54.0,-24.0],[-54.0,-21.7],[-53.6,-21.7]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

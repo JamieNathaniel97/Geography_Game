@@ -24,6 +24,25 @@
     india: { name: "India", factory: () => d3.geoConicConformal().parallels([12, 28]).rotate([-80, 0]), wrap: false, fit: true },
     // China: Albers equal-area conic, standard parallels 25°N and 47°N, centred on 105°E
     china: { name: "China", factory: () => d3.geoConicEqualArea().parallels([25, 47]).rotate([-105, 0]), wrap: false, fit: true },
+    // Argentina: transverse Mercator centred on 64°W (long and thin, 22°S to 55°S)
+    argentina: { name: "Argentina", factory: () => d3.geoTransverseMercator().rotate([64, 0]), wrap: false, fit: true },
+    // Nigeria: Lambert conformal conic, standard parallels 6°N and 12°N, centred on 8°E
+    nigeria: { name: "Nigeria", factory: () => d3.geoConicConformal().parallels([6, 12]).rotate([-8, 0]), wrap: false, fit: true },
+    // Spain: Lambert conformal conic, standard parallels 36°N and 43°N, centred on 3.5°W (the Canaries moved into an inset
+    // by tools/build_es.py)
+    spain: { name: "Spain", factory: () => d3.geoConicConformal().parallels([36, 43]).rotate([3.5, 0]), wrap: false, fit: true },
+    // Italy: transverse Mercator centred on 12.5°E (Italy runs north–south)
+    italy: { name: "Italy", factory: () => d3.geoTransverseMercator().rotate([-12.5, 0]), wrap: false, fit: true },
+    // France: Lambert conformal conic (Lambert-93: standard parallels 44°N and 49°N, centred on 3°E)
+    france: { name: "France", factory: () => d3.geoConicConformal().parallels([44, 49]).rotate([-3, 0]), wrap: false, fit: true },
+    // Japan: Albers equal-area conic, standard parallels 30°N and 44°N, centred on 137°E (Okinawa in place, no inset)
+    japan: { name: "Japan", factory: () => d3.geoConicEqualArea().parallels([30, 44]).rotate([-137, 0]), wrap: false, fit: true },
+    // Germany: Lambert conformal conic, standard parallels 48.67°N and 53.67°N, centred on 10.5°E
+    germany: { name: "Germany", factory: () => d3.geoConicConformal().parallels([48.67, 53.67]).rotate([-10.5, 0]), wrap: false, fit: true },
+    // Brazil: Albers equal-area conic, standard parallels 2°S and 22°S, centred on 54°W
+    brazil: { name: "Brazil", factory: () => d3.geoConicEqualArea().parallels([-2, -22]).rotate([54, 0]), wrap: false, fit: true },
+    // Mexico: Lambert conformal conic, standard parallels 17.5°N and 29.5°N, centred on 102°W (INEGI's projection)
+    mexico: { name: "Mexico", factory: () => d3.geoConicConformal().parallels([17.5, 29.5]).rotate([102, 0]), wrap: false, fit: true },
     // Australia: Albers equal-area conic, standard parallels 18°S and 36°S, centred on 132°E
     australia: { name: "Australia", factory: () => d3.geoConicEqualArea().parallels([-18, -36]).rotate([-132, 0]), wrap: false, fit: true },
     // Russia: Albers equal-area conic, standard parallels 52°N and 68°N, centred on 100°E (Kaliningrad to Chukotka)
@@ -605,8 +624,12 @@
           coast: linePieces(this.geo.coast50), borders: linePieces(this.geo.borders50), lakes: linePieces(this.geo.lakes),
         };
       }
+      // zoomed in on a country map with a detail level: its tiles replace the light shapes and lines (once all the
+      // tiles on screen have loaded; until then the light map shows)
+      const D = this.detailReady();
+      this.detailOn = !!D;
       const groups = new Map();
-      P.features.forEach(({ f, p }) => { const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push({ f, p }); });
+      (D ? D.feats : P.features).forEach(({ f, p }) => { const c = this.fillFor(f); if (!groups.has(c)) groups.set(c, []); groups.get(c).push({ f, p }); });
       const lo = t.k < 1.6 && P.coastLo && this.geo.coast110 !== this.geo.coast50;
       const Wk = this.BW * t.k;
       this.copies().filter(dx => t.x + dx + Wk > 0 && t.x + dx < this.w).forEach(dx => { // only copies on screen
@@ -618,9 +641,11 @@
         ctx.fillStyle = col.sea; ctx.fill(P.sphere);
         groups.forEach((ps, c) => {
           ctx.fillStyle = c;
-          const seams = c === col.unformed; // land not yet a state: stroke in its own colour to hide the seams between areas
-          if (seams) { ctx.strokeStyle = c; ctx.lineWidth = 1 / t.k; }
-          if (cull) { const v = visible(ps.flatMap(({ f }) => P.pieces.features.get(f))); ctx.fill(v); if (seams) ctx.stroke(v); }
+          // land not yet a state, and detail tiles (cut at the tile edges): stroke in its own colour to hide the seams
+          const seams = c === col.unformed || !!D;
+          if (seams) { ctx.strokeStyle = c; ctx.lineWidth = (D ? 0.6 : 1) / t.k; }
+          if (D) ps.forEach(({ p }) => { ctx.fill(p); ctx.stroke(p); });
+          else if (cull) { const v = visible(ps.flatMap(({ f }) => P.pieces.features.get(f))); ctx.fill(v); if (seams) ctx.stroke(v); }
           else ps.forEach(({ p }) => { ctx.fill(p); if (seams) ctx.stroke(p); });
         });
         if (this.terrain && this.relief && (this.wrap || this.style.fit)) {
@@ -629,10 +654,10 @@
         }
         ctx.lineJoin = "round";
         if (P.lakes) { const lakes = cull ? visible(P.pieces.lakes) : P.lakes; ctx.fillStyle = col.sea; ctx.fill(lakes); ctx.strokeStyle = col.coast; ctx.lineWidth = 0.5 / t.k; ctx.stroke(lakes); }
-        ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(cull ? visible(P.pieces.coast) : lo ? P.coastLo : P.coast);
+        ctx.strokeStyle = col.coast; ctx.lineWidth = 0.6 / t.k; ctx.stroke(D ? D.coast : cull ? visible(P.pieces.coast) : lo ? P.coastLo : P.coast);
         if (this.borders) {
           ctx.strokeStyle = col.border; ctx.lineWidth = 0.7 / t.k;
-          ctx.stroke(this.bordersOverride ? this.overridePath(P) : cull ? visible(P.pieces.borders) : lo ? P.bordersLo : P.borders);
+          ctx.stroke(this.bordersOverride ? this.overridePath(P) : D ? D.borders : cull ? visible(P.pieces.borders) : lo ? P.bordersLo : P.borders);
           // the borders between the UK's nations, bolder so England, Scotland and Wales stand out
           if (P.nations) { ctx.strokeStyle = col.fg; ctx.globalAlpha = 0.55; ctx.lineWidth = 2 / t.k; ctx.stroke(P.nations); ctx.globalAlpha = 1; }
         }
@@ -682,6 +707,54 @@
       ctx.beginPath(); path({ type: "Sphere" }); ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.stroke();
     }
 
+    // ----- the detail level (PLAN.md, "High-resolution coasts"; tools/detail.py): tiles of the country map fitted to a
+    // full-resolution shoreline, used when zoomed in past the light map's detail. Returns the paths to draw, or null
+    // (not zoomed in enough, no detail level, or a tile on screen still loading: it asks for a redraw when it arrives).
+    detailReady() {
+      const d = this.geo && this.geo.detail;
+      if (!d || this.mode !== "flat" || this.wrap) return null;
+      if (this.pxPerDeg() < 220) return null; // the light map is simplified to about 0.01°: fine until then
+      const pts = [[0, 0], [this.w / 2, 0], [this.w, 0], [0, this.h / 2], [this.w, this.h / 2], [0, this.h], [this.w / 2, this.h], [this.w, this.h], [this.w / 2, this.h / 2]]
+        .map(([x, y]) => this.lonLatAt(x, y)).filter(Boolean);
+      if (!pts.length) return null;
+      const w = Math.min(...pts.map(p => p[0])) - 0.5, e = Math.max(...pts.map(p => p[0])) + 0.5;
+      const s = Math.min(...pts.map(p => p[1])) - 0.5, n = Math.max(...pts.map(p => p[1])) + 0.5;
+      // only when the whole view is inside what the tiles cover (else part of it would be missing)
+      if (d.bounds && (w < d.bounds[0] - 0.5 || e > d.bounds[2] + 0.5 || s < d.bounds[1] - 0.5 || n > d.bounds[3] + 0.5)) return null;
+      const need = d.tiles.filter(([, tw, ts, te, tn]) => te > w && tw < e && tn > s && ts < n);
+      if (!this.detailTiles || this.detailTiles.geo !== this.geo) {
+        this.detailTiles = { geo: this.geo, map: new Map(), byId: new Map(this.geo.countries.map(c => [c.id, c])) };
+      }
+      const T = this.detailTiles;
+      let ready = true;
+      for (const [name] of need) {
+        const tile = T.map.get(name);
+        if (!tile) {
+          T.map.set(name, { loading: true });
+          fetch(d.dir + name + ".json").then(r => r.json()).then(fc => {
+            GG.fixWinding(fc);
+            fc.features.forEach(f => { f.c = T.byId.get(f.id) || null; });
+            T.map.set(name, { fc });
+            if (this.detailTiles === T) this.requestDraw();
+          }).catch(() => T.map.delete(name));
+          ready = false;
+        } else if (!tile.fc) ready = false;
+      }
+      if (!ready || !need.length) return null;
+      const path = d3.geoPath(this.flat), feats = [], coast = new Path2D(), borders = new Path2D(), fcs = [];
+      for (const [name] of need) {
+        const tile = T.map.get(name);
+        if (tile.flat !== this.flat) {
+          tile.flat = this.flat;
+          tile.feats = tile.fc.features.map(f => ({ f, p: new Path2D(path(f) || "") }));
+          tile.coast = new Path2D(path(tile.fc.coast) || ""); tile.borders = new Path2D(path(tile.fc.borders) || "");
+        }
+        tile.feats.forEach(o => feats.push(o)); coast.addPath(tile.coast); borders.addPath(tile.borders); fcs.push(tile.fc);
+      }
+      this.detailFcs = fcs;
+      return { feats, coast, borders };
+    }
+
     // A history layer (Russia's timeline): `h` = { fc, year } or null. Each piece is tinted by whether Russia held it in
     // that year (strong), held it earlier but lost it (pale), or annexed it later without recognition (hatched);
     // today's border is outlined to compare with.
@@ -729,13 +802,24 @@
           shapes: { type: "FeatureCollection", features: fc.features.filter(f => f.geometry.type !== "Point") },
           dots: fc.features.filter(f => f.geometry.type === "Point"),
         };
+        // shaded in bands (properties.band 1–4), each drawn as its own layer: darker for a higher band
+        if (fc.features.some(f => f.properties && f.properties.band)) {
+          const ALPHA = { 1: 0.14, 2: 0.28, 3: 0.45, 4: 0.65 };
+          fc._bands = [1, 2, 3, 4].map(b => ({ alpha: ALPHA[b],
+            shapes: { type: "FeatureCollection", features: fc._split.shapes.features.filter(f => f.properties.band === b) } }))
+            .filter(L => L.shapes.features.length);
+        }
       }
       this.resPaths = null;
       this.requestDraw();
     }
     drawReserves(ctx, path, k, onBox) {
       if (!this.reserves) return;
-      const shapes = this.reserves._split.shapes, col = this.col;
+      const layers = this.reserves._bands || [{ shapes: this.reserves._split.shapes, alpha: 0.35 }];
+      layers.forEach(L => this.drawReserveLayer(ctx, path, k, onBox, L.shapes, L.alpha));
+    }
+    drawReserveLayer(ctx, path, k, onBox, shapes, fillAlpha) {
+      const col = this.col;
       ctx.save();
       let shape = null;
       const specks = []; // shapes too small to outline at this zoom: screen points, drawn as 1.5 px specks
@@ -771,7 +855,7 @@
         const m = ctx.getTransform(), d = this.dpr;
         lp.specks.forEach(b => specks.push([(m.a * b[0] + m.e) / d, (m.d * b[1] + m.f) / d]));
       }
-      ctx.globalAlpha = 0.35; ctx.fillStyle = col.reserve;
+      ctx.globalAlpha = fillAlpha; ctx.fillStyle = col.reserve;
       if (path) ctx.fill(); else ctx.fill(shape);
       ctx.globalAlpha = 0.9; ctx.strokeStyle = col.reserve; ctx.lineWidth = 0.8 / k;
       if (path) ctx.stroke(); else ctx.stroke(shape);
@@ -936,12 +1020,13 @@
       };
       const offsets = this.copies();
       const onScreen = (x, y, r) => x + r > -m && x - r < W + m && y + r > -m && y - r < H + m;
-      const shapeOf = c => {
-        if (!this.visible(c.shape.center)) return null;
-        const ref = norm(c.shape.center[0]);
-        const P = flat ? (ll => flatPt(ll, ref)) : proj;
-        const [x, y] = P(c.shape.center);
-        let pts = c.shape.ring.map(p => P(p));
+      const shapeOf = (c, sh = c.shape) => {
+        if (!this.visible(sh.center)) return null;
+        const ref = norm(sh.center[0]);
+        // (unwrapped points only matter on the world's wrapping flat map; a fitted country map uses its projection)
+        const P = flat && this.wrap ? (ll => flatPt(ll, ref)) : proj;
+        const [x, y] = P(sh.center);
+        let pts = sh.ring.map(p => P(p));
         const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
         const size = Math.max(d3.max(xs) - d3.min(xs), d3.max(ys) - d3.min(ys));
         const f = Math.max(1, c.minPx / Math.max(size, 0.01));
@@ -988,6 +1073,11 @@
       });
       geo.countries.forEach(c => {
         if (hidden.has(c) || !this.active(c)) return;
+        // a part's far islands (c.isles: Brazil's Fernando de Noronha and Trindade) get their own ovals, tappable as the part
+        (c.isles || []).forEach(sh => {
+          const s = shapeOf(c, sh); if (!s) return;
+          offsets.forEach(dx => { if (onScreen(s.x + dx, s.y, s.r)) islands.push(shift(s, dx)); });
+        });
         if (c.shape) {
           const s = shapeOf(c); if (!s) return;
           offsets.forEach(dx => { if (onScreen(s.x + dx, s.y, s.r)) islands.push(shift(s, dx)); });
@@ -1010,6 +1100,9 @@
       rings.forEach(d => {
         const st = this.opts.getState(d.c);
         ctx.beginPath(); ctx.arc(d.x, d.y, d.d / 2, 0, 2 * Math.PI);
+        // a coloured circle (Italy's enclaves: Vatican City yellow, San Marino blue)
+        const rc = d.c.info && d.c.info.ringColour;
+        if (rc) { ctx.globalAlpha = 0.85; ctx.fillStyle = rc; ctx.fill(); ctx.globalAlpha = 1; }
         ctx.lineWidth = st ? 2.5 : 1.5; ctx.strokeStyle = st ? col[st] : col.marker; ctx.stroke();
       });
       bubbles.forEach(b => {
@@ -1128,6 +1221,10 @@
     landAt(x, y) {
       const ll = this.lonLatAt(x, y);
       if (!ll) return null;
+      if (this.detailOn && this.detailFcs) { // zoomed in on the detail level: tap what's drawn
+        for (const fc of this.detailFcs) for (const f of fc.features) if (f.c && d3.geoContains(f, ll)) return f.c;
+        return null;
+      }
       for (const c of this.geo.countries) {
         if (!c.feature || !inBounds(c.bounds, ll)) continue;
         if (d3.geoContains(c.feature, ll)) return c;

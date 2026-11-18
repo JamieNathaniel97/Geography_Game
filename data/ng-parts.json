@@ -1,0 +1,1832 @@
+[
+{
+"iso": "NG-AB",
+"id": "NG-AB",
+"name": "Abia",
+"names": [
+"Abia",
+"Abia State"
+],
+"capitals": [
+"Umuahia"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-AB",
+"info": {
+"abbr": "AB",
+"kind": "State",
+"region": "South East",
+"pop": 3841943,
+"popYear": "2019 estimate",
+"area": 6320,
+"flag": false,
+"facts": {
+"ethnic": "Igbo",
+"languages": "Igbo",
+"religion": "Mostly Christianity",
+"climate": "Rainforest and derived savanna",
+"dish": "Ofe Owerri and abacha",
+"festival": "The New Yam Festival",
+"river": "Imo River",
+"created": "1991, from Imo",
+"industry": "Trade and manufacturing in Aba (shoes, clothes)",
+"person": "Michael Okpara",
+"nickname": "God's Own State",
+"city": "Aba"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 34
+},
+"capLL": [
+[
+7.486,
+5.532
+]
+]
+},
+{
+"iso": "NG-AD",
+"id": "NG-AD",
+"name": "Adamawa",
+"names": [
+"Adamawa",
+"Adamawa State"
+],
+"capitals": [
+"Yola"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-AD",
+"info": {
+"abbr": "AD",
+"kind": "State",
+"region": "North East",
+"pop": 4536948,
+"popYear": "2019 estimate",
+"area": 36917,
+"flag": false,
+"facts": {
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ethnic": "Fulani, Bachama and many others",
+"languages": "Fulfulde and Hausa",
+"ruler": "The Lamido of Adamawa",
+"river": "Benue",
+"high": "Chappal Waddi, 2,419 m: Nigeria's highest (on the Taraba border)",
+"wonder": "The Mandara Mountains",
+"created": "1991, from Gongola",
+"kingdom": "The Adamawa Emirate",
+"industry": "Farming and cattle",
+"nickname": "Land of Beauty"
+},
+"coastal": false,
+"borders": [
+"Cameroon"
+],
+"areaRank": 8
+},
+"capLL": [
+[
+12.48,
+9.21
+]
+]
+},
+{
+"iso": "NG-AK",
+"id": "NG-AK",
+"name": "Akwa Ibom",
+"names": [
+"Akwa Ibom",
+"Akwa Ibom State",
+"Akwa-Ibom"
+],
+"capitals": [
+"Uyo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-AK",
+"info": {
+"abbr": "AK",
+"kind": "State",
+"region": "South South",
+"pop": 4780581,
+"popYear": "2019 estimate",
+"area": 7081,
+"flag": false,
+"facts": {
+"religion": "Mostly Christianity",
+"climate": "Rainforest and mangrove swamp",
+"ethnic": "Ibibio, Annang and Oron",
+"languages": "Ibibio and Annang",
+"dish": "Afang soup and edikang ikong",
+"river": "Qua Iboe and Cross River",
+"created": "1987, from Cross River",
+"industry": "Oil and gas (Nigeria's top producer)",
+"wonder": "Ibeno beach, one of West Africa's longest",
+"nickname": "Land of Promise"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 31
+},
+"capLL": [
+[
+7.85,
+5.008
+]
+]
+},
+{
+"iso": "NG-AN",
+"id": "NG-AN",
+"name": "Anambra",
+"names": [
+"Anambra",
+"Anambra State"
+],
+"capitals": [
+"Awka"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-AN",
+"info": {
+"abbr": "AN",
+"kind": "State",
+"region": "South East",
+"pop": 5599910,
+"popYear": "2019 estimate",
+"area": 4844,
+"flag": false,
+"facts": {
+"ethnic": "Igbo",
+"languages": "Igbo",
+"religion": "Mostly Christianity",
+"climate": "Rainforest and derived savanna",
+"dish": "Ofe onugbu (bitter leaf soup)",
+"festival": "The Ofala Festival (Onitsha)",
+"ruler": "The Obi of Onitsha",
+"river": "Niger",
+"created": "1991 (today's state), from the old Anambra",
+"kingdom": "The Nri kingdom",
+"industry": "Trade: Onitsha Main Market, one of Africa's largest",
+"person": "Chinua Achebe (Ogidi)",
+"nickname": "Light of the Nation (formerly Home for All)",
+"city": "Onitsha"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 36
+},
+"capLL": [
+[
+7.07,
+6.21
+]
+]
+},
+{
+"iso": "NG-BA",
+"id": "NG-BA",
+"name": "Bauchi",
+"names": [
+"Bauchi",
+"Bauchi State"
+],
+"capitals": [
+"Bauchi"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-BA",
+"info": {
+"abbr": "BA",
+"kind": "State",
+"region": "North East",
+"pop": 7540663,
+"popYear": "2019 estimate",
+"area": 45893,
+"flag": false,
+"facts": {
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ethnic": "Hausa, Fulani and many smaller groups",
+"languages": "Hausa",
+"ruler": "The Emir of Bauchi",
+"wonder": "Yankari National Park and its Wikki Warm Springs",
+"created": "1976, from North-Eastern State",
+"kingdom": "The Bauchi Emirate",
+"industry": "Farming and tourism (Yankari)",
+"person": "Abubakar Tafawa Balewa, Nigeria's first prime minister",
+"nickname": "Pearl of Tourism"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 5
+},
+"capLL": [
+[
+9.84,
+10.31
+]
+]
+},
+{
+"iso": "NG-BY",
+"id": "NG-BY",
+"name": "Bayelsa",
+"names": [
+"Bayelsa",
+"Bayelsa State"
+],
+"capitals": [
+"Yenagoa"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-BY",
+"info": {
+"abbr": "BY",
+"kind": "State",
+"region": "South South",
+"pop": 2394725,
+"popYear": "2019 estimate",
+"area": 10773,
+"flag": false,
+"facts": {
+"religion": "Mostly Christianity",
+"climate": "Mangrove swamp and rainforest",
+"ethnic": "Ijaw",
+"languages": "Ijaw",
+"dish": "Fisherman soup and kekefiyai",
+"river": "Niger Delta creeks (Nun and Forcados)",
+"created": "1996, from Rivers",
+"industry": "Oil and gas (Oloibiri, Nigeria's first oil well, 1956)",
+"person": "Goodluck Jonathan",
+"nickname": "Glory of All Lands"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 28
+},
+"capLL": [
+[
+6.264,
+4.925
+]
+]
+},
+{
+"iso": "NG-BE",
+"id": "NG-BE",
+"name": "Benue",
+"names": [
+"Benue",
+"Benue State"
+],
+"capitals": [
+"Makurdi"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-BE",
+"info": {
+"abbr": "BE",
+"kind": "State",
+"region": "North Central",
+"pop": 5787706,
+"popYear": "2019 estimate",
+"area": 34059,
+"flag": false,
+"facts": {
+"religion": "Christianity and Islam",
+"climate": "Guinea savanna",
+"ethnic": "Tiv, Idoma and Igede",
+"languages": "Tiv and Idoma",
+"dish": "Pounded yam",
+"festival": "The Alekwu Festival (Idoma)",
+"river": "Benue",
+"created": "1976, from Benue-Plateau",
+"industry": "Farming: the 'Food Basket of the Nation' (yams, soybeans)",
+"nickname": "Food Basket of the Nation"
+},
+"coastal": false,
+"borders": [
+"Cameroon"
+],
+"areaRank": 11
+},
+"capLL": [
+[
+8.53,
+7.73
+]
+]
+},
+{
+"iso": "NG-BO",
+"id": "NG-BO",
+"name": "Borno",
+"names": [
+"Borno",
+"Borno State"
+],
+"capitals": [
+"Maiduguri"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-BO",
+"info": {
+"abbr": "BO",
+"kind": "State",
+"region": "North East",
+"pop": 5751590,
+"popYear": "2019 estimate",
+"area": 70898,
+"flag": false,
+"facts": {
+"religion": "Mostly Islam",
+"climate": "Sahel",
+"ethnic": "Kanuri",
+"languages": "Kanuri",
+"ruler": "The Shehu of Borno",
+"river": "Lake Chad (shrinking) and the Yobe",
+"created": "1976, from North-Eastern State",
+"kingdom": "The Kanem-Bornu Empire (over 1,000 years)",
+"industry": "Farming and fishing on Lake Chad",
+"nickname": "Home of Peace"
+},
+"coastal": false,
+"borders": [
+"Cameroon",
+"Chad",
+"Niger"
+],
+"areaRank": 2
+},
+"capLL": [
+[
+13.158,
+11.852
+]
+]
+},
+{
+"iso": "NG-CR",
+"id": "NG-CR",
+"name": "Cross River",
+"names": [
+"Cross River",
+"Cross River State"
+],
+"capitals": [
+"Calabar"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-CR",
+"info": {
+"abbr": "CR",
+"kind": "State",
+"region": "South South",
+"pop": 4175020,
+"popYear": "2019 estimate",
+"area": 20156,
+"flag": false,
+"facts": {
+"religion": "Mostly Christianity",
+"climate": "Rainforest and mangrove swamp",
+"ethnic": "Efik, Ejagham and Bekwarra",
+"languages": "Efik",
+"dish": "Edikang ikong and afang",
+"festival": "The Calabar Carnival",
+"river": "Cross River",
+"wonder": "Obudu Mountain Resort and Cross River National Park (gorillas)",
+"created": "1967, as South-Eastern State",
+"kingdom": "The Efik city-states of Old Calabar",
+"industry": "Tourism and cocoa",
+"nickname": "The People's Paradise"
+},
+"coastal": true,
+"borders": [
+"Cameroon"
+],
+"areaRank": 19
+},
+"capLL": [
+[
+8.33,
+4.96
+]
+]
+},
+{
+"iso": "NG-DE",
+"id": "NG-DE",
+"name": "Delta",
+"names": [
+"Delta",
+"Delta State"
+],
+"capitals": [
+"Asaba"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-DE",
+"info": {
+"abbr": "DE",
+"kind": "State",
+"region": "South South",
+"pop": 5307543,
+"popYear": "2019 estimate",
+"area": 17698,
+"flag": false,
+"facts": {
+"religion": "Mostly Christianity",
+"climate": "Rainforest and mangrove swamp",
+"ethnic": "Urhobo, Itsekiri, Ijaw, Isoko and Anioma Igbo",
+"languages": "Urhobo and Itsekiri",
+"dish": "Banga soup and starch",
+"river": "Niger and Forcados",
+"created": "1991, from Bendel",
+"industry": "Oil and gas (Warri)",
+"person": "Jay-Jay Okocha",
+"nickname": ""
+},
+"coastal": true,
+"borders": [],
+"areaRank": 23
+},
+"capLL": [
+[
+6.78,
+6.14
+]
+]
+},
+{
+"iso": "NG-EB",
+"id": "NG-EB",
+"name": "Ebonyi",
+"names": [
+"Ebonyi",
+"Ebonyi State"
+],
+"capitals": [
+"Abakaliki"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-EB",
+"info": {
+"abbr": "EB",
+"kind": "State",
+"region": "South East",
+"pop": 3007155,
+"popYear": "2019 estimate",
+"area": 6400,
+"flag": false,
+"facts": {
+"ethnic": "Igbo",
+"languages": "Igbo",
+"religion": "Mostly Christianity",
+"climate": "Rainforest and derived savanna",
+"dish": "Abacha and rice (Abakaliki rice)",
+"festival": "The Iri Ji (new yam) festivals",
+"created": "1996, from Abia and Enugu",
+"industry": "Rice farming and salt and lead mining",
+"nickname": "Salt of the Nation"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 32
+},
+"capLL": [
+[
+8.113,
+6.325
+]
+]
+},
+{
+"iso": "NG-ED",
+"id": "NG-ED",
+"name": "Edo",
+"names": [
+"Edo",
+"Edo State"
+],
+"capitals": [
+"Benin City",
+"Benin"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-ED",
+"info": {
+"abbr": "ED",
+"kind": "State",
+"region": "South South",
+"pop": 4461137,
+"popYear": "2019 estimate",
+"area": 19559,
+"flag": false,
+"facts": {
+"religion": "Mostly Christianity",
+"climate": "Rainforest and mangrove swamp",
+"ethnic": "Edo (Bini), Esan and Etsako",
+"languages": "Edo",
+"dish": "Black soup and owo soup",
+"festival": "Igue Festival",
+"ruler": "The Oba of Benin",
+"created": "1991, from Bendel",
+"kingdom": "The Kingdom of Benin, famous for its bronzes",
+"industry": "Rubber, timber and crafts",
+"person": "Oba Ovonramwen, deposed by the British in 1897",
+"nickname": "Heartbeat of Nigeria (or Heartbeat of the Nation)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 21
+},
+"capLL": [
+[
+5.618,
+6.342
+]
+],
+"notTypo": [
+"Imo",
+"Ondo",
+"Oyo"
+]
+},
+{
+"iso": "NG-EK",
+"id": "NG-EK",
+"name": "Ekiti",
+"names": [
+"Ekiti",
+"Ekiti State"
+],
+"capitals": [
+"Ado Ekiti",
+"Ado-Ekiti"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-EK",
+"info": {
+"abbr": "EK",
+"kind": "State",
+"region": "South West",
+"pop": 3350401,
+"popYear": "2019 estimate",
+"area": 6353,
+"flag": false,
+"facts": {
+"ethnic": "Yoruba",
+"languages": "Yoruba",
+"religion": "Christianity and Islam",
+"climate": "Rainforest and savanna",
+"dish": "Pounded yam and efo riro",
+"festival": "The Udiroko Festival (Ado)",
+"created": "1996, from Ondo",
+"wonder": "The Ikogosi warm and cold springs",
+"industry": "Farming and education ('the Land of Honour')",
+"nickname": "Land of Honour and Integrity"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 33
+},
+"capLL": [
+[
+5.22,
+7.63
+]
+]
+},
+{
+"iso": "NG-EN",
+"id": "NG-EN",
+"name": "Enugu",
+"names": [
+"Enugu",
+"Enugu State"
+],
+"capitals": [
+"Enugu"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-EN",
+"info": {
+"abbr": "EN",
+"kind": "State",
+"region": "South East",
+"pop": 4396098,
+"popYear": "2019 estimate",
+"area": 13161,
+"flag": false,
+"facts": {
+"ethnic": "Igbo",
+"languages": "Igbo",
+"religion": "Mostly Christianity",
+"climate": "Rainforest and derived savanna",
+"dish": "Ofe akwu and okpa",
+"festival": "The Mmanwu (masquerade) Festival",
+"created": "1991, from Anambra",
+"industry": "Coal mining (history: 'Coal City')",
+"person": "Nnamdi Azikiwe lived and worked in Enugu",
+"nickname": "Coal City State"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 26
+},
+"capLL": [
+[
+7.5,
+6.45
+]
+]
+},
+{
+"iso": "NG-FC",
+"id": "NG-FC",
+"name": "Federal Capital Territory",
+"names": [
+"Federal Capital Territory",
+"FCT",
+"Abuja",
+"Abuja FCT"
+],
+"capitals": [
+"Abuja"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-FC",
+"info": {
+"abbr": "FC",
+"kind": "Federal Capital Territory",
+"region": "North Central",
+"pop": 1406239,
+"popYear": "2019 estimate",
+"area": 7315,
+"flag": false,
+"facts": {
+"ethnic": "Gbagyi and people from all over Nigeria",
+"languages": "English, Hausa and Gbagyi",
+"religion": "Christianity and Islam",
+"climate": "Guinea savanna",
+"wonder": "Aso Rock and Zuma Rock (on the Niger border)",
+"created": "1976, from parts of Niger, Plateau and Kogi",
+"industry": "Government: Abuja became the capital in 1991",
+"nickname": ""
+},
+"coastal": false,
+"borders": [],
+"areaRank": 30
+},
+"capLL": [
+[
+7.531,
+9.085
+]
+]
+},
+{
+"iso": "NG-GO",
+"id": "NG-GO",
+"name": "Gombe",
+"names": [
+"Gombe",
+"Gombe State"
+],
+"capitals": [
+"Gombe"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-GO",
+"info": {
+"abbr": "GO",
+"kind": "State",
+"region": "North East",
+"pop": 3623462,
+"popYear": "2019 estimate",
+"area": 18768,
+"flag": false,
+"facts": {
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ethnic": "Fulani, Tangale and Waja",
+"languages": "Hausa and Fulfulde",
+"created": "1996, from Bauchi",
+"ruler": "The Emir of Gombe",
+"industry": "Farming and cement (Ashaka)",
+"nickname": "Jewel in the Savannah"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 22
+},
+"capLL": [
+[
+11.17,
+10.29
+]
+],
+"notTypo": [
+"Yobe"
+]
+},
+{
+"iso": "NG-IM",
+"id": "NG-IM",
+"name": "Imo",
+"names": [
+"Imo",
+"Imo State"
+],
+"capitals": [
+"Owerri"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-IM",
+"info": {
+"abbr": "IM",
+"kind": "State",
+"region": "South East",
+"pop": 5167722,
+"popYear": "2019 estimate",
+"area": 5530,
+"flag": false,
+"facts": {
+"ethnic": "Igbo",
+"languages": "Igbo",
+"religion": "Mostly Christianity",
+"climate": "Rainforest and derived savanna",
+"dish": "Ofe Owerri",
+"festival": "The New Yam Festival",
+"created": "1976, from East Central",
+"wonder": "The Oguta Lake",
+"industry": "Oil and palm produce",
+"nickname": "Eastern Heartland (formerly Land of Hope)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 35
+},
+"capLL": [
+[
+7.026,
+5.493
+]
+],
+"notTypo": [
+"Edo",
+"Oyo"
+]
+},
+{
+"iso": "NG-JI",
+"id": "NG-JI",
+"name": "Jigawa",
+"names": [
+"Jigawa",
+"Jigawa State"
+],
+"capitals": [
+"Dutse"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-JI",
+"info": {
+"abbr": "JI",
+"kind": "State",
+"region": "North West",
+"pop": 6779080,
+"popYear": "2019 estimate",
+"area": 23154,
+"flag": false,
+"facts": {
+"ethnic": "Hausa and Fulani",
+"languages": "Hausa and Fulfulde",
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ruler": "The Emir of Dutse",
+"created": "1991, from Kano",
+"wonder": "The Hadejia-Nguru wetlands",
+"industry": "Farming",
+"nickname": "The New World"
+},
+"coastal": false,
+"borders": [
+"Niger"
+],
+"areaRank": 18
+},
+"capLL": [
+[
+9.35,
+11.799
+]
+]
+},
+{
+"iso": "NG-KD",
+"id": "NG-KD",
+"name": "Kaduna",
+"names": [
+"Kaduna",
+"Kaduna State"
+],
+"capitals": [
+"Kaduna"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-KD",
+"info": {
+"abbr": "KD",
+"kind": "State",
+"region": "North West",
+"pop": 8324285,
+"popYear": "2019 estimate",
+"area": 46053,
+"flag": false,
+"facts": {
+"religion": "Islam and Christianity",
+"climate": "Guinea savanna",
+"ethnic": "Hausa, Gbagyi, Atyap and many others",
+"languages": "Hausa",
+"ruler": "The Emir of Zazzau (Zaria)",
+"created": "1967, as North-Central State",
+"kingdom": "The Hausa kingdom of Zazzau (Queen Amina)",
+"industry": "Textiles, the oil refinery and education (Zaria)",
+"wonder": "The Kajuru Castle and Matsirga Falls",
+"nickname": "Centre of Learning (formerly Liberal State)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 4
+},
+"capLL": [
+[
+7.438,
+10.522
+]
+]
+},
+{
+"iso": "NG-KN",
+"id": "NG-KN",
+"name": "Kano",
+"names": [
+"Kano",
+"Kano State"
+],
+"capitals": [
+"Kano"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-KN",
+"info": {
+"abbr": "KN",
+"kind": "State",
+"region": "North West",
+"pop": 14253549,
+"popYear": "2019 estimate",
+"area": 20131,
+"flag": false,
+"facts": {
+"ethnic": "Hausa and Fulani",
+"languages": "Hausa and Fulfulde",
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"dish": "Tuwo shinkafa and miyan kuka",
+"festival": "The Durbar (horse parade) at Eid",
+"ruler": "The Emir of Kano",
+"created": "1967",
+"kingdom": "The Hausa kingdom of Kano and the Sokoto Caliphate",
+"industry": "Trade (Kurmi Market), groundnut pyramids (history) and dye pits",
+"person": "Aliko Dangote, Africa's richest person",
+"nickname": "Centre of Commerce"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 20
+},
+"capLL": [
+[
+8.518,
+12.002
+]
+]
+},
+{
+"iso": "NG-KT",
+"id": "NG-KT",
+"name": "Katsina",
+"names": [
+"Katsina",
+"Katsina State"
+],
+"capitals": [
+"Katsina"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-KT",
+"info": {
+"abbr": "KT",
+"kind": "State",
+"region": "North West",
+"pop": 9300382,
+"popYear": "2019 estimate",
+"area": 24192,
+"flag": false,
+"facts": {
+"ethnic": "Hausa and Fulani",
+"languages": "Hausa and Fulfulde",
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ruler": "The Emir of Katsina",
+"created": "1987, from Kaduna",
+"kingdom": "The Hausa kingdom of Katsina",
+"industry": "Farming",
+"person": "Umaru Musa Yar'Adua and Muhammadu Buhari",
+"nickname": "Home of Hospitality"
+},
+"coastal": false,
+"borders": [
+"Niger"
+],
+"areaRank": 17
+},
+"capLL": [
+[
+7.6,
+12.99
+]
+]
+},
+{
+"iso": "NG-KE",
+"id": "NG-KE",
+"name": "Kebbi",
+"names": [
+"Kebbi",
+"Kebbi State"
+],
+"capitals": [
+"Birnin Kebbi"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-KE",
+"info": {
+"abbr": "KE",
+"kind": "State",
+"region": "North West",
+"pop": 5001610,
+"popYear": "2019 estimate",
+"area": 36800,
+"flag": false,
+"facts": {
+"ethnic": "Hausa and Fulani",
+"languages": "Hausa and Fulfulde",
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ruler": "The Emir of Gwandu",
+"created": "1991, from Sokoto",
+"festival": "The Argungu Fishing Festival",
+"river": "Rima and Niger",
+"industry": "Rice farming",
+"nickname": "Land of Equity"
+},
+"coastal": false,
+"borders": [
+"Benin",
+"Niger"
+],
+"areaRank": 10
+},
+"capLL": [
+[
+4.2,
+12.45
+]
+]
+},
+{
+"iso": "NG-KO",
+"id": "NG-KO",
+"name": "Kogi",
+"names": [
+"Kogi",
+"Kogi State"
+],
+"capitals": [
+"Lokoja"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-KO",
+"info": {
+"abbr": "KO",
+"kind": "State",
+"region": "North Central",
+"pop": 4153734,
+"popYear": "2019 estimate",
+"area": 29833,
+"flag": false,
+"facts": {
+"religion": "Christianity and Islam",
+"climate": "Guinea savanna",
+"ethnic": "Igala, Ebira and Okun (Yoruba)",
+"languages": "Igala and Ebira",
+"ruler": "The Attah of Igala",
+"river": "Where the Niger and Benue meet (Lokoja)",
+"created": "1991, from Kwara and Benue",
+"kingdom": "The Igala kingdom",
+"industry": "Iron ore and steel (Ajaokuta)",
+"nickname": "The Confluence State"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 13
+},
+"capLL": [
+[
+6.74,
+7.8
+]
+]
+},
+{
+"iso": "NG-KW",
+"id": "NG-KW",
+"name": "Kwara",
+"names": [
+"Kwara",
+"Kwara State"
+],
+"capitals": [
+"Ilorin"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-KW",
+"info": {
+"abbr": "KW",
+"kind": "State",
+"region": "North Central",
+"pop": 3259613,
+"popYear": "2019 estimate",
+"area": 36825,
+"flag": false,
+"facts": {
+"religion": "Islam and Christianity",
+"climate": "Guinea savanna",
+"ethnic": "Yoruba, Nupe and Baruba",
+"languages": "Yoruba and Nupe",
+"ruler": "The Emir of Ilorin",
+"river": "Niger",
+"created": "1967",
+"kingdom": "The Ilorin Emirate",
+"industry": "Farming and sugar",
+"wonder": "Owu Falls",
+"nickname": "State of Harmony"
+},
+"coastal": false,
+"borders": [
+"Benin"
+],
+"areaRank": 9
+},
+"capLL": [
+[
+4.548,
+8.492
+]
+]
+},
+{
+"iso": "NG-LA",
+"id": "NG-LA",
+"name": "Lagos",
+"names": [
+"Lagos",
+"Lagos State"
+],
+"capitals": [
+"Ikeja",
+"Lagos"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-LA",
+"info": {
+"abbr": "LA",
+"kind": "State",
+"region": "South West",
+"pop": 12772884,
+"popYear": "2019 estimate",
+"area": 3577,
+"flag": false,
+"facts": {
+"ethnic": "Yoruba",
+"languages": "Yoruba",
+"religion": "Christianity and Islam",
+"climate": "Coastal lagoons and mangroves",
+"dish": "Jollof rice, suya and Lagos street food",
+"festival": "Eyo Festival",
+"ruler": "The Oba of Lagos",
+"created": "1967",
+"kingdom": "The Kingdom of Lagos",
+"industry": "Business, finance, Nollywood films and Afrobeats; Nigeria's biggest city",
+"person": "Fela Kuti lived and played here",
+"wonder": "The Lekki Conservation Centre",
+"nickname": "Centre of Excellence",
+"city": "Lagos"
+},
+"coastal": true,
+"borders": [
+"Benin"
+],
+"areaRank": 37
+},
+"anchorLL": [
+3.955,
+6.543
+],
+"capLL": [
+[
+3.348,
+6.601
+]
+]
+},
+{
+"iso": "NG-NA",
+"id": "NG-NA",
+"name": "Nasarawa",
+"names": [
+"Nasarawa",
+"Nasarawa State",
+"Nassarawa"
+],
+"capitals": [
+"Lafia"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-NA",
+"info": {
+"abbr": "NA",
+"kind": "State",
+"region": "North Central",
+"pop": 2632239,
+"popYear": "2019 estimate",
+"area": 26256,
+"flag": false,
+"facts": {
+"religion": "Christianity and Islam",
+"climate": "Guinea savanna",
+"ethnic": "Eggon, Alago and many others",
+"languages": "Hausa",
+"created": "1996, from Plateau",
+"ruler": "The Emir of Lafia",
+"industry": "Farming and minerals",
+"nickname": "Home of Solid Minerals"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 15
+},
+"capLL": [
+[
+8.52,
+8.49
+]
+]
+},
+{
+"iso": "NG-NI",
+"id": "NG-NI",
+"name": "Niger",
+"names": [
+"Niger",
+"Niger State"
+],
+"capitals": [
+"Minna"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-NI",
+"info": {
+"abbr": "NI",
+"kind": "State",
+"region": "North Central",
+"pop": 6220617,
+"popYear": "2019 estimate",
+"area": 76363,
+"flag": false,
+"facts": {
+"religion": "Mostly Islam",
+"climate": "Guinea savanna",
+"ethnic": "Nupe, Gbagyi and Hausa",
+"languages": "Nupe and Hausa",
+"river": "Niger (the Kainji, Jebba and Shiroro dams)",
+"created": "1976, from North-Western State",
+"wonder": "Kainji Lake National Park",
+"kingdom": "The Nupe kingdom (Bida)",
+"industry": "Hydroelectric power and farming; Nigeria's largest state by area",
+"nickname": "The Power State"
+},
+"coastal": false,
+"borders": [
+"Benin"
+],
+"areaRank": 1
+},
+"capLL": [
+[
+6.55,
+9.62
+]
+]
+},
+{
+"iso": "NG-OG",
+"id": "NG-OG",
+"name": "Ogun",
+"names": [
+"Ogun",
+"Ogun State"
+],
+"capitals": [
+"Abeokuta"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-OG",
+"info": {
+"abbr": "OG",
+"kind": "State",
+"region": "South West",
+"pop": 5945275,
+"popYear": "2019 estimate",
+"area": 16981,
+"flag": false,
+"facts": {
+"ethnic": "Yoruba",
+"languages": "Yoruba",
+"religion": "Christianity and Islam",
+"climate": "Rainforest and savanna",
+"dish": "Ofada rice and stew",
+"festival": "The Ojude Oba Festival (Ijebu Ode)",
+"ruler": "The Alake of Egbaland",
+"created": "1976, from Western State",
+"wonder": "Olumo Rock (Abeokuta)",
+"industry": "Factories, universities and adire (tie-dye) cloth",
+"person": "Wole Soyinka (Abeokuta) and Olusegun Obasanjo",
+"nickname": "Gateway State"
+},
+"coastal": true,
+"borders": [
+"Benin"
+],
+"areaRank": 24
+},
+"capLL": [
+[
+3.35,
+7.16
+]
+],
+"notTypo": [
+"Osun"
+]
+},
+{
+"iso": "NG-ON",
+"id": "NG-ON",
+"name": "Ondo",
+"names": [
+"Ondo",
+"Ondo State"
+],
+"capitals": [
+"Akure"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-ON",
+"info": {
+"abbr": "ON",
+"kind": "State",
+"region": "South West",
+"pop": 4969707,
+"popYear": "2019 estimate",
+"area": 15500,
+"flag": false,
+"facts": {
+"ethnic": "Yoruba",
+"languages": "Yoruba",
+"religion": "Christianity and Islam",
+"climate": "Rainforest and savanna",
+"dish": "Pounded yam and egusi",
+"ruler": "The Deji of Akure",
+"created": "1976, from Western State",
+"wonder": "Idanre Hills",
+"industry": "Cocoa (Nigeria's biggest producer)",
+"nickname": "Sunshine State"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 25
+},
+"capLL": [
+[
+5.2,
+7.25
+]
+],
+"notTypo": [
+"Edo",
+"Oyo"
+]
+},
+{
+"iso": "NG-OS",
+"id": "NG-OS",
+"name": "Osun",
+"names": [
+"Osun",
+"Osun State"
+],
+"capitals": [
+"Osogbo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-OS",
+"info": {
+"abbr": "OS",
+"kind": "State",
+"region": "South West",
+"pop": 4237396,
+"popYear": "2019 estimate",
+"area": 9251,
+"flag": false,
+"facts": {
+"ethnic": "Yoruba",
+"languages": "Yoruba",
+"religion": "Christianity and Islam",
+"climate": "Rainforest and savanna",
+"dish": "Amala and ewedu",
+"festival": "The Osun-Osogbo Festival",
+"ruler": "The Ooni of Ife",
+"created": "1991, from Oyo",
+"kingdom": "Ile-Ife, the ancient home of the Yoruba",
+"unesco": "Osun-Osogbo Sacred Grove",
+"industry": "Farming and crafts",
+"nickname": "State of the Living Spring (formerly Land of Virtue)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 29
+},
+"capLL": [
+[
+4.556,
+7.771
+]
+],
+"notTypo": [
+"Ogun"
+]
+},
+{
+"iso": "NG-OY",
+"id": "NG-OY",
+"name": "Oyo",
+"names": [
+"Oyo",
+"Oyo State"
+],
+"capitals": [
+"Ibadan"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-OY",
+"info": {
+"abbr": "OY",
+"kind": "State",
+"region": "South West",
+"pop": 7512855,
+"popYear": "2019 estimate",
+"area": 28454,
+"flag": false,
+"facts": {
+"ethnic": "Yoruba",
+"languages": "Yoruba",
+"religion": "Christianity and Islam",
+"climate": "Rainforest and savanna",
+"dish": "Amala and gbegiri",
+"ruler": "The Alaafin of Oyo",
+"created": "1976, from Western State",
+"kingdom": "The Oyo Empire",
+"wonder": "Old Oyo National Park",
+"industry": "Trade and education (University of Ibadan, 1948)",
+"nickname": "Pace-Setter State"
+},
+"coastal": false,
+"borders": [
+"Benin"
+],
+"areaRank": 14
+},
+"capLL": [
+[
+3.928,
+7.382
+]
+],
+"notTypo": [
+"Edo",
+"Imo",
+"Ondo"
+]
+},
+{
+"iso": "NG-PL",
+"id": "NG-PL",
+"name": "Plateau",
+"names": [
+"Plateau",
+"Plateau State"
+],
+"capitals": [
+"Jos"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-PL",
+"info": {
+"abbr": "PL",
+"kind": "State",
+"region": "North Central",
+"pop": 4400974,
+"popYear": "2019 estimate",
+"area": 30913,
+"flag": false,
+"facts": {
+"religion": "Christianity and Islam",
+"climate": "Highland: cooler than the rest of Nigeria",
+"ethnic": "Berom, Ngas, Tarok and many others",
+"languages": "Hausa and Berom",
+"ruler": "The Gbong Gwom Jos",
+"created": "1976, from Benue-Plateau",
+"wonder": "The Jos Plateau, Shere Hills and Assop Falls",
+"industry": "Tin mining (history), potatoes and tourism",
+"nickname": "Home of Peace and Tourism"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 12
+},
+"capLL": [
+[
+8.89,
+9.93
+]
+]
+},
+{
+"iso": "NG-RI",
+"id": "NG-RI",
+"name": "Rivers",
+"names": [
+"Rivers",
+"Rivers State"
+],
+"capitals": [
+"Port Harcourt",
+"PH"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-RI",
+"info": {
+"abbr": "RI",
+"kind": "State",
+"region": "South South",
+"pop": 7034973,
+"popYear": "2019 estimate",
+"area": 11077,
+"flag": false,
+"facts": {
+"religion": "Mostly Christianity",
+"climate": "Rainforest and mangrove swamp",
+"ethnic": "Ikwerre, Ijaw, Ogoni and Ogba",
+"languages": "Ikwerre and Kalabari",
+"dish": "Native soup and bole (roast plantain) with fish",
+"created": "1967",
+"river": "Bonny River",
+"industry": "Oil and gas (Port Harcourt, Bonny LNG)",
+"person": "Ken Saro-Wiwa (Ogoni)",
+"nickname": "Treasure Base of the Nation"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 27
+},
+"capLL": [
+[
+7.008,
+4.812
+]
+]
+},
+{
+"iso": "NG-SO",
+"id": "NG-SO",
+"name": "Sokoto",
+"names": [
+"Sokoto",
+"Sokoto State"
+],
+"capitals": [
+"Sokoto"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-SO",
+"info": {
+"abbr": "SO",
+"kind": "State",
+"region": "North West",
+"pop": 5863187,
+"popYear": "2019 estimate",
+"area": 25973,
+"flag": false,
+"facts": {
+"ethnic": "Hausa and Fulani",
+"languages": "Hausa and Fulfulde",
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ruler": "The Sultan of Sokoto, leader of Nigeria's Muslims",
+"created": "1976, from North-Western State",
+"kingdom": "The Sokoto Caliphate, founded by Usman dan Fodio (1804)",
+"river": "Sokoto and Rima",
+"industry": "Farming and leather",
+"nickname": "Seat of the Caliphate"
+},
+"coastal": false,
+"borders": [
+"Niger"
+],
+"areaRank": 16
+},
+"capLL": [
+[
+5.24,
+13.06
+]
+]
+},
+{
+"iso": "NG-TA",
+"id": "NG-TA",
+"name": "Taraba",
+"names": [
+"Taraba",
+"Taraba State"
+],
+"capitals": [
+"Jalingo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-TA",
+"info": {
+"abbr": "TA",
+"kind": "State",
+"region": "North East",
+"pop": 3331885,
+"popYear": "2019 estimate",
+"area": 54473,
+"flag": false,
+"facts": {
+"religion": "Christianity and Islam",
+"climate": "Sudan and Sahel savanna",
+"ethnic": "Jukun, Mumuye, Fulani and many others",
+"languages": "Hausa and Fulfulde",
+"ruler": "The Aku Uka of Wukari",
+"high": "Chappal Waddi, 2,419 m: Nigeria's highest",
+"wonder": "The Mambilla Plateau and Gashaka-Gumti National Park",
+"created": "1991, from Gongola",
+"kingdom": "The Kwararafa (Jukun) kingdom",
+"industry": "Tea (Mambilla) and cattle",
+"nickname": "Nature's Gift to the Nation"
+},
+"coastal": false,
+"borders": [
+"Cameroon"
+],
+"areaRank": 3
+},
+"capLL": [
+[
+11.36,
+8.9
+]
+]
+},
+{
+"iso": "NG-YO",
+"id": "NG-YO",
+"name": "Yobe",
+"names": [
+"Yobe",
+"Yobe State"
+],
+"capitals": [
+"Damaturu"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-YO",
+"info": {
+"abbr": "YO",
+"kind": "State",
+"region": "North East",
+"pop": 3398177,
+"popYear": "2019 estimate",
+"area": 45502,
+"flag": false,
+"facts": {
+"religion": "Mostly Islam",
+"climate": "Sahel",
+"ethnic": "Kanuri, Fulani and Bade",
+"languages": "Kanuri and Hausa",
+"created": "1991, from Borno",
+"ruler": "The Emir of Fika",
+"industry": "Farming and cattle",
+"nickname": "Pride of the Sahel",
+"city": "Potiskum"
+},
+"coastal": false,
+"borders": [
+"Niger"
+],
+"areaRank": 6
+},
+"capLL": [
+[
+11.966,
+11.749
+]
+],
+"notTypo": [
+"Gombe"
+]
+},
+{
+"iso": "NG-ZA",
+"id": "NG-ZA",
+"name": "Zamfara",
+"names": [
+"Zamfara",
+"Zamfara State"
+],
+"capitals": [
+"Gusau"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "NG-ZA",
+"info": {
+"abbr": "ZA",
+"kind": "State",
+"region": "North West",
+"pop": 5317793,
+"popYear": "2019 estimate",
+"area": 39762,
+"flag": false,
+"facts": {
+"ethnic": "Hausa and Fulani",
+"languages": "Hausa and Fulfulde",
+"religion": "Mostly Islam",
+"climate": "Sudan and Sahel savanna",
+"ruler": "The Emir of Gusau",
+"created": "1996, from Sokoto",
+"industry": "Farming and gold mining",
+"nickname": "Farming is Our Pride"
+},
+"coastal": false,
+"borders": [
+"Niger"
+],
+"areaRank": 7
+},
+"capLL": [
+[
+6.66,
+12.17
+]
+]
+}
+]

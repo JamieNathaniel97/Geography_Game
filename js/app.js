@@ -7,7 +7,7 @@
   // data: "world" (countries), or a country map: "us" (US states, build 3), "ca" (Canada's provinces and territories),
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
-  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null, geoAU = null;
+  let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null, geoAU = null, geoMX = null, geoBR = null, geoDE = null, geoJP = null, geoFR = null, geoIT = null, geoES = null, geoESP = null, geoNG = null, geoAR = null;
   const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
@@ -24,6 +24,35 @@
     cn: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "china", style: "china", count: 33, noFlags: true,
       load: async () => (geoCN = geoCN || await GG.loadCN(geoWorld.lakes)) },
     // Russia: 83 federal subjects (all called "oblasts" in the menus; the card shows each one's real kind), every one with a flag
+    // Mexico: 31 states and Mexico City; games 5 and 6 use the coats of arms (most states have no official flag)
+    mx: { noun: "state", nouns: "states", Nouns: "States", region: "mexico", style: "mexico", count: 32, emblem: "coat of arms",
+      emblems: "coats of arms", load: async () => (geoMX = geoMX || await GG.loadMX(geoWorld.lakes)) },
+    // Argentina: 23 provinces and the City of Buenos Aires, all with flags (no Falklands)
+    ar: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "argentina", style: "argentina", count: 24,
+      load: async () => (geoAR = geoAR || await GG.loadAR(geoWorld.lakes)) },
+    // Nigeria: 36 states and the Federal Capital Territory; no flag games (state flags are mostly unofficial; seals shelved)
+    ng: { noun: "state", nouns: "states", Nouns: "States", region: "nigeria", style: "nigeria", count: 37, noFlags: true,
+      load: async () => (geoNG = geoNG || await GG.loadNG(geoWorld.lakes)) },
+    // Spain: two sets, like the UK's: the communities (17 and the 2 cities, with flags) and the provinces (50 and the 2 cities)
+    es: { noun: "community", nouns: "communities", Nouns: "Communities", region: "spain", style: "spain", count: 19,
+      load: async () => (geoES = geoES || await GG.loadES(geoWorld.lakes)) },
+    esp: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "spainp", style: "spain", count: 52, noFlags: true,
+      load: async () => (geoESP = geoESP || await GG.loadESP(geoWorld.lakes)) },
+    // Italy: 20 regions, all with flags; Vatican City and San Marino as circles in Learning mode only
+    it: { noun: "region", nouns: "regions", Nouns: "Regions", region: "italy", style: "italy", count: 20,
+      load: async () => (geoIT = geoIT || await GG.loadIT(geoWorld.lakes)) },
+    // France: the 13 metropolitan regions; no flag games (most regions have only a logo)
+    fr: { noun: "region", nouns: "regions", Nouns: "Regions", region: "france", style: "france", count: 13, noFlags: true,
+      load: async () => (geoFR = geoFR || await GG.loadFR(geoWorld.lakes)) },
+    // Japan: 47 prefectures, all with flags; the 9 regions as filters (REGIONS "japan-…")
+    jp: { noun: "prefecture", nouns: "prefectures", Nouns: "Prefectures", region: "japan", style: "japan", count: 47,
+      load: async () => (geoJP = geoJP || await GG.loadJP(geoWorld.lakes)) },
+    // Germany: 16 states, all with flags
+    de: { noun: "state", nouns: "states", Nouns: "States", region: "germany", style: "germany", count: 16,
+      load: async () => (geoDE = geoDE || await GG.loadDE(geoWorld.lakes)) },
+    // Brazil: 26 states and the Federal District, all with flags
+    br: { noun: "state", nouns: "states", Nouns: "States", region: "brazil", style: "brazil", count: 27,
+      load: async () => (geoBR = geoBR || await GG.loadBR(geoWorld.lakes)) },
     // Australia: 6 states, 2 mainland territories and Jervis Bay (no capital and no flag: left out of those games)
     au: { noun: "state or territory", nouns: "states and territories", Nouns: "States & territories", region: "australia",
       style: "australia", count: 9, load: async () => (geoAU = geoAU || await GG.loadAU(geoWorld.lakes)) },
@@ -39,7 +68,7 @@
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
   const isCountryMap = d => !!DATASETS[d] && d !== "world";
-  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : d === "mx" ? geoMX : d === "br" ? geoBR : d === "de" ? geoDE : d === "jp" ? geoJP : d === "fr" ? geoFR : d === "it" ? geoIT : d === "es" ? geoES : d === "esp" ? geoESP : d === "ng" ? geoNG : d === "ar" ? geoAR : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -108,6 +137,17 @@
     china:    { name: "China", us: true, test: () => true },
     russia:   { name: "Russia", us: true, test: () => true },
     australia: { name: "Australia", us: true, test: () => true },
+    mexico:   { name: "Mexico", us: true, test: () => true },
+    brazil:   { name: "Brazil", us: true, test: () => true },
+    germany:  { name: "Germany", us: true, test: () => true },
+    japan:    { name: "Japan", us: true, test: () => true },
+    france:   { name: "France", us: true, test: () => true },
+    // Italy: the enclaves (Vatican City, San Marino) are independent countries, so only in Learning mode
+    italy:    { name: "Italy", us: true, test: c => !c.info.enclave || S.mode === "explore" },
+    spain:    { name: "Spain", us: true, test: () => true },
+    nigeria:  { name: "Nigeria", us: true, test: () => true },
+    argentina: { name: "Argentina", us: true, test: () => true },
+    spainp:   { name: "Spain (provinces)", us: true, data: "esp", test: () => true },
     // Britain and Ireland, for each county set (added below): the whole map, England, Scotland, Wales and Ireland
     oceania:  { name: "Oceania",       test: c => c.cont.includes("Oceania"),       view: { globe: [167, -16, 74.3],   flat: [167, -16, 74.3] },   crop: [[110, -50], [212, 22]] },
   };
@@ -131,6 +171,21 @@
       view: { flat: [-8.0, 53.3, 5.0] }, crop: [[-10.8, 51.3], [-5.7, 55.5]] };
   });
   REGIONS.ukn = { name: "UK & Ireland", us: true, data: "ukn", test: () => true };
+  // Japan's 9 regions (Japan_plan.md), as filters for the prefecture games: [key, name, flat view, crop]
+  const JP_REGIONS = [
+    ["-hok", "Hokkaido", [142.8, 43.4, 5.6], [[139, 41.2], [146, 45.7]]],
+    ["-toh", "Tōhoku", [140.6, 39.3, 5.4], [[138.5, 36.7], [142.6, 41.8]]],
+    ["-kan", "Kantō", [139.7, 35.95, 3.0], [[138.3, 34.6], [141.1, 37.3]]],
+    ["-chb", "Chūbu", [137.8, 36.3, 4.8], [[135.4, 34.4], [140.1, 38.6]]],
+    ["-kns", "Kansai", [135.6, 34.55, 3.4], [[134.0, 33.3], [137.1, 35.9]]],
+    ["-chg", "Chūgoku", [132.9, 34.9, 4.0], [[130.6, 33.6], [134.7, 36.5]]],
+    ["-shk", "Shikoku", [133.4, 33.65, 2.8], [[131.9, 32.6], [134.9, 34.6]]],
+    ["-kyu", "Kyūshū", [130.4, 31.4, 6.0], [[127.8, 26.9], [132.3, 34.9]]],
+    ["-oki", "Okinawa", [127.0, 25.9, 5.5], [[122.6, 23.8], [131.6, 28.0]]],
+  ];
+  JP_REGIONS.forEach(([k, name, view, crop]) => {
+    REGIONS["japan" + k] = { name, us: true, data: "jp", test: c => c.info.region === name, view: { flat: view }, crop };
+  });
   // a country on the countries view -> its counties (in the county set last used), as a region of that set
   const NATION_REGION = { "N-ENG": "-eng", "N-SCO": "-sco", "N-WAL": "-wal", "N-NIR": "-nir", "N-IRL": "-roi" };
   const ukSet = () => (prefs.ukSet === "ukc" ? "ukc" : "uk");
@@ -145,6 +200,9 @@
   const isName = () => S.mode === "name" || S.mode === "namecap" || S.mode === "nameflag";
   const caps = () => S.mode === "findcap" || S.mode === "namecap";
   const flags = () => S.mode === "findflag" || S.mode === "nameflag";
+  // what games 5 and 6 show: flags, or coats of arms (Mexico)
+  const emblem = (d = S.data) => (DATASETS[d] && DATASETS[d].emblem) || "flag";
+  const emblems = (d = S.data) => (DATASETS[d] && DATASETS[d].emblems) || "flags";
   // flag image (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
   const flagSrc = c => {
     const key = c.flagKey || c.iso; // states and provinces have their own folder (us/, ca/)
@@ -156,7 +214,7 @@
   // statehood timeline (US Learning mode): the year shown; states that join that year are highlighted
   let tlYear = 1959, tlTimer = null, tlKind = "us";
   // a statehood-style timeline (US, Australia) is showing a year before its end
-  const TL_MAX = { us: 1959, au: 1915, ru: 2023 };
+  const TL_MAX = { us: 1959, au: 1915, br: 1988, ru: 2023 };
   const tlOn = () => tlKind !== "ru" && tlYear < TL_MAX[tlKind];
   const isUnformed = c => tlOn() && !!c.info && c.info.year > tlYear;
   const tlBorders = new Map(); // year -> borders that existed then (between two states, or a state and land not yet a state)
@@ -272,7 +330,7 @@
       $("score").innerHTML = `<b>${nGood}</b> / ${total} <span class="wrong">· ${nBad} wrong</span> · tap any ${noun()} to see it`;
       $("giveup").textContent = "Play again";
     } else {
-      $("eyebrow").textContent = (S.mode === "findflag" ? "Find by flag" : caps() ? `Find by ${capWord()}` : "Find") + where + (S.weak ? " · knowledge gaps" : "");
+      $("eyebrow").textContent = (S.mode === "findflag" ? `Find by ${emblem()}` : caps() ? `Find by ${capWord()}` : "Find") + where + (S.weak ? " · knowledge gaps" : "");
       t.textContent = S.mode === "findflag" ? "" : caps() ? capital(target) : target.name;
       $("score").innerHTML = `<b>${nGood}</b> / ${total} <span class="wrong">· ${nBad} wrong</span>`;
     }
@@ -289,7 +347,7 @@
     if (S.mode === "explore") {
       // Reservations layer: name the reserved land under the tap (the card still shows the country or state)
       const res = main.reserves && view.lastTap ? view.reserveAt(view.lastTap[0], view.lastTap[1]) : null;
-      if (res) toast(`${res.properties.n} · ${RES_KIND[res.properties.k] || ""}`, 3000);
+      if (res) toast(`${res.properties.n} · ${RES_KIND[res.properties.k] || res.properties.k || ""}`, 3000);
       // world Learning map zoomed into the US: a tap on a state shows the state
       const f = c.iso === "USA" && view.sub && view.lastTap ? view.subAt(view.lastTap[0], view.lastTap[1]) : null;
       selectSub(f);
@@ -309,7 +367,7 @@
       state[target.iso] = "bad"; nBad++;
       flashing[c.iso] = true; // the tapped country flashes yellow once
       setTimeout(() => { delete flashing[c.iso]; redraw(); }, 450);
-      toast(S.mode === "findflag" ? `Missed: that was the flag of ${target.name}` : caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name,
+      toast(S.mode === "findflag" ? `Missed: that was the ${emblem()} of ${target.name}` : caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name,
         caps() || S.mode === "findflag" ? 2400 : 1800);
     }
     if (inset && view === inset) closeInset();
@@ -387,6 +445,16 @@
     if (geoCN && geoCN.byIso[c.iso] === c) { showChinaCard(c, i); return; }
     if (geoRU && geoRU.byIso[c.iso] === c) { showRussiaCard(c, i); return; }
     if (geoAU && geoAU.byIso[c.iso] === c) { showAustraliaCard(c, i); return; }
+    if (geoMX && geoMX.byIso[c.iso] === c) { showMexicoCard(c, i); return; }
+    if (geoBR && geoBR.byIso[c.iso] === c) { showBrazilCard(c, i); return; }
+    if (geoDE && geoDE.byIso[c.iso] === c) { showGermanyCard(c, i); return; }
+    if (geoJP && geoJP.byIso[c.iso] === c) { showJapanCard(c, i); return; }
+    if (geoFR && geoFR.byIso[c.iso] === c) { showFranceCard(c, i); return; }
+    if (geoIT && geoIT.byIso[c.iso] === c) { showItalyCard(c, i); return; }
+    if (geoES && geoES.byIso[c.iso] === c) { showSpainCard(c, i); return; }
+    if (geoNG && geoNG.byIso[c.iso] === c) { showNigeriaCard(c, i); return; }
+    if (geoAR && geoAR.byIso[c.iso] === c) { showArgentinaCard(c, i); return; }
+    if (geoESP && geoESP.byIso[c.iso] === c) { showSpainProvinceCard(c, i); return; }
     if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
@@ -585,6 +653,255 @@
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // Mexico's states and Mexico City (2020 census, INEGI). The picture is the coat of arms.
+  function showMexicoCard(c, i) {
+    const f = i.facts || {}; // tools/mx_facts.py, with the census languages added by tools/build_mx.py
+    $("lcFlag").hidden = !i.flag;
+    if (i.flag) { $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Coat of arms of ${c.name}`; }
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, i.region, i.abbr].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([[c.capitals.length ? "Capital" : "City", c.capitals[0] || "The capital of Mexico itself"],
+      ["Population", fmtPop(i.pop, i.popYear)]]);
+    const share = f.speakers && i.pop ? ` (${(100 * f.speakers / i.pop).toFixed(f.speakers / i.pop < 0.01 ? 1 : 0)}% speak one)` : "";
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Largest city", f.city || ""], ["Indigenous peoples", f.peoples],
+        ["Indigenous languages", f.langs ? f.langs + share : ""], ["Famous dish", f.dish], ["Drink", f.drink],
+        ["Music and dance", f.music], ["Biggest festival", f.festival],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 32`],
+        ["Highest point", f.high], ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Borders", (i.borders || []).join(", ")], ["Water", f.river], ["Climate", f.climate], ["Time zone", f.tz],
+        ["Natural wonder", f.wonder], ["Animal", f.animal],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Became a state", i.year ? `${i.year}${i.order ? ` (the ${ordinal(i.order)} state)` : ""}` : ""],
+        ["Ancient civilisation", f.ancient], ["UNESCO World Heritage", f.unesco], ["The name", f.origin],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Argentina's provinces (2022 census, INDEC)
+  function showArgentinaCard(c, i) {
+    const f = i.facts || {}; // tools/ar_facts.py
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, i.region].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["People are called", f.demonym], ["Largest city", f.city || ""], ["Famous food", f.food], ["Drink", f.drink], ["Music or dance", f.music],
+        ["Biggest festival", f.festival], ["Indigenous peoples", f.indigenous], ["Football", f.club], ["Famous person", f.person],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 24`],
+        ["Region", i.region], ["Highest point", f.high], ["River or lake", f.river], ["Natural wonder", f.wonder], ["Climate", f.climate],
+        ["Animal", f.animal], ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"], ["Borders", (i.borders || []).join(", ")],
+      ]) +
+      factGroup("History", [["Became a province", f.became], ["UNESCO World Heritage", f.unesco]]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Nigeria's states (NBS 2019 estimates)
+  function showNigeriaCard(c, i) {
+    const f = i.facts || {}; // tools/ng_facts.py
+    $("lcFlag").hidden = true; // no official state flags
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, i.region].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Nickname", f.nickname], ["Largest city", f.city || ""], ["Main ethnic groups", f.ethnic], ["Main languages", f.languages],
+        ["Religion", f.religion], ["Famous dish", f.dish], ["Festival", f.festival], ["Traditional ruler", f.ruler], ["Famous person", f.person],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 37`],
+        ["Zone", i.region], ["Main river", f.river], ["Climate", f.climate], ["Highest point", f.high], ["Natural wonder", f.wonder],
+        ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"], ["Borders", (i.borders || []).join(", ")],
+      ]) +
+      factGroup("History", [["Created", f.created], ["Old kingdom or empire", f.kingdom], ["UNESCO World Heritage", f.unesco]]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Spain's communities (INE, 1 January 2025)
+  function showSpainCard(c, i) {
+    const f = i.facts || {}; // tools/es_facts.py
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, f.own || (f.spanish !== c.name ? f.spanish : "")].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([[c.capitals.length > 1 && c.iso === "ES-CN" ? "Capitals" : "Capital",
+      c.iso === "ES-CN" ? "Santa Cruz de Tenerife and Las Palmas de Gran Canaria" : c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Name in Spanish", f.spanish], ["In its own language", f.own], ["Co-official language", f.language], ["People are called", f.demonym],
+        ["Largest city", f.city || ""], ["Famous dish", f.dish], ["Drink", f.drink], ["Biggest fiesta", f.fiesta], ["Music or dance", f.music], ["Football", f.club],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 19`],
+        ["Provinces", i.provinces > 1 ? String(i.provinces) : ""], ["Highest point", f.high], ["Main river", f.river], ["Coast", f.coast],
+        ["Borders", (i.borders || []).join(", ")], ["Natural wonder", f.wonder],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Old kingdom", f.kingdom], ["Moorish heritage", f.moorish], ["Landmark", f.landmark], ["UNESCO World Heritage", f.unesco],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]) +
+      (i.inset ? `<p class="lcnote">Shown in the box at the lower left: the Canaries are really about 1,000 km south-west of the mainland, off Africa.</p>` : "");
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Spain's provinces: a shorter card
+  function showSpainProvinceCard(c, i) {
+    const f = i.facts || {};
+    $("lcFlag").hidden = true;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, i.community].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML = factGroup("About", [
+      ["Community", i.community], ["Area", `${num(i.area)} km² (#${i.areaRank} of 52)`], ["Landmark", f.landmark],
+      ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+    ]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Italy's regions (ISTAT, 1 January 2026), and the enclaves' short cards
+  function showItalyCard(c, i) {
+    const f = i.facts || {}; // tools/it_facts.py
+    $("lcFlag").hidden = !i.flag;
+    if (i.flag) { $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`; }
+    $("lcName").textContent = c.name;
+    if (i.enclave) {
+      $("lcSub").textContent = [i.kind, f.italian].filter(Boolean).join(" · ");
+      $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)], ["Area", f.area]]);
+      $("lcMore").innerHTML = factGroup("About", [["Known for", f.about], ["Its own map", "Coming soon"]]);
+      setLearnMore(learnMore);
+      $("learnCard").hidden = false;
+      return;
+    }
+    $("lcSub").textContent = [i.kind, f.italian && f.italian !== c.name ? f.italian : ""].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Name in Italian", f.italian], ["People are called", f.demonym], ["Dialect or language", f.dialect], ["Largest city", f.city || ""],
+        ["Famous dish", f.dish], ["Protected food", f.dop], ["Wine", f.wine], ["Biggest festival", f.festival], ["Famous person", f.person],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 20`],
+        ["Highest point", f.high], ["River or lake", f.river], ["Natural wonder", f.wonder], ["Coast", f.coast],
+        ["Borders", (i.borders || []).join(", ")],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Special statute", i.kind === "Autonomous region" ? "Yes" : "No"], ["Before unification", f.before], ["Landmark", f.landmark],
+        ["UNESCO World Heritage", f.unesco],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // France's regions (INSEE legal populations)
+  function showFranceCard(c, i) {
+    const f = i.facts || {}; // tools/fr_facts.py
+    $("lcFlag").hidden = true; // most regions have no official flag
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, f.french && f.french !== c.name ? f.french : ""].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Name in French", f.french], ["People are called", f.demonym], ["Regional language", f.language], ["Largest city", f.city || ""],
+        ["Famous dish", f.dish], ["Cheese", f.cheese], ["Wine or drink", f.drink], ["Biggest festival", f.festival], ["Famous person", f.person],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 13`],
+        ["Highest point", f.high], ["Main river", f.river], ["Coast", f.coast], ["Borders", (i.borders || []).join(", ")],
+        ["Natural wonder", f.wonder],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Historic provinces", f.provinces], ["Formed", f.formed], ["Landmark", f.landmark], ["UNESCO World Heritage", f.unesco],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Japan's prefectures (2020 census)
+  function showJapanCard(c, i) {
+    const f = i.facts || {}; // tools/jp_facts.py
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").innerHTML = `${esc(c.name)}${f.kanji ? ` <span class="native-ja">${esc(f.kanji)}</span>` : ""}`;
+    $("lcSub").textContent = [i.kind, i.region ? `${i.region} region` : ""].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("Name", [
+        ["In Japanese", f.kanji ? `<span class="native-ja">${esc(f.kanji)}</span> ${esc(f.reading || "")}` : "", true],
+        ["The name means", f.meaning], ["Old province", f.province],
+      ]) +
+      factGroup("People and culture", [
+        ["Largest city", f.city || ""], ["Famous food", f.food], ["Festival", f.festival], ["Traditional craft", f.craft],
+        ["Dialect", f.dialect], ["Mascot", f.mascot],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 47`],
+        ["Highest point", f.high], ["River or lake", f.river], ["Natural wonder", f.wonder], ["Hot springs", f.onsen],
+        ["Symbols", f.symbols],
+      ]) +
+      factGroup("History and landmarks", [["Castle or temple", f.castle], ["UNESCO World Heritage", f.unesco]]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Germany's states (Destatis, on the 2022 census basis)
+  function showGermanyCard(c, i) {
+    const f = i.facts || {}; // tools/de_facts.py
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, f.german && f.german !== c.name ? f.german : "", i.abbr].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["Name in German", f.german], ["People are called", f.demonym], ["Dialect", f.dialect], ["Largest city", f.city || ""],
+        ["Famous dish", f.dish], ["Beer or wine", f.drink], ["Biggest festival", f.festival], ["Football", f.club],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 16`],
+        ["Highest point", f.high], ["Coast", f.coast], ["Borders", (i.borders || []).join(", ")], ["Main river", f.river],
+        ["Natural wonder", f.wonder],
+      ]) +
+      factGroup("History and landmarks", [
+        ["State since", i.year ? String(i.year) : ""], ["Before", f.before], ["Before 1990", f.side], ["Landmark", f.landmark],
+        ["UNESCO World Heritage", f.unesco],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry], ["Famous company", f.company]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  // Brazil's states and the Federal District (2022 census, IBGE)
+  function showBrazilCard(c, i) {
+    const f = i.facts || {}; // tools/br_facts.py
+    $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `Flag of ${c.name}`;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = [i.kind, i.region, i.abbr].filter(Boolean).join(" · ");
+    $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        ["People are called", f.demonym], ["Largest city", f.city || ""], ["Famous dish", f.dish], ["Music and dance", f.music],
+        ["Biggest festival", f.festival], ["Football", f.club],
+      ]) +
+      factGroup("Land and nature", [
+        ["Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of 27`],
+        ["Highest point", f.high], ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Borders", (i.borders || []).join(", ")], ["Main river", f.river], ["Biome", f.biome], ["Time zone", f.tz],
+        ["Natural wonder", f.wonder], ["Animal", f.animal],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Since", i.year ? String(i.year) : ""], ["Before", f.before], ["UNESCO World Heritage", f.unesco], ["The name", f.origin],
+      ]) +
+      factGroup("Economy", [["Known for", f.industry]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
+  const ordinal = n => n + (n % 10 === 1 && n % 100 !== 11 ? "st" : n % 10 === 2 && n % 100 !== 12 ? "nd" : n % 10 === 3 && n % 100 !== 13 ? "rd" : "th");
   // Australia's states and territories (2021 census; areas from Geoscience Australia)
   function showAustraliaCard(c, i) {
     const f = i.facts || {}; // tools/au_facts.py
@@ -758,16 +1075,16 @@
     RUS: { name: "Russia", focus: "Russia", cont: ["Europe", "Asia"], unit: "Oblasts", data: "ru", region: "russia" },
     AUS: { name: "Australia", focus: "Australia", cont: "Oceania", unit: "States & territories", data: "au", region: "australia" },
     // coming next (Mexico_plan.md, Brazil_plan.md)
-    MEX: { name: "Mexico", focus: "Mexico", cont: "North America", unit: "States", soon: true },
-    BRA: { name: "Brazil", focus: "Brazil", cont: "South America", unit: "States", soon: true },
+    MEX: { name: "Mexico", focus: "Mexico", cont: "North America", unit: "States", data: "mx", region: "mexico" },
+    BRA: { name: "Brazil", focus: "Brazil", cont: "South America", unit: "States", data: "br", region: "brazil" },
     // the next wave (jobs/build_countries.md)
-    DEU: { name: "Germany", focus: "Germany", cont: "Europe", unit: "States", soon: true },
-    FRA: { name: "France", focus: "France", cont: "Europe", unit: "Regions", soon: true },
-    ITA: { name: "Italy", focus: "Italy", cont: "Europe", unit: "Regions", soon: true },
-    ESP: { name: "Spain", focus: "Spain", cont: "Europe", unit: "Communities", soon: true },
-    JPN: { name: "Japan", focus: "Japan", cont: "Asia", unit: "Prefectures", soon: true },
-    NGA: { name: "Nigeria", focus: "Nigeria", cont: "Africa", unit: "States", soon: true },
-    ARG: { name: "Argentina", focus: "Argentina", cont: "South America", unit: "Provinces", soon: true },
+    DEU: { name: "Germany", focus: "Germany", cont: "Europe", unit: "States", data: "de", region: "germany" },
+    FRA: { name: "France", focus: "France", cont: "Europe", unit: "Regions", data: "fr", region: "france" },
+    ITA: { name: "Italy", focus: "Italy", cont: "Europe", unit: "Regions", data: "it", region: "italy" },
+    ESP: { name: "Spain", focus: "Spain", cont: "Europe", unit: "Communities", data: "es", region: "spain" },
+    JPN: { name: "Japan", focus: "Japan", cont: "Asia", unit: "Prefectures", data: "jp", region: "japan" },
+    NGA: { name: "Nigeria", focus: "Nigeria", cont: "Africa", unit: "States", data: "ng", region: "nigeria" },
+    ARG: { name: "Argentina", focus: "Argentina", cont: "South America", unit: "Provinces", data: "ar", region: "argentina" },
   };
   // from the world Learning map, the UK and Ireland open the countries view first
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
@@ -815,11 +1132,16 @@
     ca: { file: "data/tribal-ca.json", label: "Reserves",
       credit: "Reserves: Natural Resources Canada. Contains information licensed under the Open Government Licence – Canada." },
     // Australia: native title determinations (where native title exists) and Indigenous Protected Areas
+    // Mexico: municipalities shaded by the share who speak an Indigenous language
+    mx: { file: "data/tribal-mx.json", label: "Indigenous languages",
+      credit: "Indigenous languages: INEGI, 2020 census. Municipal boundaries: geoBoundaries (CC BY 4.0)." },
+    // Brazil: FUNAI's Indigenous territories
+    br: { file: "data/tribal-br.json", label: "Indigenous lands", credit: "Indigenous territories: FUNAI (Fundação Nacional dos Povos Indígenas)." },
     au: { file: "data/tribal-au.json", label: "Aboriginal land",
       credit: "Native title: National Native Title Tribunal (CC BY 4.0). Indigenous Protected Areas: DCCEEW (CC BY 4.0)." },
   };
   // the layer's name inside a sentence ("Loading reservations…"; Aboriginal keeps its capital)
-  const resWord = d => (d === "au" ? RES[d].label : RES[d].label.toLowerCase());
+  const resWord = d => (d === "au" || d === "mx" || d === "br" ? RES[d].label : RES[d].label.toLowerCase());
   const tribal = {}, tribalLoading = {};
   let resAfterSplash = false, resOn = !!prefs.reserves;
   function showReserves() {
@@ -867,6 +1189,15 @@
     1901: "Federation: the six colonies become the states of Australia",
     1911: "The Northern Territory (from South Australia) and the ACT (from New South Wales)",
     1915: "Jervis Bay Territory: a seaport for Canberra" };
+  // Brazil: how today's states formed (Brazil_plan.md), from the first captaincies to the 1988 constitution
+  const BR_TL = { 1534: "The first captaincies: Bahia, Maranhão and Pernambuco", 1565: "Rio de Janeiro founded",
+    1616: "Grão-Pará, at the mouth of the Amazon", 1709: "São Paulo", 1720: "Minas Gerais, in the gold rush",
+    1748: "Goiás and Mato Grosso", 1760: "Rio Grande do Sul", 1799: "Ceará and Paraíba split off", 1810: "Espírito Santo",
+    1811: "Piauí", 1817: "Alagoas and Rio Grande do Norte split off", 1820: "Sergipe", 1821: "Santa Catarina",
+    1850: "Amazonas", 1853: "Paraná", 1960: "Brasília, the new capital: the Federal District", 1962: "Acre becomes a state",
+    1979: "Mato Grosso do Sul splits from Mato Grosso", 1982: "Rondônia becomes a state",
+    1988: "The new constitution: Amapá, Roraima and Tocantins" };
+  const TL_CAPTIONS = { au: AU_TL, br: BR_TL };
   function setRuTimeline(year) {
     tlYear = year;
     $("tlRange").value = year;
@@ -886,9 +1217,9 @@
     const joined = states.filter(c => c.info.year === year).sort((a, b) => a.info.order - b.info.order);
     const n = states.length;
     const note = joined.length ? `${joined.map(c => c.name).join(", ")} joined` : "";
-    if (tlKind === "au") {
-      const stop = Object.keys(AU_TL).map(Number).filter(y => y <= year).pop();
-      $("tlLabel").innerHTML = `<b>${year}</b> ${esc(stop === year ? AU_TL[year] : `No change since ${stop}`)}`;
+    if (TL_CAPTIONS[tlKind]) {
+      const caps = TL_CAPTIONS[tlKind], stop = Object.keys(caps).map(Number).filter(y => y <= year).pop();
+      $("tlLabel").innerHTML = `<b>${year}</b> ${esc(stop === year ? caps[year] : `No change since ${stop}`)}`;
     } else $("tlLabel").innerHTML = `<b>${year}</b> ${n === 50 ? "All 50 states" : `${n} state${n === 1 ? "" : "s"}`}${note ? " · " + esc(note) : ""}`;
     if (year >= TL_MAX[tlKind] || !geo.bordersWhere) main.setBordersOverride(null);
     else {
@@ -905,11 +1236,11 @@
     $("timeline").classList.toggle("tl2", kind === "ru");
     $("tlLegend").hidden = true;
     $("mapwrap").classList.toggle("hastl", on);
-    tlYear = 1959;
+    tlYear = TL_MAX[kind]; // at its end: a switched-off timeline mustn't hide parts formed later (Brazil's 1988 states)
     main.setBordersOverride(null);
     main.setHistory(null);
     const r = $("tlRange");
-    r.min = kind === "ru" ? 1300 : kind === "au" ? 1788 : 1787; r.max = TL_MAX[kind];
+    r.min = kind === "ru" ? 1300 : kind === "au" ? 1788 : kind === "br" ? 1534 : 1787; r.max = TL_MAX[kind];
     $("tlPrev").setAttribute("aria-label", kind === "ru" ? "Previous change" : "Previous state to join");
     $("tlNext").setAttribute("aria-label", kind === "ru" ? "Next change" : "Next state to join");
     if (on && kind === "ru" && !ruHist) GG.loadRUHistory().then(h => { ruHist = h; if (tlKind === "ru") setTimeline(+r.value); }).catch(() => {});
@@ -918,7 +1249,7 @@
   $("tlRange").addEventListener("input", e => { stopTimeline(); setTimeline(+e.target.value); });
   // the arrows jump to the previous or next year a state joined
   const joinYears = () => tlKind === "ru" ? (ruHist ? ruHist.stops.map(s => s[0]).concat(TL_MAX.ru) : [TL_MAX.ru])
-    : tlKind === "au" ? Object.keys(AU_TL).map(Number)
+    : TL_CAPTIONS[tlKind] ? Object.keys(TL_CAPTIONS[tlKind]).map(Number)
     : [...new Set(geo.countries.map(c => c.info.year))].sort((a, b) => a - b);
   const tlMin = () => +$("tlRange").min, tlMax = () => TL_MAX[tlKind];
   $("tlPrev").onclick = () => { stopTimeline(); const y = joinYears().filter(y => y < tlYear).pop(); setTimeline(y || tlMin()); };
@@ -942,7 +1273,8 @@
   const MODE_NAMES = { find: "Find countries", name: "Name countries", findcap: "Find by capital", namecap: "Name capitals",
     findflag: "Find by flag", nameflag: "Name the flags" };
   const modeName = (m, region) => { const d = DATASETS[dataOfRegion(region)];
-    return MODE_NAMES[m].replace("countries", d.nouns).replace("capitals", d.caps || "capitals").replace("capital", d.cap || "capital"); };
+    return MODE_NAMES[m].replace("countries", d.nouns).replace("capitals", d.caps || "capitals").replace("capital", d.cap || "capital")
+      .replace("flags", d.emblems || "flags").replace("flag", d.emblem || "flag"); };
   let statsSkill = "country", statsData = "world";
   const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
   function openStats() { statsData = S.data === "ukn" ? "uk" : S.data; renderStats(); $("stats").hidden = false; }
@@ -951,10 +1283,11 @@
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", au: "States", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
+    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", au: "States", mx: "States", br: "States", de: "States", jp: "Prefectures", fr: "Regions", it: "Regions", es: "Communities", esp: "Provinces", ng: "States", ar: "Provinces", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
     $("statsSkill").querySelector('[data-v="capital"]').textContent = ds.caps ? "County towns" : "Capitals";
     // no flags (India): no Flags tab
     $("statsSkill").querySelector('[data-v="flag"]').hidden = !!ds.noFlags;
+    $("statsSkill").querySelector('[data-v="flag"]').textContent = ds.emblems ? ds.emblems[0].toUpperCase() + ds.emblems.slice(1) : "Flags";
     if (ds.noFlags && statsSkill === "flag") { statsSkill = "country"; renderStats(); return; }
     if (sub && !geoFor(statsData)) { ds.load().then(renderStats).catch(() => {}); return; }
     const g = geoFor(statsData);
@@ -1017,7 +1350,7 @@
       const card = document.createElement("div");
       card.className = "fcard"; card.dataset.iso = c.iso;
       card.innerHTML = `<img src="${flagSrc(c)}" alt="A flag" loading="lazy"><input type="text" autocomplete="off" autocorrect="off" ` +
-        `autocapitalize="off" spellcheck="false" enterkeyhint="next" aria-label="${phWord()} with this flag" placeholder="${(prefs.perRow || 4) >= 6 ? "…" : phWord()}">`;
+        `autocapitalize="off" spellcheck="false" enterkeyhint="next" aria-label="${phWord()} with this ${emblem()}" placeholder="${(prefs.perRow || 4) >= 6 ? "…" : phWord()}">`;
       grid.appendChild(card);
     });
     $("flagPanel").hidden = false;
@@ -1128,7 +1461,6 @@
     const [lon, lat, span] = REGIONS[key].view[main.mode];
     main.lookAt(lon, lat, span, animate);
   }
-  $("regionBtn").onclick = () => goTo(S.region);
   const WORLD_JUMPS = $("jumps").innerHTML; // the continent buttons (the UK Learning map swaps in its own)
   $("jumps").addEventListener("click", e => {
     const b = e.target.closest("button"); if (b) goTo(b.dataset.v);
@@ -1192,9 +1524,12 @@
   }
   // the Game and Region boxes: exactly one is open (opening one closes the other; closing one opens the other)
   const accordion = [$("gameGroup"), $("regionGroup")];
-  accordion.forEach(d => d.addEventListener("toggle", () => {
-    const other = accordion.find(o => o !== d);
-    if (d.open) other.open = false; else if (!other.open) other.open = true;
+  // a tap on a heading opens that box and closes the other in one step (letting the browser toggle them one after the
+  // other drew a frame with both open, so the Region box flashed at the bottom)
+  const openBox = d => accordion.forEach(o => { o.open = o === d; });
+  accordion.forEach(d => d.querySelector("summary").addEventListener("click", e => {
+    e.preventDefault();
+    openBox(d.open ? accordion.find(o => o !== d) : d);
   }));
   const GAME_NAMES = { find: "Find · Countries", findcap: "Find · By capital", findflag: "Find · By flag",
     name: "Name · Countries", namecap: "Name · Capitals", nameflag: "Name · Flags" };
@@ -1237,8 +1572,18 @@
       const noFlags = (uk && /-ire$/.test(pick.region)) || !!DATASETS[pick.data].noFlags;
       // India: union territories on or off
       $("cpUTField").hidden = pick.data !== "in";
+      // Spain: communities or provinces
+      $("cpESField").hidden = pick.data !== "es" && pick.data !== "esp";
+      if (pick.data === "es" || pick.data === "esp") {
+        segSelect($("cpES"), pick.data);
+        $("cpGames").querySelectorAll('[data-v="find"], [data-v="name"]').forEach(b => { b.textContent = DATASETS[pick.data].Nouns; });
+      }
+      // Japan: one of its 9 regions, or all 47
+      $("cpJPField").hidden = pick.data !== "jp";
+      if (pick.data === "jp") segSelect($("cpJP"), pick.region.replace(/^japan/, "") || "all");
       if (pick.data === "in") segSelect($("cpUT"), pick.ut === false ? "off" : "on");
-      $("cpGames").querySelectorAll('[data-v="findflag"], [data-v="nameflag"]').forEach(b => { b.hidden = noFlags; });
+      $("cpGames").querySelectorAll('[data-v="findflag"], [data-v="nameflag"]').forEach(b => {
+        b.hidden = noFlags; b.textContent = ds.emblems ? ds.emblems[0].toUpperCase() + ds.emblems.slice(1) : "Flags"; });
       if (noFlags && /flag$/.test(pick.mode)) { pick.mode = pick.mode.replace("flag", ""); segSelect($("cpGames"), pick.mode); }
       if (uk) {
         segSelect($("cpSet"), pick.data);
@@ -1283,6 +1628,16 @@
     pick.region = pick.data + (b.dataset.v === "all" ? "" : b.dataset.v);
     showData(); showOptions();
   });
+  $("cpES").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    pick.data = b.dataset.v; pick.region = DATASETS[pick.data].region;
+    showData(); showOptions();
+  });
+  $("cpJP").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    pick.region = "japan" + (b.dataset.v === "all" ? "" : b.dataset.v);
+    showData(); showOptions();
+  });
   $("cpUT").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     pick.ut = b.dataset.v === "on"; showData(); showOptions();
@@ -1312,7 +1667,7 @@
     $("setupTitle").textContent = on ? "Options" : pick.learn ? "Learning mode" : "New game";
     $("optBtn").classList.toggle("on", on); $("optBtn").setAttribute("aria-pressed", on);
   }
-  $("optBtn").onclick = () => showOptPanel($("tabOptions").hidden);
+  $("optBtn").onclick = () => { if (!$("tabHelp").hidden) showHelpPanel(false); showOptPanel($("tabOptions").hidden); };
   $("optBack").onclick = () => showOptPanel(false);
   function openSetup() {
     // opens on the tab you're playing in: Learning mode, or a scored game
@@ -1333,7 +1688,7 @@
     pick.paceFind = S.paceFind || 5; pick.paceName = S.paceName || 10;
     segSelect($("segQuestions"), pick.weak ? "weak" : "all"); segSelect($("segTimer"), pick.timer ? "on" : "off");
     $("gameGroup").open = true; $("regionGroup").open = false;
-    $("tabMore").hidden = true;
+    $("tabMore").hidden = true; $("tabHelp").hidden = true; $("helpBtn").classList.remove("on");
     showOptPanel(false);
     showData();
     showOptions();
@@ -1422,7 +1777,7 @@
     const b = e.target.closest("button"); if (!b) return;
     pick.region = b.dataset.v; segSelect($("regions"), pick.region);
     $("viewField").hidden = pick.region !== "world"; // region games are always flat (chosen 2026-11-14)
-    $("regionGroup").open = false;
+    openBox($("gameGroup"));
     showOptions();
   });
   // the Globe / Flat switch (on = globe)
@@ -1439,8 +1794,17 @@
   }
   $("moreBtn").onclick = () => { $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : ""; showMorePanel(true); };
   $("moreBack").onclick = () => showMorePanel(false);
-  // help: a placeholder until the help function is written
-  $("helpBtn").onclick = () => toast("Help is coming soon.", 1800);
+  // help: a short "how to play" pane, in place of the games (like More games)
+  function showHelpPanel(on) {
+    if (on) { $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : ""; showOptPanel(false); $("tabMore").hidden = true; }
+    $("tabHelp").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on;
+    $("startBtn").hidden = on || $("startBtn").dataset.wasHidden === "1";
+    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
+    $("helpBtn").classList.toggle("on", on);
+    $("setupTitle").textContent = on ? "How to play" : pick.learn ? "Learning mode" : "New game";
+  }
+  $("helpBtn").onclick = () => showHelpPanel($("tabHelp").hidden);
+  $("helpBack").onclick = () => showHelpPanel(false);
   $("startBtn").onclick = () => {
     closeSetup(); closeInset();
     if (pick.learn) { magnifierIntro(() => startGame("explore", "world", pick.view, "world")); return; } // Discover: through a magnifying glass
@@ -1450,8 +1814,9 @@
 
   // ---------- the start of Learning mode ("Discover"): a magnifying glass in the middle of the screen rushes towards
   // you; the map shows through its lens (magnified at first), and the rim passes out around the edges of the screen.
-  // Order: the glass pops in over the current map; then `whenShown` opens the Learning map while the glass holds still
-  // (loading can't stall a still glass); once that's drawn, the glass rushes past. Skipped for reduced motion.
+  // Order: the screen is covered (lens closed) and `whenShown` opens the Learning map behind it; once that's drawn,
+  // the glass pops in with the new map in its lens, holds a moment, then rushes past. (Switching the map inside an
+  // open lens made the globe jump.) Skipped for reduced motion.
   function magnifierIntro(whenShown) {
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { whenShown(); return; }
     const old = document.querySelector(".magintro"); if (old) old.remove();
@@ -1476,23 +1841,20 @@
       map.style.transform = zoom > 1.001 ? `scale(${zoom})` : "";
     };
     const T_IN = 380, T_HOLD = 300, T_GO = 950;
-    let t0 = null, ready = false, holdFrom = null, goFrom = null; // (timed from animation frames, not performance.now())
+    let t0 = null, holdFrom = null, goFrom = null; // (timed from animation frames, not performance.now())
     const frame = now => {
       if (t0 === null) t0 = now;
       const t = now - t0;
       if (t < T_IN) { const k = ease(t / T_IN); set(0.55 + 0.45 * k, 1, k, k, 1.35); requestAnimationFrame(frame); return; } // pops in
-      if (holdFrom === null) {                                                                                             // shown: open the map
-        holdFrom = now; set(1, 1, 1, 1, 1.35);
-        requestAnimationFrame(() => Promise.resolve(whenShown()).then(() => requestAnimationFrame(() => requestAnimationFrame(() => { ready = true; }))));
-      }
-      if (goFrom === null) {                                                                                               // holds still
-        if (ready && now - holdFrom >= T_HOLD) goFrom = now; else { requestAnimationFrame(frame); return; }
-      }
+      if (holdFrom === null) { holdFrom = now; set(1, 1, 1, 1, 1.35); }                                                  // holds still
+      if (goFrom === null) { if (now - holdFrom >= T_HOLD) goFrom = now; else { requestAnimationFrame(frame); return; } }
       const k = Math.min(1, (now - goFrom) / T_GO), e = k * k * (3 - 2 * k);                                             // rushes past
       set(Math.pow(rEnd / r0, Math.pow(e, 1.6)), 1 - Math.max(0, (e - 0.55) / 0.45), 1, 1, 1 + 0.35 * (1 - e));
       if (k < 1) requestAnimationFrame(frame); else { el.remove(); map.style.transform = ""; }
     };
-    requestAnimationFrame(frame);
+    set(0.55, 1, 0, 0, 1.35); // covered, lens closed
+    // the map changes now, out of sight; the glass starts once it's drawn
+    requestAnimationFrame(() => Promise.resolve(whenShown()).then(() => requestAnimationFrame(() => requestAnimationFrame(frame))));
   }
 
   // switch between the world and US states maps (US data loads the first time it's needed)
@@ -1514,13 +1876,11 @@
     S.mode = mode; S.region = region;
     savePrefs({ game: { mode, region, data, cd: !!S.cd, ut: S.ut !== false, weak: !!S.weak, timer: !!S.timer, paceFind: S.paceFind || 5, paceName: S.paceName || 10 },
       ...(region === "world" ? { worldView: view } : {}) });
-    // region games are cropped to the region; the jump bar is swapped for a "Whole region" button
+    // region games are cropped to the region (no jump bar there)
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
     $("jumpbar").hidden = region !== "world" || mode === "nameflag"; // no map in Name the flags
-    $("regionBtn").hidden = region === "world" || mode === "explore"; // no "Whole US" in Learning mode
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
-    $("regionBtn").textContent = data === "us" ? "Whole US" : data === "ca" ? "Whole Canada" : data === "in" ? "Whole India" : data === "cn" ? "Whole China" : data === "ru" ? "Whole Russia" : data === "au" ? "Whole Australia" : region === DATASETS[data].region ? "Whole map" : isCountryMap(data) ? `Whole of ${REGIONS[region].name}` : "Whole region";
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
     $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view
@@ -1539,7 +1899,7 @@
     goTo(region, false);
     hideLearnCard();
     $("reviewBar").hidden = true; reviewSel = null;
-    showTimeline(mode === "explore" && (data === "us" || data === "ru" || data === "au"), data === "ru" || data === "au" ? data : "us");
+    showTimeline(mode === "explore" && ["us", "ru", "au", "br"].includes(data), ["ru", "au", "br"].includes(data) ? data : "us");
     useSub(false); // no state lines on the world Learning map: states are on each country's own map ("Focus on ...")
     showReserves();
     if (mode !== "nameflag") hideFlagGrid();

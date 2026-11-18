@@ -9,11 +9,13 @@ Work queued for Gaia Quest, one file per job, in the order to do them. Each file
 
 Push only when the user says so, or as an overnight job list explicitly allows.
 
+**Overnight run:** [OVERNIGHT.md](OVERNIGHT.md) (the queue and rules: no push, no commit, judgement calls allowed, missing data doesn't block a build) and [OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md) (the report for the morning).
+
 **Done 2026-11-17 (in the preview):** a New game menu change, plus a **"?" help button** next to the cog (a placeholder: "Help is coming soon"; the help function comes later). The Globe / Flat map choice becomes a **small switch toggle on the left**; on the right, a **"More games"** button opens a menu with two columns: **History** (the History games H1 people, H2 battles, H3 shipwrecks, each marked "soon" for now; [History_games.md](../History_games.md)) and **Misc** (the airport codes game, "soon"; [Misc_games.md](../Misc_games.md)). Also add the **upcoming countries** to the Countries list as "soon" (Germany, Japan, France, Italy, Spain, Nigeria, Argentina, next to Mexico and Brazil).
 
 ## Morning agenda (2026-11-18)
 
-1. **Review the overnight work.**
+1. **Review the overnight work** ([OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md)), then commit and push what's approved.
 2. **Timelines** (next on the list after the review):
    - **Germany:** the unification of the German-speaking states (Prussia and the others, to the German Empire in 1871); then **zoom out** for Nazi Germany's expansion and collapse; then the division (**East red, West blue**) and reunification in 1990.
    - **Japan:** **zoom out** for the empire's expansion and collapse, ending with **the atomic bombs** (a radioactive symbol on Hiroshima and Nagasaki) and **the surrender** (a white flag), then the post-war **tech boom**.

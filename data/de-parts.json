@@ -1,0 +1,931 @@
+[
+{
+"iso": "DE-BW",
+"id": "DE-BW",
+"name": "Baden-Württemberg",
+"names": [
+"Baden-Württemberg",
+"Baden-Wurttemberg",
+"Baden Württemberg"
+],
+"capitals": [
+"Stuttgart"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-BW",
+"info": {
+"abbr": "BW",
+"kind": "State",
+"pop": 11245898,
+"popYear": "2024",
+"area": 35748,
+"year": 1952,
+"flag": true,
+"facts": {
+"german": "Baden-Württemberg",
+"demonym": "Baden-Württemberger",
+"dialect": "Swabian and Alemannic",
+"dish": "Spätzle and Maultaschen",
+"drink": "Wine (Württemberg and Baden) and Rothaus beer",
+"festival": "Cannstatter Wasen (Stuttgart's beer festival)",
+"club": "VfB Stuttgart",
+"river": "Rhine and Neckar (the Danube rises here)",
+"high": "Feldberg, 1,493 m",
+"coast": "Landlocked (Lake Constance)",
+"wonder": "The Black Forest",
+"before": "Grand Duchy of Baden and Kingdom of Württemberg (merged in 1952)",
+"side": "West",
+"landmark": "Hohenzollern Castle and Heidelberg Castle",
+"unesco": "Maulbronn Monastery, Reichenau Island",
+"industry": "Cars and engineering",
+"company": "Mercedes-Benz, Porsche and Bosch"
+},
+"coastal": false,
+"borders": [
+"France",
+"Switzerland"
+],
+"areaRank": 3
+},
+"flagKey": "de/DE-BW",
+"capLL": [
+[
+9.2,
+48.78
+]
+]
+},
+{
+"iso": "DE-BY",
+"id": "DE-BY",
+"name": "Bavaria",
+"names": [
+"Bavaria",
+"Bayern"
+],
+"capitals": [
+"Munich",
+"München"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-BY",
+"info": {
+"abbr": "BY",
+"kind": "State",
+"pop": 13248928,
+"popYear": "2024",
+"area": 70542,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Bayern",
+"demonym": "Bavarian",
+"dialect": "Bavarian (and Franconian in the north)",
+"dish": "Weißwurst, pretzels and roast pork",
+"drink": "Beer (the 1516 purity law began here)",
+"festival": "Oktoberfest in Munich",
+"club": "Bayern Munich",
+"river": "Danube and Main",
+"high": "Zugspitze, 2,962 m: Germany's highest",
+"coast": "Landlocked",
+"wonder": "Berchtesgaden National Park and the Königssee",
+"before": "Kingdom of Bavaria",
+"side": "West",
+"landmark": "Neuschwanstein Castle",
+"unesco": "Würzburg Residence, old Bamberg and Regensburg",
+"industry": "Cars, engineering and tourism",
+"company": "BMW, Audi, Siemens and Adidas"
+},
+"coastal": false,
+"borders": [
+"Austria",
+"Czechia"
+],
+"areaRank": 1
+},
+"flagKey": "de/DE-BY",
+"capLL": [
+[
+11.573,
+48.132
+]
+]
+},
+{
+"iso": "DE-BE",
+"id": "DE-BE",
+"name": "Berlin",
+"names": [
+"Berlin"
+],
+"capitals": [
+"Berlin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-BE",
+"info": {
+"abbr": "BE",
+"kind": "City-state",
+"pop": 3685265,
+"popYear": "2024",
+"area": 891,
+"year": 1990,
+"flag": true,
+"facts": {
+"german": "Berlin",
+"demonym": "Berliner",
+"dialect": "Berlinerisch",
+"dish": "Currywurst and döner kebab",
+"drink": "Berliner Weisse (a sour beer)",
+"festival": "Berlinale (the film festival)",
+"club": "Hertha BSC and Union Berlin",
+"river": "Spree and Havel",
+"high": "Arkenberge, 122 m",
+"coast": "Landlocked",
+"wonder": "The Grunewald forest and the Müggelsee",
+"before": "Capital of Prussia and of the German Empire",
+"side": "Divided: East Berlin and West Berlin (the Berlin Wall, 1961–1989)",
+"landmark": "The Brandenburg Gate and the Reichstag",
+"unesco": "Museum Island, the palaces of Potsdam and Berlin",
+"industry": "Government, start-ups, media and tourism",
+"company": "Zalando and Deutsche Bahn"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 14
+},
+"flagKey": "de/DE-BE",
+"capLL": [
+[
+13.4,
+52.524
+]
+]
+},
+{
+"iso": "DE-BB",
+"id": "DE-BB",
+"name": "Brandenburg",
+"names": [
+"Brandenburg"
+],
+"capitals": [
+"Potsdam"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-BB",
+"info": {
+"abbr": "BB",
+"kind": "State",
+"pop": 2556747,
+"popYear": "2024",
+"area": 29654,
+"year": 1990,
+"flag": true,
+"facts": {
+"german": "Brandenburg",
+"demonym": "Brandenburger",
+"dialect": "Low German and Berlin-Brandenburg dialects",
+"dish": "Spreewald gherkins",
+"drink": "Beer",
+"festival": "Potsdam's Castles Night",
+"club": "Energie Cottbus",
+"river": "Elbe, Oder and Havel",
+"high": "Kutschenberg, 201 m",
+"coast": "Landlocked",
+"wonder": "The Spreewald (forest canals)",
+"before": "Margraviate of Brandenburg, the heart of Prussia",
+"side": "East",
+"landmark": "Sanssouci Palace in Potsdam",
+"unesco": "The palaces and parks of Potsdam, Muskau Park",
+"industry": "Energy (wind and lignite) and the Tesla factory",
+"company": "Tesla's Gigafactory Berlin-Brandenburg"
+},
+"coastal": false,
+"borders": [
+"Poland"
+],
+"areaRank": 5
+},
+"flagKey": "de/DE-BB",
+"anchorLL": [
+14.114,
+52.044
+],
+"capLL": [
+[
+13.07,
+52.4
+]
+]
+},
+{
+"iso": "DE-HB",
+"id": "DE-HB",
+"name": "Bremen",
+"names": [
+"Bremen",
+"Freie Hansestadt Bremen"
+],
+"capitals": [
+"Bremen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-HB",
+"info": {
+"abbr": "HB",
+"kind": "City-state",
+"pop": 704881,
+"popYear": "2024",
+"area": 420,
+"year": 1947,
+"flag": true,
+"facts": {
+"german": "Freie Hansestadt Bremen",
+"demonym": "Bremer",
+"dialect": "Low German",
+"dish": "Knipp and kale with Pinkel sausage",
+"drink": "Beck's beer",
+"festival": "Bremer Freimarkt (one of the oldest fairs)",
+"club": "Werder Bremen",
+"river": "Weser",
+"high": "Friedehorst, 33 m",
+"coast": "North Sea (Bremerhaven)",
+"wonder": "The Weser estuary",
+"before": "Free Imperial City of Bremen",
+"side": "West",
+"landmark": "The Town Musicians of Bremen statue",
+"unesco": "Bremen's Town Hall and the Roland statue",
+"industry": "Ports, shipping and aerospace",
+"company": "Beck's and Kellogg's Germany"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 16
+},
+"flagKey": "de/DE-HB",
+"capLL": [
+[
+8.8,
+53.08
+]
+]
+},
+{
+"iso": "DE-HH",
+"id": "DE-HH",
+"name": "Hamburg",
+"names": [
+"Hamburg"
+],
+"capitals": [
+"Hamburg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-HH",
+"info": {
+"abbr": "HH",
+"kind": "City-state",
+"pop": 1862565,
+"popYear": "2024",
+"area": 755,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Freie und Hansestadt Hamburg",
+"demonym": "Hamburger",
+"dialect": "Low German (Hamburger Platt)",
+"dish": "Fischbrötchen and Labskaus",
+"drink": "Astra beer",
+"festival": "Hamburger DOM (a funfair) and the port's birthday",
+"club": "Hamburger SV and FC St. Pauli",
+"river": "Elbe",
+"high": "Hasselbrack, 116 m",
+"coast": "North Sea (through the Elbe; its island Neuwerk is in the Wadden Sea)",
+"wonder": "The Wadden Sea at Neuwerk",
+"before": "Free Imperial City of Hamburg",
+"side": "West",
+"landmark": "The Elbphilharmonie concert hall",
+"unesco": "The Speicherstadt warehouse district",
+"industry": "Europe's third-biggest port, media and aircraft",
+"company": "Airbus (Finkenwerder plant) and Beiersdorf (Nivea)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15
+},
+"flagKey": "de/DE-HH",
+"capLL": [
+[
+9.998,
+53.552
+]
+]
+},
+{
+"iso": "DE-HE",
+"id": "DE-HE",
+"name": "Hesse",
+"names": [
+"Hesse",
+"Hessen"
+],
+"capitals": [
+"Wiesbaden"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-HE",
+"info": {
+"abbr": "HE",
+"kind": "State",
+"pop": 6280793,
+"popYear": "2024",
+"area": 21116,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Hessen",
+"demonym": "Hessian",
+"dialect": "Hessian",
+"dish": "Green sauce (Grie Soß) and Handkäse",
+"drink": "Apple wine (Ebbelwoi)",
+"festival": "Hessentag",
+"club": "Eintracht Frankfurt",
+"river": "Main and Rhine",
+"high": "Wasserkuppe, 950 m",
+"coast": "Landlocked",
+"wonder": "Kellerwald-Edersee National Park",
+"before": "Grand Duchy of Hesse and Hesse-Kassel",
+"side": "West",
+"landmark": "Frankfurt's skyline and the Römer",
+"unesco": "Messel Pit (fossils) and Bergpark Wilhelmshöhe",
+"industry": "Banking and Frankfurt Airport",
+"company": "Deutsche Bank and Lufthansa",
+"city": "Frankfurt"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 7
+},
+"flagKey": "de/DE-HE",
+"capLL": [
+[
+8.25,
+50.08
+]
+]
+},
+{
+"iso": "DE-NI",
+"id": "DE-NI",
+"name": "Lower Saxony",
+"names": [
+"Lower Saxony",
+"Niedersachsen"
+],
+"capitals": [
+"Hanover",
+"Hannover"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-NI",
+"info": {
+"abbr": "NI",
+"kind": "State",
+"pop": 8004489,
+"popYear": "2024",
+"area": 47710,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Niedersachsen",
+"demonym": "Lower Saxon",
+"dialect": "Low German",
+"dish": "Kale with Pinkel and Heidschnucke lamb",
+"drink": "Beer and Korn (grain spirit)",
+"festival": "Hanover's Schützenfest (the biggest marksmen's festival)",
+"club": "Hannover 96 and VfL Wolfsburg",
+"river": "Weser, Elbe and Ems",
+"high": "Wurmberg, 971 m (in the Harz)",
+"coast": "North Sea (the East Frisian Islands)",
+"wonder": "The Wadden Sea and the Lüneburg Heath",
+"before": "Kingdom of Hanover",
+"side": "West",
+"landmark": "Herrenhausen Gardens and Marienburg Castle",
+"unesco": "Goslar and the Rammelsberg mine, Hildesheim's churches",
+"industry": "Cars and farming",
+"company": "Volkswagen (Wolfsburg)"
+},
+"coastal": true,
+"borders": [
+"Netherlands"
+],
+"areaRank": 2
+},
+"flagKey": "de/DE-NI",
+"notTypo": [
+"Saxony"
+],
+"capLL": [
+[
+9.717,
+52.367
+]
+]
+},
+{
+"iso": "DE-MV",
+"id": "DE-MV",
+"name": "Mecklenburg-Vorpommern",
+"names": [
+"Mecklenburg-Vorpommern",
+"Mecklenburg-Western Pomerania",
+"Mecklenburg-West Pomerania",
+"Mecklenburg"
+],
+"capitals": [
+"Schwerin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-MV",
+"info": {
+"abbr": "MV",
+"kind": "State",
+"pop": 1573597,
+"popYear": "2024",
+"area": 23295,
+"year": 1990,
+"flag": true,
+"facts": {
+"german": "Mecklenburg-Vorpommern",
+"demonym": "Mecklenburger and Pomeranian",
+"dialect": "Low German",
+"dish": "Fish rolls and Rostock sausage",
+"drink": "Rostocker and Störtebeker beer",
+"festival": "Hanse Sail in Rostock",
+"club": "Hansa Rostock",
+"river": "Elbe, Peene and Warnow",
+"high": "Helpter Berge, 179 m",
+"coast": "Baltic Sea",
+"wonder": "The chalk cliffs of Rügen (Jasmund National Park)",
+"before": "Grand Duchies of Mecklenburg and part of Pomerania",
+"side": "East",
+"landmark": "Schwerin Castle",
+"unesco": "Old Wismar and Stralsund, Jasmund's beech forest",
+"industry": "Tourism, shipbuilding and farming",
+"company": "Störtebeker brewery",
+"city": "Rostock"
+},
+"coastal": true,
+"borders": [
+"Poland"
+],
+"areaRank": 6
+},
+"flagKey": "de/DE-MV",
+"capLL": [
+[
+11.417,
+53.633
+]
+]
+},
+{
+"iso": "DE-NW",
+"id": "DE-NW",
+"name": "North Rhine-Westphalia",
+"names": [
+"North Rhine-Westphalia",
+"Nordrhein-Westfalen",
+"NRW"
+],
+"capitals": [
+"Düsseldorf",
+"Duesseldorf"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-NW",
+"info": {
+"abbr": "NW",
+"kind": "State",
+"pop": 18034454,
+"popYear": "2024",
+"area": 34113,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Nordrhein-Westfalen",
+"demonym": "North Rhine-Westphalian",
+"dialect": "Kölsch, Ruhr German and Westphalian",
+"dish": "Rheinischer Sauerbraten and Currywurst",
+"drink": "Kölsch and Altbier",
+"festival": "Cologne Carnival",
+"club": "Borussia Dortmund and Schalke 04",
+"river": "Rhine and Ruhr",
+"high": "Langenberg, 843 m",
+"coast": "Landlocked",
+"wonder": "Eifel National Park",
+"before": "The Prussian Rhine Province and Westphalia",
+"side": "West",
+"landmark": "Cologne Cathedral",
+"unesco": "Cologne and Aachen cathedrals, the Zollverein coal mine",
+"industry": "The Ruhr: coal, steel and chemicals",
+"company": "Bayer, Henkel and Haribo",
+"city": "Cologne"
+},
+"coastal": false,
+"borders": [
+"Belgium",
+"Netherlands"
+],
+"areaRank": 4
+},
+"flagKey": "de/DE-NW",
+"capLL": [
+[
+6.78,
+51.22
+]
+]
+},
+{
+"iso": "DE-RP",
+"id": "DE-RP",
+"name": "Rhineland-Palatinate",
+"names": [
+"Rhineland-Palatinate",
+"Rheinland-Pfalz"
+],
+"capitals": [
+"Mainz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-RP",
+"info": {
+"abbr": "RP",
+"kind": "State",
+"pop": 4129569,
+"popYear": "2024",
+"area": 19858,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Rheinland-Pfalz",
+"demonym": "Rhineland-Palatine",
+"dialect": "Palatine and Moselle Franconian",
+"dish": "Saumagen (stuffed pig's stomach)",
+"drink": "Wine (Moselle, Rheinhessen, Palatinate)",
+"festival": "Bad Dürkheim's Sausage Market (a wine festival)",
+"club": "1. FC Kaiserslautern and Mainz 05",
+"river": "Rhine and Moselle",
+"high": "Erbeskopf, 816 m",
+"coast": "Landlocked",
+"wonder": "The Upper Middle Rhine Valley and the Loreley rock",
+"before": "Parts of Bavaria (the Palatinate), Hesse and Prussia",
+"side": "West",
+"landmark": "Eltz Castle",
+"unesco": "Trier's Roman monuments, Speyer Cathedral, the Upper Middle Rhine Valley",
+"industry": "Wine and chemicals",
+"company": "BASF (Ludwigshafen)"
+},
+"coastal": false,
+"borders": [
+"Belgium",
+"France",
+"Luxembourg"
+],
+"areaRank": 9
+},
+"flagKey": "de/DE-RP",
+"capLL": [
+[
+8.273,
+49.982
+]
+]
+},
+{
+"iso": "DE-SL",
+"id": "DE-SL",
+"name": "Saarland",
+"names": [
+"Saarland"
+],
+"capitals": [
+"Saarbrücken",
+"Saarbruecken"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-SL",
+"info": {
+"abbr": "SL",
+"kind": "State",
+"pop": 1012141,
+"popYear": "2024",
+"area": 2572,
+"year": 1957,
+"flag": true,
+"facts": {
+"german": "Saarland",
+"demonym": "Saarlander",
+"dialect": "Rhine and Moselle Franconian",
+"dish": "Dibbelabbes (potato dish) and Lyoner sausage",
+"drink": "Karlsberg beer",
+"festival": "Saarbrücken's Altstadtfest",
+"club": "1. FC Saarbrücken",
+"river": "Saar",
+"high": "Dollberg, 695 m",
+"coast": "Landlocked",
+"wonder": "The Saar Loop (Saarschleife)",
+"before": "Run by the League of Nations, then a French protectorate; joined West Germany in 1957",
+"side": "West",
+"landmark": "The Völklingen Ironworks",
+"unesco": "The Völklingen Ironworks",
+"industry": "Coal and steel, now cars",
+"company": "Villeroy & Boch"
+},
+"coastal": false,
+"borders": [
+"France",
+"Luxembourg"
+],
+"areaRank": 13
+},
+"flagKey": "de/DE-SL",
+"capLL": [
+[
+6.97,
+49.25
+]
+]
+},
+{
+"iso": "DE-SN",
+"id": "DE-SN",
+"name": "Saxony",
+"names": [
+"Saxony",
+"Sachsen"
+],
+"capitals": [
+"Dresden"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-SN",
+"info": {
+"abbr": "SN",
+"kind": "State",
+"pop": 4042422,
+"popYear": "2024",
+"area": 18450,
+"year": 1990,
+"flag": true,
+"facts": {
+"german": "Sachsen",
+"demonym": "Saxon",
+"dialect": "Saxon (Upper Saxon)",
+"dish": "Quarkkeulchen and Dresdner Stollen",
+"drink": "Radeberger beer and Saale-Unstrut wine",
+"festival": "Dresden's Striezelmarkt (Christmas market)",
+"club": "RB Leipzig and Dynamo Dresden",
+"river": "Elbe",
+"high": "Fichtelberg, 1,215 m",
+"coast": "Landlocked",
+"wonder": "Saxon Switzerland National Park (the Bastei)",
+"before": "Kingdom of Saxony",
+"side": "East",
+"landmark": "Dresden's Frauenkirche and the Zwinger",
+"unesco": "The Erzgebirge mining region, Muskau Park",
+"industry": "Cars, microchips and porcelain (Meissen)",
+"company": "Meissen porcelain and Radeberger",
+"city": "Leipzig"
+},
+"coastal": false,
+"borders": [
+"Czechia",
+"Poland"
+],
+"areaRank": 10
+},
+"flagKey": "de/DE-SN",
+"notTypo": [
+"Lower Saxony",
+"Saxony-Anhalt"
+],
+"capLL": [
+[
+13.75,
+51.05
+]
+]
+},
+{
+"iso": "DE-ST",
+"id": "DE-ST",
+"name": "Saxony-Anhalt",
+"names": [
+"Saxony-Anhalt",
+"Sachsen-Anhalt"
+],
+"capitals": [
+"Magdeburg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-ST",
+"info": {
+"abbr": "ST",
+"kind": "State",
+"pop": 2135597,
+"popYear": "2024",
+"area": 20459,
+"year": 1990,
+"flag": true,
+"facts": {
+"german": "Sachsen-Anhalt",
+"demonym": "Saxony-Anhaltian",
+"dialect": "Low German and Central German",
+"dish": "Harz cheese and Baumkuchen",
+"drink": "Rotkäppchen sparkling wine",
+"festival": "Walpurgis Night in the Harz",
+"club": "1. FC Magdeburg",
+"river": "Elbe and Saale",
+"high": "Brocken, 1,141 m",
+"coast": "Landlocked",
+"wonder": "Harz National Park",
+"before": "The Prussian Province of Saxony and the Duchy of Anhalt",
+"side": "East",
+"landmark": "Wittenberg's Castle Church (Luther's 95 theses)",
+"unesco": "The Bauhaus in Dessau, Luther's Wittenberg, Quedlinburg",
+"industry": "Chemicals and farming",
+"company": "Rotkäppchen"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8
+},
+"flagKey": "de/DE-ST",
+"notTypo": [
+"Saxony"
+],
+"capLL": [
+[
+11.62,
+52.13
+]
+]
+},
+{
+"iso": "DE-SH",
+"id": "DE-SH",
+"name": "Schleswig-Holstein",
+"names": [
+"Schleswig-Holstein",
+"Schleswig Holstein"
+],
+"capitals": [
+"Kiel"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-SH",
+"info": {
+"abbr": "SH",
+"kind": "State",
+"pop": 2959517,
+"popYear": "2024",
+"area": 15804,
+"year": 1946,
+"flag": true,
+"facts": {
+"german": "Schleswig-Holstein",
+"demonym": "Schleswig-Holsteiner",
+"dialect": "Low German and North Frisian",
+"dish": "Kieler Sprotten (smoked sprats) and Holstein ham",
+"drink": "Flensburger beer",
+"festival": "Kiel Week (the biggest sailing event)",
+"club": "Holstein Kiel",
+"river": "Elbe and Eider (the Kiel Canal)",
+"high": "Bungsberg, 168 m",
+"coast": "North Sea and Baltic Sea",
+"wonder": "The Wadden Sea and the island of Sylt",
+"before": "The duchies of Schleswig and Holstein (ruled by Denmark until 1864)",
+"side": "West",
+"landmark": "Lübeck's Holsten Gate",
+"unesco": "Old Lübeck, the Wadden Sea, Haithabu",
+"industry": "Shipbuilding, wind power and tourism",
+"company": "Dräger and Flensburger"
+},
+"coastal": true,
+"borders": [
+"Denmark"
+],
+"areaRank": 12
+},
+"flagKey": "de/DE-SH",
+"capLL": [
+[
+10.13,
+54.33
+]
+]
+},
+{
+"iso": "DE-TH",
+"id": "DE-TH",
+"name": "Thuringia",
+"names": [
+"Thuringia",
+"Thüringen"
+],
+"capitals": [
+"Erfurt"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "DE-TH",
+"info": {
+"abbr": "TH",
+"kind": "State",
+"pop": 2100277,
+"popYear": "2024",
+"area": 16202,
+"year": 1990,
+"flag": true,
+"facts": {
+"german": "Thüringen",
+"demonym": "Thuringian",
+"dialect": "Thuringian",
+"dish": "Thuringian sausage (Rostbratwurst) and dumplings",
+"drink": "Köstritzer black beer",
+"festival": "Weimar's Onion Market",
+"club": "FC Carl Zeiss Jena and Rot-Weiß Erfurt",
+"river": "Saale and Werra",
+"high": "Großer Beerberg, 983 m",
+"coast": "Landlocked",
+"wonder": "Hainich National Park and the Thuringian Forest",
+"before": "Several small duchies, united as the State of Thuringia in 1920",
+"side": "East",
+"landmark": "Wartburg Castle",
+"unesco": "Wartburg Castle, classical Weimar, the Bauhaus",
+"industry": "Optics and engineering",
+"company": "Carl Zeiss (Jena)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11
+},
+"flagKey": "de/DE-TH",
+"capLL": [
+[
+11.03,
+50.97
+]
+]
+}
+]

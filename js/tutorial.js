@@ -76,8 +76,9 @@
   }
   function caption(n, text) {
     if (!captions) return;
-    // level with the Borders button (the caption's middle on the button's middle)
-    const b = $("bordersBtn"); if (b && b.offsetParent) { const r = b.getBoundingClientRect(); cap.style.top = (r.top + r.height / 2) + "px"; }
+    // level with the world map's Borders button, measured once, then fixed (it doesn't follow the button on other maps)
+    if (!cap.dataset.top) { const b = $("bordersBtn"), r = b && b.getBoundingClientRect(); cap.dataset.top = r && r.height ? r.top + r.height / 2 : 64; }
+    cap.style.top = cap.dataset.top + "px";
     if (!text) { cap.classList.remove("on"); return; }
     cap.innerHTML = (n ? `<span class="n">${n}</span>` : "") + `<span>${text}</span>`;
     cap.style.paddingLeft = n ? "8px" : "14px";

@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"BR-AP","geometry":{"type":"Polygon","coordinates":[[[-50.9974,3.0066],[-50.99,3.0],[-51.0,3.0],[-51.0,3.0116],[-50.9974,3.0066]]]}}],"coast":{"type":"LineString","coordinates":[[-51.0,3.0116],[-50.9974,3.0066],[-50.99,3.0]]},"borders":{"type":"MultiLineString","coordinates":[]}}

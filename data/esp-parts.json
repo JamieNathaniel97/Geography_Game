@@ -1,0 +1,1949 @@
+[
+{
+"iso": "ESP-C",
+"id": "ESP-C",
+"name": "A Coruña",
+"names": [
+"A Coruña",
+"La Coruña",
+"Coruña",
+"Corunna"
+],
+"capitals": [
+"A Coruña",
+"La Coruña",
+"Corunna"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-C",
+"info": {
+"kind": "Province",
+"community": "Galicia",
+"pop": 1135623,
+"popYear": "2025",
+"area": 7954,
+"flag": false,
+"facts": {
+"landmark": "The Tower of Hercules"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 32
+},
+"capLL": [
+[
+-8.411,
+43.362
+]
+]
+},
+{
+"iso": "ESP-AB",
+"id": "ESP-AB",
+"name": "Albacete",
+"names": [
+"Albacete"
+],
+"capitals": [
+"Albacete"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-AB",
+"info": {
+"kind": "Province",
+"community": "Castilla–La Mancha",
+"pop": 390751,
+"popYear": "2025",
+"area": 14932,
+"flag": false,
+"facts": {
+"landmark": "The source of the Mundo river"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9
+},
+"capLL": [
+[
+-1.87,
+39.0
+]
+]
+},
+{
+"iso": "ESP-A",
+"id": "ESP-A",
+"name": "Alicante",
+"names": [
+"Alicante",
+"Alacant"
+],
+"capitals": [
+"Alicante",
+"Alacant"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-A",
+"info": {
+"kind": "Province",
+"community": "Valencian Community",
+"pop": 2033566,
+"popYear": "2025",
+"area": 5818,
+"flag": false,
+"facts": {
+"landmark": "Benidorm and the Palm Grove of Elche"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 41
+},
+"capLL": [
+[
+-0.484,
+38.351
+]
+]
+},
+{
+"iso": "ESP-AL",
+"id": "ESP-AL",
+"name": "Almería",
+"names": [
+"Almería"
+],
+"capitals": [
+"Almería"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-AL",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 770554,
+"popYear": "2025",
+"area": 8773,
+"flag": false,
+"facts": {
+"landmark": "The Tabernas desert"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 27
+},
+"capLL": [
+[
+-2.43,
+36.83
+]
+]
+},
+{
+"iso": "ESP-O",
+"id": "ESP-O",
+"name": "Asturias",
+"names": [
+"Asturias",
+"Asturies"
+],
+"capitals": [
+"Oviedo",
+"Uviéu"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-O",
+"info": {
+"kind": "Province",
+"community": "Asturias",
+"pop": 1015128,
+"popYear": "2025",
+"area": 10606,
+"flag": false,
+"facts": {
+"landmark": "Covadonga"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 21
+},
+"capLL": [
+[
+-5.83,
+43.35
+]
+]
+},
+{
+"iso": "ESP-BA",
+"id": "ESP-BA",
+"name": "Badajoz",
+"names": [
+"Badajoz"
+],
+"capitals": [
+"Badajoz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-BA",
+"info": {
+"kind": "Province",
+"community": "Extremadura",
+"pop": 665155,
+"popYear": "2025",
+"area": 21769,
+"flag": false,
+"facts": {
+"landmark": "Mérida's Roman theatre"
+},
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 1
+},
+"capLL": [
+[
+-6.97,
+38.88
+]
+]
+},
+{
+"iso": "ESP-PM",
+"id": "ESP-PM",
+"name": "Balearic Islands",
+"names": [
+"Balearic Islands",
+"Baleares",
+"Illes Balears",
+"Islas Baleares"
+],
+"capitals": [
+"Palma",
+"Palma de Mallorca"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-PM",
+"info": {
+"kind": "Province",
+"community": "Balearic Islands",
+"pop": 1249844,
+"popYear": "2025",
+"area": 4992,
+"flag": false,
+"facts": {
+"landmark": "Palma Cathedral"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 44
+},
+"capLL": [
+[
+2.654,
+39.574
+]
+]
+},
+{
+"iso": "ESP-B",
+"id": "ESP-B",
+"name": "Barcelona",
+"names": [
+"Barcelona"
+],
+"capitals": [
+"Barcelona"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-B",
+"info": {
+"kind": "Province",
+"community": "Catalonia",
+"pop": 5959941,
+"popYear": "2025",
+"area": 7734,
+"flag": false,
+"facts": {
+"landmark": "The Sagrada Família"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 33
+},
+"capLL": [
+[
+2.181,
+41.385
+]
+]
+},
+{
+"iso": "ESP-BI",
+"id": "ESP-BI",
+"name": "Biscay",
+"names": [
+"Biscay",
+"Bizkaia",
+"Vizcaya"
+],
+"capitals": [
+"Bilbao",
+"Bilbo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-BI",
+"info": {
+"kind": "Province",
+"community": "Basque Country",
+"pop": 1167233,
+"popYear": "2025",
+"area": 2216,
+"flag": false,
+"facts": {
+"landmark": "The Guggenheim Museum"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 49
+},
+"capLL": [
+[
+-2.93,
+43.25
+]
+]
+},
+{
+"iso": "ESP-BU",
+"id": "ESP-BU",
+"name": "Burgos",
+"names": [
+"Burgos"
+],
+"capitals": [
+"Burgos"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-BU",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 362663,
+"popYear": "2025",
+"area": 14289,
+"flag": false,
+"facts": {
+"landmark": "Burgos Cathedral and Atapuerca"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11
+},
+"capLL": [
+[
+-3.68,
+42.35
+]
+]
+},
+{
+"iso": "ESP-S",
+"id": "ESP-S",
+"name": "Cantabria",
+"names": [
+"Cantabria"
+],
+"capitals": [
+"Santander"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-S",
+"info": {
+"kind": "Province",
+"community": "Cantabria",
+"pop": 593623,
+"popYear": "2025",
+"area": 5330,
+"flag": false,
+"facts": {
+"landmark": "The Altamira cave"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 42
+},
+"capLL": [
+[
+-3.8,
+43.38
+]
+]
+},
+{
+"iso": "ESP-CS",
+"id": "ESP-CS",
+"name": "Castellón",
+"names": [
+"Castellón",
+"Castelló"
+],
+"capitals": [
+"Castellón de la Plana",
+"Castellón",
+"Castelló de la Plana"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CS",
+"info": {
+"kind": "Province",
+"community": "Valencian Community",
+"pop": 627620,
+"popYear": "2025",
+"area": 6634,
+"flag": false,
+"facts": {
+"landmark": "Peñíscola castle"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 38
+},
+"capLL": [
+[
+-0.038,
+39.986
+]
+]
+},
+{
+"iso": "ESP-CE",
+"id": "ESP-CE",
+"name": "Ceuta",
+"names": [
+"Ceuta"
+],
+"capitals": [
+"Ceuta"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CE",
+"info": {
+"kind": "Autonomous city",
+"community": "Ceuta",
+"pop": 83567,
+"popYear": "2025",
+"area": 20,
+"flag": false,
+"facts": {
+"landmark": "The Royal Walls"
+},
+"coastal": true,
+"borders": [
+"Morocco"
+],
+"areaRank": 51
+},
+"capLL": [
+[
+-5.307,
+35.889
+]
+]
+},
+{
+"iso": "ESP-CR",
+"id": "ESP-CR",
+"name": "Ciudad Real",
+"names": [
+"Ciudad Real"
+],
+"capitals": [
+"Ciudad Real"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CR",
+"info": {
+"kind": "Province",
+"community": "Castilla–La Mancha",
+"pop": 494848,
+"popYear": "2025",
+"area": 19812,
+"flag": false,
+"facts": {
+"landmark": "The windmills of Campo de Criptana"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 3
+},
+"capLL": [
+[
+-3.927,
+38.985
+]
+]
+},
+{
+"iso": "ESP-CU",
+"id": "ESP-CU",
+"name": "Cuenca",
+"names": [
+"Cuenca"
+],
+"capitals": [
+"Cuenca"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CU",
+"info": {
+"kind": "Province",
+"community": "Castilla–La Mancha",
+"pop": 199859,
+"popYear": "2025",
+"area": 17121,
+"flag": false,
+"facts": {
+"landmark": "The Hanging Houses of Cuenca"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 5
+},
+"capLL": [
+[
+-79.0,
+-2.9
+]
+]
+},
+{
+"iso": "ESP-CC",
+"id": "ESP-CC",
+"name": "Cáceres",
+"names": [
+"Cáceres"
+],
+"capitals": [
+"Cáceres"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CC",
+"info": {
+"kind": "Province",
+"community": "Extremadura",
+"pop": 388190,
+"popYear": "2025",
+"area": 19864,
+"flag": false,
+"facts": {
+"landmark": "Cáceres's old town"
+},
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 2
+},
+"capLL": [
+[
+-57.51,
+-16.05
+]
+]
+},
+{
+"iso": "ESP-CA",
+"id": "ESP-CA",
+"name": "Cádiz",
+"names": [
+"Cádiz"
+],
+"capitals": [
+"Cádiz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CA",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 1261420,
+"popYear": "2025",
+"area": 7444,
+"flag": false,
+"facts": {
+"landmark": "Jerez and the white villages"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 34
+},
+"capLL": [
+[
+-6.225,
+36.535
+]
+]
+},
+{
+"iso": "ESP-CO",
+"id": "ESP-CO",
+"name": "Córdoba",
+"names": [
+"Córdoba"
+],
+"capitals": [
+"Córdoba"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-CO",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 773163,
+"popYear": "2025",
+"area": 13772,
+"flag": false,
+"facts": {
+"landmark": "The Mezquita of Córdoba"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 13
+},
+"capLL": [
+[
+-4.77,
+37.88
+]
+]
+},
+{
+"iso": "ESP-SS",
+"id": "ESP-SS",
+"name": "Gipuzkoa",
+"names": [
+"Gipuzkoa",
+"Guipúzcoa",
+"Guipuzcoa"
+],
+"capitals": [
+"San Sebastián",
+"Donostia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-SS",
+"info": {
+"kind": "Province",
+"community": "Basque Country",
+"pop": 733149,
+"popYear": "2025",
+"area": 1981,
+"flag": false,
+"facts": {
+"landmark": "La Concha beach (San Sebastián)"
+},
+"coastal": true,
+"borders": [
+"France"
+],
+"areaRank": 50
+},
+"capLL": [
+[
+-1.98,
+43.32
+]
+]
+},
+{
+"iso": "ESP-GI",
+"id": "ESP-GI",
+"name": "Girona",
+"names": [
+"Girona",
+"Gerona"
+],
+"capitals": [
+"Girona",
+"Gerona"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-GI",
+"info": {
+"kind": "Province",
+"community": "Catalonia",
+"pop": 830429,
+"popYear": "2025",
+"area": 5908,
+"flag": false,
+"facts": {
+"landmark": "The Costa Brava and Dalí's Figueres"
+},
+"coastal": true,
+"borders": [
+"France"
+],
+"areaRank": 40
+},
+"capLL": [
+[
+2.821,
+41.979
+]
+]
+},
+{
+"iso": "ESP-GR",
+"id": "ESP-GR",
+"name": "Granada",
+"names": [
+"Granada"
+],
+"capitals": [
+"Granada"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-GR",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 945797,
+"popYear": "2025",
+"area": 12645,
+"flag": false,
+"facts": {
+"landmark": "The Alhambra"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15
+},
+"capLL": [
+[
+-3.585,
+37.165
+]
+]
+},
+{
+"iso": "ESP-GU",
+"id": "ESP-GU",
+"name": "Guadalajara",
+"names": [
+"Guadalajara"
+],
+"capitals": [
+"Guadalajara"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-GU",
+"info": {
+"kind": "Province",
+"community": "Castilla–La Mancha",
+"pop": 285839,
+"popYear": "2025",
+"area": 12213,
+"flag": false,
+"facts": {
+"landmark": "Sigüenza Cathedral"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 17
+},
+"capLL": [
+[
+-3.167,
+40.634
+]
+]
+},
+{
+"iso": "ESP-H",
+"id": "ESP-H",
+"name": "Huelva",
+"names": [
+"Huelva"
+],
+"capitals": [
+"Huelva"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-H",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 538789,
+"popYear": "2025",
+"area": 10127,
+"flag": false,
+"facts": {
+"landmark": "Doñana National Park"
+},
+"coastal": true,
+"borders": [
+"Portugal"
+],
+"areaRank": 25
+},
+"capLL": [
+[
+-6.93,
+37.25
+]
+]
+},
+{
+"iso": "ESP-HU",
+"id": "ESP-HU",
+"name": "Huesca",
+"names": [
+"Huesca"
+],
+"capitals": [
+"Huesca"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-HU",
+"info": {
+"kind": "Province",
+"community": "Aragon",
+"pop": 230087,
+"popYear": "2025",
+"area": 15638,
+"flag": false,
+"facts": {
+"landmark": "Ordesa y Monte Perdido"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 6
+},
+"capLL": [
+[
+-0.408,
+42.136
+]
+]
+},
+{
+"iso": "ESP-J",
+"id": "ESP-J",
+"name": "Jaén",
+"names": [
+"Jaén"
+],
+"capitals": [
+"Jaén"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-J",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 618143,
+"popYear": "2025",
+"area": 13493,
+"flag": false,
+"facts": {
+"landmark": "Olive groves and Úbeda's Renaissance town"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 14
+},
+"capLL": [
+[
+-3.8,
+37.77
+]
+]
+},
+{
+"iso": "ESP-LO",
+"id": "ESP-LO",
+"name": "La Rioja",
+"names": [
+"La Rioja",
+"Rioja"
+],
+"capitals": [
+"Logroño"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-LO",
+"info": {
+"kind": "Province",
+"community": "La Rioja",
+"pop": 326803,
+"popYear": "2025",
+"area": 5045,
+"flag": false,
+"facts": {
+"landmark": "The Rioja vineyards"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 43
+},
+"capLL": [
+[
+-2.43,
+42.47
+]
+]
+},
+{
+"iso": "ESP-GC",
+"id": "ESP-GC",
+"name": "Las Palmas",
+"names": [
+"Las Palmas"
+],
+"capitals": [
+"Las Palmas de Gran Canaria",
+"Las Palmas"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-GC",
+"info": {
+"kind": "Province",
+"community": "Canary Islands",
+"pop": 1171547,
+"popYear": "2025",
+"area": 4070,
+"flag": false,
+"facts": {
+"landmark": "The dunes of Maspalomas"
+},
+"coastal": true,
+"borders": [],
+"inset": true,
+"areaRank": 46
+},
+"capLL": [
+[
+-9.913,
+34.624
+]
+]
+},
+{
+"iso": "ESP-LE",
+"id": "ESP-LE",
+"name": "León",
+"names": [
+"León"
+],
+"capitals": [
+"León"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-LE",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 448030,
+"popYear": "2025",
+"area": 15578,
+"flag": false,
+"facts": {
+"landmark": "León Cathedral"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 7
+},
+"capLL": [
+[
+-5.57,
+42.58
+]
+]
+},
+{
+"iso": "ESP-L",
+"id": "ESP-L",
+"name": "Lleida",
+"names": [
+"Lleida",
+"Lérida"
+],
+"capitals": [
+"Lleida",
+"Lérida"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-L",
+"info": {
+"kind": "Province",
+"community": "Catalonia",
+"pop": 458226,
+"popYear": "2025",
+"area": 12163,
+"flag": false,
+"facts": {
+"landmark": "The Vall d'Aran"
+},
+"coastal": false,
+"borders": [
+"Andorra",
+"France"
+],
+"areaRank": 18
+},
+"capLL": [
+[
+0.62,
+41.614
+]
+]
+},
+{
+"iso": "ESP-LU",
+"id": "ESP-LU",
+"name": "Lugo",
+"names": [
+"Lugo"
+],
+"capitals": [
+"Lugo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-LU",
+"info": {
+"kind": "Province",
+"community": "Galicia",
+"pop": 326022,
+"popYear": "2025",
+"area": 9858,
+"flag": false,
+"facts": {
+"landmark": "Lugo's Roman walls"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 26
+},
+"capLL": [
+[
+-7.556,
+43.012
+]
+]
+},
+{
+"iso": "ESP-M",
+"id": "ESP-M",
+"name": "Madrid",
+"names": [
+"Madrid"
+],
+"capitals": [
+"Madrid"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-M",
+"info": {
+"kind": "Province",
+"community": "Madrid",
+"pop": 7113886,
+"popYear": "2025",
+"area": 8027,
+"flag": false,
+"facts": {
+"landmark": "The Royal Palace and the Prado"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 31
+},
+"capLL": [
+[
+-3.685,
+40.402
+]
+]
+},
+{
+"iso": "ESP-ML",
+"id": "ESP-ML",
+"name": "Melilla",
+"names": [
+"Melilla"
+],
+"capitals": [
+"Melilla"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-ML",
+"info": {
+"kind": "Autonomous city",
+"community": "Melilla",
+"pop": 87067,
+"popYear": "2025",
+"area": 14,
+"flag": false,
+"facts": {
+"landmark": "Melilla la Vieja"
+},
+"coastal": true,
+"borders": [
+"Morocco"
+],
+"areaRank": 52
+},
+"capLL": [
+[
+-2.95,
+35.3
+]
+]
+},
+{
+"iso": "ESP-MU",
+"id": "ESP-MU",
+"name": "Murcia",
+"names": [
+"Murcia"
+],
+"capitals": [
+"Murcia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-MU",
+"info": {
+"kind": "Province",
+"community": "Murcia",
+"pop": 1586989,
+"popYear": "2025",
+"area": 11316,
+"flag": false,
+"facts": {
+"landmark": "The Mar Menor"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 19
+},
+"capLL": [
+[
+-1.13,
+37.98
+]
+]
+},
+{
+"iso": "ESP-MA",
+"id": "ESP-MA",
+"name": "Málaga",
+"names": [
+"Málaga"
+],
+"capitals": [
+"Málaga"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-MA",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 1791183,
+"popYear": "2025",
+"area": 7308,
+"flag": false,
+"facts": {
+"landmark": "Ronda's bridge and the Costa del Sol"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 35
+},
+"capLL": [
+[
+-4.42,
+36.72
+]
+]
+},
+{
+"iso": "ESP-NA",
+"id": "ESP-NA",
+"name": "Navarre",
+"names": [
+"Navarre",
+"Navarra",
+"Nafarroa"
+],
+"capitals": [
+"Pamplona",
+"Iruña"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-NA",
+"info": {
+"kind": "Province",
+"community": "Navarre",
+"pop": 683854,
+"popYear": "2025",
+"area": 10392,
+"flag": false,
+"facts": {
+"landmark": "San Fermín in Pamplona"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 23
+},
+"capLL": [
+[
+-1.65,
+42.82
+]
+]
+},
+{
+"iso": "ESP-OR",
+"id": "ESP-OR",
+"name": "Ourense",
+"names": [
+"Ourense",
+"Orense"
+],
+"capitals": [
+"Ourense",
+"Orense"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-OR",
+"info": {
+"kind": "Province",
+"community": "Galicia",
+"pop": 305278,
+"popYear": "2025",
+"area": 7275,
+"flag": false,
+"facts": {
+"landmark": "The Ribeira Sacra canyons"
+},
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 36
+},
+"capLL": [
+[
+-7.87,
+42.33
+]
+]
+},
+{
+"iso": "ESP-P",
+"id": "ESP-P",
+"name": "Palencia",
+"names": [
+"Palencia"
+],
+"capitals": [
+"Palencia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-P",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 158702,
+"popYear": "2025",
+"area": 8052,
+"flag": false,
+"facts": {
+"landmark": "The Canal de Castilla"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 29
+},
+"capLL": [
+[
+-4.53,
+42.01
+]
+]
+},
+{
+"iso": "ESP-PO",
+"id": "ESP-PO",
+"name": "Pontevedra",
+"names": [
+"Pontevedra"
+],
+"capitals": [
+"Pontevedra"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-PO",
+"info": {
+"kind": "Province",
+"community": "Galicia",
+"pop": 947818,
+"popYear": "2025",
+"area": 4497,
+"flag": false,
+"facts": {
+"landmark": "The Cíes Islands"
+},
+"coastal": true,
+"borders": [
+"Portugal"
+],
+"areaRank": 45
+},
+"capLL": [
+[
+-8.645,
+42.431
+]
+]
+},
+{
+"iso": "ESP-SA",
+"id": "ESP-SA",
+"name": "Salamanca",
+"names": [
+"Salamanca"
+],
+"capitals": [
+"Salamanca"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-SA",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 328446,
+"popYear": "2025",
+"area": 12348,
+"flag": false,
+"facts": {
+"landmark": "The Plaza Mayor of Salamanca"
+},
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 16
+},
+"capLL": [
+[
+-5.67,
+40.97
+]
+]
+},
+{
+"iso": "ESP-TF",
+"id": "ESP-TF",
+"name": "Santa Cruz de Tenerife",
+"names": [
+"Santa Cruz de Tenerife",
+"Tenerife"
+],
+"capitals": [
+"Santa Cruz de Tenerife",
+"Santa Cruz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-TF",
+"info": {
+"kind": "Province",
+"community": "Canary Islands",
+"pop": 1087319,
+"popYear": "2025",
+"area": 3376,
+"flag": false,
+"facts": {
+"landmark": "Mount Teide"
+},
+"coastal": true,
+"borders": [],
+"inset": true,
+"areaRank": 47
+},
+"capLL": [
+[
+-10.751,
+34.964
+]
+]
+},
+{
+"iso": "ESP-SG",
+"id": "ESP-SG",
+"name": "Segovia",
+"names": [
+"Segovia"
+],
+"capitals": [
+"Segovia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-SG",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 158251,
+"popYear": "2025",
+"area": 6923,
+"flag": false,
+"facts": {
+"landmark": "The Roman aqueduct"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 37
+},
+"capLL": [
+[
+-4.118,
+40.948
+]
+]
+},
+{
+"iso": "ESP-SE",
+"id": "ESP-SE",
+"name": "Seville",
+"names": [
+"Seville",
+"Sevilla"
+],
+"capitals": [
+"Seville",
+"Sevilla"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-SE",
+"info": {
+"kind": "Province",
+"community": "Andalusia",
+"pop": 1977664,
+"popYear": "2025",
+"area": 14036,
+"flag": false,
+"facts": {
+"landmark": "Seville's cathedral and the Giralda"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12
+},
+"capLL": [
+[
+-5.98,
+37.405
+]
+]
+},
+{
+"iso": "ESP-SO",
+"id": "ESP-SO",
+"name": "Soria",
+"names": [
+"Soria"
+],
+"capitals": [
+"Soria"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-SO",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 90183,
+"popYear": "2025",
+"area": 10307,
+"flag": false,
+"facts": {
+"landmark": "Numantia"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 24
+},
+"capLL": [
+[
+-2.464,
+41.764
+]
+]
+},
+{
+"iso": "ESP-T",
+"id": "ESP-T",
+"name": "Tarragona",
+"names": [
+"Tarragona"
+],
+"capitals": [
+"Tarragona"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-T",
+"info": {
+"kind": "Province",
+"community": "Catalonia",
+"pop": 875530,
+"popYear": "2025",
+"area": 6307,
+"flag": false,
+"facts": {
+"landmark": "Tarragona's Roman amphitheatre"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 39
+},
+"capLL": [
+[
+1.25,
+41.12
+]
+]
+},
+{
+"iso": "ESP-TE",
+"id": "ESP-TE",
+"name": "Teruel",
+"names": [
+"Teruel"
+],
+"capitals": [
+"Teruel"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-TE",
+"info": {
+"kind": "Province",
+"community": "Aragon",
+"pop": 136091,
+"popYear": "2025",
+"area": 14827,
+"flag": false,
+"facts": {
+"landmark": "Teruel's Mudéjar towers"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10
+},
+"capLL": [
+[
+-1.106,
+40.345
+]
+]
+},
+{
+"iso": "ESP-TO",
+"id": "ESP-TO",
+"name": "Toledo",
+"names": [
+"Toledo"
+],
+"capitals": [
+"Toledo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-TO",
+"info": {
+"kind": "Province",
+"community": "Castilla–La Mancha",
+"pop": 755081,
+"popYear": "2025",
+"area": 15369,
+"flag": false,
+"facts": {
+"landmark": "Toledo's old city"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8
+},
+"capLL": [
+[
+-4.017,
+39.867
+]
+]
+},
+{
+"iso": "ESP-V",
+"id": "ESP-V",
+"name": "Valencia",
+"names": [
+"Valencia",
+"València"
+],
+"capitals": [
+"Valencia",
+"València"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-V",
+"info": {
+"kind": "Province",
+"community": "Valencian Community",
+"pop": 2763996,
+"popYear": "2025",
+"area": 10813,
+"flag": false,
+"facts": {
+"landmark": "The City of Arts and Sciences"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 20
+},
+"capLL": [
+[
+-0.402,
+39.487
+]
+]
+},
+{
+"iso": "ESP-VA",
+"id": "ESP-VA",
+"name": "Valladolid",
+"names": [
+"Valladolid"
+],
+"capitals": [
+"Valladolid"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-VA",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 528644,
+"popYear": "2025",
+"area": 8111,
+"flag": false,
+"facts": {
+"landmark": "Valladolid's Holy Week"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 28
+},
+"capLL": [
+[
+-4.75,
+41.65
+]
+]
+},
+{
+"iso": "ESP-ZA",
+"id": "ESP-ZA",
+"name": "Zamora",
+"names": [
+"Zamora"
+],
+"capitals": [
+"Zamora"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-ZA",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 165564,
+"popYear": "2025",
+"area": 10561,
+"flag": false,
+"facts": {
+"landmark": "Zamora's Romanesque churches"
+},
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 22
+},
+"capLL": [
+[
+-78.97,
+-4.07
+]
+]
+},
+{
+"iso": "ESP-Z",
+"id": "ESP-Z",
+"name": "Zaragoza",
+"names": [
+"Zaragoza",
+"Saragossa"
+],
+"capitals": [
+"Zaragoza",
+"Saragossa"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-Z",
+"info": {
+"kind": "Province",
+"community": "Aragon",
+"pop": 998443,
+"popYear": "2025",
+"area": 17275,
+"flag": false,
+"facts": {
+"landmark": "The Basilica of the Pillar"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 4
+},
+"capLL": [
+[
+-0.89,
+41.65
+]
+]
+},
+{
+"iso": "ESP-VI",
+"id": "ESP-VI",
+"name": "Álava",
+"names": [
+"Álava",
+"Araba"
+],
+"capitals": [
+"Vitoria-Gasteiz",
+"Vitoria",
+"Gasteiz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-VI",
+"info": {
+"kind": "Province",
+"community": "Basque Country",
+"pop": 341961,
+"popYear": "2025",
+"area": 3038,
+"flag": false,
+"facts": {
+"landmark": "Vitoria's old town"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 48
+},
+"capLL": [
+[
+-2.672,
+42.847
+]
+]
+},
+{
+"iso": "ESP-AV",
+"id": "ESP-AV",
+"name": "Ávila",
+"names": [
+"Ávila"
+],
+"capitals": [
+"Ávila"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ESP-AV",
+"info": {
+"kind": "Province",
+"community": "Castile and León",
+"pop": 160738,
+"popYear": "2025",
+"area": 8049,
+"flag": false,
+"facts": {
+"landmark": "Ávila's medieval walls"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 30
+},
+"capLL": [
+[
+-4.7,
+40.656
+]
+]
+}
+]

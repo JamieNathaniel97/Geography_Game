@@ -3,7 +3,7 @@ characters the cards use, so they cost a few kilobytes and work offline.
 
   fonts/gq-<script>.woff   one per script, loaded by css/app.css (@font-face "GQ Scripts", with unicode ranges)
 
-Text comes from tools/in_facts.py (India's names in their own scripts) , tools/cn_facts.py (China's characters) and tools/ru_facts.py (Russia's Cyrillic).
+Text comes from tools/in_facts.py (India's names in their own scripts) , tools/cn_facts.py (China's characters) and tools/ru_facts.py (Russia's Cyrillic); Japan's kanji (tools/jp_facts.py) go in their own font, fonts/gq-japanese.woff.
 Run from the repo root:  python tools/build_fonts.py   (needs fontTools; the Noto fonts are in tools/downloads/fonts/)
 """
 import pathlib
@@ -42,7 +42,33 @@ def card_text():
             "".join(f.get("ru", "") for f in ru_facts.FACTS.values()))
 
 
+def japanese():
+    """Japan's kanji and kana from NotoSansJP (Japanese glyph shapes, which differ from the Chinese font's), as its own
+    family "GQ Japanese" (css/app.css: .native-ja), since its characters overlap the Chinese font's range."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import jp_facts
+    text = "".join(f.get("kanji", "") for f in jp_facts.FACTS.values())
+    chars = sorted({ch for ch in text if ord(ch) > 0x2E80})
+    opts = subset.Options()
+    opts.flavor = "woff"
+    opts.name_IDs = ["*"]
+    font = TTFont(SRC / "NotoSansJP.ttf")
+    if "fvar" in font:
+        from fontTools.varLib import instancer
+        font = instancer.instantiateVariableFont(font, {"wght": 400})
+    sub = subset.Subsetter(opts)
+    sub.populate(unicodes=[ord(c) for c in chars] + [0x20])
+    sub.subset(font)
+    out = OUT / "gq-japanese.woff"
+    font.flavor = "woff"
+    font.save(out)
+    print(f"{out.name}: {len(chars)} characters, {out.stat().st_size // 1024 + 1} KB")
+
+
 def main():
+    if sys.argv[1:] == ["japanese"]:  # just the Japanese font (the others unchanged)
+        japanese()
+        return
     OUT.mkdir(exist_ok=True)
     text = card_text()
     css = []
@@ -69,6 +95,7 @@ def main():
         css.append(f'@font-face {{ font-family: "GQ Scripts"; src: url("../fonts/{out.name}") format("woff"); '
                    f'unicode-range: U+{lo:04X}-{hi:04X}; font-display: swap; }}')
         print(f"{out.name}: {len(chars)} characters, {out.stat().st_size // 1024 + 1} KB")
+    japanese()
     (OUT / "fonts.css").write_text("\n".join(css) + "\n", encoding="utf8")
     print("wrote fonts/fonts.css (the @font-face rules, copied into css/app.css)")
 

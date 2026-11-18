@@ -1,0 +1,106 @@
+"""Learning card facts for Nigeria's 36 states and the Federal Capital Territory (Nigeria_plan.md, "More facts"), keyed by
+ISO 3166-2:NG. The nickname (number-plate slogan), the largest city and the geopolitical zone come from the downloaded
+lists (tools/build_ng.py).
+
+Fields (any may be missing; the card leaves out what's missing):
+  ethnic (main ethnic groups)   languages   religion   dish   festival   ruler (traditional ruler)   river   climate (climate
+  or vegetation)   high (highest point)   wonder (natural wonder or park)   created (year, and from which state)
+  kingdom (old kingdom or empire)   unesco   industry (known for)   person (a famous person from there)
+Written from general knowledge and the downloaded Wikipedia articles (tools/downloads/ng/wiki/); left out where unsure.
+"""
+
+NW = dict(ethnic="Hausa and Fulani", languages="Hausa and Fulfulde", religion="Mostly Islam", climate="Sudan and Sahel savanna")
+NE = dict(religion="Mostly Islam", climate="Sudan and Sahel savanna")
+NC = dict(religion="Christianity and Islam", climate="Guinea savanna")
+SW = dict(ethnic="Yoruba", languages="Yoruba", religion="Christianity and Islam", climate="Rainforest and savanna")
+SE = dict(ethnic="Igbo", languages="Igbo", religion="Mostly Christianity", climate="Rainforest and derived savanna")
+SS = dict(religion="Mostly Christianity", climate="Rainforest and mangrove swamp")
+
+FACTS = {
+    "AB": dict(SE, dish="Ofe Owerri and abacha", festival="The New Yam Festival", river="Imo River", created="1991, from Imo",
+               industry="Trade and manufacturing in Aba (shoes, clothes)", person="Michael Okpara"),
+    "AD": dict(NE, ethnic="Fulani, Bachama and many others", languages="Fulfulde and Hausa", ruler="The Lamido of Adamawa", river="Benue",
+               high="Chappal Waddi, 2,419 m: Nigeria's highest (on the Taraba border)", wonder="The Mandara Mountains",
+               created="1991, from Gongola", kingdom="The Adamawa Emirate", industry="Farming and cattle"),
+    "AK": dict(SS, ethnic="Ibibio, Annang and Oron", languages="Ibibio and Annang", dish="Afang soup and edikang ikong", river="Qua Iboe and Cross River",
+               created="1987, from Cross River", industry="Oil and gas (Nigeria's top producer)", wonder="Ibeno beach, one of West Africa's longest"),
+    "AN": dict(SE, dish="Ofe onugbu (bitter leaf soup)", festival="The Ofala Festival (Onitsha)", ruler="The Obi of Onitsha", river="Niger",
+               created="1991 (today's state), from the old Anambra", kingdom="The Nri kingdom",
+               industry="Trade: Onitsha Main Market, one of Africa's largest", person="Chinua Achebe (Ogidi)"),
+    "BA": dict(NE, ethnic="Hausa, Fulani and many smaller groups", languages="Hausa", ruler="The Emir of Bauchi", wonder="Yankari National Park and its Wikki Warm Springs",
+               created="1976, from North-Eastern State", kingdom="The Bauchi Emirate", industry="Farming and tourism (Yankari)", person="Abubakar Tafawa Balewa, Nigeria's first prime minister"),
+    "BY": dict(SS, ethnic="Ijaw", languages="Ijaw", dish="Fisherman soup and kekefiyai", river="Niger Delta creeks (Nun and Forcados)",
+               climate="Mangrove swamp and rainforest", created="1996, from Rivers", industry="Oil and gas (Oloibiri, Nigeria's first oil well, 1956)",
+               person="Goodluck Jonathan"),
+    "BE": dict(NC, ethnic="Tiv, Idoma and Igede", languages="Tiv and Idoma", dish="Pounded yam", festival="The Alekwu Festival (Idoma)", river="Benue",
+               created="1976, from Benue-Plateau", industry="Farming: the 'Food Basket of the Nation' (yams, soybeans)"),
+    "BO": dict(NE, ethnic="Kanuri", languages="Kanuri", ruler="The Shehu of Borno", river="Lake Chad (shrinking) and the Yobe", climate="Sahel",
+               created="1976, from North-Eastern State", kingdom="The Kanem-Bornu Empire (over 1,000 years)", industry="Farming and fishing on Lake Chad"),
+    "CR": dict(SS, ethnic="Efik, Ejagham and Bekwarra", languages="Efik", dish="Edikang ikong and afang", festival="The Calabar Carnival", river="Cross River",
+               wonder="Obudu Mountain Resort and Cross River National Park (gorillas)", created="1967, as South-Eastern State",
+               kingdom="The Efik city-states of Old Calabar", industry="Tourism and cocoa"),
+    "DE": dict(SS, ethnic="Urhobo, Itsekiri, Ijaw, Isoko and Anioma Igbo", languages="Urhobo and Itsekiri", dish="Banga soup and starch", river="Niger and Forcados",
+               created="1991, from Bendel", industry="Oil and gas (Warri)", person="Jay-Jay Okocha"),
+    "EB": dict(SE, dish="Abacha and rice (Abakaliki rice)", festival="The Iri Ji (new yam) festivals", created="1996, from Abia and Enugu",
+               industry="Rice farming and salt and lead mining"),
+    "ED": dict(SS, ethnic="Edo (Bini), Esan and Etsako", languages="Edo", dish="Black soup and owo soup", festival="Igue Festival", ruler="The Oba of Benin",
+               created="1991, from Bendel", kingdom="The Kingdom of Benin, famous for its bronzes", industry="Rubber, timber and crafts",
+               person="Oba Ovonramwen, deposed by the British in 1897"),
+    "EK": dict(SW, dish="Pounded yam and efo riro", festival="The Udiroko Festival (Ado)", created="1996, from Ondo",
+               wonder="The Ikogosi warm and cold springs", industry="Farming and education ('the Land of Honour')"),
+    "EN": dict(SE, dish="Ofe akwu and okpa", festival="The Mmanwu (masquerade) Festival", created="1991, from Anambra",
+               industry="Coal mining (history: 'Coal City')", person="Nnamdi Azikiwe lived and worked in Enugu"),
+    "FC": dict(ethnic="Gbagyi and people from all over Nigeria", languages="English, Hausa and Gbagyi", religion="Christianity and Islam",
+               climate="Guinea savanna", wonder="Aso Rock and Zuma Rock (on the Niger border)", created="1976, from parts of Niger, Plateau and Kogi",
+               industry="Government: Abuja became the capital in 1991"),
+    "GO": dict(NE, ethnic="Fulani, Tangale and Waja", languages="Hausa and Fulfulde", created="1996, from Bauchi", ruler="The Emir of Gombe",
+               industry="Farming and cement (Ashaka)"),
+    "IM": dict(SE, dish="Ofe Owerri", festival="The New Yam Festival", created="1976, from East Central", wonder="The Oguta Lake",
+               industry="Oil and palm produce"),
+    "JI": dict(NW, ruler="The Emir of Dutse", created="1991, from Kano", wonder="The Hadejia-Nguru wetlands", industry="Farming"),
+    "KD": dict(NC, ethnic="Hausa, Gbagyi, Atyap and many others", languages="Hausa", religion="Islam and Christianity", ruler="The Emir of Zazzau (Zaria)",
+               created="1967, as North-Central State", kingdom="The Hausa kingdom of Zazzau (Queen Amina)", industry="Textiles, the oil refinery and education (Zaria)",
+               wonder="The Kajuru Castle and Matsirga Falls"),
+    "KN": dict(NW, dish="Tuwo shinkafa and miyan kuka", festival="The Durbar (horse parade) at Eid", ruler="The Emir of Kano", created="1967",
+               kingdom="The Hausa kingdom of Kano and the Sokoto Caliphate", industry="Trade (Kurmi Market), groundnut pyramids (history) and dye pits",
+               person="Aliko Dangote, Africa's richest person"),
+    "KT": dict(NW, ruler="The Emir of Katsina", created="1987, from Kaduna", kingdom="The Hausa kingdom of Katsina", industry="Farming",
+               person="Umaru Musa Yar'Adua and Muhammadu Buhari"),
+    "KE": dict(NW, ruler="The Emir of Gwandu", created="1991, from Sokoto", festival="The Argungu Fishing Festival", river="Rima and Niger",
+               industry="Rice farming"),
+    "KO": dict(NC, ethnic="Igala, Ebira and Okun (Yoruba)", languages="Igala and Ebira", ruler="The Attah of Igala",
+               river="Where the Niger and Benue meet (Lokoja)", created="1991, from Kwara and Benue", kingdom="The Igala kingdom",
+               industry="Iron ore and steel (Ajaokuta)"),
+    "KW": dict(NC, ethnic="Yoruba, Nupe and Baruba", languages="Yoruba and Nupe", religion="Islam and Christianity", ruler="The Emir of Ilorin",
+               river="Niger", created="1967", kingdom="The Ilorin Emirate", industry="Farming and sugar", wonder="Owu Falls"),
+    "LA": dict(SW, dish="Jollof rice, suya and Lagos street food", festival="Eyo Festival", ruler="The Oba of Lagos", climate="Coastal lagoons and mangroves",
+               created="1967", kingdom="The Kingdom of Lagos", industry="Business, finance, Nollywood films and Afrobeats; Nigeria's biggest city",
+               person="Fela Kuti lived and played here", wonder="The Lekki Conservation Centre"),
+    "NA": dict(NC, ethnic="Eggon, Alago and many others", languages="Hausa", created="1996, from Plateau", ruler="The Emir of Lafia",
+               industry="Farming and minerals"),
+    "NI": dict(NC, ethnic="Nupe, Gbagyi and Hausa", languages="Nupe and Hausa", religion="Mostly Islam", river="Niger (the Kainji, Jebba and Shiroro dams)",
+               created="1976, from North-Western State", wonder="Kainji Lake National Park", kingdom="The Nupe kingdom (Bida)",
+               industry="Hydroelectric power and farming; Nigeria's largest state by area"),
+    "OG": dict(SW, dish="Ofada rice and stew", festival="The Ojude Oba Festival (Ijebu Ode)", ruler="The Alake of Egbaland",
+               created="1976, from Western State", wonder="Olumo Rock (Abeokuta)", industry="Factories, universities and adire (tie-dye) cloth",
+               person="Wole Soyinka (Abeokuta) and Olusegun Obasanjo"),
+    "ON": dict(SW, dish="Pounded yam and egusi", ruler="The Deji of Akure", created="1976, from Western State", wonder="Idanre Hills",
+               industry="Cocoa (Nigeria's biggest producer)"),
+    "OS": dict(SW, dish="Amala and ewedu", festival="The Osun-Osogbo Festival", ruler="The Ooni of Ife", created="1991, from Oyo",
+               kingdom="Ile-Ife, the ancient home of the Yoruba", unesco="Osun-Osogbo Sacred Grove", industry="Farming and crafts"),
+    "OY": dict(SW, dish="Amala and gbegiri", ruler="The Alaafin of Oyo", created="1976, from Western State", kingdom="The Oyo Empire",
+               wonder="Old Oyo National Park", industry="Trade and education (University of Ibadan, 1948)"),
+    "PL": dict(NC, ethnic="Berom, Ngas, Tarok and many others", languages="Hausa and Berom", ruler="The Gbong Gwom Jos",
+               climate="Highland: cooler than the rest of Nigeria", created="1976, from Benue-Plateau",
+               wonder="The Jos Plateau, Shere Hills and Assop Falls", industry="Tin mining (history), potatoes and tourism"),
+    "RI": dict(SS, ethnic="Ikwerre, Ijaw, Ogoni and Ogba", languages="Ikwerre and Kalabari", dish="Native soup and bole (roast plantain) with fish",
+               created="1967", river="Bonny River", industry="Oil and gas (Port Harcourt, Bonny LNG)", person="Ken Saro-Wiwa (Ogoni)"),
+    "SO": dict(NW, ruler="The Sultan of Sokoto, leader of Nigeria's Muslims", created="1976, from North-Western State",
+               kingdom="The Sokoto Caliphate, founded by Usman dan Fodio (1804)", river="Sokoto and Rima", industry="Farming and leather"),
+    "TA": dict(NE, ethnic="Jukun, Mumuye, Fulani and many others", languages="Hausa and Fulfulde", religion="Christianity and Islam", ruler="The Aku Uka of Wukari",
+               high="Chappal Waddi, 2,419 m: Nigeria's highest", wonder="The Mambilla Plateau and Gashaka-Gumti National Park",
+               created="1991, from Gongola", kingdom="The Kwararafa (Jukun) kingdom", industry="Tea (Mambilla) and cattle"),
+    "YO": dict(NE, ethnic="Kanuri, Fulani and Bade", languages="Kanuri and Hausa", climate="Sahel", created="1991, from Borno", ruler="The Emir of Fika",
+               industry="Farming and cattle"),
+    "ZA": dict(NW, ruler="The Emir of Gusau", created="1996, from Sokoto", industry="Farming and gold mining"),
+}

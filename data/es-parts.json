@@ -1,0 +1,1061 @@
+[
+{
+"iso": "ES-AN",
+"id": "ES-AN",
+"name": "Andalusia",
+"names": [
+"Andalusia",
+"Andalucía",
+"Andalucia"
+],
+"capitals": [
+"Seville",
+"Sevilla"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-AN",
+"info": {
+"kind": "Autonomous community",
+"pop": 8676713,
+"popYear": "2025",
+"area": 87599,
+"flag": true,
+"facts": {
+"spanish": "Andalucía",
+"demonym": "Andalusian",
+"dish": "Gazpacho and pescaíto frito",
+"drink": "Sherry (Jerez)",
+"fiesta": "Seville's April Fair and Holy Week",
+"music": "Flamenco",
+"club": "Sevilla and Real Betis",
+"high": "Mulhacén, 3,479 m: mainland Spain's highest",
+"river": "Guadalquivir",
+"coast": "Atlantic and Mediterranean (the Costa del Sol)",
+"wonder": "Doñana National Park and the Sierra Nevada",
+"kingdom": "Al-Andalus, then the Crown of Castile",
+"moorish": "The heart of Al-Andalus for nearly 800 years",
+"landmark": "The Alhambra (Granada) and the Mezquita (Córdoba)",
+"unesco": "The Alhambra; Córdoba's Mosque-Cathedral; Seville's cathedral and Alcázar; Doñana",
+"industry": "Tourism, olive oil and farming"
+},
+"provinces": 8,
+"coastal": true,
+"borders": [
+"Portugal"
+],
+"areaRank": 2
+},
+"flagKey": "es/ES-AN",
+"capLL": [
+[
+-5.98,
+37.405
+]
+]
+},
+{
+"iso": "ES-AR",
+"id": "ES-AR",
+"name": "Aragon",
+"names": [
+"Aragon",
+"Aragón",
+"Aragón / Aragó"
+],
+"capitals": [
+"Zaragoza",
+"Saragossa"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-AR",
+"info": {
+"kind": "Autonomous community",
+"pop": 1364621,
+"popYear": "2025",
+"area": 47740,
+"flag": true,
+"facts": {
+"spanish": "Aragón",
+"own": "Aragón / Aragó",
+"language": "Aragonese and Catalan (in the east, not official)",
+"demonym": "Aragonese",
+"dish": "Ternasco (roast lamb)",
+"drink": "Cariñena wine",
+"fiesta": "Fiestas del Pilar (Zaragoza)",
+"music": "The jota",
+"club": "Real Zaragoza",
+"high": "Aneto, 3,404 m: the highest in the Pyrenees",
+"river": "Ebro",
+"coast": "Landlocked",
+"wonder": "Ordesa y Monte Perdido National Park",
+"kingdom": "Kingdom of Aragon (the Crown of Aragon)",
+"moorish": "Mudéjar architecture (Teruel)",
+"landmark": "The Basilica of Our Lady of the Pillar (Zaragoza)",
+"unesco": "Mudéjar architecture of Aragon; Monte Perdido",
+"industry": "Cars (Stellantis, Figueruelas) and logistics"
+},
+"provinces": 3,
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 4
+},
+"flagKey": "es/ES-AR",
+"capLL": [
+[
+-0.89,
+41.65
+]
+]
+},
+{
+"iso": "ES-AS",
+"id": "ES-AS",
+"name": "Asturias",
+"names": [
+"Asturias",
+"Asturies",
+"Principality of Asturias"
+],
+"capitals": [
+"Oviedo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-AS",
+"info": {
+"kind": "Autonomous community",
+"pop": 1015128,
+"popYear": "2025",
+"area": 10606,
+"flag": true,
+"facts": {
+"spanish": "Asturias",
+"own": "Asturies",
+"language": "Asturian (protected, not official)",
+"demonym": "Asturian",
+"dish": "Fabada asturiana (bean stew)",
+"drink": "Cider, poured from high above the glass",
+"fiesta": "The Descent of the Sella River",
+"music": "Bagpipes (gaita)",
+"club": "Real Oviedo and Sporting Gijón",
+"high": "Torre Cerredo, 2,648 m (Picos de Europa)",
+"river": "Nalón",
+"coast": "Bay of Biscay (the Cantabrian Sea)",
+"wonder": "The Picos de Europa and Covadonga lakes",
+"kingdom": "Kingdom of Asturias (where the Reconquista began, 722)",
+"moorish": "Never conquered by the Moors",
+"landmark": "Covadonga",
+"unesco": "Oviedo's pre-Romanesque churches; Tito Bustillo and other painted caves",
+"industry": "Coal and steel, now dairy and cheese (Cabrales)",
+"city": "Gijón"
+},
+"provinces": 1,
+"coastal": true,
+"borders": [],
+"areaRank": 10
+},
+"flagKey": "es/ES-AS",
+"capLL": [
+[
+-5.83,
+43.35
+]
+]
+},
+{
+"iso": "ES-IB",
+"id": "ES-IB",
+"name": "Balearic Islands",
+"names": [
+"Balearic Islands",
+"Islas Baleares",
+"Illes Balears",
+"Baleares",
+"Balearics"
+],
+"capitals": [
+"Palma",
+"Palma de Mallorca"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-IB",
+"info": {
+"kind": "Autonomous community",
+"pop": 1249844,
+"popYear": "2025",
+"area": 4992,
+"flag": true,
+"facts": {
+"spanish": "Islas Baleares",
+"own": "Illes Balears",
+"language": "Catalan",
+"demonym": "Balearic",
+"dish": "Ensaïmada and sobrassada",
+"drink": "Hierbas (herb liqueur)",
+"fiesta": "Sant Joan in Menorca",
+"music": "Ball de bot",
+"club": "RCD Mallorca",
+"high": "Puig Major, 1,436 m",
+"river": "No permanent rivers",
+"coast": "Mediterranean, all round",
+"wonder": "The Serra de Tramuntana and the Caves of Drach",
+"kingdom": "Kingdom of Majorca (Crown of Aragon)",
+"moorish": "Madina Mayurqa (Palma) until 1229",
+"landmark": "Palma Cathedral (La Seu)",
+"unesco": "The Serra de Tramuntana; Ibiza's biodiversity and culture",
+"industry": "Tourism (Mallorca, Ibiza, Menorca)"
+},
+"provinces": 1,
+"coastal": true,
+"borders": [],
+"areaRank": 17
+},
+"flagKey": "es/ES-IB",
+"capLL": [
+[
+2.654,
+39.574
+]
+]
+},
+{
+"iso": "ES-PV",
+"id": "ES-PV",
+"name": "Basque Country",
+"names": [
+"Basque Country",
+"País Vasco",
+"Euskadi",
+"Basque"
+],
+"capitals": [
+"Vitoria-Gasteiz",
+"Vitoria",
+"Gasteiz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-PV",
+"info": {
+"kind": "Autonomous community",
+"pop": 2242343,
+"popYear": "2025",
+"area": 7234,
+"flag": true,
+"facts": {
+"spanish": "País Vasco",
+"own": "Euskadi",
+"language": "Basque (Euskara)",
+"demonym": "Basque",
+"dish": "Pintxos and bacalao al pil-pil",
+"drink": "Txakoli wine and cider",
+"fiesta": "Semana Grande (San Sebastián and Bilbao)",
+"music": "Txalaparta and trikitixa",
+"club": "Athletic Bilbao and Real Sociedad",
+"high": "Aitzkorri, 1,528 m",
+"river": "Nervión",
+"coast": "Bay of Biscay",
+"wonder": "The Flysch coast of Zumaia",
+"kingdom": "Part of the Crown of Castile, with its own fueros",
+"landmark": "The Guggenheim Museum (Bilbao)",
+"unesco": "The Vizcaya hanging bridge; Santimamiñe cave",
+"industry": "Steel, shipbuilding and food (San Sebastián)",
+"city": "Bilbao"
+},
+"provinces": 3,
+"coastal": true,
+"borders": [
+"France"
+],
+"areaRank": 14
+},
+"flagKey": "es/ES-PV",
+"capLL": [
+[
+-2.672,
+42.847
+]
+]
+},
+{
+"iso": "ES-CN",
+"id": "ES-CN",
+"name": "Canary Islands",
+"names": [
+"Canary Islands",
+"Canarias",
+"Canaries",
+"Islas Canarias"
+],
+"capitals": [
+"Santa Cruz de Tenerife",
+"Las Palmas de Gran Canaria",
+"Las Palmas"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-CN",
+"info": {
+"kind": "Autonomous community",
+"pop": 2258866,
+"popYear": "2025",
+"area": 7446,
+"flag": true,
+"facts": {
+"spanish": "Canarias",
+"demonym": "Canarian",
+"dish": "Papas arrugadas with mojo sauce",
+"drink": "Malvasía wine and rum (Arucas)",
+"fiesta": "The Carnival of Santa Cruz de Tenerife",
+"music": "Timple and isa",
+"club": "UD Las Palmas and CD Tenerife",
+"high": "Mount Teide, 3,715 m: Spain's highest",
+"river": "No permanent rivers",
+"coast": "Atlantic, all round",
+"wonder": "Teide National Park and Timanfaya's volcanoes",
+"kingdom": "The Guanche kingdoms, conquered by Castile 1402–1496",
+"landmark": "Teide",
+"unesco": "Teide; Garajonay; San Cristóbal de La Laguna",
+"industry": "Tourism and bananas"
+},
+"provinces": 2,
+"coastal": true,
+"borders": [],
+"inset": true,
+"areaRank": 13
+},
+"flagKey": "es/ES-CN",
+"capLL": [
+[
+-10.751,
+34.964
+],
+[
+-9.913,
+34.624
+]
+]
+},
+{
+"iso": "ES-CB",
+"id": "ES-CB",
+"name": "Cantabria",
+"names": [
+"Cantabria"
+],
+"capitals": [
+"Santander"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-CB",
+"info": {
+"kind": "Autonomous community",
+"pop": 593623,
+"popYear": "2025",
+"area": 5330,
+"flag": true,
+"facts": {
+"spanish": "Cantabria",
+"demonym": "Cantabrian",
+"dish": "Cocido montañés and anchovies of Santoña",
+"drink": "Orujo",
+"fiesta": "The Battle of Flowers (Laredo)",
+"music": "Rabel and bagpipes",
+"club": "Racing de Santander",
+"high": "Torre Blanca, 2,619 m (Picos de Europa)",
+"river": "Ebro (it rises here)",
+"coast": "Bay of Biscay",
+"wonder": "The Picos de Europa",
+"kingdom": "Part of Castile (its sea outlet)",
+"moorish": "Never conquered by the Moors",
+"landmark": "The Altamira cave",
+"unesco": "The Cave of Altamira and Palaeolithic cave art",
+"industry": "Banking (Santander), dairy and tourism"
+},
+"provinces": 1,
+"coastal": true,
+"borders": [],
+"areaRank": 15
+},
+"flagKey": "es/ES-CB",
+"capLL": [
+[
+-3.8,
+43.38
+]
+]
+},
+{
+"iso": "ES-CL",
+"id": "ES-CL",
+"name": "Castile and León",
+"names": [
+"Castile and León",
+"Castilla y León",
+"Castile and Leon",
+"Castile-León"
+],
+"capitals": [
+"Valladolid"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-CL",
+"info": {
+"kind": "Autonomous community",
+"pop": 2401221,
+"popYear": "2025",
+"area": 94218,
+"flag": true,
+"facts": {
+"spanish": "Castilla y León",
+"language": "Leonese (protected) and Galician in the Bierzo",
+"demonym": "Castilian-Leonese",
+"dish": "Lechazo (roast suckling lamb)",
+"drink": "Ribera del Duero and Rueda wine",
+"fiesta": "Holy Week in Valladolid",
+"music": "Dulzaina",
+"club": "Real Valladolid",
+"high": "Pico Almanzor, 2,592 m",
+"river": "Duero",
+"coast": "Landlocked",
+"wonder": "Las Médulas (Roman gold mines)",
+"kingdom": "Kingdoms of León and Castile",
+"moorish": "The frontier of the Reconquista",
+"landmark": "Segovia's aqueduct and Salamanca's university",
+"unesco": "Ávila; Segovia; Salamanca; Burgos Cathedral; Atapuerca; Las Médulas",
+"industry": "Cars (Renault, Valladolid), wine and farming"
+},
+"provinces": 9,
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 1
+},
+"flagKey": "es/ES-CL",
+"capLL": [
+[
+-4.75,
+41.65
+]
+]
+},
+{
+"iso": "ES-CM",
+"id": "ES-CM",
+"name": "Castilla–La Mancha",
+"names": [
+"Castilla–La Mancha",
+"Castilla-La Mancha",
+"Castile-La Mancha",
+"La Mancha"
+],
+"capitals": [
+"Toledo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-CM",
+"info": {
+"kind": "Autonomous community",
+"pop": 2126378,
+"popYear": "2025",
+"area": 79447,
+"flag": true,
+"facts": {
+"spanish": "Castilla-La Mancha",
+"demonym": "Castilian-Manchegan",
+"dish": "Pisto manchego and migas",
+"drink": "La Mancha and Valdepeñas wine",
+"fiesta": "Corpus Christi in Toledo",
+"music": "Seguidillas manchegas",
+"club": "Albacete",
+"high": "Pico del Lobo, 2,273 m",
+"river": "Tagus and Guadiana",
+"coast": "Landlocked",
+"wonder": "The Lagunas de Ruidera and Cuenca's Enchanted City",
+"kingdom": "Crown of Castile",
+"moorish": "Toledo, the city of three cultures",
+"landmark": "The windmills of Consuegra (Don Quixote country)",
+"unesco": "Toledo; Cuenca; Almadén's mercury mines",
+"industry": "Wine, saffron and Manchego cheese",
+"city": "Albacete"
+},
+"provinces": 5,
+"coastal": false,
+"borders": [],
+"areaRank": 3
+},
+"flagKey": "es/ES-CM",
+"capLL": [
+[
+-4.017,
+39.867
+]
+]
+},
+{
+"iso": "ES-CT",
+"id": "ES-CT",
+"name": "Catalonia",
+"names": [
+"Catalonia",
+"Cataluña",
+"Catalunya"
+],
+"capitals": [
+"Barcelona"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-CT",
+"info": {
+"kind": "Autonomous community",
+"pop": 8124126,
+"popYear": "2025",
+"area": 32113,
+"flag": true,
+"facts": {
+"spanish": "Cataluña",
+"own": "Catalunya",
+"language": "Catalan and Aranese (Occitan)",
+"demonym": "Catalan",
+"dish": "Pa amb tomàquet and crema catalana",
+"drink": "Cava",
+"fiesta": "La Mercè and Sant Jordi",
+"music": "Sardana; castellers (human towers)",
+"club": "FC Barcelona",
+"high": "Pica d'Estats, 3,143 m",
+"river": "Ebro and Llobregat",
+"coast": "Mediterranean (Costa Brava)",
+"wonder": "Montserrat",
+"kingdom": "Crown of Aragon (the County of Barcelona)",
+"landmark": "The Sagrada Família",
+"unesco": "Gaudí's works; Poblet; Tarragona's Roman remains",
+"industry": "Industry, tourism and design"
+},
+"provinces": 4,
+"coastal": true,
+"borders": [
+"Andorra",
+"France"
+],
+"areaRank": 6
+},
+"flagKey": "es/ES-CT",
+"capLL": [
+[
+2.181,
+41.385
+]
+]
+},
+{
+"iso": "ES-CE",
+"id": "ES-CE",
+"name": "Ceuta",
+"names": [
+"Ceuta"
+],
+"capitals": [
+"Ceuta"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-CE",
+"info": {
+"kind": "Autonomous city",
+"pop": 83567,
+"popYear": "2025",
+"area": 20,
+"flag": true,
+"facts": {
+"spanish": "Ceuta",
+"demonym": "Ceutan",
+"dish": "Moroccan and Andalusian food",
+"fiesta": "Our Lady of Africa",
+"high": "Monte Hacho, 204 m",
+"coast": "Mediterranean and the Strait of Gibraltar",
+"wonder": "Mount Hacho (one of the Pillars of Hercules)",
+"kingdom": "Portuguese until 1640, then Spanish",
+"landmark": "The Royal Walls",
+"industry": "Port and trade"
+},
+"provinces": 1,
+"coastal": true,
+"borders": [
+"Morocco"
+],
+"areaRank": 18
+},
+"flagKey": "es/ES-CE",
+"capLL": [
+[
+-5.307,
+35.889
+]
+]
+},
+{
+"iso": "ES-EX",
+"id": "ES-EX",
+"name": "Extremadura",
+"names": [
+"Extremadura"
+],
+"capitals": [
+"Mérida"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-EX",
+"info": {
+"kind": "Autonomous community",
+"pop": 1053345,
+"popYear": "2025",
+"area": 41634,
+"flag": true,
+"facts": {
+"spanish": "Extremadura",
+"demonym": "Extremaduran",
+"dish": "Migas and Torta del Casar cheese",
+"drink": "Ribera del Guadiana wine",
+"fiesta": "WOMAD Cáceres",
+"music": "Jota extremeña",
+"club": "CD Badajoz",
+"high": "Calvitero, 2,401 m",
+"river": "Tagus and Guadiana",
+"coast": "Landlocked",
+"wonder": "Monfragüe National Park",
+"kingdom": "Kingdom of León and Crown of Castile",
+"moorish": "The Alcazaba of Badajoz",
+"landmark": "Mérida's Roman theatre",
+"unesco": "Mérida; Cáceres; Guadalupe Monastery",
+"industry": "Ham (jamón ibérico) and farming; home of many conquistadors",
+"city": "Badajoz"
+},
+"provinces": 2,
+"coastal": false,
+"borders": [
+"Portugal"
+],
+"areaRank": 5
+},
+"flagKey": "es/ES-EX",
+"capLL": [
+[
+-6.338,
+38.912
+]
+]
+},
+{
+"iso": "ES-GA",
+"id": "ES-GA",
+"name": "Galicia",
+"names": [
+"Galicia"
+],
+"capitals": [
+"Santiago de Compostela",
+"Santiago"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-GA",
+"info": {
+"kind": "Autonomous community",
+"pop": 2714741,
+"popYear": "2025",
+"area": 29584,
+"flag": true,
+"facts": {
+"spanish": "Galicia",
+"own": "Galicia",
+"language": "Galician",
+"demonym": "Galician",
+"dish": "Pulpo a la gallega (octopus) and empanada",
+"drink": "Albariño wine and queimada",
+"fiesta": "The Feast of Saint James (25 July)",
+"music": "Bagpipes (gaita)",
+"club": "Celta Vigo and Deportivo La Coruña",
+"high": "Pena Trevinca, 2,127 m",
+"river": "Miño",
+"coast": "Atlantic (the Rías)",
+"wonder": "The Cíes Islands",
+"kingdom": "Kingdom of Galicia",
+"moorish": "Barely touched by the Moors",
+"landmark": "Santiago de Compostela Cathedral",
+"unesco": "Santiago and the Camino; Lugo's Roman walls; the Tower of Hercules",
+"industry": "Fishing and fashion (Zara, Arteixo)",
+"city": "Vigo"
+},
+"provinces": 4,
+"coastal": true,
+"borders": [
+"Portugal"
+],
+"areaRank": 7
+},
+"flagKey": "es/ES-GA",
+"capLL": [
+[
+-8.541,
+42.883
+]
+]
+},
+{
+"iso": "ES-RI",
+"id": "ES-RI",
+"name": "La Rioja",
+"names": [
+"La Rioja",
+"Rioja"
+],
+"capitals": [
+"Logroño"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-RI",
+"info": {
+"kind": "Autonomous community",
+"pop": 326803,
+"popYear": "2025",
+"area": 5045,
+"flag": true,
+"facts": {
+"spanish": "La Rioja",
+"demonym": "Riojan",
+"dish": "Patatas a la riojana",
+"drink": "Rioja wine",
+"fiesta": "The Battle of Wine (Haro)",
+"club": "UD Logroñés",
+"high": "San Lorenzo, 2,271 m",
+"river": "Ebro",
+"coast": "Landlocked",
+"wonder": "Dinosaur footprints of Enciso",
+"kingdom": "Kingdom of Navarre, then Castile",
+"landmark": "San Millán's monasteries (the cradle of written Spanish)",
+"unesco": "The Yuso and Suso monasteries",
+"industry": "Wine"
+},
+"provinces": 1,
+"coastal": false,
+"borders": [],
+"areaRank": 16
+},
+"flagKey": "es/ES-RI",
+"capLL": [
+[
+-2.43,
+42.47
+]
+]
+},
+{
+"iso": "ES-MD",
+"id": "ES-MD",
+"name": "Madrid",
+"names": [
+"Madrid",
+"Comunidad de Madrid",
+"Community of Madrid"
+],
+"capitals": [
+"Madrid"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-MD",
+"info": {
+"kind": "Autonomous community",
+"pop": 7113886,
+"popYear": "2025",
+"area": 8027,
+"flag": true,
+"facts": {
+"spanish": "Comunidad de Madrid",
+"demonym": "Madrilenian (madrileño)",
+"dish": "Cocido madrileño and bocadillo de calamares",
+"drink": "Vermouth",
+"fiesta": "San Isidro",
+"music": "Chotis",
+"club": "Real Madrid and Atlético Madrid",
+"high": "Peñalara, 2,428 m",
+"river": "Manzanares and Jarama",
+"coast": "Landlocked",
+"wonder": "Sierra de Guadarrama National Park",
+"kingdom": "Crown of Castile (capital since 1561)",
+"landmark": "The Royal Palace and the Prado",
+"unesco": "El Escorial; Aranjuez; Alcalá de Henares; the Paseo del Prado",
+"industry": "Government, finance and services"
+},
+"provinces": 1,
+"coastal": false,
+"borders": [],
+"areaRank": 12
+},
+"flagKey": "es/ES-MD",
+"capLL": [
+[
+-3.685,
+40.402
+]
+]
+},
+{
+"iso": "ES-ML",
+"id": "ES-ML",
+"name": "Melilla",
+"names": [
+"Melilla"
+],
+"capitals": [
+"Melilla"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-ML",
+"info": {
+"kind": "Autonomous city",
+"pop": 87067,
+"popYear": "2025",
+"area": 14,
+"flag": true,
+"facts": {
+"spanish": "Melilla",
+"demonym": "Melillan",
+"dish": "Moroccan and Andalusian food",
+"fiesta": "Our Lady of Victory",
+"coast": "Mediterranean",
+"kingdom": "Spanish since 1497",
+"landmark": "Melilla la Vieja (the old fortress) and its modernist buildings",
+"industry": "Port and trade"
+},
+"provinces": 1,
+"coastal": true,
+"borders": [
+"Morocco"
+],
+"areaRank": 19
+},
+"flagKey": "es/ES-ML",
+"capLL": [
+[
+-2.95,
+35.3
+]
+]
+},
+{
+"iso": "ES-MC",
+"id": "ES-MC",
+"name": "Murcia",
+"names": [
+"Murcia",
+"Región de Murcia",
+"Region of Murcia"
+],
+"capitals": [
+"Murcia"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-MC",
+"info": {
+"kind": "Autonomous community",
+"pop": 1586989,
+"popYear": "2025",
+"area": 11316,
+"flag": true,
+"facts": {
+"spanish": "Región de Murcia",
+"demonym": "Murcian",
+"dish": "Zarangollo and pastel de carne",
+"drink": "Jumilla wine",
+"fiesta": "The Spring Festival and the Moors and Christians",
+"club": "Real Murcia",
+"high": "Revolcadores, 2,027 m",
+"river": "Segura",
+"coast": "Mediterranean (the Mar Menor lagoon)",
+"wonder": "The Mar Menor",
+"kingdom": "Taifa of Murcia, then Castile",
+"moorish": "Murcia was a Moorish taifa kingdom",
+"landmark": "Murcia Cathedral",
+"unesco": "The rock art of the Mediterranean Basin",
+"industry": "Fruit and vegetables ('Europe's orchard')",
+"city": ""
+},
+"provinces": 1,
+"coastal": true,
+"borders": [],
+"areaRank": 9
+},
+"flagKey": "es/ES-MC",
+"capLL": [
+[
+-1.13,
+37.98
+]
+]
+},
+{
+"iso": "ES-NC",
+"id": "ES-NC",
+"name": "Navarre",
+"names": [
+"Navarre",
+"Navarra",
+"Nafarroa"
+],
+"capitals": [
+"Pamplona",
+"Iruña"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-NC",
+"info": {
+"kind": "Autonomous community",
+"pop": 683854,
+"popYear": "2025",
+"area": 10392,
+"flag": true,
+"facts": {
+"spanish": "Navarra",
+"own": "Nafarroa",
+"language": "Basque (in the north)",
+"demonym": "Navarrese",
+"dish": "Piquillo peppers and white asparagus",
+"drink": "Pacharán",
+"fiesta": "San Fermín (the running of the bulls, Pamplona)",
+"music": "Jota navarra",
+"club": "CA Osasuna",
+"high": "Mesa de los Tres Reyes, 2,428 m",
+"river": "Ebro",
+"coast": "Landlocked",
+"wonder": "The Bardenas Reales desert",
+"kingdom": "Kingdom of Navarre",
+"landmark": "Olite's royal palace",
+"unesco": "The Bardenas Reales (biosphere reserve); the Camino de Santiago",
+"industry": "Cars (Volkswagen Pamplona) and wind power"
+},
+"provinces": 1,
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 11
+},
+"flagKey": "es/ES-NC",
+"capLL": [
+[
+-1.65,
+42.82
+]
+]
+},
+{
+"iso": "ES-VC",
+"id": "ES-VC",
+"name": "Valencian Community",
+"names": [
+"Valencian Community",
+"Comunidad Valenciana",
+"Comunitat Valenciana",
+"Valencia"
+],
+"capitals": [
+"Valencia",
+"València"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "ES-VC",
+"info": {
+"kind": "Autonomous community",
+"pop": 5425182,
+"popYear": "2025",
+"area": 23265,
+"flag": true,
+"facts": {
+"spanish": "Comunidad Valenciana",
+"own": "Comunitat Valenciana",
+"language": "Valencian (Catalan)",
+"demonym": "Valencian",
+"dish": "Paella",
+"drink": "Horchata",
+"fiesta": "Las Fallas (Valencia) and La Tomatina (Buñol)",
+"music": "Bands (bandas de música)",
+"club": "Valencia CF",
+"high": "Calderón, 1,839 m",
+"river": "Turia and Júcar",
+"coast": "Mediterranean (Costa Blanca)",
+"wonder": "The Albufera lagoon",
+"kingdom": "Kingdom of Valencia (Crown of Aragon)",
+"moorish": "Rice and irrigation from Moorish times",
+"landmark": "The City of Arts and Sciences",
+"unesco": "The Silk Exchange (Valencia); the Palm Grove of Elche",
+"industry": "Oranges, tourism, ceramics and toys"
+},
+"provinces": 3,
+"coastal": true,
+"borders": [],
+"areaRank": 8
+},
+"flagKey": "es/ES-VC",
+"capLL": [
+[
+-0.402,
+39.487
+]
+]
+}
+]

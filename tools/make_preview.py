@@ -20,6 +20,49 @@ CDN = {
 }
 
 
+
+def merge_detail(src, out_data, k=3):
+    """Merges a detail level's tiles k×k into one file each, and rewrites the index in the preview's states file."""
+    import json, math
+    code = src.name[:-len("-detail")]
+    states = out_data / f"{code}-states.json"
+    fc = json.loads(states.read_text(encoding="utf8"))
+    d = fc["detail"]
+    big = d["deg"] * k
+    groups = {}
+    for name, w, s_, e, n in d["tiles"]:
+        key = (math.floor(w / big + 1e-9), math.floor(s_ / big + 1e-9))
+        groups.setdefault(key, []).append(name)
+    (out_data / src.name).mkdir(parents=True, exist_ok=True)
+
+    def lines(g, acc):
+        if not g:
+            return
+        t = g["type"]
+        if t == "LineString":
+            acc.append(g["coordinates"])
+        elif t == "MultiLineString":
+            acc.extend(g["coordinates"])
+        elif t == "GeometryCollection":
+            for x in g["geometries"]:
+                lines(x, acc)
+    tiles = []
+    for (ix, iy), names in sorted(groups.items()):
+        feats, coast, borders = [], [], []
+        for nm in names:
+            t = json.loads((src / f"{nm}.json").read_text(encoding="utf8"))
+            feats += t["features"]
+            lines(t.get("coast"), coast)
+            lines(t.get("borders"), borders)
+        name = f"{ix}_{iy}"
+        tile = {"type": "FeatureCollection", "features": feats,
+                "coast": {"type": "MultiLineString", "coordinates": coast},
+                "borders": {"type": "MultiLineString", "coordinates": borders}}
+        (out_data / src.name / f"{name}.json").write_text(json.dumps(tile, separators=(",", ":")), encoding="utf8")
+        tiles.append([name, ix * big, iy * big, (ix + 1) * big, (iy + 1) * big])
+    d["tiles"], d["deg"] = tiles, big
+    states.write_text(json.dumps(fc, separators=(",", ":")), encoding="utf8")
+
 def main(out):
     out = pathlib.Path(out)
     (out / "data").mkdir(parents=True, exist_ok=True)
@@ -38,11 +81,19 @@ def main(out):
 
     body = re.sub(r'<script src="([^"]+)"></script>', script, body)
     # flags go inside the page (the test artifact has a file limit; the real app uses data/flags/)
-    flags = {p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
-             for p in sorted((ROOT / "data" / "flags").glob("*.webp"))}
-    for sub in ("us", "ca", "uk", "cn", "ru", "au"):  # states, provinces, counties
-        flags.update({f"{sub}/" + p.stem: "data:image/webp;base64," + base64.b64encode(p.read_bytes()).decode()
-                      for p in sorted((ROOT / "data" / "flags" / sub).glob("*.webp"))})
+    # shrunk to 320 px wide here: the page may be at most 16 MB (Mexico's coats of arms alone are 4 MB at full size)
+    def small(p):
+        from PIL import Image
+        import io
+        im = Image.open(p)
+        if im.width > 320:
+            im = im.resize((320, round(im.height * 320 / im.width)), Image.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, "WEBP", quality=82)
+        return "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
+    flags = {p.stem: small(p) for p in sorted((ROOT / "data" / "flags").glob("*.webp"))}
+    for d in sorted(x for x in (ROOT / "data" / "flags").iterdir() if x.is_dir()):  # states, provinces, counties
+        flags.update({f"{d.name}/" + p.stem: small(p) for p in sorted(d.glob("*.webp"))})
     body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";</script>\n" + body
     page = "\n".join([title, '<meta name="claude:viewport-fit-sides" content="cover">', fonts,
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])
@@ -50,11 +101,22 @@ def main(out):
     for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg", "us-states.json", "states.json", "lakes.json", "tribal-us.json",
               "ca-provinces.json", "provinces.json", "tribal-ca.json",
               "uk-historic.json", "uk-ceremonial.json", "counties-historic.json", "counties-ceremonial.json",
-              "uk-nations.json", "uk-nations-info.json", "in-states.json", "in-parts.json", "cn-provinces.json", "cn-parts.json", "ru-regions.json", "ru-parts.json", "ru-history.json", "au-states.json", "au-parts.json", "tribal-au.json"):
+              "uk-nations.json", "uk-nations-info.json", "in-states.json", "in-parts.json", "cn-provinces.json", "cn-parts.json", "ru-regions.json", "ru-parts.json", "ru-history.json", "au-states.json", "au-parts.json", "tribal-au.json", "mx-states.json", "mx-parts.json", "tribal-mx.json", "br-states.json", "br-parts.json", "tribal-br.json", "de-states.json", "de-parts.json", "jp-states.json", "jp-parts.json", "fr-states.json", "fr-parts.json", "it-states.json", "it-parts.json", "es-states.json", "es-parts.json", "esp-states.json", "esp-parts.json", "ng-states.json", "ng-parts.json", "ar-states.json", "ar-parts.json"):
         shutil.copy(ROOT / "data" / f, out / "data" / f)
     if (out / "data" / "relief").exists():
         shutil.rmtree(out / "data" / "relief")
     shutil.copytree(ROOT / "data" / "relief", out / "data" / "relief")
+    # the finest relief level (16384 px, ~300 tiles) is left out of the preview: the artifact may hold only 512 files
+    ri = json.loads((out / "data" / "relief" / "index.json").read_text(encoding="utf8"))
+    ri["levels"] = [lv for lv in ri["levels"] if lv["w"] < 16384]
+    (out / "data" / "relief" / "index.json").write_text(json.dumps(ri), encoding="utf8")
+    shutil.rmtree(out / "data" / "relief" / "16384", ignore_errors=True)
+    # country maps' detail levels (tools/detail.py): their tile folders
+    # merged into 9° blocks here (the preview artifact may hold only 512 files; the repo keeps the 3° tiles)
+    for d in (ROOT / "data").glob("*-detail"):
+        if (out / "data" / d.name).exists():
+            shutil.rmtree(out / "data" / d.name)
+        merge_detail(d, out / "data")
     (out / "media").mkdir(exist_ok=True)
     for f in (ROOT / "media").glob("Learning_mode_clip*"):
         shutil.copy(f, out / "media" / f.name)

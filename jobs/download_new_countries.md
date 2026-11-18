@@ -13,7 +13,7 @@ Everything the builds in [build_countries.md](build_countries.md) need, download
 | France | `fr` | 13 metropolitan regions (overseas regions left off) | none |
 | Italy | `it` | 20 regions (+ 107 provinces as a second set: to confirm) | flags |
 | Spain | `es` | 17 communities, Ceuta and Melilla; and the 50 provinces as a second set | flags (communities) |
-| Nigeria | `ng` | 36 states and the FCT | seals |
+| Nigeria | `ng` | 36 states and the FCT | none for now (seal games shelved) |
 | Argentina | `ar` | 23 provinces and the City of Buenos Aires | flags |
 
 Later candidates: South Africa (9 provinces), Egypt (27 governorates), South Korea, New Zealand. Indonesia and Kenya need a source other than Natural Earth (its divisions are out of date).
@@ -43,7 +43,7 @@ Re-running a script skips what's already there. **Images:** Wikimedia now only s
 3. **Census totals:** the census articles are saved in `wiki/lists/` (Demographics of Japan, the 2022 German census, Demographics of France, the 2021 Italian census, Demographics of Spain, the Argentina census; Nigeria's 2006 census still to come, item 4). **Still to do:** read each country's official national total (and its census year) from them into `tools/downloads/<code>/census.json` with the source, and where possible check it against the statistics office's own figure. The build checks that the parts add up to it.
 4. **Sources for the chosen card facts:** `python tools/fetch_country_data.py --extras <codes>` saves the list articles below into `wiki/lists/` (each found by search; `extras.json` records which article each search found; check it), plus Nigeria's seals and the Japanese font.
    - **Done:** Japan 9 of 9 (Demographics of Japan, Flags of Japanese prefectures, Yuru-kyara, Provinces of Japan, Onsen, Meibutsu, List of traditional crafts of Japan, Japanese dialects, List of castles in Japan; the prefectural flower, tree and bird come from each prefecture's own article); **the Japanese font** `tools/downloads/fonts/NotoSansJP.ttf` (9.4 MB; subset at build time); Germany 6 of 6; France 6 of 6 (the 2016 reform search found *Regions of France*, which covers it); Italy 6 of 6; Spain 9 of 9 (including the Valencian, Basque and Galician language articles); Argentina 5 of 5.
-   - **Nigeria (running):** 3 of 5 list articles so far (the 2006 census and traditional rulers were missed by the first search; re-run `--extras ng` now that the search falls back to full text); **seals** in progress at 500 px (32 states show one in their Wikipedia infobox; look on Commons for Bayelsa, Taraba, Jigawa, Niger and Plateau).
+   - **Nigeria: the seals are shelved (2026-11-17).** The download was paused at Kaduna with 6 seals in `tools/downloads/ng/seals/` (Abia, Akwa Ibom, Bauchi, Benue, Borno, Edo). Several seal images (Abuja, Gombe, Kaduna) are only on English Wikipedia, not Commons, which usually means they're not freely licensed; check licences before using any. Still to fetch when this is picked up again: the rest of the seals (Kaduna to Zamfara), and 2 list articles (the 2006 census, traditional rulers: re-run `--extras ng`, the search now falls back to full text).
    - **Spain's languages layer:** the language articles are saved, but **an open data source for where each language is spoken is still to find** (for example the municipalities of the Valencian-speaking area and of Navarre's Basque zones, which are fixed in law, joined to municipal boundaries from geoBoundaries, CC BY 4.0). Check its licence and note the credit.
 5. Keep the download log below up to date.
 
@@ -68,7 +68,7 @@ Every card also has the name, kind, capital, population (latest census), area an
 | France | 123 (regions and departments) | 123 | 123 (fr) | 8 | 114 | 112 | – | 2.4 MB |
 | Italy | 124 (regions and provinces) | 124 | 124 (it) | 7 | 106 | 120 | – | 3.4 MB |
 | Spain | 67 (communities, cities, provinces) | 62 | 64 (es) | 11 | 56 | 64 | – | 2.0 MB |
-| Nigeria | 37 | 37 | – | 4 (running) | 13 | 6 | running | 0.6 MB |
+| Nigeria | 37 | 37 | – | 4 | 13 | 6 | 6 (paused, shelved) | 0.6 MB |
 | Argentina | 24 | 24 | 24 (es) | 6 | 24 | 24 | – | 7.9 MB |
 | Mexico | (earlier) | 32 | 32 | – | 32 | 31 (Colima missing) | – | 8.2 MB |
 | Brazil | (earlier) | 27 | 27 | – | 27 | – | – | 6.9 MB |

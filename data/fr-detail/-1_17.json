@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-GBR","geometry":{"type":"Polygon","coordinates":[[[0.0,51.2],[0.0,51.0],[-3.0,51.0],[-3.0,51.2],[0.0,51.2]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

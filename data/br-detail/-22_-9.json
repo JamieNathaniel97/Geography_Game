@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-ARG","geometry":{"type":"Polygon","coordinates":[[[-66.0,-27.0],[-66.0,-24.0],[-63.0,-24.0],[-63.0,-27.0],[-66.0,-27.0]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

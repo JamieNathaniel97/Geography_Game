@@ -35,7 +35,9 @@
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-malayalam.woff") format("woff"); unicode-range: U+0D00-0D7F; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-chinese.woff") format("woff"); unicode-range: U+4E00-9FFF; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-cyrillic.woff") format("woff"); unicode-range: U+0400-04FF; font-display: swap; }
+@font-face { font-family: "GQ Japanese"; src: url("../fonts/gq-japanese.woff") format("woff"); font-display: swap; }
 .native { font-family: "GQ Scripts", var(--body); font-size: 1.15em; }
+.native-ja { font-family: "GQ Japanese", var(--body); font-size: 1.15em; }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body { background: var(--bg); color: var(--fg); font: 15px/1.4 var(--body); overflow: hidden; overscroll-behavior: none;
@@ -139,6 +141,11 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .seg button { flex: 1; border: 0; background: transparent; padding: 8px 10px; font-weight: 500; }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button.on { background: var(--accent); color: var(--accent-fg); }
+/* a long list (Japan's regions): wraps onto rows, each button a grid cell */
+.seg.wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 1px; background: var(--line); }
+.seg.wrap button { background: var(--panel); padding: 7px 4px; }
+.seg.wrap button + button { border-left: 0; }
+.seg.wrap button.on { background: var(--accent); }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; padding-block: 10px; }
 .regions, .games { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .games button { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 8px 10px; font-weight: 500; }
@@ -194,6 +201,10 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .moregames button { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; text-align: left; }
 .moregames button small { color: var(--muted); font-size: 11px; font-weight: 500; }
 .moregames button:disabled { opacity: .6; cursor: default; }
+ /* Help: a short guide */
+.helppane section { display: grid; gap: 4px; }
+.helppane h3 { margin: 4px 0 0; font: 700 16px var(--display); }
+.helppane p { margin: 0; font-size: 14px; line-height: 1.4; color: var(--fg); }
  /* the magnifying glass at the start of Learning mode */
 .magintro { position: fixed; inset: 0; z-index: 30; } /* (blocks taps while it plays) */
 .magintro svg { display: block; }
