@@ -74,11 +74,20 @@ GROUP BY ?b ?bLabel ?bDescription ?links ?coord ?iso ?warLabel
 """
 
 
+_last = 0.0
+
+
 def sparql(query, cache):
     if cache.exists():
         return json.loads(cache.read_text(encoding="utf-8"))
     url = ENDPOINT + "?" + urllib.parse.urlencode({"query": query, "format": "json"})
-    for attempt in range(4):
+    global _last
+    for attempt in range(10):
+        # the query service may allow only one query a minute (it did during an outage, 2026-11-18): keep to that
+        wait = 62 - (time.time() - _last)
+        if wait > 0:
+            time.sleep(wait)
+        _last = time.time()
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=300) as r:
                 data = json.load(r)
@@ -86,7 +95,6 @@ def sparql(query, cache):
             return data
         except Exception as e:
             print("  query failed:", e, "- retrying")
-            time.sleep(20 * (attempt + 1))
     sys.exit("Wikidata query failed; try a higher min_links, or later")
 
 
@@ -164,6 +172,18 @@ def main():
             b["area"] = shapes.get(b["title"])
     no_shape = [t for t in AREAS if t not in shapes]
 
+    from battles_extra import NOT_NAVAL, DROP, HAND
+    for b in list(battles.values()):
+        if b["title"] in NOT_NAVAL or b["name"] in NOT_NAVAL:
+            b["naval"] = False
+        if b["name"] in DROP or b["title"] in DROP:
+            del battles[b["id"]]
+    have = {b["title"] for b in battles.values()}
+    for title, h in HAND.items():
+        if title not in have:
+            bid = "H-" + "".join(ch for ch in title if ch.isalnum())
+            battles[bid] = {"id": bid, "desc": "", "end": h.get("year"), "iso": None, "naval": False, "siege": False, "war": None,
+                            "sides": [], "winners": [], "links": 0, "picked": True, "title": title, **h}
     for bid, fix in FIXES.items():
         if bid in battles:
             if fix.get("drop"):

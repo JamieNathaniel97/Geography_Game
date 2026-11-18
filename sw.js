@@ -1,9 +1,9 @@
 // Keeps the app working offline. Bump CACHE when releasing a new version,
 // or installed phones keep the old files.
-const CACHE = "gaia-quest-v67";
+const CACHE = "gaia-quest-v76";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
-  "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js", "js/tutorial.js",
+  "js/splash.js", "js/names.js", "js/stats.js", "js/geo.js", "js/mapview.js", "js/app.js", "js/history.js", "js/tutorial.js",
   "media/Learning_mode_clip.webm", "media/Learning_mode_clip.mp4", "media/Learning_mode_clip.jpg",
   "media/Learning_mode_clip_light.webm", "media/Learning_mode_clip_light.mp4", "media/Learning_mode_clip_light.jpg",
   "vendor/d3.min.js", "vendor/topojson-client.min.js", "vendor/d3-geo-projection.min.js",
@@ -11,7 +11,7 @@ const SHELL = [
   "data/us-states.json", "data/states.json", "data/lakes.json", "data/tribal-us.json",
   "data/ca-provinces.json", "data/provinces.json", "data/tribal-ca.json",
   "data/uk-historic.json", "data/uk-ceremonial.json", "data/uk-nations.json", "data/uk-nations-info.json", "data/in-states.json", "data/in-parts.json",
-  "data/cn-provinces.json", "data/cn-parts.json", "data/ru-regions.json", "data/ru-parts.json", "data/ru-history.json", "data/au-states.json", "data/au-parts.json", "data/tribal-au.json", "data/mx-states.json", "data/mx-parts.json", "data/tribal-mx.json", "data/br-states.json", "data/br-parts.json", "data/tribal-br.json", "data/de-states.json", "data/de-parts.json", "data/jp-states.json", "data/jp-parts.json", "data/fr-states.json", "data/fr-parts.json", "data/it-states.json", "data/it-parts.json", "data/es-states.json", "data/es-parts.json", "data/esp-states.json", "data/esp-parts.json", "data/ng-states.json", "data/ng-parts.json", "data/ar-states.json", "data/ar-parts.json",
+  "data/cn-provinces.json", "data/cn-parts.json", "data/ru-regions.json", "data/ru-parts.json", "data/ru-history.json", "data/au-states.json", "data/au-parts.json", "data/tribal-au.json", "data/mx-states.json", "data/mx-parts.json", "data/tribal-mx.json", "data/br-states.json", "data/br-parts.json", "data/tribal-br.json", "data/de-states.json", "data/de-parts.json", "data/jp-states.json", "data/jp-parts.json", "data/fr-states.json", "data/fr-parts.json", "data/it-states.json", "data/it-parts.json", "data/es-states.json", "data/es-parts.json", "data/esp-states.json", "data/esp-parts.json", "data/ng-states.json", "data/ng-parts.json", "data/ar-states.json", "data/ar-parts.json", "data/airport-sets.json", "data/people.json", "data/battles.json", "data/wrecks.json",
   "fonts/gq-bengali.woff", "fonts/gq-chinese.woff", "fonts/gq-cyrillic.woff", "fonts/gq-japanese.woff", "fonts/gq-devanagari.woff", "fonts/gq-gujarati.woff", "fonts/gq-gurmukhi.woff", "fonts/gq-kannada.woff", "fonts/gq-malayalam.woff", "fonts/gq-oriya.woff", "fonts/gq-tamil.woff", "fonts/gq-telugu.woff", "data/counties-historic.json", "data/counties-ceremonial.json",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png", "icons/apple-touch-icon.png",
 ];

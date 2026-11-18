@@ -36,7 +36,28 @@ UA = {"User-Agent": "GaiaQuestBuild/1.0 (map quiz data build; offline geography 
 SHIPWRECK = "Q852190"
 
 # hand corrections after checking the output: id -> fields to overwrite (or {"drop": True})
-FIXES = {}
+FIXES = {  # checked 2026-11-18
+    "Q25173": {"name": "RMS Titanic", "deaths": 1517, "found": 1985},
+    "Q150857": {"deaths": 2200, "found": 1989},
+    "Q190542": {"deaths": 32, "raised": "Refloated in 2014 and broken up in Genoa"},
+    "Q220239": {"deaths": 1415, "found": 2001},
+    "Q33209": {"drop": True},    # Mary Celeste: the 2001 identification is doubtful (wrecks_extra.py)
+    "Q311245": {"deaths": 141, "found": 1998},
+    "Q828458": {"deaths": 852, "found": 1994},
+    "Q671602": {"deaths": 266, "raised": "Raised in 1911, then towed out and sunk in deep water off Havana"},
+    "Q247567": {"found": 1996},
+    "Q573852": {"found": 1982},
+    "Q540580": {"drop": True},   # ARA General Belgrano: the wreck has never been found
+    "Q1032042": {"deaths": 1017},
+    "Q1607814": {"deaths": 193, "raised": "Refloated in 1987 and broken up"},
+    "Q1753417": {"deaths": 1168, "found": 1982},
+    "Q1789811": {"deaths": 800, "found": 1980},
+    "Q3241668": {"drop": True},  # USS Texas (1892): a target hulk, not a famous wreck
+    "Q605764": {"deaths": 130, "found": 2019},
+    "Q1572476": {"deaths": 260, "found": 1985},
+    "Q3589078": {"found": 1998},
+    "Q7394233": {"deaths": 2},
+}
 
 QUERY = """
 SELECT ?s ?sLabel ?sDescription ?links ?coord ?iso
@@ -60,11 +81,20 @@ GROUP BY ?s ?sLabel ?sDescription ?links ?coord ?iso
 """
 
 
+_last = 0.0
+
+
 def sparql(query, cache):
     if cache.exists():
         return json.loads(cache.read_text(encoding="utf-8"))
     url = ENDPOINT + "?" + urllib.parse.urlencode({"query": query, "format": "json"})
-    for attempt in range(4):
+    global _last
+    for attempt in range(10):
+        # the query service may allow only one query a minute (it did during an outage, 2026-11-18): keep to that
+        wait = 62 - (time.time() - _last)
+        if wait > 0:
+            time.sleep(wait)
+        _last = time.time()
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=300) as r:
                 data = json.load(r)
@@ -72,7 +102,6 @@ def sparql(query, cache):
             return data
         except Exception as e:
             print("  query failed:", e, "- retrying")
-            time.sleep(20 * (attempt + 1))
     sys.exit("Wikidata query failed; try a higher min_links, or later")
 
 
@@ -136,6 +165,20 @@ def main():
             else:
                 wrecks[sid].update(fix)
 
+    # the hand-written wrecks (wrecks_extra.HAND), where Wikidata has no wreck position
+    from wrecks_extra import HAND
+    have = {w["title"] for w in wrecks.values()}
+    for title, h in HAND.items():
+        if title not in have:
+            wid = "H-" + "".join(ch for ch in title if ch.isalnum())
+            wrecks[wid] = {"id": wid, "iso": None, "deaths": None, "found": None, "raised": False, "war": False,
+                           "links": 0, "picked": True, "title": title, **h}
+    # war graves (protected by law, or treated as one by their navies): the card says so
+    WAR_GRAVES = {"Bismarck", "HMS Hood", "USS Arizona", "USS Indianapolis", "Yamato", "MV Wilhelm Gustloff", "HMS Indefatigable",
+                  "USS Yorktown", "USS Gambier Bay", "Moskva", "German cruiser Karlsruhe", "HMHS Britannic", "Kursk", "ARA San Juan"}
+    for w in wrecks.values():
+        if w["name"] in WAR_GRAVES:
+            w["grave"] = True
     out = sorted(wrecks.values(), key=lambda w: -w["links"])
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     found = {w["title"] for w in out}

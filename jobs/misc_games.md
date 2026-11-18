@@ -1,6 +1,30 @@
 # Job: Misc games (idea_01: airport codes)
 
-Building the airport codes games planned in [Misc_games.md](../Misc_games.md). Added 2026-11-17. **Shelved (2026-11-17): don't build anything, not even the Find game, until the open questions below are discussed on the morning agenda** ([README.md](README.md)).
+Building the airport codes games planned in [Misc_games.md](../Misc_games.md). Added 2026-11-17. **Built 2026-11-18** (decided that morning: the proposals below were accepted).
+
+**What's built:**
+- `tools/airport_sets.py` → `data/airport-sets.json` (43 KB): the sets Top 50 and Top 100 busiest (ACI World 2024, hand-written: check against the published table), and Capitals (163: one airport per capital, `PREFER` where there are several). It also has the city each airport serves (`SERVES`: Narita → Tokyo…), other accepted city names (`ALSO`: Bombay, Saigon, München…) and the city codes (`CITIES`: LON, NYC, TYO…).
+- The games, under More games → Misc → Airport codes. Choose the game, the set and the region, then Start:
+  - **Find the airport:** a code comes up; tap its dot.
+  - **Name the code:** an airport comes up (its dot highlighted); type its code. One at a time, with arrows to skip. City codes count (LON for Heathrow).
+  - **Name the city:** a code comes up; type the city it serves.
+- The map: the world globe or flat map, countries grey, a dot per airport. Airports sharing a city code are a numbered bubble while their dots overlap, splitting as you zoom in.
+- Code: `GG.loadAirports` (js/geo.js) makes a set into a "map" whose parts are dots; `DATASETS.ap50 / ap100 / apcap` (`world`, `prompted`) in js/app.js; dots in js/mapview.js (`c.dot`).
+
+**Changed later on 2026-11-18 (the user's notes):**
+- **Airports:** Easy (the best-known: the top of a ranking for the region, a bigger pot for a bigger region: world 200, Europe and Asia 60, North America 50, South America and Africa 25, Oceania 15), Hard (every airport with scheduled flights) or Capitals, with a line explaining each. `data/airport-sets.json` now has all 3,268 airports (360 KB, loaded only for these games).
+- **Rounds:** 10, 20, 40 or Marathon (the whole pot), picked at random from the pot.
+- **Location dots** (Find and Name the city): Off by default. The airports appear once answered. With dots off, a tap within 100 km of the airport counts in Find.
+- **The lightbulb hint** (no penalty): Find zooms to the area; Name the city zooms there and shows the dot; Name the code shows the first letter.
+- **Name the code** has no map: the airport's name in big letters in the middle, its city underneath.
+- **The typing box** sits on its own row at the bottom of the banner, so it doesn't cover the prompt.
+
+**Decided 2026-11-18 (morning):**
+1. Sets: Top 50, Top 100, capitals now; by country later.
+2. Name games: one prompt at a time (Sporcle-style later).
+3. City codes: accepted as answers, not asked.
+4. Learning mode for airports: later.
+5. Close airports: numbered bubbles.
 
 ## Where it goes in the menu (changed 2026-11-17)
 

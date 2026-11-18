@@ -251,6 +251,31 @@
   // Mexico's 31 states and Mexico City (tools/build_mx.py), with a detail level; the small central ones get circles
   const MX_RINGS = new Set(["MX-CMX", "MX-TLA", "MX-MOR", "MX-AGU", "MX-COL"]);
   GG.loadMX = lakes => loadShapes("data/mx-states.json", "data/mx-parts.json", "mx", "mx/", MX_RINGS, lakes);
+  // Airport codes (Misc_games.md, idea_01): the airports chosen for a game (a random pick from a pot: js/app.js) on the
+  // world map. Each airport is a part with no shape, drawn as a dot (c.dot) and tapped like a small country's circle;
+  // the countries are a grey background. Airports sharing a city code (LON, NYC) are a cluster: a numbered bubble
+  // while their dots overlap, splitting as you zoom in. name = the code; capitals = the city and its other names.
+  let airportData = null;
+  GG.airportData = async () => (airportData = airportData || await getJSON("data/airport-sets.json"));
+  GG.loadAirports = async (world, codes, place = null) => {
+    const A = await GG.airportData(), byIso = {};
+    const items = codes.map(code => {
+      const a = A.airports[code], ll = place ? place(code) : a.l; // (place: where it's drawn, e.g. moved into an inset)
+      const c = { iso: "AP-" + code, id: "AP-" + code, code, name: code, names: [code].concat(a.y ? [a.y] : []),
+        capitals: [a.c].concat(a.a || []), cont: a.k, car: false, capLL: [], anchor: ll, bounds: [ll, ll], sizeDeg: 0, ring: true, dot: true,
+        minPx: DEFAULT_MIN_PX, flagKey: a.i || "",
+        info: { kind: "Airport", full: a.n, city: a.c, ciso: a.i, flag: false },
+        feature: { type: "Feature", geometry: { type: "Point", coordinates: ll } } };
+      byIso[c.iso] = c;
+      return c;
+    });
+    const groups = {};
+    items.forEach(c => { const cc = A.airports[c.code].y; if (cc) (groups[cc] = groups[cc] || []).push(c); });
+    const ctx = fs => fs.map(f => ({ ...f, c: null })); // the countries, as background (no part of the game)
+    return { kind: "ap", countries: items, byIso, f50: ctx(world.f50), f110: ctx(world.f110), borders50: world.borders50,
+      borders110: world.borders110, coast50: world.coast50, coast110: world.coast110, lakes: world.lakes, lakes110: world.lakes110,
+      clusters: Object.entries(groups).filter(([, m]) => m.length > 1).map(([name, members]) => ({ name, members })), ringPx: DEFAULT_MIN_PX };
+  };
   // Argentina's 23 provinces and the City of Buenos Aires (tools/build_ar.py), with a detail level; the city gets a circle
   GG.loadAR = lakes => loadShapes("data/ar-states.json", "data/ar-parts.json", "ar", "ar/", new Set(["AR-C"]), lakes);
   // Nigeria's 36 states and the FCT (tools/build_ng.py), with a detail level; Lagos (the smallest) gets a circle

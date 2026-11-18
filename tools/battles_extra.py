@@ -62,3 +62,27 @@ AREAS = [
     "Battle of the Coral Sea", "Battle of Jutland", "Siege of Leningrad", "Battle of Stalingrad", "Battle of the Somme",
     "Battle of Verdun", "Battle of Okinawa", "Battle of Iwo Jima",
 ]
+
+
+# Battles with no modern country in Wikidata that were fought on land (the script counts a battle with no country as
+# naval; checked 2026-11-18)
+NOT_NAVAL = {"Conquest of Jerusalem", "Siege of Jerusalem", "Battle of Kursk", "Battle of Alesia", "Battle of Moscow",
+             "Siege of Leningrad", "Battle of Khaybar", "Battle of Balaclava", "Battle of the Ice", "Battle of Narva",
+             "Battle of Smolensk", "Battle of Eylau", "Siege of Baghdad", "Battle of Yarmouk", "Battle of Kosovo",
+             "Battle of the Hydaspes", "Battle of Hattin", "Battle of Ain Jalut", "Battle of Changping",
+             "Battle of Cuito Cuanavale", "Battle of Gaixia", "Battle of Isandlwana", "Battle of Haldighati",
+             "Guadalcanal campaign", "Kokoda Track campaign"}
+# not battles (Black January was a massacre in Baku, 1990)
+DROP = {"Black January"}
+# Hand-picked battles Wikidata couldn't place (checked 2026-11-18): written here; positions approximate
+HAND = {
+    "Battle of Algiers": dict(name="Battle of Algiers", desc="French paratroopers against the FLN in the city of Algiers", year=1956, end=1957, ll=[3.06, 36.78], war="Algerian War"),
+    "Battle of Diu (1509)": dict(name="Battle of Diu", desc="Portuguese fleet against the Gujarat, Mamluk and Calicut fleets", year=1509, ll=[70.98, 20.70], naval=True),
+    "Battle of Gate Pā": dict(name="Battle of Gate Pā", desc="Māori defenders against British troops at Tauranga", year=1864, ll=[176.15, -37.71], war="New Zealand Wars"),
+    "Battle of Gravelines": dict(name="Battle of Gravelines", desc="The English fleet against the Spanish Armada", year=1588, ll=[2.05, 51.10], naval=True, war="Anglo-Spanish War"),
+    "Battle of Lützen (1632)": dict(name="Battle of Lützen", desc="Swedish and Protestant armies against the Imperial army; Gustavus Adolphus was killed", year=1632, ll=[12.15, 51.24], war="Thirty Years' War"),
+    "Battle of Mogadishu (1993)": dict(name="Battle of Mogadishu", desc="US forces against Somali militia ('Black Hawk Down')", year=1993, ll=[45.33, 2.05]),
+    "Battle of Sedan (1870)": dict(name="Battle of Sedan", desc="The Prussian army captured Napoleon III", year=1870, ll=[4.94, 49.70], war="Franco-Prussian War"),
+    "Battle of Singapore": dict(name="Battle of Singapore", desc="Japan captured Singapore from the British", year=1942, ll=[103.82, 1.35], war="Second World War"),
+    "Battle of Yarmouk": dict(name="Battle of Yarmouk", desc="The Rashidun Caliphate's army against the Byzantine army", year=636, ll=[35.95, 32.80], war="Muslim conquest of the Levant"),
+}

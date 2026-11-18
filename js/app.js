@@ -8,6 +8,10 @@
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
   let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null, geoAU = null, geoMX = null, geoBR = null, geoDE = null, geoJP = null, geoFR = null, geoIT = null, geoES = null, geoESP = null, geoNG = null, geoAR = null;
+  const geoAP = {}; // airport sets, by dataset key
+  let apCodes = [], apRegion = "world"; // the airports in this airport game (a random pick: startAirports), and its region
+  const apShown = new Set(); // airports whose dot the hint has shown (Location dots off)
+  const apTries = new Map(); // Name the code: wrong tries per airport (two allowed)
   const geoUK = {}; // "uk", "ukc", "ukn" (the countries view)
   // each country map: what its parts are called, its region key and map style, and how its data loads
   const DATASETS = {
@@ -27,6 +31,14 @@
     // Mexico: 31 states and Mexico City; games 5 and 6 use the coats of arms (most states have no official flag)
     mx: { noun: "state", nouns: "states", Nouns: "States", region: "mexico", style: "mexico", count: 32, emblem: "coat of arms",
       emblems: "coats of arms", load: async () => (geoMX = geoMX || await GG.loadMX(geoWorld.lakes)) },
+    // Airport codes (Misc_games.md): the world map with a dot per airport, the airports a random pick from a pot (the
+    // airport options: Easy, Hard or Capitals, and the region); `world` (not a country map: globe and flat, continents
+    // as regions); `prompted` Name games ask one airport at a time. name = code, capital = city.
+    ap: { noun: "airport", nouns: "airports", Nouns: "Airports", world: true, prompted: true, noFlags: true, count: 0,
+      cap: "city", caps: "cities", load: async () => {
+        const A = await GG.airportData();
+        return (geoAP.ap = await GG.loadAirports(geoWorld, apCodes, code => apPlace(A, code, apRegion)));
+      } },
     // Argentina: 23 provinces and the City of Buenos Aires, all with flags (no Falklands)
     ar: { noun: "province", nouns: "provinces", Nouns: "Provinces", region: "argentina", style: "argentina", count: 24,
       load: async () => (geoAR = geoAR || await GG.loadAR(geoWorld.lakes)) },
@@ -44,7 +56,7 @@
     // France: the 13 metropolitan regions; no flag games (most regions have only a logo)
     fr: { noun: "region", nouns: "regions", Nouns: "Regions", region: "france", style: "france", count: 13, noFlags: true,
       load: async () => (geoFR = geoFR || await GG.loadFR(geoWorld.lakes)) },
-    // Japan: 47 prefectures, all with flags; the 9 regions as filters (REGIONS "japan-…")
+    // Japan: 47 prefectures, all with flags
     jp: { noun: "prefecture", nouns: "prefectures", Nouns: "Prefectures", region: "japan", style: "japan", count: 47,
       load: async () => (geoJP = geoJP || await GG.loadJP(geoWorld.lakes)) },
     // Germany: 16 states, all with flags
@@ -67,8 +79,11 @@
     ukn: { noun: "country", nouns: "countries", Nouns: "Countries", region: "ukn", style: "uk",
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
-  const isCountryMap = d => !!DATASETS[d] && d !== "world";
-  const geoFor = d => (d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : d === "mx" ? geoMX : d === "br" ? geoBR : d === "de" ? geoDE : d === "jp" ? geoJP : d === "fr" ? geoFR : d === "it" ? geoIT : d === "es" ? geoES : d === "esp" ? geoESP : d === "ng" ? geoNG : d === "ar" ? geoAR : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const isCountryMap = d => !!DATASETS[d] && d !== "world" && !DATASETS[d].world;
+  const isAirports = (d = S.data) => !!(DATASETS[d] && DATASETS[d].world);
+  // Name games that ask one at a time (airports): the next one is chosen for you, and the arrows skip
+  const prompted = () => !!(DATASETS[S.data] && DATASETS[S.data].prompted) && isName();
+  const geoFor = d => (DATASETS[d] && DATASETS[d].world ? geoAP[d] : d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : d === "mx" ? geoMX : d === "br" ? geoBR : d === "de" ? geoDE : d === "jp" ? geoJP : d === "fr" ? geoFR : d === "it" ? geoIT : d === "es" ? geoES : d === "esp" ? geoESP : d === "ng" ? geoNG : d === "ar" ? geoAR : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -90,7 +105,9 @@
     if (!wide()) return;
     el.style.whiteSpace = "normal"; el.style.lineHeight = "1.1"; el.style.overflow = "visible";
     size = Math.round(max * 0.85); el.style.fontSize = size + "px";
-    while ((wide() || el.scrollHeight > size * 1.1 * 2 + 2) && size > 13) { size -= 1; el.style.fontSize = size + "px"; }
+    // (History games: down to 11 px, so a long battle name is always readable in full on its two lines)
+    const minTwo = S.mode === "hist" && el.id === "target" ? 11 : 13;
+    while ((wide() || el.scrollHeight > size * 1.1 * 2 + 2) && size > minTwo) { size -= 1; el.style.fontSize = size + "px"; }
   }
   const FIT = ["target", "lcName"].map(id => $(id));
   const fitAll = () => FIT.forEach(fitText);
@@ -171,21 +188,7 @@
       view: { flat: [-8.0, 53.3, 5.0] }, crop: [[-10.8, 51.3], [-5.7, 55.5]] };
   });
   REGIONS.ukn = { name: "UK & Ireland", us: true, data: "ukn", test: () => true };
-  // Japan's 9 regions (Japan_plan.md), as filters for the prefecture games: [key, name, flat view, crop]
-  const JP_REGIONS = [
-    ["-hok", "Hokkaido", [142.8, 43.4, 5.6], [[139, 41.2], [146, 45.7]]],
-    ["-toh", "Tōhoku", [140.6, 39.3, 5.4], [[138.5, 36.7], [142.6, 41.8]]],
-    ["-kan", "Kantō", [139.7, 35.95, 3.0], [[138.3, 34.6], [141.1, 37.3]]],
-    ["-chb", "Chūbu", [137.8, 36.3, 4.8], [[135.4, 34.4], [140.1, 38.6]]],
-    ["-kns", "Kansai", [135.6, 34.55, 3.4], [[134.0, 33.3], [137.1, 35.9]]],
-    ["-chg", "Chūgoku", [132.9, 34.9, 4.0], [[130.6, 33.6], [134.7, 36.5]]],
-    ["-shk", "Shikoku", [133.4, 33.65, 2.8], [[131.9, 32.6], [134.9, 34.6]]],
-    ["-kyu", "Kyūshū", [130.4, 31.4, 6.0], [[127.8, 26.9], [132.3, 34.9]]],
-    ["-oki", "Okinawa", [127.0, 25.9, 5.5], [[122.6, 23.8], [131.6, 28.0]]],
-  ];
-  JP_REGIONS.forEach(([k, name, view, crop]) => {
-    REGIONS["japan" + k] = { name, us: true, data: "jp", test: c => c.info.region === name, view: { flat: view }, crop };
-  });
+
   // a country on the countries view -> its counties (in the county set last used), as a region of that set
   const NATION_REGION = { "N-ENG": "-eng", "N-SCO": "-sco", "N-WAL": "-wal", "N-NIR": "-nir", "N-IRL": "-roi" };
   const ukSet = () => (prefs.ukSet === "ukc" ? "ukc" : "uk");
@@ -209,7 +212,7 @@
     return (window.GG_FLAGS && window.GG_FLAGS[key]) || `data/flags/${key}.webp`;
   };
   const capital = c => c.capitals[0] || "";
-  const label = c => (caps() ? `${c.name}: ${capital(c)}` : c.name);
+  const label = c => (c.dot ? `${c.code}: ${c.info.full}` : caps() ? `${c.name}: ${capital(c)}` : c.name);
   let selected = null;   // naming games: the country whose name or capital is being typed
   // statehood timeline (US Learning mode): the year shown; states that join that year are highlighted
   let tlYear = 1959, tlTimer = null, tlKind = "us";
@@ -239,6 +242,7 @@
     if (S.weak && isFind()) list = weakest(list, WEAK_COUNT);
     total = list.length;
     order = d3.shuffle(list); idx = 0; nGood = nBad = 0; finished = gaveUp = false; selected = null; reviewSel = null; $("reviewBar").hidden = true;
+    apShown.clear(); apTries.clear(); apHintFor = null;
     if (S.mode === "nameflag") buildFlagGrid(); else hideFlagGrid();
     startTime = Date.now();
     startClock();
@@ -292,23 +296,38 @@
     show();
   }
   function step(d) {
-    if (!isFind() || order.length < 2) return;
+    if (!(isFind() || prompted()) || order.length < 2) return;
     idx = (idx + d + order.length) % order.length;
+    if (prompted()) { selected = order[idx]; $("nameInput").value = ""; }
     show();
   }
   function show() {
     const mode = S.mode, where = S.region === "world" ? "" : " · " + REGIONS[S.region].name;
     target = isFind() && !finished ? order[idx] || null : null;
+    // airports' Name games: always asking one (the next is chosen for you)
+    if (prompted() && !finished && order.length && !order.includes(selected)) { idx = Math.min(idx, order.length - 1); selected = order[idx]; }
     const t = $("target"); t.className = "target";
     const typing = isName() && !flags() && selected && !finished;
     // Find by flag shows the flag instead of a name
     $("targetFlag").hidden = !(S.mode === "findflag" && target);
     if (S.mode === "findflag" && target) { $("targetFlag").src = flagSrc(target); $("targetFlag").alt = `Which ${noun()} has this flag?`; }
-    $("prev").hidden = $("fwd").hidden = !isFind() || finished;
-    $("nameInput").placeholder = caps() ? `Capital of ${selected ? selected.name : ""}` : "Type the name";
+    $("prev").hidden = $("fwd").hidden = !(isFind() || prompted()) || finished;
+    $("hintBtn").hidden = !isAirports() || finished || S.mode === "explore";
+    showApBig();
+    // the airport Name games: the typing box goes on its own row at the bottom of the banner, under the prompt
+    // (Name the code: it goes under the airport's name, in the middle of the screen)
+    const bar = document.querySelector(".bar"), inp = $("nameInput"), big = !$("apBig").hidden, wide = prompted() && !big;
+    const home = big ? $("apBigInput") : wide ? bar : document.querySelector(".prompt");
+    if (inp.parentNode !== home) home.appendChild(inp);
+    bar.classList.toggle("wideinput", wide);
+    $("nameInput").placeholder = isAirports() ? (caps() ? "Type the city" : "Type the code")
+      : caps() ? `Capital of ${selected ? selected.name : ""}` : "Type the name";
     $("giveup").hidden = mode === "explore";
-    $("nameInput").hidden = $("nameClose").hidden = !typing;
-    t.hidden = typing;
+    $("nameInput").hidden = !typing;
+    // ✕ closes the box in the tap-any-country Name games; the airport games always ask one, so it isn't shown there
+    $("nameClose").hidden = !typing || prompted();
+    t.hidden = typing && !prompted();
+    if (typing && prompted()) t.textContent = caps() ? selected.code : "What's its code?"; // (Name the code: the airport is in big letters below)
     resetGiveUp();
     if (mode === "explore") {
       $("eyebrow").textContent = "Learning mode" + where;
@@ -322,7 +341,8 @@
         $("giveup").textContent = "Play again";
       } else {
         if (!typing) t.textContent = flags() ? title("flagEach", `Type each flag's ${noun()}`) : title("tapOne", `Tap a ${noun()}`);
-        $("score").innerHTML = `<b>${nGood}</b> / ${total} named`;
+        if (prompted() && selected) setTimeout(keepSelectedInView, 50);
+        $("score").innerHTML = `<b>${nGood}</b> / ${total} named` + (nBad ? ` <span class="wrong">· ${nBad} wrong</span>` : "");
       }
     } else if (finished) {
       $("eyebrow").textContent = "Finished" + where;
@@ -367,11 +387,64 @@
       state[target.iso] = "bad"; nBad++;
       flashing[c.iso] = true; // the tapped country flashes yellow once
       setTimeout(() => { delete flashing[c.iso]; redraw(); }, 450);
-      toast(S.mode === "findflag" ? `Missed: that was the ${emblem()} of ${target.name}` : caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name,
+      toast(isAirports() ? `Missed: ${target.code} is ${target.info.full}` : S.mode === "findflag" ? `Missed: that was the ${emblem()} of ${target.name}` : caps() ? `Missed: ${capital(target)} is in ${target.name}` : "Missed: " + target.name,
         caps() || S.mode === "findflag" ? 2400 : 1800);
     }
     if (inset && view === inset) closeInset();
     next();
+  }
+
+  // ---------- airport games: the hint (no penalty), and Name the code's plain screen ----------
+  const AP_NEAR = 100; // km: Find the airport with no dots, a tap this close counts
+  let apHintFor = null;
+  // the airport being asked: Find's target, or the Name games' selected one
+  const apAsked = () => (S.mode === "find" ? target : selected);
+  $("hintBtn").onclick = () => {
+    const c = apAsked(); if (!c || finished) return;
+    if (S.mode === "name") { apHintFor = c; showApBig(); return; }   // Name the code: its first letter
+    // Find / Name the city: zoom to the area (a generous frame, a little off-centre so it doesn't give it away)
+    const span = 12, jx = (Math.random() - 0.5) * span * 0.5, jy = (Math.random() - 0.5) * span * 0.5;
+    main.fitBox([[c.anchor[0] + jx - span / 2, c.anchor[1] + jy - span / 2], [c.anchor[0] + jx + span / 2, c.anchor[1] + jy + span / 2]]);
+    if (S.mode === "namecap") apShown.add(c); // Name the city: show its dot
+    redraw();
+  };
+  // the Europe inset: each island group's land (moved like its airports) inside a frame, with its name
+  async function apInsetDrawer() {
+    const A = await GG.airportData();
+    const groups = AP_INSETS.filter(g => apCodes.some(c => insetOf(A.airports[c].l) === g));
+    if (!groups.length) return null;
+    const move = (g, c) => (typeof c[0] === "number" ? [c[0] + g.shift[0], c[1] + g.shift[1]] : c.map(x => move(g, x)));
+    const parts = groups.map(g => {
+      const polys = [];
+      geoWorld.f50.filter(f => f.c && (f.c.iso === "ESP" || f.c.iso === "PRT")).forEach(f => {
+        const ps = f.geometry.type === "MultiPolygon" ? f.geometry.coordinates : [f.geometry.coordinates];
+        ps.forEach(p => { const ll = d3.geoCentroid({ type: "Polygon", coordinates: p }); if (insetOf(ll) === g) polys.push(move(g, p)); });
+      });
+      const [w, s0, e, n] = g.box, pad = 0.3, W = w + g.shift[0] - pad, E = e + g.shift[0] + pad, S0 = s0 + g.shift[1] - pad, N = n + g.shift[1] + pad;
+      const frame = { type: "LineString", coordinates: [[W, S0], [W, N], [E, N], [E, S0], [W, S0]] };
+      return { g, land: { type: "MultiPolygon", coordinates: polys }, frame, label: [W + 0.2, N - 0.2] };
+    });
+    return (ctx, pt, proj) => {
+      const path = d3.geoPath(proj, ctx), col = main.col;
+      parts.forEach(p => {
+        ctx.beginPath(); path(p.land); ctx.fillStyle = col.land; ctx.fill(); ctx.lineWidth = 0.8; ctx.strokeStyle = col.coast; ctx.stroke();
+        ctx.beginPath(); path(p.frame); ctx.lineWidth = 1.2; ctx.setLineDash([5, 3]); ctx.strokeStyle = col.border; ctx.stroke(); ctx.setLineDash([]);
+        const q = pt(p.label); if (!q) return;
+        ctx.font = "600 10px Barlow, system-ui, sans-serif"; ctx.textAlign = "left"; ctx.textBaseline = "top";
+        ctx.fillStyle = col.fg; ctx.fillText(p.g.name, q[0], q[1]);
+      });
+    };
+  }
+  function showApBig() {
+    const on = isAirports() && S.mode === "name" && !finished && !!selected;
+    $("apBig").hidden = !on;
+    document.querySelector(".mapctl").classList.toggle("overbig", on); // just the lightbulb, above the plain screen
+    if (!on) return;
+    $("apBigName").textContent = selected.info.full;
+    $("apBigSub").textContent = selected.info.city;
+    $("apBigHint").textContent = apTries.get(selected) ? "1 attempt left" + (apHintFor === selected ? ` · starts with ${selected.code[0]}` : "")
+      : apHintFor === selected ? `Starts with ${selected.code[0]}` : "";
+    if (document.activeElement !== $("nameInput") && !overlayOpen() && document.hasFocus()) setTimeout(() => $("nameInput").focus(), 0); // the keyboard stays open
   }
 
   // ---------- game 2: Name the countries ----------
@@ -386,6 +459,7 @@
     setTimeout(keepSelectedInView, 400);          // after the keyboard has opened and the map has resized
   }
   function keepSelectedInView() {
+    if (isAirports() && !S.apDots) return; // (the dots are hidden: moving the map would give the airport away)
     if (!selected || !main.visible(selected.anchor)) return;
     const p = main.projection()(selected.anchor);
     if (p[0] < 20 || p[0] > main.w - 20 || p[1] < 20 || p[1] > main.h - 20) {
@@ -394,17 +468,43 @@
   }
   $("nameInput").addEventListener("input", () => {
     const typed = $("nameInput").value, match = selected && GG.nameMatches(selected, typed, caps() ? "capitals" : "names");
+    // Name the code: three letters that aren't its code (or its city's code) are wrong: a red flash, and try again
+    // (two tries: the first wrong one says "1 attempt left"; the second marks it wrong and moves on)
+    if (!match && isAirports() && S.mode === "name" && selected && /^[a-z]{3}$/i.test(typed.trim())) {
+      const inp = $("nameInput"), c = selected;
+      inp.classList.remove("wrongflash"); void inp.offsetWidth; inp.classList.add("wrongflash");
+      apTries.set(c, (apTries.get(c) || 0) + 1);
+      if (apTries.get(c) < 2) {
+        $("apBigHint").textContent = "1 attempt left";
+        setTimeout(() => { inp.classList.remove("wrongflash"); inp.value = ""; }, 450);
+        return;
+      }
+      GG.Stats.answer(S.mode, c.iso, false);
+      state[c.iso] = "bad"; nBad++;
+      toast(`Missed: ${c.info.full} is ${c.code}`, 2600);
+      order = order.filter(o => o !== c); selected = null;
+      setTimeout(() => { inp.classList.remove("wrongflash"); inp.value = ""; if (!order.length) { inp.blur(); finish(); } else show(); }, 450);
+      return;
+    }
     if (!match) return; // no reaction until it's right
     // accepted with a typo: show how it was typed and how it's spelled
     if (!match.exact) toast(`You typed “${typed.trim()}” — it's spelled “${match.name}”`, 4000);
     state[selected.iso] = "good"; nGood++;
     order = order.filter(c => c !== selected);
     selected = null;
-    $("nameInput").value = ""; $("nameInput").blur();
-    if (!order.length) { finish(); return; }
+    $("nameInput").value = "";
+    if (!prompted()) $("nameInput").blur();
+    if (!order.length) { $("nameInput").blur(); finish(); return; }
     show();
+    if (prompted()) $("nameInput").focus();
   });
   $("nameInput").addEventListener("keydown", e => { if (e.key === "Escape") closeName(); });
+  // Name the code: keep the keyboard open (tapping elsewhere doesn't close it while the game is on)
+  const overlayOpen = () => !$("setup").hidden || !$("stats").hidden || !$("results").hidden;
+  $("nameInput").addEventListener("blur", () => {
+    // (only while the page itself has focus: otherwise, e.g. switching apps, focus can't stick and this would loop)
+    setTimeout(() => { if (!$("apBig").hidden && !overlayOpen() && document.hasFocus()) $("nameInput").focus(); }, 0);
+  });
   function closeName() { selected = null; $("nameInput").blur(); show(); }
   $("nameClose").onclick = closeName;
   window.addEventListener("resize", () => setTimeout(keepSelectedInView, 50));
@@ -413,6 +513,7 @@
   let giveUpTimer;
   function resetGiveUp() { clearTimeout(giveUpTimer); const b = $("giveup"); b.classList.remove("confirm"); b.textContent = "Give up"; }
   $("giveup").onclick = () => {
+    if (S.mode === "hist") { GG.History.giveUp(); return; }
     if (finished) { newGame(); return; }
     const b = $("giveup");
     if (!b.classList.contains("confirm")) {
@@ -1496,6 +1597,16 @@
   $("insetClose").onclick = closeInset;
   $("inset").addEventListener("click", e => { if (e.target === $("inset")) closeInset(); });
   function onPoint(view, x, y) {
+    if (isAirports() && S.mode === "find" && !S.apDots && target && !finished && view === main) {
+      const ll = main.lonLatAt(x, y); if (!ll) return true;
+      const d = d3.geoDistance(ll, target.anchor) * 6371;
+      if (d <= AP_NEAR) { tap(target, view); return true; }
+      GG.Stats.answer(S.mode, target.iso, false);
+      state[target.iso] = "bad"; nBad++;
+      toast(`Missed: ${target.code} is ${target.info.full}, ${Math.round(d).toLocaleString("en-GB")} km away`, 2600);
+      next(); return true;
+    }
+    if (S.mode === "hist" && view === main && GG.History) return GG.History.onPoint(view, x, y);
     // Russia's timeline: a tap shows when that land was Russia's
     if (view === main && main.history) {
       const f = main.historyAt(x, y);
@@ -1522,15 +1633,23 @@
       $("regions").appendChild(b);
     });
   }
-  // the Game and Region boxes: exactly one is open (opening one closes the other; closing one opens the other)
-  const accordion = [$("gameGroup"), $("regionGroup")];
-  // a tap on a heading opens that box and closes the other in one step (letting the browser toggle them one after the
-  // other drew a frame with both open, so the Region box flashed at the bottom)
-  const openBox = d => accordion.forEach(o => { o.open = o === d; });
-  accordion.forEach(d => d.querySelector("summary").addEventListener("click", e => {
-    e.preventDefault();
-    openBox(d.open ? accordion.find(o => o !== d) : d);
-  }));
+  // ---------- the World game: choose the region, then the game (one box, two steps; 2026-11-18) ----------
+  // Both steps sit in the same place in the box (the hidden one keeps its space), so the menu never changes size.
+  const steps = { region: false, game: false, at: "region" };
+  function showStep(at) {
+    steps.at = at;
+    $("regions").classList.toggle("stepoff", at !== "region");
+    $("segGame").classList.toggle("stepoff", at !== "game");
+    $("stepInstr").textContent = at === "region" ? "Choose region" : "Choose game";
+    $("stepBack").hidden = at !== "game";
+    $("stepChosen").textContent = at === "game" && steps.region ? REGIONS[pick.region].name : "";
+    setStartReady();
+  }
+  // Start: greyed until the region and the game are both chosen (World games only)
+  const worldGameStep = () => pick.tab === "world" && !pick.learn;
+  const startReady = () => !worldGameStep() || (steps.region && steps.game);
+  function setStartReady() { $("startBtn").classList.toggle("notready", !startReady()); if (startReady()) $("startWarn").hidden = true; }
+  $("stepBack").onclick = () => showStep("region");
   const GAME_NAMES = { find: "Find · Countries", findcap: "Find · By capital", findflag: "Find · By flag",
     name: "Name · Countries", namecap: "Name · Capitals", nameflag: "Name · Flags" };
   // Countries tab: continent headings (the Caribbean is part of North America) with a button per country map
@@ -1578,9 +1697,6 @@
         segSelect($("cpES"), pick.data);
         $("cpGames").querySelectorAll('[data-v="find"], [data-v="name"]').forEach(b => { b.textContent = DATASETS[pick.data].Nouns; });
       }
-      // Japan: one of its 9 regions, or all 47
-      $("cpJPField").hidden = pick.data !== "jp";
-      if (pick.data === "jp") segSelect($("cpJP"), pick.region.replace(/^japan/, "") || "all");
       if (pick.data === "in") segSelect($("cpUT"), pick.ut === false ? "off" : "on");
       $("cpGames").querySelectorAll('[data-v="findflag"], [data-v="nameflag"]').forEach(b => {
         b.hidden = noFlags; b.textContent = ds.emblems ? ds.emblems[0].toUpperCase() + ds.emblems.slice(1) : "Flags"; });
@@ -1595,7 +1711,8 @@
     }
     $("startBtn").hidden = countries && (learn || !pick.country); // pick a country first
     $("startBtn").textContent = learn ? "Discover" : "Start";
-    if (!countries && !learn) { segSelect($("segGame"), pick.mode); $("viewField").hidden = pick.region !== "world"; }
+    setStartReady();
+    if (!countries && !learn) { segSelect($("segGame"), steps.game ? pick.mode : ""); $("viewField").hidden = pick.region !== "world"; }
     $("gameRow").hidden = countries || learn; // the switch and More games: the Game tab's World view
   }
   $("segData").addEventListener("click", e => {
@@ -1633,11 +1750,6 @@
     pick.data = b.dataset.v; pick.region = DATASETS[pick.data].region;
     showData(); showOptions();
   });
-  $("cpJP").addEventListener("click", e => {
-    const b = e.target.closest("button"); if (!b) return;
-    pick.region = "japan" + (b.dataset.v === "all" ? "" : b.dataset.v);
-    showData(); showOptions();
-  });
   $("cpUT").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     pick.ut = b.dataset.v === "on"; showData(); showOptions();
@@ -1670,15 +1782,18 @@
   $("optBtn").onclick = () => { if (!$("tabHelp").hidden) showHelpPanel(false); showOptPanel($("tabOptions").hidden); };
   $("optBack").onclick = () => showOptPanel(false);
   function openSetup() {
+    $("nameInput").blur(); // (the keyboard goes while the menu is open)
     // opens on the tab you're playing in: Learning mode, or a scored game
     pick.learn = S.mode === "explore";
     pick.mode = S.mode === "explore" ? (prefs.game && prefs.game.mode !== "explore" ? prefs.game.mode : "find") : S.mode;
     pick.region = S.region; pick.view = S.region === "world" ? main.mode : "globe"; pick.data = S.data;
-    pick.tab = S.data === "world" ? "world" : "countries";
+    pick.tab = "world"; // the menu always opens on Game › World (2026-11-18)
     const mapData = S.data === "ukc" ? "uk" : S.data; // both county sets are one entry in the list
     pick.country = S.data === "world" ? null : /-ire$/.test(S.region) ? "IRL"
       : Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k].data === mapData) || null;
     pick.cd = !!S.cd; pick.ut = S.ut !== false;
+    if (S.data !== "world") { pick.data = "world"; pick.region = "world"; pick.view = "globe"; pick.country = null; }
+    if (!MODE_NAMES[pick.mode]) pick.mode = "find"; // (after a History game)
     if (!$("countryList").childElementCount) buildCountryList();
     segSelect($("segGame"), pick.mode); segSelect($("regions"), pick.region); setViewSwitch();
     if (pick.learn && pick.region !== "world" && !isCountryMap(pick.data)) pick.region = "world";
@@ -1687,14 +1802,23 @@
     pick.weak = !!S.weak; pick.timer = !!S.timer;
     pick.paceFind = S.paceFind || 5; pick.paceName = S.paceName || 10;
     segSelect($("segQuestions"), pick.weak ? "weak" : "all"); segSelect($("segTimer"), pick.timer ? "on" : "off");
-    $("gameGroup").open = true; $("regionGroup").open = false;
+    steps.region = steps.game = false; segSelect($("segGame"), ""); segSelect($("regions"), ""); $("startWarn").hidden = true; showStep("region");
     $("tabMore").hidden = true; $("tabHelp").hidden = true; $("helpBtn").classList.remove("on");
     showOptPanel(false);
     showData();
     showOptions();
     $("setup").hidden = false;
+    // playing an airport or History game: that game's options first (More games › …)
+    if (isAirports() || S.mode === "hist") {
+      $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : "";
+      showMorePanel(true);
+      if (isAirports()) showAirportPanel(true); else showHistPanel(true);
+    }
   }
-  function closeSetup() { $("setup").hidden = true; playClip(false); }
+  function closeSetup() {
+    $("setup").hidden = true; playClip(false);
+    if (!$("apBig").hidden && document.hasFocus()) setTimeout(() => $("nameInput").focus(), 0); // back to Name the code: the keyboard again
+  }
   // ---------- theme: Auto (the phone's light or dark mode), Light or Dark (Options) ----------
   const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark"
     : !!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
@@ -1733,7 +1857,7 @@
   $("menuBtn").onclick = openSetup;
   $("setupClose").onclick = closeSetup;
   $("setup").addEventListener("click", e => { if (e.target === $("setup")) closeSetup(); });
-  $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); showOptions(); } });
+  $("segGame").addEventListener("click", e => { const b = e.target.closest("button"); if (b && !b.disabled) { pick.mode = b.dataset.v; segSelect($("segGame"), pick.mode); steps.game = true; setStartReady(); showOptions(); } });
   // Options tab: knowledge gaps only for the Find games; the timer for every scored game
   function showOptions() {
     const find = pick.mode === "find" || pick.mode === "findcap" || pick.mode === "findflag";
@@ -1777,7 +1901,7 @@
     const b = e.target.closest("button"); if (!b) return;
     pick.region = b.dataset.v; segSelect($("regions"), pick.region);
     $("viewField").hidden = pick.region !== "world"; // region games are always flat (chosen 2026-11-14)
-    openBox($("gameGroup"));
+    steps.region = true; showStep("game");
     showOptions();
   });
   // the Globe / Flat switch (on = globe)
@@ -1792,8 +1916,146 @@
     $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
     $("setupTitle").textContent = on ? "More games" : pick.learn ? "Learning mode" : "New game";
   }
-  $("moreBtn").onclick = () => { $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : ""; showMorePanel(true); };
-  $("moreBack").onclick = () => showMorePanel(false);
+  $("moreBtn").onclick = () => {
+    $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : "";
+    $("apPanel").hidden = $("histPanel").hidden = true; document.querySelector("#tabMore .moregames").hidden = false; // the list first
+    showMorePanel(true);
+  };
+  $("moreBack").onclick = () => {
+    if (!$("apPanel").hidden) { showAirportPanel(false); return; }
+    if (!$("histPanel").hidden) { showHistPanel(false); return; }
+    showMorePanel(false);
+  };
+  // ---------- Airport codes (Misc_games.md, idea_01): the game, Easy / Hard / Capitals, the rounds, location dots ----------
+  const ap = { mode: "find", level: "easy", region: "world", length: "10", dots: "off", ...(prefs.airports || {}) };
+  if (!["easy", "hard", "capitals"].includes(ap.level)) ap.level = "easy";
+  const AP_HINTS = { find: "A code comes up: tap where its airport is.", name: "An airport comes up: type its three-letter code.",
+    namecap: "A code comes up: type the city it serves." };
+  const AP_LEVELS = { easy: "The best-known airports.",
+    hard: "Any airport with scheduled flights (3,268 in the world).", capitals: "The main airport of each country's capital city." };
+  // Easy: the top of the best-known list for the region (a bigger region, a bigger pot)
+  const AP_EASY = { world: 200, europe: 60, asia: 60, namerica: 60, samerica: 40, africa: 40, oceania: 20 };
+  // Europe's Atlantic islands lie outside the Europe map: each group is drawn in its own framed inset, moved by `shift`
+  // (degrees east, north) into the sea inside the map. Only in Europe games; the world map has them where they are.
+  const AP_INSETS = [
+    { name: "Canary Islands", box: [-18.6, 27.4, -13.0, 29.6], shift: [3.5, 7.2] },
+    { name: "Madeira", box: [-17.6, 32.3, -16.0, 33.3], shift: [0, 2.6] },
+    { name: "Azores", box: [-31.6, 36.5, -24.5, 40.1], shift: [6.0, 0] },
+  ];
+  const insetOf = ll => AP_INSETS.find(g => ll[0] >= g.box[0] && ll[0] <= g.box[2] && ll[1] >= g.box[1] && ll[1] <= g.box[3]);
+  // where an airport is drawn in a region's game (moved into an inset in Europe), and whether it's on that region's map
+  const apPlace = (A, code, region) => { const ll = A.airports[code].l, g = region === "europe" && insetOf(ll);
+    return g ? [ll[0] + g.shift[0], ll[1] + g.shift[1]] : ll; };
+  const onRegionMap = (ll, region) => { const c = REGIONS[region] && REGIONS[region].crop;
+    return !c || (ll[0] >= c[0][0] && ll[0] <= c[1][0] && ll[1] >= c[0][1] && ll[1] <= c[1][1]); };
+  const AP_DOTS = { off: "The airports aren't shown until you've answered them.", on: "A dot marks every airport in the game." };
+  const AP_CONT = { europe: "Europe", asia: "Asia", africa: "Africa", namerica: "North America", samerica: "South America", oceania: "Oceania" };
+  async function airportPot(level, region) {
+    const A = await GG.airportData(), cont = AP_CONT[region];
+    const inR = code => !cont || (A.airports[code].k.includes(cont) && onRegionMap(apPlace(A, code, region), region));
+    if (level === "capitals") return A.capitals.filter(inR);
+    if (level === "hard") return Object.keys(A.airports).filter(inR);
+    return A.rank.filter(inR).slice(0, AP_EASY[region] || 60);
+  }
+  async function showAirportPanel(on) {
+    $("apPanel").hidden = !on; document.querySelector("#tabMore .moregames").hidden = on;
+    $("setupTitle").textContent = on ? "Airport codes" : "More games";
+    if (!on) return;
+    segSelect($("apGame"), ap.mode); segSelect($("apLevel"), ap.level); segSelect($("apRegion"), ap.region);
+    segSelect($("apLength"), ap.length); segSelect($("apDots"), ap.dots);
+    $("apGameHint").textContent = AP_HINTS[ap.mode];
+    $("apLevelHint").textContent = AP_LEVELS[ap.level];
+    $("apDotsField").hidden = ap.mode === "name"; // Name the code has no map
+    $("apDotsHint").textContent = AP_DOTS[ap.dots];
+    const n = (await airportPot(ap.level, ap.region)).length;
+    $("apLength").querySelectorAll("button").forEach(b => { b.disabled = b.dataset.v !== "all" && +b.dataset.v > n; });
+    if (ap.length !== "all" && +ap.length > n) { ap.length = "all"; segSelect($("apLength"), "all"); }
+    $("apLengthHint").textContent = `${n.toLocaleString("en-GB")} airports to pick from${ap.length === "all" ? ": Marathon asks them all" : ", chosen at random"}.`;
+  }
+  $("apOpen").onclick = () => showAirportPanel(true);
+  [["apGame", "mode"], ["apLevel", "level"], ["apRegion", "region"], ["apLength", "length"], ["apDots", "dots"]].forEach(([id, key]) => $(id).addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    ap[key] = b.dataset.v; showAirportPanel(true);
+  }));
+  $("apStart").onclick = async () => {
+    savePrefs({ airports: { ...ap } });
+    closeSetup(); closeInset(); showAirportPanel(false); showMorePanel(false);
+    S.weak = false; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName;
+    S.apDots = ap.dots === "on";
+    const pot = await airportPot(ap.level, ap.region);
+    apCodes = d3.shuffle(pot.slice()).slice(0, ap.length === "all" ? pot.length : +ap.length);
+    S.data = null; apRegion = ap.region; // (a new pick each game: the map is made again)
+    await startGame(ap.mode, ap.region, ap.region === "world" ? pick.view : "flat", "ap");
+    main.overlay = ap.region === "europe" ? await apInsetDrawer() : null;
+    main.requestDraw();
+  };
+  // ---------- History games (History_games.md, js/history.js): the game and what's in it, then Start ----------
+  const hp = { topic: "people", game: "where", kind: "all", era: "all", region: "world", length: "10", mc: "off", level: "easy", ...(prefs.history || {}) };
+  if (hp.mc !== "on") hp.mc = "off";
+  const H_FIELDS = [["hGame", "game"], ["hLevel", "level"], ["hKind", "kind"], ["hEra", "era"], ["hRegion", "region"], ["hLength", "length"], ["hMC", "mc"]];
+  // a grid of buttons with no empty grey cells: 4 options make a 2×2, 6 a 3×2
+  const gridCols = n => (n === 4 ? 2 : n % 3 === 0 ? 3 : n <= 3 ? n : 4);
+  async function showHistPanel(on) {
+    $("histPanel").hidden = !on; document.querySelector("#tabMore .moregames").hidden = on;
+    const T = GG.History.TOPICS[hp.topic];
+    $("setupTitle").innerHTML = on ? `${T.title}<span class="beta">Beta</span>` : "More games";
+    if (!on) return;
+    const eras = GG.History.ERAS.filter(([v]) => !T.eras || T.eras.includes(v));
+    if (!T.kinds.some(k => k[0] === hp.kind)) hp.kind = "all";
+    if (!eras.some(e => e[0] === hp.era)) hp.era = "all";
+    $("hWhichBtn").textContent = T.whichBtn;
+    $("hKindLabel").textContent = T.kindLabel;
+    $("hKind").innerHTML = T.kinds.map(([v, l]) => `<button data-v="${v}" type="button">${l}</button>`).join("");
+    $("hEra").innerHTML = eras.map(([v, l]) => `<button data-v="${v}" type="button">${l}</button>`).join("");
+    $("hKind").style.gridTemplateColumns = `repeat(${gridCols(T.kinds.length)}, 1fr)`;
+    $("hEra").style.gridTemplateColumns = `repeat(${gridCols(eras.length)}, 1fr)`;
+    $("hLevelField").hidden = !T.levels;
+    $("hLevelHint").textContent = hp.level === "easy" ? "Famous" : "Obscure";
+    H_FIELDS.forEach(([id, k]) => segSelect($(id), hp[k]));
+    $("hGameHint").textContent = hp.game === "where" ? T.where : T.which;
+    $("hAnswerField").hidden = hp.game !== "which";
+    $("hMCHint").textContent = hp.mc === "on" ? "Choose from two answers." : "Type the answer.";
+    // grey out the choices that would give too few (they stay readable, just can't be tapped)
+    const cfgOf = over => ({ ...hp, ...over, box: (over.region || hp.region) === "world" ? null : REGIONS[over.region || hp.region].crop,
+      level: T.levels ? (over.level || hp.level) : null });
+    for (const [id, key] of [["hKind", "kind"], ["hEra", "era"], ["hRegion", "region"], ["hLevel", "level"]]) {
+      if (key === "level" && !T.levels) continue;
+      for (const b of $(id).querySelectorAll("button")) b.disabled = (await GG.History.count(cfgOf({ [key]: b.dataset.v }))) < GG.History.MIN;
+    }
+    const n = await GG.History.count(cfgOf({}));
+    $("hLength").querySelectorAll("button").forEach(b => { b.disabled = b.dataset.v !== "all" && +b.dataset.v > n; });
+    $("hStart").disabled = n < GG.History.MIN;
+    $("hGameHint").textContent += ` (${n} to choose from)`;
+  }
+  document.querySelectorAll("#tabMore [data-topic]").forEach(b => { b.onclick = () => { hp.topic = b.dataset.topic; showHistPanel(true); }; });
+  H_FIELDS.forEach(([id, key]) => $(id).addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b || b.disabled) return;
+    hp[key] = b.dataset.v; showHistPanel(true);
+  }));
+  $("hStart").onclick = async () => {
+    savePrefs({ history: { ...hp } });
+    closeSetup(); closeInset(); showHistPanel(false); showMorePanel(false);
+    await startHistory({ ...hp, box: hp.region === "world" ? null : REGIONS[hp.region].crop });
+  };
+  // a History game on the world map (its own rounds and scoring: js/history.js); built on Learning mode's map
+  async function startHistory(cfg) {
+    await startGame("explore", cfg.region, cfg.region === "world" ? pick.view : "flat", "world");
+    S.mode = "hist";
+    $("jumpbar").hidden = true; // (no continent bar in the History games)
+    $("giveup").hidden = false; resetGiveUp();
+    $("magBtn").hidden = true; $("clock").hidden = true;
+    const ok = await GG.History.start(cfg, {
+      main, toast,
+      home: () => goTo(cfg.region),
+      // (the zoom used to be held still in these games; the user wanted to zoom in on the globe, 2026-11-18)
+      lockZoom: () => {},
+      unlockZoom: () => { clearTimeout(histLock); main.setCrop(cfg.region === "world" ? null : REGIONS[cfg.region].crop); },
+      openMenu: () => { GG.History.stop(); openSetup(); },
+    });
+    if (!ok) { GG.History.stop(); S.mode = "explore"; show(); }
+  }
+  let histLock = null;
+
   // help: a short "how to play" pane, in place of the games (like More games)
   function showHelpPanel(on) {
     if (on) { $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : ""; showOptPanel(false); $("tabMore").hidden = true; }
@@ -1806,6 +2068,11 @@
   $("helpBtn").onclick = () => showHelpPanel($("tabHelp").hidden);
   $("helpBack").onclick = () => showHelpPanel(false);
   $("startBtn").onclick = () => {
+    if (!startReady()) {
+      $("startWarn").textContent = `Please choose a ${!steps.region || steps.at === "region" ? "region" : "game"}`;
+      $("startWarn").hidden = false;
+      return;
+    }
     closeSetup(); closeInset();
     if (pick.learn) { magnifierIntro(() => startGame("explore", "world", pick.view, "world")); return; } // Discover: through a magnifying glass
     S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName; S.cd = !!pick.cd; S.ut = pick.ut !== false;
@@ -1859,7 +2126,7 @@
 
   // switch between the world and US states maps (US data loads the first time it's needed)
   async function useData(data) {
-    if (isCountryMap(data)) await DATASETS[data].load();
+    if (isCountryMap(data) || isAirports(data)) await DATASETS[data].load();
     S.data = data;
     geo = geoFor(data);
     const style = isCountryMap(data) ? DATASETS[data].style : "patterson";
@@ -1868,6 +2135,8 @@
     GG.debug.geo = geo;
   }
   function startGame(mode, region, view, data = S.data) {
+    if (main && main.overlay && S.mode !== "hist") main.overlay = null;
+    if (GG.History && S.mode === "hist") { GG.History.stop(); clearTimeout(histLock); main.setCrop(null); }
     // Learning mode's whole UK & Ireland is the countries view (no county lines); counties come after "Focus on ..."
     if (mode === "explore" && (data === "uk" || data === "ukc") && (region === "uk" || region === "ukc")) { data = "ukn"; region = "ukn"; }
     if (data !== S.data || !geo) return useData(data).then(() => startGame(mode, region, view, data));
@@ -1878,7 +2147,8 @@
       ...(region === "world" ? { worldView: view } : {}) });
     // region games are cropped to the region (no jump bar there)
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
-    $("jumpbar").hidden = region !== "world" || mode === "nameflag"; // no map in Name the flags
+    // (no map in Name the flags; no continent bar in the airport games, 2026-11-18)
+    $("jumpbar").hidden = region !== "world" || mode === "nameflag" || isAirports(data);
     $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
     if (mode === "explore" && S.magnify) setMag(false);
     $("viewBtn").hidden = region !== "world"; // no globe for region games
@@ -1927,7 +2197,8 @@
     const q = new URLSearchParams(location.search);
     const style = GG.FLAT_STYLES[q.get("proj")] ? q.get("proj") : "patterson";
     main = new GG.MapView($("map"), { geo, mode: "globe", flatStyle: style, getState, onTap: tap, onPoint,
-      isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed });
+      isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed,
+      dotShown: c => S.apDots || finished || !!state[c.iso] || apShown.has(c) });
     main.lookAt(15, 25, 120, false);
     buildRegionButtons();
     GG.debug = { main, geo, startGame, preload: d => DATASETS[d].load(), inset: () => insetView, get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };

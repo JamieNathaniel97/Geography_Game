@@ -94,14 +94,17 @@ def main(out):
     flags = {p.stem: small(p) for p in sorted((ROOT / "data" / "flags").glob("*.webp"))}
     for d in sorted(x for x in (ROOT / "data" / "flags").iterdir() if x.is_dir()):  # states, provinces, counties
         flags.update({f"{d.name}/" + p.stem: small(p) for p in sorted(d.glob("*.webp"))})
-    body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";</script>\n" + body
+    # the History games' portraits too (data/people/: 245 files would nearly fill the artifact's 512)
+    pdir = ROOT / "data" / "people"
+    portraits = {p.stem: small(p) for p in sorted(pdir.glob("*.webp"))} if pdir.exists() else {}
+    body = "<script>window.GG_FLAGS=" + json.dumps(flags) + ";window.GG_PORTRAITS=" + json.dumps(portraits) + ";</script>\n" + body
     page = "\n".join([title, '<meta name="claude:viewport-fit-sides" content="cover">', fonts,
                       "<style>\n" + css + "\nhtml,body{height:100%}\n</style>", body])
     (out / "geography-game.html").write_text(page, encoding="utf8")
     for f in ("world-50m.json", "world-110m.json", "countries.json", "relief.jpg", "us-states.json", "states.json", "lakes.json", "tribal-us.json",
               "ca-provinces.json", "provinces.json", "tribal-ca.json",
               "uk-historic.json", "uk-ceremonial.json", "counties-historic.json", "counties-ceremonial.json",
-              "uk-nations.json", "uk-nations-info.json", "in-states.json", "in-parts.json", "cn-provinces.json", "cn-parts.json", "ru-regions.json", "ru-parts.json", "ru-history.json", "au-states.json", "au-parts.json", "tribal-au.json", "mx-states.json", "mx-parts.json", "tribal-mx.json", "br-states.json", "br-parts.json", "tribal-br.json", "de-states.json", "de-parts.json", "jp-states.json", "jp-parts.json", "fr-states.json", "fr-parts.json", "it-states.json", "it-parts.json", "es-states.json", "es-parts.json", "esp-states.json", "esp-parts.json", "ng-states.json", "ng-parts.json", "ar-states.json", "ar-parts.json"):
+              "uk-nations.json", "uk-nations-info.json", "in-states.json", "in-parts.json", "cn-provinces.json", "cn-parts.json", "ru-regions.json", "ru-parts.json", "ru-history.json", "au-states.json", "au-parts.json", "tribal-au.json", "mx-states.json", "mx-parts.json", "tribal-mx.json", "br-states.json", "br-parts.json", "tribal-br.json", "de-states.json", "de-parts.json", "jp-states.json", "jp-parts.json", "fr-states.json", "fr-parts.json", "it-states.json", "it-parts.json", "es-states.json", "es-parts.json", "esp-states.json", "esp-parts.json", "ng-states.json", "ng-parts.json", "ar-states.json", "ar-parts.json", "airport-sets.json", "people.json", "battles.json", "wrecks.json"):
         shutil.copy(ROOT / "data" / f, out / "data" / f)
     if (out / "data" / "relief").exists():
         shutil.rmtree(out / "data" / "relief")

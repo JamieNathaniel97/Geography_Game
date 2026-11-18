@@ -142,8 +142,9 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button.on { background: var(--accent); color: var(--accent-fg); }
 /* a long list (Japan's regions): wraps onto rows, each button a grid cell */
-.seg.wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 1px; background: var(--line); }
-.seg.wrap button { background: var(--panel); padding: 7px 4px; }
+.seg.wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 0; background: var(--panel); }
+/* (the lines between buttons are each button's own edge, so a short last row leaves no grey gap) */
+.seg.wrap button { background: var(--panel); padding: 7px 4px; box-shadow: 0 0 0 .5px var(--line); }
 .seg.wrap button + button { border-left: 0; }
 .seg.wrap button.on { background: var(--accent); }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; padding-block: 10px; }
@@ -336,3 +337,89 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .inmap { flex: 1; min-height: 0; position: relative; }
 #insetMap { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Airport codes options (in More games) */
+#apPanel .field { margin-bottom: 0; }
+#apPanel .hint2 { margin-top: 4px; }
+#apPanel #apStart { width: 100%; margin-top: 4px; }
+
+/* History games (js/history.js) */
+#histPanel .field { margin-bottom: 12px; }
+#histPanel #hStart { width: 100%; margin-top: 4px; }
+.histbar { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 6; display: flex; flex-direction: column; gap: 8px;
+  max-height: 60%; }
+/* (the card scrolls by itself, so Next and Hint are always in view) */
+.histbar > .histcard { flex: 0 1 auto; min-height: 0; overflow-y: auto; }
+.histbar > .row, .histbar > .histchoices, .histbar > #histInput { flex: none; }
+.histbar .row { display: flex; gap: 8px; justify-content: space-between; align-items: center; }
+.histbar .row .btn { margin-left: auto; }
+.histcard { display: flex; gap: 10px; background: var(--panel); color: var(--fg); border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; box-shadow: 0 4px 16px rgba(0,0,0,.18); font-size: 14px; }
+.histcard p { margin: 4px 0 6px; color: var(--muted); }
+.histcard .hcimg img { width: 72px; border-radius: 6px; display: block; }
+.histcard .hcimg small { display: block; font-size: 9px; color: var(--muted); max-width: 72px; overflow-wrap: anywhere; }
+.histcard .hcimg:empty { display: none; }
+.histcard .hcrow { display: flex; gap: 8px; } .histcard .hcrow span:first-child { color: var(--muted); min-width: 90px; }
+.histchoices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.histchoices button { background: var(--panel); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 8px; font: inherit; font-weight: 500; }
+.histchoices button.good { background: var(--good); color: #fff; } .histchoices button.bad { background: var(--bad); color: #fff; }
+#histInput { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); }
+.histend { position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent); text-align: center; padding: 24px; }
+.histend .big { font-size: 26px; margin: 4px 0; } .histend .pb { color: var(--good); font-weight: 700; font-size: 15px; }
+.histend .row { display: flex; gap: 8px; margin-top: 12px; }
+
+/* Airport codes: the lightbulb hint; Name the code's plain screen; the typing box on the banner's bottom row */
+/* (at the top, not the middle: the keyboard is always open and must not cover it, and the box never moves when it
+   opens; side padding keeps the name clear of the lightbulb in the corner; at most three lines) */
+.apbig { position: absolute; inset: 0; z-index: 8; background: var(--bg); display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-start; gap: 8px; padding: 18px 58px 16px; text-align: center; }
+.apbigname { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 6.2vw, 32px); line-height: 1.15; color: var(--fg);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.apbigsub { font-size: 16px; color: var(--muted); }
+.apbighint { font-size: 16px; font-weight: 600; color: var(--accent); min-height: 1.2em; }
+.bar.wideinput .nameinput { grid-column: 1 / -1; width: auto; margin: 4px 10px 4px; }
+
+/* the airport and History options: the credit sits in the space under Start, centred */
+#setup #apPanel:not([hidden]), #setup #histPanel:not([hidden]) { flex: 1 0 auto; display: flex; flex-direction: column; gap: 10px; }
+#apPanel > *, #histPanel > * { flex: none; }
+#setup .panelfoot { flex: 1 0 auto; display: flex; align-items: center; justify-content: center; text-align: center; }
+#setup .panelfoot .hint2 { margin: 0; }
+#apLength button:disabled { opacity: .35; cursor: default; }
+/* the lightbulb: top right of the map, above the map buttons */
+.mapctl .hintbtn { padding: 6px 9px; }
+/* Name the code: the box under the airport's name */
+.apbiginput { width: min(360px, 100%); }
+.apbiginput .nameinput { text-align: center; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; }
+.apbiginput .nameinput::placeholder { letter-spacing: normal; text-transform: none; }
+.mapctl.overbig { z-index: 9; } .mapctl.overbig > :not(.hintbtn) { display: none; }
+
+/* the World game's two steps: one box, the same size for both (the hidden step keeps its space) */
+.stepbox { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px 10px; }
+.stephead { display: flex; align-items: center; gap: 8px; min-height: 30px; margin-bottom: 6px; }
+.stepinstr { font-weight: 800; letter-spacing: .04em; color: var(--fg); }
+.stepchosen { margin-left: auto; color: var(--muted); font-size: 13px; }
+.stepback { font-size: 13px; padding: 2px 6px 2px 0; }
+.stepbody { display: grid; }
+.stepbody > * { grid-area: 1 / 1; }
+.stepbody > .stepoff { visibility: hidden; pointer-events: none; }
+/* Start before the region and game are chosen: greyed, and a tap says what's missing */
+#startBtn.notready { background: var(--line); border-color: var(--line); color: var(--muted); }
+.startwarn { color: var(--bad); font-weight: 600; text-align: center; font-size: 14px; margin-top: -6px; }
+
+/* a wrong three-letter code (Name the code): the box flashes red and shakes */
+.nameinput.wrongflash { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 18%, var(--bg)); animation: gqshake .35s; }
+@keyframes gqshake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .nameinput.wrongflash { animation: none; } }
+/* Beta: the History games */
+.beta { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: #2f7fd6; color: #fff;
+  font: 700 10px/1.5 system-ui, sans-serif; letter-spacing: .05em; text-transform: uppercase; vertical-align: 2px; }
+
+/* a choice with too few to play: greyed, still readable, can't be tapped */
+#histPanel .seg button:disabled, #apPanel .seg button:disabled { opacity: .4; cursor: default; pointer-events: none; }
+#hStart:disabled { opacity: .5; }
+
+/* History games: the round and points, top left of the map */
+.histscore { position: absolute; top: 10px; left: max(10px, env(safe-area-inset-left, 0px)); z-index: 5; background: var(--panel);
+  color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; font-size: 13px; line-height: 1.35;
+  box-shadow: 0 1px 4px rgba(0,0,0,.12); pointer-events: none; }

@@ -89,11 +89,20 @@ GROUP BY ?p ?pLabel ?pDescription ?links ?born ?died
 """
 
 
+_last = 0.0
+
+
 def sparql(query, cache):
     if cache.exists():
         return json.loads(cache.read_text(encoding="utf-8"))
     url = ENDPOINT + "?" + urllib.parse.urlencode({"query": query, "format": "json"})
-    for attempt in range(4):
+    global _last
+    for attempt in range(10):
+        # the query service may allow only one query a minute (it did during an outage, 2026-11-18): keep to that
+        wait = 62 - (time.time() - _last)
+        if wait > 0:
+            time.sleep(wait)
+        _last = time.time()
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=300) as r:
                 data = json.load(r)
@@ -101,7 +110,6 @@ def sparql(query, cache):
             return data
         except Exception as e:  # the service is busy at times: wait and retry
             print("  query failed:", e, "- retrying")
-            time.sleep(20 * (attempt + 1))
     sys.exit("Wikidata query failed; try a higher min_links, or later")
 
 
@@ -181,7 +189,19 @@ def main():
         if pid in people:
             people[pid].update(fix)
 
+    # the hand-written people (people_extra.HAND), where Wikidata has no places with coordinates
+    from people_extra import HAND
+    have = {p["title"] for p in people.values()}
+    for title, h in HAND.items():
+        if title not in have:
+            pid = "H-" + "".join(ch for ch in title if ch.isalnum())
+            people[pid] = {"id": pid, "biso": None, "diso": None, "img": None, "links": 0, "picked": True, "title": title, **h}
+    from people_extra import kind_from_desc
+    for p in people.values():
+        p["kind"] = kind_from_desc(p.get("desc"), p["kind"])
     out = sorted(people.values(), key=lambda p: -p["links"])
+    import people_levels
+    people_levels.apply(out)  # Easy / Hard (tools/people_levels.txt)
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     many = [people[p]["name"] for p, s in seen_places.items() if p in people and len(s) > 1]

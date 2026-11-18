@@ -52,6 +52,7 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
   <main id="mapwrap">
     <canvas id="map" aria-label="World map. Tap a country."></canvas>
     <div class="mapctl">
+        <button class="chip hintbtn" id="hintBtn" type="button" aria-label="Hint" title="Hint" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg></button>
       <button class="chip" id="viewBtn" type="button">Flat map</button>
       <button class="chip on" id="bordersBtn" type="button" aria-pressed="true">Borders</button>
       <button class="chip" id="terrainBtn" type="button" aria-pressed="false">Terrain</button>
@@ -69,6 +70,17 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       <div class="flaggrid" id="flagGrid"></div>
     </div>
     <div class="toast" id="toast" hidden></div>
+    <!-- Airport codes, Name the code: no map, the airport in big letters (js/app.js, showApBig) -->
+    <div class="apbig" id="apBig" hidden><div class="apbigname" id="apBigName"></div><div class="apbigsub" id="apBigSub"></div><div class="apbighint" id="apBigHint"></div><div class="apbiginput" id="apBigInput"></div></div>
+    <!-- History games (js/history.js): Hint and Next, the 4 choices or the typing box, the card; the end summary -->
+    <div class="histbar" id="histBar" hidden>
+      <div class="histcard" id="histCard" hidden></div>
+      <div class="histchoices" id="histChoices" hidden></div>
+      <input id="histInput" type="text" autocomplete="off" autocapitalize="words" spellcheck="false" hidden>
+      <div class="row"><button class="chip" id="histHint" type="button"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="vertical-align:-3px"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg> Hint (half points)</button><button class="btn primary" id="histNext" type="button" hidden>Next ›</button></div>
+    </div>
+    <div class="histend" id="histEnd" hidden></div>
+    <div class="histscore" id="histScore" hidden></div>
     <button class="reviewbar" id="reviewBar" type="button" hidden>‹ Back to menu</button>
     <div class="timeline" id="timeline" hidden>
       <button class="btn tlplay" id="tlPlay" type="button" aria-label="Play the timeline">▶</button>
@@ -145,8 +157,6 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       </div>
       <div class="field" id="cpESField" hidden><span class="label">Set</span>
         <div class="seg" id="cpES"><button data-v="es" type="button">Communities (19)</button><button data-v="esp" type="button">Provinces (52)</button></div></div>
-      <div class="field" id="cpJPField" hidden><span class="label">Region</span>
-        <div class="seg wrap" id="cpJP"><button data-v="all" type="button">All 47</button><button data-v="-hok" type="button">Hokkaido</button><button data-v="-toh" type="button">Tōhoku</button><button data-v="-kan" type="button">Kantō</button><button data-v="-chb" type="button">Chūbu</button><button data-v="-kns" type="button">Kansai</button><button data-v="-chg" type="button">Chūgoku</button><button data-v="-shk" type="button">Shikoku</button><button data-v="-kyu" type="button">Kyūshū</button><button data-v="-oki" type="button">Okinawa</button></div></div>
       <div class="field" id="cpUTField" hidden><span class="label">Union territories</span>
         <div class="seg" id="cpUT"><button data-v="on" type="button">On (36)</button><button data-v="off" type="button">Off (28 states)</button></div></div>
       <div class="cpcols" id="cpGames">
@@ -157,20 +167,21 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       </div>
     </div>
     <div id="worldPanel">
-    <!-- the Game and Region boxes: opening one closes the other, so the menu keeps one size -->
-    <details class="regiongroup" id="gameGroup" open>
-      <summary><span class="label">Game</span> <span id="gameSummary">Find · Countries</span></summary>
-      <div class="cpcols" id="segGame">
+    <!-- choose the region, then the game, in one box that keeps its size (2026-11-18): Start only once both are chosen -->
+    <div class="stepbox" id="stepBox">
+      <div class="stephead"><button class="linkbtn stepback" id="stepBack" type="button" hidden>‹ Region</button>
+        <span class="stepinstr" id="stepInstr">Choose region</span><span class="stepchosen" id="stepChosen"></span></div>
+      <div class="stepbody">
+        <div class="regions" id="regions"></div>
+        <div class="cpcols stepoff" id="segGame">
         <div class="cpcol"><span class="label">Find <small>tap it on the map</small></span>
-          <button data-v="find" class="on" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button data-v="findflag" type="button">By flag</button></div>
+          <button data-v="find" type="button">Countries</button><button data-v="findcap" type="button">By capital</button><button data-v="findflag" type="button">By flag</button></div>
         <div class="cpcol"><span class="label">Name <small>type the answer</small></span>
           <button data-v="name" type="button">Countries</button><button data-v="namecap" type="button">Capitals</button><button data-v="nameflag" type="button">Flags</button></div>
       </div>
-    </details>
-    <details class="regiongroup" id="regionGroup">
-      <summary><span class="label">Region</span> <span id="regionSummary">World · 197</span></summary>
-      <div class="regions" id="regions"></div>
-    </details>
+      </div>
+      <span id="gameSummary" hidden></span><span id="regionSummary" hidden></span>
+    </div>
     </div>
     <!-- Learning mode (World): a looping clip of how it works (Learning_mode_clip.md; js/tutorial.js + tools/record_clip.py),
          with the old steps as its captions: 1 Tap a country, 2 Info, 3 Focus on -->
@@ -200,11 +211,50 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       <button class="linkbtn" id="moreBack" type="button">‹ Back</button>
       <div class="cpcols moregames">
         <div class="cpcol"><span class="label">History</span>
-          <button type="button" disabled>Historical figures <small>soon</small></button>
-          <button type="button" disabled>Famous battles <small>soon</small></button>
-          <button type="button" disabled>Famous shipwrecks <small>soon</small></button></div>
+          <button type="button" data-topic="people"><span>Historical figures<span class="beta">Beta</span></span> <small>›</small></button>
+          <button type="button" data-topic="battles"><span>Famous battles<span class="beta">Beta</span></span> <small>›</small></button>
+          <button type="button" data-topic="wrecks"><span>Famous shipwrecks<span class="beta">Beta</span></span> <small>›</small></button></div>
         <div class="cpcol"><span class="label">Misc</span>
-          <button type="button" disabled>Airport codes <small>soon</small></button></div>
+          <button type="button" id="apOpen">Airport codes <small>›</small></button></div>
+      </div>
+      <!-- History games: choose the game and what's in it, then Start (History_games.md) -->
+      <div id="histPanel" hidden>
+        <div class="field"><span class="label">Game</span>
+          <div class="seg" id="hGame"><button data-v="where" class="on" type="button">Where?</button><button data-v="which" type="button" id="hWhichBtn">Which one?</button></div>
+          <p class="hint2" id="hGameHint"></p></div>
+        <div class="field" id="hAnswerField"><span class="label">Multiple choice</span>
+          <div class="seg" id="hMC"><button data-v="off" class="on" type="button">Off</button><button data-v="on" type="button">On</button></div>
+          <p class="hint2" id="hMCHint"></p></div>
+        <div class="field" id="hLevelField"><span class="label">Level</span>
+          <div class="seg" id="hLevel"><button data-v="easy" class="on" type="button">Easy</button><button data-v="hard" type="button">Hard</button></div>
+          <p class="hint2" id="hLevelHint"></p></div>
+        <div class="field"><span class="label" id="hKindLabel">Kind</span><div class="seg wrap" id="hKind"></div></div>
+        <div class="field"><span class="label">Era</span><div class="seg wrap" id="hEra"></div></div>
+        <div class="field"><span class="label">Region</span>
+          <div class="seg wrap" id="hRegion"><button data-v="world" class="on" type="button">World</button><button data-v="europe" type="button">Europe</button><button data-v="asia" type="button">Asia</button><button data-v="africa" type="button">Africa</button><button data-v="namerica" type="button">N. America</button><button data-v="samerica" type="button">S. America</button><button data-v="oceania" type="button">Oceania</button></div></div>
+        <div class="field"><span class="label">Rounds</span>
+          <div class="seg" id="hLength"><button data-v="10" class="on" type="button">10</button><button data-v="20" type="button">20</button><button data-v="50" type="button">50</button><button data-v="all" type="button">Marathon</button></div></div>
+        <button class="btn primary" id="hStart" type="button">Start</button>
+        <div class="panelfoot"><p class="hint2">History data: Wikidata (CC0) and Wikipedia (CC BY-SA). Portraits: Wikimedia Commons, each with its own credit.</p></div>
+      </div>
+      <!-- Airport codes: choose the game, the set and the region, then Start (Misc_games.md) -->
+      <div id="apPanel" hidden>
+        <div class="field"><span class="label">Game</span>
+          <div class="seg wrap" id="apGame"><button data-v="find" class="on" type="button">Find the airport</button><button data-v="name" type="button">Name the code</button><button data-v="namecap" type="button">Name the city</button></div>
+          <p class="hint2" id="apGameHint">A code comes up: tap its airport on the map.</p></div>
+        <div class="field"><span class="label">Airports</span>
+          <div class="seg" id="apLevel"><button data-v="easy" class="on" type="button">Easy</button><button data-v="hard" type="button">Hard</button><button data-v="capitals" type="button">Capitals</button></div>
+          <p class="hint2" id="apLevelHint"></p></div>
+        <div class="field"><span class="label">Rounds</span>
+          <div class="seg" id="apLength"><button data-v="10" class="on" type="button">10</button><button data-v="20" type="button">20</button><button data-v="40" type="button">40</button><button data-v="all" type="button">Marathon</button></div>
+          <p class="hint2" id="apLengthHint"></p></div>
+        <div class="field" id="apDotsField"><span class="label">Location dots</span>
+          <div class="seg" id="apDots"><button data-v="off" class="on" type="button">Off</button><button data-v="on" type="button">On</button></div>
+          <p class="hint2" id="apDotsHint"></p></div>
+        <div class="field"><span class="label">Region</span>
+          <div class="seg wrap" id="apRegion"><button data-v="world" class="on" type="button">World</button><button data-v="europe" type="button">Europe</button><button data-v="asia" type="button">Asia</button><button data-v="africa" type="button">Africa</button><button data-v="namerica" type="button">N. America</button><button data-v="samerica" type="button">S. America</button><button data-v="oceania" type="button">Oceania</button></div></div>
+        <button class="btn primary" id="apStart" type="button">Start</button>
+        <div class="panelfoot"><p class="hint2">Airport data: OurAirports (public domain). Best-known airports: ACI World's 2024 ranking and Wikipedia's busiest-airport lists.</p></div>
       </div>
     </div>
     <div class="tabpanel" id="tabOptions" hidden>
@@ -237,6 +287,7 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       <button class="btn morebtn" id="moreBtn" type="button">More games ›</button>
     </div>
     <button class="btn primary wide" id="startBtn" type="button">Start</button>
+    <div class="startwarn" id="startWarn" role="alert" hidden></div>
     
   </div>
 </div>
@@ -285,6 +336,7 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
 <script src="js/geo.js"></script>
 <script src="js/mapview.js"></script>
 <script src="js/app.js"></script>
+<script src="js/history.js"></script>
 <script src="js/tutorial.js"></script>
 <script>
   if ("serviceWorker" in navigator && location.protocol === "https:") {

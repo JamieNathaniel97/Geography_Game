@@ -13,6 +13,12 @@ Push only when the user says so, or as an overnight job list explicitly allows.
 
 **Done 2026-11-17 (in the preview):** a New game menu change, plus a **"?" help button** next to the cog (a placeholder: "Help is coming soon"; the help function comes later). The Globe / Flat map choice becomes a **small switch toggle on the left**; on the right, a **"More games"** button opens a menu with two columns: **History** (the History games H1 people, H2 battles, H3 shipwrecks, each marked "soon" for now; [History_games.md](../History_games.md)) and **Misc** (the airport codes game, "soon"; [Misc_games.md](../Misc_games.md)). Also add the **upcoming countries** to the Countries list as "soon" (Germany, Japan, France, Italy, Spain, Nigeria, Argentina, next to Mexico and Brazil).
 
+## Future improvements (not scheduled)
+
+- **Shrink Mexico's coats of arms** (data/flags/mx/, 4.3 MB: about 140 KB each); the other flag folders could get the same treatment.
+- **A whole-code efficiency review by Fable** (claude-fable-5-2): read the whole codebase (js/, tools/, sw.js) and make it leaner and faster, without changing what the app does.
+- **Timelines:** discussed later (Germany, Japan, Nigeria, Spain, Argentina, Mexico).
+
 ## Morning agenda (2026-11-18)
 
 1. **Review the overnight work** ([OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md)), then commit and push what's approved.

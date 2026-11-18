@@ -576,6 +576,8 @@
       this.frame = requestAnimationFrame(() => { this.frame = null; this.draw(); });
     }
     active(c) { return !this.opts.isActive || this.opts.isActive(c); }
+    // an airport's dot, when Location dots are off: only once it's been answered (or shown by the hint)
+    dotShown(c) { return !c.dot || !this.opts.dotShown || this.opts.dotShown(c); }
     fillFor(f) {
       if (!f.c) return this.col.terr;
       if (this.opts.isUnformed && this.opts.isUnformed(f.c)) return this.col.unformed; // statehood timeline: not a state yet
@@ -1038,6 +1040,7 @@
       const islands = [], rings = [], bubbles = [], hidden = new Set();
       // a small part's circle: its diameter in pixels, or 0 once the part is big enough to tap by itself
       const ringD = c => {
+        if (c.dot) return Math.min(18, 10 * Math.pow(Math.max(1, ppd / ppd0), 0.25)); // an airport: a dot, 10 to 18 px
         const px = c.sizeDeg * ppd;
         if (c.ringAdaptive) {
           // 8 px fully zoomed out, growing more slowly than the map (zoom^0.45), up to 90 px;
@@ -1056,7 +1059,7 @@
         return { c, x, y, r: d / 2, f: 2, ring: true };
       };
       geo.clusters.forEach(cl => {
-        if (!cl.members.every(c => this.active(c))) return;
+        if (this.noMarkers || !cl.members.every(c => this.active(c) && this.dotShown(c))) return;
         const ms = cl.members.map(memberOf).filter(Boolean);
         if (ms.length < 2) return;
         let overlap = false;
@@ -1072,7 +1075,7 @@
         offsets.forEach(dx => { if (onScreen(bx + dx, by, 13)) bubbles.push({ cl, x: bx + dx, y: by, r: 13 }); });
       });
       geo.countries.forEach(c => {
-        if (hidden.has(c) || !this.active(c)) return;
+        if (this.noMarkers || hidden.has(c) || !this.active(c) || !this.dotShown(c)) return; // (noMarkers: the History games show only their own marks)
         // a part's far islands (c.isles: Brazil's Fernando de Noronha and Trindade) get their own ovals, tappable as the part
         (c.isles || []).forEach(sh => {
           const s = shapeOf(c, sh); if (!s) return;
@@ -1103,6 +1106,7 @@
         // a coloured circle (Italy's enclaves: Vatican City yellow, San Marino blue)
         const rc = d.c.info && d.c.info.ringColour;
         if (rc) { ctx.globalAlpha = 0.85; ctx.fillStyle = rc; ctx.fill(); ctx.globalAlpha = 1; }
+        if (d.c.dot) { ctx.globalAlpha = st ? 0.9 : 0.55; ctx.fillStyle = st ? col[st] : col.marker; ctx.fill(); ctx.globalAlpha = 1; } // an airport
         ctx.lineWidth = st ? 2.5 : 1.5; ctx.strokeStyle = st ? col[st] : col.marker; ctx.stroke();
       });
       bubbles.forEach(b => {
@@ -1133,6 +1137,8 @@
           });
         });
       }
+      // the History games' marks (js/history.js): guesses, answer symbols, lines, areas
+      if (this.overlay) this.overlay(ctx, ll => (this.visible(ll) ? proj(ll) : null), proj);
       this.hits = { islands: islands.slice().reverse(), bubbles, rings };
     }
 
