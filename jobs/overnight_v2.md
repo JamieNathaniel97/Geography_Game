@@ -2,7 +2,7 @@
 
 Austria, the Netherlands, Poland, Czechia and Belgium: first the downloads, then the builds. Decided with the user on 2026-11-18. **Nothing here is started yet.**
 
-This is a separate job from the queue in [README.md](README.md). **Don't start it until that queue's jobs are finished** (or the user says to), and don't change those job files to make room for it; the user adds this job to the queue when it's wanted. Push only when the user says so, as for the rest of the queue.
+This is a separate job from the queue in [README.md](README.md). **Don't start it until the user says so** (decided 2026-11-18), even if the rest of the queue is finished, and don't change those job files to make room for it. Push only when the user says so, as for the rest of the queue.
 
 The builds follow **"The checklist for every build"** in [build_countries.md](build_countries.md), and the downloads use the same scripts and folders as [download_new_countries.md](download_new_countries.md). Read both first. Where this file and the checklist differ, this file wins.
 
