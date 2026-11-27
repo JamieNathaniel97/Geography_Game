@@ -72,6 +72,17 @@
     colombia: { name: "Colombia", factory: () => d3.geoTransverseMercator().rotate([73, 0]), wrap: false, fit: true },
     // Switzerland: Lambert conformal conic, standard parallels 45.8°N and 47.8°N, centred on 8.23°E (close to the Swiss grid)
     switzerland: { name: "Switzerland", factory: () => d3.geoConicConformal().parallels([45.8, 47.8]).rotate([-8.23, 0]), wrap: false, fit: true },
+    // the overnight_v4 maps
+    // Chile: transverse Mercator on 71°W (long and thin, 17°S to 56°S)
+    chile: { name: "Chile", factory: () => d3.geoTransverseMercator().rotate([71, 0]), wrap: false, fit: true },
+    // Peru: transverse Mercator on 75.5°W
+    peru: { name: "Peru", factory: () => d3.geoTransverseMercator().rotate([75.5, 0]), wrap: false, fit: true },
+    // South Korea: transverse Mercator on 127.5°E (the Korea 2000 central belt)
+    southkorea: { name: "South Korea", factory: () => d3.geoTransverseMercator().rotate([-127.5, 0]), wrap: false, fit: true },
+    // Malaysia: Mercator (near the equator; the peninsula and Borneo side by side)
+    malaysia: { name: "Malaysia", factory: () => d3.geoMercator(), wrap: false, fit: true },
+    // Egypt: Lambert conformal conic, standard parallels 24°N and 30°N, centred on 30.5°E
+    egypt: { name: "Egypt", factory: () => d3.geoConicConformal().parallels([24, 30]).rotate([-30.5, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country
@@ -620,11 +631,68 @@
       if (this.crop) this.drawCropMask();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       this.drawFrames();
+      this.drawDisputes();
       this.drawOverlays();
       this.drawScaleBar();
     }
+    // The world's disputed territories (data/disputes.json; Learning mode only, set by the app as `disputes`): a dotted
+    // outline round each area and a dotted ring round each speck (Dokdo, Rockall). A map with its own dotted disputed
+    // lines (India, Egypt) keeps those and shows only the rings.
+    drawDisputes() {
+      const ds = this.disputes;
+      if (!ds || !ds.length) return;
+      const ctx = this.ctx, P = this.projection(), own = !!(this.geo && this.geo.disputed);
+      const path = d3.geoPath(P, ctx);
+      ctx.save(); ctx.strokeStyle = this.col.fg; ctx.globalAlpha = 0.65; ctx.lineCap = "round";
+      const grey = "rgba(128, 128, 128, 0.55)"; // the tapped one (`selDispute`) is filled grey while its card is open
+      ds.forEach(d => {
+        const sel = d === this.selDispute;
+        if (d.shape && sel) { ctx.beginPath(); path(d.shape); ctx.globalAlpha = 1; ctx.fillStyle = grey; ctx.fill(); ctx.globalAlpha = 0.65; }
+        if (d.shape && (!own || sel)) { ctx.beginPath(); path(d.shape); ctx.lineWidth = 1.3; ctx.setLineDash([0.1, 3.2]); ctx.stroke(); }
+        if (d.ring && this.visible(d.ring)) {
+          const p = P(d.ring); if (!p) return;
+          ctx.beginPath(); ctx.arc(p[0], p[1], 8, 0, 2 * Math.PI);
+          if (sel) { ctx.globalAlpha = 1; ctx.fillStyle = grey; ctx.fill(); ctx.globalAlpha = 0.65; }
+          ctx.lineWidth = 1.5; ctx.setLineDash([0.1, 3]); ctx.stroke();
+        }
+      });
+      ctx.restore();
+    }
+    // the dispute under a tap (a ring within reach, or inside an area), or null
+    disputeAt(x, y) {
+      const ds = this.disputes;
+      if (!ds || !ds.length) return null;
+      const P = this.projection(), path = d3.geoPath(P);
+      const ll = this.mode === "flat" ? this.lonLatAt(x, y) : P.invert([x, y]);
+      // 1. inside an area's own shape
+      if (ll) for (const d of ds) if (d.shape && d3.geoContains(d.shape, ll)) return d;
+      // 2. the nearest ring: anywhere in reach over the sea, but only near its centre over a country's land (so a tap on
+      //    Taiwan or Somaliland at world zoom isn't taken by a neighbouring speck's ring)
+      const onLand = !!(this.landAt && this.landAt(x, y));
+      let best = null, bd = onLand ? (this.pxPerDeg() >= 15 ? 6 : 0) : 14; // (over land, not at all when zoomed right out)
+      for (const d of ds) if (d.ring && this.visible(d.ring)) { const p = P(d.ring); const dd = p ? Math.hypot(p[0] - x, p[1] - y) : 99; if (dd < bd) { bd = dd; best = d; } }
+      if (best) return best;
+      // 3. small areas (the Falklands, the Kurils at whole-map zoom), over the sea: their box and a margin, the nearest first
+      if (onLand) return null;
+      let near = null, nd = Infinity;
+      for (const d of ds) if (d.shape) {
+        const [[x0, y0], [x1, y1]] = path.bounds(d.shape);
+        if (x1 - x0 < 60 && y1 - y0 < 60 && x >= x0 - 8 && x <= x1 + 8 && y >= y0 - 8 && y <= y1 + 8) {
+          const dd = Math.hypot((x0 + x1) / 2 - x, (y0 + y1) / 2 - y); if (dd < nd) { nd = dd; near = d; }
+        }
+      }
+      return near;
+    }
     // insets' frames (Spain's Canaries): a screen-aligned rectangle round each projected frame, like a border line
     drawFrames() {
+      // names on grey areas (Bir Tawil, unclaimed), small and muted, once there's room
+      if (this.geo && this.geo.labels && this.mode === "flat" && this.pxPerDeg() > 40) {
+        const ctx = this.ctx, P = this.projection();
+        ctx.save(); ctx.font = "italic 600 10px system-ui, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        this.geo.labels.forEach(l => { const p = P(l.ll); if (!p) return;
+          ctx.lineWidth = 3; ctx.strokeStyle = this.col.halo; ctx.strokeText(l.text, p[0], p[1]); ctx.fillStyle = this.col.fg; ctx.fillText(l.text, p[0], p[1]); });
+        ctx.restore();
+      }
       const fr = this.geo && this.geo.frames;
       if (!fr || this.mode !== "flat") return;
       const ctx = this.ctx, P = this.projection();
@@ -1244,7 +1312,13 @@
       const b = this.hits.bubbles.find(b => Math.hypot(b.x - x, b.y - y) <= b.r + 4);
       const onRing = this.hits.rings.some(r => open(r.c) && Math.hypot(r.x - x, r.y - y) <= r.d / 2 + 3);
       if (b && !onRing) { this.zoomToCountries(b.cl.members); return; }
-      const c = this.resolveTap(x, y);
+      // a disputed territory (Learning mode): over a country or part with its own card (Kashmir in India, Crimea), that card
+      // opens with the dispute added (lastDispute); over grey land or the sea (Aksai Chin, the Falklands), its own small card
+      const dsp = this.opts.onDispute && this.disputeAt(x, y);
+      const under = dsp ? this.landAt(x, y) : null;
+      this.lastDispute = dsp && under && under.info !== undefined && open(under) ? dsp : null;
+      if (dsp && !this.lastDispute) { this.lastTap = [x, y]; this.opts.onDispute(dsp, this); return; }
+      const c = this.lastDispute ? under : this.resolveTap(x, y);
       this.lastTap = [x, y];
       if (c) this.opts.onTap(c, this);
     }

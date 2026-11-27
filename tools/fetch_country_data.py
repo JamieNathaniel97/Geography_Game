@@ -61,6 +61,13 @@ COUNTRIES = {
     "za": ("South Africa", "ZA-", None, ["Provinces of South Africa"], [(16.3, -35.0, 33.0, -22.0)]),
     "nz": ("New Zealand", "NZ-", None, ["Regions of New Zealand"], [(166.0, -47.5, 178.8, -34.2), (-177.0, -44.5, -175.9, -43.5)]),
     "co": ("Colombia", "CO-", "es", ["Departments of Colombia"], [(-79.2, -4.3, -66.8, 12.6), (-81.8, 12.4, -81.3, 13.5)]),
+    # overnight_v4 (2026-11-18)
+    "cl": ("Chile", "CL-", "es", ["Regions of Chile"],
+           [(-76.0, -56.2, -66.3, -17.4), (-109.5, -27.3, -109.2, -27.0), (-80.9, -34.0, -78.7, -33.5)]),
+    "my": ("Malaysia", "MY-", "ms", ["States and federal territories of Malaysia"], [(99.5, 0.8, 119.5, 7.5)]),
+    "kr": ("South Korea", "KR-", "ko", ["Provinces of South Korea", "Administrative divisions of South Korea"], [(124.5, 33.0, 132.0, 38.7)]),
+    "pe": ("Peru", "PE-", "es", ["Regions of Peru"], [(-81.5, -18.5, -68.6, 0.1)]),
+    "eg": ("Egypt", "EG-", "ar", ["Governorates of Egypt"], [(24.6, 21.5, 37.1, 31.8)]),
 }
 
 
@@ -205,7 +212,8 @@ def main():
 # Wikidata, which records the statistics office's figures. The build picks the newest date every part has and checks
 # that the parts add up to the country's figure for that date.
 COUNTRY_QID = {"at": "Q40", "nl": "Q55", "pl": "Q36", "cz": "Q213", "be": "Q31",
-               "ch": "Q39", "pt": "Q45", "se": "Q34", "za": "Q258", "nz": "Q664", "co": "Q739"}
+               "ch": "Q39", "pt": "Q45", "se": "Q34", "za": "Q258", "nz": "Q664", "co": "Q739",
+               "cl": "Q298", "my": "Q833", "kr": "Q884", "pe": "Q419", "eg": "Q79"}
 
 
 def census(code):
@@ -267,7 +275,14 @@ EXTRAS = {
            "New Zealand cuisine", "List of World Heritage Sites in New Zealand"],
     "co": ["2018 Colombian census", "Natural regions of Colombia", "Music of Colombia", "Colombian cuisine",
            "Coffee production in Colombia", "List of World Heritage Sites in Colombia"],
+    "cl": ["Climate of Chile", "Mapuche", "Chilean wine", "Mining in Chile", "Chilean cuisine", "List of World Heritage Sites in Chile"],
+    "my": ["Malay rulers", "Demographics of Malaysia", "Malaysian cuisine", "List of World Heritage Sites in Malaysia"],
+    "kr": ["Three Kingdoms of Korea", "Korean cuisine", "Kimchi", "Korean dialects", "List of World Heritage Sites in South Korea"],
+    "pe": ["Inca Empire", "Quechuan languages", "Peruvian cuisine", "Geography of Peru", "List of World Heritage Sites in Peru"],
+    "eg": ["Upper and Lower Egypt", "Egyptian cuisine", "List of World Heritage Sites in Egypt", "Hala'ib Triangle", "Bir Tawil"],
 }
+FONTS = {"kr": ("NotoSansKR.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf"),
+         "eg": ("NotoSansArabic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansarabic/NotoSansArabic%5Bwdth%2Cwght%5D.ttf")}
 NOTO_JP = "https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf"
 
 
@@ -305,6 +320,12 @@ def extras(code, live):
             else:
                 missing.append(p["name"])
         print(f"   seals: {got} of {len(live)}; none for", missing)
+    if code in FONTS:  # the script fonts for the card's native names (subset by tools/build_fonts.py)
+        name, url = FONTS[code]
+        font = DL / "fonts" / name
+        if not font.exists():
+            font.write_bytes(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180).read())
+        print(f"   font: {font.relative_to(ROOT)} ({font.stat().st_size // 1024} KB)")
     if code == "jp":
         font = DL / "fonts" / "NotoSansJP.ttf"
         if not font.exists():

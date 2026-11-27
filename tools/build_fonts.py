@@ -29,6 +29,8 @@ SCRIPTS = {
     "malayalam": ("NotoSansMalayalam-Regular.ttf", 0x0D00, 0x0D7F),
     "chinese": ("NotoSansSC.ttf", 0x4E00, 0x9FFF),  # CJK Unified Ideographs (China's names, simplified characters)
     "cyrillic": ("NotoSans-Regular.ttf", 0x0400, 0x04FF),  # Russia's names
+    "hangul": ("NotoSansKR.ttf", 0xAC00, 0xD7AF),  # South Korea's names (Hangul syllables; tools/kr_facts.py)
+    "arabic": ("NotoSansArabic.ttf", 0x0600, 0x06FF),  # Egypt's names (tools/eg_facts.py), right to left
 }
 
 
@@ -39,7 +41,19 @@ def card_text():
     import ru_facts
     return ("".join(f.get("script", "") for f in in_facts.FACTS.values()) +
             "".join(f.get("zh", "") + f.get("short", "") for f in cn_facts.FACTS.values()) +
-            "".join(f.get("ru", "") for f in ru_facts.FACTS.values()))
+            "".join(f.get("ru", "") for f in ru_facts.FACTS.values()) + v4_text())
+
+
+def v4_text():
+    """South Korea's and Egypt's local names (overnight_v4), if their facts files exist yet."""
+    out = ""
+    for mod in ("kr_facts", "eg_facts"):
+        try:
+            m = __import__(mod)
+            out += "".join(f.get("local", "") for f in m.FACTS.values())
+        except ImportError:
+            pass
+    return out
 
 
 def japanese():
@@ -83,9 +97,9 @@ def main():
         opts.flavor = "woff"
         opts.name_IDs = ["*"]  # keep the licence and copyright names
         font = TTFont(SRC / file)
-        if "fvar" in font:  # a variable font: just the Regular weight
+        if "fvar" in font:  # a variable font: just the Regular weight (and default width)
             from fontTools.varLib import instancer
-            font = instancer.instantiateVariableFont(font, {"wght": 400})
+            font = instancer.instantiateVariableFont(font, {a.axisTag: (400 if a.axisTag == "wght" else a.defaultValue) for a in font["fvar"].axes})
         sub = subset.Subsetter(opts)
         sub.populate(unicodes=unicodes)
         sub.subset(font)

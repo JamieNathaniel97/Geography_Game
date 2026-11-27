@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-IDN","geometry":{"type":"Polygon","coordinates":[[[102.0,-6.2],[102.0,-6.0],[105.0,-6.0],[105.0,-6.2],[102.0,-6.2]]]}}],"coast":{"type":"LineString","coordinates":[[105.0,-6.2],[102.0,-6.2]]},"borders":{"type":"MultiLineString","coordinates":[]}}

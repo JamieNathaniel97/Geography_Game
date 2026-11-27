@@ -1,0 +1,884 @@
+[
+{
+"iso": "CL-AN",
+"id": "CL-AN",
+"name": "Antofagasta",
+"names": [
+"Antofagasta"
+],
+"capitals": [
+"Antofagasta"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-AN",
+"info": {
+"abbr": "AN",
+"kind": "Region",
+"pop": 635416,
+"popYear": "2024 census",
+"area": 126049,
+"flag": true,
+"facts": {
+"local": "Región de Antofagasta",
+"demonym": "Antofagastino",
+"club": "Deportes Antofagasta",
+"high": "Llullaillaco, 6,739 m (on the Argentine border)",
+"wonder": "San Pedro de Atacama, the Valley of the Moon and the El Tatio geysers",
+"historic": "Bolivia's coast until the War of the Pacific",
+"landmark": "La Portada sea arch",
+"known": "Copper, lithium and the giant telescopes (ALMA, Paranal)",
+"company": "Codelco (Chuquicamata) and SQM",
+"climate": "The world's driest desert",
+"valley": "Chuquicamata and Escondida copper mines; lithium from the Salar de Atacama",
+"peoples": "Atacameño (Lickanantay)"
+},
+"coastal": true,
+"borders": [
+"Argentina",
+"Bolivia"
+],
+"areaRank": 2,
+"of": 16
+},
+"flagKey": "cl/CL-AN",
+"capLL": [
+[
+-70.4,
+-23.65
+]
+]
+},
+{
+"iso": "CL-AR",
+"id": "CL-AR",
+"name": "Araucanía",
+"names": [
+"Araucanía",
+"Araucania",
+"La Araucanía",
+"La Araucania"
+],
+"capitals": [
+"Temuco"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-AR",
+"info": {
+"abbr": "AR",
+"kind": "Region",
+"pop": 1010423,
+"popYear": "2024 census",
+"area": 31842,
+"flag": true,
+"facts": {
+"local": "Región de La Araucanía",
+"demonym": "Araucano",
+"club": "Deportes Temuco",
+"wonder": "Conguillío National Park and the Villarrica volcano at Pucón",
+"historic": "The heart of the Mapuche lands; occupied by Chile 1861–1883",
+"landmark": "The Villarrica volcano",
+"known": "Mapuche culture, lakes and volcanoes",
+"climate": "Temperate and rainy",
+"peoples": "Mapuche"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 8,
+"of": 16
+},
+"flagKey": "cl/CL-AR",
+"capLL": [
+[
+-72.58,
+-38.73
+]
+]
+},
+{
+"iso": "CL-AP",
+"id": "CL-AP",
+"name": "Arica and Parinacota",
+"names": [
+"Arica and Parinacota",
+"Arica y Parinacota",
+"Arica"
+],
+"capitals": [
+"Arica"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-AP",
+"info": {
+"abbr": "AP",
+"kind": "Region",
+"pop": 244569,
+"popYear": "2024 census",
+"area": 16873,
+"flag": true,
+"facts": {
+"local": "Región de Arica y Parinacota",
+"demonym": "Ariqueño",
+"festival": "The Andean Carnival 'con la Fuerza del Sol'",
+"club": "San Marcos de Arica",
+"river": "Lluta and San José",
+"high": "Parinacota, 6,348 m (on the Bolivian border)",
+"wonder": "Lauca National Park and Lake Chungará",
+"historic": "Part of Peru until the War of the Pacific (1879–1884)",
+"landmark": "The Morro de Arica",
+"unesco": "The Chinchorro mummies (the world's oldest)",
+"known": "The 'city of eternal spring' and the Azapa valley's olives",
+"climate": "Desert on the coast, high plateau (altiplano) inland",
+"peoples": "Aymara"
+},
+"coastal": true,
+"borders": [
+"Bolivia",
+"Peru"
+],
+"areaRank": 12,
+"of": 16
+},
+"flagKey": "cl/CL-AP",
+"capLL": [
+[
+-70.29,
+-18.5
+]
+]
+},
+{
+"iso": "CL-AT",
+"id": "CL-AT",
+"name": "Atacama",
+"names": [
+"Atacama"
+],
+"capitals": [
+"Copiapó",
+"Copiapo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-AT",
+"info": {
+"abbr": "AT",
+"kind": "Region",
+"pop": 299180,
+"popYear": "2024 census",
+"area": 75176,
+"flag": true,
+"facts": {
+"local": "Región de Atacama",
+"demonym": "Atacameño",
+"river": "Copiapó",
+"high": "Ojos del Salado, 6,893 m: the world's highest volcano",
+"wonder": "The flowering desert and Pan de Azúcar National Park",
+"landmark": "The San José mine (the 2010 rescue of 33 miners)",
+"known": "Copper and iron mining, and the 2010 mine rescue",
+"climate": "Desert, wetter towards the south",
+"valley": "Candelaria copper mine",
+"peoples": "Colla and Diaguita"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 4,
+"of": 16
+},
+"flagKey": "cl/CL-AT",
+"capLL": [
+[
+-70.34,
+-27.36
+]
+]
+},
+{
+"iso": "CL-AI",
+"id": "CL-AI",
+"name": "Aysén",
+"names": [
+"Aysén",
+"Aysen",
+"Aisén",
+"Aysén del General Carlos Ibáñez del Campo"
+],
+"capitals": [
+"Coyhaique",
+"Coihaique"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-AI",
+"info": {
+"abbr": "AI",
+"kind": "Region",
+"pop": 100745,
+"popYear": "2024 census",
+"area": 108494,
+"flag": true,
+"facts": {
+"local": "Región de Aysén del General Carlos Ibáñez del Campo",
+"demonym": "Aysenino",
+"high": "Monte San Valentín, 4,058 m",
+"wonder": "The Marble Caves of General Carrera Lake and Laguna San Rafael",
+"landmark": "The Carretera Austral road",
+"known": "Patagonian wilderness and fly-fishing; the least populated region",
+"climate": "Patagonian: cold and wet in the west, steppe in the east",
+"peoples": "Tehuelche and Kawésqar"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 3,
+"of": 16
+},
+"flagKey": "cl/CL-AI",
+"capLL": [
+[
+-72.066,
+-45.571
+]
+]
+},
+{
+"iso": "CL-BI",
+"id": "CL-BI",
+"name": "Biobío",
+"names": [
+"Biobío",
+"Biobio",
+"Bío Bío",
+"Bío-Bío",
+"Bio Bio"
+],
+"capitals": [
+"Concepción",
+"Concepcion"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-BI",
+"info": {
+"abbr": "BI",
+"kind": "Region",
+"pop": 1613059,
+"popYear": "2024 census",
+"area": 23890,
+"flag": true,
+"facts": {
+"local": "Región del Biobío",
+"demonym": "Biobiense",
+"club": "Huachipato and Universidad de Concepción",
+"river": "Biobío",
+"historic": "The frontier of the Arauco War with the Mapuche",
+"known": "Industry: steel, forestry and ports",
+"climate": "Temperate, rainier towards the south",
+"valley": "The Bío-Bío Valley (wine)",
+"peoples": "Mapuche (Lafkenche)"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 10,
+"of": 16
+},
+"flagKey": "cl/CL-BI",
+"capLL": [
+[
+-73.05,
+-36.83
+]
+]
+},
+{
+"iso": "CL-CO",
+"id": "CL-CO",
+"name": "Coquimbo",
+"names": [
+"Coquimbo"
+],
+"capitals": [
+"La Serena"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-CO",
+"info": {
+"abbr": "CO",
+"kind": "Region",
+"pop": 832864,
+"popYear": "2024 census",
+"area": 40580,
+"flag": true,
+"facts": {
+"local": "Región de Coquimbo",
+"demonym": "Coquimbano",
+"drink": "Pisco from the Elqui Valley",
+"river": "Elqui",
+"wonder": "Fray Jorge Forest and the clear night skies",
+"landmark": "The Cerro Tololo and La Silla observatories",
+"person": "Gabriela Mistral (Nobel laureate, from the Elqui Valley)",
+"known": "Pisco, astronomy and beaches",
+"climate": "Semi-arid",
+"valley": "The Elqui Valley (pisco grapes)",
+"peoples": "Diaguita"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 7,
+"of": 16
+},
+"flagKey": "cl/CL-CO",
+"capLL": [
+[
+-71.25,
+-29.9
+]
+]
+},
+{
+"iso": "CL-LL",
+"id": "CL-LL",
+"name": "Los Lagos",
+"names": [
+"Los Lagos"
+],
+"capitals": [
+"Puerto Montt"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-LL",
+"info": {
+"abbr": "LL",
+"kind": "Region",
+"pop": 890284,
+"popYear": "2024 census",
+"area": 48584,
+"flag": true,
+"facts": {
+"local": "Región de Los Lagos",
+"demonym": "Lagino",
+"dish": "Curanto (Chiloé's earth-oven feast)",
+"wonder": "Chiloé, the Osorno volcano and the lakes",
+"historic": "German settlement around Lake Llanquihue (from 1850)",
+"landmark": "The stilt houses (palafitos) of Castro",
+"unesco": "The Churches of Chiloé",
+"known": "Salmon farming, lakes and Chiloé's myths",
+"climate": "Oceanic and rainy",
+"peoples": "Huilliche"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 5,
+"of": 16
+},
+"flagKey": "cl/CL-LL",
+"notTypo": [
+"Los Ríos"
+],
+"capLL": [
+[
+-72.93,
+-41.47
+]
+]
+},
+{
+"iso": "CL-LR",
+"id": "CL-LR",
+"name": "Los Ríos",
+"names": [
+"Los Ríos",
+"Los Rios"
+],
+"capitals": [
+"Valdivia"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-LR",
+"info": {
+"abbr": "LR",
+"kind": "Region",
+"pop": 398230,
+"popYear": "2024 census",
+"area": 18430,
+"flag": true,
+"facts": {
+"local": "Región de Los Ríos",
+"demonym": "Valdiviano",
+"drink": "Kunstmann beer (German heritage)",
+"festival": "Noche Valdiviana (river parade and fireworks)",
+"river": "Valdivia and Calle-Calle",
+"wonder": "The Valdivian rainforest",
+"historic": "The 1960 Valdivia earthquake, the strongest ever recorded",
+"landmark": "The Spanish forts of Valdivia",
+"known": "Rivers, rain and German heritage",
+"climate": "Oceanic and rainy",
+"peoples": "Mapuche-Huilliche"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 11,
+"of": 16
+},
+"flagKey": "cl/CL-LR",
+"notTypo": [
+"Los Lagos"
+],
+"capLL": [
+[
+-73.245,
+-39.795
+]
+]
+},
+{
+"iso": "CL-MA",
+"id": "CL-MA",
+"name": "Magallanes",
+"names": [
+"Magallanes",
+"Magallanes y Antártica Chilena",
+"Magallanes and Chilean Antarctica",
+"Magellan"
+],
+"capitals": [
+"Punta Arenas"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-MA",
+"info": {
+"abbr": "MA",
+"kind": "Region",
+"pop": 166537,
+"popYear": "2024 census",
+"area": 132291,
+"flag": true,
+"facts": {
+"local": "Región de Magallanes y de la Antártica Chilena",
+"demonym": "Magallánico",
+"wonder": "Torres del Paine and Cape Horn",
+"historic": "The Strait of Magellan (1520)",
+"landmark": "The Torres del Paine",
+"known": "Patagonia, sheep farming and the gateway to Antarctica",
+"climate": "Patagonian (subpolar)",
+"peoples": "Kawésqar, Yagán and Selk'nam"
+},
+"coastal": true,
+"borders": [
+"Argentina",
+"Southern Patagonian Ice Field"
+],
+"areaRank": 1,
+"of": 16
+},
+"flagKey": "cl/CL-MA",
+"capLL": [
+[
+-70.94,
+-53.165
+]
+]
+},
+{
+"iso": "CL-ML",
+"id": "CL-ML",
+"name": "Maule",
+"names": [
+"Maule"
+],
+"capitals": [
+"Talca"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-ML",
+"info": {
+"abbr": "ML",
+"kind": "Region",
+"pop": 1123008,
+"popYear": "2024 census",
+"area": 30296,
+"flag": true,
+"facts": {
+"local": "Región del Maule",
+"demonym": "Maulino",
+"club": "Rangers de Talca",
+"river": "Maule",
+"historic": "Chile's independence was proclaimed in Talca (1818)",
+"known": "Farming, wine and the 2010 earthquake",
+"climate": "Mediterranean",
+"valley": "The Maule Valley, Chile's biggest wine region"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 9,
+"of": 16
+},
+"flagKey": "cl/CL-ML",
+"capLL": [
+[
+-71.67,
+-35.455
+]
+]
+},
+{
+"iso": "CL-LI",
+"id": "CL-LI",
+"name": "O'Higgins",
+"names": [
+"O'Higgins",
+"OHiggins",
+"Libertador General Bernardo O'Higgins",
+"O'Higgins Region"
+],
+"capitals": [
+"Rancagua"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-LI",
+"info": {
+"abbr": "LI",
+"kind": "Region",
+"pop": 987228,
+"popYear": "2024 census",
+"area": 16387,
+"flag": true,
+"facts": {
+"local": "Región del Libertador General Bernardo O'Higgins",
+"demonym": "O'higginiano",
+"festival": "The national rodeo championship in Rancagua",
+"wonder": "Pichilemu's surf",
+"historic": "The Battle of Rancagua (1814)",
+"landmark": "Sewell, the mountain copper town",
+"unesco": "Sewell Mining Town",
+"known": "Copper, fruit and wine",
+"climate": "Mediterranean",
+"valley": "The Colchagua Valley (wine) and El Teniente, the world's largest underground copper mine"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 14,
+"of": 16
+},
+"flagKey": "cl/CL-LI",
+"capLL": [
+[
+-70.74,
+-34.17
+]
+]
+},
+{
+"iso": "CL-RM",
+"id": "CL-RM",
+"name": "Santiago Metropolitan",
+"names": [
+"Santiago Metropolitan",
+"Santiago Metropolitan Region",
+"Metropolitana",
+"Región Metropolitana",
+"Santiago",
+"RM"
+],
+"capitals": [
+"Santiago"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-RM",
+"info": {
+"abbr": "RM",
+"kind": "Metropolitan region",
+"pop": 7400741,
+"popYear": "2024 census",
+"area": 15403,
+"flag": true,
+"facts": {
+"local": "Región Metropolitana de Santiago",
+"demonym": "Santiaguino",
+"dish": "Pastel de choclo and the completo hot dog",
+"club": "Colo-Colo and Universidad de Chile",
+"river": "Mapocho and Maipo",
+"wonder": "The Andes above the city (Valle Nevado and Cajón del Maipo)",
+"landmark": "La Moneda Palace and the Gran Torre Santiago",
+"known": "The capital: four in ten Chileans live here",
+"company": "LATAM Airlines",
+"climate": "Mediterranean",
+"valley": "The Maipo Valley (Cabernet Sauvignon)",
+"peoples": "Mapuche (the largest urban Mapuche population)"
+},
+"coastal": false,
+"borders": [
+"Argentina"
+],
+"areaRank": 15,
+"of": 16
+},
+"flagKey": "cl/CL-RM",
+"capLL": [
+[
+-70.669,
+-33.448
+]
+]
+},
+{
+"iso": "CL-TA",
+"id": "CL-TA",
+"name": "Tarapacá",
+"names": [
+"Tarapacá",
+"Tarapaca"
+],
+"capitals": [
+"Iquique"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-TA",
+"info": {
+"abbr": "TA",
+"kind": "Region",
+"pop": 369806,
+"popYear": "2024 census",
+"area": 42226,
+"flag": true,
+"facts": {
+"local": "Región de Tarapacá",
+"demonym": "Tarapaqueño",
+"festival": "La Tirana (masked dances, every July)",
+"club": "Deportes Iquique",
+"wonder": "The Pica oasis and the Giant of Atacama geoglyph",
+"historic": "Part of Peru until the War of the Pacific",
+"landmark": "The ghost nitrate towns",
+"unesco": "The Humberstone and Santa Laura saltpeter works",
+"known": "Iquique's duty-free zone (ZOFRI) and nitrate history",
+"climate": "Desert (the Atacama)",
+"valley": "Collahuasi copper mine",
+"peoples": "Aymara and Quechua"
+},
+"coastal": true,
+"borders": [
+"Bolivia"
+],
+"areaRank": 6,
+"of": 16
+},
+"flagKey": "cl/CL-TA",
+"capLL": [
+[
+-70.13,
+-20.25
+]
+]
+},
+{
+"iso": "CL-VS",
+"id": "CL-VS",
+"name": "Valparaíso",
+"names": [
+"Valparaíso",
+"Valparaiso"
+],
+"capitals": [
+"Valparaíso",
+"Valparaiso"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-VS",
+"info": {
+"abbr": "VS",
+"kind": "Region",
+"pop": 1896053,
+"popYear": "2024 census",
+"area": 16396,
+"flag": true,
+"facts": {
+"local": "Región de Valparaíso",
+"demonym": "Porteño (in Valparaíso)",
+"festival": "The Viña del Mar International Song Festival and New Year fireworks",
+"club": "Santiago Wanderers and Everton",
+"wonder": "Easter Island and La Campana National Park",
+"landmark": "Valparaíso's funiculars and Pablo Neruda's La Sebastiana",
+"unesco": "The historic quarter of Valparaíso and Rapa Nui National Park",
+"known": "The main port, the National Congress and Easter Island",
+"city": "Viña del Mar",
+"climate": "Mediterranean (Easter Island: subtropical)",
+"valley": "The Casablanca Valley (white wine)",
+"peoples": "Rapa Nui (Easter Island)"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 13,
+"of": 16
+},
+"flagKey": "cl/CL-VS",
+"capLL": [
+[
+-71.623,
+-33.046
+]
+],
+"isles": [
+{
+"center": [
+-81.5,
+-27.5
+],
+"square": true,
+"ring": [
+[
+-82.25,
+-28.25
+],
+[
+-80.75,
+-28.25
+],
+[
+-80.75,
+-26.75
+],
+[
+-82.25,
+-26.75
+]
+]
+},
+{
+"center": [
+-79.8,
+-33.75
+],
+"square": true,
+"ring": [
+[
+-81.15,
+-34.25
+],
+[
+-78.45,
+-34.25
+],
+[
+-78.45,
+-33.25
+],
+[
+-81.15,
+-33.25
+]
+]
+}
+]
+},
+{
+"iso": "CL-NB",
+"id": "CL-NB",
+"name": "Ñuble",
+"names": [
+"Ñuble",
+"Nuble"
+],
+"capitals": [
+"Chillán",
+"Chillan"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CL-NB",
+"info": {
+"abbr": "NB",
+"kind": "Region",
+"pop": 512289,
+"popYear": "2024 census",
+"area": 13179,
+"flag": true,
+"facts": {
+"local": "Región de Ñuble",
+"demonym": "Ñublensino",
+"dish": "Longaniza de Chillán (sausage)",
+"club": "Ñublense",
+"wonder": "The Nevados de Chillán hot springs",
+"historic": "The newest region (2018)",
+"person": "Bernardo O'Higgins (born in Chillán)",
+"known": "The newest region, crafts and longaniza",
+"climate": "Mediterranean",
+"valley": "The Itata Valley (old-vine wine)"
+},
+"coastal": true,
+"borders": [
+"Argentina"
+],
+"areaRank": 16,
+"of": 16
+},
+"flagKey": "cl/CL-NB",
+"capLL": [
+[
+-72.106,
+-36.6
+]
+]
+}
+]

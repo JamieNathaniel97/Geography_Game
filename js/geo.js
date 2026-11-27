@@ -220,6 +220,7 @@
       nationBorders: fc.nations || null, // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
       scaleBars: fc.scaleBars || null, // insets' own fixed scale bars (tools/build_country.py, tools/build_es.py)
       frames: fc.frames || null, // insets' frames, drawn straight (tools/build_es.py: the Canaries)
+      labels: fc.labels || null, // names on grey areas (Bir Tawil, unclaimed)
       disputed: fc.disputed || null }; // India and others: disputed borders, drawn dotted
   }
   // ----- Britain and Ireland's counties (build 4): set = "historic" or "ceremonial"; each includes Ireland's 32
@@ -296,7 +297,11 @@
   GG.loadJP = lakes => loadShapes("data/jp-states.json", "data/jp-parts.json", "jp", "jp/", JP_RINGS, lakes);
   // The country maps built by tools/build_country.py (jobs/overnight_v2.md): one loader. Rings: the capital cities that
   // sit inside a bigger part (Vienna, Prague, Brussels). `flagDir`: the flags' folder, if not the code (Belgium's regions).
-  const C_RINGS = { at: ["AT-9"], cz: ["CZ-PR"], be: ["BE-BRU"], ber: ["BER-BRU"], ch: ["CH-BS", "CH-AI", "CH-ZG"], co: ["CO-DC"] };
+  const C_RINGS = { at: ["AT-9"], cz: ["CZ-PR"], be: ["BE-BRU"], ber: ["BER-BRU"], ch: ["CH-BS", "CH-AI", "CH-ZG"], co: ["CO-DC"], pe: ["PE-CAL", "PE-LMA"], eg: ["EG-LX"],
+    my: ["MY-14", "MY-16", "MY-15"] };
+  // the world's disputed territories (tools/build_disputes.py), loaded once
+  let disputesP = null;
+  GG.loadDisputes = () => (disputesP = disputesP || getJSON("data/disputes.json").catch(() => []));
   GG.loadCountry = (code, lakes, flagDir) => loadShapes(`data/${code}-states.json`, `data/${code}-parts.json`, code,
     (flagDir || code) + "/", new Set(C_RINGS[code] || []), lakes);
   // Germany's 16 states (tools/build_de.py), with a detail level; Berlin and Bremen get circles

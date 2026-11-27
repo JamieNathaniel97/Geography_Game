@@ -1,6 +1,6 @@
 # Job: overnight v4, five more country maps
 
-Chile, Malaysia, South Korea, Peru and Egypt: first the downloads, then the builds. Decided with the user on 2026-11-18, as the second half of the batch started in [overnight_v3.md](overnight_v3.md). **Nothing here is started yet.**
+Chile, Malaysia, South Korea, Peru and Egypt: first the downloads, then the builds. Decided with the user on 2026-11-18, as the second half of the batch started in [overnight_v3.md](overnight_v3.md). **Done 2026-11-27 (started at the user's word): all five built and tested; see "Results" at the end. Not committed until the user says so.**
 
 **Don't start this job until the user says so** (decided 2026-11-18), and don't change the other job files to make room for it. Push only when the user says so.
 
@@ -55,3 +55,71 @@ Every card also has the name, kind, capital, population (latest figure), area an
 - **South Korea:** name in Hangul with its romanisation; famous food (a kimchi variety, Jeonju's bibimbap); historic kingdom (Silla, Baekje, Goguryeo).
 - **Peru:** natural region (coast, Andes, Amazon); ancient civilisation (Inca, Moche, Nazca, Chimú); Quechua or Aymara speakers.
 - **Egypt:** Upper or Lower Egypt, or the Sinai or the desert; ancient sites (pyramids, temples, tombs); name in Arabic.
+
+## Results (2026-11-27)
+
+Built with the shared builder (`python tools/build_country.py <code>`, `tools/<code>_facts.py`), which gained:
+- `part_box` insets (only a part's islands move: Easter Island, enlarged three times, and the Juan Fernández Islands, both Valparaíso's);
+  `context` insets that move the neighbours' land too, and `tap=False` drawn frames (East Malaysia below the peninsula, with Brunei);
+  `bar="top"` for an inset's scale bar.
+- `MERGE` (parts dissolved since Natural Earth's data), `DISPUTED` (join / ring / grey, with dotted lines and map `labels`),
+  `FLAG_FALLBACK` (an emblem where there's no flag), custom emblem wording ("flags and emblems").
+- Anchors also move inside when a part's centre is near an edge or hole (Gyeonggi's centre fell in Seoul).
+- Hangul and Arabic card fonts (`fonts/gq-hangul.woff` 6 KB, `fonts/gq-arabic.woff` 10 KB; tools/build_fonts.py), and native-script
+  names on the shared card in the script font with `dir="auto"` (Arabic right to left).
+
+Projections: Chile transverse Mercator 71°W; Peru transverse Mercator 75.5°W; South Korea transverse Mercator 127.5°E; Malaysia Mercator;
+Egypt Lambert conic (24°N, 30°N, 30.5°E).
+
+### Download log
+
+| Country | Divisions (Wikidata) | English articles | Local articles | Flags | Coats of arms | Coast |
+| --- | --- | --- | --- | --- | --- | --- |
+| Chile | 16 | 16 | 16 (es) | 16 | 14 | 14.3 MB |
+| Peru | 26 | 26 | 26 (es) | 26 | – | 1.0 MB |
+| South Korea | 17 (Gwangju and South Jeolla dissolved) | 17 | 15 (ko) | 15 | – | – |
+| Malaysia | 16 | 16 | 16 (ms) | 16 | 15 | 2.9 MB |
+| Egypt | 27 | 27 | 27 (ar) | 25 | 15 (some failed on Commons rate limits; Cairo's and Luxor's are in) | 1.7 MB |
+
+Fonts: `tools/downloads/fonts/NotoSansKR.ttf`, `NotoSansArabic.ttf`. Also saved: OpenDOSM CSVs (`tools/downloads/my/dosm/`) and the MOIS
+resident registration page (`tools/downloads/kr/mois/statMonth.html`).
+
+### Populations (latest official figure by default, each checked against a national total)
+
+- Chile: Census 2024, 18,480,432 (the list article's Arica y Parinacota figure was a typo: 224,569 for 244,569).
+- Peru: INEI estimates 2025; the parts add up to 34,170,116, 12,384 (0.04%) above the national 34,157,732 (mixed rounding; allowed).
+- South Korea: MOIS resident registration, end of October 2026, 51,075,282.
+- Malaysia: OpenDOSM estimates, 1 January 2026, 34,389,400 (thousands, within rounding).
+- Egypt: CAPMAS estimates, November 2023, 106,668,704.
+
+### Decisions to check
+
+1. **South Korea has 16 parts, not 17: Gwangju and South Jeolla merged on 1 July 2026** (the Jeonnam-Gwangju Integrated Special City;
+   Korean Wikipedia, MOIS and Wikidata all have it). The plan said 17. The merged city has no flag on Commons yet: it sits out the flag
+   games ("Waiting for data"). Natural Earth's shapes also predate Daegu absorbing Gunwi County (2023).
+2. **Japan's map doesn't show Dokdo** (sea there, no dotted line); South Korea's shows it as North Gyeongsang's with a dotted ring. Fix
+   in tools/build_jp.py (a grey speck and a dotted ring) if wanted.
+3. **Malaysia: East Malaysia is an inset below the peninsula** (with Brunei and the Kalimantan coast moved with it), not in its true place.
+4. **Egypt's games 5 and 6 are "flags and emblems"**: 25 flags, plus Cairo's and Luxor's emblems.
+5. **Peru uses 2025 estimates** that are 0.04% off the national figure, rather than the 2017 census (which adds up exactly).
+6. **Easter Island is shown three times larger** than true scale in its inset (it has its own scale bar).
+7. Bir Tawil's label shows once zoomed in a little (it's too small at whole-country zoom).
+
+### Tests
+
+`_bench_nm.html?d=<code>&r=<region>` for all five (anchors including the circles and insets; names, unaccented forms and capitals;
+capital dots; flags and emblems; card facts; the tap test at three zooms with the detail level), plus South Africa, Portugal and Spain as
+regression checks, and `_bench_menu.html` (the Countries tab lists all sixteen new countries; set switches; Focus; the US and Russia
+timelines).
+
+**All pass (2026-11-27):** every anchor (16, 26, 16, 16, 27), names with no problems, capital dots, flags and emblems (Jeonnam-Gwangju has none yet), 100% on the tap test at whole-map, 2.5x and close zoom with the detail level on, for all five; South Africa, Portugal and Spain unchanged; the menu bench lists all sixteen new countries and every older check still passes; no script errors. Screenshots checked by eye, light and dark (the Hangul and Arabic names render; Arabic right to left).
+
+## Disputed territories (added 2026-11-27, at the user's request)
+
+**Every disputed territory in the world now has a dotted outline (areas) or dotted ring (specks) and a small "Disputed" info card in Learning mode**, on the world map (flat and globe) and every country map: who governs it, who claims it, since when, and a sentence or two on why.
+- Data: `tools/build_disputes.py` -> `data/disputes.json` (83 KB): Natural Earth's 99 disputed areas, with hand-written facts in `tools/disputes_facts.py` (neutral wording: governed by / claimed by). 92 entries after merging pieces (Jerusalem, the Korean DMZ) and skipping artefacts: 37 rings, 50 areas, and 5 that are whole world-map countries (Taiwan, Kosovo, Palestine's Gaza and West Bank, Belize), which get a "Disputed" section on that country's card instead of a separate tap area.
+- **Dokdo** shows as a dotted ring with its card on both the South Korea and the Japan maps (and the world map). The South Korea map's own ring was removed in favour of the shared layer; Dokdo stays part of North Gyeongsang there.
+- Taps (js/mapview.js `disputeAt`, before the country tap): inside an area's shape first; then the nearest ring (within 14 px over the sea; over a country's land only within 6 px and once zoomed in, so Taiwan or Somaliland aren't taken by a neighbouring speck); then small areas over the sea by their box plus a margin (the Falklands at world zoom). Quiz games ignore the layer. A map with its own dotted disputed lines (India, Egypt) keeps those and shows only the rings.
+- Tests: `_bench_nm.html?...&dsp=<names>&card=<ISO>` taps each named dispute and checks its card; all pass on the world, South Korea, Japan and Egypt maps. Bir Tawil is about a pixel tall at world zoom (a tap there gives Egypt); zoomed in it opens its card.
+- **A tapped disputed territory is highlighted grey** (areas filled, rings filled) while its card is open; the highlight goes when the card closes or a country is tapped, and a country's highlight goes when a dispute is tapped (2026-11-27).
+- **Fix (2026-11-27): places with their own card keep it.** A dispute over a country or part that has a card (Kashmir and Ladakh, Arunachal Pradesh, Crimea in Ukraine, Somaliland in Somalia, Hala'ib in the Red Sea governorate) now opens that card with a "Disputed" line and the full dispute in More facts (`addDisputeToCard`), with the area in grey; the standalone dispute card is only for disputes over grey land or the sea (Aksai Chin, Gilgit-Baltistan, the Falklands, Bir Tawil). Before this fix the dispute card replaced those cards.

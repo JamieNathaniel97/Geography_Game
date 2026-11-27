@@ -114,10 +114,25 @@
     // Switzerland: 26 cantons, flag games; circles for Basel-Stadt, Appenzell Innerrhoden and Zug
     ch: { a3: "CHE", name: "Switzerland", noun: "canton", nouns: "cantons", Nouns: "Cantons", style: "switzerland", count: 26,
       lang: "the local language", specials: [["Language", "language"], ["Joined the Confederation", "joined"], ["Cheese or chocolate", "cheese"]] },
+    // Chile: 16 regions, flag games; Easter Island (enlarged) and the Juan Fernández Islands in insets
+    cl: { a3: "CHL", name: "Chile", noun: "region", nouns: "regions", Nouns: "Regions", style: "chile", count: 16, cont: "South America",
+      lang: "Spanish", specials: [["Climate", "climate"], ["Wine valley or mine", "valley"], ["Indigenous peoples", "peoples"]] },
+    // Malaysia: 13 states and 3 federal territories; East Malaysia in an inset below the peninsula; flag games
+    my: { a3: "MYS", name: "Malaysia", noun: "state", nouns: "states and territories", Nouns: "States", style: "malaysia", count: 16, cont: "Asia",
+      lang: "Malay", specials: [["Ruler", "ruler"], ["Main ethnic groups", "ethnic"], ["Peninsula or Borneo", "half"]] },
+    // South Korea: 16 divisions (Gwangju and South Jeolla merged in July 2026); Hangul names on the cards; Dokdo dotted
+    kr: { a3: "KOR", name: "South Korea", noun: "province", nouns: "provinces and cities", Nouns: "Provinces & cities", style: "southkorea", count: 16,
+      cont: "Asia", lang: "Korean (Hangul)", specials: [["Famous food", "food"], ["Historic kingdom", "kingdom"]] },
+    // Peru: 24 departments, Lima Province and Callao (circles for both); flag games
+    pe: { a3: "PER", name: "Peru", noun: "department", nouns: "departments", Nouns: "Departments", style: "peru", count: 26, cont: "South America",
+      lang: "Spanish", specials: [["Natural region", "region"], ["Ancient civilisation", "civ"], ["Quechua or Aymara", "quechua"]] },
+    // Egypt: 27 governorates; games 5 and 6 use flags, or the emblem where there is no flag; Arabic names; Hala'ib dotted, Bir Tawil grey
+    eg: { a3: "EGY", name: "Egypt", noun: "governorate", nouns: "governorates", Nouns: "Governorates", style: "egypt", count: 27, cont: "Africa",
+      emblem: "flag or emblem", emblems: "flags and emblems", lang: "Arabic", specials: [["Part of Egypt", "part"], ["Ancient sites", "sites"]] },
   };
   Object.entries(NEW_MAPS).forEach(([d, m]) => {
     DATASETS[d] = { noun: m.noun, nouns: m.nouns, Nouns: m.Nouns, region: m.region || m.style, style: m.style, count: m.count,
-      noFlags: !!m.noFlags, ...(m.emblems ? { emblem: "coat of arms", emblems: "coats of arms" } : {}),
+      noFlags: !!m.noFlags, ...(m.emblems ? { emblem: m.emblem || "coat of arms", emblems: typeof m.emblems === "string" ? m.emblems : "coats of arms" } : {}),
       load: async () => (geoC[d] = geoC[d] || await GG.loadCountry(d, geoWorld.lakes, m.flagDir)) };
   });
   // countries with two sets of parts: the Set switch on the country page, and in Learning mode
@@ -423,6 +438,7 @@
       flashName(f ? f.c : c);
       if (!f) state[c.iso] = "flash";
       showLearnCard(f ? f.c : c);
+      if (view.lastDispute) addDisputeToCard(view.lastDispute); // (Kashmir in India, Crimea in Ukraine: the card and the dispute)
       showFocus(c);
       redraw(); return;
     }
@@ -587,6 +603,7 @@
   let learnMore = false;
   function showLearnCard(c) {
     const i = c.info || {};
+    if (main && main.selDispute) { main.selDispute = null; main.requestDraw(); } // (a disputed territory's grey highlight goes)
     $("lcMoreBtn").hidden = false; // (a timeline card hides it)
     $("lcFlag").hidden = false; // (a county with no flag hides it)
     if (geoUS && geoUS.byIso[c.iso] === c) { showStateCard(c, i); return; }
@@ -640,10 +657,39 @@
         ["Government", i.gov],
         ["Recognition", i.rec],
         ["Income level", [i.income, i.gdppc ? `$${num(i.gdppc)} per person (${i.gdpYear})` : ""].filter(Boolean).join(", ")],
-      ]);
+      ]) +
+      disputesFor(c.iso).map(d => `<h4>Disputed: ${esc(d.name)}</h4><dl class="lcfacts">${facts(disputeRows(d))}</dl>` +
+        (d.info ? `<p class="dspnote">${esc(d.info)}</p>` : "")).join("");
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // A disputed territory (data/disputes.json): a small card saying who governs it, who claims it, since when, and why.
+  // Tapping one in Learning mode opens it; the whole-country disputes (Taiwan, Kosovo...) go on that country's card instead.
+  let disputesList = [];
+  const disputesFor = iso => disputesList.filter(d => d.country === iso);
+  const disputeRows = d => [["Governed by", d.admin], ["Claimed by", d.claim], ["Disputed since", d.since]];
+  // a card for a place that's (partly) disputed: a short line under the main facts, and the full dispute in More facts;
+  // the disputed area is highlighted grey
+  function addDisputeToCard(d) {
+    $("lcMain").insertAdjacentHTML("beforeend", facts([["Disputed", `${d.name}: governed by ${d.admin}, claimed by ${d.claim}`]]));
+    $("lcMore").insertAdjacentHTML("afterbegin", `<h4>Disputed: ${esc(d.name)}</h4><dl class="lcfacts">${facts(disputeRows(d))}` +
+      (d.info ? `<p class="dspnote">${esc(d.info)}</p>` : "") + "</dl>");
+    $("lcMoreBtn").hidden = false;
+    main.selDispute = d;
+  }
+  function showDisputeCard(d) {
+    selected = null;
+    $("lcFlag").hidden = true;
+    $("lcName").textContent = d.name;
+    $("lcSub").textContent = "Disputed territory";
+    $("lcMain").innerHTML = facts(disputeRows(d)) + (d.info ? `<p class="dspnote">${esc(d.info)}</p>` : "");
+    $("lcMore").innerHTML = "";
+    $("lcMoreBtn").hidden = true;
+    setLearnMore(false);
+    $("focusBtn").hidden = true;
+    $("learnCard").hidden = false;
+  }
+  GG.loadDisputes().then(ds => { disputesList = ds || []; if (main) { main.disputes = S.mode === "explore" ? disputesList.filter(d => !d.country) : null; main.requestDraw(); } });
   // US states: flag, region and abbreviation, capital, population; More facts in groups, like the country card
   const factGroup = (title, rows) => { const h = facts(rows); return h ? `<h4>${title}</h4><dl class="lcfacts">${h}</dl>` : ""; };
   // the UK and Ireland's countries (Learning mode's countries view)
@@ -1050,7 +1096,9 @@
       ["Population", fmtPop(i.pop, i.popYear)]]);
     $("lcMore").innerHTML =
       factGroup("People and culture", [
-        [`Name in ${f.lang || m.lang || "the local language"}`, f.local], ["People are called", f.demonym], ["Dialect or language", f.dialect],
+        // (a name in another script, such as Hangul or Arabic, in the cards' script font, laid out right to left where needed)
+        [`Name in ${f.lang || m.lang || "the local language"}`, /[^\u0000-\u024F\u1E00-\u1EFF]/.test(f.local || "") ? `<span class="native" dir="auto">${esc(f.local)}</span>` : f.local,
+          /[^\u0000-\u024F\u1E00-\u1EFF]/.test(f.local || "")], ["People are called", f.demonym], ["Dialect or language", f.dialect],
         ["Largest city", f.city || ""], ["Famous dish", f.dish], ["Famous drink", f.drink], ["Biggest festival", f.festival],
         ["Football", f.club], ["Famous person", f.person],
       ]) +
@@ -1249,7 +1297,7 @@
   }
   $("lcLess").onclick = () => { setLearnMore(false); $("learnCard").scrollTop = 0; };
   $("lcMoreBtn").onclick = () => setLearnMore(!learnMore);
-  function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; setLearnMore(false); } // the next card opens collapsed
+  function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; setLearnMore(false); if (main && main.selDispute) { main.selDispute = null; main.requestDraw(); } } // the next card opens collapsed
   // Focus: a button above the card that opens a country's own map in Learning mode ("Focus on <name> ›").
   // Only the US has its own map so far; the plan is one for every country (PLAN.md).
   // Countries with their own map: the Countries tab in the New game menu and the Focus button both use this list.
@@ -2271,6 +2319,7 @@
       ? 'Counties: <a href="https://www.county-borders.co.uk" target="_blank" rel="noopener">Historic County Borders Project</a>'
       : "Contains OS data © Crown copyright and database right 2026") +
       '. Ireland © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Flags: UK Flag Registry.';
+    main.disputes = mode === "explore" ? disputesList.filter(d => !d.country) : null; // disputed territories: Learning mode only
     const ukLearn = mode === "explore" && (data === "uk" || data === "ukc");
     // (and the countries with two sets built by tools/build_country.py: Belgium's provinces and regions)
     const setLearn = mode === "explore" && !!SETS[data] && !!NEW_MAPS[data];
@@ -2308,7 +2357,7 @@
     // flat map is Patterson (chosen 2026-11-14); ?proj= still picks another style for testing
     const q = new URLSearchParams(location.search);
     const style = GG.FLAT_STYLES[q.get("proj")] ? q.get("proj") : "patterson";
-    main = new GG.MapView($("map"), { geo, mode: "globe", flatStyle: style, getState, onTap: tap, onPoint,
+    main = new GG.MapView($("map"), { geo, mode: "globe", flatStyle: style, getState, onTap: tap, onPoint, onDispute: (d) => { if (S.mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selectSub(null); showDisputeCard(d); main.selDispute = d; redraw(); } },
       isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed,
       dotShown: c => S.apDots || finished || !!state[c.iso] || apShown.has(c) });
     main.lookAt(15, 25, 120, false);

@@ -1,0 +1,1245 @@
+[
+{
+"iso": "EG-ALX",
+"id": "EG-ALX",
+"name": "Alexandria",
+"names": [
+"Alexandria",
+"Al Iskandariyah",
+"Iskandariya"
+],
+"capitals": [
+"Alexandria"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-ALX",
+"info": {
+"abbr": "ALX",
+"kind": "Governorate",
+"pop": 5703824,
+"popYear": "2023",
+"area": 2300,
+"flag": true,
+"facts": {
+"local": "الإسكندرية",
+"dish": "Kebda iskandarani (spiced liver) and seafood",
+"club": "Al Ittihad Alexandria",
+"historic": "The capital of Ptolemaic Egypt (founded 331 BC)",
+"landmark": "The Citadel of Qaitbay and the Bibliotheca Alexandrina",
+"known": "Egypt's main port and its Mediterranean summer city",
+"part": "Lower Egypt (the Mediterranean coast)",
+"sites": "The catacombs of Kom El Shoqafa and Pompey's Pillar"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 22,
+"of": 27
+},
+"flagKey": "eg/EG-ALX",
+"capLL": [
+[
+29.948,
+31.202
+]
+]
+},
+{
+"iso": "EG-ASN",
+"id": "EG-ASN",
+"name": "Aswan",
+"names": [
+"Aswan"
+],
+"capitals": [
+"Aswan"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-ASN",
+"info": {
+"abbr": "ASN",
+"kind": "Governorate",
+"pop": 1698201,
+"popYear": "2023",
+"area": 62726,
+"flag": true,
+"facts": {
+"local": "أسوان",
+"river": "Nile",
+"wonder": "Lake Nasser and the Aswan High Dam",
+"landmark": "The temples of Abu Simbel",
+"unesco": "The Nubian Monuments from Abu Simbel to Philae",
+"known": "Nubian culture, granite and the High Dam",
+"part": "Upper Egypt (the Nile valley)",
+"sites": "Abu Simbel, Philae and Kom Ombo"
+},
+"coastal": false,
+"borders": [
+"Sudan"
+],
+"areaRank": 4,
+"of": 27
+},
+"flagKey": "eg/EG-ASN",
+"anchorLL": [
+32.906,
+23.594
+],
+"capLL": [
+[
+32.899,
+24.088
+]
+]
+},
+{
+"iso": "EG-AST",
+"id": "EG-AST",
+"name": "Asyut",
+"names": [
+"Asyut",
+"Assiut",
+"Asyout"
+],
+"capitals": [
+"Asyut",
+"Assiut"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-AST",
+"info": {
+"abbr": "AST",
+"kind": "Governorate",
+"pop": 5071485,
+"popYear": "2023",
+"area": 25926,
+"flag": true,
+"facts": {
+"local": "أسيوط",
+"river": "Nile",
+"landmark": "The Monastery of the Virgin Mary (Deir el-Muharraq)",
+"known": "Upper Egypt's biggest city and a large Coptic community",
+"part": "Upper Egypt (the Nile valley)",
+"sites": "The tombs of Asyut's ancient nomarchs"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8,
+"of": 27
+},
+"flagKey": "eg/EG-AST",
+"capLL": [
+[
+31.18,
+27.19
+]
+]
+},
+{
+"iso": "EG-BH",
+"id": "EG-BH",
+"name": "Beheira",
+"names": [
+"Beheira",
+"Al Buhayrah",
+"Buhayra"
+],
+"capitals": [
+"Damanhur"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-BH",
+"info": {
+"abbr": "BH",
+"kind": "Governorate",
+"pop": 6940234,
+"popYear": "2023",
+"area": 9826,
+"flag": true,
+"facts": {
+"local": "البحيرة",
+"historic": "Rosetta (Rashid), where the Rosetta Stone was found (1799)",
+"landmark": "The monasteries of Wadi El Natrun",
+"known": "Farming in the western Delta",
+"part": "Lower Egypt (the Nile Delta)",
+"sites": "Rosetta's Ottoman houses and the Wadi El Natrun monasteries"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 13,
+"of": 27
+},
+"flagKey": "eg/EG-BH",
+"capLL": [
+[
+30.47,
+31.05
+]
+]
+},
+{
+"iso": "EG-BNS",
+"id": "EG-BNS",
+"name": "Beni Suef",
+"names": [
+"Beni Suef",
+"Bani Suwayf"
+],
+"capitals": [
+"Beni Suef"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-BNS",
+"info": {
+"abbr": "BNS",
+"kind": "Governorate",
+"pop": 3618395,
+"popYear": "2023",
+"area": 10954,
+"flag": true,
+"facts": {
+"local": "بني سويف",
+"river": "Nile",
+"known": "Cement and marble",
+"part": "Upper Egypt (the Nile valley)",
+"sites": "The Meidum pyramid"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11,
+"of": 27
+},
+"flagKey": "eg/EG-BNS",
+"capLL": [
+[
+31.09,
+29.08
+]
+]
+},
+{
+"iso": "EG-C",
+"id": "EG-C",
+"name": "Cairo",
+"names": [
+"Cairo",
+"Al Qahirah",
+"Qahira"
+],
+"capitals": [
+"Cairo"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-C",
+"info": {
+"abbr": "C",
+"kind": "Governorate",
+"pop": 10456284,
+"popYear": "2023",
+"area": 3085,
+"flag": true,
+"facts": {
+"local": "القاهرة",
+"dish": "Koshari and ful medames",
+"club": "Al Ahly",
+"river": "Nile",
+"historic": "The capital since the Fatimids founded it (969)",
+"landmark": "The Citadel of Saladin and the Egyptian Museum",
+"unesco": "Historic Cairo",
+"person": "Naguib Mahfouz (Nobel laureate)",
+"known": "The capital: Africa's and the Arab world's largest city",
+"part": "Greater Cairo, where the Delta meets the valley",
+"sites": "Islamic Cairo's mosques and the Egyptian Museum"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 20,
+"of": 27
+},
+"flagKey": "eg/EG-C",
+"capLL": [
+[
+31.248,
+30.052
+]
+]
+},
+{
+"iso": "EG-DK",
+"id": "EG-DK",
+"name": "Dakahlia",
+"names": [
+"Dakahlia",
+"Ad Daqahliyah",
+"Daqahlia"
+],
+"capitals": [
+"Mansoura",
+"El Mansoura"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-DK",
+"info": {
+"abbr": "DK",
+"kind": "Governorate",
+"pop": 7058212,
+"popYear": "2023",
+"area": 3538,
+"flag": true,
+"facts": {
+"local": "الدقهلية",
+"historic": "The Battle of Mansoura (1250), where the Seventh Crusade was defeated",
+"person": "Umm Kulthum (singer)",
+"known": "Farming and Mansoura University",
+"part": "Lower Egypt (the Nile Delta)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 18,
+"of": 27
+},
+"flagKey": "eg/EG-DK",
+"capLL": [
+[
+31.378,
+31.04
+]
+]
+},
+{
+"iso": "EG-DT",
+"id": "EG-DT",
+"name": "Damietta",
+"names": [
+"Damietta",
+"Dumyat"
+],
+"capitals": [
+"Damietta",
+"Dumyat"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-DT",
+"info": {
+"abbr": "DT",
+"kind": "Governorate",
+"pop": 2023380,
+"popYear": "2023",
+"area": 910,
+"flag": true,
+"facts": {
+"local": "دمياط",
+"dish": "Damietta's sweets and white cheese",
+"wonder": "Ras El Bar, where the Nile meets the sea",
+"known": "Furniture making",
+"part": "Lower Egypt (the Nile Delta)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 26,
+"of": 27
+},
+"flagKey": "eg/EG-DT",
+"capLL": [
+[
+31.814,
+31.417
+]
+]
+},
+{
+"iso": "EG-FYM",
+"id": "EG-FYM",
+"name": "Faiyum",
+"names": [
+"Faiyum",
+"Fayoum",
+"Al Fayyum",
+"Fayum"
+],
+"capitals": [
+"Faiyum",
+"Fayoum"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-FYM",
+"info": {
+"abbr": "FYM",
+"kind": "Governorate",
+"pop": 4141222,
+"popYear": "2023",
+"area": 6068,
+"flag": true,
+"facts": {
+"local": "الفيوم",
+"wonder": "Wadi El Hitan (Whale Valley) and Lake Qarun",
+"unesco": "Wadi Al-Hitan (Whale Valley)",
+"known": "An oasis linked to the Nile, and the Faiyum mummy portraits",
+"part": "Upper Egypt (Middle Egypt: an oasis by the Nile valley)",
+"sites": "The Hawara pyramid"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 15,
+"of": 27
+},
+"flagKey": "eg/EG-FYM",
+"capLL": [
+[
+30.842,
+29.308
+]
+]
+},
+{
+"iso": "EG-GH",
+"id": "EG-GH",
+"name": "Gharbia",
+"names": [
+"Gharbia",
+"Al Gharbiyah"
+],
+"capitals": [
+"Tanta"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-GH",
+"info": {
+"abbr": "GH",
+"kind": "Governorate",
+"pop": 5483000,
+"popYear": "2023",
+"area": 1942,
+"flag": true,
+"facts": {
+"local": "الغربية",
+"festival": "The Moulid of Sayyid al-Badawi in Tanta",
+"known": "Cotton and textiles (El Mahalla El Kubra)",
+"part": "Lower Egypt (the Nile Delta)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 23,
+"of": 27
+},
+"flagKey": "eg/EG-GH",
+"capLL": [
+[
+31.0,
+30.79
+]
+]
+},
+{
+"iso": "EG-GZ",
+"id": "EG-GZ",
+"name": "Giza",
+"names": [
+"Giza",
+"Al Jizah",
+"Gizeh"
+],
+"capitals": [
+"Giza"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-GZ",
+"info": {
+"abbr": "GZ",
+"kind": "Governorate",
+"pop": 9534283,
+"popYear": "2023",
+"area": 13184,
+"flag": true,
+"facts": {
+"local": "الجيزة",
+"club": "Zamalek",
+"river": "Nile",
+"landmark": "The Pyramids of Giza and the Great Sphinx",
+"unesco": "Memphis and its Necropolis (Giza to Dahshur)",
+"known": "The pyramids and the Grand Egyptian Museum",
+"part": "Greater Cairo and Upper Egypt",
+"sites": "The Pyramids of Giza, Saqqara and Dahshur"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9,
+"of": 27
+},
+"flagKey": "eg/EG-GZ",
+"capLL": [
+[
+31.19,
+30.01
+]
+]
+},
+{
+"iso": "EG-IS",
+"id": "EG-IS",
+"name": "Ismailia",
+"names": [
+"Ismailia",
+"Al Isma'iliyah"
+],
+"capitals": [
+"Ismailia"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-IS",
+"info": {
+"abbr": "IS",
+"kind": "Governorate",
+"pop": 1482999,
+"popYear": "2023",
+"area": 5067,
+"flag": true,
+"facts": {
+"local": "الإسماعيلية",
+"club": "Ismaily SC",
+"wonder": "Lake Timsah",
+"landmark": "The Suez Canal Authority's headquarters",
+"known": "The Suez Canal",
+"part": "The Suez Canal zone"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 16,
+"of": 27
+},
+"flagKey": "eg/EG-IS",
+"capLL": [
+[
+32.26,
+30.59
+]
+]
+},
+{
+"iso": "EG-KFS",
+"id": "EG-KFS",
+"name": "Kafr El Sheikh",
+"names": [
+"Kafr El Sheikh",
+"Kafr el-Sheikh",
+"Kafr ash Shaykh"
+],
+"capitals": [
+"Kafr El Sheikh"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-KFS",
+"info": {
+"abbr": "KFS",
+"kind": "Governorate",
+"pop": 3731540,
+"popYear": "2023",
+"area": 3467,
+"flag": true,
+"facts": {
+"local": "كفر الشيخ",
+"wonder": "Lake Burullus",
+"known": "Rice and fish farming",
+"part": "Lower Egypt (the Nile Delta)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 19,
+"of": 27
+},
+"flagKey": "eg/EG-KFS",
+"capLL": [
+[
+30.936,
+31.109
+]
+]
+},
+{
+"iso": "EG-LX",
+"id": "EG-LX",
+"name": "Luxor",
+"names": [
+"Luxor",
+"Al Uqsur"
+],
+"capitals": [
+"Luxor"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-LX",
+"info": {
+"abbr": "LX",
+"kind": "Governorate",
+"pop": 1429385,
+"popYear": "2023",
+"area": 460,
+"flag": true,
+"facts": {
+"local": "الأقصر",
+"river": "Nile",
+"landmark": "Karnak Temple and the Valley of the Kings",
+"unesco": "Ancient Thebes with its Necropolis",
+"known": "'The world's greatest open-air museum', and hot-air balloons at dawn",
+"part": "Upper Egypt (the Nile valley)",
+"sites": "Karnak, Luxor Temple, the Valley of the Kings and Hatshepsut's temple"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 27,
+"of": 27
+},
+"flagKey": "eg/EG-LX",
+"anchorLL": [
+32.65,
+25.706
+],
+"capLL": [
+[
+32.65,
+25.7
+]
+]
+},
+{
+"iso": "EG-MT",
+"id": "EG-MT",
+"name": "Matrouh",
+"names": [
+"Matrouh",
+"Matruh",
+"Marsa Matruh"
+],
+"capitals": [
+"Marsa Matruh",
+"Mersa Matruh"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-MT",
+"info": {
+"abbr": "MT",
+"kind": "Governorate",
+"pop": 580304,
+"popYear": "2023",
+"area": 166563,
+"flag": true,
+"facts": {
+"local": "مطروح",
+"dialect": "Bedouin Arabic, and Siwi (a Berber language) in Siwa",
+"wonder": "Siwa Oasis and the Mediterranean beaches",
+"historic": "The battles of El Alamein (1942)",
+"landmark": "The El Alamein war cemeteries",
+"known": "Siwa, beaches and Bedouin culture",
+"part": "The Western Desert and the Mediterranean coast",
+"sites": "The Temple of the Oracle of Amun at Siwa"
+},
+"coastal": true,
+"borders": [
+"Libya"
+],
+"areaRank": 2,
+"of": 27
+},
+"flagKey": "eg/EG-MT",
+"capLL": [
+[
+27.23,
+31.35
+]
+]
+},
+{
+"iso": "EG-MN",
+"id": "EG-MN",
+"name": "Minya",
+"names": [
+"Minya",
+"Al Minya",
+"El Minya"
+],
+"capitals": [
+"Minya"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-MN",
+"info": {
+"abbr": "MN",
+"kind": "Governorate",
+"pop": 6332918,
+"popYear": "2023",
+"area": 32279,
+"flag": true,
+"facts": {
+"local": "المنيا",
+"river": "Nile",
+"known": "The 'bride of Upper Egypt' and a large Coptic community",
+"part": "Upper Egypt (Middle Egypt)",
+"sites": "Tell el-Amarna (Akhenaten's capital) and the tombs of Beni Hasan"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 5,
+"of": 27
+},
+"flagKey": "eg/EG-MN",
+"capLL": [
+[
+30.744,
+28.11
+]
+]
+},
+{
+"iso": "EG-MNF",
+"id": "EG-MNF",
+"name": "Monufia",
+"names": [
+"Monufia",
+"Menoufia",
+"Al Minufiyah"
+],
+"capitals": [
+"Shibin El Kom"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-MNF",
+"info": {
+"abbr": "MNF",
+"kind": "Governorate",
+"pop": 4743341,
+"popYear": "2023",
+"area": 2499,
+"flag": true,
+"facts": {
+"local": "المنوفية",
+"person": "Presidents Anwar Sadat and Hosni Mubarak were both born here",
+"known": "Farming in the southern Delta",
+"part": "Lower Egypt (the Nile Delta)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 21,
+"of": 27
+},
+"flagKey": "eg/EG-MNF",
+"capLL": [
+[
+30.9,
+30.592
+]
+]
+},
+{
+"iso": "EG-WAD",
+"id": "EG-WAD",
+"name": "New Valley",
+"names": [
+"New Valley",
+"Al Wadi al Jadid",
+"El Wadi El Gedid"
+],
+"capitals": [
+"Kharga",
+"El Kharga"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-WAD",
+"info": {
+"abbr": "WAD",
+"kind": "Governorate",
+"pop": 324600,
+"popYear": "2023",
+"area": 440098,
+"flag": true,
+"facts": {
+"local": "الوادي الجديد",
+"wonder": "The White Desert and the oases of Kharga, Dakhla and Farafra",
+"known": "The largest governorate: desert oases",
+"part": "The Western Desert",
+"sites": "The Temple of Hibis and the Bagawat necropolis"
+},
+"coastal": false,
+"borders": [
+"Libya",
+"Sudan"
+],
+"areaRank": 1,
+"of": 27
+},
+"flagKey": "eg/EG-WAD",
+"capLL": [
+[
+30.546,
+25.451
+]
+]
+},
+{
+"iso": "EG-SIN",
+"id": "EG-SIN",
+"name": "North Sinai",
+"names": [
+"North Sinai",
+"Shamal Sina'",
+"Shamal Sina"
+],
+"capitals": [
+"Arish",
+"El Arish",
+"Al Arish"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-SIN",
+"info": {
+"abbr": "SIN",
+"kind": "Governorate",
+"pop": 544494,
+"popYear": "2023",
+"area": 28992,
+"flag": true,
+"facts": {
+"local": "شمال سيناء",
+"historic": "Occupied by Israel 1967–1982",
+"known": "Palm groves and Bedouin culture",
+"part": "The Sinai"
+},
+"coastal": true,
+"borders": [
+"Israel",
+"Palestine"
+],
+"areaRank": 7,
+"of": 27
+},
+"flagKey": "eg/EG-SIN",
+"notTypo": [
+"South Sinai"
+],
+"capLL": [
+[
+33.799,
+31.132
+]
+]
+},
+{
+"iso": "EG-PTS",
+"id": "EG-PTS",
+"name": "Port Said",
+"names": [
+"Port Said",
+"Bur Sa'id"
+],
+"capitals": [
+"Port Said"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-PTS",
+"info": {
+"abbr": "PTS",
+"kind": "Governorate",
+"pop": 835193,
+"popYear": "2023",
+"area": 1345,
+"flag": true,
+"facts": {
+"local": "بورسعيد",
+"club": "Al Masry",
+"landmark": "The domed Suez Canal Authority building",
+"known": "A port and free zone at the canal's northern end",
+"part": "The Suez Canal zone"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 24,
+"of": 27
+},
+"flagKey": "eg/EG-PTS",
+"capLL": [
+[
+32.29,
+31.26
+]
+]
+},
+{
+"iso": "EG-KB",
+"id": "EG-KB",
+"name": "Qalyubia",
+"names": [
+"Qalyubia",
+"Qalyubiyya",
+"Al Qalyubiyah",
+"Kalyubia"
+],
+"capitals": [
+"Banha",
+"Benha"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-KB",
+"info": {
+"abbr": "KB",
+"kind": "Governorate",
+"pop": 6137896,
+"popYear": "2023",
+"area": 1124,
+"flag": true,
+"facts": {
+"local": "القليوبية",
+"known": "Industry around Shubra El Kheima, north of Cairo",
+"city": "Shubra El Kheima",
+"part": "Lower Egypt (the Nile Delta)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 25,
+"of": 27
+},
+"flagKey": "eg/EG-KB",
+"capLL": [
+[
+31.188,
+30.46
+]
+]
+},
+{
+"iso": "EG-KN",
+"id": "EG-KN",
+"name": "Qena",
+"names": [
+"Qena",
+"Qina",
+"Kena"
+],
+"capitals": [
+"Qena"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-KN",
+"info": {
+"abbr": "KN",
+"kind": "Governorate",
+"pop": 3651215,
+"popYear": "2023",
+"area": 10798,
+"flag": true,
+"facts": {
+"local": "قنا",
+"river": "Nile",
+"landmark": "The Temple of Hathor at Dendera",
+"known": "Sugar cane",
+"part": "Upper Egypt (the Nile valley)",
+"sites": "Dendera Temple"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 12,
+"of": 27
+},
+"flagKey": "eg/EG-KN",
+"anchorLL": [
+32.799,
+25.87
+],
+"capLL": [
+[
+32.72,
+26.15
+]
+]
+},
+{
+"iso": "EG-BA",
+"id": "EG-BA",
+"name": "Red Sea",
+"names": [
+"Red Sea",
+"Al Bahr al Ahmar"
+],
+"capitals": [
+"Hurghada"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-BA",
+"info": {
+"abbr": "BA",
+"kind": "Governorate",
+"pop": 409394,
+"popYear": "2023",
+"area": 119099,
+"flag": true,
+"facts": {
+"local": "البحر الأحمر",
+"wonder": "Coral reefs and the Eastern Desert's mountains",
+"historic": "Includes the Hala'ib Triangle (also claimed by Sudan)",
+"known": "Diving and resorts (Hurghada, Marsa Alam)",
+"part": "The Eastern Desert and the Red Sea coast",
+"sites": "Roman quarries at Mons Claudianus"
+},
+"coastal": true,
+"borders": [
+"Bir Tawil (unclaimed)",
+"Sudan"
+],
+"areaRank": 3,
+"of": 27
+},
+"flagKey": "eg/EG-BA",
+"capLL": [
+[
+33.83,
+27.23
+]
+]
+},
+{
+"iso": "EG-SHR",
+"id": "EG-SHR",
+"name": "Sharqia",
+"names": [
+"Sharqia",
+"Ash Sharqiyah",
+"Sharkia"
+],
+"capitals": [
+"Zagazig"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-SHR",
+"info": {
+"abbr": "SHR",
+"kind": "Governorate",
+"pop": 8032683,
+"popYear": "2023",
+"area": 4911,
+"flag": true,
+"facts": {
+"local": "الشرقية",
+"person": "Ahmed Orabi (leader of the 1879–1882 revolt)",
+"known": "Farming in the eastern Delta",
+"part": "Lower Egypt (the Nile Delta)",
+"sites": "Tanis and Bubastis (Tell Basta)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 17,
+"of": 27
+},
+"flagKey": "eg/EG-SHR",
+"capLL": [
+[
+31.517,
+30.583
+]
+]
+},
+{
+"iso": "EG-SHG",
+"id": "EG-SHG",
+"name": "Sohag",
+"names": [
+"Sohag",
+"Suhaj"
+],
+"capitals": [
+"Sohag"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-SHG",
+"info": {
+"abbr": "SHG",
+"kind": "Governorate",
+"pop": 5714903,
+"popYear": "2023",
+"area": 11022,
+"flag": true,
+"facts": {
+"local": "سوهاج",
+"river": "Nile",
+"known": "Akhmim's textiles",
+"part": "Upper Egypt (the Nile valley)",
+"sites": "Abydos and the Temple of Seti I"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10,
+"of": 27
+},
+"flagKey": "eg/EG-SHG",
+"capLL": [
+[
+31.7,
+26.55
+]
+]
+},
+{
+"iso": "EG-JS",
+"id": "EG-JS",
+"name": "South Sinai",
+"names": [
+"South Sinai",
+"Janub Sina'",
+"Janub Sina"
+],
+"capitals": [
+"El Tor",
+"Tor",
+"At Tur"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-JS",
+"info": {
+"abbr": "JS",
+"kind": "Governorate",
+"pop": 145934,
+"popYear": "2023",
+"area": 31272,
+"flag": true,
+"facts": {
+"local": "جنوب سيناء",
+"high": "Mount Catherine, 2,629 m: Egypt's highest",
+"wonder": "The Red Sea reefs of Ras Mohammed, and Mount Sinai",
+"landmark": "Saint Catherine's Monastery",
+"unesco": "The Saint Catherine Area",
+"known": "Diving and resorts (Sharm El Sheikh, Dahab)",
+"part": "The Sinai"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 6,
+"of": 27
+},
+"flagKey": "eg/EG-JS",
+"notTypo": [
+"North Sinai"
+],
+"capLL": [
+[
+33.617,
+28.241
+]
+]
+},
+{
+"iso": "EG-SUZ",
+"id": "EG-SUZ",
+"name": "Suez",
+"names": [
+"Suez",
+"As Suways"
+],
+"capitals": [
+"Suez"
+],
+"cont": [
+"Africa"
+],
+"car": false,
+"a2": "EG-SUZ",
+"info": {
+"abbr": "SUZ",
+"kind": "Governorate",
+"pop": 843385,
+"popYear": "2023",
+"area": 9002,
+"flag": true,
+"facts": {
+"local": "السويس",
+"landmark": "The southern entrance of the Suez Canal",
+"known": "Oil refining and the canal's port",
+"part": "The Suez Canal zone"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 14,
+"of": 27
+},
+"flagKey": "eg/EG-SUZ",
+"capLL": [
+[
+32.55,
+30.005
+]
+]
+}
+]

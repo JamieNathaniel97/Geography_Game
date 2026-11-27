@@ -1,0 +1,836 @@
+[
+{
+"iso": "MY-01",
+"id": "MY-01",
+"name": "Johor",
+"names": [
+"Johor",
+"Johore"
+],
+"capitals": [
+"Johor Bahru",
+"Johor Baharu",
+"JB"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-01",
+"info": {
+"abbr": "01",
+"kind": "State",
+"pop": 4224300,
+"popYear": "2026",
+"area": 19210,
+"flag": true,
+"facts": {
+"local": "Johor Darul Ta'zim",
+"demonym": "Johorean",
+"dialect": "Johor Malay",
+"dish": "Laksa Johor and mee rebus",
+"club": "Johor Darul Ta'zim",
+"river": "Johor River",
+"high": "Gunung Ledang, 1,276 m",
+"wonder": "Endau-Rompin National Park",
+"historic": "The Johor Sultanate (after Malacca fell in 1511)",
+"landmark": "The Sultan Abu Bakar State Mosque and the Johor–Singapore Causeway",
+"known": "Industry, links to Singapore, and Legoland Malaysia",
+"ruler": "Sultan of Johor",
+"ethnic": "Malay majority, large Chinese and some Indian communities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 5,
+"of": 16
+},
+"flagKey": "my/MY-01",
+"capLL": [
+[
+103.728,
+1.482
+]
+]
+},
+{
+"iso": "MY-02",
+"id": "MY-02",
+"name": "Kedah",
+"names": [
+"Kedah"
+],
+"capitals": [
+"Alor Setar",
+"Alor Star"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-02",
+"info": {
+"abbr": "02",
+"kind": "State",
+"pop": 2237400,
+"popYear": "2026",
+"area": 9500,
+"flag": true,
+"facts": {
+"local": "Kedah Darul Aman",
+"demonym": "Kedahan",
+"dialect": "Kedah Malay",
+"dish": "Laksa Kedah",
+"club": "Kedah Darul Aman FC",
+"high": "Gunung Jerai, 1,217 m",
+"wonder": "Langkawi's islands and rainforest",
+"historic": "One of the oldest Malay kingdoms (Bujang Valley, 1st millennium)",
+"landmark": "The Langkawi Sky Bridge",
+"unesco": "Langkawi UNESCO Global Geopark",
+"known": "The 'rice bowl of Malaysia' and Langkawi",
+"ruler": "Sultan of Kedah",
+"ethnic": "Malay majority, Chinese and Indian minorities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [
+"Thailand"
+],
+"areaRank": 8,
+"of": 16
+},
+"flagKey": "my/MY-02",
+"capLL": [
+[
+100.373,
+6.113
+]
+]
+},
+{
+"iso": "MY-03",
+"id": "MY-03",
+"name": "Kelantan",
+"names": [
+"Kelantan"
+],
+"capitals": [
+"Kota Bharu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-03",
+"info": {
+"abbr": "03",
+"kind": "State",
+"pop": 1925300,
+"popYear": "2026",
+"area": 15099,
+"flag": true,
+"facts": {
+"local": "Kelantan Darul Naim",
+"demonym": "Kelantanese",
+"dialect": "Kelantan Malay",
+"dish": "Nasi kerabu (blue rice)",
+"club": "Kelantan FA",
+"river": "Kelantan River",
+"historic": "The Kelantan Sultanate",
+"landmark": "The Istana Jahar royal palace",
+"known": "Malay crafts: batik, songket, kites (wau) and shadow puppets",
+"ruler": "Sultan of Kelantan",
+"ethnic": "Malay (about 95%)",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [
+"Thailand"
+],
+"areaRank": 6,
+"of": 16
+},
+"flagKey": "my/MY-03",
+"capLL": [
+[
+102.238,
+6.125
+]
+]
+},
+{
+"iso": "MY-14",
+"id": "MY-14",
+"name": "Kuala Lumpur",
+"names": [
+"Kuala Lumpur",
+"KL",
+"Federal Territory of Kuala Lumpur",
+"Wilayah Persekutuan Kuala Lumpur"
+],
+"capitals": [
+"Kuala Lumpur",
+"KL"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-14",
+"info": {
+"abbr": "14",
+"kind": "Federal territory",
+"pop": 2082300,
+"popYear": "2026",
+"area": 243,
+"flag": true,
+"facts": {
+"local": "Wilayah Persekutuan Kuala Lumpur",
+"demonym": "KLite",
+"dish": "Nasi lemak and bak kut teh",
+"club": "Kuala Lumpur City FC",
+"river": "Klang and Gombak rivers (the 'muddy confluence')",
+"historic": "A tin-mining settlement (1857), capital since independence",
+"landmark": "The Petronas Twin Towers",
+"known": "The capital and largest city",
+"company": "Petronas",
+"ruler": "None (a federal territory)",
+"ethnic": "Malay, Chinese and Indian",
+"half": "Peninsula"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 14,
+"of": 16
+},
+"flagKey": "my/MY-14",
+"capLL": [
+[
+101.698,
+3.169
+]
+]
+},
+{
+"iso": "MY-15",
+"id": "MY-15",
+"name": "Labuan",
+"names": [
+"Labuan",
+"Federal Territory of Labuan"
+],
+"capitals": [
+"Victoria",
+"Bandar Labuan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-15",
+"info": {
+"abbr": "15",
+"kind": "Federal territory",
+"pop": 101100,
+"popYear": "2026",
+"area": 91,
+"flag": true,
+"facts": {
+"local": "Wilayah Persekutuan Labuan",
+"demonym": "Labuanese",
+"wonder": "Wreck diving",
+"historic": "A British crown colony from 1848",
+"known": "Offshore finance and duty-free shopping",
+"ruler": "None (a federal territory)",
+"ethnic": "Malay, Kadazan-Dusun, Chinese and Bajau",
+"half": "Borneo"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15,
+"of": 16
+},
+"flagKey": "my/MY-15",
+"capLL": [
+[
+-133.65,
+41.433
+]
+]
+},
+{
+"iso": "MY-04",
+"id": "MY-04",
+"name": "Malacca",
+"names": [
+"Malacca",
+"Melaka"
+],
+"capitals": [
+"Malacca City",
+"Melaka",
+"Malacca",
+"Bandar Melaka"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-04",
+"info": {
+"abbr": "04",
+"kind": "State",
+"pop": 1057400,
+"popYear": "2026",
+"area": 1664,
+"flag": true,
+"facts": {
+"local": "Melaka",
+"demonym": "Malaccan",
+"dialect": "Malay, Baba Malay and Kristang (Portuguese creole)",
+"dish": "Chicken rice balls and Nyonya laksa",
+"river": "Malacca River",
+"historic": "The Malacca Sultanate (about 1400), then Portuguese, Dutch and British rule",
+"landmark": "A Famosa and the Stadthuys",
+"unesco": "Melaka and George Town, historic cities of the Straits of Malacca",
+"known": "Colonial history and Peranakan (Baba-Nyonya) culture",
+"ruler": "Governor (Yang di-Pertua Negeri)",
+"ethnic": "Malay majority, Chinese, Indian, and Peranakan and Portuguese-Eurasian communities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 11,
+"of": 16
+},
+"flagKey": "my/MY-04",
+"capLL": [
+[
+102.249,
+2.196
+]
+]
+},
+{
+"iso": "MY-05",
+"id": "MY-05",
+"name": "Negeri Sembilan",
+"names": [
+"Negeri Sembilan",
+"Negri Sembilan"
+],
+"capitals": [
+"Seremban"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-05",
+"info": {
+"abbr": "05",
+"kind": "State",
+"pop": 1248500,
+"popYear": "2026",
+"area": 6686,
+"flag": true,
+"facts": {
+"local": "Negeri Sembilan Darul Khusus",
+"demonym": "Negeri Sembilan native",
+"dialect": "Negeri Sembilan Malay (Minangkabau-influenced)",
+"dish": "Masak lemak cili api (spicy coconut curry)",
+"club": "Negeri Sembilan FC",
+"wonder": "Port Dickson's beaches",
+"historic": "A federation of nine Minangkabau states",
+"landmark": "The Istana Lama at Seri Menanti",
+"known": "Minangkabau matrilineal customs (adat perpatih)",
+"ruler": "Yang di-Pertuan Besar (elected from four royal lines)",
+"ethnic": "Malay majority, Chinese and Indian minorities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 10,
+"of": 16
+},
+"flagKey": "my/MY-05",
+"capLL": [
+[
+101.94,
+2.71
+]
+]
+},
+{
+"iso": "MY-06",
+"id": "MY-06",
+"name": "Pahang",
+"names": [
+"Pahang"
+],
+"capitals": [
+"Kuantan"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-06",
+"info": {
+"abbr": "06",
+"kind": "State",
+"pop": 1686200,
+"popYear": "2026",
+"area": 36137,
+"flag": true,
+"facts": {
+"local": "Pahang Darul Makmur",
+"demonym": "Pahangite",
+"dialect": "Pahang Malay",
+"dish": "Ikan patin tempoyak (river fish in fermented durian)",
+"club": "Sri Pahang FC",
+"river": "Pahang River, the peninsula's longest",
+"high": "Gunung Tahan, 2,187 m: the peninsula's highest",
+"wonder": "Taman Negara and the Cameron Highlands",
+"historic": "The Pahang Sultanate",
+"landmark": "The Cameron Highlands tea plantations",
+"known": "Rainforest, tea and highland resorts (Genting)",
+"city": "Kuantan is the capital and largest",
+"ruler": "Sultan of Pahang",
+"ethnic": "Malay majority, Chinese and Orang Asli minorities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 3,
+"of": 16
+},
+"flagKey": "my/MY-06",
+"capLL": [
+[
+103.32,
+3.83
+]
+]
+},
+{
+"iso": "MY-07",
+"id": "MY-07",
+"name": "Penang",
+"names": [
+"Penang",
+"Pulau Pinang",
+"Pinang"
+],
+"capitals": [
+"George Town",
+"Georgetown"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-07",
+"info": {
+"abbr": "07",
+"kind": "State",
+"pop": 1808300,
+"popYear": "2026",
+"area": 1048,
+"flag": true,
+"facts": {
+"local": "Pulau Pinang",
+"demonym": "Penangite",
+"dialect": "Penang Hokkien",
+"dish": "Char kway teow, asam laksa and nasi kandar",
+"club": "Penang FC",
+"high": "Penang Hill, 833 m",
+"historic": "A British trading post from 1786 (one of the Straits Settlements)",
+"landmark": "Kek Lok Si Temple and George Town's street art",
+"unesco": "Melaka and George Town, historic cities of the Straits of Malacca",
+"known": "Street food and electronics manufacturing",
+"ruler": "Governor (Yang di-Pertua Negeri)",
+"ethnic": "Chinese plurality, Malay and Indian communities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12,
+"of": 16
+},
+"flagKey": "my/MY-07",
+"capLL": [
+[
+100.329,
+5.414
+]
+]
+},
+{
+"iso": "MY-08",
+"id": "MY-08",
+"name": "Perak",
+"names": [
+"Perak"
+],
+"capitals": [
+"Ipoh"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-08",
+"info": {
+"abbr": "08",
+"kind": "State",
+"pop": 2577900,
+"popYear": "2026",
+"area": 21035,
+"flag": true,
+"facts": {
+"local": "Perak Darul Ridzuan",
+"demonym": "Perakian",
+"dialect": "Perak Malay",
+"dish": "Ipoh white coffee and bean sprout chicken",
+"club": "Perak FC",
+"river": "Perak River",
+"high": "Gunung Korbu, 2,183 m",
+"wonder": "The limestone caves around Ipoh and Royal Belum State Park",
+"historic": "The Perak Sultanate; the tin rush of the 1800s",
+"landmark": "Kellie's Castle",
+"unesco": "The archaeological heritage of the Lenggong Valley",
+"known": "Tin mining history and Ipoh's food",
+"ruler": "Sultan of Perak",
+"ethnic": "Malay, Chinese and Indian",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [
+"Thailand"
+],
+"areaRank": 4,
+"of": 16
+},
+"flagKey": "my/MY-08",
+"notTypo": [
+"Perlis"
+],
+"capLL": [
+[
+101.065,
+4.6
+]
+]
+},
+{
+"iso": "MY-09",
+"id": "MY-09",
+"name": "Perlis",
+"names": [
+"Perlis"
+],
+"capitals": [
+"Kangar"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-09",
+"info": {
+"abbr": "09",
+"kind": "State",
+"pop": 297300,
+"popYear": "2026",
+"area": 821,
+"flag": true,
+"facts": {
+"local": "Perlis Indera Kayangan",
+"demonym": "Perlisian",
+"dialect": "Northern Malay",
+"dish": "Harumanis mango",
+"club": "Perlis FA",
+"wonder": "The Wang Kelian and Gua Kelam caves",
+"historic": "Split from Kedah in 1843",
+"known": "The smallest state; Harumanis mangoes",
+"ruler": "Raja of Perlis",
+"ethnic": "Malay majority, Chinese and Siamese minorities",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [
+"Thailand"
+],
+"areaRank": 13,
+"of": 16
+},
+"flagKey": "my/MY-09",
+"notTypo": [
+"Perak"
+],
+"capLL": [
+[
+100.19,
+6.433
+]
+]
+},
+{
+"iso": "MY-16",
+"id": "MY-16",
+"name": "Putrajaya",
+"names": [
+"Putrajaya",
+"Federal Territory of Putrajaya"
+],
+"capitals": [
+"Putrajaya"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-16",
+"info": {
+"abbr": "16",
+"kind": "Federal territory",
+"pop": 121400,
+"popYear": "2026",
+"area": 49,
+"flag": true,
+"facts": {
+"local": "Wilayah Persekutuan Putrajaya",
+"demonym": "Putrajayan",
+"wonder": "Putrajaya Lake and its wetlands",
+"historic": "Built from 1995 as the government's seat",
+"landmark": "The Putra Mosque and the Perdana Putra",
+"known": "The federal government's administrative centre",
+"ruler": "None (a federal territory)",
+"ethnic": "Mostly Malay",
+"half": "Peninsula"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 16,
+"of": 16
+},
+"flagKey": "my/MY-16",
+"capLL": [
+[
+101.702,
+2.914
+]
+]
+},
+{
+"iso": "MY-12",
+"id": "MY-12",
+"name": "Sabah",
+"names": [
+"Sabah"
+],
+"capitals": [
+"Kota Kinabalu",
+"KK"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-12",
+"info": {
+"abbr": "12",
+"kind": "State",
+"pop": 3767000,
+"popYear": "2026",
+"area": 73631,
+"flag": true,
+"facts": {
+"local": "Sabah",
+"demonym": "Sabahan",
+"dialect": "Sabah Malay, Kadazandusun and Bajau",
+"dish": "Hinava (raw fish salad)",
+"club": "Sabah FC",
+"high": "Mount Kinabalu, 4,095 m: Malaysia's highest",
+"wonder": "Mount Kinabalu, Sipadan and the orangutans of Sepilok",
+"historic": "North Borneo (a British chartered company territory)",
+"landmark": "Mount Kinabalu",
+"unesco": "Kinabalu Park",
+"known": "Diving, wildlife and Mount Kinabalu",
+"ruler": "Governor (Yang di-Pertua Negeri)",
+"ethnic": "Kadazan-Dusun, Bajau, Murut, Malay and Chinese",
+"half": "Borneo"
+},
+"coastal": true,
+"borders": [
+"Indonesia"
+],
+"areaRank": 2,
+"of": 16
+},
+"flagKey": "my/MY-12",
+"capLL": [
+[
+105.81,
+-1.02
+]
+]
+},
+{
+"iso": "MY-13",
+"id": "MY-13",
+"name": "Sarawak",
+"names": [
+"Sarawak"
+],
+"capitals": [
+"Kuching"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-13",
+"info": {
+"abbr": "13",
+"kind": "State",
+"pop": 2539800,
+"popYear": "2026",
+"area": 124450,
+"flag": true,
+"facts": {
+"local": "Sarawak",
+"demonym": "Sarawakian",
+"dialect": "Sarawak Malay, Iban and Bidayuh",
+"dish": "Sarawak laksa and kolo mee",
+"club": "Kuching City FC",
+"river": "Rajang River, Malaysia's longest",
+"high": "Gunung Murud, 2,423 m",
+"wonder": "Gunung Mulu's caves and the Niah Caves",
+"historic": "Ruled by the 'White Rajahs' (the Brooke family), 1841–1946",
+"landmark": "The Sarawak State Legislative Assembly building in Kuching",
+"unesco": "Gunung Mulu National Park and the Niah Caves",
+"known": "The largest state: rainforest, longhouses and oil",
+"city": "Kuching is the capital and largest",
+"ruler": "Governor (Yang di-Pertua Negeri); led by a Premier",
+"ethnic": "Iban, Chinese, Malay, Bidayuh and Melanau",
+"half": "Borneo"
+},
+"coastal": true,
+"borders": [
+"Brunei",
+"Indonesia"
+],
+"areaRank": 1,
+"of": 16
+},
+"flagKey": "my/MY-13",
+"capLL": [
+[
+100.03,
+-5.47
+]
+]
+},
+{
+"iso": "MY-10",
+"id": "MY-10",
+"name": "Selangor",
+"names": [
+"Selangor"
+],
+"capitals": [
+"Shah Alam"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-10",
+"info": {
+"abbr": "10",
+"kind": "State",
+"pop": 7454200,
+"popYear": "2026",
+"area": 8104,
+"flag": true,
+"facts": {
+"local": "Selangor Darul Ehsan",
+"demonym": "Selangorean",
+"dish": "Nasi lemak and satay Kajang",
+"club": "Selangor FC",
+"river": "Klang and Selangor rivers",
+"wonder": "The Batu Caves and the fireflies of Kuala Selangor",
+"historic": "The Selangor Sultanate (1766)",
+"landmark": "The Batu Caves' golden statue of Murugan",
+"known": "The most populous and richest state; Port Klang",
+"city": "Petaling Jaya and Subang Jaya (Shah Alam is the capital)",
+"ruler": "Sultan of Selangor",
+"ethnic": "Malay, Chinese and Indian",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 9,
+"of": 16
+},
+"flagKey": "my/MY-10",
+"capLL": [
+[
+101.55,
+3.067
+]
+]
+},
+{
+"iso": "MY-11",
+"id": "MY-11",
+"name": "Terengganu",
+"names": [
+"Terengganu",
+"Trengganu"
+],
+"capitals": [
+"Kuala Terengganu"
+],
+"cont": [
+"Asia"
+],
+"car": false,
+"a2": "MY-11",
+"info": {
+"abbr": "11",
+"kind": "State",
+"pop": 1260900,
+"popYear": "2026",
+"area": 13035,
+"flag": true,
+"facts": {
+"local": "Terengganu Darul Iman",
+"demonym": "Terengganuan",
+"dialect": "Terengganu Malay",
+"dish": "Keropok lekor (fish crackers) and nasi dagang",
+"club": "Terengganu FC",
+"wonder": "The Perhentian and Redang islands",
+"historic": "The Terengganu Sultanate; the Terengganu Inscription Stone (1303)",
+"landmark": "The Crystal Mosque",
+"known": "Islands, turtles and oil and gas",
+"ruler": "Sultan of Terengganu",
+"ethnic": "Malay (about 95%)",
+"half": "Peninsula"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 7,
+"of": 16
+},
+"flagKey": "my/MY-11",
+"capLL": [
+[
+103.12,
+5.33
+]
+]
+}
+]

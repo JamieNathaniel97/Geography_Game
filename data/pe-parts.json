@@ -1,0 +1,1191 @@
+[
+{
+"iso": "PE-AMA",
+"id": "PE-AMA",
+"name": "Amazonas",
+"names": [
+"Amazonas"
+],
+"capitals": [
+"Chachapoyas"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-AMA",
+"info": {
+"abbr": "AMA",
+"kind": "Department",
+"pop": 467688,
+"popYear": "2025",
+"area": 39249,
+"flag": true,
+"facts": {
+"local": "Departamento de Amazonas",
+"dish": "Juane (rice wrapped in bijao leaves)",
+"wonder": "Gocta, one of the world's tallest waterfalls",
+"landmark": "The Kuélap fortress",
+"known": "Cloud forests and the Chachapoyas ruins",
+"region": "Andes and Amazon",
+"civ": "The Chachapoyas (the 'Warriors of the Clouds')"
+},
+"coastal": false,
+"borders": [
+"Ecuador"
+],
+"areaRank": 9,
+"of": 26
+},
+"flagKey": "pe/PE-AMA",
+"capLL": [
+[
+-77.87,
+-6.23
+]
+]
+},
+{
+"iso": "PE-APU",
+"id": "PE-APU",
+"name": "Apurímac",
+"names": [
+"Apurímac",
+"Apurimac"
+],
+"capitals": [
+"Abancay"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-APU",
+"info": {
+"abbr": "APU",
+"kind": "Department",
+"pop": 467513,
+"popYear": "2025",
+"area": 20896,
+"flag": true,
+"facts": {
+"local": "Departamento de Apurímac",
+"wonder": "The Apurímac Canyon",
+"landmark": "Choquequirao, Machu Picchu's 'sister'",
+"known": "Copper mining (Las Bambas)",
+"region": "Andes",
+"civ": "The Chanka, then the Inca",
+"quechua": "Quechua is the main language"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 20,
+"of": 26
+},
+"flagKey": "pe/PE-APU",
+"capLL": [
+[
+-72.89,
+-13.64
+]
+]
+},
+{
+"iso": "PE-ARE",
+"id": "PE-ARE",
+"name": "Arequipa",
+"names": [
+"Arequipa"
+],
+"capitals": [
+"Arequipa"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-ARE",
+"info": {
+"abbr": "ARE",
+"kind": "Department",
+"pop": 1814554,
+"popYear": "2025",
+"area": 63345,
+"flag": true,
+"facts": {
+"local": "Departamento de Arequipa",
+"dish": "Rocoto relleno (stuffed hot peppers)",
+"club": "FBC Melgar",
+"high": "Coropuna, 6,377 m",
+"wonder": "The Colca Canyon and its condors",
+"landmark": "Santa Catalina Monastery and the Misti volcano",
+"unesco": "The historic centre of Arequipa",
+"person": "Mario Vargas Llosa (Nobel laureate)",
+"known": "The 'White City' built of volcanic sillar",
+"region": "Coast and Andes",
+"quechua": "Some, in the highlands"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 6,
+"of": 26
+},
+"flagKey": "pe/PE-ARE",
+"capLL": [
+[
+-71.532,
+-16.418
+]
+]
+},
+{
+"iso": "PE-AYA",
+"id": "PE-AYA",
+"name": "Ayacucho",
+"names": [
+"Ayacucho"
+],
+"capitals": [
+"Ayacucho"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-AYA",
+"info": {
+"abbr": "AYA",
+"kind": "Department",
+"pop": 709026,
+"popYear": "2025",
+"area": 43815,
+"flag": true,
+"facts": {
+"local": "Departamento de Ayacucho",
+"festival": "Holy Week in Ayacucho",
+"historic": "The Battle of Ayacucho (1824), which won South America's independence",
+"landmark": "The Pampa de Quinua battlefield",
+"known": "Retablo folk art and 33 colonial churches",
+"region": "Andes",
+"civ": "Wari (about 600–1000)",
+"quechua": "Quechua is the main language"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8,
+"of": 26
+},
+"flagKey": "pe/PE-AYA",
+"capLL": [
+[
+-74.22,
+-13.175
+]
+]
+},
+{
+"iso": "PE-CAJ",
+"id": "PE-CAJ",
+"name": "Cajamarca",
+"names": [
+"Cajamarca"
+],
+"capitals": [
+"Cajamarca"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-CAJ",
+"info": {
+"abbr": "CAJ",
+"kind": "Department",
+"pop": 1490732,
+"popYear": "2025",
+"area": 33318,
+"flag": true,
+"facts": {
+"local": "Departamento de Cajamarca",
+"festival": "The Cajamarca Carnival",
+"historic": "Pizarro captured the Inca Atahualpa here (1532)",
+"landmark": "The Ransom Room and Cumbe Mayo",
+"known": "Dairy farming and gold (Yanacocha)",
+"region": "Andes",
+"civ": "The Cajamarca culture, then the Inca"
+},
+"coastal": false,
+"borders": [
+"Ecuador"
+],
+"areaRank": 14,
+"of": 26
+},
+"flagKey": "pe/PE-CAJ",
+"capLL": [
+[
+-78.53,
+-7.15
+]
+]
+},
+{
+"iso": "PE-CAL",
+"id": "PE-CAL",
+"name": "Callao",
+"names": [
+"Callao",
+"Constitutional Province of Callao"
+],
+"capitals": [
+"Callao"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-CAL",
+"info": {
+"abbr": "CAL",
+"kind": "Constitutional province",
+"pop": 1101911,
+"popYear": "2025",
+"area": 147,
+"flag": true,
+"facts": {
+"local": "Provincia Constitucional del Callao",
+"club": "Sport Boys",
+"historic": "The Battle of Callao (1866)",
+"landmark": "The Real Felipe Fortress",
+"known": "Peru's main port and the international airport",
+"region": "Coast"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 26,
+"of": 26
+},
+"flagKey": "pe/PE-CAL",
+"anchorLL": [
+-77.131,
+-12.05
+],
+"capLL": [
+[
+-77.135,
+-12.07
+]
+]
+},
+{
+"iso": "PE-CUS",
+"id": "PE-CUS",
+"name": "Cusco",
+"names": [
+"Cusco",
+"Cuzco",
+"Qusqu"
+],
+"capitals": [
+"Cusco",
+"Cuzco"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-CUS",
+"info": {
+"abbr": "CUS",
+"kind": "Department",
+"pop": 1379167,
+"popYear": "2025",
+"area": 71986,
+"flag": true,
+"facts": {
+"local": "Departamento del Cusco (Qusqu)",
+"dish": "Cuy al horno (roast guinea pig)",
+"festival": "Inti Raymi, the Festival of the Sun",
+"club": "Cienciano",
+"wonder": "The Sacred Valley and Rainbow Mountain",
+"landmark": "Machu Picchu",
+"unesco": "Machu Picchu and the city of Cusco",
+"known": "The Inca capital and tourism",
+"region": "Andes and Amazon",
+"civ": "The Inca (Cusco was their capital)",
+"quechua": "Quechua is the main language"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 4,
+"of": 26
+},
+"flagKey": "pe/PE-CUS",
+"capLL": [
+[
+-71.972,
+-13.525
+]
+]
+},
+{
+"iso": "PE-HUV",
+"id": "PE-HUV",
+"name": "Huancavelica",
+"names": [
+"Huancavelica"
+],
+"capitals": [
+"Huancavelica"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-HUV",
+"info": {
+"abbr": "HUV",
+"kind": "Department",
+"pop": 372158,
+"popYear": "2025",
+"area": 22131,
+"flag": true,
+"facts": {
+"local": "Departamento de Huancavelica",
+"festival": "The scissors dance (danza de tijeras)",
+"known": "Colonial mercury mines (Santa Bárbara)",
+"region": "Andes",
+"civ": "The Chanka, then the Inca",
+"quechua": "Quechua is the main language"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 18,
+"of": 26
+},
+"flagKey": "pe/PE-HUV",
+"capLL": [
+[
+-74.99,
+-12.79
+]
+]
+},
+{
+"iso": "PE-HUC",
+"id": "PE-HUC",
+"name": "Huánuco",
+"names": [
+"Huánuco",
+"Huanuco"
+],
+"capitals": [
+"Huánuco",
+"Huanuco"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-HUC",
+"info": {
+"abbr": "HUC",
+"kind": "Department",
+"pop": 807393,
+"popYear": "2025",
+"area": 36849,
+"flag": true,
+"facts": {
+"local": "Departamento de Huánuco",
+"wonder": "Tingo María National Park",
+"landmark": "Kotosh, the Temple of the Crossed Hands",
+"known": "Coca, coffee and the meeting of the Andes and the jungle",
+"region": "Andes and Amazon",
+"civ": "Kotosh (about 2000 BC)",
+"quechua": "Many speak Quechua"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11,
+"of": 26
+},
+"flagKey": "pe/PE-HUC",
+"capLL": [
+[
+-76.24,
+-9.92
+]
+]
+},
+{
+"iso": "PE-ICA",
+"id": "PE-ICA",
+"name": "Ica",
+"names": [
+"Ica"
+],
+"capitals": [
+"Ica"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-ICA",
+"info": {
+"abbr": "ICA",
+"kind": "Department",
+"pop": 1033084,
+"popYear": "2025",
+"area": 21328,
+"flag": true,
+"facts": {
+"local": "Departamento de Ica",
+"dish": "Tejas (filled sweets)",
+"drink": "Pisco",
+"wonder": "The Huacachina oasis and Paracas National Reserve",
+"landmark": "The Nazca Lines",
+"unesco": "The Lines and Geoglyphs of Nasca and Palpa",
+"known": "Pisco, wine and the Nazca Lines",
+"region": "Coast",
+"civ": "Paracas and Nazca"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 19,
+"of": 26
+},
+"flagKey": "pe/PE-ICA",
+"capLL": [
+[
+-75.725,
+-14.068
+]
+]
+},
+{
+"iso": "PE-JUN",
+"id": "PE-JUN",
+"name": "Junín",
+"names": [
+"Junín",
+"Junin"
+],
+"capitals": [
+"Huancayo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-JUN",
+"info": {
+"abbr": "JUN",
+"kind": "Department",
+"pop": 1422780,
+"popYear": "2025",
+"area": 37667,
+"flag": true,
+"facts": {
+"local": "Departamento de Junín",
+"dish": "Papa a la huancaína (potatoes in spicy cheese sauce)",
+"festival": "The Huaylarsh dance",
+"landmark": "The Mantaro Valley",
+"known": "Farming and the high railway to Huancayo",
+"region": "Andes and Amazon",
+"civ": "The Wanka (Huanca)",
+"quechua": "Many speak Quechua"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10,
+"of": 26
+},
+"flagKey": "pe/PE-JUN",
+"capLL": [
+[
+-75.2,
+-12.08
+]
+]
+},
+{
+"iso": "PE-LAL",
+"id": "PE-LAL",
+"name": "La Libertad",
+"names": [
+"La Libertad"
+],
+"capitals": [
+"Trujillo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-LAL",
+"info": {
+"abbr": "LAL",
+"kind": "Department",
+"pop": 2056445,
+"popYear": "2025",
+"area": 25500,
+"flag": true,
+"facts": {
+"local": "Departamento de La Libertad",
+"dish": "Shambar (wheat and bean soup)",
+"festival": "The Marinera Festival in Trujillo",
+"club": "Universidad César Vallejo",
+"landmark": "Chan Chan, the largest adobe city in the Americas",
+"unesco": "Chan Chan",
+"known": "The marinera dance, sugar cane and Huanchaco's reed boats",
+"region": "Coast and Andes",
+"civ": "Moche and Chimú"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 16,
+"of": 26
+},
+"flagKey": "pe/PE-LAL",
+"capLL": [
+[
+-79.02,
+-8.12
+]
+]
+},
+{
+"iso": "PE-LAM",
+"id": "PE-LAM",
+"name": "Lambayeque",
+"names": [
+"Lambayeque"
+],
+"capitals": [
+"Chiclayo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-LAM",
+"info": {
+"abbr": "LAM",
+"kind": "Department",
+"pop": 1404643,
+"popYear": "2025",
+"area": 14231,
+"flag": true,
+"facts": {
+"local": "Departamento de Lambayeque",
+"dish": "Arroz con pato (rice with duck)",
+"club": "Juan Aurich",
+"landmark": "The Royal Tombs of Sipán museum",
+"known": "The Lord of Sipán's tomb (found in 1987)",
+"region": "Coast",
+"civ": "Moche and Sicán (Lambayeque)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 23,
+"of": 26
+},
+"flagKey": "pe/PE-LAM",
+"capLL": [
+[
+-79.837,
+-6.763
+]
+]
+},
+{
+"iso": "PE-LMA",
+"id": "PE-LMA",
+"name": "Lima Province",
+"names": [
+"Lima Province",
+"Lima",
+"Metropolitan Lima",
+"Lima Metropolitana"
+],
+"capitals": [
+"Lima"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-LMA",
+"info": {
+"abbr": "LMA",
+"kind": "Province (the capital)",
+"pop": 10142492,
+"popYear": "2025",
+"area": 2672,
+"flag": true,
+"facts": {
+"local": "Provincia de Lima",
+"dish": "Ceviche and anticuchos",
+"drink": "Pisco sour and Inca Kola",
+"festival": "The Lord of Miracles processions (October)",
+"club": "Alianza Lima, Universitario and Sporting Cristal",
+"river": "Rímac",
+"landmark": "The Plaza Mayor and Huaca Pucllana",
+"unesco": "The historic centre of Lima",
+"known": "The capital and Latin America's food capital",
+"region": "Coast",
+"civ": "The Lima culture (Huaca Pucllana)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 25,
+"of": 26
+},
+"flagKey": "pe/PE-LMA",
+"notTypo": [
+"Lima Region",
+"Lima Provinces"
+],
+"capLL": [
+[
+-77.052,
+-12.046
+]
+]
+},
+{
+"iso": "PE-LIM",
+"id": "PE-LIM",
+"name": "Lima Region",
+"names": [
+"Lima Region",
+"Lima Department",
+"Región Lima",
+"Lima Provinces"
+],
+"capitals": [
+"Huacho"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-LIM",
+"info": {
+"abbr": "LIM",
+"kind": "Region",
+"pop": 1018876,
+"popYear": "2025",
+"area": 32126,
+"flag": true,
+"facts": {
+"local": "Región Lima",
+"landmark": "Caral, the oldest city in the Americas",
+"unesco": "The Sacred City of Caral-Supe",
+"known": "Farming valleys and beaches",
+"region": "Coast and Andes",
+"civ": "Caral (about 3000 BC)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15,
+"of": 26
+},
+"flagKey": "pe/PE-LIM",
+"notTypo": [
+"Lima Province"
+],
+"capLL": [
+[
+-77.62,
+-11.11
+]
+]
+},
+{
+"iso": "PE-LOR",
+"id": "PE-LOR",
+"name": "Loreto",
+"names": [
+"Loreto"
+],
+"capitals": [
+"Iquitos"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-LOR",
+"info": {
+"abbr": "LOR",
+"kind": "Department",
+"pop": 1032771,
+"popYear": "2025",
+"area": 368852,
+"flag": true,
+"facts": {
+"local": "Departamento de Loreto",
+"river": "Amazon",
+"wonder": "The Pacaya-Samiria National Reserve",
+"known": "Iquitos, the largest city that no road reaches, and the rubber boom",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [
+"Brazil",
+"Colombia",
+"Ecuador"
+],
+"areaRank": 1,
+"of": 26
+},
+"flagKey": "pe/PE-LOR",
+"capLL": [
+[
+-73.25,
+-3.75
+]
+]
+},
+{
+"iso": "PE-MDD",
+"id": "PE-MDD",
+"name": "Madre de Dios",
+"names": [
+"Madre de Dios"
+],
+"capitals": [
+"Puerto Maldonado"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-MDD",
+"info": {
+"abbr": "MDD",
+"kind": "Department",
+"pop": 208667,
+"popYear": "2025",
+"area": 85301,
+"flag": true,
+"facts": {
+"local": "Departamento de Madre de Dios",
+"wonder": "Tambopata and Manu (part)",
+"known": "Brazil nuts, rainforest and gold mining",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [
+"Bolivia",
+"Brazil"
+],
+"areaRank": 3,
+"of": 26
+},
+"flagKey": "pe/PE-MDD",
+"capLL": [
+[
+-69.183,
+-12.6
+]
+]
+},
+{
+"iso": "PE-MOQ",
+"id": "PE-MOQ",
+"name": "Moquegua",
+"names": [
+"Moquegua"
+],
+"capitals": [
+"Moquegua"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-MOQ",
+"info": {
+"abbr": "MOQ",
+"kind": "Department",
+"pop": 194828,
+"popYear": "2025",
+"area": 15734,
+"flag": true,
+"facts": {
+"local": "Departamento de Moquegua",
+"known": "Copper (Cuajone) and pisco",
+"region": "Coast and Andes"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 22,
+"of": 26
+},
+"flagKey": "pe/PE-MOQ",
+"capLL": [
+[
+-70.94,
+-17.19
+]
+]
+},
+{
+"iso": "PE-PAS",
+"id": "PE-PAS",
+"name": "Pasco",
+"names": [
+"Pasco"
+],
+"capitals": [
+"Cerro de Pasco"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-PAS",
+"info": {
+"abbr": "PAS",
+"kind": "Department",
+"pop": 253549,
+"popYear": "2025",
+"area": 25320,
+"flag": true,
+"facts": {
+"local": "Departamento de Pasco",
+"wonder": "The Huayllay stone forest",
+"known": "Mining; Cerro de Pasco is one of the world's highest cities",
+"region": "Andes and Amazon (Oxapampa)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 17,
+"of": 26
+},
+"flagKey": "pe/PE-PAS",
+"capLL": [
+[
+-76.27,
+-10.69
+]
+]
+},
+{
+"iso": "PE-PIU",
+"id": "PE-PIU",
+"name": "Piura",
+"names": [
+"Piura"
+],
+"capitals": [
+"Piura"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-PIU",
+"info": {
+"abbr": "PIU",
+"kind": "Department",
+"pop": 2115215,
+"popYear": "2025",
+"area": 35892,
+"flag": true,
+"facts": {
+"local": "Departamento de Piura",
+"dish": "Ceviche and seco de chabelo",
+"club": "Atlético Grau",
+"wonder": "The beaches of Máncora",
+"known": "Mangoes, cotton and beaches",
+"region": "Coast",
+"civ": "Vicús"
+},
+"coastal": true,
+"borders": [
+"Ecuador"
+],
+"areaRank": 13,
+"of": 26
+},
+"flagKey": "pe/PE-PIU",
+"capLL": [
+[
+-80.63,
+-5.21
+]
+]
+},
+{
+"iso": "PE-PUN",
+"id": "PE-PUN",
+"name": "Puno",
+"names": [
+"Puno"
+],
+"capitals": [
+"Puno"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-PUN",
+"info": {
+"abbr": "PUN",
+"kind": "Department",
+"pop": 1232993,
+"popYear": "2025",
+"area": 66997,
+"flag": true,
+"facts": {
+"local": "Departamento de Puno",
+"festival": "The Fiesta de la Candelaria",
+"wonder": "Lake Titicaca and the Uros floating islands",
+"landmark": "The Sillustani burial towers",
+"known": "The 'folk capital of Peru'",
+"region": "Andes (the high altiplano)",
+"civ": "Pukara and Tiwanaku",
+"quechua": "Quechua and Aymara are both widely spoken"
+},
+"coastal": false,
+"borders": [
+"Bolivia"
+],
+"areaRank": 5,
+"of": 26
+},
+"flagKey": "pe/PE-PUN",
+"capLL": [
+[
+-70.033,
+-15.833
+]
+]
+},
+{
+"iso": "PE-SAM",
+"id": "PE-SAM",
+"name": "San Martín",
+"names": [
+"San Martín",
+"San Martin"
+],
+"capitals": [
+"Moyobamba"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-SAM",
+"info": {
+"abbr": "SAM",
+"kind": "Department",
+"pop": 967923,
+"popYear": "2025",
+"area": 51253,
+"flag": true,
+"facts": {
+"local": "Departamento de San Martín",
+"unesco": "Río Abiseo National Park",
+"known": "Coffee and cacao",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 7,
+"of": 26
+},
+"flagKey": "pe/PE-SAM",
+"capLL": [
+[
+-76.967,
+-6.05
+]
+]
+},
+{
+"iso": "PE-TAC",
+"id": "PE-TAC",
+"name": "Tacna",
+"names": [
+"Tacna"
+],
+"capitals": [
+"Tacna"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-TAC",
+"info": {
+"abbr": "TAC",
+"kind": "Department",
+"pop": 389226,
+"popYear": "2025",
+"area": 16076,
+"flag": true,
+"facts": {
+"local": "Departamento de Tacna",
+"historic": "Held by Chile from 1880 to 1929",
+"known": "Trade with Chile",
+"region": "Coast and Andes",
+"quechua": "Some Aymara speakers"
+},
+"coastal": true,
+"borders": [
+"Bolivia",
+"Chile"
+],
+"areaRank": 21,
+"of": 26
+},
+"flagKey": "pe/PE-TAC",
+"capLL": [
+[
+-70.25,
+-18.0
+]
+]
+},
+{
+"iso": "PE-TUM",
+"id": "PE-TUM",
+"name": "Tumbes",
+"names": [
+"Tumbes"
+],
+"capitals": [
+"Tumbes"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-TUM",
+"info": {
+"abbr": "TUM",
+"kind": "Department",
+"pop": 256691,
+"popYear": "2025",
+"area": 4046,
+"flag": true,
+"facts": {
+"local": "Departamento de Tumbes",
+"wonder": "The mangroves of Tumbes",
+"known": "Beaches, shrimp farms and the northernmost department",
+"region": "Coast"
+},
+"coastal": true,
+"borders": [
+"Ecuador"
+],
+"areaRank": 24,
+"of": 26
+},
+"flagKey": "pe/PE-TUM",
+"capLL": [
+[
+-80.46,
+-3.57
+]
+]
+},
+{
+"iso": "PE-UCA",
+"id": "PE-UCA",
+"name": "Ucayali",
+"names": [
+"Ucayali"
+],
+"capitals": [
+"Pucallpa"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-UCA",
+"info": {
+"abbr": "UCA",
+"kind": "Department",
+"pop": 623868,
+"popYear": "2025",
+"area": 101831,
+"flag": true,
+"facts": {
+"local": "Departamento de Ucayali",
+"river": "Ucayali",
+"known": "Timber and Shipibo-Conibo art",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [
+"Brazil"
+],
+"areaRank": 2,
+"of": 26
+},
+"flagKey": "pe/PE-UCA",
+"capLL": [
+[
+-74.535,
+-8.369
+]
+]
+},
+{
+"iso": "PE-ANC",
+"id": "PE-ANC",
+"name": "Áncash",
+"names": [
+"Áncash",
+"Ancash"
+],
+"capitals": [
+"Huaraz"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "PE-ANC",
+"info": {
+"abbr": "ANC",
+"kind": "Department",
+"pop": 1205923,
+"popYear": "2025",
+"area": 35914,
+"flag": true,
+"facts": {
+"local": "Departamento de Áncash",
+"high": "Huascarán, 6,768 m: Peru's highest",
+"wonder": "Huascarán National Park and the Cordillera Blanca",
+"historic": "The 1970 earthquake that buried Yungay",
+"landmark": "Chavín de Huántar",
+"unesco": "Chavín de Huántar and Huascarán National Park",
+"known": "Mountaineering and mining (Antamina)",
+"region": "Andes and coast",
+"civ": "Chavín (about 900–200 BC)",
+"quechua": "Many speak Áncash Quechua"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12,
+"of": 26
+},
+"flagKey": "pe/PE-ANC",
+"capLL": [
+[
+-77.53,
+-9.53
+]
+]
+}
+]

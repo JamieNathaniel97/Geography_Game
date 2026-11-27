@@ -34,9 +34,12 @@
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-kannada.woff") format("woff"); unicode-range: U+0C80-0CFF; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-malayalam.woff") format("woff"); unicode-range: U+0D00-0D7F; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-chinese.woff") format("woff"); unicode-range: U+4E00-9FFF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-hangul.woff") format("woff"); unicode-range: U+AC00-D7AF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-arabic.woff") format("woff"); unicode-range: U+0600-06FF; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-cyrillic.woff") format("woff"); unicode-range: U+0400-04FF; font-display: swap; }
 @font-face { font-family: "GQ Japanese"; src: url("../fonts/gq-japanese.woff") format("woff"); font-display: swap; }
 .native { font-family: "GQ Scripts", var(--body); font-size: 1.15em; }
+.dspnote { grid-column: 1 / -1; margin: 8px 0 0; font-size: 13px; line-height: 1.4; color: var(--fg); } /* a disputed territory's explanation (full width, under the facts) */
 .native-ja { font-family: "GQ Japanese", var(--body); font-size: 1.15em; }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }

@@ -9,3 +9,5 @@
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-malayalam.woff") format("woff"); unicode-range: U+0D00-0D7F; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-chinese.woff") format("woff"); unicode-range: U+4E00-9FFF; font-display: swap; }
 @font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-cyrillic.woff") format("woff"); unicode-range: U+0400-04FF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-hangul.woff") format("woff"); unicode-range: U+AC00-D7AF; font-display: swap; }
+@font-face { font-family: "GQ Scripts"; src: url("../fonts/gq-arabic.woff") format("woff"); unicode-range: U+0600-06FF; font-display: swap; }

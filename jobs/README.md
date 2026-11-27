@@ -9,7 +9,9 @@ Work queued for Gaia Quest, one file per job, in the order to do them. Each file
 
 Push only when the user says so, or as an overnight job list explicitly allows.
 
-**Done 2026-11-26:** [overnight_v2.md](overnight_v2.md) (Austria, Czechia, Poland, the Netherlands, Belgium), with its decisions to check at the end (reviewed with the user and pushed 2026-11-27, 27fce79). **Also done 2026-11-26:** [overnight_v3.md](overnight_v3.md). Next batch: [overnight_v4.md](overnight_v4.md) (start only when the user says so).
+**Done 2026-11-26:** [overnight_v2.md](overnight_v2.md) (Austria, Czechia, Poland, the Netherlands, Belgium), with its decisions to check at the end (reviewed with the user and pushed 2026-11-27, 27fce79). **Also done 2026-11-26:** [overnight_v3.md](overnight_v3.md). **Done 2026-11-27:** [overnight_v4.md](overnight_v4.md) (Chile, Peru, South Korea, Malaysia, Egypt), with decisions to check at the end; not committed until the user says so.
+
+**Planned 2026-11-27 (start each only when the user says so):** [overnight_v5.md](overnight_v5.md) (Norway, Denmark, Finland, Iceland, Estonia, Latvia, Lithuania), [overnight_v6.md](overnight_v6.md) (Greece, Turkey, Ukraine, Romania, Hungary), [overnight_v7.md](overnight_v7.md) (Vietnam, Thailand, the Philippines, Indonesia, Pakistan), [overnight_v8.md](overnight_v8.md) (Morocco, Kenya, Ethiopia, Saudi Arabia, Iran). Card facts approved by the user; Latvia builds 5 regions (43 municipalities downloaded), the Philippines 18 regions (82 provinces downloaded), Turkey 81 provinces (12 statistical regions downloaded); Western Sahara disputed grey in its two controlled areas.
 
 **Overnight run:** [OVERNIGHT.md](OVERNIGHT.md) (the queue and rules: no push, no commit, judgement calls allowed, missing data doesn't block a build) and [OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md) (the report for the morning).
 

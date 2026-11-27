@@ -24,10 +24,15 @@ The config module has:
   LANDLOCKED        True: no part is coastal, whatever its lake shores
   FIT_LIGHT         True: the light map's parts are cut to the high-resolution land too (the Netherlands: Natural
                     Earth's provinces cover the IJsselmeer and the Markermeer, so Flevoland wasn't an island)
+  MERGE             {new code: [Natural Earth codes]}: parts dissolved into one (Gwangju and South Jeolla, 2026)
   CLIP              lon/lat box (or a list of boxes) the parts are cut to (far islands left off)
   CONT              the continent (default "Europe")
   NE_FIX            {(Natural Earth ISO code, name): code} where Natural Earth reuses a code (Colombia: Bogotá is "CO-CUN")
-  INSETS            [dict(codes, box, scale, to, frame, pad)]: parts moved (and scaled) so their box's centre lands on `to`;
+  INSETS            [dict(codes, box, scale, to, frame, pad, part_box, tap, context)]: (part_box: only the part's piece inside
+                    the box moves; tap=False: a plain drawn frame, no square tap area (several parts: Malaysia's East
+                    Malaysia); context: the neighbours' land in the box moves too (Brunei, the Kalimantan coast); bar="top": its scale bar
+                    in the frame's top left instead of the bottom left)
+                    parts moved (and scaled) so their box's centre lands on `to`;
                     a framed inset's part gets a square tap area the shape of its frame (dashed and shaded like an island oval)
                     (Portugal's Azores and Madeira, framed; New Zealand's Chatham Islands, 360° east across the date line,
                     unframed). The shoreline for the detail level is moved the same way.
@@ -35,6 +40,11 @@ The config module has:
   ENCLAVES          {code: dict(a3, name, capital, kind, fill, about)}: independent countries inside the map (South
                     Africa's Lesotho and Eswatini), drawn as shapes in their `fill` colour, in Learning mode only
   DETAIL_TOL        the detail level's simplify tolerance, if not 0.002° (Sweden: its archipelagos made 8 MB of tiles)
+  DISPUTED          [dict(ne, join | grey, name, ring)]: Natural Earth disputed areas (ne = its NAME). join: added to that part
+                    (governed by it), with its land edges dotted (Egypt's Hala'ib Triangle); ring: a dotted circle of that
+                    radius instead, for a speck (South Korea's Dokdo); grey: its own grey, untappable area with that id,
+                    dotted all round and labelled with `name` (Bir Tawil, claimed by neither Egypt nor Sudan)
+  FLAG_FALLBACK     a folder in tools/downloads/<code>/ to take a part's image from when it has no flag (Egypt: coats/)
   EMBLEMS           games 5 and 6 use coats of arms (the module's FLAGS folder holds them)
   FLAGS             the flag folder in tools/downloads/<code>/, if not flags/ (Austria: flags_state/, the state flags
                     with arms, since Salzburg, Vienna and Vorarlberg share one red-white civil flag)
@@ -101,12 +111,12 @@ def inset_scale_bars(cfg, parts=None, prefix=None):
         fw, fs, fe, fn = inset_tf(ins)(box(*ins["box"])).buffer(ins.get("pad", 0.25), join_style=2).bounds
         target = (fe - fw) * 0.34 / k * km_per_deg  # km for a third of the frame
         x0, step = fw + (fe - fw) * 0.06, (fn - fs) * 0.07
-        if parts:  # start no further left than the islands themselves (the frame's edge can run off the screen)
+        if parts and not ins.get("part_box"):  # start no further left than the islands themselves (the frame's edge can run off the screen)
             x0 = max(x0, min(parts[f"{prefix}-{c}"].bounds[0] for c in ins["codes"] if f"{prefix}-{c}" in parts))
         for i, (unit, per_km) in enumerate((("km", 1), ("mi", 1 / 1.609344))):
             d = nice(target * per_km)
             length = d / per_km / km_per_deg * k
-            y = fs + (fn - fs) * 0.08 + (1 - i) * step
+            y = (fn - (fn - fs) * 0.1 - i * step) if ins.get("bar") == "top" else (fs + (fn - fs) * 0.08 + (1 - i) * step)  # bar="top": above the land
             out.append({"from": [round(x0, 4), round(y, 4)], "to": [round(x0 + length, 4), round(y, 4)], "label": f"{d:g} {unit}"})
     return out
 
@@ -118,27 +128,51 @@ def land_poly(cfg, code):
     return polygonal(unary_union([lp] + extra)) if extra else lp
 
 
+def disputed_areas(cfg):
+    if not getattr(cfg, "DISPUTED", None):
+        return {}
+    d = gpd.read_file(NE / "ne_10m_admin_0_disputed_areas.geojson")
+    return {x["ne"]: polygonal(d[d["NAME"] == x["ne"]].geometry.iloc[0]) for x in cfg.DISPUTED}
+
+
 def build_set(cfg, parts, dl_code, out_code, enclaves=None, prefix=None):
     """parts: {id: polygon}. Adds the grey neighbours, cleans and simplifies the coverage, finds the lines, builds the
     detail level. Returns the shapes file and, per part, coastal / borders / anchorLL."""
     a0 = gpd.read_file(NE / "ne_10m_admin_0_countries.geojson")
     enclaves = enclaves or {}
     areas = dict(parts, **enclaves)
+    dsp = disputed_areas(cfg)
+    grey_dsp = {}
+    for x in getattr(cfg, "DISPUTED", []):
+        if x.get("grey"):
+            grey_dsp[x["grey"]] = dsp[x["ne"]]
     skip = {cfg.A3} | {e["a3"] for e in getattr(cfg, "ENCLAVES", {}).values()}
-    country = unary_union(list(areas.values()))
+    country = unary_union(list(areas.values()) + list(grey_dsp.values()))
     fr = unary_union(frames(cfg)) if frames(cfg) else None
     names, win = {}, box(*cfg.WINDOW)
-    for _, r in a0[a0.intersects(win)].iterrows():
+    ctx_boxes = [box(*i["box"]) for i in getattr(cfg, "INSETS", []) if i.get("context")]
+    near = a0.intersects(win) if not ctx_boxes else (a0.intersects(win) | a0.intersects(unary_union(ctx_boxes)))
+    for _, r in a0[near].iterrows():
         a3 = r["ADM0_A3"]
         if a3 in skip:
             continue
         g = polygonal(polygonal(r.geometry).intersection(win).difference(country))
         if fr is not None:
             g = polygonal(g.difference(fr))
+        for ins in getattr(cfg, "INSETS", []):  # the neighbours' land inside a "context" inset moves with it
+            if ins.get("context"):
+                fi = inset_tf(ins)(box(*ins["box"])).buffer(ins.get("pad", 0.25), join_style=2)
+                piece = polygonal(polygonal(r.geometry).intersection(box(*ins["box"])))
+                if not piece.is_empty:
+                    g = polygonal(unary_union([g, polygonal(inset_tf(ins)(piece).intersection(fi).difference(country))]))
         g = unary_union([p for p in getattr(g, "geoms", [g]) if p.area > 0.002])
         if not g.is_empty:
             areas["T-" + a3] = polygonal(g)
             names["T-" + a3] = r["NAME"]
+    for x in getattr(cfg, "DISPUTED", []):  # grey disputed areas (Bir Tawil): their own untappable shape
+        if x.get("grey"):
+            areas[x["grey"]] = grey_dsp[x["grey"]]
+            names[x["grey"]] = x["name"]
     keys = list(areas)
     geo = shapely.coverage_clean([areas[k] for k in keys], gap_width=0.002, snapping_distance=0.0001)
     geo = shapely.coverage_simplify([polygonal(g) for g in geo], SIMPLIFY)
@@ -152,12 +186,35 @@ def build_set(cfg, parts, dl_code, out_code, enclaves=None, prefix=None):
             borders += lines_only(geo[a].boundary.intersection(geo[b].boundary))
     bu = unary_union(borders)
     coast = lines_only(unary_union([g.boundary for g in geo.values()]).difference(bu.buffer(1e-7)).difference(win.exterior.buffer(0.01)))
+    disputed, labels = [], []
+    if dsp:
+        coast_b = unary_union(coast).buffer(0.01) if coast else None
+        for x in cfg.DISPUTED:
+            g = dsp[x["ne"]]
+            if x.get("ring"):
+                c = g.centroid
+                disputed.append(LineString(c.buffer(x["ring"], quad_segs=12).exterior.coords))
+            else:
+                edge = g.boundary if coast_b is None else g.boundary.difference(coast_b)
+                disputed += lines_only(shapely.simplify(edge, SIMPLIFY))
+            if x.get("grey"):
+                p = shapely.maximum_inscribed_circle(g, 0.01).coords[0]
+                labels.append({"ll": [round(p[0], 3), round(p[1], 3)], "text": x["name"]})
+        borders = lines_only(unary_union(borders).difference(unary_union(disputed).buffer(0.003)))
     # (the insets' frames aren't drawn as lines: each framed inset's part gets a square tap area the same shape, below)
     merged = lambda ls: linemerge(ls) if ls else MultiLineString([])
     detail = build_detail(areas, dl_code, cfg.DETAIL, name=out_code, land_poly=land_poly(cfg, dl_code), tol=getattr(cfg, "DETAIL_TOL", 0.002))
     out = {"type": "FeatureCollection",
            "features": [{"type": "Feature", "id": k, "geometry": rounded(g)} for k, g in geo.items() if not g.is_empty],
            "borders": rounded(merged(borders)), "coast": rounded(merged(coast)), "detail": detail}
+    if disputed:
+        out["disputed"] = rounded(merged(disputed))  # drawn dotted (js/mapview.js), even with Borders off
+    if labels:
+        out["labels"] = labels
+    plain = [inset_tf(i)(box(*i["box"])).buffer(i.get("pad", 0.25), join_style=2) for i in getattr(cfg, "INSETS", [])
+             if i.get("frame", True) and i.get("tap") is False]
+    if plain:  # frames with no tap area, drawn straight by the app (as Spain's Canaries)
+        out["frames"] = [[[round(x, 3), round(y, 3)] for x, y in f.exterior.coords] for f in plain]
     bars = inset_scale_bars(cfg, parts, prefix)
     if bars:
         out["scaleBars"] = bars  # the insets' own fixed scale bars
@@ -172,7 +229,8 @@ def build_set(cfg, parts, dl_code, out_code, enclaves=None, prefix=None):
             nb = sorted({names[j] for j, h in geo.items() if j.startswith("T-") and g.boundary.intersection(h.boundary).length > 0.01})
             extra[k] = {"coastal": bool(coast_u is not None and g.boundary.intersection(coast_u).length > 0.03), "borders": nb}
             main = max(getattr(g, "geoms", [g]), key=lambda p: p.area)
-            if not main.contains(main.centroid):
+            # (also when the centre is near an edge or a hole: the app's spherical centre can fall just outside, e.g. Gyeonggi's in Seoul)
+            if not main.contains(main.centroid) or main.boundary.distance(main.centroid) < 0.05:
                 p = shapely.maximum_inscribed_circle(main, 0.01).coords[0]
                 extra[k]["anchorLL"] = [round(p[0], 3), round(p[1], 3)]
     return out, extra
@@ -192,6 +250,8 @@ def make_items(cfg, table, facts, prefix, flag_dir, flag_key, extra, cap_ll_cach
     for code, row in table.items():
         iso = f"{prefix}-{code}"
         src = flag_dir / f"{row.get('flagIso', cfg.A2 + '-' + code)}.png"
+        if not src.exists() and getattr(cfg, "FLAG_FALLBACK", None):  # no flag: its emblem instead (Egypt's Cairo and Luxor)
+            src = flag_dir.parent / cfg.FLAG_FALLBACK / src.name
         if src.exists():
             flag(src, out_flags / f"{iso}.webp")
         cap = row.get("capital", "")
@@ -223,7 +283,7 @@ def make_items(cfg, table, facts, prefix, flag_dir, flag_key, extra, cap_ll_cach
                                               for a in [i * math.pi / 12 for i in range(24)]]}
                  for k, c, *r in getattr(cfg, "ISLES", []) if k == code and table is cfg.PARTS]
         for ins in getattr(cfg, "INSETS", []):  # a framed inset: its tap area is the frame itself, drawn dashed and shaded
-            if code in ins["codes"] and ins.get("frame", True) and table is cfg.PARTS:
+            if code in ins["codes"] and ins.get("frame", True) and ins.get("tap", True) and table is cfg.PARTS:
                 fr = inset_tf(ins)(box(*ins["box"])).buffer(ins.get("pad", 0.25), join_style=2)
                 w, s_, e, n = fr.bounds
                 isles.append({"center": [round((w + e) / 2, 3), round((s_ + n) / 2, 3)], "square": True,
@@ -263,11 +323,22 @@ def main(code):
         boxes = cfg.CLIP if isinstance(cfg.CLIP[0], (list, tuple)) else [cfg.CLIP]  # one box, or several
         keep = unary_union([box(*b) for b in boxes])
         parts = {k: polygonal(v.intersection(keep)) for k, v in parts.items()}
+    for x in getattr(cfg, "DISPUTED", []):  # governed by a part: joined to it (Hala'ib to the Red Sea, Dokdo to North Gyeongsang)
+        if x.get("join"):
+            k = f"{prefix}-{x['join']}"
+            parts[k] = polygonal(unary_union([parts[k], disputed_areas(cfg)[x["ne"]]]))
     moved = {}
     for ins in getattr(cfg, "INSETS", []):
         for c in ins["codes"]:
+            k = f"{prefix}-{c}"
+            if ins.get("part_box"):  # only the part's islands inside the box move (Chile's Easter Island, Valparaíso's)
+                b = box(*ins["box"])
+                parts[k] = polygonal(unary_union([parts[k].difference(b), inset_tf(ins)(parts[k].intersection(b))]))
+                continue
             moved[c] = inset_tf(ins)
-            parts[f"{prefix}-{c}"] = polygonal(moved[c](parts[f"{prefix}-{c}"]))
+            parts[k] = polygonal(moved[c](parts[k]))
+    for new, members in getattr(cfg, "MERGE", {}).items():  # parts merged since Natural Earth's data (South Korea, July 2026)
+        parts[f"{prefix}-{new}"] = polygonal(unary_union([parts.pop(f"{prefix}-{m}") for m in members]))
     assert set(parts) == {f"{prefix}-{c}" for c in cfg.PARTS}, sorted(set(parts) ^ {f"{prefix}-{c}" for c in cfg.PARTS})
     if getattr(cfg, "FIT_LIGHT", False):
         # the shoreline's land near the country, less the neighbours' land (so none of it is grown into the parts)
