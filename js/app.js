@@ -444,7 +444,7 @@
     }
     if (finished) { reviewSel = c; flashName(c); redraw(); return; } // reviewing: tap any country to see its name (or capital)
     if (isName()) { tapName(c, view); return; }
-    if (!target || state[c.iso] === "good") return; // already-correct countries do nothing
+    if (!target || state[c.iso] === "good" || state[c.iso] === "bad") return; // already-correct (green) and missed (red) countries do nothing
     // the next country appears instantly; the map keeps the green/red result
     GG.Stats.answer(S.mode, target.iso, c === target);
     if (c === target) { state[c.iso] = "good"; nGood++; }
@@ -1306,8 +1306,9 @@
     USA: { name: "United States", focus: "The U.S.", cont: "North America", unit: "States", data: "us", region: "usa" },
     CAN: { name: "Canada", focus: "Canada", cont: "North America", unit: "Provinces & territories", data: "ca", region: "canada" },
     // the UK and Ireland share one map of Britain and Ireland's counties (Ireland opens on its own region)
-    GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", data: "uk", region: "uk", page: "Britain & Ireland" },
-    IRL: { name: "Ireland", focus: "Ireland", cont: "Europe", unit: "Counties", data: "uk", region: "uk-ire", page: "Britain & Ireland" },
+    // (games use the ceremonial counties; the historic ones are in Learning mode only)
+    GBR: { name: "United Kingdom", focus: "the UK", cont: "Europe", unit: "Counties", data: "ukc", region: "ukc", page: "Britain & Ireland" },
+    IRL: { name: "Ireland", focus: "Ireland", cont: "Europe", unit: "Counties", data: "ukc", region: "ukc-ire", page: "Ireland", own: true },
     // coming next (India_plan.md, China_plan.md, Russia_plan.md, Australia_plan.md); Russia is in Europe and Asia
     IND: { name: "India", focus: "India", cont: "Asia", unit: "States & UTs", data: "in", region: "india" },
     CHN: { name: "China", focus: "China", cont: "Asia", unit: "Provinces", data: "cn", region: "china" },
@@ -1329,7 +1330,8 @@
     if (!m.sub) COUNTRY_MAPS[m.a3] = { name: m.name, focus: m.focus || m.name, cont: m.cont || "Europe", unit: m.Nouns, data: d, region: m.region || m.style };
   });
   // from the world Learning map, the UK and Ireland open the countries view first
-  const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
+  // (Ireland opens straight on its own counties, in the county set last used in Learning mode)
+  const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { get region() { return ukSet() + "-ire"; }, get data() { return ukSet(); } },
   };
   let focusOn = null;
   let focusFrom = null; // the country whose "Focus on" button is showing
@@ -1351,11 +1353,14 @@
   $("focusBtn").onclick = () => {
     if (!focusOn) return;
     viewBefore[S.data] = { t: main.t, mode: main.mode, iso: focusFrom && focusFrom.iso };
+    if (S.data === "world") delete viewBefore.ukn; // (a fresh trip from the world map: back goes to the world)
     const into = S.data === "world" && FOCUS_INTO[Object.keys(COUNTRY_MAPS).find(k => COUNTRY_MAPS[k] === focusOn)];
     startGame("explore", (into || focusOn).region, "flat", (into || focusOn).data);
   };
   $("worldBtn").onclick = () => {
-    const back = S.data === "uk" || S.data === "ukc" ? "ukn" : "world", v = viewBefore[back];
+    // (counties go back to the UK & Ireland countries view, unless Ireland was opened straight from the world map)
+    const irlFromWorld = /-ire$/.test(S.region) && !viewBefore.ukn;
+    const back = (S.data === "uk" || S.data === "ukc") && !irlFromWorld ? "ukn" : "world", v = viewBefore[back];
     const view = back === "world" ? (v ? v.mode : prefs.worldView || "globe") : "flat";
     Promise.resolve(startGame("explore", back, view, back)).then(() => {
       if (!v || S.data !== back) return;
@@ -1519,7 +1524,7 @@
       .replace("flags", d.emblems || "flags").replace("flag", d.emblem || "flag"); };
   let statsSkill = "country", statsData = "world";
   const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
-  function openStats() { statsData = S.data === "ukn" ? "uk" : S.data; renderStats(); $("stats").hidden = false; }
+  function openStats() { statsData = S.data === "ukn" || S.data === "uk" ? "ukc" : S.data; renderStats(); $("stats").hidden = false; } // (UK games are ceremonial)
   function closeStats() { $("stats").hidden = true; resetStatsReset(); }
   function renderStats() {
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
@@ -1798,7 +1803,7 @@
     const conts = ["Europe", "Asia", "Africa", "North America", "South America", "Oceania"];
     $("countryList").innerHTML = conts.map(ct => {
       const inCont = m => (Array.isArray(m.cont) ? m.cont.includes(ct) : m.cont === ct);
-      const btns = Object.entries(COUNTRY_MAPS).filter(([, m]) => inCont(m)).map(([iso, m]) => {
+      const btns = Object.entries(COUNTRY_MAPS).filter(([, m]) => inCont(m)).sort(([, a], [, b]) => a.name.localeCompare(b.name, "en")).map(([iso, m]) => {
         const c = geoWorld.byIso[iso];
         return `<button type="button" data-v="${iso}"${m.soon ? " disabled" : ""}>${c ? `<img src="${flagSrc(c)}" alt="">` : ""}` +
           `<span>${esc(m.name)}</span>${m.soon ? "<small>soon</small>" : ""}</button>`;
@@ -1833,7 +1838,7 @@
       segSelect($("cpGames"), pick.mode);
       // Britain and Ireland: county set, region and the Crown Dependencies, chosen before each game
       const uk = pick.data === "uk" || pick.data === "ukc";
-      $("cpOpts").hidden = !uk;
+      $("cpOpts").hidden = !uk || !!m.own; // (Ireland's own page: just its counties)
       // no county in Ireland has a registered flag: no flag games there (shown again for every other choice)
       const noFlags = (uk && /-ire$/.test(pick.region)) || !!DATASETS[pick.data].noFlags;
       // India: union territories on or off
@@ -1851,6 +1856,7 @@
         b.hidden = noFlags; b.textContent = ds.emblems ? ds.emblems[0].toUpperCase() + ds.emblems.slice(1) : "Flags"; });
       if (noFlags && /flag$/.test(pick.mode)) { pick.mode = pick.mode.replace("flag", ""); segSelect($("cpGames"), pick.mode); }
       if (uk) {
+        $("cpSetField").hidden = true; // games use the ceremonial counties (the historic ones: Learning mode only)
         segSelect($("cpSet"), pick.data);
         segSelect($("cpRegion"), pick.region.replace(/^ukc?/, "") || "all");
         segSelect($("cpCD"), pick.cd ? "on" : "off");
@@ -1876,6 +1882,7 @@
     // Learning mode: straight to that country's own map (the UK and Ireland open on their countries view)
     if (pick.learn) {
       const to = FOCUS_INTO[b.dataset.v] || m;
+      delete viewBefore.ukn; // (from the list: back goes to the world map)
       closeSetup(); closeInset(); startGame("explore", to.region, "flat", to.data); return;
     }
     pick.country = b.dataset.v; pick.data = m.data; pick.region = m.region;
@@ -2296,6 +2303,8 @@
     if (GG.History && S.mode === "hist") { GG.History.stop(); clearTimeout(histLock); main.setCrop(null); }
     // Learning mode's whole UK & Ireland is the countries view (no county lines); counties come after "Focus on ..."
     if (mode === "explore" && (data === "uk" || data === "ukc") && (region === "uk" || region === "ukc")) { data = "ukn"; region = "ukn"; }
+    // the historic counties are in Learning mode only: a game (e.g. a remembered one) uses the ceremonial counties
+    if (mode !== "explore" && data === "uk") { data = "ukc"; region = region.replace(/^uk(?!c)/, "ukc"); }
     if (data !== S.data || !geo) return useData(data).then(() => startGame(mode, region, view, data));
     // a country map's own regions (England, Scotland...), or else the whole map
     if (isCountryMap(data)) { if (dataOfRegion(region) !== data) region = DATASETS[data].region; view = "flat"; }
@@ -2310,7 +2319,8 @@
     if (mode === "explore" && S.magnify) setMag(false);
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
-    $("worldBtn").textContent = data === "uk" || data === "ukc" ? "‹ UK & Ireland" : "‹ World map"; // counties -> countries view
+    // counties -> the countries view (Ireland opened on its own goes back to the world map)
+    $("worldBtn").textContent = (data === "uk" || data === "ukc") && !(/-ire$/.test(region) && !viewBefore.ukn) ? "‹ UK & Ireland" : "‹ World map";
     // Britain and Ireland's Learning map: switch between the two county sets
     // Britain and Ireland: the sources' credit lines (required by their licences), on the map in every UK game
     const ukMap = data === "uk" || data === "ukc" || data === "ukn";
