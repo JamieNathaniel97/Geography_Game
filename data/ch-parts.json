@@ -1,0 +1,1384 @@
+[
+{
+"iso": "CH-AG",
+"id": "CH-AG",
+"name": "Aargau",
+"names": [
+"Aargau",
+"Argovie",
+"Argovia"
+],
+"capitals": [
+"Aarau"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-AG",
+"info": {
+"abbr": "AG",
+"kind": "Canton",
+"pop": 743768,
+"popYear": "2025",
+"area": 1404,
+"flag": true,
+"facts": {
+"local": "Aargau",
+"demonym": "Aargauer",
+"club": "FC Aarau",
+"river": "Aare, Reuss and Limmat",
+"landmark": "Habsburg Castle (where the Habsburgs began)",
+"historic": "Roman Vindonissa",
+"known": "The 'canton of castles'",
+"language": "German",
+"joined": "1803"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 10,
+"of": 26
+},
+"flagKey": "ch/CH-AG",
+"capLL": [
+[
+8.034,
+47.39
+]
+]
+},
+{
+"iso": "CH-AR",
+"id": "CH-AR",
+"name": "Appenzell Ausserrhoden",
+"names": [
+"Appenzell Ausserrhoden",
+"Appenzell Outer Rhodes",
+"Ausserrhoden",
+"Appenzell Rhodes-Extérieures"
+],
+"capitals": [
+"Herisau"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-AR",
+"info": {
+"abbr": "AR",
+"kind": "Canton",
+"pop": 57221,
+"popYear": "2025",
+"area": 243,
+"flag": true,
+"facts": {
+"local": "Appenzell Ausserrhoden",
+"demonym": "Appenzeller",
+"festival": "The Silvesterchlausen (New Year mummers)",
+"wonder": "The Säntis",
+"historic": "Split from Appenzell in 1597 (the Protestant half)",
+"known": "Rolling hills and folk traditions",
+"language": "German",
+"joined": "1513 (as Appenzell)",
+"cheese": "Appenzeller cheese"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 23,
+"of": 26
+},
+"flagKey": "ch/CH-AR",
+"anchorLL": [
+9.259,
+47.313
+],
+"notTypo": [
+"Appenzell Innerrhoden"
+],
+"capLL": [
+[
+9.283,
+47.383
+]
+]
+},
+{
+"iso": "CH-AI",
+"id": "CH-AI",
+"name": "Appenzell Innerrhoden",
+"names": [
+"Appenzell Innerrhoden",
+"Appenzell Inner Rhodes",
+"Innerrhoden",
+"Appenzell Rhodes-Intérieures"
+],
+"capitals": [
+"Appenzell"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-AI",
+"info": {
+"abbr": "AI",
+"kind": "Canton",
+"pop": 16890,
+"popYear": "2025",
+"area": 173,
+"flag": true,
+"facts": {
+"local": "Appenzell Innerrhoden",
+"demonym": "Appenzeller",
+"festival": "The Landsgemeinde (open-air assembly)",
+"wonder": "The Ebenalp and the Seealpsee",
+"historic": "Split from Appenzell in 1597 (the Catholic half)",
+"landmark": "The Aescher cliff inn",
+"known": "The least populous canton; women got the vote only in 1990",
+"language": "German",
+"joined": "1513 (as Appenzell)",
+"cheese": "Appenzeller cheese"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 25,
+"of": 26
+},
+"flagKey": "ch/CH-AI",
+"notTypo": [
+"Appenzell Ausserrhoden"
+],
+"capLL": [
+[
+9.417,
+47.333
+]
+]
+},
+{
+"iso": "CH-BL",
+"id": "CH-BL",
+"name": "Basel-Landschaft",
+"names": [
+"Basel-Landschaft",
+"Basel-Country",
+"Basel Country",
+"Baselland",
+"Bâle-Campagne",
+"Basilea Campagna"
+],
+"capitals": [
+"Liestal"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-BL",
+"info": {
+"abbr": "BL",
+"kind": "Canton",
+"pop": 303872,
+"popYear": "2025",
+"area": 518,
+"flag": true,
+"facts": {
+"local": "Basel-Landschaft",
+"demonym": "Baselbieter",
+"landmark": "Augusta Raurica (Roman town)",
+"historic": "Split from Basel in 1833",
+"known": "The countryside and suburbs of Basel",
+"language": "German",
+"joined": "1501 (as part of Basel)"
+},
+"coastal": false,
+"borders": [
+"France",
+"Germany"
+],
+"areaRank": 18,
+"of": 26
+},
+"flagKey": "ch/CH-BL",
+"anchorLL": [
+7.79,
+47.438
+],
+"notTypo": [
+"Basel-Stadt"
+],
+"capLL": [
+[
+7.737,
+47.483
+]
+]
+},
+{
+"iso": "CH-BS",
+"id": "CH-BS",
+"name": "Basel-Stadt",
+"names": [
+"Basel-Stadt",
+"Basel-City",
+"Basel City",
+"Bâle-Ville",
+"Basilea Città"
+],
+"capitals": [
+"Basel",
+"Bâle",
+"Basle"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-BS",
+"info": {
+"abbr": "BS",
+"kind": "Canton",
+"pop": 204157,
+"popYear": "2025",
+"area": 37,
+"flag": true,
+"facts": {
+"local": "Basel-Stadt",
+"demonym": "Basler",
+"dialect": "Basel German",
+"dish": "Basler Läckerli (spiced biscuits)",
+"festival": "The Basel Fasnacht and Art Basel",
+"club": "FC Basel",
+"river": "Rhine",
+"landmark": "Basel Minster",
+"known": "Pharmaceuticals and art",
+"company": "Novartis and Roche",
+"language": "German",
+"joined": "1501"
+},
+"coastal": false,
+"borders": [
+"France",
+"Germany"
+],
+"areaRank": 26,
+"of": 26
+},
+"flagKey": "ch/CH-BS",
+"notTypo": [
+"Basel-Landschaft"
+],
+"capLL": [
+[
+7.59,
+47.58
+]
+]
+},
+{
+"iso": "CH-BE",
+"id": "CH-BE",
+"name": "Bern",
+"names": [
+"Bern",
+"Berne",
+"Berna"
+],
+"capitals": [
+"Bern",
+"Berne"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-BE",
+"info": {
+"abbr": "BE",
+"kind": "Canton",
+"pop": 1076127,
+"popYear": "2025",
+"area": 5960,
+"flag": true,
+"facts": {
+"local": "Bern / Berne",
+"demonym": "Bernese",
+"dialect": "Bernese German",
+"dish": "Berner Platte and rösti",
+"festival": "The Zibelemärit (onion market)",
+"club": "BSC Young Boys",
+"river": "Aare",
+"high": "Finsteraarhorn, 4,274 m",
+"wonder": "The Jungfrau region and Lakes Thun and Brienz",
+"landmark": "The Zytglogge clock tower",
+"unesco": "The Old City of Bern and Jungfrau-Aletsch",
+"person": "Albert Einstein (worked out relativity in Bern)",
+"known": "The federal city and the Bernese Oberland",
+"company": "Toblerone",
+"language": "German and French",
+"joined": "1353",
+"cheese": "Emmental cheese and Toblerone"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 2,
+"of": 26
+},
+"flagKey": "ch/CH-BE",
+"capLL": [
+[
+7.467,
+46.917
+]
+]
+},
+{
+"iso": "CH-FR",
+"id": "CH-FR",
+"name": "Fribourg",
+"names": [
+"Fribourg",
+"Freiburg",
+"Friburgo"
+],
+"capitals": [
+"Fribourg",
+"Freiburg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-FR",
+"info": {
+"abbr": "FR",
+"kind": "Canton",
+"pop": 350918,
+"popYear": "2025",
+"area": 1671,
+"flag": true,
+"facts": {
+"local": "Fribourg / Freiburg",
+"demonym": "Fribourgeois",
+"dialect": "French and German (the language border runs through it)",
+"dish": "Fondue moitié-moitié",
+"landmark": "Gruyères Castle",
+"known": "Gruyère cheese and a bilingual capital",
+"language": "French and German",
+"joined": "1481",
+"cheese": "Le Gruyère, and Cailler chocolate (Broc)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8,
+"of": 26
+},
+"flagKey": "ch/CH-FR",
+"capLL": [
+[
+7.15,
+46.8
+]
+]
+},
+{
+"iso": "CH-GE",
+"id": "CH-GE",
+"name": "Geneva",
+"names": [
+"Geneva",
+"Genève",
+"Geneve",
+"Genf",
+"Ginevra"
+],
+"capitals": [
+"Geneva",
+"Genève",
+"Geneve",
+"Genf"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-GE",
+"info": {
+"abbr": "GE",
+"kind": "Canton",
+"pop": 537084,
+"popYear": "2025",
+"area": 282,
+"flag": true,
+"facts": {
+"local": "Genève",
+"demonym": "Genevan (genevois)",
+"dish": "Longeole sausage",
+"festival": "The Fête de l'Escalade",
+"club": "Servette FC",
+"river": "Rhône",
+"landmark": "The Jet d'Eau",
+"person": "Jean-Jacques Rousseau (born in Geneva)",
+"known": "The UN's European office, the Red Cross and CERN",
+"company": "Rolex and Patek Philippe",
+"language": "French",
+"joined": "1815"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 21,
+"of": 26
+},
+"flagKey": "ch/CH-GE",
+"capLL": [
+[
+6.14,
+46.21
+]
+]
+},
+{
+"iso": "CH-GL",
+"id": "CH-GL",
+"name": "Glarus",
+"names": [
+"Glarus",
+"Glaris",
+"Glarona"
+],
+"capitals": [
+"Glarus"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-GL",
+"info": {
+"abbr": "GL",
+"kind": "Canton",
+"pop": 42451,
+"popYear": "2025",
+"area": 685,
+"flag": true,
+"facts": {
+"local": "Glarus",
+"demonym": "Glarner",
+"festival": "The Landsgemeinde (open-air assembly)",
+"high": "Tödi, 3,614 m",
+"wonder": "The Glarus thrust",
+"unesco": "The Swiss Tectonic Arena Sardona",
+"known": "Direct democracy by show of hands",
+"language": "German",
+"joined": "1352",
+"cheese": "Schabziger (green herb cheese)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 17,
+"of": 26
+},
+"flagKey": "ch/CH-GL",
+"capLL": [
+[
+9.067,
+47.05
+]
+]
+},
+{
+"iso": "CH-GR",
+"id": "CH-GR",
+"name": "Graubünden",
+"names": [
+"Graubünden",
+"Graubunden",
+"Grisons",
+"Grigioni",
+"Grischun"
+],
+"capitals": [
+"Chur",
+"Coira",
+"Cuira"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-GR",
+"info": {
+"abbr": "GR",
+"kind": "Canton",
+"pop": 207400,
+"popYear": "2025",
+"area": 7105,
+"flag": true,
+"facts": {
+"local": "Graubünden / Grischun / Grigioni",
+"demonym": "Bündner",
+"dialect": "German, Romansh and Italian",
+"dish": "Capuns, Bündnerfleisch and Nusstorte",
+"high": "Piz Bernina, 4,049 m",
+"wonder": "The Swiss National Park and the source of the Rhine",
+"landmark": "The Landwasser Viaduct",
+"unesco": "The Rhaetian Railway (Albula and Bernina), the Convent of St John at Müstair and Sardona",
+"known": "St. Moritz, Davos and the World Economic Forum",
+"language": "German, Romansh and Italian (the only trilingual canton)",
+"joined": "1803"
+},
+"coastal": false,
+"borders": [
+"Austria",
+"Italy",
+"Liechtenstein"
+],
+"areaRank": 1,
+"of": 26
+},
+"flagKey": "ch/CH-GR",
+"capLL": [
+[
+9.5,
+46.85
+]
+]
+},
+{
+"iso": "CH-JU",
+"id": "CH-JU",
+"name": "Jura",
+"names": [
+"Jura"
+],
+"capitals": [
+"Delémont",
+"Delemont",
+"Delsberg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-JU",
+"info": {
+"abbr": "JU",
+"kind": "Canton",
+"pop": 75178,
+"popYear": "2025",
+"area": 839,
+"flag": true,
+"facts": {
+"local": "Jura",
+"demonym": "Jurassien",
+"drink": "Damassine (plum brandy)",
+"festival": "The Marché-Concours horse fair at Saignelégier",
+"historic": "Split from Bern after a long independence movement",
+"known": "The youngest canton, Franches-Montagnes horses and watchmaking",
+"language": "French",
+"joined": "1979 (the newest canton)",
+"cheese": "Tête de Moine"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 14,
+"of": 26
+},
+"flagKey": "ch/CH-JU",
+"capLL": [
+[
+7.345,
+47.37
+]
+]
+},
+{
+"iso": "CH-LU",
+"id": "CH-LU",
+"name": "Lucerne",
+"names": [
+"Lucerne",
+"Luzern",
+"Lucerna"
+],
+"capitals": [
+"Lucerne",
+"Luzern"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-LU",
+"info": {
+"abbr": "LU",
+"kind": "Canton",
+"pop": 441500,
+"popYear": "2025",
+"area": 1494,
+"flag": true,
+"facts": {
+"local": "Luzern",
+"demonym": "Lucerner",
+"dialect": "Lucerne German",
+"dish": "Luzerner Chügelipastete",
+"festival": "Lucerne Carnival and the Lucerne Festival",
+"club": "FC Luzern",
+"river": "Reuss",
+"wonder": "Lake Lucerne and Mount Pilatus",
+"landmark": "The Chapel Bridge",
+"known": "Tourism and the gateway to central Switzerland",
+"company": "Schindler (lifts)",
+"language": "German",
+"joined": "1332"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9,
+"of": 26
+},
+"flagKey": "ch/CH-LU",
+"capLL": [
+[
+8.309,
+47.05
+]
+]
+},
+{
+"iso": "CH-NE",
+"id": "CH-NE",
+"name": "Neuchâtel",
+"names": [
+"Neuchâtel",
+"Neuchatel",
+"Neuenburg"
+],
+"capitals": [
+"Neuchâtel",
+"Neuchatel",
+"Neuenburg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-NE",
+"info": {
+"abbr": "NE",
+"kind": "Canton",
+"pop": 180365,
+"popYear": "2025",
+"area": 803,
+"flag": true,
+"facts": {
+"local": "Neuchâtel",
+"demonym": "Neuchâtelois",
+"drink": "Absinthe (Val-de-Travers, where it began)",
+"club": "Neuchâtel Xamax",
+"historic": "A Prussian principality until 1848",
+"unesco": "La Chaux-de-Fonds and Le Locle, the watchmaking towns",
+"known": "Watchmaking",
+"company": "Tissot (Le Locle)",
+"language": "French",
+"joined": "1815",
+"cheese": "Suchard chocolate (founded here)"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 15,
+"of": 26
+},
+"flagKey": "ch/CH-NE",
+"capLL": [
+[
+6.923,
+46.999
+]
+]
+},
+{
+"iso": "CH-NW",
+"id": "CH-NW",
+"name": "Nidwalden",
+"names": [
+"Nidwalden",
+"Nidwald",
+"Nidvaldo"
+],
+"capitals": [
+"Stans"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-NW",
+"info": {
+"abbr": "NW",
+"kind": "Canton",
+"pop": 45664,
+"popYear": "2025",
+"area": 276,
+"flag": true,
+"facts": {
+"local": "Nidwalden",
+"demonym": "Nidwaldner",
+"wonder": "The Stanserhorn and the Bürgenstock",
+"historic": "Half of Unterwalden, a founding canton",
+"landmark": "The Stanserhorn's open-top cable car",
+"company": "Pilatus Aircraft (Stans)",
+"language": "German",
+"joined": "1291 (as part of Unterwalden)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 22,
+"of": 26
+},
+"flagKey": "ch/CH-NW",
+"notTypo": [
+"Obwalden"
+],
+"capLL": [
+[
+8.383,
+46.95
+]
+]
+},
+{
+"iso": "CH-OW",
+"id": "CH-OW",
+"name": "Obwalden",
+"names": [
+"Obwalden",
+"Obwald",
+"Obvaldo"
+],
+"capitals": [
+"Sarnen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-OW",
+"info": {
+"abbr": "OW",
+"kind": "Canton",
+"pop": 39879,
+"popYear": "2025",
+"area": 491,
+"flag": true,
+"facts": {
+"local": "Obwalden",
+"demonym": "Obwaldner",
+"wonder": "Mount Titlis and Lake Sarnen",
+"historic": "Half of Unterwalden, a founding canton",
+"landmark": "Engelberg Abbey",
+"person": "Niklaus von Flüe (Switzerland's patron saint)",
+"language": "German",
+"joined": "1291 (as part of Unterwalden)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 19,
+"of": 26
+},
+"flagKey": "ch/CH-OW",
+"anchorLL": [
+8.12,
+46.844
+],
+"notTypo": [
+"Nidwalden"
+],
+"capLL": [
+[
+8.243,
+46.899
+]
+]
+},
+{
+"iso": "CH-SH",
+"id": "CH-SH",
+"name": "Schaffhausen",
+"names": [
+"Schaffhausen",
+"Schaffhouse",
+"Sciaffusa"
+],
+"capitals": [
+"Schaffhausen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-SH",
+"info": {
+"abbr": "SH",
+"kind": "Canton",
+"pop": 90087,
+"popYear": "2025",
+"area": 298,
+"flag": true,
+"facts": {
+"local": "Schaffhausen",
+"demonym": "Schaffhauser",
+"river": "Rhine",
+"wonder": "The Rhine Falls, Europe's most powerful waterfall",
+"landmark": "The Munot fortress",
+"known": "The Rhine Falls and watches",
+"company": "IWC Schaffhausen",
+"language": "German",
+"joined": "1501"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 20,
+"of": 26
+},
+"flagKey": "ch/CH-SH",
+"capLL": [
+[
+8.633,
+47.706
+]
+]
+},
+{
+"iso": "CH-SZ",
+"id": "CH-SZ",
+"name": "Schwyz",
+"names": [
+"Schwyz",
+"Schwytz",
+"Svitto"
+],
+"capitals": [
+"Schwyz"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-SZ",
+"info": {
+"abbr": "SZ",
+"kind": "Canton",
+"pop": 170072,
+"popYear": "2025",
+"area": 908,
+"flag": true,
+"facts": {
+"local": "Schwyz",
+"demonym": "Schwyzer",
+"wonder": "The Hölloch cave in the Muota valley",
+"historic": "A founding canton: it gave Switzerland its name and flag",
+"landmark": "The Museum of the Federal Charters",
+"known": "Swiss Army knives and the country's name",
+"company": "Victorinox (Ibach)",
+"language": "German",
+"joined": "1291 (a founding canton)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 13,
+"of": 26
+},
+"flagKey": "ch/CH-SZ",
+"capLL": [
+[
+8.648,
+47.02
+]
+]
+},
+{
+"iso": "CH-SO",
+"id": "CH-SO",
+"name": "Solothurn",
+"names": [
+"Solothurn",
+"Soleure",
+"Soletta"
+],
+"capitals": [
+"Solothurn",
+"Soleure"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-SO",
+"info": {
+"abbr": "SO",
+"kind": "Canton",
+"pop": 291583,
+"popYear": "2025",
+"area": 790,
+"flag": true,
+"facts": {
+"local": "Solothurn",
+"demonym": "Solothurner",
+"dish": "Solothurner Torte",
+"festival": "The Solothurn Film Festival",
+"river": "Aare",
+"landmark": "St. Ursus Cathedral",
+"known": "Watchmaking and its obsession with the number 11",
+"language": "German",
+"joined": "1481"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 16,
+"of": 26
+},
+"flagKey": "ch/CH-SO",
+"capLL": [
+[
+7.537,
+47.212
+]
+]
+},
+{
+"iso": "CH-SG",
+"id": "CH-SG",
+"name": "St. Gallen",
+"names": [
+"St. Gallen",
+"St Gallen",
+"Sankt Gallen",
+"Saint Gall",
+"St. Gall",
+"San Gallo"
+],
+"capitals": [
+"St. Gallen",
+"St Gallen",
+"Sankt Gallen",
+"Saint-Gall"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-SG",
+"info": {
+"abbr": "SG",
+"kind": "Canton",
+"pop": 544040,
+"popYear": "2025",
+"area": 2031,
+"flag": true,
+"facts": {
+"local": "St. Gallen",
+"demonym": "St. Galler",
+"dish": "St. Galler Bratwurst",
+"festival": "The OLMA fair",
+"club": "FC St. Gallen",
+"landmark": "The Abbey of St. Gall",
+"unesco": "The Abbey of St. Gall and its library",
+"known": "Textiles and embroidery",
+"language": "German",
+"joined": "1803"
+},
+"coastal": false,
+"borders": [
+"Austria",
+"Liechtenstein"
+],
+"areaRank": 6,
+"of": 26
+},
+"flagKey": "ch/CH-SG",
+"capLL": [
+[
+9.362,
+47.423
+]
+]
+},
+{
+"iso": "CH-TG",
+"id": "CH-TG",
+"name": "Thurgau",
+"names": [
+"Thurgau",
+"Thurgovie",
+"Turgovia"
+],
+"capitals": [
+"Frauenfeld"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-TG",
+"info": {
+"abbr": "TG",
+"kind": "Canton",
+"pop": 302806,
+"popYear": "2025",
+"area": 994,
+"flag": true,
+"facts": {
+"local": "Thurgau",
+"demonym": "Thurgauer",
+"wonder": "Lake Constance (Bodensee)",
+"landmark": "Arenenberg (Napoleon III's home)",
+"known": "Apples and cider ('Mostindien')",
+"language": "German",
+"joined": "1803"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 12,
+"of": 26
+},
+"flagKey": "ch/CH-TG",
+"capLL": [
+[
+9.108,
+47.568
+]
+]
+},
+{
+"iso": "CH-TI",
+"id": "CH-TI",
+"name": "Ticino",
+"names": [
+"Ticino",
+"Tessin"
+],
+"capitals": [
+"Bellinzona"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-TI",
+"info": {
+"abbr": "TI",
+"kind": "Canton",
+"pop": 359783,
+"popYear": "2025",
+"area": 2812,
+"flag": true,
+"facts": {
+"local": "Ticino",
+"demonym": "Ticinese",
+"dialect": "Ticinese (Lombard) and Italian",
+"dish": "Polenta and risotto",
+"drink": "Merlot del Ticino",
+"festival": "The Locarno Film Festival",
+"club": "FC Lugano",
+"wonder": "Lake Maggiore and Lake Lugano",
+"landmark": "The castles of Bellinzona",
+"unesco": "The castles of Bellinzona and Monte San Giorgio",
+"known": "Mediterranean Switzerland: palm trees and lakes",
+"city": "Lugano",
+"language": "Italian",
+"joined": "1803"
+},
+"coastal": false,
+"borders": [
+"Italy"
+],
+"areaRank": 5,
+"of": 26
+},
+"flagKey": "ch/CH-TI",
+"capLL": [
+[
+9.02,
+46.197
+]
+]
+},
+{
+"iso": "CH-UR",
+"id": "CH-UR",
+"name": "Uri",
+"names": [
+"Uri"
+],
+"capitals": [
+"Altdorf"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-UR",
+"info": {
+"abbr": "UR",
+"kind": "Canton",
+"pop": 38581,
+"popYear": "2025",
+"area": 1077,
+"flag": true,
+"facts": {
+"local": "Uri",
+"demonym": "Urner",
+"high": "Dammastock, 3,630 m",
+"wonder": "The Gotthard Pass and the Schöllenen Gorge",
+"historic": "One of the three founding cantons: the Rütli Oath (1291)",
+"landmark": "The William Tell monument in Altdorf and the Devil's Bridge",
+"person": "William Tell (the legendary hero)",
+"known": "The Gotthard tunnels",
+"language": "German",
+"joined": "1291 (a founding canton)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11,
+"of": 26
+},
+"flagKey": "ch/CH-UR",
+"capLL": [
+[
+8.638,
+46.879
+]
+]
+},
+{
+"iso": "CH-VS",
+"id": "CH-VS",
+"name": "Valais",
+"names": [
+"Valais",
+"Wallis",
+"Vallese"
+],
+"capitals": [
+"Sion",
+"Sitten"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-VS",
+"info": {
+"abbr": "VS",
+"kind": "Canton",
+"pop": 376113,
+"popYear": "2025",
+"area": 5224,
+"flag": true,
+"facts": {
+"local": "Valais / Wallis",
+"demonym": "Valaisan",
+"dish": "Raclette",
+"drink": "Fendant wine",
+"festival": "The Combat de Reines (cow fights)",
+"high": "Dufourspitze, 4,634 m: Switzerland's highest",
+"wonder": "The Matterhorn and the Aletsch Glacier",
+"landmark": "The Matterhorn",
+"unesco": "Jungfrau-Aletsch",
+"known": "Zermatt, Verbier and wine",
+"language": "French and German",
+"joined": "1815",
+"cheese": "Raclette cheese"
+},
+"coastal": false,
+"borders": [
+"France",
+"Italy"
+],
+"areaRank": 3,
+"of": 26
+},
+"flagKey": "ch/CH-VS",
+"capLL": [
+[
+7.354,
+46.239
+]
+]
+},
+{
+"iso": "CH-VD",
+"id": "CH-VD",
+"name": "Vaud",
+"names": [
+"Vaud",
+"Waadt"
+],
+"capitals": [
+"Lausanne"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-VD",
+"info": {
+"abbr": "VD",
+"kind": "Canton",
+"pop": 863650,
+"popYear": "2025",
+"area": 3212,
+"flag": true,
+"facts": {
+"local": "Vaud",
+"demonym": "Vaudois",
+"dish": "Papet vaudois and saucisson",
+"drink": "Lavaux wine",
+"festival": "The Montreux Jazz Festival",
+"club": "FC Lausanne-Sport",
+"wonder": "Lake Geneva (Lac Léman)",
+"landmark": "Chillon Castle",
+"unesco": "The Lavaux vineyard terraces",
+"known": "The Olympic capital (IOC, Lausanne)",
+"company": "Nestlé (Vevey)",
+"language": "French",
+"joined": "1803",
+"cheese": "Vacherin Mont-d'Or, and Nestlé"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 4,
+"of": 26
+},
+"flagKey": "ch/CH-VD",
+"capLL": [
+[
+6.65,
+46.53
+]
+]
+},
+{
+"iso": "CH-ZG",
+"id": "CH-ZG",
+"name": "Zug",
+"names": [
+"Zug",
+"Zoug",
+"Zugo"
+],
+"capitals": [
+"Zug"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-ZG",
+"info": {
+"abbr": "ZG",
+"kind": "Canton",
+"pop": 135018,
+"popYear": "2025",
+"area": 239,
+"flag": true,
+"facts": {
+"local": "Zug",
+"demonym": "Zuger",
+"dish": "Zuger Kirschtorte (cherry-brandy cake)",
+"wonder": "Lake Zug",
+"known": "Low taxes and commodity traders",
+"company": "Glencore (Baar)",
+"language": "German",
+"joined": "1352"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 24,
+"of": 26
+},
+"flagKey": "ch/CH-ZG",
+"capLL": [
+[
+8.487,
+47.179
+]
+]
+},
+{
+"iso": "CH-ZH",
+"id": "CH-ZH",
+"name": "Zurich",
+"names": [
+"Zurich",
+"Zürich",
+"Zuerich",
+"Zurigo"
+],
+"capitals": [
+"Zurich",
+"Zürich"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "CH-ZH",
+"info": {
+"abbr": "ZH",
+"kind": "Canton",
+"pop": 1632918,
+"popYear": "2025",
+"area": 1729,
+"flag": true,
+"facts": {
+"local": "Zürich",
+"demonym": "Zürcher",
+"dialect": "Zürich German",
+"dish": "Zürcher Geschnetzeltes (veal in cream)",
+"festival": "Sechseläuten and the Street Parade",
+"club": "FC Zürich and Grasshoppers",
+"river": "Limmat",
+"wonder": "Lake Zurich",
+"landmark": "The Grossmünster",
+"unesco": "Prehistoric pile dwellings around the Alps",
+"known": "Finance and ETH Zurich",
+"company": "UBS and Zurich Insurance",
+"language": "German",
+"joined": "1351",
+"cheese": "Lindt & Sprüngli chocolate (Kilchberg)"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 7,
+"of": 26
+},
+"flagKey": "ch/CH-ZH",
+"capLL": [
+[
+8.548,
+47.382
+]
+]
+}
+]

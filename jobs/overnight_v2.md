@@ -1,6 +1,6 @@
 # Job: overnight v2, five more country maps
 
-Austria, the Netherlands, Poland, Czechia and Belgium: first the downloads, then the builds. Decided with the user on 2026-11-18. **Nothing here is started yet.**
+Austria, the Netherlands, Poland, Czechia and Belgium: first the downloads, then the builds. Decided with the user on 2026-11-18. **Done 2026-11-26 (started at the user's word): all five built and tested; see "Results" at the end. Not committed until the user says so.**
 
 This is a separate job from the queue in [README.md](README.md). **Don't start it until the user says so** (decided 2026-11-18), even if the rest of the queue is finished, and don't change those job files to make room for it. Push only when the user says so, as for the rest of the queue.
 
@@ -75,3 +75,46 @@ Every card also has the name, kind, capital, population (latest figure), area an
 - **Belgium:** language community (Dutch-, French- or German-speaking)
 
 **Belgium's 3 regions** get the same card, with their facts drawn from the regions' own articles.
+
+## Results (2026-11-26)
+
+**Built with one shared builder** rather than five copies of build_de.py: `python tools/build_country.py <code>` reads `tools/<code>_facts.py` (config, part table, card facts; Belgium's regions as `SET2`). In the app: one `NEW_MAPS` row each (js/app.js), `GG.loadCountry` (js/geo.js), `showCountryCard`, and a projection style each (js/mapview.js). The country-page Set switch is now generic (`SETS`, shared with Spain) and Belgium also gets a set button in Learning mode. SW cache v77.
+
+### Download log
+
+| Country | Divisions (Wikidata) | English articles | Local articles | List articles | Flags | Coats of arms | Coast |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Austria | 9 | 9 | 9 (de) | 8 | 9 (+ 9 state flags with arms) | 9 | 63 KB |
+| Netherlands | 17 (incl. Caribbean) | 17 | 17 (nl) | 9 | 17 | 17 | 279 KB |
+| Poland | 17 (incl. Kielce) | 17 | 17 (pl) | 8 | 17 | 17 | 421 KB |
+| Czechia | 109 (regions and districts) | 106 | 107 (cs) | 9 | 30 | 30 | 21 KB |
+| Belgium | 13 | 13 | 13 (nl), 13 (fr) | 7 | 13 | 13 | 48 KB |
+
+`census.json` (new `--census` option: every dated population figure from Wikidata) for all five. Natural Earth admin-1 matched the table (9, 12 after dropping the Caribbean Netherlands, 16, 14, 11); geoBoundaries wasn't needed.
+
+### Populations (all checked against a national total)
+
+- Austria: Statistik Austria, 1 January 2025, 9,197,213.
+- Czechia: Czech Statistical Office, 1 January 2026, 10,915,839.
+- Poland: GUS, 30 June 2025, 37,401,692.
+- Netherlands: CBS open data (70072ned), 1 January 2025, 18,044,027.
+- Belgium: Statbel, 1 January 2025, 11,825,551 (both sets).
+
+### Decisions to check
+
+1. **Poland and Czechia: latest figures, not the 2021 census.** No census table by region was in the downloads, and GUS's API didn't answer. Poland uses GUS 30 June 2025 (the table's sum is the total); Czechia uses CZSO 1 January 2026 (adds up to CZSO's own total). Alternative: find the census tables and switch.
+2. **Austria's flag games use the state flags with arms**: Salzburg, Vienna and Vorarlberg share one red-white civil flag.
+3. **Netherlands: land area on the card** ("Land area"), and the light map cut to the shoreline (`FIT_LIGHT`) so the IJsselmeer, Markermeer and Flevoland's polders show. Natural Earth's provinces covered the lakes.
+4. **Capitals outside the part:** Central Bohemia (Prague) and Flanders (Brussels) sit out the capitals games; their cards say why.
+5. **Poland's split capitals:** Bydgoszcz / Toruń and Gorzów Wielkopolski / Zielona Góra are both accepted, with a dot each; the governor's seat is the one shown in Find by capital.
+6. **Projections:** Austria and Belgium their national Lambert conics, Czechia a Lambert conic (49°N, 50.5°N), Poland transverse Mercator on 19°E, the Netherlands an oblique stereographic on Amersfoort.
+7. **Belgium's card** says "Name in Dutch" or "Name in French" per part (Brussels: both).
+
+### Also changed
+
+- **Name matching:** ł, ß, ø, æ and đ now count as l, ss, o, ae and d (typing "Lodz" for Łódź didn't match before). Applies to every map.
+- **Spain's provinces:** Palencia and Valencia no longer count as typos of each other (found by the new bench; `PROV_NOT_TYPO` in build_es.py, data patched).
+
+### Tests (all pass)
+
+`_bench_nm.html?d=<code>&r=<region>` (git-ignored; reports to the scratchpad test server): every part's anchor opens its card; every name, spelling, unaccented form and capital accepted, notTypo refused, no part accepting another's name; capital dots; flags load; card facts; the tap test at whole-map, 2.5x and 7.5x zoom with the detail level (100% for all five and Belgium's regions). `_bench_menu.html`: the Countries tab lists the five, Belgium's and Spain's set switches, a Belgium regions game, the stats tabs, Focus on Austria from the world map, and the US and Russia maps with their timelines; no script errors. Germany and both Spanish sets re-run: still 100%. Screenshots checked by eye (light and dark).

@@ -1,0 +1,637 @@
+[
+{
+"iso": "BE-VAN",
+"id": "BE-VAN",
+"name": "Antwerp",
+"names": [
+"Antwerp",
+"Antwerpen",
+"Anvers"
+],
+"capitals": [
+"Antwerp",
+"Antwerpen",
+"Anvers"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-VAN",
+"info": {
+"abbr": "VAN",
+"kind": "Province",
+"pop": 1921189,
+"popYear": "2025",
+"area": 2876,
+"flag": true,
+"facts": {
+"local": "Antwerpen",
+"demonym": "Antwerpenaar",
+"dialect": "Antwerpian (Brabantian Dutch)",
+"dish": "Fries and Antwerpse handjes (biscuits)",
+"drink": "De Koninck and Westmalle Trappist beer",
+"festival": "Tomorrowland (Boom)",
+"club": "Royal Antwerp FC",
+"river": "Scheldt",
+"wonder": "Kalmthout Heath",
+"historic": "Duchy of Brabant (the Margraviate of Antwerp)",
+"landmark": "The Cathedral of Our Lady and Antwerp Central Station",
+"unesco": "The Plantin-Moretus Museum and the beguinages",
+"person": "Peter Paul Rubens (worked in Antwerp)",
+"known": "Europe's second-biggest port and the diamond trade",
+"company": "Agfa-Gevaert",
+"special": "Dutch-speaking (Flemish Community)"
+},
+"coastal": true,
+"borders": [
+"Netherlands"
+],
+"areaRank": 7,
+"of": 11
+},
+"flagKey": "be/BE-VAN",
+"capLL": [
+[
+4.413,
+51.222
+]
+]
+},
+{
+"iso": "BE-BRU",
+"id": "BE-BRU",
+"name": "Brussels",
+"names": [
+"Brussels",
+"Brussels-Capital Region",
+"Brussels Capital Region",
+"Bruxelles",
+"Brussel",
+"Brussels-Capital"
+],
+"capitals": [
+"Brussels",
+"City of Brussels",
+"Bruxelles",
+"Brussel"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-BRU",
+"info": {
+"abbr": "BRU",
+"kind": "Region (bilingual)",
+"pop": 1255795,
+"popYear": "2025",
+"area": 162,
+"flag": true,
+"facts": {
+"lang": "Dutch and French",
+"local": "Brussel / Bruxelles",
+"demonym": "Bruxellois (Brusselaar)",
+"dialect": "Bilingual French and Dutch; Brusseleir (Marols) dialect",
+"dish": "Moules-frites and Brussels waffles",
+"drink": "Gueuze (Cantillon brewery)",
+"festival": "The Ommegang pageant and the Flower Carpet",
+"club": "RSC Anderlecht",
+"river": "Senne",
+"wonder": "The Sonian Forest (in part)",
+"historic": "Duchy of Brabant",
+"landmark": "The Grand-Place and the Atomium",
+"unesco": "The Grand-Place, Victor Horta's town houses and the Stoclet Palace",
+"person": "Audrey Hepburn (born in Ixelles)",
+"known": "The EU and NATO headquarters, chocolate and comics",
+"company": "Godiva (founded here)",
+"special": "Bilingual: French and Dutch"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11,
+"of": 11
+},
+"flagKey": "be/BE-BRU",
+"capLL": [
+[
+4.331,
+50.835
+]
+]
+},
+{
+"iso": "BE-VOV",
+"id": "BE-VOV",
+"name": "East Flanders",
+"names": [
+"East Flanders",
+"Oost-Vlaanderen",
+"Flandre orientale",
+"Ostflandern"
+],
+"capitals": [
+"Ghent",
+"Gent",
+"Gand"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-VOV",
+"info": {
+"abbr": "VOV",
+"kind": "Province",
+"pop": 1602532,
+"popYear": "2025",
+"area": 3007,
+"flag": true,
+"facts": {
+"local": "Oost-Vlaanderen",
+"demonym": "East Fleming",
+"dialect": "East Flemish",
+"dish": "Waterzooi and cuberdons (Ghent noses)",
+"festival": "The Ghent Festivities (Gentse Feesten)",
+"club": "KAA Gent",
+"river": "Scheldt and Lys (Leie)",
+"historic": "County of Flanders",
+"landmark": "Gravensteen castle and the Ghent Altarpiece",
+"unesco": "Ghent's belfry and beguinages",
+"person": "Emperor Charles V (born in Ghent)",
+"known": "Ghent, flowers (the Floralies) and textiles",
+"company": "Volvo Car Gent",
+"special": "Dutch-speaking (Flemish Community)"
+},
+"coastal": true,
+"borders": [
+"Netherlands"
+],
+"areaRank": 6,
+"of": 11
+},
+"flagKey": "be/BE-VOV",
+"notTypo": [
+"West Flanders"
+],
+"capLL": [
+[
+3.725,
+51.054
+]
+]
+},
+{
+"iso": "BE-VBR",
+"id": "BE-VBR",
+"name": "Flemish Brabant",
+"names": [
+"Flemish Brabant",
+"Vlaams-Brabant",
+"Brabant flamand",
+"Flämisch-Brabant"
+],
+"capitals": [
+"Leuven",
+"Louvain"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-VBR",
+"info": {
+"abbr": "VBR",
+"kind": "Province",
+"pop": 1204541,
+"popYear": "2025",
+"area": 2118,
+"flag": true,
+"facts": {
+"local": "Vlaams-Brabant",
+"demonym": "Flemish Brabander",
+"dialect": "Brabantian Dutch",
+"drink": "Stella Artois, and gueuze from the Pajottenland",
+"club": "OH Leuven",
+"river": "Dyle (Dijle) and Demer",
+"wonder": "The Sonian Forest (old beech forest)",
+"historic": "Duchy of Brabant",
+"landmark": "Leuven Town Hall",
+"unesco": "The Sonian Forest beeches and the Great Beguinage of Leuven",
+"known": "KU Leuven (founded 1425) and beer",
+"company": "AB InBev (Leuven)",
+"special": "Dutch-speaking (Flemish Community); six municipalities offer services in French"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9,
+"of": 11
+},
+"flagKey": "be/BE-VBR",
+"notTypo": [
+"Walloon Brabant"
+],
+"capLL": [
+[
+4.701,
+50.879
+]
+]
+},
+{
+"iso": "BE-WHT",
+"id": "BE-WHT",
+"name": "Hainaut",
+"names": [
+"Hainaut",
+"Henegouwen",
+"Hennegau"
+],
+"capitals": [
+"Mons",
+"Bergen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-WHT",
+"info": {
+"abbr": "WHT",
+"kind": "Province",
+"pop": 1365328,
+"popYear": "2025",
+"area": 3813,
+"flag": true,
+"facts": {
+"local": "Hainaut",
+"demonym": "Hainuyer",
+"dialect": "Picard and Walloon",
+"dish": "Chimay cheese",
+"drink": "Chimay Trappist beer",
+"festival": "The Binche Carnival (the Gilles) and the Doudou in Mons",
+"club": "Sporting Charleroi",
+"river": "Sambre and Scheldt",
+"historic": "County of Hainaut",
+"landmark": "Tournai Cathedral and the Mons belfry",
+"unesco": "Tournai Cathedral, the Spiennes flint mines, Grand-Hornu and the Canal du Centre boat lifts",
+"known": "Coal mining (the Borinage) and carnival",
+"city": "Charleroi",
+"special": "French-speaking (French Community)"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 3,
+"of": 11
+},
+"flagKey": "be/BE-WHT",
+"capLL": [
+[
+3.939,
+50.446
+]
+]
+},
+{
+"iso": "BE-VLI",
+"id": "BE-VLI",
+"name": "Limburg",
+"names": [
+"Limburg",
+"Limbourg"
+],
+"capitals": [
+"Hasselt"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-VLI",
+"info": {
+"abbr": "VLI",
+"kind": "Province",
+"pop": 904919,
+"popYear": "2025",
+"area": 2427,
+"flag": true,
+"facts": {
+"local": "Limburg",
+"demonym": "Limburger",
+"dialect": "Limburgish",
+"dish": "Limburgse vlaai",
+"drink": "Hasselt jenever",
+"festival": "Pukkelpop (Hasselt)",
+"club": "KRC Genk",
+"river": "Meuse (Maas)",
+"wonder": "Hoge Kempen National Park (Belgium's first)",
+"historic": "County of Loon (in the Prince-Bishopric of Liège)",
+"landmark": "Alden Biesen castle",
+"unesco": "The beguinages of Tongeren and Sint-Truiden",
+"known": "Former coal mines and the Haspengouw orchards",
+"special": "Dutch-speaking (Flemish Community)"
+},
+"coastal": false,
+"borders": [
+"Netherlands"
+],
+"areaRank": 8,
+"of": 11
+},
+"flagKey": "be/BE-VLI",
+"capLL": [
+[
+5.484,
+50.964
+]
+]
+},
+{
+"iso": "BE-WLG",
+"id": "BE-WLG",
+"name": "Liège",
+"names": [
+"Liège",
+"Luik",
+"Lüttich"
+],
+"capitals": [
+"Liège",
+"Luik",
+"Lüttich"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-WLG",
+"info": {
+"abbr": "WLG",
+"kind": "Province",
+"pop": 1122925,
+"popYear": "2025",
+"area": 3857,
+"flag": true,
+"facts": {
+"local": "Liège",
+"demonym": "Liégeois",
+"dialect": "Walloon; German in the East Cantons (Eupen, Sankt Vith)",
+"dish": "Liège waffles and boulets à la liégeoise",
+"drink": "Jupiler beer and peket (gin)",
+"festival": "15 August in Outremeuse",
+"club": "Standard Liège",
+"river": "Meuse (Maas) and Ourthe",
+"high": "Signal de Botrange, 694 m: Belgium's highest",
+"wonder": "The High Fens (Hautes Fagnes)",
+"historic": "Prince-Bishopric of Liège",
+"landmark": "The Montagne de Bueren steps and the town of Spa",
+"unesco": "Spa (Great Spa Towns) and the Blegny-Mine",
+"person": "Georges Simenon (born in Liège)",
+"known": "Steel, Spa and the Spa-Francorchamps circuit",
+"company": "FN Herstal",
+"special": "French-speaking, with the German-speaking Community in the east"
+},
+"coastal": false,
+"borders": [
+"Germany",
+"Luxembourg",
+"Netherlands"
+],
+"areaRank": 2,
+"of": 11
+},
+"flagKey": "be/BE-WLG",
+"capLL": [
+[
+5.58,
+50.63
+]
+]
+},
+{
+"iso": "BE-WLX",
+"id": "BE-WLX",
+"name": "Luxembourg",
+"names": [
+"Luxembourg",
+"Luxemburg",
+"Belgian Luxembourg"
+],
+"capitals": [
+"Arlon",
+"Aarlen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-WLX",
+"info": {
+"abbr": "WLX",
+"kind": "Province",
+"pop": 296008,
+"popYear": "2025",
+"area": 4459,
+"flag": true,
+"facts": {
+"local": "Luxembourg",
+"demonym": "Luxembourgeois (Belgian)",
+"dialect": "Walloon, Gaumais, and Luxembourgish around Arlon",
+"dish": "Ardennes ham",
+"drink": "Orval Trappist beer",
+"river": "Semois and Ourthe",
+"wonder": "The Ardennes forests and the Semois valley",
+"historic": "Duchy of Luxembourg (split from the Grand Duchy in 1839)",
+"landmark": "Bouillon Castle and the Mardasson Memorial in Bastogne",
+"known": "Forests, the Battle of the Bulge (1944) and the least crowded province",
+"special": "French-speaking (French Community)"
+},
+"coastal": false,
+"borders": [
+"France",
+"Luxembourg"
+],
+"areaRank": 1,
+"of": 11
+},
+"flagKey": "be/BE-WLX",
+"capLL": [
+[
+5.817,
+49.683
+]
+]
+},
+{
+"iso": "BE-WNA",
+"id": "BE-WNA",
+"name": "Namur",
+"names": [
+"Namur",
+"Namen"
+],
+"capitals": [
+"Namur",
+"Namen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-WNA",
+"info": {
+"abbr": "WNA",
+"kind": "Province",
+"pop": 505348,
+"popYear": "2025",
+"area": 3675,
+"flag": true,
+"facts": {
+"local": "Namur",
+"demonym": "Namurois",
+"dialect": "Walloon",
+"drink": "Rochefort and Maredsous beer",
+"festival": "The Walloon Festivities in Namur",
+"river": "Meuse and Sambre",
+"wonder": "The Caves of Han",
+"historic": "County of Namur",
+"landmark": "The Citadel of Namur and Dinant",
+"unesco": "The belfry of Namur",
+"person": "Adolphe Sax (inventor of the saxophone, born in Dinant)",
+"known": "The Meuse valley, caves and kayaking",
+"special": "French-speaking (French Community)"
+},
+"coastal": false,
+"borders": [
+"France"
+],
+"areaRank": 4,
+"of": 11
+},
+"flagKey": "be/BE-WNA",
+"capLL": [
+[
+4.87,
+50.47
+]
+]
+},
+{
+"iso": "BE-WBR",
+"id": "BE-WBR",
+"name": "Walloon Brabant",
+"names": [
+"Walloon Brabant",
+"Brabant wallon",
+"Waals-Brabant",
+"Wallonisch-Brabant"
+],
+"capitals": [
+"Wavre",
+"Waver"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-WBR",
+"info": {
+"abbr": "WBR",
+"kind": "Province",
+"pop": 415381,
+"popYear": "2025",
+"area": 1097,
+"flag": true,
+"facts": {
+"local": "Brabant wallon",
+"demonym": "Walloon Brabander",
+"dialect": "Walloon",
+"dish": "Tarte al djote (Nivelles cheese tart)",
+"river": "Dyle",
+"historic": "Duchy of Brabant",
+"landmark": "The Lion's Mound at Waterloo",
+"known": "The Battle of Waterloo (1815) and Louvain-la-Neuve's university",
+"company": "UCB (Braine-l'Alleud)",
+"special": "French-speaking (French Community)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10,
+"of": 11
+},
+"flagKey": "be/BE-WBR",
+"notTypo": [
+"Flemish Brabant"
+],
+"capLL": [
+[
+4.611,
+50.717
+]
+]
+},
+{
+"iso": "BE-VWV",
+"id": "BE-VWV",
+"name": "West Flanders",
+"names": [
+"West Flanders",
+"West-Vlaanderen",
+"Flandre occidentale",
+"Westflandern"
+],
+"capitals": [
+"Bruges",
+"Brugge"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BE-VWV",
+"info": {
+"abbr": "VWV",
+"kind": "Province",
+"pop": 1231585,
+"popYear": "2025",
+"area": 3197,
+"flag": true,
+"facts": {
+"local": "West-Vlaanderen",
+"demonym": "West Fleming",
+"dialect": "West Flemish",
+"drink": "Westvleteren Trappist beer",
+"festival": "The Procession of the Holy Blood in Bruges",
+"club": "Club Brugge",
+"river": "Yser (IJzer)",
+"wonder": "The Zwin and the coastal dunes",
+"historic": "County of Flanders",
+"landmark": "Bruges' belfry and canals, and the Menin Gate in Ypres",
+"unesco": "The historic centre of Bruges and the First World War cemeteries",
+"person": "James Ensor (painter, Ostend)",
+"known": "Bruges, the Belgian coast and the Ypres battlefields",
+"company": "Barco (Kortrijk)",
+"special": "Dutch-speaking (Flemish Community)"
+},
+"coastal": true,
+"borders": [
+"France",
+"Netherlands"
+],
+"areaRank": 5,
+"of": 11
+},
+"flagKey": "be/BE-VWV",
+"notTypo": [
+"East Flanders"
+],
+"capLL": [
+[
+3.23,
+51.22
+]
+]
+}
+]

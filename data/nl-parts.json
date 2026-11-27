@@ -1,0 +1,656 @@
+[
+{
+"iso": "NL-DR",
+"id": "NL-DR",
+"name": "Drenthe",
+"names": [
+"Drenthe"
+],
+"capitals": [
+"Assen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-DR",
+"info": {
+"abbr": "DR",
+"kind": "Province",
+"pop": 506529,
+"popYear": "2025",
+"area": 2633,
+"flag": true,
+"facts": {
+"local": "Drenthe",
+"demonym": "Drent",
+"dialect": "Drents (Dutch Low Saxon)",
+"festival": "The TT motorcycle races at Assen",
+"wonder": "The hunebedden (stone-age dolmens) and Drents-Friese Wold National Park",
+"historic": "Landschap Drenthe (a self-governing land)",
+"landmark": "The hunebedden of the Hondsrug",
+"unesco": "The Colonies of Benevolence (Frederiksoord, Wilhelminaoord, Veenhuizen)",
+"known": "Dolmens, cycling and peat moors",
+"city": "Emmen",
+"special": "High and dry: almost all above sea level"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 7,
+"of": 12
+},
+"flagKey": "nl/NL-DR",
+"capLL": [
+[
+6.55,
+53.0
+]
+]
+},
+{
+"iso": "NL-FL",
+"id": "NL-FL",
+"name": "Flevoland",
+"names": [
+"Flevoland"
+],
+"capitals": [
+"Lelystad"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-FL",
+"info": {
+"abbr": "FL",
+"kind": "Province",
+"pop": 456395,
+"popYear": "2025",
+"area": 1410,
+"flag": true,
+"facts": {
+"local": "Flevoland",
+"demonym": "Flevolander",
+"dialect": "Mixed: settled from all over the country",
+"festival": "Lowlands music festival (Biddinghuizen)",
+"club": "Almere City",
+"wonder": "Oostvaardersplassen nature reserve",
+"historic": "The bed of the Zuiderzee until it was drained (1942–1968)",
+"landmark": "Schokland, a former island now on dry land",
+"unesco": "Schokland and surroundings",
+"known": "The newest province (1986), built entirely on reclaimed land",
+"city": "Almere",
+"special": "Almost all reclaimed: the Noordoostpolder and Flevopolder, most of it below sea level"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12,
+"of": 12
+},
+"flagKey": "nl/NL-FL",
+"capLL": [
+[
+5.471,
+52.518
+]
+]
+},
+{
+"iso": "NL-FR",
+"id": "NL-FR",
+"name": "Friesland",
+"names": [
+"Friesland",
+"Fryslân",
+"Frisia",
+"Fryslan"
+],
+"capitals": [
+"Leeuwarden",
+"Ljouwert"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-FR",
+"info": {
+"abbr": "FR",
+"kind": "Province",
+"pop": 664222,
+"popYear": "2025",
+"area": 3340,
+"flag": true,
+"facts": {
+"local": "Fryslân",
+"demonym": "Frisian",
+"dialect": "West Frisian (an official language) and Stellingwarfs",
+"dish": "Fryske dúmkes and Frisian sugar bread",
+"drink": "Beerenburg (herb gin)",
+"festival": "The Elfstedentocht (eleven-cities skating tour, when the ice allows)",
+"club": "SC Heerenveen",
+"wonder": "The Wadden Sea and the islands Vlieland, Terschelling, Ameland and Schiermonnikoog",
+"historic": "Frisia (the 'Frisian freedom')",
+"landmark": "The Oldehove leaning tower in Leeuwarden",
+"unesco": "The Wadden Sea and the Woudagemaal steam pumping station",
+"person": "M. C. Escher (born in Leeuwarden)",
+"known": "Lakes, sailing, skating and black-and-white Frisian cows",
+"special": "Built-up mounds (terpen) and coastal polders; the lake districts lie below sea level"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 3,
+"of": 12
+},
+"flagKey": "nl/NL-FR",
+"capLL": [
+[
+5.783,
+53.25
+]
+]
+},
+{
+"iso": "NL-GE",
+"id": "NL-GE",
+"name": "Gelderland",
+"names": [
+"Gelderland",
+"Guelders"
+],
+"capitals": [
+"Arnhem"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-GE",
+"info": {
+"abbr": "GE",
+"kind": "Province",
+"pop": 2161358,
+"popYear": "2025",
+"area": 4960,
+"flag": true,
+"facts": {
+"local": "Gelderland",
+"demonym": "Gelderlander",
+"dialect": "Achterhoeks (Low Saxon) and Veluws",
+"festival": "The Nijmegen Four Days Marches",
+"club": "Vitesse and NEC Nijmegen",
+"river": "Rhine, Waal and IJssel",
+"wonder": "Hoge Veluwe National Park",
+"historic": "The Duchy of Guelders",
+"landmark": "Het Loo Palace and the Kröller-Müller Museum",
+"unesco": "The Lower German Limes and the Dutch Water Defence Lines",
+"known": "The Veluwe forests and the Betuwe orchards",
+"city": "Nijmegen (the oldest city in the Netherlands)",
+"special": "River polders along the Rhine and Waal; mostly above sea level"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 1,
+"of": 12
+},
+"flagKey": "nl/NL-GE",
+"capLL": [
+[
+5.923,
+51.988
+]
+]
+},
+{
+"iso": "NL-GR",
+"id": "NL-GR",
+"name": "Groningen",
+"names": [
+"Groningen"
+],
+"capitals": [
+"Groningen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-GR",
+"info": {
+"abbr": "GR",
+"kind": "Province",
+"pop": 602833,
+"popYear": "2025",
+"area": 2316,
+"flag": true,
+"facts": {
+"local": "Grunnen (Gronings)",
+"demonym": "Groninger",
+"dialect": "Gronings (Dutch Low Saxon)",
+"dish": "Mustard soup and Groninger koek",
+"drink": "Hooghoudt jenever",
+"festival": "Eurosonic Noorderslag music festival",
+"club": "FC Groningen",
+"wonder": "The Wadden Sea mudflats (wadlopen walks)",
+"historic": "The city of Groningen and the Ommelanden",
+"landmark": "The Martini Tower",
+"unesco": "The Wadden Sea",
+"known": "Europe's biggest gas field (and the earthquakes it caused)",
+"company": "Gasunie",
+"special": "Coastal polders won from the Wadden Sea; some land below sea level"
+},
+"coastal": true,
+"borders": [
+"Germany"
+],
+"areaRank": 8,
+"of": 12
+},
+"flagKey": "nl/NL-GR",
+"capLL": [
+[
+6.58,
+53.22
+]
+]
+},
+{
+"iso": "NL-LI",
+"id": "NL-LI",
+"name": "Limburg",
+"names": [
+"Limburg"
+],
+"capitals": [
+"Maastricht"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-LI",
+"info": {
+"abbr": "LI",
+"kind": "Province",
+"pop": 1135328,
+"popYear": "2025",
+"area": 2145,
+"flag": true,
+"facts": {
+"local": "Limburg",
+"demonym": "Limburger",
+"dialect": "Limburgish (a regional language)",
+"dish": "Vlaai (fruit tart)",
+"drink": "Brand and Gulpener beer",
+"festival": "Carnival (vastelaovend)",
+"club": "Fortuna Sittard, Roda JC and MVV Maastricht",
+"river": "Meuse (Maas)",
+"high": "Vaalserberg, 322.5 m: the highest point of the European Netherlands",
+"wonder": "The South Limburg hills and the Meinweg National Park",
+"historic": "The Duchy of Limburg and Upper Guelders",
+"landmark": "Maastricht's Vrijthof and the Three-Country Point",
+"person": "André Rieu",
+"known": "Hills, marl caves and the Maastricht Treaty (1992)",
+"company": "DSM (founded as the Dutch State Mines)",
+"special": "None: the hilliest province, all above sea level"
+},
+"coastal": false,
+"borders": [
+"Belgium",
+"Germany"
+],
+"areaRank": 9,
+"of": 12
+},
+"flagKey": "nl/NL-LI",
+"capLL": [
+[
+5.677,
+50.853
+]
+]
+},
+{
+"iso": "NL-NB",
+"id": "NL-NB",
+"name": "North Brabant",
+"names": [
+"North Brabant",
+"Noord-Brabant",
+"Brabant"
+],
+"capitals": [
+"'s-Hertogenbosch",
+"Den Bosch",
+"Hertogenbosch",
+"s-Hertogenbosch",
+"Bois-le-Duc"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-NB",
+"info": {
+"abbr": "NB",
+"kind": "Province",
+"pop": 2664047,
+"popYear": "2025",
+"area": 4902,
+"flag": true,
+"facts": {
+"local": "Noord-Brabant",
+"demonym": "Brabander",
+"dialect": "Brabantian",
+"dish": "Worstenbrood (sausage roll)",
+"drink": "Bavaria and La Trappe beer",
+"festival": "Carnival",
+"club": "PSV Eindhoven",
+"river": "Meuse (Maas)",
+"wonder": "De Biesbosch National Park and the Loonse en Drunense Duinen",
+"historic": "The Duchy of Brabant",
+"landmark": "St John's Cathedral in 's-Hertogenbosch and the Efteling theme park",
+"unesco": "The Dutch Water Defence Lines",
+"person": "Vincent van Gogh (born in Zundert)",
+"known": "Technology, carnival and the Efteling",
+"company": "Philips and ASML",
+"city": "Eindhoven",
+"special": "Mostly above sea level; the Biesbosch and the north-west are polders"
+},
+"coastal": true,
+"borders": [
+"Belgium"
+],
+"areaRank": 2,
+"of": 12
+},
+"flagKey": "nl/NL-NB",
+"capLL": [
+[
+5.317,
+51.683
+]
+]
+},
+{
+"iso": "NL-NH",
+"id": "NL-NH",
+"name": "North Holland",
+"names": [
+"North Holland",
+"Noord-Holland"
+],
+"capitals": [
+"Haarlem"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-NH",
+"info": {
+"abbr": "NH",
+"kind": "Province",
+"pop": 2992016,
+"popYear": "2025",
+"area": 2663,
+"flag": true,
+"facts": {
+"local": "Noord-Holland",
+"demonym": "North Hollander",
+"dialect": "Hollandic and West Frisian dialects (Westfries)",
+"dish": "Raw herring and Edam cheese",
+"drink": "Heineken beer",
+"festival": "King's Day in Amsterdam",
+"club": "Ajax and AZ Alkmaar",
+"river": "Amstel and IJ",
+"wonder": "Texel and the Zuid-Kennemerland dunes",
+"historic": "The County of Holland and West Friesland",
+"landmark": "Amsterdam's canals and the Zaanse Schans windmills",
+"unesco": "Amsterdam's canal ring, the Beemster Polder and the Defence Line of Amsterdam",
+"person": "Anne Frank (hid in Amsterdam)",
+"known": "Amsterdam, tulips and cheese markets",
+"company": "Heineken and KLM",
+"city": "Amsterdam",
+"special": "The Beemster (1612), Haarlemmermeer (1852) and Wieringermeer (1930) polders; much of it below sea level"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 6,
+"of": 12
+},
+"flagKey": "nl/NL-NH",
+"notTypo": [
+"South Holland"
+],
+"capLL": [
+[
+4.63,
+52.38
+]
+]
+},
+{
+"iso": "NL-OV",
+"id": "NL-OV",
+"name": "Overijssel",
+"names": [
+"Overijssel"
+],
+"capitals": [
+"Zwolle"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-OV",
+"info": {
+"abbr": "OV",
+"kind": "Province",
+"pop": 1195789,
+"popYear": "2025",
+"area": 3317,
+"flag": true,
+"facts": {
+"local": "Overiessel (Low Saxon)",
+"demonym": "Overijsselaar",
+"dialect": "Twents and Sallands (Dutch Low Saxon)",
+"drink": "Grolsch beer",
+"festival": "Deventer Book Market",
+"club": "FC Twente, PEC Zwolle and Go Ahead Eagles",
+"river": "IJssel and Vecht",
+"wonder": "Weerribben-Wieden National Park and Giethoorn's canals",
+"historic": "The Oversticht (the Bishopric of Utrecht's lands)",
+"landmark": "Giethoorn, the village of canals",
+"unesco": "Ommerschans (Colonies of Benevolence)",
+"known": "Twente's textile industry",
+"company": "Grolsch",
+"city": "Enschede",
+"special": "Mostly above sea level; low polders in the north-west"
+},
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 4,
+"of": 12
+},
+"flagKey": "nl/NL-OV",
+"capLL": [
+[
+6.097,
+52.524
+]
+]
+},
+{
+"iso": "NL-ZH",
+"id": "NL-ZH",
+"name": "South Holland",
+"names": [
+"South Holland",
+"Zuid-Holland"
+],
+"capitals": [
+"The Hague",
+"Den Haag",
+"'s-Gravenhage",
+"s-Gravenhage",
+"Hague"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-ZH",
+"info": {
+"abbr": "ZH",
+"kind": "Province",
+"pop": 3863397,
+"popYear": "2025",
+"area": 2698,
+"flag": true,
+"facts": {
+"local": "Zuid-Holland",
+"demonym": "South Hollander",
+"dialect": "Hollandic",
+"dish": "Gouda cheese and stroopwafels",
+"drink": "Schiedam jenever",
+"festival": "North Sea Jazz Festival in Rotterdam",
+"club": "Feyenoord",
+"river": "Nieuwe Maas and Oude Rijn",
+"wonder": "The bulb fields and the dunes of the coast",
+"historic": "The County of Holland",
+"landmark": "The Kinderdijk windmills and the Binnenhof",
+"unesco": "Kinderdijk-Elshout, the Van Nelle Factory and the Lower German Limes",
+"person": "Rembrandt (born in Leiden)",
+"known": "Europe's biggest port (Rotterdam), government (The Hague) and bulb fields",
+"city": "Rotterdam",
+"special": "Holds the lowest point (−6.76 m, Zuidplaspolder); much of it below sea level"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 5,
+"of": 12
+},
+"flagKey": "nl/NL-ZH",
+"notTypo": [
+"North Holland"
+],
+"capLL": [
+[
+4.27,
+52.08
+]
+]
+},
+{
+"iso": "NL-UT",
+"id": "NL-UT",
+"name": "Utrecht",
+"names": [
+"Utrecht"
+],
+"capitals": [
+"Utrecht"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-UT",
+"info": {
+"abbr": "UT",
+"kind": "Province",
+"pop": 1409144,
+"popYear": "2025",
+"area": 1484,
+"flag": true,
+"facts": {
+"local": "Utrecht",
+"demonym": "Utrechter",
+"dialect": "Utrechts",
+"club": "FC Utrecht",
+"river": "Vecht and Lek",
+"high": "Amerongse Berg, 69 m",
+"wonder": "Utrechtse Heuvelrug National Park",
+"historic": "The Prince-Bishopric of Utrecht",
+"landmark": "The Dom Tower",
+"unesco": "The Rietveld Schröder House, the Lower German Limes and the Dutch Water Defence Lines",
+"person": "Dick Bruna (creator of Miffy)",
+"known": "The country's railway hub and its university",
+"company": "Rabobank",
+"special": "Peat polders: the west lies slightly below sea level"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 11,
+"of": 12
+},
+"flagKey": "nl/NL-UT",
+"capLL": [
+[
+5.12,
+52.1
+]
+]
+},
+{
+"iso": "NL-ZE",
+"id": "NL-ZE",
+"name": "Zeeland",
+"names": [
+"Zeeland",
+"Zealand"
+],
+"capitals": [
+"Middelburg"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "NL-ZE",
+"info": {
+"abbr": "ZE",
+"kind": "Province",
+"pop": 392969,
+"popYear": "2025",
+"area": 1780,
+"flag": true,
+"facts": {
+"local": "Zeeland",
+"demonym": "Zeelander",
+"dialect": "Zeelandic",
+"dish": "Mussels, oysters and Zeeuwse bolus",
+"festival": "Ring riding (ringrijden)",
+"river": "Scheldt",
+"wonder": "Oosterschelde National Park",
+"historic": "The County of Zeeland",
+"landmark": "The Delta Works (the Oosterscheldekering)",
+"person": "Michiel de Ruyter (admiral, born in Vlissingen)",
+"known": "The Delta Works, built after the 1953 flood, and beaches",
+"special": "Islands of polders joined by dikes and dams; much of it below sea level"
+},
+"coastal": true,
+"borders": [
+"Belgium"
+],
+"areaRank": 10,
+"of": 12
+},
+"flagKey": "nl/NL-ZE",
+"capLL": [
+[
+3.61,
+51.502
+]
+]
+}
+]

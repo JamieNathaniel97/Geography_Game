@@ -218,6 +218,8 @@
       coast50: fc.coast, coast110: fc.coast, clusters: [], ringPx: DEFAULT_MIN_PX,
       lakes: lakes || null, lakes110: lakes || null,
       nationBorders: fc.nations || null, // UK: between England, Scotland, Wales (and NI and the Republic), drawn bolder
+      scaleBars: fc.scaleBars || null, // insets' own fixed scale bars (tools/build_country.py, tools/build_es.py)
+      frames: fc.frames || null, // insets' frames, drawn straight (tools/build_es.py: the Canaries)
       disputed: fc.disputed || null }; // India and others: disputed borders, drawn dotted
   }
   // ----- Britain and Ireland's counties (build 4): set = "historic" or "ceremonial"; each includes Ireland's 32
@@ -292,6 +294,11 @@
   // Japan's 47 prefectures (tools/build_jp.py), with a detail level; the smallest (Osaka, Kagawa, Tokyo) get circles
   const JP_RINGS = new Set(["JP-27", "JP-37", "JP-13"]);
   GG.loadJP = lakes => loadShapes("data/jp-states.json", "data/jp-parts.json", "jp", "jp/", JP_RINGS, lakes);
+  // The country maps built by tools/build_country.py (jobs/overnight_v2.md): one loader. Rings: the capital cities that
+  // sit inside a bigger part (Vienna, Prague, Brussels). `flagDir`: the flags' folder, if not the code (Belgium's regions).
+  const C_RINGS = { at: ["AT-9"], cz: ["CZ-PR"], be: ["BE-BRU"], ber: ["BER-BRU"], ch: ["CH-BS", "CH-AI", "CH-ZG"], co: ["CO-DC"] };
+  GG.loadCountry = (code, lakes, flagDir) => loadShapes(`data/${code}-states.json`, `data/${code}-parts.json`, code,
+    (flagDir || code) + "/", new Set(C_RINGS[code] || []), lakes);
   // Germany's 16 states (tools/build_de.py), with a detail level; Berlin and Bremen get circles
   const DE_RINGS = new Set(["DE-BE", "DE-HB"]);
   GG.loadDE = lakes => loadShapes("data/de-states.json", "data/de-parts.json", "de", "de/", DE_RINGS, lakes);

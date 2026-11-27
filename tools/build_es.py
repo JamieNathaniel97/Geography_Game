@@ -98,6 +98,10 @@ CAP_LL = {"A Coruña": [-8.411, 43.362], "Lugo": [-7.556, 43.012], "Pontevedra":
           "Santa Cruz de Tenerife": [-16.251, 28.464]}  # (the place list had no match for these)
 
 
+# provinces one letter apart: neither counts as a typo of the other
+PROV_NOT_TYPO = {"Palencia": ["Valencia", "València"], "Valencia": ["Palencia"]}
+
+
 def rounded(geom, nd=3):
     def r(c):
         return [round(c[0], nd), round(c[1], nd)] if isinstance(c[0], (int, float)) else [r(x) for x in c]
@@ -143,6 +147,23 @@ def province_areas():
     return areas, community
 
 
+def canaries_scale_bars(fr):
+    """The Canaries inset's own scale bar (km and miles). The islands are moved 6.5° north but not scaled, so in the
+    inset a degree of longitude stands for about 7% more ground than the mainland's scale bar says."""
+    import math
+    nice = lambda v: (lambda p: (5 if v / p >= 5 else 2 if v / p >= 2 else 1) * p)(10 ** math.floor(math.log10(v)))
+    km_per_deg = 111.32 * math.cos(math.radians((CANARIES[1] + CANARIES[3]) / 2))
+    fw, fs, fe, fn = fr.bounds
+    x0 = max(fw + (fe - fw) * 0.05, CANARIES[0] + SHIFT[0])
+    target = (fe - fw) * 0.34 * km_per_deg
+    out = []
+    for i, (unit, per_km) in enumerate((("km", 1), ("mi", 1 / 1.609344))):
+        d = nice(target * per_km)
+        y = fn - (fn - fs) * 0.14 - i * (fn - fs) * 0.08  # top left: El Hierro sits in the bottom-left corner
+        out.append({"from": [round(x0, 4), round(y, 4)], "to": [round(x0 + d / per_km / km_per_deg, 4), round(y, 4)], "label": f"{d:g} {unit}"})
+    return out
+
+
 def build_set(areas, prefix, name):
     """One set: the shapes file with grey neighbours, borders, coast and the inset frame, and its detail level."""
     a0 = gpd.read_file(NE / "ne_10m_admin_0_countries.geojson")
@@ -172,12 +193,13 @@ def build_set(areas, prefix, name):
             borders += lines_only(geo[a].boundary.intersection(geo[b].boundary))
     bu = unary_union(borders)
     coast = lines_only(unary_union([g.boundary for g in geo.values()]).difference(bu.buffer(1e-7)).difference(win.exterior.buffer(0.01)))
-    borders.append(LineString(fr.exterior.coords))  # the inset's frame, drawn as a border line
+    # (the inset's frame is drawn by the app as a straight rectangle: "frames" below; not a border line, which leaned)
     merged = lambda ls: linemerge(ls) if ls else MultiLineString([])
     # the detail level: the downloaded shoreline, with the Canaries' part moved into the inset like the shapes
     lp = polygonal(unary_union([land("es", DETAIL), shift(land("es", CANARIES))]))
     detail = build_detail({k: v for k, v in areas.items()}, "es", DETAIL, land_poly=lp, name=name)
-    out = {"type": "FeatureCollection",
+    out = {"frames": [[[round(x, 3), round(y, 3)] for x, y in fr.exterior.coords]], "scaleBars": canaries_scale_bars(fr),
+           "type": "FeatureCollection",
            "features": [{"type": "Feature", "id": k, "geometry": rounded(g)} for k, g in geo.items() if not g.is_empty],
            "borders": rounded(merged(borders)), "coast": rounded(merged(coast)), "detail": detail}
     coast_u = unary_union(coast).buffer(1e-4)
@@ -229,6 +251,8 @@ def main():
             it["info"]["inset"] = True
         if "anchorLL" in extra.get(iso, {}):
             it["anchorLL"] = extra[iso]["anchorLL"]
+        if name in PROV_NOT_TYPO:
+            it["notTypo"] = PROV_NOT_TYPO[name]
         ll = cap_ll(cap, code)
         if not ll:
             missing.append(cap)

@@ -6,6 +6,7 @@
   const RAD = Math.PI / 180, DEG = 180 / Math.PI;
   const MAX_K = 800;
   const smoothLine = d3.line().curve(d3.curveCatmullRomClosed);
+  const squareLine = d3.line().curve(d3.curveLinearClosed); // an inset's tap area follows its square frame
 
   // Flat map styles. Rectangular ones wrap around and are cropped to 85N-60S (Antarctica isn't in the quiz).
   GG.FLAT_STYLES = {
@@ -47,6 +48,30 @@
     australia: { name: "Australia", factory: () => d3.geoConicEqualArea().parallels([-18, -36]).rotate([-132, 0]), wrap: false, fit: true },
     // Russia: Albers equal-area conic, standard parallels 52°N and 68°N, centred on 100°E (Kaliningrad to Chukotka)
     russia: { name: "Russia", factory: () => d3.geoConicEqualArea().parallels([52, 68]).rotate([-100, 0]), wrap: false, fit: true },
+    // the overnight_v2 maps (tools/build_country.py)
+    // Austria: Lambert conformal conic (MGI Austria Lambert: standard parallels 46°N and 49°N, centred on 13.33°E)
+    austria: { name: "Austria", factory: () => d3.geoConicConformal().parallels([46, 49]).rotate([-13.33, 0]), wrap: false, fit: true },
+    // Czechia: Lambert conformal conic, standard parallels 49°N and 50.5°N, centred on 15.5°E
+    czechia: { name: "Czechia", factory: () => d3.geoConicConformal().parallels([49, 50.5]).rotate([-15.5, 0]), wrap: false, fit: true },
+    // Poland: transverse Mercator centred on 19°E (PUWG 1992's meridian)
+    poland: { name: "Poland", factory: () => d3.geoTransverseMercator().rotate([-19, 0]), wrap: false, fit: true },
+    // the Netherlands: oblique stereographic centred on Amersfoort (5.39°E, 52.16°N), as the Dutch RD grid
+    netherlands: { name: "Netherlands", factory: () => d3.geoStereographic().rotate([-5.39, -52.16]), wrap: false, fit: true },
+    // Belgium: Lambert conformal conic (Belgian Lambert 2008: standard parallels 49.83°N and 51.17°N, centred on 4.36°E)
+    belgium: { name: "Belgium", factory: () => d3.geoConicConformal().parallels([49.83, 51.17]).rotate([-4.36, 0]), wrap: false, fit: true },
+    // the overnight_v3 maps
+    // Sweden: transverse Mercator on 15°E (SWEREF 99 TM)
+    sweden: { name: "Sweden", factory: () => d3.geoTransverseMercator().rotate([-15, 0]), wrap: false, fit: true },
+    // South Africa: Albers equal-area conic, standard parallels 24°S and 33°S, centred on 25°E
+    southafrica: { name: "South Africa", factory: () => d3.geoConicEqualArea().parallels([-24, -33]).rotate([-25, 0]), wrap: false, fit: true },
+    // New Zealand: transverse Mercator on 173°E (NZTM2000); the Chatham Islands sit at 183.5°E, past the date line
+    newzealand: { name: "New Zealand", factory: () => d3.geoTransverseMercator().rotate([-173, 0]), wrap: false, fit: true },
+    // Portugal: transverse Mercator on 8.13°W (PT-TM06); the Azores and Madeira are moved into insets by the build
+    portugal: { name: "Portugal", factory: () => d3.geoTransverseMercator().rotate([8.13, 0]), wrap: false, fit: true },
+    // Colombia: transverse Mercator on 73°W (MAGNA-SIRGAS national origin)
+    colombia: { name: "Colombia", factory: () => d3.geoTransverseMercator().rotate([73, 0]), wrap: false, fit: true },
+    // Switzerland: Lambert conformal conic, standard parallels 45.8°N and 47.8°N, centred on 8.23°E (close to the Swiss grid)
+    switzerland: { name: "Switzerland", factory: () => d3.geoConicConformal().parallels([45.8, 47.8]).rotate([-8.23, 0]), wrap: false, fit: true },
   };
   const NORTH = 85, SOUTH = -60, CURVED_CENTRE = 10;
   const SEA_REACH = 12;                                            // px: how far out to sea a tap still counts for the nearest country
@@ -78,6 +103,8 @@
       this.readColours();
       this.crop = null;
       this.zoom = d3.zoom().scaleExtent([1, MAX_K]).clickDistance(8)
+        // d3's usual filter, and nothing at all while `locked` (the Discover magnifying glass is playing)
+        .filter(e => !this.locked && (!e.ctrlKey || e.type === "wheel") && !e.button)
         .constrain((t, extent, te) => this.constrain(t, extent, te))
         // only switch to the lighter outlines once the view really moves, so a plain tap
         // (which also starts a zoom gesture) never drops the detail
@@ -583,7 +610,7 @@
       if (this.opts.isUnformed && this.opts.isUnformed(f.c)) return this.col.unformed; // statehood timeline: not a state yet
       if (!this.active(f.c)) return this.col.off; // outside the quiz region
       const s = this.opts.getState(f.c);
-      return s ? this.col[s] : this.col.land;
+      return s ? this.col[s] : (f.c.info && f.c.info.fill) || this.col.land; // (an enclave's own colour: Lesotho, Eswatini)
     }
     draw() {
       const ctx = this.ctx, dpr = this.dpr;
@@ -592,7 +619,68 @@
       if (this.mode === "flat") this.drawFlat(); else this.drawGlobe();
       if (this.crop) this.drawCropMask();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.drawFrames();
       this.drawOverlays();
+      this.drawScaleBar();
+    }
+    // insets' frames (Spain's Canaries): a screen-aligned rectangle round each projected frame, like a border line
+    drawFrames() {
+      const fr = this.geo && this.geo.frames;
+      if (!fr || this.mode !== "flat") return;
+      const ctx = this.ctx, P = this.projection();
+      ctx.save(); ctx.strokeStyle = this.col.border; ctx.lineWidth = 1;
+      fr.forEach(ring => {
+        const pts = ring.map(p => P(p)).filter(Boolean);
+        if (!pts.length) return;
+        const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+        ctx.strokeRect(d3.min(xs), d3.min(ys), d3.max(xs) - d3.min(xs), d3.max(ys) - d3.min(ys));
+      });
+      ctx.restore();
+    }
+    // A scale bar (trial, 2026-11-26): bottom left of the main flat map, in km and miles, measured where it's drawn
+    // (on a world map the scale changes with latitude; inside an inset such as the half-size Azores it doesn't apply)
+    drawScaleBar() {
+      if (this.mode !== "flat" || this.canvas.id !== "map" || this.opts.noScaleBar) return;
+      const ctx = this.ctx, x0 = 12, y = this.h - 12, want = 90; // aim for a bar about 90 px long
+      const a = this.lonLatAt(x0, y), b = this.lonLatAt(x0 + want, y);
+      if (!a || !b) return;
+      const nice = v => { const p = Math.pow(10, Math.floor(Math.log10(v))); const m = v / p; return (m >= 5 ? 5 : m >= 2 ? 2 : 1) * p; };
+      const kmPerPx = d3.geoDistance(a, b) * 6371 / want;
+      if (!(kmPerPx > 0)) return;
+      const km = nice(want * kmPerPx), mi = nice(want * kmPerPx / 1.609344);
+      const wKm = km / kmPerPx, wMi = mi * 1.609344 / kmPerPx;
+      const fmt = v => (v >= 1 ? v.toLocaleString("en-GB") : String(v));
+      ctx.save();
+      ctx.font = "600 10px system-ui, sans-serif"; ctx.textBaseline = "middle"; ctx.lineCap = "butt";
+      const bar = (w, yy, label) => {
+        ctx.strokeStyle = this.col.halo; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0, yy); ctx.lineTo(x0 + w, yy); ctx.stroke();
+        ctx.strokeStyle = this.col.fg; ctx.lineWidth = 1.5; ctx.beginPath();
+        ctx.moveTo(x0, yy - 3); ctx.lineTo(x0, yy); ctx.lineTo(x0 + w, yy); ctx.lineTo(x0 + w, yy - 3); ctx.stroke();
+        ctx.lineWidth = 3; ctx.strokeStyle = this.col.halo; ctx.strokeText(label, x0 + w + 5, yy - 1);
+        ctx.fillStyle = this.col.fg; ctx.fillText(label, x0 + w + 5, yy - 1);
+      };
+      bar(wKm, y - 13, `${fmt(km)} km`);
+      bar(wMi, y, `${fmt(mi)} mi`);
+      // each inset's own scale bar (fixed in map coordinates, so it zooms with the inset and stays right)
+      const P = this.projection();
+      let kmBar = null; // each inset's km bar, then its miles bar 12 px below it (in map units they crowd when zoomed out)
+      (this.geo && this.geo.scaleBars || []).forEach(sb => {
+        let p = P(sb.from); const q0 = P(sb.to);
+        if (!p || !q0) return;
+        const isMi = / mi$/.test(sb.label);
+        if (isMi) { if (!kmBar) return; p = [kmBar[0], kmBar[1] + 12]; }
+        const len = Math.hypot(q0[0] - P(sb.from)[0], q0[1] - P(sb.from)[1]);
+        const q = [p[0] + len, p[1]]; // level, however the projection curves the parallel
+        kmBar = isMi ? null : (len >= 12 ? p : null);
+        if (len < 12) return; // too small to read at this zoom
+        ctx.font = "600 9px system-ui, sans-serif";
+        ctx.strokeStyle = this.col.halo; ctx.lineWidth = 3.5; ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); ctx.stroke();
+        ctx.strokeStyle = this.col.fg; ctx.lineWidth = 1.3; ctx.beginPath();
+        ctx.moveTo(p[0], p[1] - 3); ctx.lineTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); ctx.lineTo(q[0], q[1] - 3); ctx.stroke();
+        ctx.lineWidth = 3; ctx.strokeStyle = this.col.halo; ctx.strokeText(sb.label, q[0] + 4, q[1] - 1);
+        ctx.fillStyle = this.col.fg; ctx.fillText(sb.label, q[0] + 4, q[1] - 1);
+      });
+      ctx.restore();
     }
     drawFlat() {
       const ctx = this.ctx, t = this.t, col = this.col;
@@ -1029,12 +1117,16 @@
         const P = flat && this.wrap ? (ll => flatPt(ll, ref)) : proj;
         const [x, y] = P(sh.center);
         let pts = sh.ring.map(p => P(p));
+        if (sh.square) { // an inset's frame: straight on the screen, round the projected box
+          const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]), x0 = d3.min(xs), x1 = d3.max(xs), y0 = d3.min(ys), y1 = d3.max(ys);
+          pts = [[x0, y0], [x1, y0], [x1, y1], [x0, y1]];
+        }
         const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
         const size = Math.max(d3.max(xs) - d3.min(xs), d3.max(ys) - d3.min(ys));
         const f = Math.max(1, c.minPx / Math.max(size, 0.01));
         if (f > 1) pts = pts.map(([px, py]) => [x + (px - x) * f, y + (py - y) * f]);
         const r = d3.max(pts, p => Math.hypot(p[0] - x, p[1] - y));
-        return { c, x, y, r, f, pts };
+        return { c, x, y, r, f, pts, sq: !!sh.square };
       };
       const shift = (s, dx) => dx === 0 ? s : Object.assign({}, s, { x: s.x + dx, pts: s.pts.map(p => [p[0] + dx, p[1]]) });
       const islands = [], rings = [], bubbles = [], hidden = new Set();
@@ -1094,7 +1186,7 @@
       ctx.lineWidth = 1.3;
       islands.forEach(s => {
         const st = this.opts.getState(s.c);
-        ctx.beginPath(); smoothLine.context(ctx)(s.pts);
+        ctx.beginPath(); (s.sq ? squareLine : smoothLine).context(ctx)(s.pts);
         ctx.setLineDash(st ? [] : [4, 3]);
         ctx.globalAlpha = st ? 0.45 : 0.10; ctx.fillStyle = st ? col[st] : col.marker; ctx.fill();
         ctx.globalAlpha = 1; ctx.strokeStyle = st ? col[st] : col.marker; ctx.stroke();

@@ -11,6 +11,7 @@
   GG.normName = function (s) {
     return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "") // drop accents
       .toLowerCase()
+      .replace(/ł/g, "l").replace(/ß/g, "ss").replace(/ø/g, "o").replace(/æ/g, "ae").replace(/đ/g, "d") // letters with no accent to drop (Łódź, Straße)
       .replace(/&/g, " and ")
       .replace(/[^a-z0-9]+/g, " ")
       .replace(/\bst\b/g, "saint")

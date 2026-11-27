@@ -1,0 +1,1685 @@
+[
+{
+"iso": "CO-AMA",
+"id": "CO-AMA",
+"name": "Amazonas",
+"names": [
+"Amazonas",
+"Amazonas Department"
+],
+"capitals": [
+"Leticia"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-AMA",
+"info": {
+"abbr": "AMA",
+"kind": "Department",
+"pop": 76589,
+"popYear": "2018 census",
+"area": 109665,
+"flag": true,
+"facts": {
+"local": "Amazonas",
+"demonym": "Amazonense",
+"dish": "Pirarucú (giant river fish)",
+"festival": "The Amazon Confraternity Festival",
+"river": "Amazon",
+"wonder": "Amacayacu National Park",
+"landmark": "The Three Frontiers at Leticia",
+"known": "Rainforest and the border with Brazil and Peru",
+"region": "Amazon",
+"crop": "Copoazú and camu camu fruits",
+"music": "Indigenous music of the Amazon peoples"
+},
+"coastal": false,
+"borders": [
+"Brazil",
+"Peru"
+],
+"areaRank": 1,
+"of": 33
+},
+"flagKey": "co/CO-AMA",
+"capLL": [
+[
+-69.955,
+-4.201
+]
+]
+},
+{
+"iso": "CO-ANT",
+"id": "CO-ANT",
+"name": "Antioquia",
+"names": [
+"Antioquia",
+"Antioquia Department"
+],
+"capitals": [
+"Medellín",
+"Medellin"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-ANT",
+"info": {
+"abbr": "ANT",
+"kind": "Department",
+"pop": 6407102,
+"popYear": "2018 census",
+"area": 63612,
+"flag": true,
+"facts": {
+"local": "Antioquia",
+"demonym": "Antioqueño (paisa)",
+"dish": "Bandeja paisa",
+"drink": "Aguardiente antioqueño",
+"festival": "The Flower Festival (Feria de las Flores)",
+"club": "Atlético Nacional and Independiente Medellín",
+"river": "Cauca and Magdalena",
+"wonder": "El Peñol rock at Guatapé",
+"historic": "Colonial Santa Fe de Antioquia",
+"landmark": "Medellín's Metrocable and Comuna 13",
+"person": "Fernando Botero (artist)",
+"known": "Paisa culture, industry and flowers",
+"company": "Bancolombia and EPM",
+"region": "Andes",
+"crop": "Coffee and flowers",
+"music": "Reggaeton (Medellín's J Balvin, Karol G and Maluma)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 6,
+"of": 33
+},
+"flagKey": "co/CO-ANT",
+"capLL": [
+[
+-75.577,
+6.277
+]
+]
+},
+{
+"iso": "CO-ARA",
+"id": "CO-ARA",
+"name": "Arauca",
+"names": [
+"Arauca",
+"Arauca Department"
+],
+"capitals": [
+"Arauca"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-ARA",
+"info": {
+"abbr": "ARA",
+"kind": "Department",
+"pop": 262174,
+"popYear": "2018 census",
+"area": 23818,
+"flag": true,
+"facts": {
+"local": "Arauca",
+"demonym": "Araucano",
+"dish": "Mamona (spit-roasted veal)",
+"river": "Arauca",
+"known": "Oil and cattle ranching on the plains",
+"region": "Orinoquía (the Llanos)",
+"crop": "Cattle and plantain",
+"music": "Joropo (llanera music)"
+},
+"coastal": false,
+"borders": [
+"Venezuela"
+],
+"areaRank": 18,
+"of": 33
+},
+"flagKey": "co/CO-ARA",
+"capLL": [
+[
+-70.762,
+7.091
+]
+]
+},
+{
+"iso": "CO-ATL",
+"id": "CO-ATL",
+"name": "Atlántico",
+"names": [
+"Atlántico",
+"Atlantico",
+"Atlántico Department"
+],
+"capitals": [
+"Barranquilla"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-ATL",
+"info": {
+"abbr": "ATL",
+"kind": "Department",
+"pop": 2535517,
+"popYear": "2018 census",
+"area": 3388,
+"flag": true,
+"facts": {
+"local": "Atlántico",
+"demonym": "Atlanticense",
+"dish": "Butifarra soledeña",
+"festival": "The Barranquilla Carnival",
+"club": "Junior",
+"river": "Magdalena (its mouth at Bocas de Ceniza)",
+"historic": "The Caribbean port that brought in immigrants and aviation",
+"landmark": "Barranquilla's Carnival and the Ventana al Mundo",
+"person": "Shakira (born in Barranquilla)",
+"known": "Carnival, the port and industry",
+"region": "Caribbean",
+"music": "Cumbia and Carnival music"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 30,
+"of": 33
+},
+"flagKey": "co/CO-ATL",
+"capLL": [
+[
+-74.802,
+10.962
+]
+]
+},
+{
+"iso": "CO-DC",
+"id": "CO-DC",
+"name": "Bogotá",
+"names": [
+"Bogotá",
+"Bogota",
+"Capital District",
+"Bogotá D.C.",
+"Santa Fe de Bogotá",
+"Bogotá Department"
+],
+"capitals": [
+"Bogotá",
+"Bogota"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-DC",
+"info": {
+"abbr": "DC",
+"kind": "Capital District",
+"pop": 7412566,
+"popYear": "2018 census",
+"area": 1587,
+"flag": true,
+"facts": {
+"local": "Bogotá, Distrito Capital",
+"demonym": "Bogotano (rolo)",
+"dish": "Ajiaco santafereño (chicken and potato soup)",
+"drink": "Hot chocolate with cheese",
+"festival": "Rock al Parque and the Ibero-American Theatre Festival",
+"club": "Millonarios and Santa Fe",
+"river": "Bogotá River",
+"wonder": "Monserrate, the mountain above the city",
+"historic": "Santa Fe de Bogotá, capital of New Granada",
+"landmark": "The Gold Museum and La Candelaria",
+"known": "The capital, 2,640 m up in the Andes",
+"company": "Avianca",
+"region": "Andes",
+"crop": "Flowers from the savanna around it"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 32,
+"of": 33
+},
+"flagKey": "co/CO-DC",
+"capLL": [
+[
+-74.085,
+4.598
+]
+]
+},
+{
+"iso": "CO-BOL",
+"id": "CO-BOL",
+"name": "Bolívar",
+"names": [
+"Bolívar",
+"Bolivar",
+"Bolívar Department"
+],
+"capitals": [
+"Cartagena",
+"Cartagena de Indias"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-BOL",
+"info": {
+"abbr": "BOL",
+"kind": "Department",
+"pop": 2070110,
+"popYear": "2018 census",
+"area": 25978,
+"flag": true,
+"facts": {
+"local": "Bolívar",
+"demonym": "Bolivarense",
+"dish": "Coconut rice with fried fish",
+"festival": "The Cartagena Independence Festival (November)",
+"river": "Magdalena",
+"wonder": "The Rosario Islands",
+"historic": "Cartagena de Indias, Spain's great fortified port",
+"landmark": "Cartagena's walled city and Castillo San Felipe",
+"unesco": "Cartagena's port and fortifications, and Santa Cruz de Mompox",
+"known": "Cartagena's tourism and colonial Mompox",
+"region": "Caribbean",
+"music": "Champeta"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 14,
+"of": 33
+},
+"flagKey": "co/CO-BOL",
+"capLL": [
+[
+-75.516,
+10.402
+]
+]
+},
+{
+"iso": "CO-BOY",
+"id": "CO-BOY",
+"name": "Boyacá",
+"names": [
+"Boyacá",
+"Boyaca",
+"Boyacá Department"
+],
+"capitals": [
+"Tunja"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-BOY",
+"info": {
+"abbr": "BOY",
+"kind": "Department",
+"pop": 1217376,
+"popYear": "2018 census",
+"area": 23189,
+"flag": true,
+"facts": {
+"local": "Boyacá",
+"demonym": "Boyacense",
+"dish": "Cocido boyacense",
+"drink": "Chicha (maize beer)",
+"club": "Boyacá Chicó",
+"high": "Ritacuba Blanco, 5,330 m (Sierra Nevada del Cocuy)",
+"wonder": "El Cocuy National Park and Lake Tota",
+"historic": "The Battle of Boyacá (1819), which won independence",
+"landmark": "The Boyacá Bridge and Villa de Leyva",
+"person": "Nairo Quintana (cyclist)",
+"known": "Emeralds (Muzo), cycling and potatoes",
+"region": "Andes",
+"crop": "Potatoes",
+"music": "Carranga"
+},
+"coastal": false,
+"borders": [
+"Venezuela"
+],
+"areaRank": 20,
+"of": 33
+},
+"flagKey": "co/CO-BOY",
+"capLL": [
+[
+-73.37,
+5.55
+]
+]
+},
+{
+"iso": "CO-CAL",
+"id": "CO-CAL",
+"name": "Caldas",
+"names": [
+"Caldas",
+"Caldas Department"
+],
+"capitals": [
+"Manizales"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CAL",
+"info": {
+"abbr": "CAL",
+"kind": "Department",
+"pop": 998255,
+"popYear": "2018 census",
+"area": 7888,
+"flag": true,
+"facts": {
+"local": "Caldas",
+"demonym": "Caldense",
+"festival": "The Manizales Fair",
+"club": "Once Caldas",
+"high": "Nevado del Ruiz, 5,321 m",
+"wonder": "Los Nevados National Park",
+"landmark": "Manizales Cathedral",
+"unesco": "The Coffee Cultural Landscape",
+"known": "Coffee and the Ruiz volcano",
+"region": "Andes",
+"crop": "Coffee",
+"music": "Bambuco and pasillo"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 28,
+"of": 33
+},
+"flagKey": "co/CO-CAL",
+"capLL": [
+[
+-75.52,
+5.06
+]
+]
+},
+{
+"iso": "CO-CAQ",
+"id": "CO-CAQ",
+"name": "Caquetá",
+"names": [
+"Caquetá",
+"Caqueta",
+"Caquetá Department"
+],
+"capitals": [
+"Florencia"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CAQ",
+"info": {
+"abbr": "CAQ",
+"kind": "Department",
+"pop": 401849,
+"popYear": "2018 census",
+"area": 88965,
+"flag": true,
+"facts": {
+"local": "Caquetá",
+"demonym": "Caqueteño",
+"river": "Caquetá",
+"wonder": "Chiribiquete National Park (the world's largest tropical rainforest park)",
+"unesco": "Chiribiquete National Park (shared with Guaviare)",
+"known": "Cattle and the Amazon rainforest",
+"region": "Amazon",
+"crop": "Cattle and cacao"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 3,
+"of": 33
+},
+"flagKey": "co/CO-CAQ",
+"capLL": [
+[
+-75.62,
+1.61
+]
+]
+},
+{
+"iso": "CO-CAS",
+"id": "CO-CAS",
+"name": "Casanare",
+"names": [
+"Casanare",
+"Casanare Department"
+],
+"capitals": [
+"Yopal"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CAS",
+"info": {
+"abbr": "CAS",
+"kind": "Department",
+"pop": 420504,
+"popYear": "2018 census",
+"area": 44640,
+"flag": true,
+"facts": {
+"local": "Casanare",
+"demonym": "Casanareño",
+"dish": "Mamona (spit-roasted veal)",
+"river": "Meta and Casanare",
+"known": "Oil and cattle on the plains",
+"region": "Orinoquía (the Llanos)",
+"crop": "Cattle and rice",
+"music": "Joropo"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 10,
+"of": 33
+},
+"flagKey": "co/CO-CAS",
+"capLL": [
+[
+-72.406,
+5.347
+]
+]
+},
+{
+"iso": "CO-CAU",
+"id": "CO-CAU",
+"name": "Cauca",
+"names": [
+"Cauca",
+"Cauca Department"
+],
+"capitals": [
+"Popayán",
+"Popayan"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CAU",
+"info": {
+"abbr": "CAU",
+"kind": "Department",
+"pop": 1464488,
+"popYear": "2018 census",
+"area": 29308,
+"flag": true,
+"facts": {
+"local": "Cauca",
+"demonym": "Caucano",
+"dish": "Empanadas de pipián",
+"festival": "Holy Week processions in Popayán",
+"river": "Cauca and Patía",
+"wonder": "Puracé National Park and Gorgona Island",
+"historic": "Colonial Popayán, the 'White City'",
+"landmark": "Popayán's white colonial centre",
+"unesco": "The Tierradentro National Archaeological Park",
+"known": "Colonial Popayán and Indigenous Nasa and Misak peoples",
+"region": "Andes and Pacific",
+"crop": "Coffee",
+"music": "Pacific marimba music"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 13,
+"of": 33
+},
+"flagKey": "co/CO-CAU",
+"notTypo": [
+"Valle del Cauca"
+],
+"capLL": [
+[
+-76.61,
+2.42
+]
+]
+},
+{
+"iso": "CO-CES",
+"id": "CO-CES",
+"name": "Cesar",
+"names": [
+"Cesar",
+"Cesar Department"
+],
+"capitals": [
+"Valledupar"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CES",
+"info": {
+"abbr": "CES",
+"kind": "Department",
+"pop": 1200574,
+"popYear": "2018 census",
+"area": 22905,
+"flag": true,
+"facts": {
+"local": "Cesar",
+"demonym": "Cesarense",
+"festival": "The Vallenato Legend Festival in Valledupar",
+"river": "Cesar",
+"wonder": "The Sierra Nevada de Santa Marta (part)",
+"person": "Diomedes Díaz (vallenato singer)",
+"known": "Vallenato and coal mining",
+"region": "Caribbean",
+"crop": "Palm oil and cotton",
+"music": "Vallenato"
+},
+"coastal": false,
+"borders": [
+"Venezuela"
+],
+"areaRank": 22,
+"of": 33
+},
+"flagKey": "co/CO-CES",
+"capLL": [
+[
+-73.25,
+10.48
+]
+]
+},
+{
+"iso": "CO-CHO",
+"id": "CO-CHO",
+"name": "Chocó",
+"names": [
+"Chocó",
+"Choco",
+"Chocó Department"
+],
+"capitals": [
+"Quibdó",
+"Quibdo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CHO",
+"info": {
+"abbr": "CHO",
+"kind": "Department",
+"pop": 534826,
+"popYear": "2018 census",
+"area": 46530,
+"flag": true,
+"facts": {
+"local": "Chocó",
+"demonym": "Chocoano",
+"festival": "The San Pacho festival in Quibdó",
+"river": "Atrato",
+"wonder": "Humpback whales off Bahía Solano and Nuquí, and Utría National Park",
+"known": "One of the rainiest places on Earth, and Afro-Colombian culture",
+"region": "Pacific",
+"crop": "Plantain (and gold from the rivers)",
+"music": "Chirimía"
+},
+"coastal": true,
+"borders": [
+"Panama"
+],
+"areaRank": 9,
+"of": 33
+},
+"flagKey": "co/CO-CHO",
+"capLL": [
+[
+-76.66,
+5.69
+]
+]
+},
+{
+"iso": "CO-CUN",
+"id": "CO-CUN",
+"name": "Cundinamarca",
+"names": [
+"Cundinamarca",
+"Cundinamarca Department"
+],
+"capitals": [],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-CUN",
+"info": {
+"abbr": "CUN",
+"kind": "Department",
+"pop": 2919060,
+"popYear": "2018 census",
+"area": 24210,
+"flag": true,
+"facts": {
+"local": "Cundinamarca",
+"demonym": "Cundinamarqués",
+"wonder": "Lake Guatavita (the El Dorado legend)",
+"historic": "The Muisca Confederation",
+"landmark": "The Salt Cathedral of Zipaquirá",
+"known": "Flowers for export and the Bogotá savanna",
+"city": "Soacha",
+"region": "Andes",
+"crop": "Flowers",
+"music": "Torbellino"
+},
+"capNote": "Bogotá (the government sits in Bogotá, which isn't part of the department)",
+"coastal": false,
+"borders": [],
+"areaRank": 17,
+"of": 33
+},
+"flagKey": "co/CO-CUN",
+"capLL": []
+},
+{
+"iso": "CO-COR",
+"id": "CO-COR",
+"name": "Córdoba",
+"names": [
+"Córdoba",
+"Cordoba",
+"Córdoba Department"
+],
+"capitals": [
+"Montería",
+"Monteria"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-COR",
+"info": {
+"abbr": "COR",
+"kind": "Department",
+"pop": 1784783,
+"popYear": "2018 census",
+"area": 25020,
+"flag": true,
+"facts": {
+"local": "Córdoba",
+"demonym": "Cordobés",
+"dish": "Mote de queso (yam and cheese soup)",
+"festival": "The Porro Festival in San Pelayo",
+"river": "Sinú",
+"landmark": "The sombrero vueltiao (Colombia's national hat)",
+"known": "Cattle and the sombrero vueltiao",
+"region": "Caribbean",
+"crop": "Cattle and maize",
+"music": "Porro"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15,
+"of": 33
+},
+"flagKey": "co/CO-COR",
+"capLL": [
+[
+-75.89,
+8.758
+]
+]
+},
+{
+"iso": "CO-GUA",
+"id": "CO-GUA",
+"name": "Guainía",
+"names": [
+"Guainía",
+"Guainia",
+"Guainía Department"
+],
+"capitals": [
+"Inírida",
+"Inirida",
+"Puerto Inírida"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-GUA",
+"info": {
+"abbr": "GUA",
+"kind": "Department",
+"pop": 48114,
+"popYear": "2018 census",
+"area": 72238,
+"flag": true,
+"facts": {
+"local": "Guainía",
+"demonym": "Guainiense",
+"river": "Inírida and Guaviare",
+"wonder": "The Cerros de Mavecure",
+"known": "Rivers, the Inírida flower and the Puinave people",
+"region": "Amazon (on the edge of the Orinoquía)"
+},
+"coastal": false,
+"borders": [
+"Brazil",
+"Venezuela"
+],
+"areaRank": 5,
+"of": 33
+},
+"flagKey": "co/CO-GUA",
+"notTypo": [
+"Guaviare"
+],
+"capLL": [
+[
+-67.906,
+3.854
+]
+]
+},
+{
+"iso": "CO-GUV",
+"id": "CO-GUV",
+"name": "Guaviare",
+"names": [
+"Guaviare",
+"Guaviare Department"
+],
+"capitals": [
+"San José del Guaviare",
+"San Jose del Guaviare"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-GUV",
+"info": {
+"abbr": "GUV",
+"kind": "Department",
+"pop": 82767,
+"popYear": "2018 census",
+"area": 53460,
+"flag": true,
+"facts": {
+"local": "Guaviare",
+"demonym": "Guaviarense",
+"river": "Guaviare",
+"wonder": "The rock paintings of the Serranía de la Lindosa",
+"unesco": "Chiribiquete National Park (shared with Caquetá)",
+"known": "Ancient rock art and rainforest",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 8,
+"of": 33
+},
+"flagKey": "co/CO-GUV",
+"notTypo": [
+"Guainía"
+],
+"capLL": [
+[
+-72.64,
+2.57
+]
+]
+},
+{
+"iso": "CO-HUI",
+"id": "CO-HUI",
+"name": "Huila",
+"names": [
+"Huila",
+"Huila Department"
+],
+"capitals": [
+"Neiva"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-HUI",
+"info": {
+"abbr": "HUI",
+"kind": "Department",
+"pop": 1100386,
+"popYear": "2018 census",
+"area": 19890,
+"flag": true,
+"facts": {
+"local": "Huila",
+"demonym": "Huilense (opita)",
+"dish": "Asado huilense",
+"festival": "The Bambuco Folk Festival (San Pedro)",
+"river": "Magdalena (its source)",
+"wonder": "The Tatacoa Desert",
+"unesco": "San Agustín Archaeological Park",
+"known": "Coffee and the San Agustín statues",
+"region": "Andes",
+"crop": "Coffee",
+"music": "Bambuco"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 26,
+"of": 33
+},
+"flagKey": "co/CO-HUI",
+"capLL": [
+[
+-75.33,
+2.931
+]
+]
+},
+{
+"iso": "CO-LAG",
+"id": "CO-LAG",
+"name": "La Guajira",
+"names": [
+"La Guajira",
+"Guajira",
+"La Guajira Department"
+],
+"capitals": [
+"Riohacha"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-LAG",
+"info": {
+"abbr": "LAG",
+"kind": "Department",
+"pop": 880560,
+"popYear": "2018 census",
+"area": 20848,
+"flag": true,
+"facts": {
+"local": "La Guajira",
+"demonym": "Guajiro",
+"wonder": "Cabo de la Vela and Punta Gallinas, South America's northernmost point",
+"known": "The Wayuu people and their mochila bags, and coal",
+"company": "Cerrejón (coal)",
+"region": "Caribbean",
+"music": "Vallenato"
+},
+"coastal": true,
+"borders": [
+"Venezuela"
+],
+"areaRank": 25,
+"of": 33
+},
+"flagKey": "co/CO-LAG",
+"capLL": [
+[
+-72.91,
+11.54
+]
+]
+},
+{
+"iso": "CO-MAG",
+"id": "CO-MAG",
+"name": "Magdalena",
+"names": [
+"Magdalena",
+"Magdalena Department"
+],
+"capitals": [
+"Santa Marta"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-MAG",
+"info": {
+"abbr": "MAG",
+"kind": "Department",
+"pop": 1341746,
+"popYear": "2018 census",
+"area": 23188,
+"flag": true,
+"facts": {
+"local": "Magdalena",
+"demonym": "Magdalenense (samario in Santa Marta)",
+"club": "Unión Magdalena",
+"high": "Pico Cristóbal Colón, about 5,700 m: Colombia's highest",
+"wonder": "Tayrona National Park and the Sierra Nevada de Santa Marta",
+"historic": "Santa Marta (1525), the oldest surviving Spanish city in Colombia",
+"landmark": "Ciudad Perdida (the Lost City)",
+"person": "Gabriel García Márquez (born in Aracataca)",
+"known": "Tayrona, the Lost City and bananas",
+"region": "Caribbean",
+"crop": "Bananas",
+"music": "Cumbia"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 21,
+"of": 33
+},
+"flagKey": "co/CO-MAG",
+"capLL": [
+[
+-74.202,
+11.247
+]
+]
+},
+{
+"iso": "CO-MET",
+"id": "CO-MET",
+"name": "Meta",
+"names": [
+"Meta",
+"Meta Department"
+],
+"capitals": [
+"Villavicencio"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-MET",
+"info": {
+"abbr": "MET",
+"kind": "Department",
+"pop": 1039722,
+"popYear": "2018 census",
+"area": 82805,
+"flag": true,
+"facts": {
+"local": "Meta",
+"demonym": "Metense (llanero)",
+"dish": "Mamona (spit-roasted veal)",
+"festival": "The International Joropo Tournament",
+"river": "Meta and Guaviare",
+"wonder": "Caño Cristales, the 'river of five colours'",
+"known": "The plains: cattle, rice and oil",
+"region": "Orinoquía (the Llanos)",
+"crop": "Rice and palm oil",
+"music": "Joropo"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 4,
+"of": 33
+},
+"flagKey": "co/CO-MET",
+"capLL": [
+[
+-73.635,
+4.153
+]
+]
+},
+{
+"iso": "CO-NAR",
+"id": "CO-NAR",
+"name": "Nariño",
+"names": [
+"Nariño",
+"Narino",
+"Nariño Department"
+],
+"capitals": [
+"Pasto",
+"San Juan de Pasto"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-NAR",
+"info": {
+"abbr": "NAR",
+"kind": "Department",
+"pop": 1630592,
+"popYear": "2018 census",
+"area": 33268,
+"flag": true,
+"facts": {
+"local": "Nariño",
+"demonym": "Nariñense (pastuso)",
+"dish": "Cuy (roast guinea pig)",
+"festival": "The Carnival of Blacks and Whites in Pasto",
+"wonder": "Galeras volcano and Laguna de la Cocha",
+"landmark": "Las Lajas Sanctuary, built across a gorge",
+"region": "Andes and Pacific",
+"crop": "Potatoes",
+"music": "Marimba (Tumaco) and Andean music"
+},
+"coastal": true,
+"borders": [
+"Ecuador"
+],
+"areaRank": 11,
+"of": 33
+},
+"flagKey": "co/CO-NAR",
+"capLL": [
+[
+-77.281,
+1.214
+]
+]
+},
+{
+"iso": "CO-NSA",
+"id": "CO-NSA",
+"name": "Norte de Santander",
+"names": [
+"Norte de Santander",
+"North Santander",
+"Norte de Santander Department"
+],
+"capitals": [
+"Cúcuta",
+"Cucuta"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-NSA",
+"info": {
+"abbr": "NSA",
+"kind": "Department",
+"pop": 1491689,
+"popYear": "2018 census",
+"area": 21658,
+"flag": true,
+"facts": {
+"local": "Norte de Santander",
+"demonym": "Nortesantandereano",
+"dish": "Pastel de garbanzo",
+"club": "Cúcuta Deportivo",
+"historic": "The Congress of Cúcuta (1821), which founded Gran Colombia",
+"landmark": "Colonial Pamplona",
+"known": "Trade across the border with Venezuela",
+"region": "Andes",
+"crop": "Rice and coffee"
+},
+"coastal": false,
+"borders": [
+"Venezuela"
+],
+"areaRank": 24,
+"of": 33
+},
+"flagKey": "co/CO-NSA",
+"notTypo": [
+"Santander"
+],
+"capLL": [
+[
+-72.52,
+7.92
+]
+]
+},
+{
+"iso": "CO-PUT",
+"id": "CO-PUT",
+"name": "Putumayo",
+"names": [
+"Putumayo",
+"Putumayo Department"
+],
+"capitals": [
+"Mocoa"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-PUT",
+"info": {
+"abbr": "PUT",
+"kind": "Department",
+"pop": 348182,
+"popYear": "2018 census",
+"area": 24885,
+"flag": true,
+"facts": {
+"local": "Putumayo",
+"demonym": "Putumayense",
+"river": "Putumayo",
+"wonder": "The Fin del Mundo waterfall near Mocoa",
+"known": "The Andes meeting the Amazon, and oil",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [
+"Ecuador",
+"Peru"
+],
+"areaRank": 16,
+"of": 33
+},
+"flagKey": "co/CO-PUT",
+"capLL": [
+[
+-76.63,
+1.15
+]
+]
+},
+{
+"iso": "CO-QUI",
+"id": "CO-QUI",
+"name": "Quindío",
+"names": [
+"Quindío",
+"Quindio",
+"Quindío Department"
+],
+"capitals": [
+"Armenia"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-QUI",
+"info": {
+"abbr": "QUI",
+"kind": "Department",
+"pop": 539904,
+"popYear": "2018 census",
+"area": 1845,
+"flag": true,
+"facts": {
+"local": "Quindío",
+"demonym": "Quindiano",
+"wonder": "The Cocora Valley's wax palms (the national tree)",
+"landmark": "The Parque del Café",
+"unesco": "The Coffee Cultural Landscape",
+"known": "Coffee farms and Salento",
+"region": "Andes",
+"crop": "Coffee"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 31,
+"of": 33
+},
+"flagKey": "co/CO-QUI",
+"capLL": [
+[
+-75.681,
+4.534
+]
+]
+},
+{
+"iso": "CO-RIS",
+"id": "CO-RIS",
+"name": "Risaralda",
+"names": [
+"Risaralda",
+"Risaralda Department"
+],
+"capitals": [
+"Pereira"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-RIS",
+"info": {
+"abbr": "RIS",
+"kind": "Department",
+"pop": 943401,
+"popYear": "2018 census",
+"area": 4140,
+"flag": true,
+"facts": {
+"local": "Risaralda",
+"demonym": "Risaraldense",
+"club": "Deportivo Pereira",
+"wonder": "The hot springs of Santa Rosa de Cabal",
+"unesco": "The Coffee Cultural Landscape",
+"known": "Coffee and Pereira's trade",
+"region": "Andes",
+"crop": "Coffee"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 29,
+"of": 33
+},
+"flagKey": "co/CO-RIS",
+"anchorLL": [
+-76.003,
+5.319
+],
+"capLL": [
+[
+-75.68,
+4.81
+]
+]
+},
+{
+"iso": "CO-SAP",
+"id": "CO-SAP",
+"name": "San Andrés and Providencia",
+"names": [
+"San Andrés and Providencia",
+"San Andrés",
+"San Andres",
+"San Andrés y Providencia",
+"San Andres and Providencia",
+"Archipelago of San Andrés, Providencia and Santa Catalina",
+"Providencia",
+"San Andrés and Providencia Department"
+],
+"capitals": [
+"San Andrés",
+"San Andres"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-SAP",
+"info": {
+"abbr": "SAP",
+"kind": "Department",
+"pop": 61280,
+"popYear": "2018 census",
+"area": 52,
+"flag": true,
+"facts": {
+"local": "San Andrés, Providencia y Santa Catalina",
+"demonym": "Raizal (sanandresano)",
+"dialect": "San Andrés–Providencia Creole (English-based)",
+"dish": "Rondón (coconut seafood stew)",
+"wonder": "The 'Sea of Seven Colours' and the Seaflower Biosphere Reserve",
+"landmark": "Johnny Cay",
+"known": "Raizal culture, coral reefs and duty-free shopping",
+"region": "Caribbean (islands)",
+"music": "Reggae and calypso"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 33,
+"of": 33
+},
+"flagKey": "co/CO-SAP",
+"capLL": [
+[
+-79.815,
+10.612
+]
+],
+"isles": [
+{
+"center": [
+-79.7,
+11.0
+],
+"square": true,
+"ring": [
+[
+-80.175,
+10.25
+],
+[
+-79.225,
+10.25
+],
+[
+-79.225,
+11.75
+],
+[
+-80.175,
+11.75
+]
+]
+}
+]
+},
+{
+"iso": "CO-SAN",
+"id": "CO-SAN",
+"name": "Santander",
+"names": [
+"Santander",
+"Santander Department"
+],
+"capitals": [
+"Bucaramanga"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-SAN",
+"info": {
+"abbr": "SAN",
+"kind": "Department",
+"pop": 2184837,
+"popYear": "2018 census",
+"area": 30537,
+"flag": true,
+"facts": {
+"local": "Santander",
+"demonym": "Santandereano",
+"dish": "Hormigas culonas (roasted big-bottomed ants) and mute",
+"club": "Atlético Bucaramanga",
+"wonder": "The Chicamocha Canyon",
+"landmark": "Colonial Barichara",
+"known": "Adventure sports in San Gil",
+"region": "Andes",
+"crop": "Cacao and tobacco"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 12,
+"of": 33
+},
+"flagKey": "co/CO-SAN",
+"notTypo": [
+"Norte de Santander"
+],
+"capLL": [
+[
+-73.128,
+7.132
+]
+]
+},
+{
+"iso": "CO-SUC",
+"id": "CO-SUC",
+"name": "Sucre",
+"names": [
+"Sucre",
+"Sucre Department"
+],
+"capitals": [
+"Sincelejo"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-SUC",
+"info": {
+"abbr": "SUC",
+"kind": "Department",
+"pop": 904863,
+"popYear": "2018 census",
+"area": 10917,
+"flag": true,
+"facts": {
+"local": "Sucre",
+"demonym": "Sucreño",
+"festival": "The 20 January festival (corralejas) in Sincelejo",
+"wonder": "The Gulf of Morrosquillo",
+"known": "Cattle and the Morrosquillo beaches",
+"region": "Caribbean",
+"crop": "Cattle",
+"music": "Porro and fandango"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 27,
+"of": 33
+},
+"flagKey": "co/CO-SUC",
+"capLL": [
+[
+-75.38,
+9.29
+]
+]
+},
+{
+"iso": "CO-TOL",
+"id": "CO-TOL",
+"name": "Tolima",
+"names": [
+"Tolima",
+"Tolima Department"
+],
+"capitals": [
+"Ibagué",
+"Ibague"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-TOL",
+"info": {
+"abbr": "TOL",
+"kind": "Department",
+"pop": 1330187,
+"popYear": "2018 census",
+"area": 23562,
+"flag": true,
+"facts": {
+"local": "Tolima",
+"demonym": "Tolimense",
+"dish": "Lechona and tamal tolimense",
+"festival": "The Colombian Folk Festival in Ibagué",
+"club": "Deportes Tolima",
+"high": "Nevado del Tolima, 5,215 m",
+"historic": "The Armero tragedy (1985 eruption of Nevado del Ruiz)",
+"known": "Ibagué, 'the musical capital'",
+"region": "Andes",
+"crop": "Rice and coffee",
+"music": "Bambuco"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 19,
+"of": 33
+},
+"flagKey": "co/CO-TOL",
+"capLL": [
+[
+-75.232,
+4.439
+]
+]
+},
+{
+"iso": "CO-VAC",
+"id": "CO-VAC",
+"name": "Valle del Cauca",
+"names": [
+"Valle del Cauca",
+"Valle",
+"Santiago de Cali",
+"Valle del Cauca Department"
+],
+"capitals": [
+"Cali"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-VAC",
+"info": {
+"abbr": "VAC",
+"kind": "Department",
+"pop": 4475886,
+"popYear": "2018 census",
+"area": 22140,
+"flag": true,
+"facts": {
+"local": "Valle del Cauca",
+"demonym": "Vallecaucano (caleño in Cali)",
+"dish": "Sancocho de gallina",
+"drink": "Lulada (lulo fruit drink)",
+"festival": "The Cali Fair and the Petronio Álvarez Pacific music festival",
+"club": "Deportivo Cali and América de Cali",
+"river": "Cauca",
+"wonder": "Malpelo Island (far offshore)",
+"landmark": "Cristo Rey above Cali",
+"unesco": "Malpelo Fauna and Flora Sanctuary",
+"known": "Salsa, sugar cane and the port of Buenaventura",
+"region": "Andes and Pacific",
+"crop": "Sugar cane",
+"music": "Salsa (Cali, the world capital of salsa)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 23,
+"of": 33
+},
+"flagKey": "co/CO-VAC",
+"capLL": [
+[
+-76.502,
+3.402
+]
+]
+},
+{
+"iso": "CO-VAU",
+"id": "CO-VAU",
+"name": "Vaupés",
+"names": [
+"Vaupés",
+"Vaupes",
+"Vaupés Department"
+],
+"capitals": [
+"Mitú",
+"Mitu"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-VAU",
+"info": {
+"abbr": "VAU",
+"kind": "Department",
+"pop": 40797,
+"popYear": "2018 census",
+"area": 54135,
+"flag": true,
+"facts": {
+"local": "Vaupés",
+"demonym": "Vaupense",
+"river": "Vaupés",
+"known": "Remote rainforest and the Tukano peoples",
+"region": "Amazon"
+},
+"coastal": false,
+"borders": [
+"Brazil"
+],
+"areaRank": 7,
+"of": 33
+},
+"flagKey": "co/CO-VAU",
+"capLL": [
+[
+-70.174,
+1.198
+]
+]
+},
+{
+"iso": "CO-VID",
+"id": "CO-VID",
+"name": "Vichada",
+"names": [
+"Vichada",
+"Vichada Department"
+],
+"capitals": [
+"Puerto Carreño",
+"Puerto Carreno"
+],
+"cont": [
+"South America"
+],
+"car": false,
+"a2": "CO-VID",
+"info": {
+"abbr": "VID",
+"kind": "Department",
+"pop": 107808,
+"popYear": "2018 census",
+"area": 100242,
+"flag": true,
+"facts": {
+"local": "Vichada",
+"demonym": "Vichadense",
+"river": "Orinoco and Meta",
+"wonder": "El Tuparro National Park",
+"known": "Wide savannas on the Orinoco",
+"region": "Orinoquía (the Llanos)",
+"music": "Joropo"
+},
+"coastal": false,
+"borders": [
+"Venezuela"
+],
+"areaRank": 2,
+"of": 33
+},
+"flagKey": "co/CO-VID",
+"capLL": [
+[
+-67.493,
+6.185
+]
+]
+}
+]

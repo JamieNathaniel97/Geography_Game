@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-POL","geometry":{"type":"Polygon","coordinates":[[[18.9,51.1],[18.9,51.0],[18.0,51.0],[18.0,51.1],[18.9,51.1]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

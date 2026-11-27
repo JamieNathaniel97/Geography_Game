@@ -1,0 +1,185 @@
+[
+{
+"iso": "BER-BRU",
+"id": "BER-BRU",
+"name": "Brussels-Capital Region",
+"names": [
+"Brussels-Capital Region",
+"Brussels",
+"Brussels Capital Region",
+"Bruxelles",
+"Brussel",
+"Brussels-Capital"
+],
+"capitals": [
+"Brussels",
+"City of Brussels",
+"Bruxelles",
+"Brussel"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BER-BRU",
+"info": {
+"abbr": "BRU",
+"kind": "Region (bilingual)",
+"pop": 1255795,
+"popYear": "2025",
+"area": 162,
+"flag": true,
+"facts": {
+"lang": "Dutch and French",
+"local": "Brussel / Bruxelles",
+"demonym": "Bruxellois (Brusselaar)",
+"dialect": "Bilingual French and Dutch; Brusseleir (Marols) dialect",
+"dish": "Moules-frites and Brussels waffles",
+"drink": "Gueuze (Cantillon brewery)",
+"festival": "The Ommegang pageant and the Flower Carpet",
+"club": "RSC Anderlecht",
+"river": "Senne",
+"wonder": "The Sonian Forest (in part)",
+"historic": "Duchy of Brabant",
+"landmark": "The Grand-Place and the Atomium",
+"unesco": "The Grand-Place, Victor Horta's town houses and the Stoclet Palace",
+"person": "Audrey Hepburn (born in Ixelles)",
+"known": "The EU and NATO headquarters, chocolate and comics",
+"company": "Godiva (founded here)",
+"special": "Bilingual: French and Dutch"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 3,
+"of": 3
+},
+"flagKey": "be/BER-BRU",
+"capLL": [
+[
+4.331,
+50.835
+]
+]
+},
+{
+"iso": "BER-VLG",
+"id": "BER-VLG",
+"name": "Flanders",
+"names": [
+"Flanders",
+"Flemish Region",
+"Vlaanderen",
+"Flandre",
+"Flandern",
+"Vlaams Gewest"
+],
+"capitals": [],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BER-VLG",
+"info": {
+"abbr": "VLG",
+"kind": "Region",
+"pop": 6864766,
+"popYear": "2025",
+"area": 13625,
+"flag": true,
+"facts": {
+"local": "Vlaanderen",
+"demonym": "Fleming",
+"dialect": "Dutch (Flemish dialects: West Flemish, Brabantian, Limburgish)",
+"dish": "Flemish stew (stoofvlees) with fries",
+"drink": "Beer: Stella Artois, Westvleteren, Duvel",
+"festival": "The Ghent Festivities and Tomorrowland",
+"club": "Club Brugge",
+"river": "Scheldt",
+"wonder": "Hoge Kempen National Park",
+"historic": "County of Flanders and Duchy of Brabant",
+"landmark": "Bruges, Ghent and Antwerp's old towns",
+"unesco": "The Flemish belfries and beguinages, Bruges and the Plantin-Moretus Museum",
+"person": "Peter Paul Rubens",
+"known": "The port of Antwerp, chocolate and cycling (the Tour of Flanders)",
+"company": "AB InBev",
+"city": "Antwerp",
+"special": "Dutch-speaking (Flemish Community)"
+},
+"capNote": "Brussels (the Flemish government sits in Brussels, outside the region)",
+"coastal": true,
+"borders": [
+"France",
+"Netherlands"
+],
+"areaRank": 2,
+"of": 3
+},
+"flagKey": "be/BER-VLG",
+"capLL": []
+},
+{
+"iso": "BER-WAL",
+"id": "BER-WAL",
+"name": "Wallonia",
+"names": [
+"Wallonia",
+"Walloon Region",
+"Wallonie",
+"Wallonien",
+"Walloon"
+],
+"capitals": [
+"Namur",
+"Namen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "BER-WAL",
+"info": {
+"abbr": "WAL",
+"kind": "Region",
+"pop": 3704990,
+"popYear": "2025",
+"area": 16901,
+"flag": true,
+"facts": {
+"local": "Wallonie",
+"demonym": "Walloon",
+"dialect": "French, Walloon and Picard; German in the East Cantons",
+"dish": "Liège waffles and Ardennes ham",
+"drink": "Trappist beers: Chimay, Orval and Rochefort",
+"festival": "The Binche Carnival",
+"club": "Standard Liège",
+"river": "Meuse",
+"high": "Signal de Botrange, 694 m: Belgium's highest",
+"wonder": "The Ardennes and the Caves of Han",
+"historic": "Prince-Bishopric of Liège, the counties of Hainaut and Namur, and Luxembourg",
+"landmark": "The Citadel of Namur",
+"unesco": "The major mining sites, Tournai Cathedral, Spiennes and the Canal du Centre lifts",
+"person": "Adolphe Sax (born in Dinant)",
+"known": "Steel and coal history, and the Ardennes",
+"company": "FN Herstal",
+"city": "Charleroi",
+"special": "French-speaking, with the German-speaking Community in the east"
+},
+"coastal": false,
+"borders": [
+"France",
+"Germany",
+"Luxembourg",
+"Netherlands"
+],
+"areaRank": 1,
+"of": 3
+},
+"flagKey": "be/BER-WAL",
+"capLL": [
+[
+4.87,
+50.47
+]
+]
+}
+]

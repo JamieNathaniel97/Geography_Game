@@ -1381,6 +1381,10 @@
 "borders": [],
 "areaRank": 29
 },
+"notTypo": [
+"Valencia",
+"València"
+],
 "capLL": [
 [
 -4.53,
@@ -1752,6 +1756,9 @@
 "borders": [],
 "areaRank": 20
 },
+"notTypo": [
+"Palencia"
+],
 "capLL": [
 [
 -0.402,

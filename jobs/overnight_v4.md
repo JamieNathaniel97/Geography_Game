@@ -30,7 +30,7 @@ As in overnight_v2, Part 1:
 1. `python tools/fetch_country_data.py cl my kr pe eg`, with the local languages (es for Chile and Peru; ms for Malaysia; ko; ar).
 2. **Shapes:** Natural Earth admin-1. Check each country's count matches the table (16, 16, 17, 26, 27). Egypt's governorates have changed several times; Peru's Natural Earth list may join Lima Province and the Lima Region. If any is out of date, use geoBoundaries ADM1 (CC BY 4.0, credit it).
 3. **Fonts:** `tools/downloads/fonts/NotoSansKR.ttf` and `NotoSansArabic.ttf`.
-4. **Census totals** into `census.json` with source and year: Chile (Census 2024, or 2017 if the 2024 results by region aren't out; say which), Malaysia (Census 2020), South Korea (2020 census or the latest register figure; say which), Peru (Census 2017), Egypt (Census 2017).
+4. **Populations** into `census.json` with source and date: **the latest official figure by default** (decided by the user 2026-11-26), checked against the national total for the same date; a census only if nothing newer is published by region. Say which on the card.
 5. **Fact sources:** `--extras` with searches for the country-specific facts below (for example "Climate of Chile", "Mapuche", "Malay rulers", "Three Kingdoms of Korea", "Inca Empire", "Upper and Lower Egypt").
 6. **Download log** at the end of this file.
 

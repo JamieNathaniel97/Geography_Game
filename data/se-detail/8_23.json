@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-NOR","geometry":{"type":"Polygon","coordinates":[[[24.3,69.2],[24.3,69.0],[24.0,69.0],[24.0,69.2],[24.3,69.2]]]}}],"coast":{"type":"MultiLineString","coordinates":[]},"borders":{"type":"MultiLineString","coordinates":[]}}

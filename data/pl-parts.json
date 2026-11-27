@@ -1,0 +1,952 @@
+[
+{
+"iso": "PL-WP",
+"id": "PL-WP",
+"name": "Greater Poland",
+"names": [
+"Greater Poland",
+"Greater Poland Voivodeship",
+"Wielkopolska",
+"Wielkopolskie",
+"Great Poland"
+],
+"capitals": [
+"Poznań",
+"Posen"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-WP",
+"info": {
+"abbr": "WP",
+"kind": "Voivodeship",
+"pop": 3474825,
+"popYear": "2025",
+"area": 29826,
+"flag": true,
+"facts": {
+"local": "Województwo wielkopolskie",
+"demonym": "Greater Polander (Wielkopolanin)",
+"dialect": "Greater Poland dialect (Poznań speech)",
+"dish": "St Martin's croissant (rogal świętomarciński) and pyry z gzikiem",
+"drink": "Lech beer",
+"festival": "St Martin's Day in Poznań",
+"club": "Lech Poznań",
+"river": "Warta",
+"wonder": "Wielkopolski National Park",
+"historic": "Greater Poland: the cradle of the Polish state (Gniezno)",
+"landmark": "Poznań's Old Market Square (the goats) and Gniezno Cathedral",
+"known": "Trade fairs, farming and the first Polish capital",
+"company": "Solaris (buses) and Lech",
+"special": "Prussian (Grand Duchy of Posen)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 2,
+"of": 16
+},
+"flagKey": "pl/PL-WP",
+"notTypo": [
+"Lesser Poland"
+],
+"capLL": [
+[
+16.9,
+52.406
+]
+]
+},
+{
+"iso": "PL-KP",
+"id": "PL-KP",
+"name": "Kuyavian-Pomeranian",
+"names": [
+"Kuyavian-Pomeranian",
+"Kuyavia-Pomerania",
+"Kuyavian Pomeranian",
+"Kuyavian-Pomeranian Voivodeship",
+"Kujawsko-pomorskie"
+],
+"capitals": [
+"Bydgoszcz",
+"Toruń"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-KP",
+"info": {
+"abbr": "KP",
+"kind": "Voivodeship",
+"pop": 1977537,
+"popYear": "2025",
+"area": 17971,
+"flag": true,
+"facts": {
+"local": "Województwo kujawsko-pomorskie",
+"demonym": "Kuyavian or Pomeranian",
+"dialect": "Kuyavian and Chełmno-Dobrzyń dialects",
+"dish": "Toruń gingerbread (pierniki)",
+"festival": "Bella Skyway light festival in Toruń",
+"river": "Vistula and Brda",
+"wonder": "Tuchola Forest",
+"historic": "Kuyavia and the Chełmno Land of Pomerania",
+"landmark": "Toruń's medieval old town",
+"unesco": "The medieval town of Toruń",
+"person": "Nicolaus Copernicus (born in Toruń)",
+"known": "Gingerbread and Copernicus",
+"special": "Mostly Prussian; the south-east (Włocławek) Russian"
+},
+"capNote": "Bydgoszcz (the governor) and Toruń (the assembly)",
+"coastal": false,
+"borders": [],
+"areaRank": 10,
+"of": 16
+},
+"flagKey": "pl/PL-KP",
+"notTypo": [
+"Pomeranian",
+"West Pomeranian"
+],
+"capLL": [
+[
+18.01,
+53.12
+],
+[
+18.598,
+53.013
+]
+]
+},
+{
+"iso": "PL-MA",
+"id": "PL-MA",
+"name": "Lesser Poland",
+"names": [
+"Lesser Poland",
+"Lesser Poland Voivodeship",
+"Małopolska",
+"Małopolskie",
+"Little Poland"
+],
+"capitals": [
+"Kraków",
+"Krakow",
+"Cracow"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-MA",
+"info": {
+"abbr": "MA",
+"kind": "Voivodeship",
+"pop": 3427656,
+"popYear": "2025",
+"area": 15183,
+"flag": true,
+"facts": {
+"local": "Województwo małopolskie",
+"demonym": "Lesser Polander (Małopolanin)",
+"dialect": "Lesser Poland dialects and Goral (Podhale) speech",
+"dish": "Obwarzanek krakowski and oscypek (smoked sheep's cheese)",
+"festival": "Kraków's Wianki (Midsummer) and the Lajkonik parade",
+"club": "Wisła Kraków and Cracovia",
+"river": "Vistula and Dunajec",
+"high": "Rysy, 2,499 m: Poland's highest",
+"wonder": "Tatra National Park",
+"historic": "Lesser Poland: Kraków was Poland's royal capital",
+"landmark": "Wawel Castle and Kraków's Main Square",
+"unesco": "Kraków's old town, Wieliczka and Bochnia salt mines, Auschwitz-Birkenau, Kalwaria Zebrzydowska",
+"person": "Pope John Paul II (born in Wadowice)",
+"known": "Kraków, mountains and skiing in Zakopane",
+"company": "Comarch",
+"special": "Austrian (Galicia)"
+},
+"coastal": false,
+"borders": [
+"Slovakia"
+],
+"areaRank": 12,
+"of": 16
+},
+"flagKey": "pl/PL-MA",
+"notTypo": [
+"Greater Poland"
+],
+"capLL": [
+[
+19.958,
+50.062
+]
+]
+},
+{
+"iso": "PL-DS",
+"id": "PL-DS",
+"name": "Lower Silesian",
+"names": [
+"Lower Silesian",
+"Lower Silesia",
+"Lower Silesian Voivodeship",
+"Dolnośląskie",
+"Dolny Śląsk"
+],
+"capitals": [
+"Wrocław",
+"Breslau"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-DS",
+"info": {
+"abbr": "DS",
+"kind": "Voivodeship",
+"pop": 2862442,
+"popYear": "2025",
+"area": 19947,
+"flag": true,
+"facts": {
+"local": "Województwo dolnośląskie",
+"demonym": "Lower Silesian",
+"dialect": "Mixed: settled from all over Poland after 1945",
+"drink": "Piast beer",
+"club": "Śląsk Wrocław",
+"river": "Oder (Odra)",
+"high": "Śnieżka, 1,603 m (on the Czech border)",
+"wonder": "Karkonosze and Table Mountains national parks",
+"historic": "Lower Silesia (Bohemian, then Prussian)",
+"landmark": "Książ Castle and Wrocław's Market Square",
+"unesco": "Centennial Hall in Wrocław; the Churches of Peace in Jawor and Świdnica",
+"known": "Wrocław, the 'city of bridges', and copper mining",
+"company": "KGHM (copper)",
+"special": "Part of Germany (Prussia) until 1945"
+},
+"coastal": false,
+"borders": [
+"Czechia",
+"Germany"
+],
+"areaRank": 7,
+"of": 16
+},
+"flagKey": "pl/PL-DS",
+"capLL": [
+[
+17.03,
+51.11
+]
+]
+},
+{
+"iso": "PL-LU",
+"id": "PL-LU",
+"name": "Lublin",
+"names": [
+"Lublin",
+"Lublin Voivodeship",
+"Lubelskie"
+],
+"capitals": [
+"Lublin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-LU",
+"info": {
+"abbr": "LU",
+"kind": "Voivodeship",
+"pop": 1987787,
+"popYear": "2025",
+"area": 25123,
+"flag": true,
+"facts": {
+"local": "Województwo lubelskie",
+"demonym": "Lublin people (Lubelak)",
+"dialect": "Lesser Poland dialects, with Ukrainian influence",
+"dish": "Cebularz (onion flatbread)",
+"festival": "Carnaval Sztukmistrzów (street artists' festival)",
+"club": "Motor Lublin",
+"river": "Vistula and Bug",
+"wonder": "Roztocze National Park",
+"historic": "Eastern Lesser Poland",
+"landmark": "Lublin Castle and Zamość's arcaded square",
+"unesco": "The old city of Zamość",
+"known": "Farming and the Union of Lublin (1569)",
+"special": "Russian (Congress Poland)"
+},
+"coastal": false,
+"borders": [
+"Belarus",
+"Ukraine"
+],
+"areaRank": 3,
+"of": 16
+},
+"flagKey": "pl/PL-LU",
+"notTypo": [
+"Lubusz"
+],
+"capLL": [
+[
+22.573,
+51.25
+]
+]
+},
+{
+"iso": "PL-LB",
+"id": "PL-LB",
+"name": "Lubusz",
+"names": [
+"Lubusz",
+"Lubusz Voivodeship",
+"Lubuskie",
+"Lubuskie Voivodeship"
+],
+"capitals": [
+"Gorzów Wielkopolski",
+"Gorzów",
+"Zielona Góra"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-LB",
+"info": {
+"abbr": "LB",
+"kind": "Voivodeship",
+"pop": 966389,
+"popYear": "2025",
+"area": 13988,
+"flag": true,
+"facts": {
+"local": "Województwo lubuskie",
+"demonym": "Lubuszanin",
+"dialect": "Mixed: settled from all over Poland after 1945",
+"drink": "Wine: Zielona Góra is Poland's wine town",
+"festival": "Winobranie (Zielona Góra's wine harvest) and Pol'and'Rock in Kostrzyn",
+"river": "Oder (Odra) and Warta",
+"wonder": "Warta Mouth National Park",
+"historic": "Lubusz Land (Brandenburg and Silesia)",
+"landmark": "Zielona Góra's wine hill and the Międzyrzecz Fortified Region tunnels",
+"unesco": "Muskau Park (shared with Germany)",
+"known": "Forests (half the land) and wine",
+"city": "Zielona Góra",
+"special": "Part of Germany (Prussia) until 1945"
+},
+"capNote": "Gorzów Wielkopolski (the governor) and Zielona Góra (the assembly)",
+"coastal": false,
+"borders": [
+"Germany"
+],
+"areaRank": 13,
+"of": 16
+},
+"flagKey": "pl/PL-LB",
+"notTypo": [
+"Lublin"
+],
+"capLL": [
+[
+15.228,
+52.731
+],
+[
+15.5,
+51.95
+]
+]
+},
+{
+"iso": "PL-MZ",
+"id": "PL-MZ",
+"name": "Masovian",
+"names": [
+"Masovian",
+"Masovia",
+"Mazovia",
+"Masovian Voivodeship",
+"Mazowieckie",
+"Mazovian"
+],
+"capitals": [
+"Warsaw",
+"Warszawa"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-MZ",
+"info": {
+"abbr": "MZ",
+"kind": "Voivodeship",
+"pop": 5506411,
+"popYear": "2025",
+"area": 35559,
+"flag": true,
+"facts": {
+"local": "Województwo mazowieckie",
+"demonym": "Masovian (Mazowszanin)",
+"dialect": "Masovian dialect and Kurpie speech",
+"drink": "Warka beer",
+"festival": "The International Chopin Piano Competition",
+"club": "Legia Warsaw",
+"river": "Vistula, Narew and Bug",
+"wonder": "Kampinos National Park",
+"historic": "Masovia (a duchy until 1526)",
+"landmark": "Warsaw's Old Town and the Palace of Culture and Science",
+"unesco": "The historic centre of Warsaw (rebuilt after 1945)",
+"person": "Frédéric Chopin (born in Żelazowa Wola)",
+"known": "Warsaw: government, finance and business",
+"company": "Orlen (Płock) and PKO Bank Polski",
+"special": "Russian (Congress Poland)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 1,
+"of": 16
+},
+"flagKey": "pl/PL-MZ",
+"capLL": [
+[
+20.998,
+52.252
+]
+]
+},
+{
+"iso": "PL-OP",
+"id": "PL-OP",
+"name": "Opole",
+"names": [
+"Opole",
+"Opole Voivodeship",
+"Opolskie"
+],
+"capitals": [
+"Opole"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-OP",
+"info": {
+"abbr": "OP",
+"kind": "Voivodeship",
+"pop": 926482,
+"popYear": "2025",
+"area": 9412,
+"flag": true,
+"facts": {
+"local": "Województwo opolskie",
+"demonym": "Opolanin",
+"dialect": "Silesian, with a German-speaking minority",
+"dish": "Kluski śląskie (Silesian dumplings)",
+"festival": "The National Festival of Polish Song in Opole",
+"club": "Odra Opole",
+"river": "Oder (Odra)",
+"high": "Biskupia Kopa, 890 m",
+"wonder": "Góra Świętej Anny (St Anne Mountain)",
+"historic": "Upper Silesia",
+"landmark": "Moszna Castle (99 towers)",
+"known": "Cement, song and the German minority",
+"special": "Part of Germany (Prussia) until 1945"
+},
+"coastal": false,
+"borders": [
+"Czechia"
+],
+"areaRank": 16,
+"of": 16
+},
+"flagKey": "pl/PL-OP",
+"capLL": [
+[
+17.931,
+50.685
+]
+]
+},
+{
+"iso": "PL-PD",
+"id": "PL-PD",
+"name": "Podlaskie",
+"names": [
+"Podlaskie",
+"Podlaskie Voivodeship",
+"Podlachian",
+"Podlachia",
+"Podlasie"
+],
+"capitals": [
+"Białystok"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-PD",
+"info": {
+"abbr": "PD",
+"kind": "Voivodeship",
+"pop": 1129475,
+"popYear": "2025",
+"area": 20187,
+"flag": true,
+"facts": {
+"local": "Województwo podlaskie",
+"demonym": "Podlachian",
+"dialect": "Podlachian dialects; Belarusian and Lithuanian minorities",
+"dish": "Kartacze (potato dumplings) and sękacz (spit cake)",
+"drink": "Żubrówka (bison grass vodka)",
+"club": "Jagiellonia Białystok",
+"river": "Narew, Bug and Biebrza",
+"wonder": "Białowieża Forest (European bison) and the Biebrza marshes",
+"historic": "Podlachia (long part of the Grand Duchy of Lithuania)",
+"landmark": "Branicki Palace ('the Versailles of Podlachia')",
+"unesco": "Białowieża Forest",
+"person": "L. L. Zamenhof (creator of Esperanto, born in Białystok)",
+"known": "Primeval forest, bison and the Tatar villages",
+"company": "Żubrówka",
+"special": "Russian"
+},
+"coastal": false,
+"borders": [
+"Belarus",
+"Lithuania"
+],
+"areaRank": 6,
+"of": 16
+},
+"flagKey": "pl/PL-PD",
+"capLL": [
+[
+23.17,
+53.15
+]
+]
+},
+{
+"iso": "PL-PM",
+"id": "PL-PM",
+"name": "Pomeranian",
+"names": [
+"Pomeranian",
+"Pomerania",
+"Pomeranian Voivodeship",
+"Pomorskie"
+],
+"capitals": [
+"Gdańsk",
+"Danzig"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-PM",
+"info": {
+"abbr": "PM",
+"kind": "Voivodeship",
+"pop": 2358779,
+"popYear": "2025",
+"area": 18323,
+"flag": true,
+"facts": {
+"local": "Województwo pomorskie",
+"demonym": "Pomeranian; Kashubian",
+"dialect": "Kashubian (a regional language)",
+"drink": "Goldwasser (Gdańsk liqueur)",
+"festival": "St Dominic's Fair in Gdańsk and Open'er in Gdynia",
+"club": "Lechia Gdańsk and Arka Gdynia",
+"river": "Vistula (its mouth)",
+"high": "Wieżyca, 329 m",
+"wonder": "Słowiński National Park (moving dunes)",
+"historic": "Pomerelia (Gdańsk Pomerania) and Kashubia",
+"landmark": "Malbork Castle and Gdańsk's Long Market",
+"unesco": "The Castle of the Teutonic Order in Malbork",
+"person": "Lech Wałęsa (Solidarity, Gdańsk shipyard) and Günter Grass",
+"known": "Shipyards, Solidarity and the Baltic coast",
+"company": "LPP (fashion) and Lotos",
+"special": "Prussian"
+},
+"coastal": true,
+"borders": [
+"Russia"
+],
+"areaRank": 8,
+"of": 16
+},
+"flagKey": "pl/PL-PM",
+"notTypo": [
+"West Pomeranian",
+"Kuyavian-Pomeranian"
+],
+"capLL": [
+[
+18.64,
+54.36
+]
+]
+},
+{
+"iso": "PL-SL",
+"id": "PL-SL",
+"name": "Silesian",
+"names": [
+"Silesian",
+"Silesia",
+"Silesian Voivodeship",
+"Śląskie",
+"Upper Silesia"
+],
+"capitals": [
+"Katowice"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-SL",
+"info": {
+"abbr": "SL",
+"kind": "Voivodeship",
+"pop": 4275429,
+"popYear": "2025",
+"area": 12333,
+"flag": true,
+"facts": {
+"local": "Województwo śląskie",
+"demonym": "Silesian (Ślązak)",
+"dialect": "Silesian",
+"dish": "Rolada with kluski śląskie and red cabbage",
+"drink": "Tyskie beer",
+"festival": "The pilgrimages to Jasna Góra in Częstochowa",
+"club": "Górnik Zabrze, Ruch Chorzów and Raków Częstochowa",
+"river": "Vistula (its source) and Oder",
+"wonder": "The Kraków-Częstochowa Upland (Eagles' Nests castles)",
+"historic": "Upper Silesia and western Lesser Poland",
+"landmark": "Jasna Góra Monastery (the Black Madonna)",
+"unesco": "The Tarnowskie Góry lead-silver mine",
+"known": "Coal mining and Poland's biggest urban area",
+"company": "Tauron and Tyskie",
+"special": "Mixed: Prussian (Katowice), Austrian (Bielsko, Cieszyn) and Russian (Częstochowa)"
+},
+"coastal": false,
+"borders": [
+"Czechia",
+"Slovakia"
+],
+"areaRank": 14,
+"of": 16
+},
+"flagKey": "pl/PL-SL",
+"notTypo": [
+"Lower Silesian"
+],
+"capLL": [
+[
+19.02,
+50.26
+]
+]
+},
+{
+"iso": "PL-PK",
+"id": "PL-PK",
+"name": "Subcarpathian",
+"names": [
+"Subcarpathian",
+"Subcarpathia",
+"Podkarpackie",
+"Subcarpathian Voivodeship",
+"Podkarpacie"
+],
+"capitals": [
+"Rzeszów"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-PK",
+"info": {
+"abbr": "PK",
+"kind": "Voivodeship",
+"pop": 2057923,
+"popYear": "2025",
+"area": 17846,
+"flag": true,
+"facts": {
+"local": "Województwo podkarpackie",
+"demonym": "Subcarpathian",
+"dialect": "Lesser Poland dialects; Lemko and Ukrainian minorities",
+"dish": "Proziaki (soda bread)",
+"drink": "Łańcut vodka",
+"festival": "Łańcut Music Festival",
+"club": "Stal Mielec and Resovia",
+"river": "San and Wisłoka",
+"high": "Tarnica, 1,346 m (Bieszczady)",
+"wonder": "Bieszczady National Park",
+"historic": "Red Ruthenia and western Lesser Poland (Galicia)",
+"landmark": "Łańcut Castle and Krasiczyn Castle",
+"unesco": "The wooden churches and tserkvas of the Carpathians",
+"known": "Aviation Valley (aircraft parts) and the Bieszczady",
+"company": "PZL Mielec",
+"special": "Austrian (Galicia)"
+},
+"coastal": false,
+"borders": [
+"Slovakia",
+"Ukraine"
+],
+"areaRank": 11,
+"of": 16
+},
+"flagKey": "pl/PL-PK",
+"capLL": [
+[
+22.0,
+50.07
+]
+]
+},
+{
+"iso": "PL-WN",
+"id": "PL-WN",
+"name": "Warmian-Masurian",
+"names": [
+"Warmian-Masurian",
+"Warmia-Masuria",
+"Warmian Masurian",
+"Warmian-Masurian Voivodeship",
+"Warmińsko-mazurskie",
+"Warmia and Masuria"
+],
+"capitals": [
+"Olsztyn"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-WN",
+"info": {
+"abbr": "WN",
+"kind": "Voivodeship",
+"pop": 1343915,
+"popYear": "2025",
+"area": 24173,
+"flag": true,
+"facts": {
+"local": "Województwo warmińsko-mazurskie",
+"demonym": "Warmian or Masurian",
+"dialect": "Mixed after 1945; Masurian dialect once spoken",
+"festival": "Days of Grunwald (re-enactment of the 1410 battle)",
+"club": "Stomil Olsztyn",
+"river": "Łyna",
+"high": "Dylewska Góra, 312 m",
+"wonder": "The Masurian Lake District",
+"historic": "Warmia and Masuria (East Prussia)",
+"landmark": "Frombork Cathedral and the Grunwald battlefield",
+"person": "Nicolaus Copernicus (lived and worked in Frombork and Olsztyn)",
+"known": "Lakes and sailing",
+"company": "Michelin Polska (Olsztyn)",
+"special": "Part of Germany (East Prussia) until 1945"
+},
+"coastal": false,
+"borders": [
+"Lithuania",
+"Russia"
+],
+"areaRank": 4,
+"of": 16
+},
+"flagKey": "pl/PL-WN",
+"capLL": [
+[
+20.48,
+53.8
+]
+]
+},
+{
+"iso": "PL-ZP",
+"id": "PL-ZP",
+"name": "West Pomeranian",
+"names": [
+"West Pomeranian",
+"West Pomerania",
+"Western Pomerania",
+"West Pomeranian Voivodeship",
+"Zachodniopomorskie"
+],
+"capitals": [
+"Szczecin",
+"Stettin"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-ZP",
+"info": {
+"abbr": "ZP",
+"kind": "Voivodeship",
+"pop": 1617418,
+"popYear": "2025",
+"area": 22905,
+"flag": true,
+"facts": {
+"local": "Województwo zachodniopomorskie",
+"demonym": "West Pomeranian",
+"dialect": "Mixed: settled from all over Poland after 1945",
+"dish": "Paprykarz szczeciński (fish paste)",
+"festival": "Pyromagic fireworks in Szczecin",
+"club": "Pogoń Szczecin",
+"river": "Oder (Odra)",
+"wonder": "Woliński National Park and the Crooked Forest",
+"historic": "Western Pomerania (Duchy of Pomerania)",
+"landmark": "Szczecin's Chrobry Embankment and the Crooked Forest",
+"person": "Catherine the Great (born in Szczecin)",
+"known": "The port of Szczecin and Baltic beaches",
+"special": "Part of Germany (Prussia) until 1945"
+},
+"coastal": true,
+"borders": [
+"Germany"
+],
+"areaRank": 5,
+"of": 16
+},
+"flagKey": "pl/PL-ZP",
+"notTypo": [
+"Pomeranian"
+],
+"capLL": [
+[
+14.53,
+53.42
+]
+]
+},
+{
+"iso": "PL-LD",
+"id": "PL-LD",
+"name": "Łódź",
+"names": [
+"Łódź",
+"Łódź Voivodeship",
+"Łódzkie",
+"Lodz"
+],
+"capitals": [
+"Łódź"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-LD",
+"info": {
+"abbr": "LD",
+"kind": "Voivodeship",
+"pop": 2336680,
+"popYear": "2025",
+"area": 18219,
+"flag": true,
+"facts": {
+"local": "Województwo łódzkie",
+"demonym": "Łódź people (Łodzianin)",
+"dialect": "Masovian and Greater Poland dialects (Łęczyca, Sieradz)",
+"dish": "Zalewajka (sour rye soup with potatoes)",
+"festival": "Light Move Festival in Łódź",
+"club": "ŁKS Łódź and Widzew Łódź",
+"river": "Warta and Pilica",
+"historic": "The Łęczyca and Sieradz lands",
+"landmark": "Piotrkowska Street and Poznański Palace",
+"person": "Arthur Rubinstein (pianist, born in Łódź)",
+"known": "Textile mills (the 'Polish Manchester') and its film school",
+"special": "Russian (Congress Poland)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9,
+"of": 16
+},
+"flagKey": "pl/PL-LD",
+"capLL": [
+[
+19.449,
+51.777
+]
+]
+},
+{
+"iso": "PL-SK",
+"id": "PL-SK",
+"name": "Świętokrzyskie",
+"names": [
+"Świętokrzyskie",
+"Świętokrzyskie Voivodeship",
+"Holy Cross",
+"Holy Cross Voivodeship",
+"Swietokrzyskie"
+],
+"capitals": [
+"Kielce"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PL-SK",
+"info": {
+"abbr": "SK",
+"kind": "Voivodeship",
+"pop": 1152544,
+"popYear": "2025",
+"area": 11710,
+"flag": true,
+"facts": {
+"local": "Województwo świętokrzyskie",
+"demonym": "Świętokrzyskie people",
+"dialect": "Lesser Poland dialects",
+"club": "Korona Kielce",
+"river": "Vistula and Nida",
+"high": "Łysica, 614 m",
+"wonder": "Świętokrzyski National Park (the Holy Cross Mountains)",
+"historic": "Lesser Poland (Sandomierz land)",
+"landmark": "Krzyżtopór Castle ruins and Sandomierz",
+"unesco": "The Krzemionki prehistoric flint mines",
+"person": "Stefan Żeromski (writer)",
+"known": "Limestone, witches' legends (Łysa Góra) and Poland's oldest mountains",
+"special": "Russian (Congress Poland)"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 15,
+"of": 16
+},
+"flagKey": "pl/PL-SK",
+"capLL": [
+[
+20.66,
+50.89
+]
+]
+}
+]

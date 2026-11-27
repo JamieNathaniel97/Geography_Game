@@ -1,0 +1,1104 @@
+[
+{
+"iso": "PT-01",
+"id": "PT-01",
+"name": "Aveiro",
+"names": [
+"Aveiro"
+],
+"capitals": [
+"Aveiro"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-01",
+"info": {
+"abbr": "01",
+"kind": "District",
+"pop": 700787,
+"popYear": "2021 census",
+"area": 2798,
+"flag": false,
+"facts": {
+"local": "Distrito de Aveiro",
+"demonym": "Aveirense",
+"dish": "Ovos moles (egg-yolk sweets)",
+"drink": "Bairrada sparkling wine",
+"club": "CD Feirense",
+"river": "Vouga",
+"wonder": "The Ria de Aveiro lagoon",
+"historic": "Beira Litoral",
+"landmark": "The moliceiro boats and the striped houses of Costa Nova",
+"known": "'Portugal's Venice', salt pans and porcelain",
+"company": "Vista Alegre (porcelain)",
+"wine": "Bairrada",
+"province": "Beira Litoral (and Douro Litoral in the north)",
+"discovery": "João Afonso de Aveiro, who reached the Kingdom of Benin (1486)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 14,
+"of": 20
+},
+"flagKey": "pt/PT-01",
+"capLL": [
+[
+-8.651,
+40.641
+]
+]
+},
+{
+"iso": "PT-20",
+"id": "PT-20",
+"name": "Azores",
+"names": [
+"Azores",
+"Açores",
+"Acores",
+"The Azores"
+],
+"capitals": [
+"Ponta Delgada",
+"Horta",
+"Angra do Heroísmo",
+"Angra"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-20",
+"info": {
+"abbr": "20",
+"kind": "Autonomous region",
+"pop": 236413,
+"popYear": "2021 census",
+"area": 2322,
+"flag": true,
+"facts": {
+"local": "Região Autónoma dos Açores",
+"demonym": "Azorean (açoriano)",
+"dish": "Cozido das Furnas (stew cooked by volcanic heat)",
+"drink": "Azorean tea (Gorreana, Europe's oldest tea plantation)",
+"festival": "The Holy Spirit festivals and Santo Cristo dos Milagres",
+"high": "Mount Pico, 2,351 m: Portugal's highest",
+"wonder": "The crater lakes of Sete Cidades",
+"historic": "Settled by the Portuguese from the 1430s",
+"landmark": "Angra do Heroísmo",
+"unesco": "Angra do Heroísmo and the Pico Island vineyards",
+"known": "Volcanoes, whale watching and nine islands",
+"wine": "Pico",
+"province": "None: autonomous since 1976",
+"discovery": "Reached by Portuguese sailors in the 1420s–1430s"
+},
+"capNote": "Ponta Delgada (government), Horta (assembly) and Angra do Heroísmo (courts)",
+"coastal": true,
+"borders": [],
+"areaRank": 18,
+"of": 20
+},
+"flagKey": "pt/PT-20",
+"capLL": [
+[
+-10.659,
+40.824
+],
+[
+-12.148,
+41.218
+],
+[
+-11.433,
+41.275
+]
+],
+"isles": [
+{
+"center": [
+-11.9,
+41.1
+],
+"square": true,
+"ring": [
+[
+-13.775,
+40.1
+],
+[
+-10.025,
+40.1
+],
+[
+-10.025,
+42.1
+],
+[
+-13.775,
+42.1
+]
+]
+}
+]
+},
+{
+"iso": "PT-02",
+"id": "PT-02",
+"name": "Beja",
+"names": [
+"Beja"
+],
+"capitals": [
+"Beja"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-02",
+"info": {
+"abbr": "02",
+"kind": "District",
+"pop": 144401,
+"popYear": "2021 census",
+"area": 10229,
+"flag": false,
+"facts": {
+"local": "Distrito de Beja",
+"demonym": "Bejense",
+"dish": "Açorda alentejana (bread and coriander soup)",
+"drink": "Alentejo wine",
+"festival": "Ovibeja agricultural fair",
+"river": "Guadiana",
+"wonder": "The Guadiana Valley Natural Park and Lake Alqueva",
+"historic": "Baixo Alentejo (Roman Pax Julia)",
+"landmark": "Beja Castle's keep",
+"known": "Wheat fields, cork oaks and cante alentejano singing",
+"wine": "Alentejo",
+"province": "Baixo Alentejo"
+},
+"coastal": true,
+"borders": [
+"Spain"
+],
+"areaRank": 1,
+"of": 20
+},
+"flagKey": "pt/PT-02",
+"capLL": [
+[
+-7.863,
+38.014
+]
+]
+},
+{
+"iso": "PT-03",
+"id": "PT-03",
+"name": "Braga",
+"names": [
+"Braga"
+],
+"capitals": [
+"Braga"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-03",
+"info": {
+"abbr": "03",
+"kind": "District",
+"pop": 846293,
+"popYear": "2021 census",
+"area": 2706,
+"flag": false,
+"facts": {
+"local": "Distrito de Braga",
+"demonym": "Bracarense",
+"dish": "Papas de sarrabulho",
+"drink": "Vinho Verde",
+"festival": "São João and Holy Week in Braga",
+"club": "SC Braga and Vitória de Guimarães",
+"river": "Cávado",
+"wonder": "Peneda-Gerês National Park (part)",
+"historic": "Minho; Roman Bracara Augusta",
+"landmark": "Bom Jesus do Monte's stairway",
+"unesco": "Bom Jesus do Monte and the historic centre of Guimarães",
+"person": "Afonso Henriques, first king of Portugal (Guimarães)",
+"known": "'The birthplace of Portugal' (Guimarães) and textiles",
+"wine": "Vinho Verde",
+"province": "Minho"
+},
+"coastal": true,
+"borders": [
+"Spain"
+],
+"areaRank": 16,
+"of": 20
+},
+"flagKey": "pt/PT-03",
+"capLL": [
+[
+-8.421,
+41.555
+]
+]
+},
+{
+"iso": "PT-04",
+"id": "PT-04",
+"name": "Bragança",
+"names": [
+"Bragança",
+"Braganca",
+"Braganza"
+],
+"capitals": [
+"Bragança",
+"Braganca"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-04",
+"info": {
+"abbr": "04",
+"kind": "District",
+"pop": 122804,
+"popYear": "2021 census",
+"area": 6608,
+"flag": false,
+"facts": {
+"local": "Distrito de Bragança",
+"demonym": "Brigantino",
+"dialect": "Mirandese (an official regional language)",
+"dish": "Alheira de Mirandela and posta mirandesa",
+"festival": "The Caretos masked festivals at midwinter",
+"river": "Douro (the Spanish border) and Sabor",
+"wonder": "Montesinho and International Douro natural parks",
+"historic": "Trás-os-Montes",
+"landmark": "Bragança Castle",
+"known": "Remote mountain villages, chestnuts and Mirandese",
+"wine": "Trás-os-Montes",
+"province": "Trás-os-Montes e Alto Douro"
+},
+"coastal": false,
+"borders": [
+"Spain"
+],
+"areaRank": 5,
+"of": 20
+},
+"flagKey": "pt/PT-04",
+"capLL": [
+[
+-6.755,
+41.808
+]
+]
+},
+{
+"iso": "PT-05",
+"id": "PT-05",
+"name": "Castelo Branco",
+"names": [
+"Castelo Branco"
+],
+"capitals": [
+"Castelo Branco"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-05",
+"info": {
+"abbr": "05",
+"kind": "District",
+"pop": 177962,
+"popYear": "2021 census",
+"area": 6675,
+"flag": false,
+"facts": {
+"local": "Distrito de Castelo Branco",
+"demonym": "Albicastrense",
+"dish": "Castelo Branco cheese",
+"river": "Tagus and Zêzere",
+"wonder": "Tagus International Natural Park",
+"historic": "Beira Baixa",
+"landmark": "Monsanto, the village among boulders",
+"known": "Embroidered bedspreads (bordado de Castelo Branco)",
+"wine": "Beira Interior",
+"province": "Beira Baixa",
+"discovery": "Pedro Álvares Cabral (born in Belmonte), who reached Brazil in 1500"
+},
+"coastal": false,
+"borders": [
+"Spain"
+],
+"areaRank": 4,
+"of": 20
+},
+"flagKey": "pt/PT-05",
+"capLL": [
+[
+-7.488,
+39.811
+]
+]
+},
+{
+"iso": "PT-06",
+"id": "PT-06",
+"name": "Coimbra",
+"names": [
+"Coimbra"
+],
+"capitals": [
+"Coimbra"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-06",
+"info": {
+"abbr": "06",
+"kind": "District",
+"pop": 408551,
+"popYear": "2021 census",
+"area": 3947,
+"flag": false,
+"facts": {
+"local": "Distrito de Coimbra",
+"demonym": "Conimbricense",
+"dish": "Chanfana (goat stewed in wine)",
+"festival": "Queima das Fitas (students' festival)",
+"club": "Académica",
+"river": "Mondego",
+"wonder": "Serra da Lousã",
+"historic": "Beira Litoral; Portugal's first capital (1131–1255)",
+"landmark": "The University of Coimbra and the Joanina Library",
+"unesco": "The University of Coimbra – Alta and Sofia",
+"known": "One of Europe's oldest universities (1290) and Coimbra fado",
+"wine": "Bairrada and Dão (parts)",
+"province": "Beira Litoral"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12,
+"of": 20
+},
+"flagKey": "pt/PT-06",
+"capLL": [
+[
+-8.417,
+40.2
+]
+]
+},
+{
+"iso": "PT-08",
+"id": "PT-08",
+"name": "Faro",
+"names": [
+"Faro",
+"Algarve"
+],
+"capitals": [
+"Faro"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-08",
+"info": {
+"abbr": "08",
+"kind": "District",
+"pop": 467343,
+"popYear": "2021 census",
+"area": 4960,
+"flag": false,
+"facts": {
+"local": "Distrito de Faro",
+"demonym": "Algarvio",
+"dish": "Cataplana (seafood stew)",
+"drink": "Medronho (strawberry-tree brandy)",
+"festival": "The Loulé Carnival",
+"club": "SC Farense and Portimonense",
+"river": "Guadiana and Arade",
+"high": "Fóia, 902 m",
+"wonder": "The Ria Formosa lagoon and the Benagil sea cave",
+"historic": "The Kingdom of the Algarve (a separate title of the crown)",
+"landmark": "Ponta da Piedade and Sagres Fortress",
+"known": "Beaches, golf and tourism",
+"wine": "Algarve",
+"province": "Algarve",
+"discovery": "Sagres and Lagos, where Henry the Navigator's caravels set out"
+},
+"coastal": true,
+"borders": [
+"Spain"
+],
+"areaRank": 10,
+"of": 20
+},
+"flagKey": "pt/PT-08",
+"capLL": [
+[
+-7.933,
+37.017
+]
+]
+},
+{
+"iso": "PT-09",
+"id": "PT-09",
+"name": "Guarda",
+"names": [
+"Guarda"
+],
+"capitals": [
+"Guarda"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-09",
+"info": {
+"abbr": "09",
+"kind": "District",
+"pop": 142974,
+"popYear": "2021 census",
+"area": 5518,
+"flag": false,
+"facts": {
+"local": "Distrito da Guarda",
+"demonym": "Guardense",
+"dish": "Serra da Estrela cheese",
+"high": "Torre, 1,993 m: the mainland's highest",
+"wonder": "Serra da Estrela",
+"historic": "Beira Alta and the frontier castles",
+"landmark": "Guarda Cathedral and the historic village of Sortelha",
+"unesco": "The prehistoric rock art of the Côa Valley",
+"known": "The highest city, the cold, and cheese",
+"wine": "Beira Interior and Dão",
+"province": "Beira Alta"
+},
+"coastal": false,
+"borders": [
+"Spain"
+],
+"areaRank": 7,
+"of": 20
+},
+"flagKey": "pt/PT-09",
+"capLL": [
+[
+-7.262,
+40.541
+]
+]
+},
+{
+"iso": "PT-10",
+"id": "PT-10",
+"name": "Leiria",
+"names": [
+"Leiria"
+],
+"capitals": [
+"Leiria"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-10",
+"info": {
+"abbr": "10",
+"kind": "District",
+"pop": 458605,
+"popYear": "2021 census",
+"area": 3505,
+"flag": false,
+"facts": {
+"local": "Distrito de Leiria",
+"demonym": "Leiriense",
+"river": "Lis",
+"wonder": "The giant waves of Nazaré",
+"historic": "Estremadura and Beira Litoral",
+"landmark": "Batalha Monastery and Alcobaça Monastery",
+"unesco": "The monasteries of Batalha and Alcobaça",
+"known": "Nazaré's surfing, moulds and plastics, and the King's Pine Forest",
+"wine": "Lisboa (Óbidos)",
+"province": "Beira Litoral and Estremadura"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 13,
+"of": 20
+},
+"flagKey": "pt/PT-10",
+"capLL": [
+[
+-8.805,
+39.739
+]
+]
+},
+{
+"iso": "PT-11",
+"id": "PT-11",
+"name": "Lisbon",
+"names": [
+"Lisbon",
+"Lisboa"
+],
+"capitals": [
+"Lisbon",
+"Lisboa"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-11",
+"info": {
+"abbr": "11",
+"kind": "District",
+"pop": 2275385,
+"popYear": "2021 census",
+"area": 2761,
+"flag": false,
+"facts": {
+"local": "Distrito de Lisboa",
+"demonym": "Lisboeta",
+"dish": "Pastéis de nata (custard tarts)",
+"drink": "Ginjinha (cherry liqueur)",
+"festival": "Santo António in June",
+"club": "Benfica and Sporting CP",
+"river": "Tagus",
+"wonder": "Sintra's hills and Cabo da Roca, mainland Europe's westernmost point",
+"historic": "Estremadura",
+"landmark": "Belém Tower and the Jerónimos Monastery",
+"unesco": "Jerónimos and Belém Tower, Sintra, and Mafra",
+"person": "Fernando Pessoa (poet)",
+"known": "The capital, fado and trams",
+"company": "TAP Air Portugal and EDP",
+"wine": "Lisboa (Colares, Bucelas)",
+"province": "Estremadura",
+"discovery": "Vasco da Gama sailed for India from Belém (1497)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15,
+"of": 20
+},
+"flagKey": "pt/PT-11",
+"capLL": [
+[
+-9.147,
+38.725
+]
+]
+},
+{
+"iso": "PT-30",
+"id": "PT-30",
+"name": "Madeira",
+"names": [
+"Madeira"
+],
+"capitals": [
+"Funchal"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-30",
+"info": {
+"abbr": "30",
+"kind": "Autonomous region",
+"pop": 250744,
+"popYear": "2021 census",
+"area": 801,
+"flag": true,
+"facts": {
+"local": "Região Autónoma da Madeira",
+"demonym": "Madeiran (madeirense)",
+"dish": "Espetada and bolo do caco",
+"drink": "Madeira wine and poncha",
+"festival": "New Year's fireworks and the Flower Festival",
+"club": "CS Marítimo and CD Nacional",
+"high": "Pico Ruivo, 1,862 m",
+"wonder": "The Laurisilva forest",
+"historic": "Settled from 1420",
+"landmark": "The Monte toboggans and the levada walks",
+"unesco": "The Laurisilva of Madeira",
+"person": "Cristiano Ronaldo (born in Funchal)",
+"known": "Madeira wine, levadas and flowers",
+"wine": "Madeira",
+"province": "None: autonomous since 1976",
+"discovery": "Discovered by João Gonçalves Zarco (1419)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 20,
+"of": 20
+},
+"flagKey": "pt/PT-30",
+"capLL": [
+[
+-11.28,
+38.1
+]
+],
+"isles": [
+{
+"center": [
+-11.2,
+38.2
+],
+"square": true,
+"ring": [
+[
+-12.05,
+37.5
+],
+[
+-10.35,
+37.5
+],
+[
+-10.35,
+38.9
+],
+[
+-12.05,
+38.9
+]
+]
+}
+]
+},
+{
+"iso": "PT-12",
+"id": "PT-12",
+"name": "Portalegre",
+"names": [
+"Portalegre"
+],
+"capitals": [
+"Portalegre"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-12",
+"info": {
+"abbr": "12",
+"kind": "District",
+"pop": 104923,
+"popYear": "2021 census",
+"area": 6065,
+"flag": false,
+"facts": {
+"local": "Distrito de Portalegre",
+"demonym": "Portalegrense",
+"high": "Serra de São Mamede, 1,025 m",
+"wonder": "Serra de São Mamede Natural Park",
+"historic": "Alto Alentejo",
+"landmark": "Marvão's hilltop castle",
+"unesco": "The garrison border town of Elvas",
+"known": "Tapestries and cork",
+"wine": "Alentejo",
+"province": "Alto Alentejo"
+},
+"coastal": false,
+"borders": [
+"Spain"
+],
+"areaRank": 6,
+"of": 20
+},
+"flagKey": "pt/PT-12",
+"capLL": [
+[
+-7.423,
+39.29
+]
+]
+},
+{
+"iso": "PT-13",
+"id": "PT-13",
+"name": "Porto",
+"names": [
+"Porto",
+"Oporto"
+],
+"capitals": [
+"Porto",
+"Oporto"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-13",
+"info": {
+"abbr": "13",
+"kind": "District",
+"pop": 1785405,
+"popYear": "2021 census",
+"area": 2408,
+"flag": false,
+"facts": {
+"local": "Distrito do Porto",
+"demonym": "Portuense (tripeiro)",
+"dish": "Francesinha and tripas à moda do Porto",
+"drink": "Port wine",
+"festival": "São João on 23 June",
+"club": "FC Porto",
+"river": "Douro",
+"historic": "Douro Litoral",
+"landmark": "The Dom Luís I Bridge and Livraria Lello",
+"unesco": "The historic centre of Porto",
+"person": "Prince Henry the Navigator (born in Porto)",
+"known": "Port wine and the 'Invicta' city",
+"company": "Sonae",
+"wine": "Port (aged across the river in Gaia) and Vinho Verde",
+"province": "Douro Litoral",
+"discovery": "Prince Henry the Navigator was born here (1394)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 17,
+"of": 20
+},
+"flagKey": "pt/PT-13",
+"capLL": [
+[
+-8.622,
+41.152
+]
+]
+},
+{
+"iso": "PT-14",
+"id": "PT-14",
+"name": "Santarém",
+"names": [
+"Santarém",
+"Santarem"
+],
+"capitals": [
+"Santarém",
+"Santarem"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-14",
+"info": {
+"abbr": "14",
+"kind": "District",
+"pop": 424973,
+"popYear": "2021 census",
+"area": 6747,
+"flag": false,
+"facts": {
+"local": "Distrito de Santarém",
+"demonym": "Escalabitano",
+"dish": "Sopa da pedra (Almeirim)",
+"festival": "The National Agriculture Fair",
+"river": "Tagus",
+"wonder": "The Lezíria floodplains",
+"historic": "Ribatejo",
+"landmark": "The Convent of Christ in Tomar and the Sanctuary of Fátima",
+"unesco": "The Convent of Christ in Tomar",
+"known": "Bulls and horses, and the Fátima pilgrimages",
+"wine": "Tejo",
+"province": "Ribatejo",
+"discovery": "The Order of Christ (Tomar) helped pay for the voyages"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 3,
+"of": 20
+},
+"flagKey": "pt/PT-14",
+"capLL": [
+[
+-8.682,
+39.231
+]
+]
+},
+{
+"iso": "PT-15",
+"id": "PT-15",
+"name": "Setúbal",
+"names": [
+"Setúbal",
+"Setubal"
+],
+"capitals": [
+"Setúbal",
+"Setubal"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-15",
+"info": {
+"abbr": "15",
+"kind": "District",
+"pop": 874806,
+"popYear": "2021 census",
+"area": 5064,
+"flag": false,
+"facts": {
+"local": "Distrito de Setúbal",
+"demonym": "Setubalense",
+"dish": "Choco frito (fried cuttlefish)",
+"drink": "Moscatel de Setúbal",
+"club": "Vitória de Setúbal",
+"river": "Sado",
+"wonder": "Arrábida Natural Park and the Sado estuary's dolphins",
+"historic": "Estremadura and Baixo Alentejo",
+"landmark": "Palmela Castle",
+"known": "Dolphins, salt and car-making",
+"company": "Volkswagen Autoeuropa",
+"wine": "Península de Setúbal",
+"province": "Estremadura and Baixo Alentejo",
+"discovery": "Vasco da Gama (born in Sines)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 8,
+"of": 20
+},
+"flagKey": "pt/PT-15",
+"capLL": [
+[
+-8.9,
+38.53
+]
+]
+},
+{
+"iso": "PT-16",
+"id": "PT-16",
+"name": "Viana do Castelo",
+"names": [
+"Viana do Castelo"
+],
+"capitals": [
+"Viana do Castelo"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-16",
+"info": {
+"abbr": "16",
+"kind": "District",
+"pop": 231266,
+"popYear": "2021 census",
+"area": 2255,
+"flag": false,
+"facts": {
+"local": "Distrito de Viana do Castelo",
+"demonym": "Vianense",
+"drink": "Vinho Verde (Alvarinho)",
+"festival": "The Romaria of Senhora d'Agonia",
+"river": "Lima and Minho",
+"wonder": "Peneda-Gerês National Park (part)",
+"historic": "Minho",
+"landmark": "Santa Luzia Sanctuary",
+"known": "Gold filigree and folk costumes",
+"wine": "Vinho Verde",
+"province": "Minho"
+},
+"coastal": true,
+"borders": [
+"Spain"
+],
+"areaRank": 19,
+"of": 20
+},
+"flagKey": "pt/PT-16",
+"capLL": [
+[
+-8.844,
+41.696
+]
+]
+},
+{
+"iso": "PT-17",
+"id": "PT-17",
+"name": "Vila Real",
+"names": [
+"Vila Real"
+],
+"capitals": [
+"Vila Real"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-17",
+"info": {
+"abbr": "17",
+"kind": "District",
+"pop": 185695,
+"popYear": "2021 census",
+"area": 4328,
+"flag": false,
+"facts": {
+"local": "Distrito de Vila Real",
+"demonym": "Vila-realense",
+"drink": "Port grapes and Mateus Rosé",
+"river": "Douro",
+"wonder": "Alvão Natural Park",
+"historic": "Trás-os-Montes and Alto Douro",
+"landmark": "Mateus Palace",
+"unesco": "The Alto Douro Wine Region",
+"known": "The terraced Douro vineyards",
+"wine": "Douro (Port)",
+"province": "Trás-os-Montes e Alto Douro",
+"discovery": "Ferdinand Magellan (Sabrosa claims him)"
+},
+"coastal": false,
+"borders": [
+"Spain"
+],
+"areaRank": 11,
+"of": 20
+},
+"flagKey": "pt/PT-17",
+"capLL": [
+[
+-7.737,
+41.294
+]
+]
+},
+{
+"iso": "PT-18",
+"id": "PT-18",
+"name": "Viseu",
+"names": [
+"Viseu"
+],
+"capitals": [
+"Viseu"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-18",
+"info": {
+"abbr": "18",
+"kind": "District",
+"pop": 351292,
+"popYear": "2021 census",
+"area": 5007,
+"flag": false,
+"facts": {
+"local": "Distrito de Viseu",
+"demonym": "Viseense",
+"drink": "Dão wine",
+"festival": "The Feira de São Mateus (since 1392)",
+"river": "Vouga and Paiva",
+"wonder": "Serra do Caramulo",
+"historic": "Beira Alta (the legend of Viriathus)",
+"landmark": "Viseu Cathedral and the Sanctuary of Lamego",
+"known": "Dão wine",
+"wine": "Dão",
+"province": "Beira Alta"
+},
+"coastal": false,
+"borders": [],
+"areaRank": 9,
+"of": 20
+},
+"flagKey": "pt/PT-18",
+"capLL": [
+[
+-7.91,
+40.657
+]
+]
+},
+{
+"iso": "PT-07",
+"id": "PT-07",
+"name": "Évora",
+"names": [
+"Évora",
+"Evora"
+],
+"capitals": [
+"Évora",
+"Evora"
+],
+"cont": [
+"Europe"
+],
+"car": false,
+"a2": "PT-07",
+"info": {
+"abbr": "07",
+"kind": "District",
+"pop": 152444,
+"popYear": "2021 census",
+"area": 7393,
+"flag": false,
+"facts": {
+"local": "Distrito de Évora",
+"demonym": "Eborense",
+"dish": "Black pork (porco preto) and migas",
+"drink": "Alentejo wine",
+"river": "Guadiana",
+"wonder": "Lake Alqueva, Europe's largest artificial lake",
+"historic": "Alto Alentejo",
+"landmark": "The Roman Temple and the Chapel of Bones",
+"unesco": "The historic centre of Évora",
+"known": "Cork, megaliths (the Almendres Cromlech) and marble",
+"wine": "Alentejo",
+"province": "Alto Alentejo"
+},
+"coastal": false,
+"borders": [
+"Spain"
+],
+"areaRank": 2,
+"of": 20
+},
+"flagKey": "pt/PT-07",
+"capLL": [
+[
+-7.906,
+38.56
+]
+]
+}
+]

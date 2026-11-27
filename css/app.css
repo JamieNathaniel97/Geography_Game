@@ -115,7 +115,15 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 #optBack { justify-self: start; }
 /* Countries tab: continent headings with country buttons; a country's page has Find and Name columns */
 .clist { display: grid; gap: 12px; }
-.clist h3 { margin: 0 0 6px; font: 700 15px var(--display); color: var(--muted); letter-spacing: .03em; }
+.clist h3 { margin: 0; font: 700 15px var(--display); color: var(--muted); letter-spacing: .03em; }
+/* continents: collapsible (a chevron that turns when open, and how many country maps each has) */
+.clist details > summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; padding: 6px 2px; }
+.clist details > summary::-webkit-details-marker { display: none; }
+.clist details > summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(-45deg); transition: transform .15s; flex: none; margin-right: 2px; }
+.clist details[open] > summary::before { transform: rotate(45deg); }
+.clist details[open] > summary { margin-bottom: 6px; }
+.clist .ccount { margin-left: auto; font-size: 12px; color: var(--muted); }
 .clist .cbtns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .clist .cbtns button { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--panel); border-radius: 8px;
   padding: 8px 10px; font-weight: 500; text-align: left; min-width: 0; }
@@ -207,7 +215,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .helppane h3 { margin: 4px 0 0; font: 700 16px var(--display); }
 .helppane p { margin: 0; font-size: 14px; line-height: 1.4; color: var(--fg); }
  /* the magnifying glass at the start of Learning mode */
-.magintro { position: fixed; inset: 0; z-index: 30; } /* (blocks taps while it plays) */
+.magintro { position: fixed; inset: 0; z-index: 30; touch-action: none; } /* (blocks taps, pinches and scrolling while it plays) */
 .magintro svg { display: block; }
 .magintro .magshade { fill: var(--bg); }
 .magintro .magring { fill: none; stroke: var(--fg); stroke-width: 9; }

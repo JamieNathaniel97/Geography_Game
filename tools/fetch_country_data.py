@@ -46,6 +46,21 @@ COUNTRIES = {
     # not built yet: high-resolution shoreline only (their other data was fetched before)
     "mx": ("Mexico", None, None, [], [(-118.5, 14.4, -86.6, 32.8)]),
     "br": ("Brazil", None, None, [], [(-74.1, -33.8, -28.6, 5.4)]),
+    # overnight_v2 (2026-11-18); the local language can be a list (Belgium: Dutch and French)
+    "at": ("Austria", "AT-", "de", ["States of Austria"], [(9.3, 46.3, 17.3, 49.1)]),
+    "nl": ("Netherlands", "NL-", "nl", ["Provinces of the Netherlands"], [(3.1, 50.6, 7.4, 53.7)]),
+    "pl": ("Poland", "PL-", "pl", ["Voivodeships of Poland"], [(13.9, 48.9, 24.3, 55.0)]),
+    "cz": ("Czechia", "CZ-", "cs", ["Regions of the Czech Republic"], [(11.9, 48.5, 18.9, 51.1)]),
+    "be": ("Belgium", "BE-", ["nl", "fr"], ["Provinces of Belgium", "Communities, regions and language areas of Belgium"],
+           [(2.4, 49.4, 6.5, 51.6)]),
+    # overnight_v3 (2026-11-18)
+    "ch": ("Switzerland", "CH-", ["de", "fr", "it"], ["Cantons of Switzerland"], [(5.8, 45.7, 10.6, 47.9)]),
+    "pt": ("Portugal", "PT-", "pt", ["Districts of Portugal"],
+           [(-9.6, 36.8, -6.1, 42.2), (-31.4, 36.8, -24.9, 39.8), (-17.4, 32.3, -16.2, 33.2), (-16.2, 29.9, -15.8, 30.2)]),
+    "se": ("Sweden", "SE-", "sv", ["Counties of Sweden"], [(10.8, 55.2, 24.3, 69.2)]),
+    "za": ("South Africa", "ZA-", None, ["Provinces of South Africa"], [(16.3, -35.0, 33.0, -22.0)]),
+    "nz": ("New Zealand", "NZ-", None, ["Regions of New Zealand"], [(166.0, -47.5, 178.8, -34.2), (-177.0, -44.5, -175.9, -43.5)]),
+    "co": ("Colombia", "CO-", "es", ["Departments of Colombia"], [(-79.2, -4.3, -66.8, 12.6), (-81.8, 12.4, -81.3, 13.5)]),
 }
 
 
@@ -152,10 +167,14 @@ def main():
     ap.add_argument("codes", nargs="+")
     ap.add_argument("--coast-only", action="store_true")
     ap.add_argument("--extras", action="store_true", help="also the card-fact sources, census articles, Nigeria's seals, the Japanese font")
+    ap.add_argument("--census", action="store_true", help="only census.json: every dated population of each part and the country (Wikidata)")
     a = ap.parse_args()
     for code in a.codes:
         name, prefix, lang, lists, windows = COUNTRIES[code]
         print(f"== {name}")
+        if a.census:
+            census(code)
+            continue
         coast(code, windows)
         if a.coast_only or not prefix:
             continue
@@ -171,15 +190,41 @@ def main():
         articles("en.wikipedia.org", lists, d / "wiki" / "lists")
         n_en = articles("en.wikipedia.org", [p["en"] for p in live], d / "wiki" / "en")
         msg = f"   articles: {n_en} English"
-        if lang:
-            n_loc = articles(f"{lang}.wikipedia.org", [p["local"].get(lang) for p in live], d / "wiki" / lang)
-            msg += f", {n_loc} {lang}"
+        for lg in ([lang] if isinstance(lang, str) else lang or []):
+            n_loc = articles(f"{lg}.wikipedia.org", [p["local"].get(lg) for p in live], d / "wiki" / lg)
+            msg += f", {n_loc} {lg}"
         print(msg)
         nf = sum(image(p["flag"], d / "flags" / f'{p["iso"]}.png') for p in live if p["flag"])
         nc = sum(image(p["coa"], d / "coats" / f'{p["iso"]}.png') for p in live if p["coa"])
         print(f"   images: {nf} flags, {nc} coats of arms")
         if a.extras:
             extras(code, live)
+
+
+# ----- census: every dated population figure (P1082 with its P585 date) of each current part and of the country, from
+# Wikidata, which records the statistics office's figures. The build picks the newest date every part has and checks
+# that the parts add up to the country's figure for that date.
+COUNTRY_QID = {"at": "Q40", "nl": "Q55", "pl": "Q36", "cz": "Q213", "be": "Q31",
+               "ch": "Q39", "pt": "Q45", "se": "Q34", "za": "Q258", "nz": "Q664", "co": "Q739"}
+
+
+def census(code):
+    d = DL / code
+    parts = json.loads((d / "wikidata.json").read_text(encoding="utf8"))
+    qids = {p["qid"]: iso for iso, p in parts.items() if not p["dissolved"]}
+    qids[COUNTRY_QID[code]] = "total"
+    vals = " ".join("wd:" + q for q in qids)
+    q = f"""SELECT ?item ?pop ?date ?methodLabel WHERE {{ VALUES ?item {{ {vals} }}
+      ?item p:P1082 ?st . ?st ps:P1082 ?pop . OPTIONAL {{ ?st pq:P585 ?date }} OPTIONAL {{ ?st pq:P459 ?method }}
+      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }} }}"""
+    rows = get_json("https://query.wikidata.org/sparql?format=json&query=" + urllib.parse.quote(q))["results"]["bindings"]
+    out = {}
+    for r in rows:
+        iso = qids[r["item"]["value"].rsplit("/", 1)[1]]
+        date = r.get("date", {}).get("value", "")[:10]
+        out.setdefault(iso, {})[date] = {"pop": int(float(r["pop"]["value"])), "method": r.get("methodLabel", {}).get("value", "")}
+    (d / "census.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf8")
+    print(f"   census: {len(out)} items with population figures")
 
 
 # ----- extras: the sources for the chosen card facts (jobs/download_new_countries.md, "Still to fetch") -----
@@ -200,6 +245,28 @@ EXTRAS = {
            "Ethnic groups in Nigeria", "Nigerian cuisine"],
     "ar": ["2022 Argentina census", "Regions of Argentina", "List of football clubs in Argentina",
            "Indigenous peoples in Argentina", "Argentine cuisine"],
+    "at": ["Demographics of Austria", "List of ski resorts in Austria", "Austrian cuisine", "Austrian wine",
+           "Austrian German", "List of castles in Austria", "List of World Heritage Sites in Austria"],
+    "nl": ["Demographics of the Netherlands", "Land reclamation in the Netherlands", "Flevoland", "Dutch cuisine",
+           "Dutch Low Saxon", "West Frisian language", "Limburgish", "List of World Heritage Sites in the Netherlands"],
+    "pl": ["2021 Polish census", "Partitions of Poland", "Polish cuisine", "Silesian language", "Kashubian language",
+           "List of castles in Poland", "List of World Heritage Sites in Poland"],
+    "cz": ["2021 Czech census", "Bohemia", "Moravia", "Czech Silesia", "Czech cuisine", "Moravian dialects",
+           "List of castles in the Czech Republic", "List of World Heritage Sites in the Czech Republic"],
+    "be": ["Demographics of Belgium", "Communities, regions and language areas of Belgium", "Belgian cuisine",
+           "Beer in Belgium", "Walloon language", "List of castles in Belgium", "List of World Heritage Sites in Belgium"],
+    "ch": ["Demographics of Switzerland", "Cantons of Switzerland", "Swiss cheeses and dairy products", "Swiss chocolate",
+           "Languages of Switzerland", "List of World Heritage Sites in Switzerland", "Swiss cuisine"],
+    "pt": ["2021 Portuguese census", "Wine regions of Portugal", "Provinces of Portugal", "Portuguese discoveries",
+           "Portuguese cuisine", "List of World Heritage Sites in Portugal"],
+    "se": ["Demographics of Sweden", "Provinces of Sweden", "Lands of Sweden", "Sápmi", "List of Swedish inventions",
+           "Swedish cuisine", "List of World Heritage Sites in Sweden"],
+    "za": ["2022 South African census", "Languages of South Africa", "Bantustan", "Provinces of South Africa",
+           "List of national parks of South Africa", "South African cuisine", "List of World Heritage Sites in South Africa"],
+    "nz": ["2023 New Zealand census", "Iwi", "List of Lord of the Rings filming locations", "Regions of New Zealand",
+           "New Zealand cuisine", "List of World Heritage Sites in New Zealand"],
+    "co": ["2018 Colombian census", "Natural regions of Colombia", "Music of Colombia", "Colombian cuisine",
+           "Coffee production in Colombia", "List of World Heritage Sites in Colombia"],
 }
 NOTO_JP = "https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf"
 

@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","id":"T-ECU","geometry":{"type":"Polygon","coordinates":[[[-79.2,0.0],[-78.0,0.0],[-78.0,-3.0],[-79.2,-3.0],[-79.2,0.0]]]}}],"coast":{"type":"LineString","coordinates":[[-79.2,-3.0],[-79.2,0.0]]},"borders":{"type":"MultiLineString","coordinates":[]}}

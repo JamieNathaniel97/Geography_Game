@@ -8,6 +8,7 @@
   // "uk" / "ukc" (Britain and Ireland's historic or ceremonial counties, build 4). cd: Crown Dependencies in UK games.
   const S = { mode: "find", region: "world", magnify: false, data: "world", cd: false };
   let geoWorld = null, geoUS = null, geoCA = null, geoIN = null, geoCN = null, geoRU = null, geoAU = null, geoMX = null, geoBR = null, geoDE = null, geoJP = null, geoFR = null, geoIT = null, geoES = null, geoESP = null, geoNG = null, geoAR = null;
+  const geoC = {}; // the maps built by tools/build_country.py (NEW_MAPS below), by dataset code
   const geoAP = {}; // airport sets, by dataset key
   let apCodes = [], apRegion = "world"; // the airports in this airport game (a random pick: startAirports), and its region
   const apShown = new Set(); // airports whose dot the hint has shown (Location dots off)
@@ -79,11 +80,54 @@
     ukn: { noun: "country", nouns: "countries", Nouns: "Countries", region: "ukn", style: "uk",
       load: async () => (geoUK.ukn = geoUK.ukn || await GG.loadUKNations(geoWorld.lakes)) },
   };
+  // The country maps built by tools/build_country.py (jobs/overnight_v2.md): one row each, one loader
+  // (GG.loadCountry) and one Learning card (showCountryCard). `special`: the card's country-specific fact (`specials`: several, [label, fact key]); `set`: the
+  // dataset that's the other set of the same country (Belgium's provinces and regions); `sub`: a second set, not
+  // listed on its own in the Countries tab.
+  const NEW_MAPS = {
+    at: { a3: "AUT", name: "Austria", noun: "state", nouns: "states", Nouns: "States", style: "austria", count: 9, lang: "German", special: "Ski resorts and peaks" },
+    cz: { a3: "CZE", name: "Czechia", noun: "region", nouns: "regions", Nouns: "Regions", style: "czechia", count: 14, lang: "Czech", special: "Historic land" },
+    pl: { a3: "POL", name: "Poland", noun: "voivodeship", nouns: "voivodeships", Nouns: "Voivodeships", style: "poland", count: 16, lang: "Polish", special: "Before 1918" },
+    // the Netherlands: land areas (the provinces' totals include the IJsselmeer and the Wadden Sea)
+    nl: { a3: "NLD", name: "Netherlands", noun: "province", nouns: "provinces", Nouns: "Provinces", style: "netherlands", count: 12, lang: "Dutch",
+      landArea: true, special: "Land from the sea" },
+    // Belgium: two sets, like Spain's: the 10 provinces and Brussels, and the 3 regions (flags in data/flags/be/)
+    be: { a3: "BEL", name: "Belgium", noun: "province", nouns: "provinces", Nouns: "Provinces", style: "belgium", count: 11,
+      special: "Language community", set: "ber" },
+    ber: { a3: "BEL", name: "Belgium", noun: "region", nouns: "regions", Nouns: "Regions", style: "belgium", region: "belgiumr", count: 3,
+      special: "Language community", set: "be", sub: true, flagDir: "be" },
+    // Sweden: games 5 and 6 use the county coats of arms
+    se: { a3: "SWE", name: "Sweden", noun: "county", nouns: "counties", Nouns: "Counties", style: "sweden", count: 21, lang: "Swedish", emblems: true,
+      specials: [["Historic land", "land"], ["Sámi area", "sami"], ["Swedish invention", "invention"]] },
+    // South Africa: no flag games (no official provincial flags); Lesotho and Eswatini drawn in their own colours, in Learning mode
+    za: { a3: "ZAF", name: "South Africa", noun: "province", nouns: "provinces", Nouns: "Provinces", style: "southafrica", count: 9, cont: "Africa",
+      noFlags: true, lang: "the main local language", specials: [["Home languages", "langs"], ["Wildlife", "wildlife"], ["Before 1994", "before"]] },
+    // New Zealand: the 16 regions and the Chatham Islands (moved across the date line, with an oval); no flag games
+    nz: { a3: "NZL", name: "New Zealand", noun: "region", nouns: "regions", Nouns: "Regions", style: "newzealand", count: 17, cont: "Oceania",
+      noFlags: true, lang: "Māori", specials: [["Māori name and iwi", "maori"], ["Island", "island"], ["Film location", "film"]] },
+    // Portugal: 18 districts and the Azores and Madeira (in insets); no games 5 and 6 (the districts have no arms of their own)
+    pt: { a3: "PRT", name: "Portugal", noun: "district", nouns: "districts", Nouns: "Districts", style: "portugal", count: 20, noFlags: true,
+      lang: "Portuguese", specials: [["Wine region", "wine"], ["Historic province", "province"], ["Age of Discovery", "discovery"]] },
+    // Colombia: 32 departments and Bogotá (a circle); San Andrés in an inset; flag games
+    co: { a3: "COL", name: "Colombia", noun: "department", nouns: "departments", Nouns: "Departments", style: "colombia", count: 33, cont: "South America",
+      lang: "Spanish", specials: [["Natural region", "region"], ["Famous crop", "crop"], ["Music", "music"]] },
+    // Switzerland: 26 cantons, flag games; circles for Basel-Stadt, Appenzell Innerrhoden and Zug
+    ch: { a3: "CHE", name: "Switzerland", noun: "canton", nouns: "cantons", Nouns: "Cantons", style: "switzerland", count: 26,
+      lang: "the local language", specials: [["Language", "language"], ["Joined the Confederation", "joined"], ["Cheese or chocolate", "cheese"]] },
+  };
+  Object.entries(NEW_MAPS).forEach(([d, m]) => {
+    DATASETS[d] = { noun: m.noun, nouns: m.nouns, Nouns: m.Nouns, region: m.region || m.style, style: m.style, count: m.count,
+      noFlags: !!m.noFlags, ...(m.emblems ? { emblem: "coat of arms", emblems: "coats of arms" } : {}),
+      load: async () => (geoC[d] = geoC[d] || await GG.loadCountry(d, geoWorld.lakes, m.flagDir)) };
+  });
+  // countries with two sets of parts: the Set switch on the country page, and in Learning mode
+  const SETS = { es: ["es", "esp"], esp: ["es", "esp"] };
+  Object.entries(NEW_MAPS).forEach(([d, m]) => { if (m.set) SETS[d] = m.sub ? [m.set, d] : [d, m.set]; });
   const isCountryMap = d => !!DATASETS[d] && d !== "world" && !DATASETS[d].world;
   const isAirports = (d = S.data) => !!(DATASETS[d] && DATASETS[d].world);
   // Name games that ask one at a time (airports): the next one is chosen for you, and the arrows skip
   const prompted = () => !!(DATASETS[S.data] && DATASETS[S.data].prompted) && isName();
-  const geoFor = d => (DATASETS[d] && DATASETS[d].world ? geoAP[d] : d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : d === "mx" ? geoMX : d === "br" ? geoBR : d === "de" ? geoDE : d === "jp" ? geoJP : d === "fr" ? geoFR : d === "it" ? geoIT : d === "es" ? geoES : d === "esp" ? geoESP : d === "ng" ? geoNG : d === "ar" ? geoAR : geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
+  const geoFor = d => (DATASETS[d] && DATASETS[d].world ? geoAP[d] : d === "us" ? geoUS : d === "ca" ? geoCA : d === "in" ? geoIN : d === "cn" ? geoCN : d === "ru" ? geoRU : d === "au" ? geoAU : d === "mx" ? geoMX : d === "br" ? geoBR : d === "de" ? geoDE : d === "jp" ? geoJP : d === "fr" ? geoFR : d === "it" ? geoIT : d === "es" ? geoES : d === "esp" ? geoESP : d === "ng" ? geoNG : d === "ar" ? geoAR : geoC[d] || geoUK[d] || (DATASETS[d] && d !== "world" ? null : geoWorld)); // null until loaded
   const dataOfRegion = r => (REGIONS[r] && REGIONS[r].data) || Object.keys(DATASETS).find(k => DATASETS[k].region === r) || "world";
   const capWord = (n = 1) => (n === 1 ? DATASETS[S.data].cap || "capital" : DATASETS[S.data].caps || "capitals");
   const noun = () => DATASETS[S.data].noun;
@@ -170,6 +214,11 @@
   };
   // Britain and Ireland's regions, for both county sets. The Crown Dependencies are only in the whole-map games, when
   // switched on (and always in Learning mode).
+  Object.entries(NEW_MAPS).forEach(([d, m]) => {
+    // (enclaves, independent countries drawn on the map: Learning mode only, like Italy's)
+    REGIONS[m.region || m.style] = { name: m.name + (m.sub ? ` (${m.nouns})` : ""), us: true, data: d,
+      test: c => !c.info.enclave || S.mode === "explore" };
+  });
   [["uk", "historic"], ["ukc", "ceremonial"]].forEach(([d]) => {
     const all = c => !c.info.cd || S.cd || S.mode === "explore";
     REGIONS[d] = { name: "Britain & Ireland", us: true, data: d, test: all };
@@ -556,6 +605,8 @@
     if (geoNG && geoNG.byIso[c.iso] === c) { showNigeriaCard(c, i); return; }
     if (geoAR && geoAR.byIso[c.iso] === c) { showArgentinaCard(c, i); return; }
     if (geoESP && geoESP.byIso[c.iso] === c) { showSpainProvinceCard(c, i); return; }
+    const nm = Object.keys(geoC).find(d => geoC[d].byIso[c.iso] === c);
+    if (nm) { showCountryCard(c, i, NEW_MAPS[nm]); return; }
     if (i.kind === "nation") { showNationCard(c, i); return; }
     if (Object.values(geoUK).some(g => g.byIso[c.iso] === c)) { showCountyCard(c, i); return; }
     // (the single-page test build carries the flags inside the page, in window.GG_FLAGS)
@@ -977,6 +1028,45 @@
     setLearnMore(learnMore);
     $("learnCard").hidden = false;
   }
+  // The maps built by tools/build_country.py (Austria, Czechia, Poland, the Netherlands, Belgium): the same 18 facts
+  // (tools/<code>_facts.py), plus each country's own (`special`)
+  function showCountryCard(c, i, m) {
+    const f = i.facts || {};
+    $("lcFlag").hidden = !i.flag;
+    if (i.flag) { $("lcFlag").src = flagSrc(c); $("lcFlag").alt = `${m.emblems && !i.enclave ? "Coat of arms" : "Flag"} of ${c.name}`; }
+    $("lcName").textContent = c.name;
+    if (i.enclave) { // an independent country inside the map (Lesotho, Eswatini): a short card
+      $("lcSub").textContent = i.kind;
+      $("lcMain").innerHTML = facts([["Capital", c.capitals[0]], ["Population", fmtPop(i.pop, i.popYear)],
+        ["Area", i.area ? `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi)` : ""]]);
+      $("lcMore").innerHTML = factGroup("About", [["Known for", f.about], ["Borders", (i.borders || []).join(", ")], ["Its own map", "Coming soon"]]);
+      setLearnMore(learnMore);
+      $("learnCard").hidden = false;
+      return;
+    }
+    $("lcSub").textContent = [i.kind, f.local && f.local !== c.name ? f.local : ""].filter(Boolean).join(" · ");
+    const capNote = i.capNote || c.capitals[0] || "";
+    $("lcMain").innerHTML = facts([[/ and /.test(i.capNote || "") ? "Capitals" : "Capital", capNote],
+      ["Population", fmtPop(i.pop, i.popYear)]]);
+    $("lcMore").innerHTML =
+      factGroup("People and culture", [
+        [`Name in ${f.lang || m.lang || "the local language"}`, f.local], ["People are called", f.demonym], ["Dialect or language", f.dialect],
+        ["Largest city", f.city || ""], ["Famous dish", f.dish], ["Famous drink", f.drink], ["Biggest festival", f.festival],
+        ["Football", f.club], ["Famous person", f.person],
+      ]) +
+      factGroup("Land and nature", [
+        [m.landArea ? "Land area" : "Area", `${num(i.area)} km² (${num(Math.round(i.area / 2.589988))} sq mi), #${i.areaRank} of ${i.of}`],
+        ["Highest point", f.high], ["Coast", i.coastal === undefined ? "" : i.coastal ? "Yes" : "Landlocked"],
+        ["Borders", (i.borders || []).join(", ")], ["Main river", f.river], ["Natural wonder", f.wonder],
+      ]) +
+      factGroup("History and landmarks", [
+        ["Historic region", f.historic], ...(m.specials || [[m.special, "special"]]).map(([label, k]) => [label, f[k]]),
+        ["Landmark", f.landmark], ["UNESCO World Heritage", f.unesco],
+      ]) +
+      factGroup("Economy", [["Known for", f.known], ["Famous company", f.company]]);
+    setLearnMore(learnMore);
+    $("learnCard").hidden = false;
+  }
   // Brazil's states and the Federal District (2022 census, IBGE)
   function showBrazilCard(c, i) {
     const f = i.facts || {}; // tools/br_facts.py
@@ -1159,7 +1249,7 @@
   }
   $("lcLess").onclick = () => { setLearnMore(false); $("learnCard").scrollTop = 0; };
   $("lcMoreBtn").onclick = () => setLearnMore(!learnMore);
-  function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; }
+  function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; setLearnMore(false); } // the next card opens collapsed
   // Focus: a button above the card that opens a country's own map in Learning mode ("Focus on <name> ›").
   // Only the US has its own map so far; the plan is one for every country (PLAN.md).
   // Countries with their own map: the Countries tab in the New game menu and the Focus button both use this list.
@@ -1187,6 +1277,9 @@
     NGA: { name: "Nigeria", focus: "Nigeria", cont: "Africa", unit: "States", data: "ng", region: "nigeria" },
     ARG: { name: "Argentina", focus: "Argentina", cont: "South America", unit: "Provinces", data: "ar", region: "argentina" },
   };
+  Object.entries(NEW_MAPS).forEach(([d, m]) => {
+    if (!m.sub) COUNTRY_MAPS[m.a3] = { name: m.name, focus: m.focus || m.name, cont: m.cont || "Europe", unit: m.Nouns, data: d, region: m.region || m.style };
+  });
   // from the world Learning map, the UK and Ireland open the countries view first
   const FOCUS_INTO = { GBR: { region: "ukn", data: "ukn" }, IRL: { region: "ukn", data: "ukn" },
   };
@@ -1384,7 +1477,7 @@
     const skill = statsSkill, St = GG.Stats, ds = DATASETS[statsData], sub = isCountryMap(statsData);
     document.querySelectorAll("#statsSkill button").forEach(b => b.classList.toggle("on", b.dataset.v === skill));
     document.querySelectorAll("#statsData button").forEach(b => b.classList.toggle("on", b.dataset.v === statsData));
-    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", au: "States", mx: "States", br: "States", de: "States", jp: "Prefectures", fr: "Regions", it: "Regions", es: "Communities", esp: "Provinces", ng: "States", ar: "Provinces", uk: "Counties", ukc: "Counties" })[statsData] || "Countries";
+    $("statsSkill").querySelector('[data-v="country"]').textContent = ({ us: "States", ca: "Provinces", in: "States", cn: "Provinces", ru: "Oblasts", au: "States", mx: "States", br: "States", de: "States", jp: "Prefectures", fr: "Regions", it: "Regions", es: "Communities", esp: "Provinces", ng: "States", ar: "Provinces", uk: "Counties", ukc: "Counties" })[statsData] || (NEW_MAPS[statsData] || {}).Nouns || "Countries";
     $("statsSkill").querySelector('[data-v="capital"]').textContent = ds.caps ? "County towns" : "Capitals";
     // no flags (India): no Flags tab
     $("statsSkill").querySelector('[data-v="flag"]').hidden = !!ds.noFlags;
@@ -1662,8 +1755,14 @@
         return `<button type="button" data-v="${iso}"${m.soon ? " disabled" : ""}>${c ? `<img src="${flagSrc(c)}" alt="">` : ""}` +
           `<span>${esc(m.name)}</span>${m.soon ? "<small>soon</small>" : ""}</button>`;
       }).join("");
-      return `<section><h3>${ct}</h3>${btns ? `<div class="cbtns">${btns}</div>` : `<p class="none">More countries to come</p>`}</section>`;
+      const n = Object.values(COUNTRY_MAPS).filter(inCont).length;
+      const open = (prefs.openConts || []).includes(ct);
+      return `<details data-cont="${ct}"${open ? " open" : ""}><summary><h3>${ct}</h3><span class="ccount">${n}</span></summary>` +
+        `${btns ? `<div class="cbtns">${btns}</div>` : `<p class="none">More countries to come</p>`}</details>`;
     }).join("");
+    $("countryList").querySelectorAll("details").forEach(d => d.addEventListener("toggle", () => {
+      savePrefs({ openConts: [...$("countryList").querySelectorAll("details[open]")].map(x => x.dataset.cont) });
+    }));
   }
   // World, the list of countries, or one country's page (its Find and Name games)
   function showData() {
@@ -1692,8 +1791,10 @@
       // India: union territories on or off
       $("cpUTField").hidden = pick.data !== "in";
       // Spain: communities or provinces
-      $("cpESField").hidden = pick.data !== "es" && pick.data !== "esp";
-      if (pick.data === "es" || pick.data === "esp") {
+      const sets = SETS[pick.data];
+      $("cpESField").hidden = !sets;
+      if (sets) {
+        $("cpES").innerHTML = sets.map(d => `<button data-v="${d}" type="button">${DATASETS[d].Nouns} (${DATASETS[d].count})</button>`).join("");
         segSelect($("cpES"), pick.data);
         $("cpGames").querySelectorAll('[data-v="find"], [data-v="name"]').forEach(b => { b.textContent = DATASETS[pick.data].Nouns; });
       }
@@ -1733,7 +1834,10 @@
     showData(); showOptions();
   });
   $("cpBack").onclick = () => { pick.country = null; showData(); };
-  $("setBtn").onclick = () => { const d = S.data === "uk" ? "ukc" : "uk"; savePrefs({ ukSet: d }); startGame("explore", d + S.region.replace(/^ukc?/, ""), "flat", d); };
+  $("setBtn").onclick = () => {
+    if (SETS[S.data]) { const d = SETS[S.data].find(x => x !== S.data); startGame("explore", DATASETS[d].region, "flat", d); return; }
+    const d = S.data === "uk" ? "ukc" : "uk"; savePrefs({ ukSet: d }); startGame("explore", d + S.region.replace(/^ukc?/, ""), "flat", d);
+  };
   const ukRegionPart = r => r.replace(/^ukc?/, "");
   $("cpSet").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
@@ -2099,6 +2203,11 @@
         <circle class="magring" r="${r0}"/>
       </g></svg>`;
     document.body.appendChild(el);
+    // no zooming while it plays: a pinch on the overlay zoomed the whole page (which then couldn't be undone), and the
+    // map mustn't take gestures while it's scaled by CSS
+    const block = e => e.preventDefault();
+    ["wheel", "touchstart", "touchmove", "gesturestart", "gesturechange", "dblclick"].forEach(t => el.addEventListener(t, block, { passive: false }));
+    main.locked = true;
     const hole = el.querySelector("#magHoleC"), glass = el.querySelector("#magGlass"), map = $("map");
     const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2); // ease-in-out
     const set = (s, shadeA, glassA, lensOpen, zoom) => {
@@ -2117,7 +2226,7 @@
       if (goFrom === null) { if (now - holdFrom >= T_HOLD) goFrom = now; else { requestAnimationFrame(frame); return; } }
       const k = Math.min(1, (now - goFrom) / T_GO), e = k * k * (3 - 2 * k);                                             // rushes past
       set(Math.pow(rEnd / r0, Math.pow(e, 1.6)), 1 - Math.max(0, (e - 0.55) / 0.45), 1, 1, 1 + 0.35 * (1 - e));
-      if (k < 1) requestAnimationFrame(frame); else { el.remove(); map.style.transform = ""; }
+      if (k < 1) requestAnimationFrame(frame); else { el.remove(); map.style.transform = ""; main.locked = false; }
     };
     set(0.55, 1, 0, 0, 1.35); // covered, lens closed
     // the map changes now, out of sight; the glass starts once it's drawn
@@ -2163,8 +2272,11 @@
       : "Contains OS data © Crown copyright and database right 2026") +
       '. Ireland © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Flags: UK Flag Registry.';
     const ukLearn = mode === "explore" && (data === "uk" || data === "ukc");
-    $("setBtn").hidden = !ukLearn;
+    // (and the countries with two sets built by tools/build_country.py: Belgium's provinces and regions)
+    const setLearn = mode === "explore" && !!SETS[data] && !!NEW_MAPS[data];
+    $("setBtn").hidden = !ukLearn && !setLearn;
     if (ukLearn) $("setBtn").textContent = data === "uk" ? "Ceremonial counties" : "Historic counties";
+    if (setLearn) $("setBtn").textContent = DATASETS[SETS[data].find(x => x !== data)].Nouns;
     if (main.mode !== view) { main.setMode(view); setViewButton(); }
     goTo(region, false);
     hideLearnCard();

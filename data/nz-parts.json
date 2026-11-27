@@ -1,0 +1,983 @@
+[
+{
+"iso": "NZ-AUK",
+"id": "NZ-AUK",
+"name": "Auckland",
+"names": [
+"Auckland",
+"Tāmaki Makaurau",
+"Tamaki Makaurau",
+"Auckland Region"
+],
+"capitals": [
+"Auckland"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-AUK",
+"info": {
+"abbr": "AUK",
+"kind": "Region (unitary authority)",
+"pop": 1656486,
+"popYear": "2023 census",
+"area": 4941,
+"flag": false,
+"facts": {
+"local": "Tāmaki Makaurau",
+"demonym": "Aucklander",
+"dialect": "English, with the world's largest Polynesian population",
+"festival": "The Pasifika Festival",
+"club": "Auckland City FC and Auckland FC",
+"wonder": "The Auckland volcanic field (Rangitoto Island)",
+"historic": "Tāmaki, then the colonial capital (1841–1865)",
+"landmark": "The Sky Tower and the Harbour Bridge",
+"person": "Lorde (singer)",
+"known": "New Zealand's biggest city: a third of the country lives here",
+"company": "Air New Zealand and Fisher & Paykel",
+"maori": "Tāmaki Makaurau; iwi: Ngāti Whātua Ōrākei and Tainui iwi",
+"island": "North Island",
+"film": "Bethells Beach and the Piha coast (many films and TV series)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 15,
+"of": 17
+},
+"flagKey": "nz/NZ-AUK",
+"capLL": [
+[
+174.763,
+-36.848
+]
+]
+},
+{
+"iso": "NZ-BOP",
+"id": "NZ-BOP",
+"name": "Bay of Plenty",
+"names": [
+"Bay of Plenty",
+"Te Moana-a-Toi",
+"Bay of Plenty Region"
+],
+"capitals": [
+"Whakatāne",
+"Whakatane"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-BOP",
+"info": {
+"abbr": "BOP",
+"kind": "Region",
+"pop": 334140,
+"popYear": "2023 census",
+"area": 12072,
+"flag": false,
+"facts": {
+"local": "Te Moana-a-Toi",
+"demonym": "Bay of Plenty local",
+"dish": "Kiwifruit (Te Puke, the kiwifruit capital)",
+"river": "Rangitāiki River",
+"wonder": "Rotorua's geysers and Whakaari / White Island",
+"historic": "Landing place of the Te Arawa and Mātaatua canoes",
+"landmark": "Pōhutu Geyser at Te Puia",
+"known": "Kiwifruit, surf beaches and Rotorua's Māori culture and hot springs",
+"company": "Zespri (kiwifruit)",
+"city": "Tauranga",
+"maori": "Te Moana-a-Toi; iwi: Te Arawa, Ngāti Awa, Tūhoe, Ngāi Te Rangi",
+"island": "North Island"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 9,
+"of": 17
+},
+"flagKey": "nz/NZ-BOP",
+"capLL": [
+[
+176.983,
+-37.957
+]
+]
+},
+{
+"iso": "NZ-CAN",
+"id": "NZ-CAN",
+"name": "Canterbury",
+"names": [
+"Canterbury",
+"Waitaha",
+"Canterbury Region"
+],
+"capitals": [
+"Christchurch",
+"Ōtautahi"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-CAN",
+"info": {
+"abbr": "CAN",
+"kind": "Region",
+"pop": 651027,
+"popYear": "2023 census",
+"area": 44504,
+"flag": false,
+"facts": {
+"local": "Waitaha",
+"demonym": "Cantabrian",
+"club": "Christchurch United",
+"river": "Waimakariri and Rakaia rivers",
+"high": "Aoraki / Mount Cook, 3,724 m: New Zealand's highest",
+"wonder": "Lake Tekapo, Aoraki and the Canterbury Plains",
+"historic": "The Canterbury Association's settlement (1850)",
+"landmark": "Christchurch's Cardboard Cathedral and the Church of the Good Shepherd",
+"known": "Christchurch, farming and the 2010–2011 earthquakes",
+"maori": "Waitaha; iwi: Ngāi Tahu",
+"island": "South Island",
+"film": "Edoras at Mount Sunday"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 1,
+"of": 17
+},
+"flagKey": "nz/NZ-CAN",
+"capLL": [
+[
+172.63,
+-43.535
+]
+]
+},
+{
+"iso": "NZ-CIT",
+"id": "NZ-CIT",
+"name": "Chatham Islands",
+"names": [
+"Chatham Islands",
+"Chatham Islands Territory",
+"Rēkohu",
+"Rekohu",
+"Wharekauri",
+"Chathams"
+],
+"capitals": [
+"Waitangi"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-CIT",
+"info": {
+"abbr": "CIT",
+"kind": "Territory (outside any region)",
+"pop": 612,
+"popYear": "2023 census",
+"area": 966,
+"flag": false,
+"facts": {
+"local": "Rēkohu (Moriori) / Wharekauri (Māori)",
+"demonym": "Chatham Islander",
+"dialect": "English; the Moriori language is being revived",
+"wonder": "The basalt columns and the endemic black robin",
+"historic": "The homeland of the Moriori people",
+"landmark": "Waitangi and the Kōpinga Marae",
+"person": "Tommy Solomon (the last Moriori of unmixed descent)",
+"known": "Crayfish, isolation and one of the first places to see the new day",
+"maori": "Wharekauri; iwi: Ngāti Mutunga, and the Moriori people",
+"island": "Neither: about 800 km east of the South Island"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 16,
+"of": 17
+},
+"flagKey": "nz/NZ-CIT",
+"capLL": [
+[
+183.44,
+-43.95
+]
+],
+"isles": [
+{
+"center": [
+183.55,
+-44.0
+],
+"ring": [
+[
+184.1,
+-44.0
+],
+[
+184.081,
+-43.893
+],
+[
+184.026,
+-43.794
+],
+[
+183.939,
+-43.708
+],
+[
+183.825,
+-43.643
+],
+[
+183.692,
+-43.602
+],
+[
+183.55,
+-43.587
+],
+[
+183.408,
+-43.602
+],
+[
+183.275,
+-43.643
+],
+[
+183.161,
+-43.708
+],
+[
+183.074,
+-43.794
+],
+[
+183.019,
+-43.893
+],
+[
+183.0,
+-44.0
+],
+[
+183.019,
+-44.107
+],
+[
+183.074,
+-44.206
+],
+[
+183.161,
+-44.292
+],
+[
+183.275,
+-44.357
+],
+[
+183.408,
+-44.398
+],
+[
+183.55,
+-44.413
+],
+[
+183.692,
+-44.398
+],
+[
+183.825,
+-44.357
+],
+[
+183.939,
+-44.292
+],
+[
+184.026,
+-44.206
+],
+[
+184.081,
+-44.107
+]
+]
+}
+]
+},
+{
+"iso": "NZ-GIS",
+"id": "NZ-GIS",
+"name": "Gisborne",
+"names": [
+"Gisborne",
+"Te Tairāwhiti",
+"Tairāwhiti",
+"Gisborne District",
+"East Coast"
+],
+"capitals": [
+"Gisborne"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-GIS",
+"info": {
+"abbr": "GIS",
+"kind": "Region (unitary authority)",
+"pop": 51135,
+"popYear": "2023 census",
+"area": 8385,
+"flag": false,
+"facts": {
+"local": "Te Tairāwhiti",
+"demonym": "Gisborne local (Tairāwhiti)",
+"drink": "Chardonnay",
+"festival": "Rhythm and Vines on New Year's Eve",
+"high": "Hikurangi, 1,752 m",
+"wonder": "The East Cape",
+"historic": "Where James Cook first landed in New Zealand (1769)",
+"landmark": "Mount Hikurangi and Tolaga Bay Wharf",
+"known": "The first city in the world to see the sun each day",
+"maori": "Te Tairāwhiti; iwi: Ngāti Porou, Rongowhakaata",
+"island": "North Island",
+"film": "Whale Rider (Whangara)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 12,
+"of": 17
+},
+"flagKey": "nz/NZ-GIS",
+"capLL": [
+[
+178.018,
+-38.663
+]
+]
+},
+{
+"iso": "NZ-HKB",
+"id": "NZ-HKB",
+"name": "Hawke's Bay",
+"names": [
+"Hawke's Bay",
+"Hawkes Bay",
+"Te Matau-a-Māui",
+"Hawke's Bay Region"
+],
+"capitals": [
+"Napier"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-HKB",
+"info": {
+"abbr": "HKB",
+"kind": "Region",
+"pop": 175074,
+"popYear": "2023 census",
+"area": 14138,
+"flag": false,
+"facts": {
+"local": "Te Matau-a-Māui",
+"demonym": "Hawke's Bay local",
+"drink": "Wine (Gimblett Gravels reds)",
+"festival": "The Art Deco Festival in Napier",
+"wonder": "Cape Kidnappers' gannets and Te Mata Peak",
+"historic": "Napier was rebuilt in Art Deco after the 1931 earthquake",
+"landmark": "Napier's Art Deco centre",
+"known": "Wine, fruit and Art Deco",
+"maori": "Te Matau-a-Māui; iwi: Ngāti Kahungunu",
+"island": "North Island"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 7,
+"of": 17
+},
+"flagKey": "nz/NZ-HKB",
+"capLL": [
+[
+176.926,
+-39.49
+]
+]
+},
+{
+"iso": "NZ-MWT",
+"id": "NZ-MWT",
+"name": "Manawatū-Whanganui",
+"names": [
+"Manawatū-Whanganui",
+"Manawatu-Whanganui",
+"Manawatu-Wanganui",
+"Manawatū-Wanganui",
+"Manawatu",
+"Horizons"
+],
+"capitals": [
+"Palmerston North"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-MWT",
+"info": {
+"abbr": "MWT",
+"kind": "Region",
+"pop": 251412,
+"popYear": "2023 census",
+"area": 22221,
+"flag": false,
+"facts": {
+"local": "Manawatū-Whanganui",
+"demonym": "Manawatū or Whanganui local",
+"river": "Whanganui River (legally a person since 2017)",
+"high": "Ruapehu, 2,797 m: the North Island's highest",
+"wonder": "The Tongariro Alpine Crossing",
+"historic": "The Whanganui River iwi",
+"landmark": "The Tongariro volcanoes",
+"unesco": "Tongariro National Park",
+"known": "Farming and Massey University",
+"maori": "Manawatū-Whanganui; iwi: Whanganui iwi, Rangitāne, Ngāti Raukawa, Ngāti Tūwharetoa",
+"island": "North Island",
+"film": "Mordor and Mount Doom (Tongariro and Ngauruhoe)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 6,
+"of": 17
+},
+"flagKey": "nz/NZ-MWT",
+"capLL": [
+[
+175.607,
+-40.353
+]
+]
+},
+{
+"iso": "NZ-MBH",
+"id": "NZ-MBH",
+"name": "Marlborough",
+"names": [
+"Marlborough",
+"Te Tauihu-o-te-Waka",
+"Marlborough District"
+],
+"capitals": [
+"Blenheim"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-MBH",
+"info": {
+"abbr": "MBH",
+"kind": "Region (unitary authority)",
+"pop": 49431,
+"popYear": "2023 census",
+"area": 10498,
+"flag": false,
+"facts": {
+"local": "Te Tauihu-o-te-Waka",
+"demonym": "Marlburian",
+"drink": "Sauvignon Blanc (New Zealand's biggest wine region)",
+"wonder": "The Marlborough Sounds",
+"historic": "Where the first settlers of the Wairau Bar landed (about 1300)",
+"landmark": "Queen Charlotte Track",
+"known": "Wine and the Interislander ferry at Picton",
+"maori": "Te Tauihu-o-te-Waka; iwi: Rangitāne o Wairau, Ngāti Kuia",
+"island": "South Island",
+"film": "The Pelorus River (the barrel scene in The Hobbit)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 10,
+"of": 17
+},
+"flagKey": "nz/NZ-MBH",
+"capLL": [
+[
+173.955,
+-41.514
+]
+]
+},
+{
+"iso": "NZ-NSN",
+"id": "NZ-NSN",
+"name": "Nelson",
+"names": [
+"Nelson",
+"Whakatū",
+"Whakatu",
+"Nelson City"
+],
+"capitals": [
+"Nelson"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-NSN",
+"info": {
+"abbr": "NSN",
+"kind": "Region (unitary authority)",
+"pop": 52584,
+"popYear": "2023 census",
+"area": 422,
+"flag": false,
+"facts": {
+"local": "Whakatū",
+"demonym": "Nelsonian",
+"festival": "The Nelson Arts Festival",
+"wonder": "Tāhunanui Beach",
+"historic": "One of the New Zealand Company's first settlements (1841)",
+"landmark": "The Centre of New Zealand monument and Christ Church Cathedral",
+"known": "Sunshine, arts and crafts, and the smallest region",
+"maori": "Whakatū; iwi: Ngāti Tama, Ngāti Kuia, Ngāti Koata",
+"island": "South Island"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 17,
+"of": 17
+},
+"flagKey": "nz/NZ-NSN",
+"capLL": [
+[
+173.247,
+-41.293
+]
+]
+},
+{
+"iso": "NZ-NTL",
+"id": "NZ-NTL",
+"name": "Northland",
+"names": [
+"Northland",
+"Te Taitokerau",
+"Te Tai Tokerau",
+"Northland Region"
+],
+"capitals": [
+"Whangārei",
+"Whangarei"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-NTL",
+"info": {
+"abbr": "NTL",
+"kind": "Region",
+"pop": 194007,
+"popYear": "2023 census",
+"area": 12504,
+"flag": false,
+"facts": {
+"local": "Te Taitokerau",
+"demonym": "Northlander",
+"festival": "Waitangi Day at the Treaty Grounds",
+"river": "Northern Wairoa River",
+"wonder": "The Bay of Islands and Tāne Mahuta, the biggest living kauri tree",
+"historic": "Where the Treaty of Waitangi was signed (1840)",
+"landmark": "Cape Rēinga lighthouse",
+"person": "Hone Heke (Ngāpuhi chief)",
+"known": "Kauri forests, the Bay of Islands and the Treaty",
+"maori": "Te Taitokerau; iwi: Ngāpuhi (the largest iwi), Te Rarawa, Ngāti Whātua",
+"island": "North Island"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 8,
+"of": 17
+},
+"flagKey": "nz/NZ-NTL",
+"capLL": [
+[
+174.323,
+-35.726
+]
+]
+},
+{
+"iso": "NZ-OTA",
+"id": "NZ-OTA",
+"name": "Otago",
+"names": [
+"Otago",
+"Ōtākou",
+"Otakou",
+"Otago Region"
+],
+"capitals": [
+"Dunedin",
+"Ōtepoti"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-OTA",
+"info": {
+"abbr": "OTA",
+"kind": "Region",
+"pop": 240900,
+"popYear": "2023 census",
+"area": 31186,
+"flag": false,
+"facts": {
+"local": "Ōtākou",
+"demonym": "Otagoite",
+"drink": "Central Otago Pinot Noir",
+"wonder": "Lake Wakatipu and the Remarkables",
+"historic": "The 1861 gold rush; Dunedin was settled by Scots",
+"landmark": "Dunedin Railway Station and Larnach Castle",
+"unesco": "Te Wāhipounamu (part)",
+"person": "Richie McCaw (rugby captain, born in Oamaru)",
+"known": "Queenstown's adventure tourism, gold and wine",
+"maori": "Ōtākou; iwi: Ngāi Tahu",
+"island": "South Island",
+"film": "Glenorchy and Queenstown (Isengard and Lothlórien)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 3,
+"of": 17
+},
+"flagKey": "nz/NZ-OTA",
+"capLL": [
+[
+170.491,
+-45.885
+]
+]
+},
+{
+"iso": "NZ-STL",
+"id": "NZ-STL",
+"name": "Southland",
+"names": [
+"Southland",
+"Murihiku",
+"Southland Region"
+],
+"capitals": [
+"Invercargill"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-STL",
+"info": {
+"abbr": "STL",
+"kind": "Region",
+"pop": 100143,
+"popYear": "2023 census",
+"area": 31196,
+"flag": false,
+"facts": {
+"local": "Murihiku",
+"demonym": "Southlander",
+"dish": "Bluff oysters",
+"wonder": "Fiordland and Milford Sound",
+"historic": "Early whaling and sealing stations",
+"landmark": "The Bluff signpost and Stewart Island",
+"unesco": "Te Wāhipounamu (Fiordland)",
+"person": "Burt Munro (The World's Fastest Indian)",
+"known": "Fiordland, farming and Stewart Island",
+"maori": "Murihiku; iwi: Ngāi Tahu",
+"island": "South Island",
+"film": "The Mavora Lakes (the Anduin and Nen Hithoel)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 2,
+"of": 17
+},
+"flagKey": "nz/NZ-STL",
+"capLL": [
+[
+168.365,
+-46.409
+]
+]
+},
+{
+"iso": "NZ-TKI",
+"id": "NZ-TKI",
+"name": "Taranaki",
+"names": [
+"Taranaki",
+"Taranaki Region"
+],
+"capitals": [
+"Stratford"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-TKI",
+"info": {
+"abbr": "TKI",
+"kind": "Region",
+"pop": 126015,
+"popYear": "2023 census",
+"area": 7254,
+"flag": false,
+"facts": {
+"local": "Taranaki",
+"demonym": "Taranaki local",
+"high": "Taranaki Maunga, 2,518 m",
+"wonder": "Taranaki Maunga, a near-perfect volcanic cone",
+"historic": "The Taranaki Wars (1860s)",
+"landmark": "New Plymouth's Coastal Walkway and Len Lye's Wind Wand",
+"known": "Dairy farming, oil and gas",
+"city": "New Plymouth",
+"maori": "Taranaki; iwi: Te Āti Awa, Ngāti Ruanui, Taranaki iwi",
+"island": "North Island",
+"film": "The Last Samurai (Taranaki as Mount Fuji)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 14,
+"of": 17
+},
+"flagKey": "nz/NZ-TKI",
+"capLL": [
+[
+174.284,
+-39.338
+]
+]
+},
+{
+"iso": "NZ-TAS",
+"id": "NZ-TAS",
+"name": "Tasman",
+"names": [
+"Tasman",
+"Te Tai-o-Aorere",
+"Tasman District"
+],
+"capitals": [
+"Richmond"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-TAS",
+"info": {
+"abbr": "TAS",
+"kind": "Region (unitary authority)",
+"pop": 57807,
+"popYear": "2023 census",
+"area": 9616,
+"flag": false,
+"facts": {
+"local": "Te Tai-o-Aorere",
+"demonym": "Tasman local",
+"wonder": "Abel Tasman National Park and Farewell Spit",
+"historic": "Abel Tasman anchored in Golden Bay (1642)",
+"landmark": "Te Waikoropupū Springs",
+"person": "Ernest Rutherford (born in Brightwater)",
+"known": "Apples, hops and golden beaches",
+"maori": "Te Tai-o-Aorere; iwi: Ngāti Tama, Ngāti Rārua, Te Ātiawa",
+"island": "South Island",
+"film": "Mount Owen and Takaka Hill (Dimrill Dale and Chetwood Forest)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 11,
+"of": 17
+},
+"flagKey": "nz/NZ-TAS",
+"capLL": [
+[
+-77.452,
+37.552
+]
+]
+},
+{
+"iso": "NZ-WKO",
+"id": "NZ-WKO",
+"name": "Waikato",
+"names": [
+"Waikato",
+"Waikato Region"
+],
+"capitals": [
+"Hamilton",
+"Kirikiriroa"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-WKO",
+"info": {
+"abbr": "WKO",
+"kind": "Region",
+"pop": 498771,
+"popYear": "2023 census",
+"area": 23900,
+"flag": false,
+"facts": {
+"local": "Waikato",
+"demonym": "Waikatoan",
+"festival": "Fieldays (the Southern Hemisphere's biggest agricultural show)",
+"river": "Waikato River (New Zealand's longest)",
+"wonder": "The Waitomo glowworm caves and Lake Taupō",
+"historic": "The heart of the Kīngitanga (the Māori King movement)",
+"landmark": "The Hobbiton Movie Set",
+"unesco": "Tongariro National Park (shared)",
+"known": "Dairy farming and Hamilton",
+"maori": "Waikato; iwi: Waikato-Tainui, Ngāti Maniapoto, Ngāti Tūwharetoa",
+"island": "North Island",
+"film": "Hobbiton at Matamata (The Shire)"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 4,
+"of": 17
+},
+"flagKey": "nz/NZ-WKO",
+"capLL": [
+[
+175.29,
+-37.778
+]
+]
+},
+{
+"iso": "NZ-WGN",
+"id": "NZ-WGN",
+"name": "Wellington",
+"names": [
+"Wellington",
+"Te Upoko-o-te-Ika-a-Māui",
+"Wellington Region",
+"Greater Wellington"
+],
+"capitals": [
+"Wellington",
+"Te Whanganui-a-Tara"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-WGN",
+"info": {
+"abbr": "WGN",
+"kind": "Region",
+"pop": 520971,
+"popYear": "2023 census",
+"area": 8049,
+"flag": false,
+"facts": {
+"local": "Te Upoko-o-te-Ika-a-Māui",
+"demonym": "Wellingtonian",
+"festival": "World of WearableArt and CubaDupa",
+"club": "Wellington Phoenix",
+"wonder": "The Remutaka ranges and Cape Palliser",
+"historic": "The capital since 1865",
+"landmark": "Te Papa museum and the Beehive",
+"person": "Peter Jackson (film-maker)",
+"known": "The capital, coffee, wind and the film industry (Wētā Workshop)",
+"company": "Wētā Workshop and Xero",
+"maori": "Te Upoko-o-te-Ika-a-Māui ('the head of the fish of Māui'); iwi: Te Āti Awa, Ngāti Toa",
+"island": "North Island",
+"film": "Rivendell at Kaitoke and the Hutt River as the Anduin"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 13,
+"of": 17
+},
+"flagKey": "nz/NZ-WGN",
+"capLL": [
+[
+174.783,
+-41.3
+]
+]
+},
+{
+"iso": "NZ-WTC",
+"id": "NZ-WTC",
+"name": "West Coast",
+"names": [
+"West Coast",
+"Te Tai Poutini",
+"West Coast Region",
+"Westland"
+],
+"capitals": [
+"Greymouth",
+"Māwhera"
+],
+"cont": [
+"Oceania"
+],
+"car": false,
+"a2": "NZ-WTC",
+"info": {
+"abbr": "WTC",
+"kind": "Region",
+"pop": 33390,
+"popYear": "2023 census",
+"area": 23245,
+"flag": false,
+"facts": {
+"local": "Te Tai Poutini",
+"demonym": "Coaster",
+"high": "Aoraki / Mount Cook, 3,724 m (on the Canterbury border)",
+"wonder": "The Pancake Rocks at Punakaiki and the Franz Josef and Fox glaciers",
+"historic": "The 1860s gold rush",
+"landmark": "The Pancake Rocks",
+"unesco": "Te Wāhipounamu (South West New Zealand)",
+"known": "Pounamu (greenstone), coal and wild rainforest coast",
+"maori": "Te Tai Poutini; iwi: Ngāi Tahu (Poutini Ngāi Tahu)",
+"island": "South Island"
+},
+"coastal": true,
+"borders": [],
+"areaRank": 5,
+"of": 17
+},
+"flagKey": "nz/NZ-WTC",
+"capLL": [
+[
+171.223,
+-42.472
+]
+]
+}
+]

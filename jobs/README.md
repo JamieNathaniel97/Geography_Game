@@ -9,6 +9,10 @@ Work queued for Gaia Quest, one file per job, in the order to do them. Each file
 
 Push only when the user says so, or as an overnight job list explicitly allows.
 
+**To review (reminder for the user):** the overnight_v2 and overnight_v3 builds (Austria, Czechia, Poland, the Netherlands, Belgium; Sweden, South Africa, New Zealand, Portugal, Colombia, Switzerland) and their "Decisions to check" at the end of [overnight_v2.md](overnight_v2.md) and [overnight_v3.md](overnight_v3.md); try them on the preview, then say "go" to commit.
+
+**Done 2026-11-26:** [overnight_v2.md](overnight_v2.md) (Austria, Czechia, Poland, the Netherlands, Belgium), with its decisions to check at the end. **Also done 2026-11-26:** [overnight_v3.md](overnight_v3.md). Next batch: [overnight_v4.md](overnight_v4.md) (start only when the user says so).
+
 **Overnight run:** [OVERNIGHT.md](OVERNIGHT.md) (the queue and rules: no push, no commit, judgement calls allowed, missing data doesn't block a build) and [OVERNIGHT_REVIEW.md](OVERNIGHT_REVIEW.md) (the report for the morning).
 
 **Done 2026-11-17 (in the preview):** a New game menu change, plus a **"?" help button** next to the cog (a placeholder: "Help is coming soon"; the help function comes later). The Globe / Flat map choice becomes a **small switch toggle on the left**; on the right, a **"More games"** button opens a menu with two columns: **History** (the History games H1 people, H2 battles, H3 shipwrecks, each marked "soon" for now; [History_games.md](../History_games.md)) and **Misc** (the airport codes game, "soon"; [Misc_games.md](../Misc_games.md)). Also add the **upcoming countries** to the Countries list as "soon" (Germany, Japan, France, Italy, Spain, Nigeria, Argentina, next to Mexico and Brazil).
