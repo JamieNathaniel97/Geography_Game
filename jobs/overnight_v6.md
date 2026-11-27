@@ -1,6 +1,6 @@
 # Job: overnight v6, five Southern and Eastern European country maps
 
-Greece, Turkey, Ukraine, Romania and Hungary: first the downloads, then the builds. Decided with the user on 2026-11-27. **Nothing here is started yet.**
+Greece, Turkey, Ukraine, Romania and Hungary: first the downloads, then the builds. Decided with the user on 2026-11-27. **The downloads are done (2026-11-27, see the log at the end); the builds aren't started.**
 
 **Don't start this job until the user says so**, and don't change the other job files to make room for it. Don't commit or push until the user says so.
 
@@ -55,3 +55,30 @@ Every card also has the name, kind, capital, population (latest figure), area an
 - **Ukraine:** historic region (Galicia, Volhynia, Sloboda Ukraine...); occupied area or not (from the disputes layer); famous dish (borscht, varenyky).
 - **Romania:** historic province (Transylvania, Wallachia, Moldavia...); castle or painted monastery; Carpathians or Danube Delta.
 - **Hungary:** historic region; wine region (Tokaj, Eger); thermal bath or spa.
+
+## Download log (2026-11-27)
+
+Downloaded ahead of the run (the user asked for the data first). `python tools/fetch_country_data.py --extras <codes>` (images afterwards at a gentle pace: Commons now rate-limits bursts, so `image()` waits as its Retry-After says), `--census`, and `python tools/fetch_boundaries.py` (geoBoundaries, into `tools/downloads/<code>/geoboundaries/`, with each file's licence in its .json).
+
+| Country | Wikidata divisions (current) | Natural Earth admin-1 | English articles | Local articles | List articles | Flags | Coats of arms | Coast | Census items | geoBoundaries |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Greece | 62 | 14 (want 13) | 61 | 59 (el) | 7 | 2 | 3 | 3.8 MB | 48 | – |
+| Turkey | 81 | 81 (want 81) | 81 | 81 (tr) | 7 | 0 | 0 | 2.1 MB | 82 | TUR_ADM1 |
+| Ukraine | 27 | 25 (want 27) | 27 | 27 (uk) | 7 | 27 | 27 | 1.5 MB | 28 | UKR_ADM1 |
+| Romania | 42 | 42 (want 42) | 42 | 42 (ro) | 6 | 9 | 42 | 0.2 MB | 43 | – |
+| Hungary | 43 | 43 (want 20) | 43 | 43 (hu) | 6 | 43 | 43 | 0.0 MB | 44 | HUN_ADM1 |
+
+**Shapes to use** (checked 2026-11-27):
+
+- **Greece:** Natural Earth: 13 regions + Mount Athos (the circle), current.
+- **Turkey:** Natural Earth: 81, current (geoBoundaries TUR ADM1 is CC BY-SA: not needed).
+- **Ukraine:** Natural Earth has 25: use geoBoundaries UKR ADM1 (27: the 24 oblasts, Kyiv, Crimea, Sevastopol; OpenStreetMap, **ODbL**) or add Kyiv/Sevastopol to Natural Earth's.
+- **Romania:** Natural Earth: 41 counties + Bucharest, current.
+- **Hungary:** Natural Earth has 19 counties + 23 cities with county rights + Budapest: `MERGE` each city into its county (20 parts).
+
+- **Turkey's 12 statistical regions:** `tools/downloads/tr/regions/` ("NUTS statistical regions of Turkey", with each region's provinces).
+- Greek and Cyrillic fonts: already in the Noto Sans subset (`tools/build_fonts.py`).
+
+**Decided by the user (2026-11-27): use the OpenStreetMap-derived boundaries (ODbL) where they're the only up-to-date source (Finland, Ukraine, Morocco, Ethiopia), with "© OpenStreetMap contributors" shown on that map (as the UK map does for Ireland, via the map credit), and the derived boundary data offered under the ODbL.**
+
+**Background:** some geoBoundaries files come from OpenStreetMap under the **ODbL** (share-alike: the app would have to credit OpenStreetMap and offer the derived boundary data under the same licence). Where a country has another source, prefer it; where it doesn't, credit "© OpenStreetMap contributors" on the map (as the UK map does for Ireland) and record it under "Decisions to check".

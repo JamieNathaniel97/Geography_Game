@@ -1,6 +1,6 @@
 # Job: overnight v5, seven Nordic and Baltic country maps
 
-Norway, Denmark, Finland, Iceland, Estonia, Latvia and Lithuania: first the downloads, then the builds. Decided with the user on 2026-11-27. **Nothing here is started yet.**
+Norway, Denmark, Finland, Iceland, Estonia, Latvia and Lithuania: first the downloads, then the builds. Decided with the user on 2026-11-27. **The downloads are done (2026-11-27, see the log at the end); the builds aren't started.**
 
 **Don't start this job until the user says so**, and don't change the other job files to make room for it. Don't commit or push until the user says so.
 
@@ -59,3 +59,33 @@ Every card also has the name, kind, capital, population (latest figure), area an
 - **Estonia:** islands or manor; song festival tradition; tech or e-government link.
 - **Latvia:** historic land (Kurzeme, Vidzeme, Latgale, Zemgale); amber or coast; folk song (dainas).
 - **Lithuania:** ethnographic region (Samogitia, Aukštaitija, Dzūkija, Suvalkija); basketball club; hill fort or castle.
+
+## Download log (2026-11-27)
+
+Downloaded ahead of the run (the user asked for the data first). `python tools/fetch_country_data.py --extras <codes>` (images afterwards at a gentle pace: Commons now rate-limits bursts, so `image()` waits as its Retry-After says), `--census`, and `python tools/fetch_boundaries.py` (geoBoundaries, into `tools/downloads/<code>/geoboundaries/`, with each file's licence in its .json).
+
+| Country | Wikidata divisions (current) | Natural Earth admin-1 | English articles | Local articles | List articles | Flags | Coats of arms | Coast | Census items | geoBoundaries |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Norway | 16 | 21 (want 15) | 16 | 16 (no) | 6 | 16 | 14 | 25.5 MB | 17 | NOR_ADM1 |
+| Denmark | 6 | 5 (want 5) | 6 | 6 (da) | 6 | 6 | 1 | 1.2 MB | 7 | – |
+| Finland | 19 | 18 (want 19) | 19 | 19 (fi), 19 (sv) | 7 | 16 | 19 | 11.0 MB | 20 | FIN_ADM1 |
+| Iceland | 50 | 9 (want 8) | 43 | 44 (is) | 6 | 2 | 2 | 1.7 MB | 50 | – |
+| Estonia | 41 | 15 (want 15) | 40 | 41 (et) | 6 | 41 | 41 | 0.6 MB | 42 | – |
+| Latvia | 19 | 119 (want 5) | 19 | 19 (lv) | 7 | 19 | 19 | 0.2 MB | 20 | LVA_ADM1 |
+| Lithuania | 70 | 10 (want 10) | 66 | 70 (lt) | 6 | 45 | 69 | 0.1 MB | 70 | – |
+
+**Shapes to use** (checked 2026-11-27):
+
+- **Norway:** Natural Earth has the old 19 counties (+ Svalbard, Jan Mayen): dissolve to the 2024 15 with `MERGE` (Innlandet = Hedmark + Oppland, Agder = Aust- + Vest-Agder, Vestland = Hordaland + Sogn og Fjordane, Trøndelag = Sør- + Nord-Trøndelag); leave off Svalbard and Jan Mayen. (geoBoundaries has the 2022 map, 11: not used.)
+- **Denmark:** Natural Earth: 5, current.
+- **Finland:** Natural Earth has 18: use geoBoundaries FIN ADM1 (19, OpenStreetMap, **ODbL**: see the note below) or merge/split from Natural Earth.
+- **Iceland:** Natural Earth has 8 regions + Reykjavík as an independent town: `MERGE` Reykjavík into the Capital Region (Höfuðborgarsvæðið).
+- **Estonia:** Natural Earth: 15, current (14 counties + Tallinn as a municipality: check Tallinn is within Harju).
+- **Latvia:** Natural Earth has the old 119 municipalities: dissolve geoBoundaries LVA ADM1 (the 43 municipalities of 2021, CC BY 4.0) into the 5 planning regions with the membership in `Planning regions of Latvia`.
+- **Lithuania:** Natural Earth: 10, current.
+
+- **Latvia's 43 municipalities:** `tools/downloads/lv/municipalities/` (geoBoundaries LVA ADM1, CC BY 4.0, and the list articles with each municipality's planning region and population).
+
+**Decided by the user (2026-11-27): use the OpenStreetMap-derived boundaries (ODbL) where they're the only up-to-date source (Finland, Ukraine, Morocco, Ethiopia), with "© OpenStreetMap contributors" shown on that map (as the UK map does for Ireland, via the map credit), and the derived boundary data offered under the ODbL.**
+
+**Background:** some geoBoundaries files come from OpenStreetMap under the **ODbL** (share-alike: the app would have to credit OpenStreetMap and offer the derived boundary data under the same licence). Where a country has another source, prefer it; where it doesn't, credit "© OpenStreetMap contributors" on the map (as the UK map does for Ireland) and record it under "Decisions to check".

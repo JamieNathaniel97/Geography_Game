@@ -1,6 +1,6 @@
 # Job: overnight v7, five Asian country maps
 
-Vietnam, Thailand, the Philippines, Indonesia and Pakistan: first the downloads, then the builds. Decided with the user on 2026-11-27. **Nothing here is started yet.**
+Vietnam, Thailand, the Philippines, Indonesia and Pakistan: first the downloads, then the builds. Decided with the user on 2026-11-27. **The downloads are done (2026-11-27, see the log at the end); the builds aren't started.**
 
 **Don't start this job until the user says so**, and don't change the other job files to make room for it. Don't commit or push until the user says so.
 
@@ -55,3 +55,31 @@ Every card also has the name, kind, capital, population (latest figure), area an
 - **Philippines:** island group (Luzon, Visayas, Mindanao); main language; volcano or beach.
 - **Indonesia:** island; main ethnic group; traditional dance or batik.
 - **Pakistan:** main language; river or mountain range; ancient site (Indus Valley, Gandhara).
+
+## Download log (2026-11-27)
+
+Downloaded ahead of the run (the user asked for the data first). `python tools/fetch_country_data.py --extras <codes>` (images afterwards at a gentle pace: Commons now rate-limits bursts, so `image()` waits as its Retry-After says), `--census`, and `python tools/fetch_boundaries.py` (geoBoundaries, into `tools/downloads/<code>/geoboundaries/`, with each file's licence in its .json).
+
+| Country | Wikidata divisions (current) | Natural Earth admin-1 | English articles | Local articles | List articles | Flags | Coats of arms | Coast | Census items | geoBoundaries |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Vietnam | 34 | 63 (want 34) | 34 | 34 (vi) | 6 | 0 | 4 | 2.9 MB | 35 | VNM_ADM1 |
+| Thailand | 78 | 77 (want 77) | 78 | 78 (th) | 6 | 66 | 3 | 3.2 MB | 79 | – |
+| Philippines | 62 | 118 (want 18) | 62 | 62 (tl) | 7 | 44 | 18 | 5.9 MB | 63 | PHL_ADM1, PHL_ADM2 |
+| Indonesia | 46 | 33 (want 38) | 41 | 41 (id) | 6 | 39 | 39 | 16.2 MB | 37 | IDN_ADM1, IDN_ADM2 |
+| Pakistan | 7 | 8 (want 7) | 7 | 7 (ur) | 7 | 5 | 5 | 0.6 MB | 7 | PAK_ADM1 |
+
+**Shapes to use** (checked 2026-11-27):
+
+- **Vietnam:** Natural Earth and geoBoundaries both have the old 63 provinces: dissolve with the 2025 merger table in `2025 Vietnamese administrative reform` (Wikidata already lists the 34 new units).
+- **Thailand:** Natural Earth: 77, current.
+- **Philippines:** Natural Earth has 118 provinces and cities; geoBoundaries ADM1 has 17 regions (2020, before the Negros Island Region of 2024): rebuild the 18 from geoBoundaries ADM2 provinces (87, NAMRIA, CC BY 3.0 IGO) with the regions in `Provinces of the Philippines`.
+- **Indonesia:** Natural Earth (33) and geoBoundaries ADM1 (34) predate the Papua splits: build the 38 from geoBoundaries ADM2 regencies (519, BPS 2020, CC BY 3.0 IGO) with each new province's regencies (their Wikipedia articles).
+- **Pakistan:** Natural Earth has 8 (incl. the former FATA): `MERGE` FATA into Khyber Pakhtunkhwa (7). geoBoundaries PAK ADM1 (7) as a cross-check.
+
+- **The Philippines' provinces:** `tools/downloads/ph/provinces/` (geoBoundaries PHL ADM2, 87 units incl. Metro Manila's districts, and "Provinces of the Philippines").
+- **Fonts:** `tools/downloads/fonts/NotoSansThai.ttf`; Urdu uses the Arabic subset (check ٹ ڈ ڑ ں ھ ہ ے when building).
+- **Vietnam's merger table:** "2025 Vietnamese administrative reform" (in `wiki/lists/`).
+
+**Decided by the user (2026-11-27): use the OpenStreetMap-derived boundaries (ODbL) where they're the only up-to-date source (Finland, Ukraine, Morocco, Ethiopia), with "© OpenStreetMap contributors" shown on that map (as the UK map does for Ireland, via the map credit), and the derived boundary data offered under the ODbL.**
+
+**Background:** some geoBoundaries files come from OpenStreetMap under the **ODbL** (share-alike: the app would have to credit OpenStreetMap and offer the derived boundary data under the same licence). Where a country has another source, prefer it; where it doesn't, credit "© OpenStreetMap contributors" on the map (as the UK map does for Ireland) and record it under "Decisions to check".

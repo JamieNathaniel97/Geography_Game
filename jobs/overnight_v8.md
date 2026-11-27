@@ -1,6 +1,6 @@
 # Job: overnight v8, five African and Middle Eastern country maps
 
-Morocco, Kenya, Ethiopia, Saudi Arabia and Iran: first the downloads, then the builds. Decided with the user on 2026-11-27. **Nothing here is started yet.**
+Morocco, Kenya, Ethiopia, Saudi Arabia and Iran: first the downloads, then the builds. Decided with the user on 2026-11-27. **The downloads are done (2026-11-27, see the log at the end); the builds aren't started.**
 
 **Don't start this job until the user says so**, and don't change the other job files to make room for it. Don't commit or push until the user says so.
 
@@ -54,3 +54,30 @@ Every card also has the name, kind, capital, population (latest figure), area an
 - **Ethiopia:** main ethnic group and language; ancient kingdom or church; coffee origin.
 - **Saudi Arabia:** holy site or old town; desert or mountains; famous dish (kabsa).
 - **Iran:** main ethnic group; ancient site (Persepolis...); famous carpet or craft.
+
+## Download log (2026-11-27)
+
+Downloaded ahead of the run (the user asked for the data first). `python tools/fetch_country_data.py --extras <codes>` (images afterwards at a gentle pace: Commons now rate-limits bursts, so `image()` waits as its Retry-After says), `--census`, and `python tools/fetch_boundaries.py` (geoBoundaries, into `tools/downloads/<code>/geoboundaries/`, with each file's licence in its .json).
+
+| Country | Wikidata divisions (current) | Natural Earth admin-1 | English articles | Local articles | List articles | Flags | Coats of arms | Coast | Census items | geoBoundaries |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Morocco | 78 | 16 (want 12) | 70 | 76 (ar), 76 (fr) | 7 | 34 | 8 | 0.7 MB | 77 | MAR_ADM1 |
+| Kenya | 48 | 8 (want 47) | 48 | 48 (sw) | 5 | 21 | 27 | 0.4 MB | 49 | KEN_ADM1 |
+| Ethiopia | 12 | 11 (want 14) | 12 | 12 (am) | 7 | 12 | 7 | 0.7 MB | 12 | ETH_ADM1, ETH_ADM2, ETH_ADM3 |
+| Saudi Arabia | 13 | 13 (want 13) | 13 | 13 (ar) | 5 | 0 | 0 | 3.2 MB | 14 | – |
+| Iran | 31 | 31 (want 31) | 31 | 31 (fa) | 7 | 0 | 0 | 1.7 MB | 32 | – |
+
+**Shapes to use** (checked 2026-11-27):
+
+- **Morocco:** Natural Earth has the old 16 regions; geoBoundaries MAR ADM1 has the 12 of 2015 (OpenStreetMap, **ODbL**): cut at the internationally recognised border with Western Sahara (the plan's decision).
+- **Kenya:** Natural Earth has the old 8 provinces: use geoBoundaries KEN ADM1 (47 counties, RCMRD 2020, public domain).
+- **Ethiopia:** Natural Earth (11) and geoBoundaries ADM1 (6) are out of date: build the 12 regions + 2 cities from geoBoundaries ADM2 zones (64, 2016, **ODbL**) and ADM3 woredas (690) with the 2020–2023 split tables (`Regions of Ethiopia`).
+- **Saudi Arabia:** Natural Earth: 13, current.
+- **Iran:** Natural Earth: 31, current.
+
+- **Fonts:** `tools/downloads/fonts/NotoSansTifinagh.ttf` and `NotoSansEthiopic.ttf`; Arabic and Persian use the Arabic subset.
+- **Western Sahara:** "Western Sahara" and "Moroccan Western Sahara Wall" (the berm) in Morocco's `wiki/lists/`; the two controlled areas are Natural Earth's disputed areas (MAR and SAH).
+
+**Decided by the user (2026-11-27): use the OpenStreetMap-derived boundaries (ODbL) where they're the only up-to-date source (Finland, Ukraine, Morocco, Ethiopia), with "© OpenStreetMap contributors" shown on that map (as the UK map does for Ireland, via the map credit), and the derived boundary data offered under the ODbL.**
+
+**Background:** some geoBoundaries files come from OpenStreetMap under the **ODbL** (share-alike: the app would have to credit OpenStreetMap and offer the derived boundary data under the same licence). Where a country has another source, prefer it; where it doesn't, credit "© OpenStreetMap contributors" on the map (as the UK map does for Ireland) and record it under "Decisions to check".

@@ -21,6 +21,7 @@ import json
 import pathlib
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
@@ -68,6 +69,32 @@ COUNTRIES = {
     "kr": ("South Korea", "KR-", "ko", ["Provinces of South Korea", "Administrative divisions of South Korea"], [(124.5, 33.0, 132.0, 38.7)]),
     "pe": ("Peru", "PE-", "es", ["Regions of Peru"], [(-81.5, -18.5, -68.6, 0.1)]),
     "eg": ("Egypt", "EG-", "ar", ["Governorates of Egypt"], [(24.6, 21.5, 37.1, 31.8)]),
+    # overnight_v5 (Nordic and Baltic)
+    "no": ("Norway", "NO-", "no", ["Counties of Norway"], [(4.0, 57.8, 31.5, 71.3)]),
+    "dk": ("Denmark", "DK-", "da", ["Regions of Denmark"], [(7.9, 54.5, 15.3, 57.8)]),
+    "fi": ("Finland", "FI-", ["fi", "sv"], ["Regions of Finland"], [(19.0, 59.7, 31.7, 70.2)]),
+    "is": ("Iceland", "IS-", "is", ["Regions of Iceland"], [(-24.6, 63.2, -13.4, 66.6)]),
+    "ee": ("Estonia", "EE-", "et", ["Counties of Estonia"], [(21.7, 57.5, 28.3, 59.8)]),
+    "lv": ("Latvia", "LV-", "lv", ["Planning regions of Latvia", "Administrative divisions of Latvia"], [(20.9, 55.6, 28.3, 58.1)]),
+    "lt": ("Lithuania", "LT-", "lt", ["Counties of Lithuania"], [(20.9, 53.8, 26.9, 56.5)]),
+    # overnight_v6 (Southern and Eastern Europe)
+    "gr": ("Greece", "GR-", "el", ["Regions of Greece"], [(19.3, 34.7, 29.7, 41.8)]),
+    "tr": ("Turkey", "TR-", "tr", ["Provinces of Turkey", "Statistical regions of Turkey", "Geographical regions of Turkey"], [(25.6, 35.8, 44.9, 42.2)]),
+    "ua": ("Ukraine", "UA-", "uk", ["Oblasts of Ukraine", "Administrative divisions of Ukraine"], [(22.1, 44.3, 40.3, 52.4)]),
+    "ro": ("Romania", "RO-", "ro", ["Counties of Romania"], [(20.2, 43.6, 29.8, 48.3)]),
+    "hu": ("Hungary", "HU-", "hu", ["Counties of Hungary"], [(16.1, 45.7, 22.9, 48.6)]),
+    # overnight_v7 (Asia)
+    "vn": ("Vietnam", "VN-", "vi", ["Provinces of Vietnam", "2025 Vietnamese administrative reform"], [(102.1, 8.4, 109.5, 23.4)]),
+    "th": ("Thailand", "TH-", "th", ["Provinces of Thailand", "Regions of Thailand"], [(97.3, 5.6, 105.7, 20.5)]),
+    "ph": ("Philippines", "PH-", "tl", ["Regions of the Philippines", "Provinces of the Philippines"], [(116.9, 4.5, 126.7, 21.2)]),
+    "id": ("Indonesia", "ID-", "id", ["Provinces of Indonesia"], [(94.9, -11.1, 141.1, 6.1)]),
+    "pk": ("Pakistan", "PK-", "ur", ["Administrative units of Pakistan"], [(60.8, 23.6, 77.9, 37.1)]),
+    # overnight_v8 (Africa and the Middle East)
+    "ma": ("Morocco", "MA-", ["ar", "fr"], ["Regions of Morocco"], [(-17.2, 20.7, -0.9, 36.0)]),
+    "ke": ("Kenya", "KE-", "sw", ["Counties of Kenya", "Provinces of Kenya"], [(33.8, -4.8, 42.0, 5.1)]),
+    "et": ("Ethiopia", "ET-", "am", ["Regions of Ethiopia"], [(32.9, 3.3, 48.1, 15.0)]),
+    "sa": ("Saudi Arabia", "SA-", "ar", ["Regions of Saudi Arabia"], [(34.4, 16.3, 55.7, 32.2)]),
+    "ir": ("Iran", "IR-", "fa", ["Provinces of Iran"], [(44.0, 25.0, 63.4, 39.8)]),
 }
 
 
@@ -131,21 +158,30 @@ def articles(host, titles, folder):
 
 
 def image(fname, dest):
+    """A Commons file as a 500 px render (a standard thumbnail width: others are refused). Paced at one every 2.5 s;
+    a 429 (too many requests) waits as long as Commons' Retry-After header says (usually 10 minutes), then tries again."""
     if dest.exists():
         return True
-    url = "https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(fname.replace(" ", "_")) + "?width=500"  # a standard Wikimedia thumbnail width (others are rejected)
-    for a in range(5):
+    url = "https://commons.wikimedia.org/wiki/Special:FilePath/" + urllib.parse.quote(fname.replace(" ", "_")) + "?width=500"
+    for a in range(3):
         try:
             data = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read()
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(data)
-            time.sleep(1.5)
+            time.sleep(2.5)
             return True
-        except Exception as e:
-            if "404" in str(e):
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
                 print("   missing on Commons:", fname)
                 return False
-            time.sleep(15 * (a + 1))
+            if e.code == 429:
+                wait = min(int(e.headers.get("Retry-After") or 600), 900) + 5
+                print(f"   Commons asks to wait {wait} s")
+                time.sleep(wait)
+            else:
+                time.sleep(10 * (a + 1))
+        except Exception:
+            time.sleep(10 * (a + 1))
     print("   FAILED", fname)
     return False
 
@@ -174,6 +210,7 @@ def main():
     ap.add_argument("codes", nargs="+")
     ap.add_argument("--coast-only", action="store_true")
     ap.add_argument("--extras", action="store_true", help="also the card-fact sources, census articles, Nigeria's seals, the Japanese font")
+    ap.add_argument("--no-images", action="store_true", help="skip the flags and coats of arms (fetch them later: Commons throttles)")
     ap.add_argument("--census", action="store_true", help="only census.json: every dated population of each part and the country (Wikidata)")
     a = ap.parse_args()
     for code in a.codes:
@@ -201,9 +238,10 @@ def main():
             n_loc = articles(f"{lg}.wikipedia.org", [p["local"].get(lg) for p in live], d / "wiki" / lg)
             msg += f", {n_loc} {lg}"
         print(msg)
-        nf = sum(image(p["flag"], d / "flags" / f'{p["iso"]}.png') for p in live if p["flag"])
-        nc = sum(image(p["coa"], d / "coats" / f'{p["iso"]}.png') for p in live if p["coa"])
-        print(f"   images: {nf} flags, {nc} coats of arms")
+        if not a.no_images:
+            nf = sum(image(p["flag"], d / "flags" / f'{p["iso"]}.png') for p in live if p["flag"])
+            nc = sum(image(p["coa"], d / "coats" / f'{p["iso"]}.png') for p in live if p["coa"])
+            print(f"   images: {nf} flags, {nc} coats of arms")
         if a.extras:
             extras(code, live)
 
@@ -213,7 +251,11 @@ def main():
 # that the parts add up to the country's figure for that date.
 COUNTRY_QID = {"at": "Q40", "nl": "Q55", "pl": "Q36", "cz": "Q213", "be": "Q31",
                "ch": "Q39", "pt": "Q45", "se": "Q34", "za": "Q258", "nz": "Q664", "co": "Q739",
-               "cl": "Q298", "my": "Q833", "kr": "Q884", "pe": "Q419", "eg": "Q79"}
+               "cl": "Q298", "my": "Q833", "kr": "Q884", "pe": "Q419", "eg": "Q79",
+               "no": "Q20", "dk": "Q35", "fi": "Q33", "is": "Q189", "ee": "Q191", "lv": "Q211", "lt": "Q37",
+               "gr": "Q41", "tr": "Q43", "ua": "Q212", "ro": "Q218", "hu": "Q28",
+               "vn": "Q881", "th": "Q869", "ph": "Q928", "id": "Q252", "pk": "Q843",
+               "ma": "Q1028", "ke": "Q114", "et": "Q115", "sa": "Q851", "ir": "Q794"}
 
 
 def census(code):
@@ -280,9 +322,34 @@ EXTRAS = {
     "kr": ["Three Kingdoms of Korea", "Korean cuisine", "Kimchi", "Korean dialects", "List of World Heritage Sites in South Korea"],
     "pe": ["Inca Empire", "Quechuan languages", "Peruvian cuisine", "Geography of Peru", "List of World Heritage Sites in Peru"],
     "eg": ["Upper and Lower Egypt", "Egyptian cuisine", "List of World Heritage Sites in Egypt", "Hala'ib Triangle", "Bir Tawil"],
+    "no": ["Demographics of Norway", "Fjords of Norway", "Sámi people", "Norwegian cuisine", "List of World Heritage Sites in Norway"],
+    "dk": ["Demographics of Denmark", "Viking ship", "Danish design", "Danish cuisine", "List of World Heritage Sites in Denmark"],
+    "fi": ["Demographics of Finland", "Finnish sauna", "Sisu", "Finnish cuisine", "Languages of Finland", "List of World Heritage Sites in Finland"],
+    "is": ["Demographics of Iceland", "Volcanism of Iceland", "Sagas of Icelanders", "Icelandic cuisine", "List of World Heritage Sites in Iceland"],
+    "ee": ["Demographics of Estonia", "Estonian Song Festival", "e-Estonia", "Estonian cuisine", "List of World Heritage Sites in Estonia"],
+    "lv": ["Demographics of Latvia", "Dainas", "Historical Latvian lands", "Latvian cuisine", "List of World Heritage Sites in Latvia"],
+    "lt": ["Demographics of Lithuania", "Ethnographic regions of Lithuania", "Hill forts in Lithuania", "Lithuanian cuisine", "List of World Heritage Sites in Lithuania"],
+    "gr": ["Demographics of Greece", "Greek mythology", "Greek islands", "Greek cuisine", "Mount Athos", "List of World Heritage Sites in Greece"],
+    "tr": ["Demographics of Turkey", "Geographical regions of Turkey", "Hittites", "Turkish cuisine", "List of World Heritage Sites in Turkey"],
+    "ua": ["Demographics of Ukraine", "Historical regions of Ukraine", "Ukrainian cuisine", "Russian-occupied territories of Ukraine", "List of World Heritage Sites in Ukraine"],
+    "ro": ["Demographics of Romania", "Historical regions of Romania", "Painted churches of northern Moldavia", "Romanian cuisine", "List of World Heritage Sites in Romania"],
+    "hu": ["Demographics of Hungary", "Wine regions of Hungary", "Thermal baths in Hungary", "Hungarian cuisine", "List of World Heritage Sites in Hungary"],
+    "vn": ["Demographics of Vietnam", "Vietnamese cuisine", "Regions of Vietnam", "List of World Heritage Sites in Vietnam"],
+    "th": ["Demographics of Thailand", "Regions of Thailand", "Loy Krathong", "Thai cuisine", "List of World Heritage Sites in Thailand"],
+    "ph": ["Demographics of the Philippines", "Island groups of the Philippines", "Languages of the Philippines", "Filipino cuisine", "List of World Heritage Sites in the Philippines"],
+    "id": ["Demographics of Indonesia", "Ethnic groups in Indonesia", "Batik", "Indonesian cuisine", "List of World Heritage Sites in Indonesia"],
+    "pk": ["Demographics of Pakistan", "Languages of Pakistan", "Indus Valley Civilisation", "Gandhara", "Pakistani cuisine", "List of World Heritage Sites in Pakistan"],
+    "ma": ["Demographics of Morocco", "Berbers", "Moroccan cuisine", "Western Sahara", "Moroccan Western Sahara Wall", "List of World Heritage Sites in Morocco"],
+    "ke": ["Demographics of Kenya", "Ethnic groups in Kenya", "National parks of Kenya", "Provinces of Kenya", "Kenyan cuisine"],
+    "et": ["Demographics of Ethiopia", "Ethnic groups in Ethiopia", "Kingdom of Aksum", "Coffee production in Ethiopia", "Ethiopian cuisine", "List of World Heritage Sites in Ethiopia"],
+    "sa": ["Demographics of Saudi Arabia", "Holiest sites in Islam", "Saudi Arabian cuisine", "List of World Heritage Sites in Saudi Arabia"],
+    "ir": ["Demographics of Iran", "Ethnicities in Iran", "Persepolis", "Persian carpet", "Iranian cuisine", "List of World Heritage Sites in Iran"],
 }
 FONTS = {"kr": ("NotoSansKR.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf"),
-         "eg": ("NotoSansArabic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansarabic/NotoSansArabic%5Bwdth%2Cwght%5D.ttf")}
+         "eg": ("NotoSansArabic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansarabic/NotoSansArabic%5Bwdth%2Cwght%5D.ttf"),
+         "th": ("NotoSansThai.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansthai/NotoSansThai%5Bwdth%2Cwght%5D.ttf"),
+         "ma": ("NotoSansTifinagh.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanstifinagh/NotoSansTifinagh-Regular.ttf"),
+         "et": ("NotoSansEthiopic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansethiopic/NotoSansEthiopic%5Bwdth%2Cwght%5D.ttf")}
 NOTO_JP = "https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf"
 
 
