@@ -2226,6 +2226,40 @@
   }
   $("helpBtn").onclick = () => showHelpPanel($("tabHelp").hidden);
   $("helpBack").onclick = () => showHelpPanel(false);
+
+  // ---------- the phone's back button: it closes what's on top instead of leaving the app ----------
+  // A spare history entry catches the back press; each press closes one thing and puts the spare back.
+  // With nothing left to close: "Press back again to exit" (the spare isn't put back, so the next press leaves).
+  // (Chrome skips history entries added without a tap, so the spare goes in on a tap.)
+  const shown = id => $(id) && !$(id).hidden;
+  function backStep() {
+    if (shown("stats")) { closeStats(); return true; }
+    if (shown("results")) { $("reviewBtn").click(); return true; }
+    if (shown("setup")) {
+      if (shown("tabHelp")) $("helpBack").click();
+      else if (shown("tabOptions")) $("optBack").click();
+      else if (shown("tabMore")) $("moreBack").click();
+      else if (shown("countryPage")) $("cpBack").click();
+      else if (shown("stepBack")) $("stepBack").click();
+      else closeSetup();
+      return true;
+    }
+    if (shown("inset")) { closeInset(); return true; }
+    if (shown("learnCard")) { $("lcClose").click(); return true; }
+    if (shown("nameClose")) { closeName(); return true; }
+    if (shown("worldBtn")) { $("worldBtn").click(); return true; }   // a country map in Learning mode: back to the world
+    if (S.mode !== "explore") { openSetup(); return true; }           // in a game: the menu
+    return false;
+  }
+  let backSpare = false;
+  const addSpare = () => { if (backSpare) return; backSpare = true; history.pushState({ gqBack: 1 }, ""); };
+  document.addEventListener("pointerdown", addSpare, true);
+  document.addEventListener("keydown", addSpare, true);
+  window.addEventListener("popstate", () => {
+    backSpare = false;
+    if (backStep()) addSpare();
+    else toast("Press back again to exit", 2000);
+  });
   $("startBtn").onclick = () => {
     if (!startReady()) {
       $("startWarn").textContent = `Please choose a ${!steps.region || steps.at === "region" ? "region" : "game"}`;
