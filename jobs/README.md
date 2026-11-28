@@ -10,6 +10,8 @@ Work queued for Gaia Quest, one file per job, in the order to do them. Each file
 
 Push only when the user says so, or as an overnight job list explicitly allows.
 
+**Tests:** `python tests/run.py` (the quick set, about 2 minutes) after every change; `--full` (every country map) before handing work back. See [tests/README.md](../tests/README.md).
+
 **Done 2026-11-26:** [overnight_v2.md](overnight_v2.md) (Austria, Czechia, Poland, the Netherlands, Belgium), with its decisions to check at the end (reviewed with the user and pushed 2026-11-27, 27fce79). **Also done 2026-11-26:** [overnight_v3.md](overnight_v3.md). **Done 2026-11-27:** [overnight_v4.md](overnight_v4.md) (Chile, Peru, South Korea, Malaysia, Egypt), with decisions to check at the end; not committed until the user says so.
 
 **Planned 2026-11-27 (start each only when the user says so):** [overnight_v5.md](overnight_v5.md) (Norway, Denmark, Finland, Iceland, Estonia, Latvia, Lithuania), [overnight_v6.md](overnight_v6.md) (Greece, Turkey, Ukraine, Romania, Hungary), [overnight_v7.md](overnight_v7.md) (Vietnam, Thailand, the Philippines, Indonesia, Pakistan), [overnight_v8.md](overnight_v8.md) (Morocco, Kenya, Ethiopia, Saudi Arabia, Iran). Card facts approved by the user; Latvia builds 5 regions (43 municipalities downloaded), the Philippines 18 regions (82 provinces downloaded), Turkey 81 provinces (12 statistical regions downloaded); Western Sahara disputed grey in its two controlled areas.
@@ -23,7 +25,7 @@ Push only when the user says so, or as an overnight job list explicitly allows.
 ## Future improvements (not scheduled)
 
 - **Shrink Mexico's coats of arms** (data/flags/mx/, 4.3 MB: about 140 KB each); the other flag folders could get the same treatment.
-- **A whole-code efficiency review by Fable** (claude-fable-5-2): read the whole codebase (js/, tools/, sw.js) and make it leaner and faster, without changing what the app does.
+- **A whole-code efficiency review** (perhaps by Fable, claude-fable-5-2): the brief is [optimise.md](optimise.md) (2026-11-28): leaner and faster without changing what the app does, on a branch, with the tests in `tests/` run after every change. Start only when the user says so.
 - **Timelines:** discussed later (Germany, Japan, Nigeria, Spain, Argentina, Mexico).
 
 ## Morning agenda (2026-11-18)

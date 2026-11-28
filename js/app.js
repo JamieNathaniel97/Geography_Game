@@ -2457,7 +2457,9 @@
     main.lookAt(15, 25, 120, false);
     GG.Earth.init({ card: earthCard, cardMore: text => earthCardMore(text), hideCard: hideLearnCard, toast, setBorders });
     buildRegionButtons();
-    GG.debug = { main, geo, startGame, preload: d => DATASETS[d].load(), inset: () => insetView, get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };
+    GG.debug = { main, geo, startGame, preload: d => DATASETS[d].load(), inset: () => insetView,
+      datasets: () => Object.keys(DATASETS).filter(isCountryMap).map(d => [d, DATASETS[d].region]), // (tests/: every country map)
+      get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };
     setViewButton();
     // testing hooks: ?region=europe&view=flat starts that game; ?at=lon,lat,span and ?terrain=1 adjust the view
     if (REGIONS[q.get("region")] || q.get("view") || q.get("data")) {

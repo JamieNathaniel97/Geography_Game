@@ -1,0 +1,33 @@
+// The phone's back button (CloseWatcher in Chrome; GG.testBack presses it): each press closes what's on top.
+T.run(async () => {
+  const { $, W } = T;
+  await T.ready();
+  const m = GG.debug.main;
+  const back = async () => { const ok = GG.testBack && GG.testBack(); await W(500); return ok; };
+  T.check("Chrome's CloseWatcher is used (no history entries)", "CloseWatcher" in window && !!GG.testBack);
+  document.body.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true })); await W(100);
+  $("menuBtn").click(); await W(300); $("optBtn").click(); await W(200);
+  await back();
+  T.check("back closes Options, the menu stays", !$("setup").hidden && $("tabOptions").hidden);
+  $("setupTabs").querySelector('[data-v="game"]').click(); await W(200);
+  $("segData").querySelector('[data-v="countries"]').click(); await W(300);
+  $("countryList").querySelector('[data-v="FRA"]').click(); await W(300);
+  await back();
+  T.check("back closes a country page", $("countryPage").hidden && !$("setup").hidden);
+  await back();
+  T.check("back closes the menu", $("setup").hidden);
+  await T.start("find", "world", "globe", "world");
+  await back();
+  T.check("back in a game opens the menu", !$("setup").hidden);
+  await back();
+  await T.start("explore", "world", "globe", "world");
+  m.lookAt(2, 46, 30, false); await W(400);
+  const p = T.screenOf(d3.geoCentroid(GG.debug.geo.byIso.FRA.feature)); T.tap(p[0], p[1]); await W(500);
+  T.eq("Learning mode: a card opens", T.card(), "France");
+  await back();
+  T.check("back closes the card", $("learnCard").hidden);
+  await back();
+  T.eq("back with nothing to close: the exit message", $("toast").hidden ? "" : $("toast").textContent, "Press back again to exit");
+  T.check("…and the next press leaves (no watcher left)", !GG.testBack());
+  T.eq("no history entries were added", history.length, 1);
+});
