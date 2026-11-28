@@ -6,6 +6,7 @@ Work queued for Gaia Quest, one file per job, in the order to do them. Each file
 2. [build_countries.md](build_countries.md): building Mexico and Brazil (ready), then Germany, Japan, France, Italy, Spain, Nigeria and Argentina; the checklist every build follows, each country's decisions, and its card facts.
 3. [history_games.md](history_games.md): the History games H1 (historical figures), H2 (famous battles, including drawing the big-area shapes) and H3 (famous shipwrecks); their plan is answered.
 4. [misc_games.md](misc_games.md): the airport codes games (idea_01). **Shelved (2026-11-17): don't build anything yet**; its questions are on the morning agenda.
+5. [geoscience.md](geoscience.md): **Earth mode**, a geoscience side like Learning mode (plates, volcanoes, seas, animated currents and winds, draining the ocean, the ice age, climate zones, rewinding to Pangea...). Planned 2026-11-28 in five stages, its questions answered (its own "Earth" tab; plates and volcanoes separate checkboxes); the live-earthquake code (js/quakes-live.js) written, not wired in yet; games later.
 
 Push only when the user says so, or as an overnight job list explicitly allows.
 
