@@ -563,7 +563,7 @@
     show();
     if (prompted()) $("nameInput").focus();
   });
-  $("nameInput").addEventListener("keydown", e => { if (e.key === "Escape") closeName(); });
+  $("nameInput").addEventListener("keydown", e => { if (e.key === "Escape") { e.preventDefault(); closeName(); } });
   // Name the code: keep the keyboard open (tapping elsewhere doesn't close it while the game is on)
   const overlayOpen = () => !$("setup").hidden || !$("stats").hidden || !$("results").hidden;
   $("nameInput").addEventListener("blur", () => {
@@ -2228,9 +2228,10 @@
   $("helpBack").onclick = () => showHelpPanel(false);
 
   // ---------- the phone's back button: it closes what's on top instead of leaving the app ----------
-  // A spare history entry catches the back press; each press closes one thing and puts the spare back.
-  // With nothing left to close: "Press back again to exit" (the spare isn't put back, so the next press leaves).
-  // (Chrome skips history entries added without a tap, so the spare goes in on a tap.)
+  // Chrome: a CloseWatcher takes the back press (no history entry, so no page-slide animation); each press
+  // closes one thing and a new watcher goes in. Other browsers: a spare history entry does the same job.
+  // With nothing left to close: "Press back again to exit" (no new watcher or spare, so the next press leaves).
+  // (Chrome limits watchers and history entries made without a tap, so a tap also puts one in.)
   const shown = id => $(id) && !$(id).hidden;
   function backStep() {
     if (shown("stats")) { closeStats(); return true; }
@@ -2251,15 +2252,28 @@
     if (S.mode !== "explore") { openSetup(); return true; }           // in a game: the menu
     return false;
   }
-  let backSpare = false;
-  const addSpare = () => { if (backSpare) return; backSpare = true; history.pushState({ gqBack: 1 }, ""); };
-  document.addEventListener("pointerdown", addSpare, true);
-  document.addEventListener("keydown", addSpare, true);
-  window.addEventListener("popstate", () => {
-    backSpare = false;
-    if (backStep()) addSpare();
-    else toast("Press back again to exit", 2000);
-  });
+  const backNothing = () => toast("Press back again to exit", 2000);
+  if ("CloseWatcher" in window) {
+    let watcher = null;
+    const arm = () => {
+      if (watcher) return;
+      try { watcher = new CloseWatcher(); } catch (e) { watcher = null; return; }
+      watcher.onclose = () => { watcher = null; if (backStep()) arm(); else backNothing(); };
+    };
+    arm();
+    document.addEventListener("pointerdown", arm, true);
+    GG.testBack = () => (watcher ? (watcher.requestClose(), true) : false); // (tests: a back press)
+  } else {
+    let backSpare = false;
+    const addSpare = () => { if (backSpare) return; backSpare = true; history.pushState({ gqBack: 1 }, ""); };
+    document.addEventListener("pointerdown", addSpare, true);
+    document.addEventListener("keydown", addSpare, true);
+    window.addEventListener("popstate", () => {
+      backSpare = false;
+      if (backStep()) addSpare();
+      else backNothing();
+    });
+  }
   $("startBtn").onclick = () => {
     if (!startReady()) {
       $("startWarn").textContent = `Please choose a ${!steps.region || steps.at === "region" ? "region" : "game"}`;
@@ -2382,7 +2396,7 @@
   }
 
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") { closeSetup(); closeInset(); closeResults(); closeStats(); }
+    if (e.key === "Escape") { e.preventDefault(); closeSetup(); closeInset(); closeResults(); closeStats(); }
     if (e.key === "ArrowLeft") step(-1);
     if (e.key === "ArrowRight") step(1);
   });

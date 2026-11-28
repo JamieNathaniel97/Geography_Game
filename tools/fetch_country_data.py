@@ -95,6 +95,31 @@ COUNTRIES = {
     "et": ("Ethiopia", "ET-", "am", ["Regions of Ethiopia"], [(32.9, 3.3, 48.1, 15.0)]),
     "sa": ("Saudi Arabia", "SA-", "ar", ["Regions of Saudi Arabia"], [(34.4, 16.3, 55.7, 32.2)]),
     "ir": ("Iran", "IR-", "fa", ["Provinces of Iran"], [(44.0, 25.0, 63.4, 39.8)]),
+    # overnight_v9 (Central Europe and the Balkans)
+    "hr": ("Croatia", "HR-", "hr", ["Counties of Croatia"], [(13.4, 42.3, 19.5, 46.6)]),
+    "rs": ("Serbia", "RS-", "sr", ["Administrative districts of Serbia", "Statistical regions of Serbia", "Kosovo"], [(18.8, 41.8, 23.1, 46.2)]),
+    "bg": ("Bulgaria", "BG-", "bg", ["Provinces of Bulgaria"], [(22.3, 41.2, 28.7, 44.3)]),
+    "sk": ("Slovakia", "SK-", "sk", ["Regions of Slovakia"], [(16.8, 47.7, 22.6, 49.7)]),
+    "si": ("Slovenia", "SI-", "sl", ["Statistical regions of Slovenia", "Municipalities of Slovenia"], [(13.3, 45.4, 16.7, 46.9)]),
+    # overnight_v10 (South America and the Caribbean)
+    "ve": ("Venezuela", "VE-", "es", ["States of Venezuela", "Federal Dependencies of Venezuela", "Guayana Esequiba"],
+           [(-73.4, 0.6, -59.7, 12.3), (-63.7, 15.6, -63.6, 15.7)]),
+    "ec": ("Ecuador", "EC-", "es", ["Provinces of Ecuador"], [(-81.1, -5.1, -75.1, 1.5), (-92.1, -1.5, -89.2, 1.7)]),
+    "bo": ("Bolivia", "BO-", "es", ["Departments of Bolivia"], [(-69.7, -23.0, -57.4, -9.6)]),
+    "uy": ("Uruguay", "UY-", "es", ["Departments of Uruguay"], [(-58.5, -35.1, -53.0, -30.0)]),
+    "cu": ("Cuba", "CU-", "es", ["Provinces of Cuba"], [(-85.0, 19.8, -74.1, 23.3)]),
+    # overnight_v11 (South and Central Asia)
+    "bd": ("Bangladesh", "BD-", "bn", ["Divisions of Bangladesh", "Districts of Bangladesh"], [(88.0, 20.6, 92.7, 26.7)]),
+    "lk": ("Sri Lanka", "LK-", ["si", "ta"], ["Provinces of Sri Lanka", "Districts of Sri Lanka"], [(79.5, 5.9, 82.0, 9.9)]),
+    "np": ("Nepal", "NP-", "ne", ["Provinces of Nepal"], [(80.0, 26.3, 88.3, 30.5)]),
+    "kz": ("Kazakhstan", "KZ-", ["kk", "ru"], ["Regions of Kazakhstan"], [(46.4, 40.5, 87.4, 55.5)]),
+    "uz": ("Uzbekistan", "UZ-", "uz", ["Regions of Uzbekistan"], [(55.9, 37.1, 73.2, 45.6)]),
+    # overnight_v12 (Africa)
+    "dz": ("Algeria", "DZ-", ["ar", "fr"], ["Provinces of Algeria"], [(-8.7, 18.9, 12.0, 37.1)]),
+    "tn": ("Tunisia", "TN-", ["ar", "fr"], ["Governorates of Tunisia"], [(7.5, 30.2, 11.6, 37.6)]),
+    "gh": ("Ghana", "GH-", None, ["Regions of Ghana"], [(-3.3, 4.7, 1.3, 11.2)]),
+    "tz": ("Tanzania", "TZ-", "sw", ["Regions of Tanzania"], [(29.3, -11.8, 40.5, -0.9)]),
+    "cd": ("DR Congo", "CD-", "fr", ["Provinces of the Democratic Republic of the Congo"], [(12.2, -13.5, 31.4, 5.4)]),
 }
 
 
@@ -255,7 +280,11 @@ COUNTRY_QID = {"at": "Q40", "nl": "Q55", "pl": "Q36", "cz": "Q213", "be": "Q31",
                "no": "Q20", "dk": "Q35", "fi": "Q33", "is": "Q189", "ee": "Q191", "lv": "Q211", "lt": "Q37",
                "gr": "Q41", "tr": "Q43", "ua": "Q212", "ro": "Q218", "hu": "Q28",
                "vn": "Q881", "th": "Q869", "ph": "Q928", "id": "Q252", "pk": "Q843",
-               "ma": "Q1028", "ke": "Q114", "et": "Q115", "sa": "Q851", "ir": "Q794"}
+               "ma": "Q1028", "ke": "Q114", "et": "Q115", "sa": "Q851", "ir": "Q794",
+               "hr": "Q224", "rs": "Q403", "bg": "Q219", "sk": "Q214", "si": "Q215",
+               "ve": "Q717", "ec": "Q736", "bo": "Q750", "uy": "Q77", "cu": "Q241",
+               "bd": "Q902", "lk": "Q854", "np": "Q837", "kz": "Q232", "uz": "Q265",
+               "dz": "Q262", "tn": "Q948", "gh": "Q117", "tz": "Q924", "cd": "Q974"}
 
 
 def census(code):
@@ -344,12 +373,38 @@ EXTRAS = {
     "et": ["Demographics of Ethiopia", "Ethnic groups in Ethiopia", "Kingdom of Aksum", "Coffee production in Ethiopia", "Ethiopian cuisine", "List of World Heritage Sites in Ethiopia"],
     "sa": ["Demographics of Saudi Arabia", "Holiest sites in Islam", "Saudi Arabian cuisine", "List of World Heritage Sites in Saudi Arabia"],
     "ir": ["Demographics of Iran", "Ethnicities in Iran", "Persepolis", "Persian carpet", "Iranian cuisine", "List of World Heritage Sites in Iran"],
+    "hr": ["Demographics of Croatia", "Dalmatia", "Croatian islands", "Plitvice Lakes National Park", "Croatian cuisine", "List of World Heritage Sites in Croatia"],
+    "rs": ["Demographics of Serbia", "Vojvodina", "Šumadija", "Serbian Orthodox monasteries", "Serbian cuisine", "List of World Heritage Sites in Serbia"],
+    "bg": ["Demographics of Bulgaria", "Bulgarian rose oil", "Rila Monastery", "Thrace", "Bulgarian cuisine", "List of World Heritage Sites in Bulgaria"],
+    "sk": ["Demographics of Slovakia", "Castles in Slovakia", "High Tatras", "Slovak cuisine", "List of World Heritage Sites in Slovakia"],
+    "si": ["Demographics of Slovenia", "Traditional regions of Slovenia", "Postojna Cave", "Wine regions of Slovenia", "Slovenian cuisine", "List of World Heritage Sites in Slovenia"],
+    "ve": ["Demographics of Venezuela", "Angel Falls", "Tepui", "Llanos", "Venezuelan cuisine", "List of World Heritage Sites in Venezuela"],
+    "ec": ["Demographics of Ecuador", "Galápagos Islands", "List of volcanoes in Ecuador", "Indigenous peoples in Ecuador", "Ecuadorian cuisine", "List of World Heritage Sites in Ecuador"],
+    "bo": ["Demographics of Bolivia", "Salar de Uyuni", "Lake Titicaca", "Languages of Bolivia", "Bolivian cuisine", "List of World Heritage Sites in Bolivia"],
+    "uy": ["Demographics of Uruguay", "Candombe", "Uruguayan cuisine", "Gaucho", "List of World Heritage Sites in Uruguay"],
+    "cu": ["Demographics of Cuba", "Music of Cuba", "Cuban cigar", "Cuban Revolution", "Guantanamo Bay Naval Base", "Cuban cuisine", "List of World Heritage Sites in Cuba"],
+    "bd": ["Demographics of Bangladesh", "List of rivers of Bangladesh", "Sundarbans", "Textile industry in Bangladesh", "Bangladeshi cuisine", "List of World Heritage Sites in Bangladesh"],
+    "lk": ["Demographics of Sri Lanka", "Tea production in Sri Lanka", "Ancient cities of Sri Lanka", "Sinhala language", "Sri Lankan cuisine", "List of World Heritage Sites in Sri Lanka"],
+    "np": ["Demographics of Nepal", "List of mountains in Nepal", "Ethnic groups in Nepal", "Kalapani territory", "Nepalese cuisine", "List of World Heritage Sites in Nepal"],
+    "kz": ["Demographics of Kazakhstan", "Kazakh Steppe", "Mining industry of Kazakhstan", "Baikonur Cosmodrome", "Kazakh cuisine", "List of World Heritage Sites in Kazakhstan"],
+    "uz": ["Demographics of Uzbekistan", "Silk Road", "Khanate of Khiva", "Suzani", "Uzbek cuisine", "List of World Heritage Sites in Uzbekistan"],
+    "dz": ["Demographics of Algeria", "Kabylia", "Tassili n'Ajjer", "Algerian cuisine", "List of World Heritage Sites in Algeria"],
+    "tn": ["Demographics of Tunisia", "Carthage", "Tunisian cuisine", "Olive oil in Tunisia", "List of World Heritage Sites in Tunisia"],
+    "gh": ["Demographics of Ghana", "Ashanti Empire", "Cocoa production in Ghana", "Ethnic groups in Ghana", "Ghanaian cuisine", "List of World Heritage Sites in Ghana"],
+    "tz": ["Demographics of Tanzania", "Mount Kilimanjaro", "Serengeti National Park", "Zanzibar", "Tanzanian cuisine", "List of World Heritage Sites in Tanzania"],
+    "cd": ["Demographics of the Democratic Republic of the Congo", "Languages of the Democratic Republic of the Congo",
+           "Mining industry of the Democratic Republic of the Congo", "Congo River", "List of World Heritage Sites in the Democratic Republic of the Congo"],
 }
 FONTS = {"kr": ("NotoSansKR.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf"),
          "eg": ("NotoSansArabic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansarabic/NotoSansArabic%5Bwdth%2Cwght%5D.ttf"),
          "th": ("NotoSansThai.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansthai/NotoSansThai%5Bwdth%2Cwght%5D.ttf"),
          "ma": ("NotoSansTifinagh.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanstifinagh/NotoSansTifinagh-Regular.ttf"),
-         "et": ("NotoSansEthiopic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansethiopic/NotoSansEthiopic%5Bwdth%2Cwght%5D.ttf")}
+         "et": ("NotoSansEthiopic.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansethiopic/NotoSansEthiopic%5Bwdth%2Cwght%5D.ttf"),
+         "bd": ("NotoSansBengali.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansbengali/NotoSansBengali%5Bwdth%2Cwght%5D.ttf"),
+         "lk": [("NotoSansSinhala.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanssinhala/NotoSansSinhala%5Bwdth%2Cwght%5D.ttf"),
+                ("NotoSansTamil.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanstamil/NotoSansTamil%5Bwdth%2Cwght%5D.ttf")],
+         "np": ("NotoSansDevanagari.ttf", "https://github.com/google/fonts/raw/main/ofl/notosansdevanagari/NotoSansDevanagari%5Bwdth%2Cwght%5D.ttf"),
+         "dz": ("NotoSansTifinagh.ttf", "https://github.com/google/fonts/raw/main/ofl/notosanstifinagh/NotoSansTifinagh-Regular.ttf")}
 NOTO_JP = "https://github.com/google/fonts/raw/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf"
 
 
@@ -387,8 +442,8 @@ def extras(code, live):
             else:
                 missing.append(p["name"])
         print(f"   seals: {got} of {len(live)}; none for", missing)
-    if code in FONTS:  # the script fonts for the card's native names (subset by tools/build_fonts.py)
-        name, url = FONTS[code]
+    fonts = FONTS.get(code, [])
+    for name, url in ([fonts] if isinstance(fonts, tuple) else fonts):  # the script fonts for the card's native names (subset by tools/build_fonts.py)
         font = DL / "fonts" / name
         if not font.exists():
             font.write_bytes(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180).read())

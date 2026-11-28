@@ -23,6 +23,10 @@ SETS = {
     "FIN": ("fi", ["ADM1"]), "LVA": ("lv", ["ADM1"]), "UKR": ("ua", ["ADM1"]), "VNM": ("vn", ["ADM1"]),
     "PHL": ("ph", ["ADM1", "ADM2"]), "IDN": ("id", ["ADM1", "ADM2"]), "MAR": ("ma", ["ADM1"]), "KEN": ("ke", ["ADM1"]),
     "ETH": ("et", ["ADM1", "ADM2", "ADM3"]), "NOR": ("no", ["ADM1"]), "HUN": ("hu", ["ADM1"]), "PAK": ("pk", ["ADM1"]), "TUR": ("tr", ["ADM1"]),
+    # overnight_v9..v12 (2026-11-28): cross-checks and the out-of-date Natural Earth lists
+    "SVN": ("si", ["ADM1", "ADM2"]), "SRB": ("rs", ["ADM1", "ADM2"]), "CUB": ("cu", ["ADM1"]), "VEN": ("ve", ["ADM1"]),
+    "BGD": ("bd", ["ADM1", "ADM2"]), "LKA": ("lk", ["ADM1", "ADM2"]), "NPL": ("np", ["ADM1"]), "KAZ": ("kz", ["ADM1", "ADM2"]),
+    "UZB": ("uz", ["ADM1"]), "DZA": ("dz", ["ADM1", "ADM2"]), "GHA": ("gh", ["ADM1", "ADM2"]), "TZA": ("tz", ["ADM1"]), "COD": ("cd", ["ADM1"]),
 }
 
 
