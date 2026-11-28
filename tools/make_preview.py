@@ -120,6 +120,10 @@ def main(out):
         if (out / "data" / d.name).exists():
             shutil.rmtree(out / "data" / d.name)
         merge_detail(d, out / "data")
+    # Earth mode's layers (tools/build_earth.py): data/earth/ and its volcano summaries
+    if (out / "data" / "earth").exists():
+        shutil.rmtree(out / "data" / "earth")
+    shutil.copytree(ROOT / "data" / "earth", out / "data" / "earth")
     (out / "media").mkdir(exist_ok=True)
     for f in (ROOT / "media").glob("Learning_mode_clip*"):
         shutil.copy(f, out / "media" / f.name)

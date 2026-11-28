@@ -60,6 +60,14 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       <button class="chip" id="resBtn" type="button" aria-pressed="false" hidden>Reservations</button>
       <button class="chip" id="worldBtn" type="button" hidden>‹ World map</button>
       <button class="chip" id="setBtn" type="button" hidden>Ceremonial counties</button>
+      <button class="chip" id="layersBtn" type="button" aria-expanded="false" aria-controls="layerPanel" hidden>Layers</button>
+    </div>
+    <!-- Earth mode's layers (js/earth.js): ready-made groups, then a checkbox for every layer -->
+    <div class="layerpanel" id="layerPanel" role="dialog" aria-label="Earth layers" hidden>
+      <div class="lphead"><span>Layers</span><button class="btn lpclose" id="layerClose" type="button" aria-label="Close">✕</button></div>
+      <div class="lpgroups" id="layerGroups"></div>
+      <div class="lplist" id="layerList"></div>
+      <p class="lpcredit">Plates: Peter Bird (2003), PB2002; GeoJSON by Hugo Ahlenius, Nordpil (ODC-By 1.0). Volcanoes: Smithsonian Global Volcanism Program. Seas: Natural Earth.</p>
     </div>
     <div class="credit" id="resCredit" hidden>Reservations: US Census Bureau.</div>
     <div class="credit" id="mapCredit" hidden></div>
@@ -140,7 +148,7 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
       </div>
     </div>
     <!-- two kinds of play: a scored game, or Learning mode (tap anything, read its card, focus on a country) -->
-    <div class="seg tabs" id="setupTabs" role="tablist"><button data-v="game" class="on" type="button" role="tab">Game</button><button data-v="learn" type="button" role="tab">Learning mode</button></div>
+    <div class="seg tabs" id="setupTabs" role="tablist"><button data-v="game" class="on" type="button" role="tab">Game</button><button data-v="learn" type="button" role="tab">Learning mode</button><button data-v="earth" type="button" role="tab">Earth</button></div>
     <div class="tabpanel" id="tabGame">
     <div class="seg" id="segData"><button data-v="world" class="on" type="button">World</button><button data-v="countries" type="button">Countries</button></div>
     <!-- Countries: one country's own map (US states now; Canada and the UK to come) -->
@@ -185,6 +193,18 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
     </div>
     <!-- Learning mode (World): a looping clip of how it works (Learning_mode_clip.md; js/tutorial.js + tools/record_clip.py),
          with the old steps as its captions: 1 Tap a country, 2 Info, 3 Focus on -->
+    <!-- Earth (jobs/geoscience.md): the solid Earth's layers, tap anything for its card (js/earth.js) -->
+    <div id="earthPanel" class="earthpanel" hidden>
+      <p class="eplead">The Earth itself: no countries, no score.</p>
+      <ul class="eplist">
+        <li><span class="lpsw lpsw-plates" aria-hidden="true"></span><b>Plates</b> and their boundaries: ridges, trenches and faults</li>
+        <li><span class="lpsw lpsw-volcanoes" aria-hidden="true"></span><b>Volcanoes</b>: 1,200 of them, with their last eruption</li>
+        <li><span class="lpsw lpsw-hotspots" aria-hidden="true"></span><b>Hotspots</b> and the island chains they leave</li>
+        <li><span class="lpsw lpsw-ring" aria-hidden="true"></span><b>The Ring of Fire</b></li>
+        <li><span class="lpsw lpsw-seas" aria-hidden="true"></span><b>Seas and oceans</b></li>
+      </ul>
+      <p class="hint2">Tap anything for its card. <b>Layers</b> (top right of the map) switches each one on or off.</p>
+    </div>
     <div id="learnPanel" class="learnpanel" hidden>
       <video id="learnClip" muted loop playsinline preload="none"
         aria-label="How Learning mode works: tap a country, read its card, then focus on it to see its states"></video>
@@ -199,6 +219,8 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
         <p>Pick the game and the region, then <b>Start</b>. <b>Give up</b> shows the answers; tap any country to review them.</p></section>
       <section><h3>Learning mode</h3>
         <p>No score: tap anything to read its card. <b>More facts</b> opens the rest, and <b>Focus on</b> opens a country's own map of states, provinces or counties.</p></section>
+      <section><h3>Earth</h3>
+        <p>The Earth itself: plates, ridges and trenches, volcanoes, hotspots, the Ring of Fire, seas and oceans. Tap anything for its card. <b>Layers</b> switches each one on or off, or picks a ready-made group.</p></section>
       <section><h3>The map</h3>
         <p>Drag to move, pinch or scroll to zoom. Tiny countries have a circle round them. The buttons on the right switch <b>Borders</b>, <b>Terrain</b> and globe or flat map.</p></section>
       <section><h3>Countries</h3>
@@ -335,6 +357,7 @@ try { var t = (JSON.parse(localStorage.getItem("gg.prefs.v1")) || {}).theme; if 
 <script src="js/stats.js"></script>
 <script src="js/geo.js"></script>
 <script src="js/mapview.js"></script>
+<script src="js/earth.js"></script>
 <script src="js/app.js"></script>
 <script src="js/history.js"></script>
 <script src="js/tutorial.js"></script>

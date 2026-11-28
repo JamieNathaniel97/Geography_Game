@@ -95,6 +95,36 @@ Drain the ocean, the sea-level slider, glaciers and the ice-age view, rivers and
 
 As for the country maps: each source's licence is recorded with its download, credited on the map where it needs it (the map credit), and anything share-alike is avoided unless the user approves it. Hand-drawn layers (currents, winds, fossils) record the references they were drawn from.
 
+## Stage 1: done (2026-11-28), not committed until the user says so
+
+**What's in it:** a third tab in the menu, **Earth** (its own panel and Start; the map's Globe / Flat choice under Options, as Learning mode). On the map: coasts only (country borders off, a checkbox to show them), a **Layers** button (top right) with a checkbox for each layer and four ready-made groups (Plates, Ring of Fire, Volcanoes, Oceans; each ticks exactly its layers). The layers chosen are remembered on the phone. Tap anything for its card (the Learning card); the tapped thing is highlighted. The back button closes the Layers panel, then the card.
+
+| Layer | What's drawn | Its card |
+| --- | --- | --- |
+| Plates | the 52 PB2002 plates in 6 soft colours (neighbours never share one), names when there's room | name, kind, area, motion, neighbours, a note; More: its boundary lengths by type |
+| Plate boundaries | every boundary: divergent (orange-red), convergent (blue), transform (green) | the two plates, the type, speed, length, average depth, ocean floor age (measured from PB2002's 5,824 steps) |
+| Ridges & trenches | 42 named features, thicker, with names along the line (turned to follow it) | kind, plates, length, speed, deepest point, a note and facts |
+| Volcanoes | 1,209 Holocene volcanoes as triangles (famous ones bigger); thinned to one per screen cell at world zoom (the famous, then the recently active, first); names zoomed in | type, country, height, last eruption, what it's known for; More: setting, rock, the Smithsonian's geological summary (loaded when the card opens, one small file per region) |
+| Hotspots | 16 hotspots; the trails of Hawaii, Yellowstone, Réunion and Tristan dotted, with their ages (Ma) zoomed in | what it built, its trail, the oldest part |
+| Ring of Fire | a soft orange band along the subduction zones round the Pacific (43,160 km in PB2002) | the story, its length, volcanoes and earthquakes |
+| Seas & oceans | the names of 161 oceans, seas, gulfs and bays (fewer at world zoom; gulfs and bays once zoomed in) | kind, which ocean, area, deepest point (oceans) |
+
+**Files:** `tools/fetch_earth.py` (downloads), `tools/earth_facts.py` (the hand-picked facts), `tools/build_earth.py` → `data/earth/` (2.2 MB, of which 1.2 MB is cached for offline use with the app; the volcano summaries are fetched when needed). `js/earth.js` (the layers, drawing, taps, cards, Layers panel); `js/mapview.js` has two hooks (draw the layers after the base map; Earth mode takes every tap). Credits: in the Layers panel and on the cards.
+
+**Tests** (`_bench_earth.html`, git-ignored): the menu tab and Start; every plate and sea the right way round (the plates add up to exactly the whole sphere); taps on the globe and the flat map open the right card for a volcano (Etna, with its summary), a hotspot over a volcano (Hawaii), five named features, a plain boundary, the Ring of Fire, two seas, three plates, and nothing on empty sea; the Layers panel (a group, the borders checkbox, the back button); leaving Earth mode puts the map back (borders, markers, the Borders chip). Phone-width screenshots in light and dark. The earlier benches (menu, the four fixes, the back button) still pass.
+
+### Decisions to check (stage 1)
+
+1. **Seas come from Natural Earth's marine areas** (public domain), not Marine Regions' IHO areas as planned: smaller and simpler, with the same names for the main seas. The IHO set could replace it later.
+2. **Ridges and trenches are picked out of PB2002** by plate pair, boundary type and a box (`tools/earth_facts.py`), not from GEBCO's undersea names: 42 named features, so each follows the plate boundary exactly. GEBCO's gazetteer could add the smaller ones later.
+3. **The hand-written facts** (plate motions, trench depths, famous eruptions, hotspot trails' ages, the Ring of Fire's figures) are rounded, well-known figures from general reference knowledge; worth a read. Lengths, speeds, depths along boundaries and ocean floor ages are measured from PB2002.
+4. **Plate kinds:** the 7 big plates are "major" and 13 named ones "minor" (the usual textbook lists); the rest are "minor" if over 1 million km², otherwise "microplate". The Africa plate's card says it's also called the Nubian plate.
+5. **Ring of Fire:** the subduction zones touching a Pacific plate (Indonesia's Sunda Trench included, as most maps do; the Caribbean's, Scotia's and the Mediterranean's left out).
+6. **Two famous volcanoes aren't in the Smithsonian's Holocene list** (it only has those active in the last 12,000 years): Kilimanjaro and Yellowstone. Yellowstone is on the map as a hotspot. Sakurajima and Parícutin are under their volcanic systems' names (Aira, Michoacán-Guanajuato).
+7. **Subduction "teeth"** (the triangles on the overriding side of a trench, as in textbooks) aren't drawn yet: trenches are blue lines. They could come with a later stage.
+8. **Country taps do nothing in Earth mode** (its layers take every tap); country borders are a checkbox in the Layers panel.
+
 ## Log
 
+- 2026-11-28: stage 1 built and tested (see "Stage 1: done" above).
 - 2026-11-28: plan written with the user (their list plus ideas 1–8 and 10–15; biomes left out; games later). The five questions answered the same day; `js/quakes-live.js` written and tested.

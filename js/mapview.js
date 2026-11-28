@@ -629,6 +629,7 @@
       ctx.fillStyle = this.col.bg; ctx.fillRect(0, 0, this.w, this.h);
       if (this.mode === "flat") this.drawFlat(); else this.drawGlobe();
       if (this.crop) this.drawCropMask();
+      if (this.earth) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); this.earth.draw(this); } // Earth mode's layers (js/earth.js)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       this.drawFrames();
       this.drawDisputes();
@@ -1307,6 +1308,7 @@
       const r = this.canvas.getBoundingClientRect();
       const x = e.clientX - r.left, y = e.clientY - r.top;
       if (this.opts.onPoint && this.opts.onPoint(this, x, y)) return; // e.g. the magnifier
+      if (this.earth) { this.lastTap = [x, y]; this.earth.tap(this, x, y); return; } // Earth mode: its layers take every tap
       // a bubble opens its cluster, unless the tap is on an open small part's circle (e.g. Adygea next to the North Caucasus bubble)
       const open = this.opts.isOpen || (() => true);
       const b = this.hits.bubbles.find(b => Math.hypot(b.x - x, b.y - y) <= b.r + 4);

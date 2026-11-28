@@ -386,14 +386,18 @@
     bar.classList.toggle("wideinput", wide);
     $("nameInput").placeholder = isAirports() ? (caps() ? "Type the city" : "Type the code")
       : caps() ? `Capital of ${selected ? selected.name : ""}` : "Type the name";
-    $("giveup").hidden = mode === "explore";
+    $("giveup").hidden = mode === "explore" || mode === "earth";
     $("nameInput").hidden = !typing;
     // ✕ closes the box in the tap-any-country Name games; the airport games always ask one, so it isn't shown there
     $("nameClose").hidden = !typing || prompted();
     t.hidden = typing && !prompted();
     if (typing && prompted()) t.textContent = caps() ? selected.code : "What's its code?"; // (Name the code: the airport is in big letters below)
     resetGiveUp();
-    if (mode === "explore") {
+    if (mode === "earth") {
+      $("eyebrow").textContent = "Earth";
+      t.textContent = "Tap anything";
+      $("score").textContent = "Plates, volcanoes, seas… tap one to learn about it. Layers: top right.";
+    } else if (mode === "explore") {
       $("eyebrow").textContent = "Learning mode" + where;
       t.textContent = title("tapAny", `Tap any ${noun()}`);
       $("score").textContent = `Tap any ${noun()} to learn about it.`;
@@ -1297,7 +1301,28 @@
   }
   $("lcLess").onclick = () => { setLearnMore(false); $("learnCard").scrollTop = 0; };
   $("lcMoreBtn").onclick = () => setLearnMore(!learnMore);
-  function hideLearnCard() { $("learnCard").hidden = true; $("focusBtn").hidden = true; setLearnMore(false); if (main && main.selDispute) { main.selDispute = null; main.requestDraw(); } } // the next card opens collapsed
+  // Earth mode's cards (js/earth.js): a name, a line under it, facts, a note; More facts: more rows, a longer text, the credit
+  function earthCard(c) {
+    selected = null;
+    $("lcFlag").hidden = true;
+    $("lcName").textContent = c.name;
+    $("lcSub").textContent = c.sub || "";
+    $("lcMain").innerHTML = facts(c.rows || []) + (c.note ? `<p class="dspnote">${esc(c.note)}</p>` : "");
+    earthCardMore(null, c);
+    setLearnMore(false);
+    $("focusBtn").hidden = true;
+    $("learnCard").hidden = false;
+    $("learnCard").scrollTop = 0;
+  }
+  let earthCardNow = null;
+  function earthCardMore(text, c = earthCardNow) { // (text: a volcano's summary, which arrives after the card opens)
+    earthCardNow = c;
+    const rows = facts((c && c.more) || []);
+    $("lcMore").innerHTML = (rows ? `<dl class="lcfacts">${rows}</dl>` : "") + (text ? `<p class="dspnote">${esc(text)}</p>` : "")
+      + (c && c.credit ? `<p class="hint2">${esc(c.credit)}</p>` : "");
+    $("lcMoreBtn").hidden = !(rows || text);
+  }
+  function hideLearnCard() { if (GG.Earth) GG.Earth.clearSel(); $("learnCard").hidden = true; $("focusBtn").hidden = true; setLearnMore(false); if (main && main.selDispute) { main.selDispute = null; main.requestDraw(); } } // the next card opens collapsed
   // Focus: a button above the card that opens a country's own map in Learning mode ("Focus on <name> ›").
   // Only the US has its own map so far; the plan is one for every country (PLAN.md).
   // Countries with their own map: the Countries tab in the New game menu and the Focus button both use this list.
@@ -1792,7 +1817,7 @@
     setStartReady();
   }
   // Start: greyed until the region and the game are both chosen (World games only)
-  const worldGameStep = () => pick.tab === "world" && !pick.learn;
+  const worldGameStep = () => pick.tab === "world" && !pick.learn && !pick.earth;
   const startReady = () => !worldGameStep() || (steps.region && steps.game);
   function setStartReady() { $("startBtn").classList.toggle("notready", !startReady()); if (startReady()) $("startWarn").hidden = true; }
   $("stepBack").onclick = () => showStep("region");
@@ -1818,12 +1843,16 @@
     }));
   }
   // World, the list of countries, or one country's page (its Find and Name games)
+  // the menu's title: the tab you're on
+  const setupName = () => (pick.earth ? "Earth" : pick.learn ? "Learning mode" : "New game");
   function showData() {
-    const countries = pick.tab === "countries", learn = pick.learn;
+    const earth = !!pick.earth, countries = pick.tab === "countries" && !earth, learn = pick.learn && !earth;
     segSelect($("segData"), pick.tab);
-    segSelect($("setupTabs"), learn ? "learn" : "game");
-    $("setupTitle").textContent = learn ? "Learning mode" : "New game";
-    $("worldPanel").hidden = countries || learn;
+    segSelect($("setupTabs"), earth ? "earth" : learn ? "learn" : "game");
+    $("setupTitle").textContent = setupName();
+    $("segData").hidden = earth;
+    $("earthPanel").hidden = !earth;
+    $("worldPanel").hidden = countries || learn || earth;
     $("learnPanel").hidden = countries || !learn;
     // Learning mode's Countries: just the list (a tap opens that country's map)
     $("countryList").hidden = !countries || (!learn && !!pick.country);
@@ -1868,7 +1897,7 @@
     $("startBtn").textContent = learn ? "Discover" : "Start";
     setStartReady();
     if (!countries && !learn) { segSelect($("segGame"), steps.game ? pick.mode : ""); $("viewField").hidden = pick.region !== "world"; }
-    $("gameRow").hidden = countries || learn; // the switch and More games: the Game tab's World view
+    $("gameRow").hidden = countries || learn || earth; // the switch and More games: the Game tab's World view
   }
   $("segData").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
@@ -1934,8 +1963,8 @@
   // the cog: Options (knowledge gaps, timer) in place of the games
   function showOptPanel(on) {
     $("tabOptions").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on;
-    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
-    $("setupTitle").textContent = on ? "Options" : pick.learn ? "Learning mode" : "New game";
+    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn || pick.earth;
+    $("setupTitle").textContent = on ? "Options" : setupName();
     $("optBtn").classList.toggle("on", on); $("optBtn").setAttribute("aria-pressed", on);
   }
   $("optBtn").onclick = () => { if (!$("tabHelp").hidden) showHelpPanel(false); showOptPanel($("tabOptions").hidden); };
@@ -1943,7 +1972,7 @@
   function openSetup() {
     $("nameInput").blur(); // (the keyboard goes while the menu is open)
     // opens on the tab you're playing in: Learning mode, or a scored game
-    pick.learn = S.mode === "explore";
+    pick.learn = S.mode === "explore"; pick.earth = S.mode === "earth";
     pick.mode = S.mode === "explore" ? (prefs.game && prefs.game.mode !== "explore" ? prefs.game.mode : "find") : S.mode;
     pick.region = S.region; pick.view = S.region === "world" ? main.mode : "globe"; pick.data = S.data;
     pick.tab = "world"; // the menu always opens on Game › World (2026-11-18)
@@ -1989,6 +2018,7 @@
   }
   // the map and inset re-read their colours, and the clip switches to the matching version
   function themeChanged() {
+    if (GG.Earth) GG.Earth.readColours();
     main.readColours(); if (insetView) insetView.readColours(); redraw();
     clipSource();
   }
@@ -2021,11 +2051,11 @@
   function showOptions() {
     const find = pick.mode === "find" || pick.mode === "findcap" || pick.mode === "findflag";
     // Learning mode: only what applies there (the World map's globe or flat view)
-    const learn = !!pick.learn;
+    const learn = !!pick.learn || !!pick.earth; // (Earth mode: only the map's view, like Learning mode)
     $("questionsField").hidden = !find || learn;
     $("questionsNA").hidden = find || learn;
     $("timerField").hidden = pick.mode === "explore" || learn;
-    $("learnViewField").hidden = !learn || pick.tab !== "world";
+    $("learnViewField").hidden = !learn || (pick.tab !== "world" && !pick.earth);
     segSelect($("segLearnView"), pick.view);
     $("gameSummary").textContent = GAME_NAMES[pick.mode] || "";
     $("paceBox").hidden = !pick.timer;
@@ -2044,7 +2074,7 @@
   // Game or Learning mode (both keep the World / Countries choice)
   $("setupTabs").addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
-    pick.learn = b.dataset.v === "learn";
+    pick.learn = b.dataset.v === "learn"; pick.earth = b.dataset.v === "earth";
     if (pick.learn) pick.country = null;
     showData(); showOptions();
   });
@@ -2072,8 +2102,8 @@
   // More games: History and Misc, in place of the game choices (all "soon" until they're built)
   function showMorePanel(on) {
     $("tabMore").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on; $("startBtn").hidden = on || $("startBtn").dataset.wasHidden === "1";
-    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
-    $("setupTitle").textContent = on ? "More games" : pick.learn ? "Learning mode" : "New game";
+    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn || pick.earth;
+    $("setupTitle").textContent = on ? "More games" : setupName();
   }
   $("moreBtn").onclick = () => {
     $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : "";
@@ -2220,9 +2250,9 @@
     if (on) { $("startBtn").dataset.wasHidden = $("startBtn").hidden ? "1" : ""; showOptPanel(false); $("tabMore").hidden = true; }
     $("tabHelp").hidden = !on; $("tabGame").hidden = on; $("setupTabs").hidden = on;
     $("startBtn").hidden = on || $("startBtn").dataset.wasHidden === "1";
-    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn;
+    $("gameRow").hidden = on || pick.tab === "countries" || pick.learn || pick.earth;
     $("helpBtn").classList.toggle("on", on);
-    $("setupTitle").textContent = on ? "How to play" : pick.learn ? "Learning mode" : "New game";
+    $("setupTitle").textContent = on ? "How to play" : setupName();
   }
   $("helpBtn").onclick = () => showHelpPanel($("tabHelp").hidden);
   $("helpBack").onclick = () => showHelpPanel(false);
@@ -2246,10 +2276,11 @@
       return true;
     }
     if (shown("inset")) { closeInset(); return true; }
+    if (shown("layerPanel")) { GG.Earth.closePanel(); return true; }
     if (shown("learnCard")) { $("lcClose").click(); return true; }
     if (shown("nameClose")) { closeName(); return true; }
     if (shown("worldBtn")) { $("worldBtn").click(); return true; }   // a country map in Learning mode: back to the world
-    if (S.mode !== "explore") { openSetup(); return true; }           // in a game: the menu
+    if (S.mode !== "explore" && S.mode !== "earth") { openSetup(); return true; } // in a game: the menu
     return false;
   }
   const backNothing = () => toast("Press back again to exit", 2000);
@@ -2281,6 +2312,7 @@
       return;
     }
     closeSetup(); closeInset();
+    if (pick.earth) { startGame("earth", "world", pick.view, "world"); return; } // Earth mode (js/earth.js)
     if (pick.learn) { magnifierIntro(() => startGame("explore", "world", pick.view, "world")); return; } // Discover: through a magnifying glass
     S.weak = pick.weak; S.timer = pick.timer; S.paceFind = pick.paceFind; S.paceName = pick.paceName; S.cd = !!pick.cd; S.ut = pick.ut !== false;
     startGame(pick.mode, pick.region, pick.region === "world" ? pick.view : "flat", pick.data);
@@ -2363,7 +2395,11 @@
     main.setCrop(region === "world" ? null : REGIONS[region].crop);
     // (no map in Name the flags; no continent bar in the airport games, 2026-11-18)
     $("jumpbar").hidden = region !== "world" || mode === "nameflag" || isAirports(data);
-    $("magBtn").hidden = mode === "explore"; // no magnifier in Learning mode
+    $("magBtn").hidden = mode === "explore" || mode === "earth"; // no magnifier in Learning mode or Earth mode
+    // Earth mode (js/earth.js): its layers on the world map; its own country-borders switch in the Layers panel
+    $("bordersBtn").hidden = mode === "earth";
+    if (mode === "earth") GG.Earth.enter(main);
+    else if (main.earth) { GG.Earth.leave(main); setBorders(prefs.borders !== false); }
     if (mode === "explore" && S.magnify) setMag(false);
     $("viewBtn").hidden = region !== "world"; // no globe for region games
     $("worldBtn").hidden = !(mode === "explore" && isCountryMap(data)); // back from Focus on a country
@@ -2392,7 +2428,7 @@
     useSub(false); // no state lines on the world Learning map: states are on each country's own map ("Focus on ...")
     showReserves();
     if (mode !== "nameflag") hideFlagGrid();
-    if (mode === "explore") { Object.keys(state).forEach(k => delete state[k]); selected = null; startTime = 0; clearInterval(clockTimer); tickClock(); show(); } else newGame();
+    if (mode === "explore" || mode === "earth") { Object.keys(state).forEach(k => delete state[k]); selected = null; startTime = 0; clearInterval(clockTimer); tickClock(); show(); } else newGame();
   }
 
   document.addEventListener("keydown", e => {
@@ -2419,6 +2455,7 @@
       isTarget: c => c === target, isActive: inRegion, isOpen, showCapital, isUnformed,
       dotShown: c => S.apDots || finished || !!state[c.iso] || apShown.has(c) });
     main.lookAt(15, 25, 120, false);
+    GG.Earth.init({ card: earthCard, cardMore: text => earthCardMore(text), hideCard: hideLearnCard, toast, setBorders });
     buildRegionButtons();
     GG.debug = { main, geo, startGame, preload: d => DATASETS[d].load(), inset: () => insetView, get geoUS() { return geoUS; }, get geoCA() { return geoCA; } };
     setViewButton();
@@ -2433,7 +2470,7 @@
       const g = prefs.game || {};
       S.weak = !!g.weak; S.cd = !!g.cd; S.ut = g.ut !== false; S.timer = !!g.timer; S.paceFind = g.paceFind || 5; S.paceName = g.paceName || 10;
       const region = REGIONS[g.region] ? g.region : "world";
-      const mode = ["find", "name", "findcap", "namecap", "findflag", "nameflag", "explore"].includes(g.mode) ? g.mode : "find";
+      const mode = ["find", "name", "findcap", "namecap", "findflag", "nameflag", "explore", "earth"].includes(g.mode) ? g.mode : "find";
       const ready = startGame(mode, region, region === "world" ? (prefs.worldView === "flat" ? "flat" : "globe") : "flat", isCountryMap(g.data) ? g.data : "world");
       Promise.resolve(ready).then(openSetup); // first screen: choose a game
     }
